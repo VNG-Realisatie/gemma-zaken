@@ -18,7 +18,7 @@ De volgende leveranciers zijn vanaf het begin betrokken:
 - **Atos**, huisleverancier van Dimpact
 - **Maykin Media**, maker van de ZRC van gemeente Haarlem
 
-**VNG Realisatie** faciliteert de totstandkoming van de nieuwe standaard, door de visie te bewaken, kennis rond het informatiemodel te leveren en te zorgen voor de formele stappen in het proces, zoals het verheffen tot standaard van opgeleverde producten. 
+**VNG Realisatie** faciliteert de totstandkoming van de nieuwe standaard, door de visie te bewaken, kennis rond het informatiemodel te leveren en te zorgen voor de formele stappen in het proces, zoals het verheffen tot standaard van opgeleverde producten.
 
 Aangezien dit de eerste maal is dat op deze manier wordt samengewerkt moet hier de juiste vorm worden gevonden.
 
@@ -47,4 +47,4 @@ Daarbij wordt actief gestuurd op het vinden van antwoorden op de volgende vragen
 
 - Hoe komen we tot meer openheid en transparantie over de manier waarop software van de overheid wordt ingezet bij het nemen van besluiten
 
-- hoe kunnen we wijzigingen in de api snel en adequaat beoordelen
+- Hoe kunnen we voorgestelde wijzigingen in de standaard snel en adequaat beoordelen
