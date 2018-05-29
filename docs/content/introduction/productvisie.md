@@ -11,7 +11,7 @@
 
 ## Introductie
 
-Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. In plaats van jarenlang overleg over een informatiemodel en de bijbehorende koppelvlakken en services, wordt op basis van een gegeven informatiemodel (RGBZ2) met betrokken partijen in een agile proces vormgegeven aan RESTful API's welke concreet invulling geven aan de gewenste standaard.
+Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van een gegeven informatiemodel (RGBZ 2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties. 
 
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is.
 
@@ -25,6 +25,8 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 - De services worden vormgegeven op basis van heldere user stories ontleend aan de praktijk, dus op basis van daadwerkelijk gebruik in plaats van op basis van een theoretische inschatting van wat nodig is;
 
 - Alles rond "zaken" vindt zoveel mogelijk geautomatiseerd en op de achtergrond plaats. Medewerkers zijn bezig met inhoudelijke activiteiten, niet met zaken;
+
+- Ook [klantcontacten](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ) worden uitgewerkt in de API.
 
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
@@ -59,7 +61,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 - Voor de specificatie van API's wordt de onlangs door Forum Standaardisatie op de "Pas toe of leg uit"-lijst geplaatste OpenAPI Specification v3.x gebruikt.
 
 - De principes volgend uit de [Common Ground visie](https://github.com/VNG-Realisatie/common-ground/blob/master/cg-vision.md) (EN) worden als volgt toegepast:
-  - Goede scheiding taakafhandeling en registratie
+  - Goede scheiding zaakafhandeling en -registratie (ook conform GEMMA 2 met Zaakregistratiecomponent en Zaakafhandelcomponent)
   - Bij eventueel centraal aangeboden voorzieningen worden API's ontsloten via NLX
   - Grote informatiemodellen worden waar nuttig opgesplitst in kleinere informatiemodellen die hoog-frequent kunnen wijzigen
 
@@ -76,6 +78,8 @@ De ontwikkeling gebeurt geheel Open Source, in de GitHub repository [VNG-Realisa
 
 Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Kanban bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
+Bij de ontwikkeling van de API's wordt gestreefd backwards compatibility. 
+
 Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.md)
 
 
@@ -84,3 +88,5 @@ Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.
 - Binnen het [Digitaal Stelsel Omgevingswet](https://www.omgevingswetportaal.nl/wet-en-regelgeving/dso) zijn wellicht kansen om Zaakgericht Werken zoals gemeenten dat kennen te introduceren op basis van de ZDS 2.0 API's. Momenteel wordt samenwerking daar voorzien door middel van een omgeving waar bestanden kunnen worden gedeeld.
 
 - De gemeenten Almere, Amsterdam, Haarlem, Heerenveen, Hoorn, Medemblik (en wellicht nog meer) zijn voornemens gezamelijk een Open Source Mijn Gemeente website te produceren. Daarbij is ZDS 2.0 wellicht een interessante aanvulling, hier liggen kansen om samen op te trekken.
+
+- Dimpact en Atos stellen de Atos e-Suite in de context van Common Ground beschikbaar als platform voor proeven die innovatie en ontwikkeling stimuleren.
