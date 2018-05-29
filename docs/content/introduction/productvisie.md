@@ -83,7 +83,7 @@ De ontwikkeling gebeurt geheel Open Source, in de GitHub repository [VNG-Realisa
 
 Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Kanban bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
-Bij de ontwikkeling van de API's wordt gestreefd backwards compatibility. 
+Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility. 
 
 Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.md)
 
