@@ -11,9 +11,9 @@
 
 ## Introductie
 
-Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. In plaats van jarenlang overleg over een informatiemodel en de bijbehorende koppelvlakken en services, wordt op basis van een gegeven informatiemodel (RGBZ2) met betrokken partijen in een agile proces vormgegeven aan RESTful API's welke concreet invulling geven aan de gewenste standaard.
+Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. In plaats van jarenlang overleg over een informatiemodel en de bijbehorende koppelvlakken en services, wordt op basis van een gegeven informatiemodel (RGBZ2) met betrokken partijen in een agile proces vanuit de functionele vraag vormgegeven aan RESTful API's welke concreet invulling geven aan de gewenste standaard.
 
-Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is.
+Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
 Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de ZDS 2.0.
 
@@ -68,7 +68,12 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 ##	Realisatie
 
-De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user stories zo goed mogelijk in te vullen en vanuit oogpunt architecuur in de gaten te houden dat design choices worden gemaakt die ruimte openlatne voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
+De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat design choices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
+
+Ontwikkeling valt uiteen in 3 delen die niet los van elkaar gezien kunnen worden:
+- Realiseren van een open source zakenregistratiecomponent
+- Opstellen en realiseren van een nieuwe ZDS 2.0 API
+- Realiseren van toepassingen voor burgers of gemeenten die gebruik maken van zaakgegevens uit het zakenregistratiecomponent, via de gestandaardiseerde API
 
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
 
@@ -84,3 +89,5 @@ Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.
 - Binnen het [Digitaal Stelsel Omgevingswet](https://www.omgevingswetportaal.nl/wet-en-regelgeving/dso) zijn wellicht kansen om Zaakgericht Werken zoals gemeenten dat kennen te introduceren op basis van de ZDS 2.0 API's. Momenteel wordt samenwerking daar voorzien door middel van een omgeving waar bestanden kunnen worden gedeeld.
 
 - De gemeenten Almere, Amsterdam, Haarlem, Heerenveen, Hoorn, Medemblik (en wellicht nog meer) zijn voornemens gezamelijk een Open Source Mijn Gemeente website te produceren. Daarbij is ZDS 2.0 wellicht een interessante aanvulling, hier liggen kansen om samen op te trekken.
+
+- Het project Landelijke Online Diensten (LOD) heeft een landelijke dienst voor aangifte overlijden en aangifte verhuizing gerealiseerd. Voor de koppeling tussen deze dienst (de voorkant) en de verwerkende systemen in de gemeente (de achterkant) worden twee "productaanvragen" API's ontworpen en gerealiseerd.
