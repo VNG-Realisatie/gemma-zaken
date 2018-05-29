@@ -54,6 +54,8 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Daar waar GEMMA 2 niets voorschrijft worden Open Standaarden gevolgd
 
+- Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd
+
 - Alle code die ontstaat in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
 - RGBZ 2 (GEMMA 2) is het startpunt, maar wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. RGBZ 1 bestaat sinds 2010, RGBZ 2 is sinds 2012 in ontwikkeling en nog altijd niet in productie. Met ingang van dit traject komen betrokken standaarden in een "permanent beta" toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd.
