@@ -2,11 +2,11 @@
 
 ## Inhoud
 * [Introductie](#introductie)
-* [Productvisie ZDS](#productvisie_zds)
-* [Centraal aanbieden](#centraal_aanbieden)
+* [Productvisie ZDS](#productvisie-zds)
+* [Centraal aanbieden](#centraal-aanbieden)
 * [Uitgangspunten](#uitgangspunten)
 * [Realisatie](#realisatie)
-* [Gerelateerde trajecten](#gerelateerde_trajecten)
+* [Gerelateerde trajecten](#gerelateerde-trajecten)
 
 
 ## Introductie
@@ -15,18 +15,18 @@ Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservice
 
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
-Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de ZDS 2.0.
+Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de "ZDS 2.0" [1].
+
+_[1]: De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken wat het uitgangspunt is maar er worden uiteindelijk wellicht aparte API's ontwikkeld in het kader van de Common Ground visie._
 
 
 ## Productvisie ZDS
 
 De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
-- De services worden vormgegeven op basis van heldere user stories ontleend aan de praktijk, dus op basis van daadwerkelijk gebruik in plaats van op basis van een theoretische inschatting van wat nodig is;
+- De services worden vormgegeven op basis van heldere user stories ontleend aan de praktijk, dus op basis van daadwerkelijk gebruik in plaats van op basis van een theoretische inschatting van wat nodig is; Hieronder valt ook het uitwerken van  [klantcontacten](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ) in de API.
 
 - Alles rond "zaken" vindt zoveel mogelijk geautomatiseerd en op de achtergrond plaats. Medewerkers zijn bezig met inhoudelijke activiteiten, niet met zaken;
-
-- Ook [klantcontacten](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ) worden uitgewerkt in de API.
 
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
