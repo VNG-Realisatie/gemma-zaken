@@ -24,11 +24,9 @@ _[1]: De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te make
 
 De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
-- De services worden vormgegeven op basis van heldere user stories ontleend aan de praktijk, dus op basis van daadwerkelijk gebruik in plaats van op basis van een theoretische inschatting van wat nodig is;
+- De services worden vormgegeven op basis van heldere user stories ontleend aan de praktijk, dus op basis van daadwerkelijk gebruik in plaats van op basis van een theoretische inschatting van wat nodig is; Hieronder valt ook het uitwerken van  [klantcontacten](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ) in de API.
 
 - Alles rond "zaken" vindt zoveel mogelijk geautomatiseerd en op de achtergrond plaats. Medewerkers zijn bezig met inhoudelijke activiteiten, niet met zaken;
-
-- Ook [klantcontacten](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ) worden uitgewerkt in de API.
 
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
@@ -60,7 +58,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Alle code die ontstaat in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
-- RGBZ 2 (GEMMA 2) is het startpunt, maar wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. RGBZ 1 bestaat sinds 2010, RGBZ 2 is sinds 2012 in ontwikkeling en nog altijd niet in productie. Met ingang van dit traject komen betrokken standaarden in een "permanent beta" toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd.
+- RGBZ 2 (GEMMA 2) is het startpunt, maar wanneer blijkt dat aanpassingen nodig zijn voor goede werking van zaakgericht werken dan is dit mogelijk. Wijzigingen in het model die nodig zijn voor de werking van Zaak- Documentservices zijn technisch van aard en worden in het betreffende Uitwisselingsgegevensmodel (UGM) gedaan. RGBZ 1 bestaat sinds 2010, RGBZ 2 is sinds 2012 in ontwikkeling en nog altijd niet in productie. Met ingang van dit traject komen betrokken standaarden in een "permanent beta" toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd.
 
 - Voor de specificatie van API's wordt de onlangs door Forum Standaardisatie op de "Pas toe of leg uit"-lijst geplaatste OpenAPI Specification v3.x gebruikt.
 
