@@ -11,7 +11,7 @@
 
 ## Introductie
 
-Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van een gegeven informatiemodel (RGBZ 2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties. 
+Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties. 
 
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
@@ -32,7 +32,7 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
 - Eisen rond [Duurzame toegankelijkheid](https://wiki.nationaalarchief.nl/pagina/DUTO:Kwaliteitseisen) worden vanaf het begin in de standaarden verwerkt.
 
-- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). Daar waar nodig worden externe standaarden zoals bijv. [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden), hoewel suboptimaal, geïntegreerd in de standaard.
+- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). De gegevensstandaard voor archiefstukken [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden)is al geïntegreerd in RGBZ en ImZTC.
 
 
 ## Centraal aanbieden      
@@ -58,7 +58,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Alle code die ontstaat in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
-- RGBZ 2 (GEMMA 2) is het startpunt, maar wanneer blijkt dat aanpassingen nodig zijn voor goede werking van zaakgericht werken dan is dit mogelijk. Wijzigingen in het model die nodig zijn voor de werking van Zaak- Documentservices zijn technisch van aard en worden in het betreffende Uitwisselingsgegevensmodel (UGM) gedaan. RGBZ 1 bestaat sinds 2010, RGBZ 2 is sinds 2012 in ontwikkeling en nog altijd niet in productie. Met ingang van dit traject komen betrokken standaarden in een "permanent beta" toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd.
+- RGBZ 2 en het daarvan afgeleide gegevensmodel UGM GBZ (GEMMA 2) zijn het startpunt voor de uitwerking van services. Wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. In eerste instantie betreft dat het UGM GBZ. Indien uit de user-storys blijkt dat 'de werkelijkheid' niet correct gemodelleerd is in het RGBZ, dan is aanpassing mogelijk. Met ingang van dit traject komen betrokken standaarden in een toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd en frequent nieuwe versies worden vastgesteld.
 
 - Voor de specificatie van API's wordt de onlangs door Forum Standaardisatie op de "Pas toe of leg uit"-lijst geplaatste OpenAPI Specification v3.x gebruikt.
 
@@ -72,7 +72,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 ##	Realisatie
 
-De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat design choices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
+De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user-stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat designchoices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
 
 Ontwikkeling valt uiteen in 3 delen die niet los van elkaar gezien kunnen worden:
 - Realiseren van een open source zakenregistratiecomponent
