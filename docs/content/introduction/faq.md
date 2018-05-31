@@ -3,7 +3,7 @@
 ## Inhoud
 
 * Wie is de opdrachtgever?
-* Wat is de opdacht?
+* Wat is de opdracht?
 * Wat gaat er concreet gemaakt worden?
 * Wat betekent dit voor leveranciers?
 * Wat betekent dit voor gemeentes?
@@ -14,15 +14,30 @@
 
 ## Wie is de opdrachtgever?
 
-TODO: Een VNG taskforce
+VNG Realisatie / Kerngroep Common Ground / Gem. Haarlem
 
-## Wat is de opdacht?
+## Wat is de opdracht?
 
-TODO: Maak een nieuwe standaard
+`Het ontwikkelen van` ZDS 2.0 gebaseerd op duidelijk herkenbare architectuurpatronen en waar mogelijk in lijn met de gewenste toepassing van RESTful APIs.
 
 ## Wat gaat er concreet gemaakt worden?
 
-TODO: Zie [realisatie](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/content/introduction/productvisie.md#realisatie)
+_Volgens productvisie_
+
+* Realiseren van een open source `referentie implementatie van` zakenregistratiecomponent
+* Opstellen en realiseren van een nieuwe "ZDS" 2.0 API `volgens Open API STandaard (AOS) 3`
+* `(`Realiseren van toepassingen voor burgers of gemeenten die gebruik maken van zaakgegevens uit het zakenregistratiecomponent, via de gestandaardiseerde API`)`
+* `Functionele documentatie voor het gebruik van de API.`
+
+Zie [realisatie](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/content/introduction/productvisie.md#realisatie)
+
+_Volgens projectdefinitie_
+
+* Een nieuwe versie van de ZDS services (gebaseerd op REST APIs, aansluitend bij Common Ground) om de
+interoperabiliteit tussen leveranciers te bewerkstelligen en leveranciers te bewegen in de richting van Common ground
+(Silo's openen);
+* Een Referentie implementatie van een zaaksysteem in de app store;
+* Een Multi Tenency toepassing van dit zaaksysteem/zakenregister en ZTC.
 
 ## Wat betekent dit voor leveranciers?
 
