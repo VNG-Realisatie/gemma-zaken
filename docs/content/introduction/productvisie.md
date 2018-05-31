@@ -50,13 +50,13 @@ Wanneer componenten centraal worden aangeboden moeten deze worden ondergebracht 
 
 Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
-- GEMMA 2 standaarden worden gevolgd
+- [GEMMA 2](https://www.gemmaonline.nl/index.php/GEMMA_Architectuur) standaarden worden gevolgd
 
-- Daar waar GEMMA 2 niets voorschrijft worden Open Standaarden gevolgd
+- Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
 
 - Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd
 
-- Alle code die ontstaat in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
+- Alle code, documenten en specificaties die ontstaan in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
 - RGBZ 2 en het daarvan afgeleide gegevensmodel UGM GBZ (GEMMA 2) zijn het startpunt voor de uitwerking van services. Wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. In eerste instantie betreft dat het UGM GBZ. Indien uit de user-storys blijkt dat 'de werkelijkheid' niet correct gemodelleerd is in het RGBZ, dan is aanpassing mogelijk. Met ingang van dit traject komen betrokken standaarden in een toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd en frequent nieuwe versies worden vastgesteld.
 
