@@ -50,7 +50,7 @@ Wanneer componenten centraal worden aangeboden moeten deze worden ondergebracht 
 
 Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
-- [GEMMA 2](https://www.gemmaonline.nl/index.php/GEMMA_Architectuur) standaarden worden gevolgd
+- De [GEMMA 2 Architectuur](https://www.gemmaonline.nl/index.php/GEMMA_Architectuur) en de [GEMMA 2 standaarden](https://www.gemmaonline.nl/index.php/GEMMA_Gegevens-_en_berichtenarchitectuur) (voor zover van toepassing) worden gevolgd
 
 - Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
 
