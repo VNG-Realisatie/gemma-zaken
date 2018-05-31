@@ -70,7 +70,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 - De [API en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/) zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar mogelijk toegepast.
 
 
-##	Realisatie
+## Realisatie
 
 De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user-stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat designchoices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
 
@@ -88,6 +88,14 @@ Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit 
 Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility. 
 
 Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.md)
+
+Het open source zakenregistratiecomponent is een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) van de (nieuw te ontwikkelen) specificatie. De referentie implementatie heeft de volgende karakteristieken:
+
+* Wordt gelijktijdig ontwikkeld met de specificatie en (geautomatiseerde) test suite;
+* Bewijst dat de specificatie geïmplementeerd kan worden;
+* Zorgt er voor dat leveranciers hun eigen implementatie kunnen testen;
+* Is de defacto standaard voor andere implementaties;
+* Geeft duidelijkheid over de intentie van de specificatie waar deze ruimte biedt voor interpretaties.
 
 
 ## Gerelateerde trajecten
