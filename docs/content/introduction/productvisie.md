@@ -76,6 +76,7 @@ De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet word
 
 Ontwikkeling valt uiteen in 3 delen die niet los van elkaar gezien kunnen worden:
 - Opstellen en realiseren van een nieuwe ZDS 2.0 API
+- Beschikbaar maken van een Open Source referentieimplementatie
 - Realiseren van toepassingen voor burgers of gemeenten die gebruik maken van zaakgegevens uit het zakenregistratiecomponent, via de gestandaardiseerde API
 
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
