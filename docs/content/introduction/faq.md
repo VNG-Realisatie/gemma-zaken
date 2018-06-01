@@ -10,6 +10,7 @@
 * Worden zaaksystemen hiermee beter, goedkoper, sneller, beter uitwisselbaar, etc.?
 * Is de referentie-implementatie bruikbaar in productie?
 * Komt er een landelijke versie van dit "product"?
+* Wat is de rol van VNG?
 
 
 ## Wie is de opdrachtgever?
@@ -56,3 +57,8 @@ TODO: In het algemeen niet direct. Echter, we realiseren kleinere componenten wa
 ## Komt er een landelijke versie van dit "product"?
 
 TODO: Basisregistraties wel landelijk, kernregistraties niet.
+
+## Wat is de rol van VNG?
+
+TODO: Kwaliteitsbewaking, faciliterend. Kan het product tot een standaard verheven worden (toetsen).
+
