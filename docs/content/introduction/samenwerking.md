@@ -6,6 +6,7 @@ Op 30 mei 2018 wordt gestart (sprint 0) met de volgende partijen:
 
 - **Gemeente Amsterdam**
 - **Gemeente Delft**
+- **Gemeente Eindhoven**
 - **Gemeente Haarlem**
 - **Gemeente Rotterdam**
 - **Gemeente Utrecht**
