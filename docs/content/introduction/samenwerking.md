@@ -5,10 +5,9 @@
 Op 30 mei 2018 wordt gestart (sprint 0) met de volgende partijen:
 
 - **Gemeente Amsterdam**
-- **Gemeente Apeldoorn**
 - **Gemeente Delft**
-- **Gemeente Eindhoven**
 - **Gemeente Haarlem**
+- **Gemeente Rotterdam**
 - **Gemeente Utrecht**
 - **Dimpact**, samenwerkingsverband van 30 gemeenten:
   - **Enschede, Zwolle, Oldenzaal, Emmen, Coevorden, Oost Gelre, Hardenberg, Borger-Odoorn, Gemert-Bakel, Assen, Bellingwedde, Oldambt, Velsen, Waterland, Landsmeer, Blaricum, Eemnes, Laren, Kampen, Landerd, Roermond, Laarbeek, Ommen, Deventer, Olst-Wijhe, Raalte, Ten Boer, Groningen, Rotterdam en Twenterand**.
