@@ -68,6 +68,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
   - Goede scheiding zaakafhandeling en -registratie (ook conform GEMMA 2 met Zaakregistratiecomponent en Zaakafhandelcomponent)
   - Bij eventueel centraal aangeboden voorzieningen worden API's ontsloten via NLX
   - Grote informatiemodellen worden waar nuttig opgesplitst in kleinere informatiemodellen die hoog-frequent kunnen wijzigen
+  - De modernste bewezen techniek wordt toegepast, en de toegepaste techniek verandert mee met de ontwikkelingen door de jaren heen. We gaan over in een toestand die kan worden aangeduid als "permanent beta".
 
 - De [API en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/) zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar mogelijk toegepast.
 
