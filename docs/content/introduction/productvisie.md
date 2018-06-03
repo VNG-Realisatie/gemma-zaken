@@ -106,6 +106,13 @@ Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie imp
 * Geeft duidelijkheid over de intentie van de specificatie waar deze ruimte biedt voor interpretaties.
 
 
+## Transitie
+
+Een BIG BANG overgang is onmogelijk. Er zal een geleidelijke transitie moeten plaatsvinden waarbij het nieuwe naast het oude bestaat. De te ontwikkelen ZDS 2.0 (en verder) is de toekomst, rekening moet worden gehouden met de huidige werkelijkheid die daarnaast moet kunnen bestaan. Idealiter in de zelfde achterliggende bronnen die op meerdere manieren worden ontsloten.
+
+In het ZDS Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De rol van architecten in het team bestaat o.a. uit het in de gaten houden of een transitie mogelijk blijft.
+
+
 ## Gerelateerde trajecten
 
 - Binnen het [Digitaal Stelsel Omgevingswet](https://www.omgevingswetportaal.nl/wet-en-regelgeving/dso) zijn wellicht kansen om Zaakgericht Werken zoals gemeenten dat kennen te introduceren op basis van de ZDS 2.0 API's. Momenteel wordt samenwerking daar voorzien door middel van een omgeving waar bestanden kunnen worden gedeeld.
