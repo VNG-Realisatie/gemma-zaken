@@ -11,7 +11,7 @@
 
 ## Introductie
 
-Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties. 
+Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties.
 
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
@@ -39,11 +39,17 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
 Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers.
 
-Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is een centrale *Zaakregistratiecomponent* (ZRC) wellicht een welkome oplossing.
+Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken.
 
-Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken.
+Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de hudige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
+- Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is hier mogelijk op korte termijn behoefte aan.
+- Ook binnen het Sociaal Domein heeft deze constructie potentie.
 
-Wanneer componenten centraal worden aangeboden moeten deze worden ondergebracht bij een  *centrale beheerorganisatie*.
+Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
+
+Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
+
+
 
 
 ##	Uitgangspunten
@@ -85,13 +91,14 @@ De ontwikkeling gebeurt geheel Open Source, in de GitHub repository [VNG-Realisa
 
 Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
-Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility. 
+Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility.
 
 Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.md)
 
-Het open source zakenregistratiecomponent is een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) van de (nieuw te ontwikkelen) specificatie. De referentie implementatie heeft de volgende karakteristieken:
+Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) gemaakt. De referentie implementatie heeft de volgende karakteristieken:
 
 * Wordt gelijktijdig ontwikkeld met de specificatie en (geautomatiseerde) test suite;
+* Maakt het mogelijk ketentesten uit te voeren, wat vraagt om persistentie van testdata;
 * Bewijst dat de specificatie geïmplementeerd kan worden;
 * Zorgt er voor dat leveranciers hun eigen implementatie kunnen testen;
 * Is de defacto standaard voor andere implementaties;
@@ -107,4 +114,3 @@ Het open source zakenregistratiecomponent is een [referentie implementatie](http
 - Dimpact en Atos stellen de Atos e-Suite in de context van Common Ground beschikbaar als platform voor proeven die innovatie en ontwikkeling stimuleren.
 
 - Het project Landelijke Online Diensten (LOD) heeft een landelijke dienst voor aangifte overlijden en aangifte verhuizing gerealiseerd. Voor de koppeling tussen deze dienst (de voorkant) en de verwerkende systemen in de gemeente (de achterkant) worden twee "productaanvragen" API's ontworpen en gerealiseerd.
-
