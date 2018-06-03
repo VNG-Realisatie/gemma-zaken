@@ -3,6 +3,7 @@
 ## Inhoud
 * [Introductie](#introductie)
 * [Productvisie ZDS](#productvisie-zds)
+* [Scope](#scope)
 * [Uitgangspunten](#uitgangspunten)
 * [Realisatie](#realisatie)
 * [Transitie](#transitie)
@@ -16,9 +17,9 @@ Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservice
 
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
-Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de "ZDS 2.0" [1].
+Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de "ZDS 2.0".
 
-_[1]: De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken wat het uitgangspunt is maar er worden uiteindelijk wellicht aparte API's ontwikkeld in het kader van de Common Ground visie._
+De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken welke huidige standaard wordt gemoderniseerd. Waarschijnlijk worden uiteindelijk meerdere aparte API's ontwikkeld, waarna ook de naam ZDS veranderd zal moeten worden om verwarring te voorkomen.
 
 
 ## Productvisie ZDS
@@ -32,6 +33,24 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
 - Voor elk gegeven geldt een authentieke bron die wordt ontsloten via API's. Er wordt niet gekopieerd en gesynchroniseerd. Er worden relaties gelegd en doorgeknipt. Bijvoorbeeld: wanneer een informatieobject in meerdere zaken een rol speelt wordt vanuit elke zaak een relatie gelegd naar (een specifieke versie van) betreffend informatieobject. Het informatieobject blijft in de DRC onder verantwoordelijkheid van de opsteller. Dit heeft consequenties voor bijvoorbeeld de logica die besluit tot overbrengen of vernietigen.
+
+- Door te werken met API's die een logische scope hebben binnen de informatiemodellen wordt toegewerkt naar een gegevenslandschap waarbij componenten zonder enige impact kunnen worden vervangen door een component van een andere leverancier. In de huidige praktijk is dit onmogelijk omdat de scope van wat een leverancierspecifieke implementatie van een service afdekt niet uniform is. Hiermee worden (onbedoelde) vendor lockins bestreden.
+
+## Scope
+
+Realisatie van de productvisie valt uiteen in vier delen die niet los van elkaar gezien kunnen worden:
+
+1. Specificeren van Zaak- Documentservices v2.0
+2. Beschikbaar maken van Open Source referentieimplementatie
+3. Realiseren van toepassingen voor burgers of gemeenten gebruikmakend van de ZDS 2.0 API's
+4. Centraal aanbieden van componenten op basis van de nieuwe API's
+
+Delen 1 en 2 worden uitgevoerd door een centraal scrumteam bestaand uit samenwerkende gemeenten.
+
+Deel 3 wordt uitgevoerd door planning af te stemmen tussen dit scrumteam en projecten die tegelijkertijd in gemeenten worden uitgevoerd. Bij deel 3 zorgt het centrale scrumteam voor het tijdig beschikbaar zijn van de relevante delen van de nieuwe API's.
+
+Deel 4 is buiten scope voor het centrale scrumteam. Dit deel van de visie wordt nader uitgewerkt en op een later moment uitgevoerd.
+
 
 
 ##	Uitgangspunten
@@ -67,14 +86,9 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user-stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat designchoices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
 
-Ontwikkeling valt uiteen in 3 delen die niet los van elkaar gezien kunnen worden:
-- Opstellen en realiseren van een nieuwe ZDS 2.0 API
-- Beschikbaar maken van een Open Source referentieimplementatie
-- Realiseren van toepassingen voor burgers of gemeenten die gebruik maken van zaakgegevens uit het zakenregistratiecomponent, via de gestandaardiseerde API
-
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
 
-De ontwikkeling gebeurt geheel Open Source, in de GitHub repository [VNG-Realisatie/gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken).
+De ontwikkeling gebeurt in de GitHub repository [VNG-Realisatie/gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken).
 
 Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
