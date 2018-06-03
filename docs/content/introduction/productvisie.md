@@ -75,8 +75,8 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet worden. Door user-stories zo goed mogelijk in te vullen en vanuit oogpunt architectuur in de gaten te houden dat designchoices worden gemaakt die ruimte openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe standaard stukje bij beetje tot stand.
 
 Ontwikkeling valt uiteen in 3 delen die niet los van elkaar gezien kunnen worden:
-- Realiseren van een open source zakenregistratiecomponent
 - Opstellen en realiseren van een nieuwe ZDS 2.0 API
+- Beschikbaar maken van een Open Source referentieimplementatie
 - Realiseren van toepassingen voor burgers of gemeenten die gebruik maken van zaakgegevens uit het zakenregistratiecomponent, via de gestandaardiseerde API
 
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
