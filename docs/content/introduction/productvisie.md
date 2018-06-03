@@ -74,7 +74,7 @@ Om een snelle start te maken wordt gestart met alle gemeenten en partijen waarva
 
 De ontwikkeling gebeurt geheel Open Source, in de GitHub repository [VNG-Realisatie/gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken).
 
-Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Kanban bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
+Ook de backlog wordt publiek bijgehouden, samengesteld uit GitHub issues op dit open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
 Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.md)
 
