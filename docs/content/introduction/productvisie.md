@@ -30,9 +30,7 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
-- Eisen rond [Duurzame toegankelijkheid](https://wiki.nationaalarchief.nl/pagina/DUTO:Kwaliteitseisen) worden vanaf het begin in de standaarden verwerkt.
-
-- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). De gegevensstandaard voor archiefstukken [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden)is al geïntegreerd in RGBZ en ImZTC.
+- Voor elk gegeven geldt een authentieke bron die wordt ontsloten via API's. Er wordt niet gekopieerd en gesynchroniseerd. Er worden relaties gelegd en doorgeknipt. Bijvoorbeeld: wanneer een informatieobject in meerdere zaken een rol speelt wordt vanuit elke zaak een relatie gelegd naar (een specifieke versie van) betreffend informatieobject. Het informatieobject blijft in de DRC onder verantwoordelijkheid van de opsteller. Dit heeft consequenties voor bijvoorbeeld de logica die besluit tot overbrengen of vernietigen.
 
 
 ## Centraal aanbieden      
@@ -48,8 +46,6 @@ Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* 
 Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
 
 Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
-
-
 
 
 ##	Uitgangspunten
@@ -74,6 +70,10 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
   - Grote informatiemodellen worden waar nuttig opgesplitst in kleinere informatiemodellen die hoog-frequent kunnen wijzigen
 
 - De [API en URI strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/) zoals opgesteld binnen het programma Digitaal Stelsel Omgevingswet worden waar mogelijk toegepast.
+
+- Eisen rond [Duurzame toegankelijkheid](https://wiki.nationaalarchief.nl/pagina/DUTO:Kwaliteitseisen) worden vanaf het begin in de standaarden verwerkt.
+
+- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). De gegevensstandaard voor archiefstukken [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden)is al geïntegreerd in RGBZ en ImZTC.
 
 
 ## Realisatie
