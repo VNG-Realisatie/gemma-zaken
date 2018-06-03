@@ -3,9 +3,10 @@
 ## Inhoud
 * [Introductie](#introductie)
 * [Productvisie ZDS](#productvisie-zds)
-* [Centraal aanbieden](#centraal-aanbieden)
 * [Uitgangspunten](#uitgangspunten)
 * [Realisatie](#realisatie)
+* [Transitie](#transitie)
+* [Centraal aanbieden](#centraal-aanbieden)
 * [Gerelateerde trajecten](#gerelateerde-trajecten)
 
 
@@ -31,21 +32,6 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
 - De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk gestandaardiseerd, rekening houdend met de [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)(pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
 - Voor elk gegeven geldt een authentieke bron die wordt ontsloten via API's. Er wordt niet gekopieerd en gesynchroniseerd. Er worden relaties gelegd en doorgeknipt. Bijvoorbeeld: wanneer een informatieobject in meerdere zaken een rol speelt wordt vanuit elke zaak een relatie gelegd naar (een specifieke versie van) betreffend informatieobject. Het informatieobject blijft in de DRC onder verantwoordelijkheid van de opsteller. Dit heeft consequenties voor bijvoorbeeld de logica die besluit tot overbrengen of vernietigen.
-
-
-## Centraal aanbieden      
-
-Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers.
-
-Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken.
-
-Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de hudige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
-- Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is hier mogelijk op korte termijn behoefte aan.
-- Ook binnen het Sociaal Domein heeft deze constructie potentie.
-
-Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
-
-Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
 
 
 ##	Uitgangspunten
@@ -111,6 +97,21 @@ Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie imp
 Een BIG BANG overgang is onmogelijk. Er zal een geleidelijke transitie moeten plaatsvinden waarbij het nieuwe naast het oude bestaat. De te ontwikkelen ZDS 2.0 (en verder) is de toekomst, rekening moet worden gehouden met de huidige werkelijkheid die daarnaast moet kunnen bestaan. Idealiter in de zelfde achterliggende bronnen die op meerdere manieren worden ontsloten.
 
 In het ZDS Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De rol van architecten in het team bestaat o.a. uit het in de gaten houden of een transitie mogelijk blijft.
+
+
+## Centraal aanbieden      
+
+Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers.
+
+Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken.
+
+Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de hudige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
+- Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is hier mogelijk op korte termijn behoefte aan.
+- Ook binnen het Sociaal Domein heeft deze constructie potentie.
+
+Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
+
+Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
 
 
 ## Gerelateerde trajecten
