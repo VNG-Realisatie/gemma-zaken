@@ -19,9 +19,9 @@ De volgende documenten beschrijven dit project:
 
 ## Rollen
 
-Projectleider: [@wishalg](https://github.com/wishalg)
-Product Owner: [@WouterBRu](https://github.com/WouterBRu)
-Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
+- Projectleider: [@wishalg](https://github.com/wishalg)
+- Product Owner: [@WouterBRu](https://github.com/WouterBRu)
+- Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
 ## Licentie
 Copyright © VNG Realisatie 2018
