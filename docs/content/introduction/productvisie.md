@@ -101,7 +101,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Eisen rond [Duurzame toegankelijkheid](https://wiki.nationaalarchief.nl/pagina/DUTO:Kwaliteitseisen) worden vanaf het begin in de standaarden verwerkt.
 
-- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). De gegevensstandaard voor archiefstukken [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden)is al geïntegreerd in RGBZ en ImZTC.
+- Archivering speelt een rol bij de uitvoering van elk proces, vanaf de start tot aan [overbrenging](https://wiki.nationaalarchief.nl/pagina/DUTO:Overbrenging) of [vernietiging](https://wiki.nationaalarchief.nl/pagina/DUTO:Vernietigen). De gegevensstandaard voor archiefstukken [TMLO](https://archief2020.nl/nieuws/toepassingsprofiel-metadatering-lokale-overheden) is al [geïntegreerd in RGBZ en ImZTC](https://www.gemmaonline.nl/index.php/Metadateren_van_zaakdossiers_conform_het_TMLO).
 
 
 ## Realisatie
