@@ -121,7 +121,7 @@ Voor meer informatie over de samenwerking, zie [samenwerking.md](./samenwerking.
 Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) gemaakt. De referentie implementatie heeft de volgende karakteristieken:
 
 * Wordt gelijktijdig ontwikkeld met de specificatie en (geautomatiseerde) test suite;
-* Maakt het mogelijk ketentesten uit te voeren, wat vraagt om persistentie van testdata;
+* Maakt het mogelijk scenariotesten uit te voeren, wat vraagt om persistentie van testdata;
 * Bewijst dat de specificatie geïmplementeerd kan worden;
 * Zorgt er voor dat leveranciers hun eigen implementatie kunnen testen;
 * Is de defacto standaard voor andere implementaties;
