@@ -1,4 +1,4 @@
-# ZAKEN Productvisie ZDS
+# ZAKEN Productvisie ZDS 2.0
 
 ## Inhoud
 * [Introductie](#introductie)
@@ -15,11 +15,33 @@
 
 Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties.
 
+### Toegevoegde waarde voor gemeenten
+
+- Kortere doorlooptijd van het inrichten van nieuwe koppelingen (plug and play is veelgehoorde wens)
+- Lagere ontwikkelkosten van koppelingen op basis van ZDS
+- Lagere beheerkosten door backwards compatibiliteit (wijzigingen in de standaard leiden meestal niet tot aanpassingen in bestaande koppelingen)
+- Voorkomen lock-in door echt uitwisselbare componenten
+- Hogere kwaliteit van de standaard doordat deze in de praktijk en met medewerking van gemeenten en leveranciers is ontwikkeld. En ook door parallel aan de standaard een werkende referentie-implementatie te ontwikkelen.
+
+### Toegevoegde waarde voor leveranciers
+
+- Lagere ontwikkelkosten van het koppelvlak
+- Kunnen zich onderscheiden op onderdelen die burgers, bedrijven en medewerkers raken (i.p.v. te concurreren op infrastructuur)
+
+### Toegevoegde waarde voor VNG Realisatie
+
+- Beheer van de standaard is eenvoudiger doordat aanpassingen gemakkelijker zijn door te voeren
+- Kwaliteitscontrole van koppelvlakken van leveranciers is eenvoudiger en daarmee goedkoper.
+- Backwards compatibiliteit is eenvoudiger te behouden
+
+### Context
+
 Binnen de Gemeentelijke Model Architectuur (GEMMA) versie 2 is het [Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a. [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
 Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md) aan realisatie van de "ZDS 2.0".
 
 De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken welke huidige standaard wordt gemoderniseerd. Waarschijnlijk worden uiteindelijk meerdere aparte API's ontwikkeld, waarna ook de naam ZDS veranderd zal moeten worden om verwarring te voorkomen.
+
 
 
 ## Productvisie ZDS
