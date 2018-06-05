@@ -21,7 +21,8 @@ Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservice
 - Lagere ontwikkelkosten van koppelingen op basis van ZDS
 - Lagere beheerkosten door backwards compatibiliteit (wijzigingen in de standaard leiden meestal niet tot aanpassingen in bestaande koppelingen)
 - Voorkomen lock-in door echt uitwisselbare componenten
-- Hogere kwaliteit van de standaard doordat deze in de praktijk en met medewerking van gemeenten en leveranciers is ontwikkeld. En ook door parallel aan de standaard een werkende referentie-implementatie te ontwikkelen.
+- Hogere kwaliteit van de standaard doordat deze in de praktijk en met medewerking van gemeenten en leveranciers is ontwikkeld. En ook door parallel aan de standaard een werkende referentie-implementatie te ontwikkelen
+- Een herbruikbare, plug and play API waarmee in apps en applicaties de basale zaak(document) functionaliteiten consistent gebruikt kunnen worden
 
 ### Toegevoegde waarde voor leveranciers
 
@@ -146,6 +147,8 @@ Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* 
 - Ook binnen het Sociaal Domein heeft deze constructie potentie.
 
 Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
+
+Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
 Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
 
