@@ -1,0 +1,194 @@
+openapi: "3.0.0"
+info:
+  title: Zaak registratie API
+  description: Een API om een zaak registratie component te kunnen benaderen
+  version: 1.0.0
+  contact:
+    url:  https://github.com/VNG-Realisatie/gemma-zaken
+paths:
+  /zaken:
+    post:
+      summary: Aanmaken nieuwe zaak
+      operationId: aanmakenZaak
+      description: Maakt een nieuwe zaak aan en retourneert de toegekende zaak identificatie wanneer de zaak succesvol is aangemaakt.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Zaak'
+      responses:
+        201:
+          description: Zaak is succesvol aangemaakt.
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Zaak identificatie toegekend aan de nieuwe zaak.
+          headers:
+            location:
+              description: locatie van de nieuwe zaak
+          links:
+            toevoegenInformatieobject:
+              $ref: '#/components/links/ToevoegenInformatieobject'
+        422:
+          description: Opgegeven zaak informatie kan niet verwerkt worden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        default:
+          description: Onverwachte fout tijdens opvoeren zaak
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /zaken/{zaak-uuid}/informatieobjecten:
+    post:
+      summary: Voeg een informatieobject toe aan de zaak
+      operationid: toevoegenInformatieobject
+      description: Voeg een informatieobject toe aan de zaak
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Informatieobject'
+      responses:
+        201:
+          description: Informatieobject is succesvol aangemaakt.
+          content:
+            application/json:
+              schema:
+                type: string
+                description: Zaak identificatie toegekend aan de nieuwe zaak.
+        422:
+          description: Opgegeven informatieobject kan niet verwerkt worden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        default:
+          description: Onverwachte fout tijdens opvoeren informatieobject
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+components:
+  schemas:
+    Zaak:
+      description: Een zaak
+      properties:
+        type:
+          description: URL naar het zaaktype van de zaak
+          type: string
+        omschrijving:
+          description: Omschrijving of toelichting op de zaak
+          type: string
+        initiator:
+          description: Initiator van de zaak
+          $ref: '#/components/schema/Subject'
+        status:
+          description: URL naar de status van de zaak
+          type: string
+        registratiedatum:
+          description: Tijdstip waarop de zaak is geregistreerd
+          type: string
+          format: 'date-time'
+        kanaal:
+          description: Kanaal via welke de zaak is gemeld
+          type: string
+        locatie:
+          description: Coordinate van de locatie waarop de zaak betrekking heeft in Well Known Text (WKT) formaat
+          type: string
+        objecten:
+          description: Lijst met URL's naar aan de zaak gerelateerde objecten
+          type: array
+          items:
+            type: string
+        zaakgegevens:
+          description: Domein specifieke gegevens beheorende bij de zaak
+          type: array
+          items:
+            $ref: '#/components/schemas/Zaakgegeven'
+      required:
+      - type
+      - omschrijving
+    Subject:
+      description: Een persoon of bedrijf
+      properties:
+        email:
+          description: e-mail adres
+          type: string
+          format: email
+        telefoonnummer:
+          description: telefoonnummer
+          type: string
+    Zaakgegeven:
+      description: Domein specifiek gegeven behorende bij een zaak
+      properties:
+        naam:
+          description: Naam van het gegeven
+          type: string
+        waarde:
+          description: Waarde van het gegeven
+          type: string
+        type:
+          description: Type van de waarde van het gegeven
+          type: string
+          enum:
+          - tekst
+          - nummer
+          - datum
+          - datumtijd
+          - ja_nee
+      required:
+      - naam
+      - waarde
+      - type
+    Informatieobject:
+      description: Een aan de zaak gerelateerd informatie object (document, foto end.)
+      properties:
+        titel:
+          description: Titel van het informatieobject
+          type: string
+        status:
+          description: Status van het informatieobject
+          type: string
+        type:
+          description: Type van het informatieobject
+          type: string
+        mimetype:
+          description: Minetype van het informatieobject
+          type: string
+        inhoud:
+          description: Inhoud van het informatieobject
+      required:
+      - titel
+      - type
+      - mimetype
+      - inhoud
+    Fout:
+      description: Een opgetreden fout
+        title:
+          description: Wat er is misgegaan
+          type: string
+        status:
+          descripton: HTTP Response code
+            type: integer
+        detail:
+          description: Meer details over de fout
+          type: string
+        invalid-params:
+          description: Lijst met fouten in invoer parameters
+          type: object
+          properties:
+            name:
+              description: Naam van de parameter met invalide inhoud
+              type: string
+            reason:
+              description: Wat er mis is met de inhoud van de parameter
+              type: string
+  links:
+    ToevoegenInformatieobject:
+      operationId: toevoegenInformatieobject
+      parameters:
+        zaak-uuid: $response.body#/zaak-uuid

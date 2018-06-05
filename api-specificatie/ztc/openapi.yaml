@@ -1,0 +1,93 @@
+openapi: "3.0.0"
+info:
+  title: Zaaktype catalogus API
+  description: Een API om het zaaktype catalogus component te benaderen
+  version: 1.0.0
+  contact:
+    url:  https://github.com/VNG-Realisatie/gemma-zaken
+paths:
+  /zaaktypes/{zaaktype-id}:
+    get:
+      summary: Ophalen van een zaaktype via het id
+      operationId: ophalenZaaktype
+      parameters:
+        - name: zaaktype-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Zaaktype
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaaktype'
+        default:
+          description: Onverwachte fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+  /zaaktypes/{zaaktype-id}/statussen/{status-id}:
+    get:
+      summary: Ophalen van een zaak status via het zaaktype id en status id
+      operationId: ophalenZaakstatus
+      parameters:
+        - name: zaaktype-id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status-id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Zaak status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaakstatus'
+        default:
+          description: Onverwachte fout
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+components:
+  schemas:
+    Zaaktype:
+      description: Een zaaktype
+      properties:
+        id:
+          description: ID van het zaaktype
+          type: string
+        naam:
+          description: Naam van het zaaktype
+          type: string
+        omschrijving:
+          description: Omschrijving van het zaaktype
+          type: string
+        statussen:
+          description: Lijst met URL's van alle mogelijke statussen behorende bij het zaaktype
+          type: array
+          items:
+            type: string
+    Zaakstatus:
+      description: Status van een zaak
+        properties:
+          id:
+            description: ID naar de status
+            type: string
+          naam:
+            description: Naam van de status
+            type: string
+          omschrijving:
+            description: Omschrijving van de status
+            type: string
+    Fout:
+      description: Een opgetreden fout
+
