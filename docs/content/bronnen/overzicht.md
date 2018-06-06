@@ -11,6 +11,7 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 
 
 ## Zaakgericht Werken
+- [Thema Zaakgericht Werken](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken)
 - [GEMMA 2 Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken)
 - [Zaakgericht Werken in GEMMA 2](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2)
 
@@ -24,3 +25,7 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
 - [Metadateren conform TMLO](https://www.gemmaonline.nl/index.php/Metadateren_van_zaakdossiers_conform_het_TMLO)
 - [DUTO Kwaliteitseisen](https://wiki.nationaalarchief.nl/pagina/DUTO:Kwaliteitseisen)
+
+
+## Common Ground
+- [Community](https://commonground.pleio.nl)
