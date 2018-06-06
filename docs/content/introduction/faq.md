@@ -18,7 +18,7 @@
 
 ## Wie is de opdrachtgever?
 
-[Theo Peters](https://github.com/TheoVNGPeters) van [VNG Realisatie](https://github.com/VNG-Realisatie/)
+[Theo Peters](https://github.com/TheoVNGPeters) van [VNG Realisatie](https://github.com/VNG-Realisatie/). VNG is beheerder en eigenaar van de standaard. Tevens is opdrachtgever betrokken/onderdeel van Common Ground/Samen Organiseren.
 
 ## Wat is de opdracht?
 
