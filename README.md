@@ -19,8 +19,9 @@ De volgende documenten beschrijven dit project:
 
 ## Rollen
 
+- Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
 - Projectleider: [@wishalg](https://github.com/wishalg)
-- Product Owner: [@WouterBRu](https://github.com/WouterBRu)
+- Product Owner: [@ehotting](https://github.com/ehotting)
 - Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
 ## Licentie
