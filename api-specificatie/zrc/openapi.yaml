@@ -18,18 +18,11 @@ paths:
               $ref: '#/components/schemas/Zaak'
       responses:
         201:
-          description: Zaak is succesvol aangemaakt.
+          description: "Zaakidentificatie"
           content:
             application/json:
               schema:
-                type: string
-                description: Zaak identificatie toegekend aan de nieuwe zaak.
-          headers:
-            location:
-              description: locatie van de nieuwe zaak
-          links:
-            toevoegenInformatieobject:
-              $ref: '#/components/links/ToevoegenInformatieobject'
+                $ref: '#/components/schemas/ZaakId'
         422:
           description: Opgegeven zaak informatie kan niet verwerkt worden
           content:
@@ -42,10 +35,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-  /zaken/{zaak-uuid}/informatieobjecten:
+  /zaken/{zaakid}/informatieobjecten:
+    parameters:
+      - name: zaakid
+        in: path
+        required: true
+        description: zaakidentificatie
+        schema:
+          type: string
     post:
       summary: Voeg een informatieobject toe aan de zaak
-      operationid: toevoegenInformatieobject
+      operationId: toevoegenInformatieobject
       description: Voeg een informatieobject toe aan de zaak
       requestBody:
         content:
@@ -84,8 +84,7 @@ components:
           description: Omschrijving of toelichting op de zaak
           type: string
         initiator:
-          description: Initiator van de zaak
-          $ref: '#/components/schema/Subject'
+          $ref: '#/components/schemas/Subject'
         status:
           description: URL naar de status van de zaak
           type: string
@@ -112,6 +111,12 @@ components:
       required:
       - type
       - omschrijving
+    ZaakId:
+      description: zaakidentificatie
+      properties:
+        zaakidentificatie: 
+          type: string
+          description: zaakidentificatie
     Subject:
       description: Een persoon of bedrijf
       properties:
@@ -168,12 +173,13 @@ components:
       - inhoud
     Fout:
       description: Een opgetreden fout
+      properties:
         title:
           description: Wat er is misgegaan
           type: string
         status:
-          descripton: HTTP Response code
-            type: integer
+          description: HTTP Response code
+          type: integer
         detail:
           description: Meer details over de fout
           type: string
