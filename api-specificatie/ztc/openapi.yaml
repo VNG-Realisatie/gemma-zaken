@@ -78,16 +78,16 @@ components:
             type: string
     Zaakstatus:
       description: Status van een zaak
-        properties:
-          id:
-            description: ID naar de status
-            type: string
-          naam:
-            description: Naam van de status
-            type: string
-          omschrijving:
-            description: Omschrijving van de status
-            type: string
+      properties:
+        id:
+          description: ID naar de status
+          type: string
+        naam:
+          description: Naam van de status
+          type: string
+        omschrijving:
+          description: Omschrijving van de status
+          type: string
     Fout:
       description: Een opgetreden fout
 
