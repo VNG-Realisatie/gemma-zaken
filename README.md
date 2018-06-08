@@ -24,6 +24,10 @@ De volgende documenten beschrijven dit project:
 - Product Owner: [@ehotting](https://github.com/ehotting)
 - Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
+## API spec bekijken
+
+Zie de relevante [links](./docs/content/spec.md).
+
 ## Licentie
 Copyright © VNG Realisatie 2018
 
