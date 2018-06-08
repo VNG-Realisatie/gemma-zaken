@@ -41,26 +41,25 @@ paths:
         required: true
         schema:
           type: string
-  '/api/v{version}/zaken/{zaakid}/informatieobjecten':
+  '/api/v{version}/zaakinformatieobjecten':
     post:
       summary: Voeg een informatieobject toe aan de zaak
-      operationId: toevoegenInformatieobject
-      description: Voeg een informatieobject toe aan de zaak
+      operationId: zaakinformatieobject_create
+      description: Voeg een informatieobject toe aan een zaak
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Informatieobject'
+              $ref: '#/components/schemas/ZaakInformatieObject'
       responses:
         201:
-          description: Informatieobject is succesvol aangemaakt.
+          description: ZaakInformatieObject is succesvol aangemaakt.
           content:
             application/json:
               schema:
-                type: string
-                description: Zaak identificatie toegekend aan de nieuwe zaak.
+                $ref: '#/components/schema/ZaakInformatieObject'
         422:
-          description: Opgegeven informatieobject kan niet verwerkt worden
+          description: Opgegeven zaakinformatieobject kan niet verwerkt worden
           content:
             application/json:
               schema:
@@ -75,12 +74,6 @@ paths:
       - name: version
         in: path
         required: true
-        schema:
-          type: string
-      - name: zaakid
-        in: path
-        required: true
-        description: zaakidentificatie
         schema:
           type: string
 servers:
@@ -162,28 +155,22 @@ components:
       - naam
       - waarde
       - type
-    Informatieobject:
-      description: Een aan de zaak gerelateerd informatie object (document, foto end.)
-      properties:
-        titel:
-          description: Titel van het informatieobject
-          type: string
-        status:
-          description: Status van het informatieobject
-          type: string
-        type:
-          description: Type van het informatieobject
-          type: string
-        mimetype:
-          description: Minetype van het informatieobject
-          type: string
-        inhoud:
-          description: Inhoud van het informatieobject
+    ZaakInformatieObject:
       required:
-      - titel
-      - type
-      - mimetype
-      - inhoud
+        - zaak
+        - informatieobject
+      description: Een aan een zaak gerelateerd informatieobject (document, foto end.)
+      properties:
+        zaak:
+          title: Zaak
+          description: URL naar de zaak horend bij dit ZAAKINFORMATIEOBJECT
+          type: string
+          format: uri
+        informatieobject:
+          title: informatieobject
+          description: URL naar het informatieobject horend bij dit ZAAKINFORMATIEOBJECT
+          type: string
+          format: uri
     Fout:
       description: Een opgetreden fout
       properties:
