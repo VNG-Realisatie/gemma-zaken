@@ -1,0 +1,57 @@
+openapi: "3.0.0"
+info:
+  title: Document management systeem API
+  description: Een API om een documentregistratiecomponent te benaderen
+  version: 0.0.1
+  contact:
+    url:  https://github.com/VNG-Realisatie/gemma-zaken
+paths:
+  '/api/v{version}/informatieobjecten':
+    get:
+      operationId: informatieobject_list
+      description: Ophalen van informatieobjecten
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InformatieObject'
+    parameters:
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+servers:
+  - url: /
+components:
+  schemas:
+    InformatieObject:
+      description: Een informatieobject (document, foto...)
+      required:
+      - titel
+      - type
+      - mimetype
+      - inhoud
+      properties:
+        id:
+          description: ID van het informatieobject
+          type: string
+        titel:
+          description: Titel van het informatieobject
+          type: string
+        status:
+          description: Status van het informatieobject
+          type: string
+        type:
+          description: Type van het informatieobject
+          type: string
+        mimetype:
+          description: Minetype van het informatieobject
+          type: string
+        inhoud:
+          description: Inhoud van het informatieobject (base64 encoded)
+          type: string
