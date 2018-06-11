@@ -1,12 +1,12 @@
 openapi: "3.0.0"
 info:
   title: Zaaktype catalogus API
-  description: Een API om het zaaktype catalogus component te benaderen
+  description: Een API om een zaaktypecataloguscomponent te benaderen
   version: 1.0.0
   contact:
     url:  https://github.com/VNG-Realisatie/gemma-zaken
 paths:
-  /zaaktypes/{zaaktype-id}:
+  'api/v{version}/zaaktypes/{zaaktype-id}':
     get:
       summary: Ophalen van een zaaktype via het id
       operationId: ophalenZaaktype
@@ -29,7 +29,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-  /zaaktypes/{zaaktype-id}/statussen/{status-id}:
+    parameters:
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+  'api/v{version}/zaaktypes/{zaaktype-id}/statussen/{status-id}':
     get:
       summary: Ophalen van een zaak status via het zaaktype id en status id
       operationId: ophalenZaakstatus
@@ -57,6 +63,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
+    parameters:
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+servers:
+  - url: /
 components:
   schemas:
     Zaaktype:
@@ -90,4 +104,3 @@ components:
           type: string
     Fout:
       description: Een opgetreden fout
-

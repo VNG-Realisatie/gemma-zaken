@@ -1,12 +1,12 @@
 openapi: "3.0.0"
 info:
   title: Zaak registratie API
-  description: Een API om een zaak registratie component te kunnen benaderen
+  description: Een API om een zaakregistratiecomponent te kunnen benaderen
   version: 1.0.0
   contact:
     url:  https://github.com/VNG-Realisatie/gemma-zaken
 paths:
-  /zaken:
+  '/api/v{version}/zaken':
     post:
       summary: Aanmaken nieuwe zaak
       operationId: aanmakenZaak
@@ -35,14 +35,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-  /zaken/{zaakid}/informatieobjecten:
     parameters:
-      - name: zaakid
+      - name: version
         in: path
         required: true
-        description: zaakidentificatie
         schema:
           type: string
+  '/api/v{version}/zaken/{zaakid}/informatieobjecten':
     post:
       summary: Voeg een informatieobject toe aan de zaak
       operationId: toevoegenInformatieobject
@@ -72,6 +71,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
+    parameters:
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: zaakid
+        in: path
+        required: true
+        description: zaakidentificatie
+        schema:
+          type: string
+servers:
+  - url: /
 components:
   schemas:
     Zaak:
@@ -114,7 +127,7 @@ components:
     ZaakId:
       description: zaakidentificatie
       properties:
-        zaakidentificatie: 
+        zaakidentificatie:
           type: string
           description: zaakidentificatie
     Subject:
@@ -193,8 +206,3 @@ components:
             reason:
               description: Wat er mis is met de inhoud van de parameter
               type: string
-  links:
-    ToevoegenInformatieobject:
-      operationId: toevoegenInformatieobject
-      parameters:
-        zaak-uuid: $response.body#/zaak-uuid
