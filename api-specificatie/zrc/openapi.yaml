@@ -9,8 +9,12 @@ paths:
   '/api/v{version}/zaken':
     post:
       summary: Aanmaken nieuwe zaak
-      operationId: aanmakenZaak
-      description: Maakt een nieuwe zaak aan en retourneert de toegekende zaak identificatie wanneer de zaak succesvol is aangemaakt.
+      operationId: zaak_create
+      description: >-
+        Maak een ZAAK aan.
+
+        Indien geen zaakidentificatie gegeven is, dan wordt deze automatisch
+        gegenereerd.
       requestBody:
         content:
           application/json:
@@ -18,11 +22,11 @@ paths:
               $ref: '#/components/schemas/Zaak'
       responses:
         201:
-          description: "Zaakidentificatie"
+          description: "Representatie van aangemaakte ZAAK"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakId'
+                $ref: '#/components/schemas/Zaak'
         422:
           description: Opgegeven zaak informatie kan niet verwerkt worden
           content:
@@ -81,80 +85,66 @@ servers:
 components:
   schemas:
     Zaak:
-      description: Een zaak
+      description: Een ZAAK
+      required:
+        - zaaktype
+      type: object
       properties:
-        type:
-          description: URL naar het zaaktype van de zaak
+        url:
+          title: Url
           type: string
-        omschrijving:
-          description: Omschrijving of toelichting op de zaak
+          format: uri
+          readOnly: true
+        zaakidentificatie:
+          title: Zaakidentificatie
+          description: >-
+            De unieke identificatie van de ZAAK binnen de organisatie die
+            verantwoordelijk is voor de behandeling van de ZAAK.
           type: string
-        initiator:
-          $ref: '#/components/schemas/Subject'
+          maxLength: 40
+        zaaktype:
+          title: Zaaktype
+          description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
         status:
-          description: URL naar de status van de zaak
+          title: Status
+          description: 'Indien geen status bekend is, dan is de waarde ''null'''
           type: string
+          format: uri
+          readOnly: true
+        omschrijving:
+          title: Omschrijving
+          description: Een korte omschrijving van de zaak.
+          type: string
+          maxLength: 80
+        # TODO: in het RGBZ 2.0 model loopt dit via de rollen/betrokkenen
+        # initiator:
+        #   title: Initiator
+        #   description: URL naar de initiator van de ZAAK.
+        #   type: string
+        #   format: url
         registratiedatum:
-          description: Tijdstip waarop de zaak is geregistreerd
+          title: Registratiedatum
+          description: De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd
           type: string
-          format: 'date-time'
-        kanaal:
-          description: Kanaal via welke de zaak is gemeld
-          type: string
-        locatie:
-          description: Coordinate van de locatie waarop de zaak betrekking heeft in Well Known Text (WKT) formaat
+          format: 'date'
+        # TODO: volgens RGBZ 2.0 komt kanaal uit KLANTCONTACT
+        # kanaal:
+        #   description: Kanaal via welke de zaak is gemeld
+        #   type: string
+        zaakgeometrie:  # NOTE: komt ook voor bij OBJECT
+          title: Zaakgeometrie
+          description: Punt, lijn of multi-vlak geometrie-informatie, in WKT formaat.
           type: string
         objecten:
+          title: OBJECTen
           description: Lijst met URL's naar aan de zaak gerelateerde objecten
           type: array
           items:
             type: string
-        zaakgegevens:
-          description: Domein specifieke gegevens beheorende bij de zaak
-          type: array
-          items:
-            $ref: '#/components/schemas/Zaakgegeven'
-      required:
-      - type
-      - omschrijving
-    ZaakId:
-      description: zaakidentificatie
-      properties:
-        zaakidentificatie:
-          type: string
-          description: zaakidentificatie
-    Subject:
-      description: Een persoon of bedrijf
-      properties:
-        email:
-          description: e-mail adres
-          type: string
-          format: email
-        telefoonnummer:
-          description: telefoonnummer
-          type: string
-    Zaakgegeven:
-      description: Domein specifiek gegeven behorende bij een zaak
-      properties:
-        naam:
-          description: Naam van het gegeven
-          type: string
-        waarde:
-          description: Waarde van het gegeven
-          type: string
-        type:
-          description: Type van de waarde van het gegeven
-          type: string
-          enum:
-          - tekst
-          - nummer
-          - datum
-          - datumtijd
-          - ja_nee
-      required:
-      - naam
-      - waarde
-      - type
     ZaakInformatieObject:
       required:
         - zaak
@@ -171,6 +161,17 @@ components:
           description: URL naar het informatieobject horend bij dit ZAAKINFORMATIEOBJECT
           type: string
           format: uri
+    # BETROKKENE?
+    # Subject:
+    #   description: Een persoon of bedrijf
+    #   properties:
+    #     email:
+    #       description: e-mail adres
+    #       type: string
+    #       format: email
+    #     telefoonnummer:
+    #       description: telefoonnummer
+    #       type: string
     Fout:
       description: Een opgetreden fout
       properties:
