@@ -26,4 +26,4 @@ Bekijk de [ztc spec](http://petstore.swagger.io/?url=https://raw.githubuserconte
 
 In de DRC worden INFORMATIEOBJECTen voor ZAAKen vastgelegd.
 
-Spec: TODO
+Bekijk de [drc spec](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/drc/openapi.yaml)
