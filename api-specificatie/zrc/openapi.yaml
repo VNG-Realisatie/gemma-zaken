@@ -6,7 +6,7 @@ info:
   contact:
     url:  https://github.com/VNG-Realisatie/gemma-zaken
 paths:
-  '/api/v{version}/zaken':
+  /zaken:
     post:
       summary: Aanmaken nieuwe zaak
       operationId: zaak_create
@@ -39,13 +39,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-    parameters:
-      - name: version
-        in: path
-        required: true
-        schema:
-          type: string
-  '/api/v{version}/zaakinformatieobjecten':
+    parameters: []
+  /zaakinformatieobjecten:
     post:
       summary: Voeg een informatieobject toe aan de zaak
       operationId: zaakinformatieobject_create
@@ -74,14 +69,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-    parameters:
-      - name: version
-        in: path
-        required: true
-        schema:
-          type: string
+    parameters: []
 servers:
-  - url: /
+  - url: /api/v1
 components:
   schemas:
     Zaak:
