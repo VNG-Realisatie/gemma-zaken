@@ -27,8 +27,8 @@ VNG realisatie organiseert een schrijfster die zorgt voor voortgang tijdens de s
 
 ## Vorm
 
-Elke gemeente levert een use case om te realiseren in de samenwerking.
-Deze use cases worden omgezet in user stories. Op basis van een eerste analyse van de user stories wordt duidelijk welke API's voor de ZDS 2.0 gemaakt moeten worden. Alle user stories komen op een backlog welke gezamelijk wordt geprioriteerd. Daarbij wordt rekening gehouden met het toevoegen van zoveel mogelijk waarde bij zoveel mogelijk deelnemende partijen.
+Elke gemeente levert een aantal user stories om te realiseren in de samenwerking.
+Op basis van een eerste analyse van de user stories wordt duidelijk welke API's voor de ZDS 2.0 gemaakt moeten worden. Alle user stories komen op een backlog welke gezamelijk wordt geprioriteerd. Daarbij wordt rekening gehouden met het toevoegen van zoveel mogelijk waarde bij zoveel mogelijk deelnemende partijen.
 
 De meewerkende leveranciers van achterliggende Zaakregistratiecomponenten (ZRC) bepalen samen hoe een RESTful API er uit moet zien, en komen gezamenlijk met een voorstel voor de standaard ZDS 2.0, welke groeit gedurende de samenwerking.
 
