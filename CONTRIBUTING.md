@@ -6,7 +6,7 @@ We love issues and pull requests from everyone.
 
 ## Problems, suggestions and questions in Issues
 
-You don't need to change any of our code or documentation to be a contributor. Please help development by reporting problems, suggesting changes and asking questions. To do this, you can [create a GitHub Issue](https://help.github.com/articles/creating-an-issue/) for this project in the [GitHub Issues for NLX](https://github.com/VNG-Realisatie/gemma-zaken/issues).
+You don't need to change any of our code or documentation to be a contributor. Please help development by reporting problems, suggesting changes and asking questions. To do this, you can [create a GitHub Issue](https://help.github.com/articles/creating-an-issue/) for this project in the [GitHub Issues for VNG-Realisatie/gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken/issues).
 
 ## Documentation and code in Pull Requests
 
