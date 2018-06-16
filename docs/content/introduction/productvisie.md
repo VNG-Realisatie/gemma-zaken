@@ -84,7 +84,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
 
-- Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd
+- Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd. => Dus het eerste uitgangspunt is dat we de principes van common ground volgen! Ik zou dit dan ook als eerste noemen. Dan Gemma2, dan openstandaarden. 
 
 - Alle code, documenten en specificaties die ontstaan in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
@@ -138,9 +138,9 @@ In het ZDS Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De r
 
 ## Centraal aanbieden      
 
-Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers.
+Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers. => Dit principe dan ook opnemen bij de uitgangspunten?
 
-Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken.
+Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken. => wat is centraal en decentraal hier? Centraal landelijk voor alle gemeenten en decentraal het gebruik door 1 gemeente? Ik zou ergens benoemen wat je met centraal aanbieden bedoelt. In de volgende alinea interpreteer ik "centraal" weer anders, naemlijk voor 1 ZRC binnen een ketensamenwerking. 
 
 Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de hudige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
 - Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is hier mogelijk op korte termijn behoefte aan.
@@ -150,15 +150,15 @@ Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die
 
 Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
-Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk.
+Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk. => Dit is allemaal buiten de scope van dit scrumteam? Of is het beheer rondom de standaard ontwikkelde api's wel onderdeel? 
 
 
 ## Gerelateerde trajecten
 
 - Binnen het [Digitaal Stelsel Omgevingswet](https://www.omgevingswetportaal.nl/wet-en-regelgeving/dso) zijn wellicht kansen om Zaakgericht Werken zoals gemeenten dat kennen te introduceren op basis van de ZDS 2.0 API's. Momenteel wordt samenwerking daar voorzien door middel van een omgeving waar bestanden kunnen worden gedeeld.
 
-- De gemeenten Almere, Amsterdam, Haarlem, Heerenveen, Hoorn, Medemblik (en wellicht nog meer) zijn voornemens gezamelijk een Open Source Mijn Gemeente website te produceren. Daarbij is ZDS 2.0 wellicht een interessante aanvulling, hier liggen kansen om samen op te trekken.
+- De gemeenten Almere, Amsterdam, Haarlem, Heerenveen, Hoorn, Medemblik (en wellicht nog meer) zijn voornemens gezamelijk een Open Source Mijn Gemeente website te produceren. Daarbij is ZDS 2.0 wellicht een interessante aanvulling, hier liggen kansen om samen op te trekken. => Gemeente Buren heeft dit denk ik al gedaan. Zie presentatie 14/6 HSum van Holger Peters.
 
 - Dimpact en Atos stellen de Atos e-Suite in de context van Common Ground beschikbaar als platform voor proeven die innovatie en ontwikkeling stimuleren.
 
-- Het project Landelijke Online Diensten (LOD) heeft een landelijke dienst voor aangifte overlijden en aangifte verhuizing gerealiseerd. Voor de koppeling tussen deze dienst (de voorkant) en de verwerkende systemen in de gemeente (de achterkant) worden twee "productaanvragen" API's ontworpen en gerealiseerd.
+- Het project Landelijke Online Diensten (LOD) heeft een landelijke dienst voor aangifte overlijden en aangifte verhuizing gerealiseerd. Voor de koppeling tussen deze dienst (de voorkant) en de verwerkende systemen in de gemeente (de achterkant) worden twee "productaanvragen" API's ontworpen en gerealiseerd. => en digitale geboorteaangifte door gemeente Breda. Zouden deze niet ook blaadjes kunnen zijn aan dit scrumteam?
