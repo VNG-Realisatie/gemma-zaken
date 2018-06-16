@@ -82,9 +82,9 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - De [GEMMA 2 Architectuur](https://www.gemmaonline.nl/index.php/GEMMA_Architectuur) en de [GEMMA 2 standaarden](https://www.gemmaonline.nl/index.php/GEMMA_Gegevens-_en_berichtenarchitectuur) (voor zover van toepassing) worden gevolgd
 
-- Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
+- Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd.
 
-- Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd. => Dus het eerste uitgangspunt is dat we de principes van common ground volgen! Ik zou dit dan ook als eerste noemen. Dan Gemma2, dan openstandaarden. 
+- Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
 
 - Alle code, documenten en specificaties die ontstaan in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
 
@@ -94,6 +94,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - De principes volgend uit de [Common Ground visie](https://github.com/VNG-Realisatie/common-ground/blob/master/cg-vision.md) (EN) worden als volgt toegepast:
   - Goede scheiding zaakafhandeling en -registratie (ook conform GEMMA 2 met Zaakregistratiecomponent en Zaakafhandelcomponent)
+  - Er wordt bij het opstellen van de specificatie uitgegaan van een gegevenslandschap waarbij alle gegevens bij de bron kunnen worden geraadpleegd en geen lokale kopie wordt gemaakt. Om de transitie mogelijk te maken worden waar ndogi tijdelijke voorzieningen getroffen
   - Bij eventueel centraal aangeboden voorzieningen worden API's ontsloten via NLX
   - Grote informatiemodellen worden waar nuttig opgesplitst in kleinere informatiemodellen die hoog-frequent kunnen wijzigen
   - De modernste bewezen techniek wordt toegepast, en de toegepaste techniek verandert mee met de ontwikkelingen door de jaren heen. We gaan over in een toestand die kan worden aangeduid als "permanent beta".
@@ -138,19 +139,19 @@ In het ZDS Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De r
 
 ## Centraal aanbieden      
 
-Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers. => Dit principe dan ook opnemen bij de uitgangspunten?
+Het principe "raadplegen bij de bron" veronderstelt waar mogelijk een enkele bron die wordt bijgehouden door de verantwoordelijke en welke kan worden geraadpleegd door afnemers.
 
-Voorzien wordt dat centraal aanbieden van componenten naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken. => wat is centraal en decentraal hier? Centraal landelijk voor alle gemeenten en decentraal het gebruik door 1 gemeente? Ik zou ergens benoemen wat je met centraal aanbieden bedoelt. In de volgende alinea interpreteer ik "centraal" weer anders, naemlijk voor 1 ZRC binnen een ketensamenwerking. 
+Voorzien wordt dat vanuit een centraal punt aanbieden van componenten (SaaS) naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het volgordelijk nodig eerst de API specificatie uit te werken.
 
-Een centrale *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de hudige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
+Een centraal gepositioneerde *Zaakregistratiecomponent* (ZRC) en *Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht een welkome oplossing als alternatief van de huidige praktijk van ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
 - Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is hier mogelijk op korte termijn behoefte aan.
 - Ook binnen het Sociaal Domein heeft deze constructie potentie.
 
-Een centrale *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
+Een landelijke *Zaaktypecatalogus* (ZTC) kan dienen als repository van content die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig blijken af te wijken van de referentie. Ook hier geldt dat organisaties per proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt geraadpleegd - bijvoorbeeld voor interne processen een intern ZTC en voor ketenprocessen een centrale ZTC.
 
-Gestreefd wordt naar het centraal aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
+Gestreefd wordt naar het landelijk aanbieden van een ZTC. Deze kan bijv. dienen als repository, waar gemeenten zaaktypen 1 op 1 uit kunnen overnemen of deze voor eigen gebruik wijzigen waar nodig.
 
-Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk. => Dit is allemaal buiten de scope van dit scrumteam? Of is het beheer rondom de standaard ontwikkelde api's wel onderdeel? 
+Wanneer componenten centraal worden aangeboden is een *beheerorganisatie* noodzakelijk met een andere opdracht dan de beheerorganisatie die nu de standaarden beheert. Het valt daarom buiten de scope van het traject om te komen tot ZDS 2.0.
 
 
 ## Gerelateerde trajecten
