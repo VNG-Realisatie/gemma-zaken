@@ -26,7 +26,8 @@ Beoogde planning vor het realiseren van deze US is 15/7/2018.
 
 ## Architectuurschets
 
-TODO
+![Architectuurschets](./bestanden/amsterdam/Signalen_architectuur_globaal.png?raw=true "Signalen architectuur globaal")
+
 
 ## Beknopte Procesbeschrijving
 
