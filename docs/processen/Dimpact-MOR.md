@@ -28,7 +28,7 @@ Daarnaast blijken de user stories van Dimpact voor de MOR samen te vallen met ee
 ## Architectuurschets
 De architectuurschets geeft de nieuwe versie van Zaak- Documentservices 2.0 weer; deze bestaat in feite uit drie API specificaties, t.w. die voor Zaaktypen, Zaken en Documenten. Deze API's worden aangeboden (gerealiseerd) door resp. de componenten Zaaktypecatalogus (ZTC), Zaakregistratiecomponent (ZRC) en Documentregistratiecomponent (DRC). 
 
-![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/API's en componenten.png?raw=true)
+![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/apis-componenten.png?raw=true)
 
 De burger kan gebruik maken van een formulier om een melding te maken, maar ook van een specifieke app zoals BuitenBeter of Slim Melden. Deze apps sluiten op de ZRC aan net als de e-formulieren(voorziening).
 
@@ -45,7 +45,7 @@ Managers maken ook gebruik van het Medewerkerportaal o.a. om de werkvoorraad te 
 
 Deze procesbeschrijving overstijgt de user stories; deze kunnen a.h.w. geplaatst worden in het proces.
 
-![Bedrijfsproces i.r.t. API's](./bestanden/Dimpact/MOR proces.png?raw=true)
+![Bedrijfsproces i.r.t. API's](./bestanden/Dimpact/mor-proces.png?raw=true)
 
 
 
