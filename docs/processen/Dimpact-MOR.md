@@ -1,6 +1,6 @@
 # Dimpact - Melding Openbare Ruimte
 
-Work in progress.
+In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor de Melding Openbare Ruimte (MOR). Het gaat om de volgende user stories.
 
 ## User stories
 
@@ -20,7 +20,7 @@ Samenvallend met meldingen overlast op het water de volgende user stories:
 
 
 ## Toelichting user stories
-Het gaat hier om een aantal user stories voor Melding Openbare Ruimte. De meeste Dimpact-gemeenten maken gebruik van de Atos e-Suite voor de intake en behandeling van meldingen over de openbare ruimte. Daartoe hebben zij in de e-Suite een zaaktype ingericht dat bestaat uit een e-formulier met een zaakafhandelproces. De meldingen worden volledig zaakgericht afgehandeld en de burger kan de voortgang volgen via het Mijn Loket gedeelte van de e-Suite en/of hij krijgt e-mail over de voortgang van de melding. Medewerkers beoordelen de melding en zetten deze door naar behandelaars of naar een ketenpartner. Er zijn managementrapportages ingericht met JasperServer die bijv. inzicht geven in het aantal meldingen per categorie, het voldoen aan servicelevels, etc.
+Het gaat hier om een aantal user stories voor Melding Openbare Ruimte. De meeste Dimpact-gemeenten maken gebruik van de Atos e-Suite voor de intake en behandeling van meldingen over de openbare ruimte. Daartoe hebben zij in de e-Suite een e-dienst ingericht die bestaat uit een e-formulier met een zaakafhandelproces. De meldingen worden volledig zaakgericht afgehandeld en de burger kan de voortgang volgen via het Mijn Loket gedeelte van de e-Suite; bovendien kan hij e-mail notificaties over de voortgang van de melding. Medewerkers beoordelen de melding en zetten deze door naar behandelaars of naar een ketenpartner. Er zijn managementrapportages ingericht met JasperServer die bijv. inzicht geven in het aantal meldingen per categorie, het voldoen aan servicelevels, etc.
 
 Daarnaast blijken de user stories van Dimpact voor de MOR samen te vallen met een aantal user stories van Amsterdam voor melding van overlast op water. Deze zijn ook vermeld maar niet verwerkt in de analyse die hierna volgt.
 
@@ -38,15 +38,14 @@ Managers maken ook gebruik van het Medewerkerportaal o.a. om de werkvoorraad te 
 
 
 ## Beknopte Procesbeschrijving
-1. Het MOR-proces is een vrij eenvoudig proces dat start met een melding door de burger. 
-2. De medewerker krijgt de melding in zijn werkvoorraad en beoordeelt deze. Als de melding voldoende gegevens bevat voor behandeling (en valt onder verantwoordelijkheid van de gemeente), dan maakt de medewerker een zaak aan.
-3. De zaak wordt doorgezet naar een medewerker voor behandeling. Dit kan naar een interne afdeling zijn of naar een externe ketenpartner.
+1. Het MOR-proces is een vrij eenvoudig proces dat start met een melding door de burger. Burger vult een formulier in of gebruikt een app om een melding openbare ruimte te doen. Hij kan daarbij zien welke meldingen al gedaan zijn in het gebied waarin hij zich bevindt. Ook kan hij een bestaande melding aanklikken om deze te "liken" (bevestigen).
+2. De medewerker krijgt de melding in zijn werkvoorraad en beoordeelt deze. Ook de medewerker kan de melding op een kaartje zien samen met andere meldingen in hetzelfde gebied. Als de melding voldoende gegevens bevat voor behandeling (en valt onder verantwoordelijkheid van de gemeente), dan maakt de medewerker een zaak aan.
+3. De zaak wordt voor behandeling doorgezet naar een medewerker, afdeling of externe ketenpartner.
 4. Als de melding is afgehandeld krijgt de burger een terugmelding (bijv. via e-mail)
 
 Deze procesbeschrijving overstijgt de user stories; deze kunnen a.h.w. geplaatst worden in het proces.
 
 ![Bedrijfsproces i.r.t. API's](./bestanden/Dimpact/mor-proces.png?raw=true)
-
 
 
 ## Generieke architectuurschets (GEMMA-referentiecomponenten)
@@ -56,12 +55,12 @@ Architectuurschetsen zijn reeds in termen van GEMMA 2 referentiecomponenten.
 ## Benodigde APIs per user story
 
 | User story | API | Functionaliteit |
-|------------|-----|-----------------|
-| [User story #169](https://github.com/VNG-Realisatie/gemma-zaken/issues/169): Als burger wil ik een melding openbare ruimte kunnen doen zodat de gemeente deze kan behandelen. | DRC API | Het registreren van een melding (leidt tot een document/informatieobject) |
-| [User story #139](https://github.com/VNG-Realisatie/gemma-zaken/issues/139): Als medewerker wil ik weten waar welk type melding openbare ruimte (categorie) is gedaan zodat ik de melding kan doorzetten naar de juiste behandelaar of ketenpartner. | DRC API | Behandelaar aanpassen, status bijwerken |
+|:------------|:-----|:-----------------|
+| [User story #169](https://github.com/VNG-Realisatie/gemma-zaken/issues/169): Als burger wil ik een melding openbare ruimte kunnen doen zodat de gemeente deze kan behandelen. | DRC API, ZRC API | Ophalen meldingen in hetzelfde gebied, Het registreren van een melding (leidt tot een document/informatieobject) |
+| [User story #139](https://github.com/VNG-Realisatie/gemma-zaken/issues/139): Als medewerker wil ik weten waar welk type melding openbare ruimte (categorie) is gedaan zodat ik de melding kan doorzetten naar de juiste behandelaar of ketenpartner. | DRC API, ZRC API | Behandelaar aanpassen, status bijwerken, ophalen meldingen in hetzelfde gebied |
 | [User story #138](https://github.com/VNG-Realisatie/gemma-zaken/issues/138): Als gemeente wil ik een melding openbare ruimte over afval in het buitengebied automatisch laten routeren naar een ketenpartner op basis van de locatie en de categorie van de melding zodat ik een efficiëntere bedrijfsvoering verkrijg. | DRC API | Behandelaar aanpassen, status bijwerken | 
 | [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137): Als manager wil ik een rapportage kunnen maken van meldingen in de openbare ruimte zodat ik kan achterhalen hoe vaak welke categorie meldingen in welke straat, buurt of wijk voorkomen. | ZRC API, DRC API | Selecties ophalen van zaken en/of documenten op basis van criteria als zaaktype, categorie, locatie, trefwoorden |
-| [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan samenvoegen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner). | DRC API | Zoeken naar meldingen op basis van zaaktype, locatie, categorie, etc.  ||
+| [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan samenvoegen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner). | ZRC API, DRC API | Zoeken naar meldingen op basis van zaaktype, locatie, categorie, etc.  ||
 
 
 
