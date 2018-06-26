@@ -29,11 +29,11 @@ spec:
       - name: postgres
         image: mdillon/postgis
         env:
-        - name: POSTGRES_PASSWORD
-          value: <REDACTED>
+          - name: POSTGRES_PASSWORD
+            value: <REDACTED>
         volumeMounts:
-        - name: data
-          mountPath: "/var/lib/postgresql/data"
+          - name: data
+            mountPath: "/var/lib/postgresql/data"
 
 ---
 

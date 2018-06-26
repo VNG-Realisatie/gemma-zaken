@@ -1,0 +1,53 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: zrc
+  namespace: gemma
+  labels:
+    k8s-app: zrc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: zrc
+  template:
+    metadata:
+      name: zrc
+      labels:
+        k8s-app: zrc
+    spec:
+      containers:
+      - name: zrc
+        image: nlxio/gemma-zrc
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: zrc.conf.docker
+          - name: DATABASE_HOST
+            value: postgres-zrc
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DATABASE_PASSWORD
+            value: <REDACTED>
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: zrc
+  namespace: gemma
+  labels:
+    k8s-app: zrc
+spec:
+  selector:
+    k8s-app: zrc
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
