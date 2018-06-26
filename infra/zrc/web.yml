@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: zrc
-        image: nlxio/gemma-zrc
+        image: nlxio/gemma-zrc:0.1.1
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: zrc.conf.docker
