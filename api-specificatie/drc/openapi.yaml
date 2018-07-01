@@ -1,57 +1,194 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
-  title: Document management systeem API
+  title: Documentregistratiecomponent (drc) API
   description: Een API om een documentregistratiecomponent te benaderen
-  version: 0.0.1
   contact:
-    url:  https://github.com/VNG-Realisatie/gemma-zaken
+    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
+    email: support@maykinmedia.nl
+  license:
+    name: EUPL 1.2
+  version: '1'
+security:
+  - basic: []
 paths:
-  '/api/v{version}/informatieobjecten':
-    get:
-      operationId: informatieobject_list
-      description: Ophalen van informatieobjecten
+  /enkelvoudiginformatieobjecten:
+    post:
+      operationId: enkelvoudiginformatieobject_create
+      description: Registreer een EnkelvoudigInformatieObject.
       responses:
-        200:
+        '201':
           description: ''
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InformatieObject'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+      tags:
+        - enkelvoudiginformatieobjecten
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+        required: true
+    parameters: []
+  '/enkelvoudiginformatieobjecten/{id}':
+    get:
+      operationId: enkelvoudiginformatieobject_read
+      description: Geef de details van een EnkelvoudigInformatieObject.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+      tags:
+        - enkelvoudiginformatieobjecten
     parameters:
-      - name: version
+      - name: id
         in: path
+        description: A unique integer value identifying this informatieobject.
         required: true
         schema:
-          type: string
+          type: integer
+  /zaakinformatieobjecten:
+    post:
+      operationId: zaakinformatieobject_create
+      description: Registreer een INFORMATIEOBJECT bij een ZAAK.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakInformatieObject'
+      tags:
+        - zaakinformatieobjecten
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakInformatieObject'
+        required: true
+    parameters: []
+  '/zaakinformatieobjecten/{id}':
+    get:
+      operationId: zaakinformatieobject_read
+      description: Geef de details van een ZAAKINFORMATIEOBJECT relatie.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakInformatieObject'
+      tags:
+        - zaakinformatieobjecten
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this Zaakinformatieobject.
+        required: true
+        schema:
+          type: integer
 servers:
-  - url: /
+  - url: /api/v1
 components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
   schemas:
-    InformatieObject:
-      description: Een informatieobject (document, foto...)
+    EnkelvoudigInformatieObject:
       required:
-      - titel
-      - type
-      - mimetype
-      - inhoud
+        - identificatie
+        - creatiedatum
+        - titel
+        - auteur
+        - taal
+      type: object
       properties:
-        id:
-          description: ID van het informatieobject
+        url:
+          title: Url
           type: string
+          format: uri
+          readOnly: true
+        identificatie:
+          title: Identificatie
+          description: >-
+            Een binnen een gegeven context ondubbelzinnige referentie naar het
+            INFORMATIEOBJECT.
+          type: string
+          maxLength: 40
+          minLength: 1
+        bronorganisatie:
+          title: Bronorganisatie
+          description: >-
+            Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die
+            het informatieobject heeft gecreëerd of heeft ontvangen en als
+            eerste in een samenwerkingsketen heeft vastgelegd.
+          type: string
+          maxLength: 9
+        creatiedatum:
+          title: Creatiedatum
+          description: >-
+            Een datum of een gebeurtenis in de levenscyclus van het
+            INFORMATIEOBJECT.
+          type: string
+          format: date
         titel:
-          description: Titel van het informatieobject
+          title: Titel
+          description: De naam waaronder het INFORMATIEOBJECT formeel bekend is.
           type: string
-        status:
-          description: Status van het informatieobject
+          maxLength: 200
+          minLength: 1
+        auteur:
+          title: Auteur
+          description: >-
+            De persoon of organisatie die in de eerste plaats verantwoordelijk
+            is voor het creëren van de inhoud van het INFORMATIEOBJECT.
           type: string
-        type:
-          description: Type van het informatieobject
+          maxLength: 200
+          minLength: 1
+        formaat:
+          title: Formaat
+          description: >-
+            De code voor de wijze waarop de inhoud van het ENKELVOUDIG
+            INFORMATIEOBJECT is vastgelegd in een computerbestand.
           type: string
-        mimetype:
-          description: Minetype van het informatieobject
+          maxLength: 255
+        taal:
+          title: Taal
+          description: >-
+            Een taal van de intellectuele inhoud van het ENKELVOUDIG
+            INFORMATIEOBJECT
           type: string
+          maxLength: 20
+          minLength: 1
         inhoud:
-          description: Inhoud van het informatieobject (base64 encoded)
+          title: Inhoud
           type: string
+          readOnly: true
+          format: uri
+    ZaakInformatieObject:
+      required:
+        - zaak
+        - informatieobject
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          description: URL naar de ZAAK in het ZRC.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        informatieobject:
+          title: Informatieobject
+          type: string
+          format: uri
