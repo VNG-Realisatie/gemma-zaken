@@ -1,4 +1,4 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
   title: Zaak registratie API
   description: Een API om een zaakregistratiecomponent te kunnen benaderen
@@ -195,58 +195,6 @@ paths:
         required: true
         schema:
           type: integer
-  /zaakinformatieobjecten:
-    post:
-      operationId: zaakinformatieobject_create
-      description: Registreer een INFORMATIEOBJECT bij een ZAAK.
-      responses:
-        '201':
-          description: ZaakInformatieObject is succesvol aangemaakt.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ZaakInformatieObject'
-        '422':
-          description: Opgegeven zaakinformatieobject kan niet verwerkt worden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        default:
-          description: Onverwachte fout tijdens opvoeren informatieobject
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-      tags:
-        - zaakinformatieobjecten
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakInformatieObject'
-        required: true
-    parameters: []
-  '/zaakinformatieobjecten/{id}':
-    get:
-      operationId: zaakinformatieobject_read
-      description: Geef de details van een ZAAKINFORMATIEOBJECT relatie.
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ZaakInformatieObject'
-      tags:
-        - zaakinformatieobjecten
-    parameters:
-      - name: id
-        in: path
-        description: A unique integer value identifying this Zaakinformatieobject.
-        required: true
-        schema:
-          type: integer
   /zaakobjecten:
     post:
       operationId: zaakobject_create
@@ -348,6 +296,10 @@ paths:
 servers:
   - url: /api/v1
 components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
   schemas:
     OrganisatorischeEenheid:
       required:
@@ -526,30 +478,6 @@ components:
             status van een zaak.
           type: string
           maxLength: 1000
-    ZaakInformatieObject:
-      required:
-        - zaak
-        - informatieobject
-      description: Een aan een zaak gerelateerd informatieobject (document, foto end.)
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        zaak:
-          title: Zaak
-          description: URL naar de zaak horend bij dit ZAAKINFORMATIEOBJECT
-          type: string
-          format: uri
-        informatieobject:
-          title: Informatieobject
-          description: URL naar het INFORMATIEOBJECT in het DRC.
-          type: string
-          format: uri
-          maxLength: 200
-          minLength: 1
     ZaakObject:
       required:
         - zaak
