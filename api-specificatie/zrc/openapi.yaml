@@ -550,8 +550,8 @@ components:
           maxLength: 80
         zaakgeometrie:
           title: Zaakgeometrie
-          description: 'Punt, lijn of (multi-)vlak geometrie-informatie, in WKT formaat.'
-          type: string
+          description: 'Punt, lijn of (multi-)vlak geometrie-informatie, in GeoJSON.'
+          type: object
         objecten:
           title: OBJECTen
           description: Lijst met URL's naar aan de zaak gerelateerde objecten
