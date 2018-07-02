@@ -24,3 +24,7 @@ spec:
         backend:
           serviceName: zrc
           servicePort: 8000
+      - path: "/drc/"
+        backend:
+          serviceName: drc
+          servicePort: 8000
