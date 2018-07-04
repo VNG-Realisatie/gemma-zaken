@@ -1,0 +1,45 @@
+# Inspired by https://docs.docker.com/compose/django/
+
+# This is for development purposes ONLY. Do NOT run this in production with
+# the same SECRET_KEYs.
+
+version: '3.4'
+
+services:
+  # databases
+  zrc_db:
+    image: mdillon/postgis
+    volumes:
+      - zrc_postgres_data:/var/lib/postgresql/data
+
+  drc_db:
+    image: postgres
+    volumes:
+      - drc_postgres_data:/var/lib/postgresql/data
+
+  # web
+  zrc_web:
+    image: nlxio/gemma-zrc:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=zrc.conf.docker
+      - SECRET_KEY=c1zqz%y-s-$$63ca_abc8dmfjno#&pk!wy8k9f8c*4w@(whxy1n'
+      - DATABASE_HOST=zrc_db
+    ports:
+      - 8000:8000
+    depends_on:
+      - zrc_db
+
+  drc_web:
+    image: nlxio/gemma-drc:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=drc.conf.docker
+      - SECRET_KEY=h1kluf9r2yhcfr_i!fqb!srx=!u@!^b_gdl54=h0n15j34*+#=
+      - DATABASE_HOST=drc_db
+    ports:
+      - 9000:8000
+    depends_on:
+      - drc_db
+
+volumes:
+  zrc_postgres_data:
+  drc_postgres_data:
