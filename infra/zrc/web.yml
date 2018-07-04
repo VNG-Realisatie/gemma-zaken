@@ -32,6 +32,8 @@ spec:
             value: <REDACTED>
           - name: DATABASE_PASSWORD
             value: <REDACTED>
+          - name: SENTRY_DSN
+            value: <REDACTED>
 
 ---
 
