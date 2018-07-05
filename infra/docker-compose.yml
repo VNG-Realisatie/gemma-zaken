@@ -48,7 +48,7 @@ services:
   ztc_web:
     image: nlxio/gemma-ztc:latest
     environment:
-      - DJANGO_SETTINGS_MODULE=drc.conf.docker
+      - DJANGO_SETTINGS_MODULE=ztc.conf.docker
       - SECRET_KEY=)lwxn07vp1+ru=yf^n+v4l&ij24l3vhhitw9vk4=0ix14ibmfj
       - DATABASE_HOST=ztc_db
     ports:

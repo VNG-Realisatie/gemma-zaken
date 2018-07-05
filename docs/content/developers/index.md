@@ -1,0 +1,43 @@
+# Technische documentatie voor developers
+
+De standaard wordt opgebouwd op basis van drie componenten, elk met hun eigen
+OAS 3.0 definities. Het gaat dan om de zaakregistratiecomponent (ZRC),
+documentregistratiecomponent (DRC) en de zaaktypecatalogus (ZTC).
+
+De ontwikkeling van iedere component vindt plaats in een aparte git repository:
+
+* [ZRC](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
+* [DRC](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
+* [ZTC](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
+
+## Ontwikkelen van een applicatie die van deze componenten gebruik maakt
+
+Bij het ontwikkelen van vakapplicaties (ook wel afhandelapplicaties genoemd),
+kunnen deze referentie-implementaties ingezet worden als backend services.
+
+Alle componenten zijn als Docker containers beschikbaar.
+
+In `infra` staat een bruikbare `docker-compose.yml` docker-compose file.
+Hiervoor heb je nodig:
+
+* Docker
+* Docker-compose
+
+Voorbeeld gebruik:
+
+```bash
+cd infra
+docker-compose up -d
+```
+
+Je kan nu de componenten bereiken:
+
+* ZRC: http://localhost:8000
+* DRC: http://localhost:8001
+* ZTC: http://localhost:8002
+
+Om de services te stoppen, gebruik:
+
+```bash
+docker-compose down
+```
