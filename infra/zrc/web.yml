@@ -26,6 +26,8 @@ spec:
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: zrc.conf.docker
+          - name: SUBPATH
+            value: /zrc
           - name: DATABASE_HOST
             value: postgres-zrc
           - name: SECRET_KEY
