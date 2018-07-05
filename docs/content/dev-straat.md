@@ -36,6 +36,19 @@ Wijzigingen komen via feature branches in `develop` terecht. Releases worden
 getagged om ze te merken als een stable release, waarbij semantic versioning
 gebruikt wordt.
 
+**Generatie API-specificatie**
+
+Momenteel wordt de OAS 3.0 specificatie gegenereerd uit de
+referentie-implementatie, waarna deze via een pull request in gemma-zaken
+aangeboden wordt.
+
+De developer moet binnen de ontwikkelomgeving van de component
+`generate-schema` aanroepen (beschikbaar via de `gemma-zaken-common` libaries).
+
+Dit is essentieel, aangezien de unit-tests van de referentieimplementaties
+deze yaml file gebruiken om de juiste endpoints af te leiden voor een operatie
+op een resource.
+
 ### Ondersteunende tooling
 
 **Overige registratiecomponenten (ORC)**
