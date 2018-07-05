@@ -86,16 +86,16 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
 - Daar waar GEMMA 2 niets voorschrijft worden [Open Standaarden](https://www.forumstandaardisatie.nl/open-standaarden) gevolgd
 
-- Alle code, documenten en specificaties die ontstaan in dit traject wordt Open Source, gepubliceerd onder de EUPL licentie
+- Alle code, documenten en specificaties die ontstaan in dit traject wordt Open Source, gepubliceerd onder de [EUPL licentie](https://joinup.ec.europa.eu/collection/eupl/eupl-text-11-12)
 
-- RGBZ 2 en het daarvan afgeleide gegevensmodel UGM GBZ (GEMMA 2) zijn het startpunt voor de uitwerking van services. Wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. In eerste instantie betreft dat het UGM GBZ. Indien uit de user-storys blijkt dat 'de werkelijkheid' niet correct gemodelleerd is in het RGBZ, dan is aanpassing mogelijk. Met ingang van dit traject komen betrokken standaarden in een toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd en frequent nieuwe versies worden vastgesteld.
+- [RGBZ 2](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling) en het daarvan afgeleide gegevensmodel UGM GBZ (GEMMA 2) zijn het startpunt voor de uitwerking van services. Wanneer blijkt dat aanpassingen nodig zijn voor goede werking van de Zaak- en Documentservices dan is dit mogelijk. In eerste instantie betreft dat het UGM GBZ. Indien uit de user-storys blijkt dat 'de werkelijkheid' niet correct gemodelleerd is in het RGBZ, dan is aanpassing mogelijk. Met ingang van dit traject komen betrokken standaarden in een toestand, waarbij deze voortdurend op basis van behoefte en consensus worden gewijzigd en frequent nieuwe versies worden vastgesteld.
 
-- Voor de specificatie van API's wordt de onlangs door Forum Standaardisatie op de "Pas toe of leg uit"-lijst geplaatste OpenAPI Specification v3.x gebruikt.
+- Voor de specificatie van API's wordt de onlangs door Forum Standaardisatie op de ["Pas toe of leg uit"-lijst](https://www.forumstandaardisatie.nl/lijst-open-standaarden/in_lijst/verplicht-pas-toe-leg-uit) geplaatste [OpenAPI Specification v3.x](https://www.forumstandaardisatie.nl/standaard/openapi-specification) gebruikt.
 
 - De principes volgend uit de [Common Ground visie](https://github.com/VNG-Realisatie/common-ground/blob/master/cg-vision.md) (EN) worden als volgt toegepast:
   - Goede scheiding zaakafhandeling en -registratie (ook conform GEMMA 2 met Zaakregistratiecomponent en Zaakafhandelcomponent)
   - Er wordt bij het opstellen van de specificatie uitgegaan van een gegevenslandschap waarbij alle gegevens bij de bron kunnen worden geraadpleegd en geen lokale kopie wordt gemaakt. Om de transitie mogelijk te maken worden waar ndogi tijdelijke voorzieningen getroffen
-  - Bij eventueel centraal aangeboden voorzieningen worden API's ontsloten via NLX
+  - Bij eventueel centraal aangeboden voorzieningen worden API's ontsloten via [NLX](https://www.nlx.io/)
   - Grote informatiemodellen worden waar nuttig opgesplitst in kleinere informatiemodellen die hoog-frequent kunnen wijzigen
   - De modernste bewezen techniek wordt toegepast, en de toegepaste techniek verandert mee met de ontwikkelingen door de jaren heen. We gaan over in een toestand die kan worden aangeduid als "permanent beta".
 
