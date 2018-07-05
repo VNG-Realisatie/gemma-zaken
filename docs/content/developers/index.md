@@ -15,6 +15,8 @@ De ontwikkeling van iedere component vindt plaats in een aparte git repository:
 Bij het ontwikkelen van vakapplicaties (ook wel afhandelapplicaties genoemd),
 kunnen deze referentie-implementaties ingezet worden als backend services.
 
+### Services starten
+
 Alle componenten zijn als Docker containers beschikbaar.
 
 In `infra` staat een bruikbare `docker-compose.yml` docker-compose file.
@@ -41,3 +43,14 @@ Om de services te stoppen, gebruik:
 ```bash
 docker-compose down
 ```
+
+### Superuser aanmaken
+
+Je kan een superuser aanmaken voor elke service met:
+
+```bash
+docker-compose run (zrc_web|drc_web|ztc_web) python src/manage.py createsuperuser
+```
+
+Vervolgens kan je daarmee inloggen op http://localhost:800x/admin/ om testdata
+in te kunnen richten.
