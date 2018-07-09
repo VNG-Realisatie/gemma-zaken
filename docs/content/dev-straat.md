@@ -6,7 +6,9 @@ automatisch leiden tot het bijwerken van (test-)omgevingen.
 Verder vinden er automatische checks plaats die de correctheid van
 implementaties en netheid van code bewaken.
 
-TODO: architectuurplaatje
+**Architectuurschets**
+
+![DevOps pipeline](./bestanden/dev-straat.png)
 
 ## Github
 
