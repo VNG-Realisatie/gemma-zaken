@@ -8,9 +8,8 @@ Zie voor de referentie **[hier](<https://github.com/VNG-Realisatie/gemma-zaken/i
 
 ## 1.2	Toelichting op generieke userstory 
 
-Amsterdam wil de meldingen openbare ruimte (signalen) als zaak registreren en zaaksgewijs behandelen zodat alle betrokkenen vanuit eenzelfde informatie positie kunnen worden voorzien van informatie. 
-
-Het project in Amsterdam loopt parallel aan het ontwikkelen van de ZDS services en de Meldingen applicatie. Beoogde planning voor het realiseren van deze US is 25/7/2018.
+Amsterdam wil de meldingen openbare ruimte (signalen) als zaak registreren en zaaksgewijs behandelen zodat alle betrokkenen vanuit eenzelfde informatie positie kunnen worden voorzien van informatie.
+Voor het doen van meldingen is een website ontwikkeld waar meldingen kunnen worden gedaan, de website is onderdeel van het SIA platform waar niet alleen de meldingen worden ontvangen maar waar ook de coordinatie en het doorzetten van meldingen naar de behandelende afdelingen kan worden ondersteunt.
 
 ## 1.3	Beknopte Procesbeschrijving
 
@@ -30,14 +29,17 @@ Onderstaande figuur toont het proces waar deze user story deel van uitmaakt: Beh
 ## 1.4	Architectuurschets User Story
 
 Meldingen over de openbare ruimte worden afgehandeld door het SCA met ondersteuning van het SIA platform.  
-Meldingen kunnen een subcategorie bevatten die specifieke gegevens meegeeft aan het behandelingsproces. Voorbeeld hiervan is een melding overlast op het water waar specifieke gegevens over een rederij, bootnaam, nummer, type kunnen worden doorgegeven.
+Alle meldingen worden geregistreerd als zaak en worden gecategoriseerd naar zaak_type.
+Binnen de typen kunnen er subcategorieen worden gedefinieerd. Belangrijkste aanleiding hiervoor is de eventuele opsplitsing in de afhandeling door verschillende organisatieonderdelen.
+
+Meldingen kunnen een subcategorie bevatten die specifieke gegevens meegeeft aan het behandelingsproces. Voorbeeld hiervan is een melding overlast op het water waar specifieke gegevens over een rederij, bootnaam, nummer of boottype kunnen worden doorgegeven.
 Het koppelen van dergelijke informatie aan een zaak_object is nu niet helder uitgewerkt in de ZDS en RGBZ, in dit traject zullen we hier een mogelijke oplossing voor introduceren.
 
-Specifiek voor deze verwerking is het voor Amsterdam geitroduceerde SIA platform waarin meldingen worden verwerkt. Het SIA platform zorgt voor bestendiging, coördinatie en routering op de geregistreerde zaken. Primaire gerbuiker is het ASC (Actie Service Centrum) en eventueel afhandelende proceseigenaren van zaaktypen. 
+Voor het verwerken van meldingen is het SIA platform geïntroduceerd. Het SIA platform zorgt voor bestendiging, coördinatie en routering op de geregistreerde zaken. Primaire gerbuikers zijn het ASC (Actie Service Centrum) en de afhandelende proceseigenaren van meldingen.
 
-Routering naar de betreffende afhandelende partijen kan via directe systeem koppelingen naar een taak-applicatie maar kan ook middels een mail of andere messaging platformen gebeuren.
+Routering naar de betreffende afhandelende partijen kan via een systeemkoppelingen naar een taak-applicatie maar kan ook middels een mail of andere messaging platformen gebeuren.
 
-Terugkoppeling op de afhandeling van de meldingen en bijv. statusupdates worden gecoordineerd op het SIA platform en geregistreerd in het ZRC, koppeling van een Taaksysteem op het ZRC is mogelijk op basis van StUF zaken of RESTFull API interfaces (in ontwikkeling).
+Terugkoppeling op de afhandeling van de meldingen en bijv. statusupdates worden gecoordineerd op het SIA platform en geregistreerd in het ZRC waar alle meldingen als zaak zijn geregistreerd. Koppeling met het ZRC is mogelijk op basis van StUF zaken of RESTFull API interfaces (in ontwikkeling).
 
 Voor afhandeling door afdelingen zonder taak-applicatie is er een eenvoudige interface voor status updates in het SIA platform aanwezig.
 
@@ -77,14 +79,14 @@ Deze user story volgt 2 GEMMA patronen voor Zaakgericht werken zoals beschreven 
 Voor de realisatie van het SIA platform worden alle ZDS API’s gebruikt in logische volgorde worden de volgende API’s gebruikt:  
 #### 1.6.1.	ZTC API
 * Categoriseren van een melding OR, categorisering gebeurd in eerste instatie op basis van processing van de ingevoerde tekst en gegevens van de melding.  
-* Routering van de meldingen op basis van de informatie over zaak_type en proces_eigenaar.  
 * Anonieme terugkoppeling over verwachte afhendeltermijn door de proces_eigenaar.  
 
 #### 1.6.2.	ZRC API
 * Registratie van de meldingen als zaak.  
 * Bewaking van de behandelingstermijn van de melding.  
 * Registreren van status_updates door proces_eigenaar.  
-* Anonieme terugkoppeling over meldingen.  
+* Anonieme terugkoppeling over meldingen.
+* Routering van de meldingen op basis van de informatie over zaak_type en proces_eigenaar.  
 
 #### 1.6.3.	ZDC API
 De ZDC wordt vooralsnog niet gebruikt voor afhandelingen OR, bijgevoegde foto’s worden nu als object_data met een URL en zaak_ID opgeslagen binnen het SIA platform.   
