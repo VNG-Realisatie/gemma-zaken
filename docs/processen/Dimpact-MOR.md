@@ -6,15 +6,15 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 
 * [User story #169](https://github.com/VNG-Realisatie/gemma-zaken/issues/169): Als burger wil ik een melding openbare ruimte kunnen doen zodat de gemeente deze kan behandelen.
 * [User story #139](https://github.com/VNG-Realisatie/gemma-zaken/issues/139): Als medewerker wil ik weten waar welk type melding openbare ruimte (categorie) is gedaan zodat ik de melding kan doorzetten naar de juiste behandelaar of ketenpartner.
-* [User story #138](https://github.com/VNG-Realisatie/gemma-zaken/issues/138): Als gemeente wil ik een melding openbare ruimte over afval in het buitengebied automatisch laten routeren naar een ketenpartner op basis van de locatie en de categorie van de melding zodat ik een efficiëntere bedrijfsvoering verkrijg.
+* [User story #138](https://github.com/VNG-Realisatie/gemma-zaken/issues/138): Als gemeente wil ik een melding openbare ruimte over afval in het buitengebied automatisch laten routeren naar een afdeling of ketenpartner op basis van de locatie en de categorie van de melding zodat ik een efficiëntere bedrijfsvoering verkrijg.
 * [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137): Als manager wil ik een rapportage kunnen maken van meldingen in de openbare ruimte zodat ik kan achterhalen hoe vaak welke categorie meldingen in welke straat, buurt of wijk voorkomen.
-* [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan samenvoegen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner).
+* [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan afhandelen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner).
 
 
 Samenvallend met meldingen overlast op het water de volgende user stories:
 * [User story #52](https://github.com/VNG-Realisatie/gemma-zaken/issues/52): Als behandelaar wil ik locatie- en/of objectinformatie bij de melding ontvangen zodat ik voldoende details weet om de melding op te volgen.
 * [User story #51](https://github.com/VNG-Realisatie/gemma-zaken/issues/51): Als behandelaar wil de status van de zaak / melding kunnen aanpassen zodat de actuele status voor de betrokkenen inzichtelijk is.
-* [User story #45](https://github.com/VNG-Realisatie/gemma-zaken/issues/45): Als KCC medewerker wil ik een behandelaar kunnen toewijzen zodat er voortgang in de melding komt.
+* [User story #45](https://github.com/VNG-Realisatie/gemma-zaken/issues/45): Als KCC medewerker wil ik een behandelaar kunnen toewijzen zodat de melding kan worden gerouteerd.
 * [User story #42](https://github.com/VNG-Realisatie/gemma-zaken/issues/42): Als burger wil ik alle meldingen kunnen inzien in mijn omgeving, binnen mijn gemeente zodat ik weet wat er speelt of dat een melding al gedaan is.
 * [User story #40](https://github.com/VNG-Realisatie/gemma-zaken/issues/40): Als burger wil ik weten wat de gemeente met mijn melding gaat doen zodat ik weet of mijn melding naar wens wordt opgepakt.
 
@@ -49,7 +49,7 @@ Deze procesbeschrijving overstijgt de user stories; deze kunnen a.h.w. geplaatst
 
 
 ## Generieke architectuurschets (GEMMA-referentiecomponenten)
-Architectuurschetsen zijn reeds in termen van GEMMA 2 referentiecomponenten.
+De architectuurschets van het proces is reeds in termen van GEMMA 2 referentiecomponenten.
 
 
 ## Benodigde APIs per user story
