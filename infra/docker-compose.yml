@@ -40,6 +40,8 @@ services:
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
       - SECRET_KEY=h1kluf9r2yhcfr_i!fqb!srx=!u@!^b_gdl54=h0n15j34*+#=
       - DATABASE_HOST=drc_db
+    volumes:
+      - drc_media:/app/media
     ports:
       - 8001:8000
     depends_on:
@@ -59,4 +61,5 @@ services:
 volumes:
   zrc_postgres_data:
   drc_postgres_data:
+  drc_media:
   ztc_postgres_data:
