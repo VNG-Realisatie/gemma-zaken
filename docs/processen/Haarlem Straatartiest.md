@@ -11,14 +11,28 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 * [Userstory #161](https://github.com/VNG-Realisatie/gemma-zaken/issues/161): Als gemeente wil ik de aanvraag van een straatoptreden kunnen afronden zodat het dossier en status afgesloten kan worden
 
 ## Toelichting user stories
-Het betreft een proces voor de frontoffice medewerker ter ondersteuning bij de aanvraag van een ontheffing voor straatartiesten. In het formulier worden bepaalde gegevens van de straatartiest gevraagd waarbij automatisch een kwartaal of jaar ontheffing wordt gegenereerd. De ..
+Het betreft een proces voor de frontoffice medewerker ter ondersteuning bij de aanvraag van een ontheffing voor straatartiesten. In het formulier worden bepaalde gegevens van de straatartiest gevraagd waarbij automatisch een kwartaal of jaar ontheffing wordt gegenereerd. Dit is geen website formulier maar een formulier die de baliemedewer invult. Bij de ontwikkeling van dit proces gebruiken wij de 'vijflagen' architectuur, scheiden van data logica en interactie. Voor BPMn en DMN gebruiken wij Camunda.
 
 ## Architectuurschets
+(Eelco toevoegen)
+
 
 ## Beknopte Procesbeschrijving
+Onderstaande zijn schermweergaven van het ontwikkelde BPMn proces.
+
+### Hoofdproces Straatartiest
+![Hoofdproces Straatartiest](./bestanden/Haarlem/aanvragen_ontheffing_straatoptreden.bpmn20.png?raw=true)
+
+### Subproces gegevens ophalen ZRC Straatartiest
+![Hoofdproces Straatartiest](./bestanden/Haarlem/gegevens_ophalen_zaakmagazijn.bpmn20.png?raw=true)
+
+### Subproces verstrekken ontheffing Straatartiest
+![Hoofdproces Straatartiest](./bestanden/Haarlem/verstrekken_ontheffingen.bpmn20.png?raw=true)
+
 
 ## Generieke architectuurschets (GEMMA-referentiecomponenten)
 Architectuurschetsen zijn reeds in termen van GEMMA 2 referentiecomponenten.
+
 
 ## Benodigde APIs per user story
 
