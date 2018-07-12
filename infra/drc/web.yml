@@ -1,0 +1,57 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: drc
+  namespace: gemma
+  labels:
+    k8s-app: drc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: drc
+  template:
+    metadata:
+      name: drc
+      labels:
+        k8s-app: drc
+    spec:
+      containers:
+      - name: drc
+        image: nlxio/gemma-drc:0.1.1
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: drc.conf.docker
+          - name: SUBPATH
+            value: /drc
+          - name: DATABASE_HOST
+            value: postgres-drc
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DATABASE_PASSWORD
+            value: <REDACTED>
+          - name: SENTRY_DSN
+            value: <REDACTED>
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: drc
+  namespace: gemma
+  labels:
+    k8s-app: drc
+spec:
+  selector:
+    k8s-app: drc
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

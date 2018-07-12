@@ -147,4 +147,6 @@ via Kubernetes en is (voor nu) een handmatige actie.
 
 ## Docker-compose
 
-TODO: na het mergen van https://github.com/VNG-Realisatie/gemma-zaken/pull/186
+Er is een `docker-compose` file beschikbaar om de volledige
+referentie-implementatie stack op te brengen. Zie de
+[developer documentatie](./developers/index.md)

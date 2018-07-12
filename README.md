@@ -18,6 +18,7 @@ De volgende documenten beschrijven dit project:
 - De [FAQ](./docs/content/introduction/faq.md) beantwoordt vragen over het project
 - De [dev-straat](./docs/content/dev-straat.md) beschrijft de development
   inrichting en tooling
+- [Technische documentatie](./docs/content/developers/index.md) voor developers
 
 ## Rollen
 
