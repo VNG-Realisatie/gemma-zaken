@@ -1,4 +1,11 @@
-# Veelgestelde vragen
+---
+title: "Veelgestelde vragen"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "introduction"
+---
 
 ## Inhoud
 

@@ -1,4 +1,11 @@
-# ZAKEN Productvisie ZDS 2.0
+---
+title: "ZAKEN Productvisie ZDS 2.0"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "introduction"
+---
 
 ## Inhoud
 * [Introductie](#introductie)
