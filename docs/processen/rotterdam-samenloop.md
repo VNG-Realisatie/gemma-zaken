@@ -3,7 +3,7 @@
 In dit hoofdstuk wordt een globale architectuurschets gegeven voor de User Stories in het kader van Samenloopdetectie. Het gaat om de volgende User Stories.
 User stories
 
-•	[User Story #64]: Als gemeentemedewerker wil ik een lijst opvragen met aangevraagde en toegekende vergunningen die betrekking hebben op BGT-objecten binnen de wijk (postcodegebied) waarin ik nu loop
+* [User story #64](https://github.com/VNG-Realisatie/gemma-zaken/issues/64): Als gemeentemedewerker wil ik een lijst opvragen met aangevraagde en toegekende vergunningen die betrekking hebben op BGT-objecten binnen de wijk (postcodegebied) waarin ik nu loop
 •	User Story #65: als gemeentemedewerker wil ik inzage in alle zaken die betrekking hebben op de persoon/aanvrager behorend bij een zaak die ik in behandeling heb 
 
 ## Toelichting user stories
