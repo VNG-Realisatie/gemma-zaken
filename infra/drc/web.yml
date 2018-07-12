@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: drc
-        image: nlxio/gemma-drc:0.1.1
+        image: nlxio/gemma-drc:0.1.9
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
@@ -36,6 +36,9 @@ spec:
             value: <REDACTED>
           - name: SENTRY_DSN
             value: <REDACTED>
+        volumeMounts:
+          - name: media
+            mountPath: "/app/media"
 
 ---
 
