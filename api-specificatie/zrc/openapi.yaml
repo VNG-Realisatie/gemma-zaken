@@ -1,12 +1,13 @@
 openapi: 3.0.0
 info:
-  title: Zaak registratie API
-  description: Een API om een zaakregistratiecomponent te kunnen benaderen
+  title: Zaakregistratiecomponent (ZRC) API
+  description: Een API om een zaakregistratiecomponent te benaderen
   contact:
-    url:  https://github.com/VNG-Realisatie/gemma-zaken
+    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
+    email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
-  version: 1.0.0
+  version: '1'
 security:
   - basic: []
 paths:
@@ -27,46 +28,6 @@ paths:
       - name: id
         in: path
         description: A unique integer value identifying this Organisatorische eenheid.
-        required: true
-        schema:
-          type: integer
-  /domeindata:
-    post:
-      operationId: domeindata_create
-      description: Registreer DOMEINDATA bij een zaak.
-      responses:
-        '201':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DomeinData'
-      tags:
-        - domeindata
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DomeinData'
-        required: true
-    parameters: []
-  '/domeindata/{id}':
-    get:
-      operationId: domeindata_read
-      description: Geef de details van DOMEINDATA voor een ZAAK.
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DomeinData'
-      tags:
-        - domeindata
-    parameters:
-      - name: id
-        in: path
-        description: A unique integer value identifying this domeindatareferentie.
         required: true
         schema:
           type: integer
@@ -237,7 +198,6 @@ paths:
           type: integer
   /zaken:
     post:
-      summary: Aanmaken nieuwe zaak
       operationId: zaak_create
       description: >-
         Maak een ZAAK aan.
@@ -247,23 +207,11 @@ paths:
         gegenereerd.
       responses:
         '201':
-          description: "Representatie van aangemaakte ZAAK"
+          description: ''
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Zaak'
-        '422':
-          description: Opgegeven zaak informatie kan niet verwerkt worden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        default:
-          description: Onverwachte fout tijdens opvoeren zaak
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
       tags:
         - zaken
       requestBody:
@@ -293,6 +241,70 @@ paths:
         required: true
         schema:
           type: integer
+  '/zaken/{zaak_pk}/zaakeigenschappen':
+    get:
+      operationId: zaakeigenschap_list
+      description: Geef een collectie van eigenschappen behorend bij een ZAAK.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZaakEigenschap'
+      tags:
+        - zaken
+    post:
+      operationId: zaakeigenschap_create
+      description: Registreer een eigenschap van een ZAAK.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakEigenschap'
+      tags:
+        - zaken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakEigenschap'
+        required: true
+    parameters:
+      - name: zaak_pk
+        in: path
+        required: true
+        schema:
+          type: string
+  '/zaken/{zaak_pk}/zaakeigenschappen/{id}':
+    get:
+      operationId: zaakeigenschap_read
+      description: Geef de details van ZaakEigenschap voor een ZAAK.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakEigenschap'
+      tags:
+        - zaken
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this zaakeigenschap.
+        required: true
+        schema:
+          type: integer
+      - name: zaak_pk
+        in: path
+        required: true
+        schema:
+          type: string
 servers:
   - url: /api/v1
 components:
@@ -338,28 +350,6 @@ components:
           description: De feitelijke naam van de organisatorische eenheid.
           type: string
           maxLength: 50
-          minLength: 1
-    DomeinData:
-      required:
-        - zaak
-        - domeinData
-      type: object
-      properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        zaak:
-          title: Zaak
-          type: string
-          format: uri
-        domeinData:
-          title: Domein data
-          description: URL naar de domein data resource
-          type: string
-          format: uri
-          maxLength: 200
           minLength: 1
     KlantContact:
       required:
@@ -506,7 +496,6 @@ components:
           type: string
           maxLength: 80
     Zaak:
-      description: Een ZAAK
       required:
         - zaaktype
         - registratiedatum
@@ -543,46 +532,40 @@ components:
           description: Een toelichting op de zaak.
           type: string
           maxLength: 1000
-        omschrijving:
-          title: Omschrijving
-          description: Een korte omschrijving van de zaak.
-          type: string
-          maxLength: 80
         zaakgeometrie:
           title: Zaakgeometrie
           description: 'Punt, lijn of (multi-)vlak geometrie-informatie, in GeoJSON.'
           type: object
-        objecten:
-          title: OBJECTen
-          description: Lijst met URL's naar aan de zaak gerelateerde objecten
-          type: array
-          items:
-            type: string
         status:
           title: Status
           description: 'Indien geen status bekend is, dan is de waarde ''null'''
           type: string
           format: uri
           readOnly: true
-    Fout:
-      description: Een opgetreden fout
+    ZaakEigenschap:
+      required:
+        - zaak
+        - eigenschap
+        - waarde
+      type: object
       properties:
-        title:
-          description: Wat er is misgegaan
+        url:
+          title: Url
           type: string
-        status:
-          description: HTTP Response code
-          type: integer
-        detail:
-          description: Meer details over de fout
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
           type: string
-        invalid-params:
-          description: Lijst met fouten in invoer parameters
-          type: object
-          properties:
-            name:
-              description: Naam van de parameter met invalide inhoud
-              type: string
-            reason:
-              description: Wat er mis is met de inhoud van de parameter
-              type: string
+          format: uri
+        eigenschap:
+          title: Eigenschap
+          description: URL naar de eigenschap in het ZTC
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        waarde:
+          title: Waarde
+          type: string
+          minLength: 1
