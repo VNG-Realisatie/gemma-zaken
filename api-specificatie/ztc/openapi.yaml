@@ -1,106 +1,363 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
-  title: Zaaktype catalogus API
-  description: Een API om een zaaktypecataloguscomponent te benaderen
-  version: 1.0.0
+  title: Zaaktypecatalogus (ZTC) API documentatie
+  description: >-
+    Introductie
+
+    -----------
+
+
+    De GEMMA Zaaktypecatalogus 2 (ZTC2, ofwel de 2e generatie zaaktypecatalogus)
+
+    helpt gemeenten om het proces vanuit de 'vraag van een klant'
+    (productaanvraag,
+
+    melding, aangifte, informatieverzoek e.d.) tot en met het leveren van een
+
+    passend antwoord daarop in te richten, inclusief de bijbehorende
+
+    informatievoorziening. Opslag van gegevens gebeurt conform het
+
+    [Informatiemodel Zaaktypen/Zaaktypecatalogus][1] (ImZTC, versie 2.1).
+
+
+    De catalogi worden middels een RESTful API ontsloten. Hierbij is zeer sterk
+
+    gekeken naar het [Digitaal Stelsel Omgevingswet][2] (DSO) voor de API- en
+    URI
+
+    strategie, en [StUF-ZTC][3] om zo goed mogelijk aan te sluiten op de
+    services
+
+    zoals deze zijn gedefinieerd in SOAP.
+
+
+    [1]: http://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC)
+
+    [2]:
+    https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/
+
+    [3]:
+    https://www.gemmaonline.nl/index.php/Sectormodel_Zaaktypen(-catalogus):_StUF%E2%80%93ZTC
+
+
+
+    Waarschuwing
+
+    ------------
+
+
+    Hoewel op dit moment versie 1 van de API beschikbaar is, kunnen er breaking
+
+    changes voorkomen zolang de Zaaktypecatalogus nog niet versie 1.0.0 heeft
+
+    bereikt.
   contact:
-    url:  https://github.com/VNG-Realisatie/gemma-zaken
+    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
+    email: support@maykinmedia.nl
+  license:
+    name: EUPL 1.2
+  version: '1'
+security:
+  - OAuth2: []
+    Bearer: []
 paths:
-  'api/v{version}/zaaktypes/{zaaktype-id}':
+  /catalogussen:
     get:
-      summary: Ophalen van een zaaktype via het id
-      operationId: ophalenZaaktype
-      parameters:
-        - name: zaaktype-id
-          in: path
-          required: true
-          schema:
-            type: string
+      operationId: catalogus_list
+      description: Een verzameling van CATALOGUSsen.
       responses:
-        200:
-          description: Zaaktype
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Zaaktype'
-        default:
-          description: Onverwachte fout
+                type: array
+                items:
+                  $ref: '#/components/schemas/Catalogus'
+      tags:
+        - catalogussen
+    parameters: []
+  '/catalogussen/{catalogus_pk}/zaaktypen':
+    get:
+      operationId: zaaktype_list
+      description: Een verzameling van ZAAKTYPEn.
+      responses:
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZaakType'
+      tags:
+        - catalogussen
     parameters:
-      - name: version
+      - name: catalogus_pk
         in: path
         required: true
         schema:
           type: string
-  'api/v{version}/zaaktypes/{zaaktype-id}/statussen/{status-id}':
+  '/catalogussen/{catalogus_pk}/zaaktypen/{id}':
     get:
-      summary: Ophalen van een zaak status via het zaaktype id en status id
-      operationId: ophalenZaakstatus
-      parameters:
-        - name: zaaktype-id
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: status-id
-          in: path
-          required: true
-          schema:
-            type: string
+      operationId: zaaktype_read
+      description: >-
+        Het geheel van karakteristieke eigenschappen van zaken van eenzelfde
+        soort.
       responses:
-        200:
-          description: Zaak status
+        '200':
+          description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Zaakstatus'
-        default:
-          description: Onverwachte fout
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: '#/components/schemas/ZaakType'
+      tags:
+        - catalogussen
     parameters:
-      - name: version
+      - name: catalogus_pk
         in: path
         required: true
         schema:
           type: string
+      - name: id
+        in: path
+        description: A unique integer value identifying this Zaaktype.
+        required: true
+        schema:
+          type: integer
+  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/statustypen':
+    get:
+      operationId: statustype_list
+      description: Een verzameling van STATUSTYPEn.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StatusType'
+      tags:
+        - catalogussen
+    parameters:
+      - name: zaaktype_pk
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: catalogus_pk
+        in: path
+        required: true
+        schema:
+          type: string
+  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/statustypen/{id}':
+    get:
+      operationId: statustype_read
+      description: Generieke aanduiding van de aard van een status.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusType'
+      tags:
+        - catalogussen
+    parameters:
+      - name: zaaktype_pk
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: catalogus_pk
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: A unique integer value identifying this Statustype.
+        required: true
+        schema:
+          type: integer
+  '/catalogussen/{id}':
+    get:
+      operationId: catalogus_read
+      description: >-
+        De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen -
+        voor een Domein die als één geheel beheerd
+
+        wordt.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogus'
+      tags:
+        - catalogussen
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this catalogus.
+        required: true
+        schema:
+          type: integer
 servers:
-  - url: /
+  - url: /api/v1
 components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /oauth2/token/
+          scopes:
+            write: Schrijftoegang tot de catalogus en gerelateerde objecten.
+            read: Leestoegang tot de catalogus en gerelateerde objecten.
+    Bearer:
+      type: apiKey
+      name: Authorization
+      in: header
   schemas:
-    Zaaktype:
-      description: Een zaaktype
+    Catalogus:
+      required:
+        - domein
+        - rsin
+        - contactpersoonBeheerNaam
+      type: object
       properties:
-        id:
-          description: ID van het zaaktype
+        url:
+          title: Url
           type: string
-        naam:
-          description: Naam van het zaaktype
+          format: uri
+          readOnly: true
+        domein:
+          title: Domein
+          description: >-
+            Een afkorting waarmee wordt aangegeven voor welk domein in een
+            CATALOGUS ZAAKTYPEn zijn uitgewerkt.
           type: string
-        omschrijving:
-          description: Omschrijving van het zaaktype
+          maxLength: 5
+        rsin:
+          title: Rsin
+          description: >-
+            Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+            NIET-NATUURLIJK PERSOON die de eigenaar is van een CATALOGUS.
           type: string
-        statussen:
-          description: Lijst met URL's van alle mogelijke statussen behorende bij het zaaktype
+          maxLength: 9
+        contactpersoonBeheerNaam:
+          title: Naam
+          description: >-
+            De naam van de contactpersoon die verantwoordelijk is voor het
+            beheer van de CATALOGUS.
+          type: string
+          maxLength: 40
+        contactpersoonBeheerTelefoonnummer:
+          title: Telefoonnummer
+          description: >-
+            Het telefoonnummer van de contactpersoon die verantwoordelijk is
+            voor het beheer van de CATALOGUS.
+          type: string
+          maxLength: 20
+        contactpersoonBeheerEmailadres:
+          title: Emailadres
+          description: >-
+            Het emailadres van de contactpersoon die verantwoordelijk is voor
+            het beheer van de CATALOGUS.
+          type: string
+          format: email
+          maxLength: 254
+        zaaktypen:
+          title: Zaaktypen
           type: array
           items:
             type: string
-    Zaakstatus:
-      description: Status van een zaak
+            format: uri
+          readOnly: true
+          uniqueItems: true
+    ZaakType:
+      required:
+        - identificatie
+        - omschrijving
+        - maaktDeelUitVan
+      type: object
       properties:
-        id:
-          description: ID naar de status
+        url:
+          title: Url
           type: string
-        naam:
-          description: Naam van de status
-          type: string
+          format: uri
+          readOnly: true
+        identificatie:
+          title: Identificatie
+          description: >-
+            Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het
+            ZAAKTYPE voorkomt.
+          type: integer
+          maximum: 99999
+          minimum: 0
         omschrijving:
-          description: Omschrijving van de status
+          title: Omschrijving
+          description: Omschrijving van de aard van ZAAKen van het ZAAKTYPE.
           type: string
-    Fout:
-      description: Een opgetreden fout
+          maxLength: 80
+        omschrijvingGeneriek:
+          title: Omschrijving generiek
+          description: >-
+            Algemeen gehanteerde omschrijving van de aard van ZAAKen van het
+            ZAAKTYPE
+          type: string
+          maxLength: 80
+        maaktDeelUitVan:
+          title: Maakt deel uit van
+          description: De CATALOGUS waartoe dit ZAAKTYPE behoort.
+          type: string
+          format: uri
+        statustypen:
+          title: Statustypen
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
+    StatusType:
+      required:
+        - omschrijving
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        omschrijving:
+          title: Omschrijving
+          description: >-
+            Een korte, voor de initiator van de zaak relevante, omschrijving van
+            de aard van de STATUS van zaken van een ZAAKTYPE.
+          type: string
+          maxLength: 80
+        omschrijvingGeneriek:
+          title: Omschrijving generiek
+          description: >-
+            Algemeen gehanteerde omschrijving van de aard van STATUSsen van het
+            STATUSTYPE
+          type: string
+          maxLength: 80
+        statustekst:
+          title: Statustekst
+          description: >-
+            De tekst die wordt gebruikt om de Initiator te informeren over het
+            bereiken van een STATUS van dit STATUSTYPE bij het desbetreffende
+            ZAAKTYPE.
+          type: string
+          maxLength: 1000
+        isVan:
+          title: Is van
+          type: string
+          format: uri
+          readOnly: true

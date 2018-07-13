@@ -1,11 +1,240 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
   title: Zaak registratie API
   description: Een API om een zaakregistratiecomponent te kunnen benaderen
-  version: 1.0.0
   contact:
     url:  https://github.com/VNG-Realisatie/gemma-zaken
+  license:
+    name: EUPL 1.2
+  version: 1.0.0
+security:
+  - basic: []
 paths:
+  '/betrokkenen/{id}':
+    get:
+      operationId: organisatorischeeenheid_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganisatorischeEenheid'
+      tags:
+        - betrokkenen
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this Organisatorische eenheid.
+        required: true
+        schema:
+          type: integer
+  /domeindata:
+    post:
+      operationId: domeindata_create
+      description: Registreer DOMEINDATA bij een zaak.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomeinData'
+      tags:
+        - domeindata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DomeinData'
+        required: true
+    parameters: []
+  '/domeindata/{id}':
+    get:
+      operationId: domeindata_read
+      description: Geef de details van DOMEINDATA voor een ZAAK.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomeinData'
+      tags:
+        - domeindata
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this domeindatareferentie.
+        required: true
+        schema:
+          type: integer
+  /klantcontacten:
+    post:
+      operationId: klantcontact_create
+      description: >-
+        Registreer een klantcontact bij een ZAAK.
+
+
+        Indien geen identificatie gegeven is, dan wordt deze automatisch
+        gegenereerd.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KlantContact'
+      tags:
+        - klantcontacten
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContact'
+        required: true
+    parameters: []
+  '/klantcontacten/{id}':
+    get:
+      operationId: klantcontact_read
+      description: Geef de details van een klantcontact voor een ZAAK.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KlantContact'
+      tags:
+        - klantcontacten
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this klantcontact.
+        required: true
+        schema:
+          type: integer
+  /rollen:
+    post:
+      operationId: rol_create
+      description: Koppel een BETROKKENE aan een ZAAK.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rol'
+      tags:
+        - rollen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
+    parameters: []
+  '/rollen/{id}':
+    get:
+      operationId: rol_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rol'
+      tags:
+        - rollen
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this Rol.
+        required: true
+        schema:
+          type: integer
+  /statussen:
+    post:
+      operationId: status_create
+      description: ''
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      tags:
+        - statussen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Status'
+        required: true
+    parameters: []
+  '/statussen/{id}':
+    get:
+      operationId: status_read
+      description: ''
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Status'
+      tags:
+        - statussen
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this status.
+        required: true
+        schema:
+          type: integer
+  /zaakobjecten:
+    post:
+      operationId: zaakobject_create
+      description: Registreer een ZAAKOBJECT relatie.
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakObject'
+      tags:
+        - zaakobjecten
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakObject'
+        required: true
+    parameters: []
+  '/zaakobjecten/{id}':
+    get:
+      operationId: zaakobject_read
+      description: Geef de details van een ZAAKOBJECT relatie.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakObject'
+      tags:
+        - zaakobjecten
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this zaakobject.
+        required: true
+        schema:
+          type: integer
   /zaken:
     post:
       summary: Aanmaken nieuwe zaak
@@ -13,21 +242,17 @@ paths:
       description: >-
         Maak een ZAAK aan.
 
+
         Indien geen zaakidentificatie gegeven is, dan wordt deze automatisch
         gegenereerd.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Zaak'
       responses:
-        201:
+        '201':
           description: "Representatie van aangemaakte ZAAK"
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Zaak'
-        422:
+        '422':
           description: Opgegeven zaak informatie kan niet verwerkt worden
           content:
             application/json:
@@ -39,45 +264,252 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Fout'
-    parameters: []
-  /zaakinformatieobjecten:
-    post:
-      summary: Voeg een informatieobject toe aan de zaak
-      operationId: zaakinformatieobject_create
-      description: Voeg een informatieobject toe aan een zaak
+      tags:
+        - zaken
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ZaakInformatieObject'
-      responses:
-        201:
-          description: ZaakInformatieObject is succesvol aangemaakt.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schema/ZaakInformatieObject'
-        422:
-          description: Opgegeven zaakinformatieobject kan niet verwerkt worden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        default:
-          description: Onverwachte fout tijdens opvoeren informatieobject
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Fout'
+              $ref: '#/components/schemas/Zaak'
+        required: true
     parameters: []
+  '/zaken/{id}':
+    get:
+      operationId: zaak_read
+      description: Opvragen en bewerken van ZAAKen.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
+      tags:
+        - zaken
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this zaak.
+        required: true
+        schema:
+          type: integer
 servers:
   - url: /api/v1
 components:
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
   schemas:
+    OrganisatorischeEenheid:
+      required:
+        - organisatieEenheidIdentificatie
+        - organisatieIdentificatie
+        - datumOntstaan
+        - naam
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        organisatieEenheidIdentificatie:
+          title: Organisatie eenheid identificatie
+          description: Een korte identificatie van de organisatorische eenheid.
+          type: string
+          maxLength: 24
+          minLength: 1
+        organisatieIdentificatie:
+          title: Organisatie identificatie
+          description: >-
+            Het RSIN van de organisatie zijnde een Niet-natuurlijk persoon
+            waarvan de ORGANISATORISCHE EENHEID deel uit maakt.
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        datumOntstaan:
+          title: Datum ontstaan
+          description: De datum wrop de organisatorische eenheid is ontstaan.
+          type: string
+          format: date
+        naam:
+          title: Naam
+          description: De feitelijke naam van de organisatorische eenheid.
+          type: string
+          maxLength: 50
+          minLength: 1
+    DomeinData:
+      required:
+        - zaak
+        - domeinData
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        domeinData:
+          title: Domein data
+          description: URL naar de domein data resource
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+    KlantContact:
+      required:
+        - zaak
+        - datumtijd
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        identificatie:
+          title: Identificatie
+          description: De unieke aanduiding van een KLANTCONTACT
+          type: string
+          maxLength: 14
+          minLength: 1
+        datumtijd:
+          title: Datumtijd
+          description: De datum en het tijdstip waarop het KLANTCONTACT begint
+          type: string
+          format: date-time
+        kanaal:
+          title: Kanaal
+          description: Het communicatiekanaal waarlangs het KLANTCONTACT gevoerd wordt
+          type: string
+          maxLength: 20
+    Rol:
+      required:
+        - zaak
+        - betrokkene
+        - rolomschrijving
+        - rolomschrijvingGeneriek
+        - roltoelichting
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        betrokkene:
+          title: Betrokkene
+          type: string
+          format: uri
+        rolomschrijving:
+          title: Rolomschrijving
+          description: Algemeen gehanteerde benaming van de aard van de ROL
+          type: string
+          enum:
+            - Adviseur
+            - Behandelaar
+            - Belanghebbende
+            - Beslisser
+            - Initiator
+            - Klantcontacter
+            - Zaakcoördinator
+        rolomschrijvingGeneriek:
+          title: Rolomschrijving generiek
+          description: Algemeen gehanteerde benaming van de aard van de ROL
+          type: string
+          enum:
+            - Adviseur
+            - Behandelaar
+            - Belanghebbende
+            - Beslisser
+            - Initiator
+            - Klantcontacter
+            - Zaakcoördinator
+            - Mede-initiator
+        roltoelichting:
+          title: Roltoelichting
+          type: string
+          maxLength: 1000
+          minLength: 1
+    Status:
+      required:
+        - zaak
+        - statusType
+        - datumStatusGezet
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        statusType:
+          title: Status type
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        datumStatusGezet:
+          title: Datum status gezet
+          description: De datum waarop de ZAAK de status heeft verkregen.
+          type: string
+          format: date-time
+        statustoelichting:
+          title: Statustoelichting
+          description: >-
+            Een, voor de initiator van de zaak relevante, toelichting op de
+            status van een zaak.
+          type: string
+          maxLength: 1000
+    ZaakObject:
+      required:
+        - zaak
+        - object
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        object:
+          title: Object
+          description: URL naar de resource die het OBJECT beschrijft.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        relatieomschrijving:
+          title: Relatieomschrijving
+          description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
+          type: string
+          maxLength: 80
     Zaak:
       description: Een ZAAK
       required:
         - zaaktype
+        - registratiedatum
       type: object
       properties:
         url:
@@ -99,69 +531,39 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
-        status:
-          title: Status
-          description: 'Indien geen status bekend is, dan is de waarde ''null'''
+        registratiedatum:
+          title: Registratiedatum
+          description: >-
+            De datum waarop de zaakbehandelende organisatie de ZAAK heeft
+            geregistreerd
           type: string
-          format: uri
-          readOnly: true
+          format: date
+        toelichting:
+          title: Toelichting
+          description: Een toelichting op de zaak.
+          type: string
+          maxLength: 1000
         omschrijving:
           title: Omschrijving
           description: Een korte omschrijving van de zaak.
           type: string
           maxLength: 80
-        # TODO: in het RGBZ 2.0 model loopt dit via de rollen/betrokkenen
-        # initiator:
-        #   title: Initiator
-        #   description: URL naar de initiator van de ZAAK.
-        #   type: string
-        #   format: url
-        registratiedatum:
-          title: Registratiedatum
-          description: De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd
-          type: string
-          format: 'date'
-        # TODO: volgens RGBZ 2.0 komt kanaal uit KLANTCONTACT
-        # kanaal:
-        #   description: Kanaal via welke de zaak is gemeld
-        #   type: string
-        zaakgeometrie:  # NOTE: komt ook voor bij OBJECT
+        zaakgeometrie:
           title: Zaakgeometrie
-          description: Punt, lijn of multi-vlak geometrie-informatie, in WKT formaat.
-          type: string
+          description: 'Punt, lijn of (multi-)vlak geometrie-informatie, in GeoJSON.'
+          type: object
         objecten:
           title: OBJECTen
           description: Lijst met URL's naar aan de zaak gerelateerde objecten
           type: array
           items:
             type: string
-    ZaakInformatieObject:
-      required:
-        - zaak
-        - informatieobject
-      description: Een aan een zaak gerelateerd informatieobject (document, foto end.)
-      properties:
-        zaak:
-          title: Zaak
-          description: URL naar de zaak horend bij dit ZAAKINFORMATIEOBJECT
+        status:
+          title: Status
+          description: 'Indien geen status bekend is, dan is de waarde ''null'''
           type: string
           format: uri
-        informatieobject:
-          title: informatieobject
-          description: URL naar het informatieobject horend bij dit ZAAKINFORMATIEOBJECT
-          type: string
-          format: uri
-    # BETROKKENE?
-    # Subject:
-    #   description: Een persoon of bedrijf
-    #   properties:
-    #     email:
-    #       description: e-mail adres
-    #       type: string
-    #       format: email
-    #     telefoonnummer:
-    #       description: telefoonnummer
-    #       type: string
+          readOnly: true
     Fout:
       description: Een opgetreden fout
       properties:
