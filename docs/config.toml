@@ -18,9 +18,3 @@ home = [ "HTML", "RSS", "JSON"]
   weight = 2
   identifier = "developers"
   url = "/developers/"
-
-[[menu.docs]]
-  name = "Over dit project"
-  weight = 3
-  identifier = "about"
-  url = "/over-dit-project/"
