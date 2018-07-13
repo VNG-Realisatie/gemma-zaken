@@ -29,3 +29,29 @@ Alle bijdragen worden beoordeeld in een review proces. Je kunt zelf ook specifie
 Het kan zijn dat een Pull Request direct kan worden ingevoegd. Vaak is het echter nodig om nog het e.e.a. te verbeteren aan de Pull Request voordat deze in het project kan worden ingevoegd. Feedback op de Pull Request kan komen van de eigenaren van de standaard, van andere belanghebbenden of van geautomatiseerde tests.
 
 Wanneer de gewijzigde documentatie en code door de menselijke review en geautomatiseerde test komt, worden de wijzigingen van de Pull Request in het project gevoegd.
+
+
+## Agile Scrum
+
+Het team wat aan de ZDS2.0 standaard werkt doet dit volgens de agile scrum methodiek. Iedere sprint duurt vier weken. Gemeenten leveren user stories rond zaakgericht werken, welke vervolgens worden vertaald naar wat nodig is in de RESTful API specificatie.
+
+### Scrum boards
+Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint te faciliteren.
+
+- [Scrum ZDS Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
+  Nieuwe user stories en issues komen hier op de backlog. Wanneer zij worden geprioriteerd komen ze in de flow om ze 'ready te maken' zodat ze opgepakt kunnen worden in de volgende sprint.
+
+- [Scrum ZDS Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+  Vanuit de kolom "Ready for Sprint" worden tijdens de maandelijkse sprint planning userstories opgepakt die uitgevoerd gaan worden. Deze komen dan in de eerste kolom van het scrum board gericht op realisatie van de API specificatie.
+
+- [Scrum ZDS Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
+  Op dit board is terug te vinden welke user story gereed was in welke sprint.
+
+- [Organisatie & Impediments](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
+  Op dit board bewaakt het team de voortgang van niet-inhoudelijke actiepunten en blokkades.
+
+### Review
+
+Zowel het board [Scrum ZDS Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1) als [Scrum ZDS Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3) bevat een kolom voor review. Tijdens de voorbereiding worden user stories klaargemaakt om in een volgende sprint uitgevoerd te worden. Daar hoort een review bij: voldoet de user story aan de Definition of Ready? Na de realisatie vindt opnieuw een review plaats, van iedere Pull Request waarmee een wijziging of toevoeging op de standaard wordt gedaan.
+
+Reviews worden vaak aan specifieke personen gevraagd, maar iedereen kan een review uitvoeren. Wanneer de beoordeling binnen je competenties valt, geef de review dan prioriteit boven eventuele andere bijdragen zodat iedereen zo snel mogelijk verder kan.
