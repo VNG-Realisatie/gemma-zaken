@@ -5,6 +5,7 @@
 * [Wie is de opdrachtgever?](#wie-is-de-opdrachtgever)
 * [Wat is de opdracht?](#wat-is-de-opdracht)
 * [Wat is de relatie met Common Ground?](#wat-is-de-relatie-met-common-ground)
+* Wat is scrum/agile?
 * [Wat gaat er concreet gemaakt worden?](#wat-gaat-er-concreet-gemaakt-worden)
 * [Wat is de rol van leveranciers?](#wat-is-de-rol-van-leveranciers)
 * [Wat betekent dit voor leveranciers?](#wat-betekent-dit-voor-leveranciers)
@@ -14,6 +15,7 @@
 * [Worden zaaksystemen hiermee beter, goedkoper, sneller, beter uitwisselbaar, etc.?]
 * [Is de referentie-implementatie bruikbaar in productie?]
 * [Komt er een landelijke versie van dit "product"?]
+* Wat is een sprintreview?
 
 
 ## Wie is de opdrachtgever?
@@ -29,6 +31,10 @@
 Theo Peters (Opdrachtgever) en Wouter Bruinsma (Product Owner) zijn beiden betrokken bij Common Ground. (uit sprint 0)
 
 Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt Common Ground gevolgd. De principes volgend uit de Common Ground visie worden toegepast. _Zie: [productvisie](./productvisie.md)_
+
+## Wat is scrum/agile?
+
+TODO
 
 ## Wat gaat er concreet gemaakt worden?
 
@@ -81,4 +87,7 @@ TODO: In het algemeen niet direct. Echter, we realiseren kleinere componenten wa
 
 TODO: Basisregistraties wel landelijk, kernregistraties niet.
 
+Wat is een sprintreview?
+
+TODO
 
