@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: drc
-        image: nlxio/gemma-drc:0.1.9
+        image: vngr/gemma-drc:0.1.10
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker

@@ -111,7 +111,7 @@ worden de volgende taken uitgevoerd:
 ## Docker hub
 
 De docker images worden publiek beschikbaar gemaakt op
-[Docker Hub](https://hub.docker.com/r/nlxio/). De tags zijn gebasseerd op de
+[Docker Hub](https://hub.docker.com/r/vngr/). De tags zijn gebasseerd op de
 git release tags.
 
 Jenkins zorgt ervoor dat tags automatisch gepubliceerd worden.
