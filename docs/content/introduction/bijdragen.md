@@ -1,6 +1,6 @@
 # Bijdragen
 
-Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zij blij met feedback en verwelkomen verbeteringen in dit project. Brede samenwerking leidt tot de beste standaarden.
+Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn blij met feedback en verwelkomen verbeteringen in dit project. Brede samenwerking leidt tot de beste standaarden.
 
 'Issues' en 'Pull Requests' zijn meer dan welkom.
 
@@ -16,7 +16,7 @@ Maak om bij te dragen aan de documentatie of software van ZDS 2.0 een zogenaamde
 
 ### 1. Maak je wijzigingen
 
-Dit project hanteert de **[OneFlow branching model](http://endoflineblog.com/oneflow-a-git-branching-model-and-workflow)**. Maak je wijzigingen op een nieuwe 'feature branch' met de naam *feature/naam-die-bijdrage-beschrijft*. Zorg voor heldere beschrijvingen voor iedere commit, zodat degenen die de bijdrage moeten beoordelen een goed beeld hebben van wat de bedoeling is.
+Dit project hanteert het **[OneFlow branching model](http://endoflineblog.com/oneflow-a-git-branching-model-and-workflow)**. Maak je wijzigingen op een nieuwe 'feature branch' met de naam *feature/naam-die-bijdrage-beschrijft*. Zorg voor heldere beschrijvingen voor iedere commit, zodat degenen die de bijdrage moeten beoordelen een goed beeld hebben van wat de bedoeling is.
 
 ### 2. Pull Request
 
@@ -33,7 +33,7 @@ Wanneer de gewijzigde documentatie en code door de menselijke review en geautoma
 
 ## Agile Scrum
 
-Het team wat aan de ZDS2.0 standaard werkt doet dit volgens de agile scrum methodiek. Iedere sprint duurt vier weken. Gemeenten leveren user stories rond zaakgericht werken, welke vervolgens worden vertaald naar wat nodig is in de RESTful API specificatie.
+Het team wat aan de ZDS 2.0 standaard werkt doet dit volgens de agile scrum methodiek. Iedere sprint duurt vier weken. Gemeenten leveren user stories rond zaakgericht werken, welke vervolgens worden vertaald naar wat nodig is in de RESTful API specificatie.
 
 ### Scrum boards
 Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint te faciliteren.
