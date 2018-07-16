@@ -7,7 +7,7 @@ Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn bli
 
 ## Problemen, suggesties en vragen in 'Issues'
 
-Het is niet nodig om software of documentatie te schrijven om toch bij te dragen. De ontwikkeling is ook gebaat bij gerapporteerde problemen, suggesties voor wijzigingen en vragen over dingen die (nog) onduidelijk zijn. Om dit te doen kan een [issue worden gemaakt]((https://github.com/VNG-Realisatie/gemma-zaken/issues). Op de supportpagina's van GitHub staat [uitleg over het maken van issues](https://help.github.com/articles/creating-an-issue/).
+Het is niet nodig om software of documentatie te schrijven om toch bij te dragen. De ontwikkeling is ook gebaat bij gerapporteerde problemen, suggesties voor wijzigingen en vragen over dingen die (nog) onduidelijk zijn. Om dit te doen kan een [issue worden gemaakt](https://github.com/VNG-Realisatie/gemma-zaken/issues). Op de supportpagina's van GitHub staat [uitleg over het maken van issues](https://help.github.com/articles/creating-an-issue/).
 
 
 ## Documentatie en code in 'Pull Requests'
