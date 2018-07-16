@@ -41,10 +41,10 @@ Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint te
 - [Scrum ZDS Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
   Nieuwe user stories en issues komen hier op de backlog. Wanneer zij worden geprioriteerd komen ze in de flow om ze 'ready te maken' zodat ze opgepakt kunnen worden in de volgende sprint.
 
-- [Scrum ZDS Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+- [Scrum ZDS Realisatie Sprint x](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
   Vanuit de kolom "Ready for Sprint" worden tijdens de maandelijkse sprint planning userstories opgepakt die uitgevoerd gaan worden. Deze komen dan in de eerste kolom van het scrum board gericht op realisatie van de API specificatie.
 
-- [Scrum ZDS Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
+- [Scrum ZDS Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
   Op dit board is terug te vinden welke user story gereed was in welke sprint.
 
 - [Organisatie & Impediments](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
