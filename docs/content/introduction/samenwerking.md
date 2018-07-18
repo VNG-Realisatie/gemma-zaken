@@ -1,4 +1,11 @@
-# ZAKEN Samenwerking
+---
+title: "ZAKEN Samenwerking"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "introduction"
+---
 
 ## Samenwerkende partijen
 

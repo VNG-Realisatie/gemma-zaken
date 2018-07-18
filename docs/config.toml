@@ -1,0 +1,20 @@
+title = "GEMMA Zaken API Guide"
+theme = "nlx"
+languageCode = "nl-nl"
+baseURL = "https://docs.nlx.io/"
+DefaultContentLanguage = "nl"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[[menu.docs]]
+  name = "Introductie"
+  weight = 1
+  identifier = "introduction"
+  url = "/"
+
+[[menu.docs]]
+  name = "Ontwikkelaars"
+  weight = 2
+  identifier = "developers"
+  url = "/developers/"

@@ -33,3 +33,7 @@ spec:
         backend:
           serviceName: ztc
           servicePort: 8000
+      - path: "/"
+        backend:
+          serviceName: zaken-docs
+          servicePort: 80
