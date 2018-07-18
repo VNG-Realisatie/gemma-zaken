@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: ztc
-        image: nlxio/gemma-ztc:0.1.1
+        image: vngr/gemma-ztc:0.1.5
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: ztc.conf.docker
