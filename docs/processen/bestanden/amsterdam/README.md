@@ -24,7 +24,7 @@ Onderstaande figuur toont het proces waar deze user story deel van uitmaakt: Beh
 * Akkoord verklaring door melder.
 
 >fig 1, Afbeelding Proces
-![fig 1](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/Procesflow.png)
+![fig 1](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_1_0_ZDS_Overview_proc_sys_signalen.png)
 
 ## 1.4	Architectuurschets User Story
 
@@ -56,14 +56,14 @@ Om deze gegevens wel mee te kunnen geven aan de behandelaar van de zaaktypen wor
 De extensie beschrijft de opbouw van de “Taakspecifieke_Data” die meegegeven kan worden aan de behandelaar van het zaak_type.
 
 >fig.3, Afbeelding systeem en gegevens
-![fig.3](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_2_0_Overview_proc_sys_obj_signalen.png)  
+![fig.3](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_2_1_ZDS_Overview_proc_sys_obj_signalen.png)  
 
 ## 1.5	Generieke architectuurschets (GEMMA-referentiecomponenten)
 
 Deze user story volgt 2 GEMMA patronen voor Zaakgericht werken zoals beschreven **[hier](<https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Indienen_productaanvraag_via_webformulier>)** en **[hier](<https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Registreren_zaak_vanuit_Zaakafhandelcomponent>)**
  
 >Fig.4, GEMMA Mapping
-![fig.4](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_3_GEMMA_Mapping.png)
+![fig.4](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_3_0_ZDS_GEMMA_Mapping.png)
 
 |GEMMA comp.       |  J/N  | Verklaring                                        | Akkoord |
 |:-----------------|:-----:|:-------------------------------------------------|:------:|
