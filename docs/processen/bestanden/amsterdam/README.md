@@ -24,7 +24,7 @@ Onderstaande figuur toont het proces waar deze user story deel van uitmaakt: Beh
 * Akkoord verklaring door melder.
 
 >fig 1, Afbeelding Proces
-![fig 1](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_1_0_ZDS_Overview_proc_sys_signalen.png)
+![fig 1](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/Porcesflow.png)
 
 ## 1.4	Architectuurschets User Story
 
@@ -44,7 +44,7 @@ Terugkoppeling op de afhandeling van de meldingen en bijv. statusupdates worden 
 Voor afhandeling door afdelingen zonder taak-applicatie is er een eenvoudige interface voor status updates in het SIA platform aanwezig.
 
 >fig.2, Afbeelding proces en systemen
-![fig.2](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_1_Overview_proc_sys_signalen.png)
+![fig.2](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/amsterdam/1_1_0_ZDS_Overview_proc_sys_signalen.png)
 
 #### 1.4.1.	 Uitbreiding ZDS met taakspecifieke gegevens
 
