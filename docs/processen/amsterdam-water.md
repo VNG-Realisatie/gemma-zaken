@@ -44,7 +44,7 @@ Terugkoppeling op de afhandeling van de meldingen en bijv. statusupdates worden 
 Voor afhandeling door afdelingen zonder taak-applicatie is er een eenvoudige interface voor status updates in het SIA platform aanwezig.
 
 >fig.2, Afbeelding proces en systemen
-![fig.2](./bestanden/amsterdam/1_1_Overview_proc_sys_signalen.png?raw=true)
+![fig.2](./bestanden/amsterdam/Overview_proc_sys_signalen.png?raw=true)
 
 #### 1.4.1.  Uitbreiding ZDS met taakspecifieke gegevens
 
@@ -56,14 +56,14 @@ Om deze gegevens wel mee te kunnen geven aan de behandelaar van de zaaktypen wor
 De extensie beschrijft de opbouw van de “Taakspecifieke_Data” die meegegeven kan worden aan de behandelaar van het zaak_type.
 
 >fig.3, Afbeelding systeem en gegevens
-![fig.3](./bestanden/amsterdam/1_2_0_Overview_proc_sys_obj_signalen.png?raw=true)
+![fig.3](./bestanden/amsterdam/Overview_proc_sys_obj_signalen.png?raw=true)
 
 ## 1.5  Generieke architectuurschets (GEMMA-referentiecomponenten)
 
 Deze user story volgt 2 GEMMA patronen voor Zaakgericht werken zoals beschreven **[hier](<https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Indienen_productaanvraag_via_webformulier>)** en **[hier](<https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Registreren_zaak_vanuit_Zaakafhandelcomponent>)**
 
 >Fig.4, GEMMA Mapping
-![fig.4](./bestanden/amsterdam/1_3_GEMMA_Mapping.png?raw=true)
+![fig.4](./bestanden/amsterdam/GEMMA_Mapping.png?raw=true)
 
 |GEMMA comp.       |  J/N  | Verklaring                                        | Akkoord |
 |:-----------------|:-----:|:-------------------------------------------------|:------:|
@@ -77,7 +77,7 @@ Deze user story volgt 2 GEMMA patronen voor Zaakgericht werken zoals beschreven 
 
 ## 1.6  Benodigde API’s in user story
 
-Voor de realisatie van het SIA platform worden alle ZDS API’s gebruikt in logische volgorde worden de volgende API’s gebruikt:
+Voor de realisatie van het SIA platform worden de volgende API’s gebruikt:
 
 #### 1.6.1. ZTC API
 * Categoriseren van een melding OR, categorisering gebeurd in eerste instatie op basis van processing van de ingevoerde tekst en gegevens van de melding.
