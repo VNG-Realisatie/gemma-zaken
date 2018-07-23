@@ -16,8 +16,9 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [Zaakgericht Werken in GEMMA 2](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2)
 
 
-## RGBZ 2
-- [Informatiemodel RGBZ](https://www.gemmaonline.nl/index.php/Informatiemodel_RGBZ_2.0.1_-_specificaties_-_CONCEPT_20180605) (v2.0.1 - concept)(.zip!)
+## Informatiemodellen
+- [Informatiemodel RGBZ](https://www.gemmaonline.nl/images/gemmaonline/a/a4/EgIM_20180621_-_ag_4_-_GEMMA_RGBZ_2.0_-_CONCEPT_20180613.zip) (v2.00.02 - concept)(.zip!)
+- [Informatiemodel ImZTC](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (v2.02.01 - concept)(.zip!)
 - [Klantcontacten en het RGBZ](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ)
 
 
