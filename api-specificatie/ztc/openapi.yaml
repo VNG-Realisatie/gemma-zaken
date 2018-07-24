@@ -59,8 +59,8 @@ info:
     name: EUPL 1.2
   version: '1'
 security:
+  - Bearer: []
   - OAuth2: []
-    Bearer: []
 paths:
   /catalogussen:
     get:
@@ -294,6 +294,10 @@ servers:
   - url: /api/v1
 components:
   securitySchemes:
+    Bearer:
+      in: header
+      name: Authorization
+      type: apiKey
     OAuth2:
       type: oauth2
       flows:
@@ -302,10 +306,6 @@ components:
           scopes:
             write: Schrijftoegang tot de catalogus en gerelateerde objecten.
             read: Leestoegang tot de catalogus en gerelateerde objecten.
-    Bearer:
-      type: apiKey
-      name: Authorization
-      in: header
   schemas:
     Catalogus:
       required:
@@ -326,6 +326,7 @@ components:
             CATALOGUS ZAAKTYPEn zijn uitgewerkt.
           type: string
           maxLength: 5
+          minLength: 1
         rsin:
           title: Rsin
           description: >-
@@ -333,6 +334,7 @@ components:
             NIET-NATUURLIJK PERSOON die de eigenaar is van een CATALOGUS.
           type: string
           maxLength: 9
+          minLength: 1
         contactpersoonBeheerNaam:
           title: Naam
           description: >-
@@ -340,6 +342,7 @@ components:
             beheer van de CATALOGUS.
           type: string
           maxLength: 40
+          minLength: 1
         contactpersoonBeheerTelefoonnummer:
           title: Telefoonnummer
           description: >-
@@ -356,7 +359,6 @@ components:
           format: email
           maxLength: 254
         zaaktypen:
-          title: Zaaktypen
           type: array
           items:
             type: string
@@ -388,6 +390,7 @@ components:
           description: Omschrijving van de aard van ZAAKen van het ZAAKTYPE.
           type: string
           maxLength: 80
+          minLength: 1
         omschrijvingGeneriek:
           title: Omschrijving generiek
           description: >-
@@ -401,7 +404,6 @@ components:
           type: string
           format: uri
         statustypen:
-          title: Statustypen
           type: array
           items:
             type: string
@@ -409,7 +411,6 @@ components:
           readOnly: true
           uniqueItems: true
         eigenschappen:
-          title: Eigenschappen
           type: array
           items:
             type: string
@@ -449,6 +450,7 @@ components:
             worden vastgelegd.
           type: string
           maxLength: 14
+          minLength: 1
         kardinaliteit:
           title: Kardinaliteit
           description: >-
@@ -456,8 +458,8 @@ components:
             een zaak van het ZAAKTYPE.
           type: string
           maxLength: 3
+          minLength: 1
         waardenverzameling:
-          title: Waardenverzameling
           description: >-
             Waarden die deze EIGENSCHAP kan hebben (Gebruik een komma om waarden
             van elkaar te onderscheiden.)
@@ -466,6 +468,7 @@ components:
             title: Waardenverzameling
             type: string
             maxLength: 100
+            minLength: 1
       readOnly: true
     Eigenschap:
       required:
@@ -484,11 +487,13 @@ components:
           description: De naam van de EIGENSCHAP
           type: string
           maxLength: 20
+          minLength: 1
         definitie:
           title: Definitie
           description: De beschrijving van de betekenis van deze EIGENSCHAP
           type: string
           maxLength: 255
+          minLength: 1
         specificatie:
           $ref: '#/components/schemas/EigenschapSpecificatie'
         toelichting:
@@ -530,6 +535,7 @@ components:
             de aard van de STATUS van zaken van een ZAAKTYPE.
           type: string
           maxLength: 80
+          minLength: 1
         omschrijvingGeneriek:
           title: Omschrijving generiek
           description: >-
