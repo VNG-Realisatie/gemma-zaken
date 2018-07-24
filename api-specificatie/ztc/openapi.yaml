@@ -78,7 +78,7 @@ paths:
       tags:
         - catalogussen
     parameters: []
-  '/catalogussen/{catalogus_pk}/zaaktypen':
+  '/catalogussen/{catalogus_uuid}/zaaktypen':
     get:
       operationId: zaaktype_list
       description: Een verzameling van ZAAKTYPEn.
@@ -94,12 +94,14 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: catalogus_pk
+      - name: catalogus_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-  '/catalogussen/{catalogus_pk}/zaaktypen/{id}':
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/zaaktypen/{uuid}':
     get:
       operationId: zaaktype_read
       description: >-
@@ -115,18 +117,21 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: catalogus_pk
+      - name: catalogus_uuid
         in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
           type: string
-      - name: id
-        in: path
-        description: A unique integer value identifying this Zaaktype.
-        required: true
-        schema:
-          type: integer
-  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/eigenschappen':
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen':
     get:
       operationId: eigenschap_list
       description: Een verzameling van EIGENSCHAPpen.
@@ -142,17 +147,21 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: zaaktype_pk
+      - name: catalogus_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-      - name: catalogus_pk
+          format: uuid
+      - name: zaaktype_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/eigenschappen/{id}':
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen/{uuid}':
     get:
       operationId: eigenschap_read
       description: >-
@@ -170,23 +179,28 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: zaaktype_pk
+      - name: catalogus_uuid
         in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
           type: string
-      - name: catalogus_pk
+          format: uuid
+      - name: zaaktype_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-      - name: id
-        in: path
-        description: A unique integer value identifying this Eigenschap.
-        required: true
-        schema:
-          type: integer
-  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/statustypen':
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen':
     get:
       operationId: statustype_list
       description: Een verzameling van STATUSTYPEn.
@@ -202,17 +216,21 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: zaaktype_pk
+      - name: catalogus_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-      - name: catalogus_pk
+          format: uuid
+      - name: zaaktype_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-  '/catalogussen/{catalogus_pk}/zaaktypen/{zaaktype_pk}/statustypen/{id}':
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen/{uuid}':
     get:
       operationId: statustype_read
       description: Generieke aanduiding van de aard van een status.
@@ -226,23 +244,28 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: zaaktype_pk
+      - name: catalogus_uuid
         in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
           type: string
-      - name: catalogus_pk
+          format: uuid
+      - name: zaaktype_uuid
         in: path
         required: true
+        description: Unieke resource identifier (UUID4)
         schema:
           type: string
-      - name: id
-        in: path
-        description: A unique integer value identifying this Statustype.
-        required: true
-        schema:
-          type: integer
-  '/catalogussen/{id}':
+          format: uuid
+  '/catalogussen/{uuid}':
     get:
       operationId: catalogus_read
       description: >-
@@ -260,12 +283,13 @@ paths:
       tags:
         - catalogussen
     parameters:
-      - name: id
+      - name: uuid
         in: path
-        description: A unique integer value identifying this catalogus.
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
-          type: integer
+          type: string
+          format: uuid
 servers:
   - url: /api/v1
 components:
