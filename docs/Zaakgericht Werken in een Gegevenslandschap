@@ -62,39 +62,39 @@ In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreve
 
 Figuur 1: ZGW in de huidige situatie (~GEMMA 2)
 
-•	Een zaak is geregistreerd in een ZRC. Aan een zaak gerelateerde objecten (RGBZ) worden ook geregistreerd in de ZRC: betrokkenen, besluiten, klantcontacten, zaakobjecten en eventuele zaaktypespecifieke objecten met zaaktypespecifieke eigenschappen.
-•	Vanuit een zaak liggen er verwijzingen naar zaaktype (ZTRC), Document vcq. informatieobject (DRC) en eventuele objecten (in theorie de Basisregistratie, maar vaak Gegevensmagazijn)
-•	Voor betrokkene is in theorie ook sprake van een verwijzing (naar BRP en HR, kernregistratie medewerkers, kernregistratie bedrijven, kernregistratie klanten,..), maar in de praktijk wordt dit vaak in de ZRC zelf opgeslagen.
-•	De Zaakafhandelcomponent bevat nog veel gegevens:
-o	procesdefinities (hoe moet een proces lopen, welke keuzes zijn er mogelijk);
-o	procesgegevens (waar in het proces zitten we, welke keuzes zijn in het proces gemaakt, wie is de behandelaar, welke gegevens heeft hij gebruikt voor welke processtap, ..)
-o	domein/objectgegevens: gegevens over objecten in het domein waartoe het proces behoort. Bijvoorbeeld voor een Subsidiesysteem de gegevens over een aangevraagde subsidie, doelen die men met subsidies wil stimuleren en de voorwaarden en uitnutting van diverse subsidiepotjes.
+* Een zaak is geregistreerd in een ZRC. Aan een zaak gerelateerde objecten (RGBZ) worden ook geregistreerd in de ZRC: betrokkenen, besluiten, klantcontacten, zaakobjecten en eventuele zaaktypespecifieke objecten met zaaktypespecifieke eigenschappen.
+* Vanuit een zaak liggen er verwijzingen naar zaaktype (ZTRC), Document vcq. informatieobject (DRC) en eventuele objecten (in theorie de Basisregistratie, maar vaak Gegevensmagazijn)
+* Voor betrokkene is in theorie ook sprake van een verwijzing (naar BRP en HR, kernregistratie medewerkers, kernregistratie bedrijven, kernregistratie klanten,..), maar in de praktijk wordt dit vaak in de ZRC zelf opgeslagen.
+* De Zaakafhandelcomponent bevat nog veel gegevens:
+    * procesdefinities (hoe moet een proces lopen, welke keuzes zijn er mogelijk);
+    * procesgegevens (waar in het proces zitten we, welke keuzes zijn in het proces gemaakt, wie is de behandelaar, welke gegevens heeft hij gebruikt voor welke processtap, ..)
+    * domein/objectgegevens: gegevens over objecten in het domein waartoe het proces behoort. Bijvoorbeeld voor een Subsidiesysteem de gegevens over een aangevraagde subsidie, doelen die men met subsidies wil stimuleren en de voorwaarden en uitnutting van diverse subsidiepotjes.
 
-•	“Aanvraag” mist in dit plaatje. Dat klopt ook. Deze maakt onderdeel uit van de domein/objectgegevens. In de huidige praktijk wordt een aanvraag ook nog vaak (onterecht) met een zaak vereenzelvigd. Waarbij het in de vorm van een Informatieobject als PDFje wordt opgeslagen bij een zaak. 
-•	Er bestaat in de ZRC geen rechtstreekse relatie tussen het merendeel van de domein/objectgegevens en een zaak (dit is beperkt tot zaakobjecten en zaaktypespecifieke gegevens). Idem voor gedetailleerde procesgegevens en een zaak. M.a.w. in het geval van erg complexe processen, kent de zaak in de ZRC enkel dit proces op hoofdlijnen (de zaakstatussen).
-•	Wel liggen deze relaties in de specifieke zaakafhandelcomponent: daarin is (impliciet of expliciet) een proces geconfigureerd (=procesdefinitie (“procestype”), bijvoorbeeld afhandelen evenementensubsidieaanvraag). Het verloop van een specifieke instantie van dat proces volgt dit procestype. En er liggen relaties tussen dit proces en de domein/objectregistratie(s) die bij dit proces horen.
-•	De ZAC heeft wel uiteraard weet van welk zaaktype en welke zaak er bij een bepaald procestype en bij een bepaalde procesinstantie horen, maar vanuit een zaak is dit dus niet direct opvraagbaar. Opmerking AK De specifieke ZAC, ja.. Maar de generieke ZAC toch niet?
+* “Aanvraag” mist in dit plaatje. Dat klopt ook. Deze maakt onderdeel uit van de domein/objectgegevens. In de huidige praktijk wordt een aanvraag ook nog vaak (onterecht) met een zaak vereenzelvigd. Waarbij het in de vorm van een Informatieobject als PDFje wordt opgeslagen bij een zaak. 
+* Er bestaat in de ZRC geen rechtstreekse relatie tussen het merendeel van de domein/objectgegevens en een zaak (dit is beperkt tot zaakobjecten en zaaktypespecifieke gegevens). Idem voor gedetailleerde procesgegevens en een zaak. M.a.w. in het geval van erg complexe processen, kent de zaak in de ZRC enkel dit proces op hoofdlijnen (de zaakstatussen).
+* Wel liggen deze relaties in de specifieke zaakafhandelcomponent: daarin is (impliciet of expliciet) een proces geconfigureerd (=procesdefinitie (“procestype”), bijvoorbeeld afhandelen evenementensubsidieaanvraag). Het verloop van een specifieke instantie van dat proces volgt dit procestype. En er liggen relaties tussen dit proces en de domein/objectregistratie(s) die bij dit proces horen.
+* De ZAC heeft wel uiteraard weet van welk zaaktype en welke zaak er bij een bepaald procestype en bij een bepaalde procesinstantie horen, maar vanuit een zaak is dit dus niet direct opvraagbaar. Opmerking AK De specifieke ZAC, ja.. Maar de generieke ZAC toch niet?
 
 ### 1.3.3. Situatie in een Gegevenslandschap
 
 In een gegevenslandschap komt bovenstaand plaatje er, door het scheiden van proces en data, eenmalige opslag en bevraging ‘bij de bron’ en het verminderen van informatiestromen anders uit te zien (zie figuur 2):
-•	De domein/objectgegevens gegevens zijn uit de Zaakafhandelcomponent verdwenen. Procesdefinities en procesgegevens blijven daar echter achter .
-•	Uitgangspunt in het gegevenslandschap is: alle gegevens worden op één plaats opgeslagen. En alle soortgelijke gegevens worden bij elkaar opgeslagen. Er komt dus een registratie met besluiten, een registratie met aanvragen en meldingen, een registratie met klanten, een registratie medewerkers. Etc.
-•	De “Zaak” is een belangrijk verbindend element tussen de objecten in de registraties. Getekend: een zaak aggregeert al deze andere objecten. Zaak fungeert zo als “sleutel” in een grote “verwijsindex” naar objecten in andere registraties.  Opmerking AK En wat moet ik me daarbij voorstellen, wat is het nut daarvan? Welke op hun beurt weer kunnen relateren naar concepten in andere registraties, bv. de BRP of het HR. Opmerking AK Er zijn ook andere verbindende objecten zoals de klant (of een NP of NNP) die een mail gestuurd heeft (document), houder is van een vergunning, een handhavingsverzoek heeft ingediend (aanvraag/melding) en een paspoort heeft gekregen. Dergelijke relaties zijn in de figuur niet gevisualiseerd. Terecht, de focus is zaakgericht werken. Maar wel even vermelden.
-•	Documenten die bij een zaak horen kunnen dan in de DRC worden opgehaald mbv het zaaknummer. Idem voor besluit(en) per zaak en betrokkenen. 
-•	Dit komt sterk overeen met het concept Linked-data
+* De domein/objectgegevens gegevens zijn uit de Zaakafhandelcomponent verdwenen. Procesdefinities en procesgegevens blijven daar echter achter .
+* Uitgangspunt in het gegevenslandschap is: alle gegevens worden op één plaats opgeslagen. En alle soortgelijke gegevens worden bij elkaar opgeslagen. Er komt dus een registratie met besluiten, een registratie met aanvragen en meldingen, een registratie met klanten, een registratie medewerkers. Etc.
+* De “Zaak” is een belangrijk verbindend element tussen de objecten in de registraties. Getekend: een zaak aggregeert al deze andere objecten. Zaak fungeert zo als “sleutel” in een grote “verwijsindex” naar objecten in andere registraties.  Opmerking AK En wat moet ik me daarbij voorstellen, wat is het nut daarvan? Welke op hun beurt weer kunnen relateren naar concepten in andere registraties, bv. de BRP of het HR. Opmerking AK Er zijn ook andere verbindende objecten zoals de klant (of een NP of NNP) die een mail gestuurd heeft (document), houder is van een vergunning, een handhavingsverzoek heeft ingediend (aanvraag/melding) en een paspoort heeft gekregen. Dergelijke relaties zijn in de figuur niet gevisualiseerd. Terecht, de focus is zaakgericht werken. Maar wel even vermelden.
+* Documenten die bij een zaak horen kunnen dan in de DRC worden opgehaald mbv het zaaknummer. Idem voor besluit(en) per zaak en betrokkenen. 
+* Dit komt sterk overeen met het concept Linked-data
 Opmerking AK Wat is de overeenkomst dan? M.i. is het simpelweg een objecten- of informatiemodel met objecten en relaties. LinkedData is dan een manier om gebruik te kunnen maken van de in die modellen onderscheiden relaties. De Zakenregistratiecomponent is dus niet meer één grote database met daarin alle gegevens over een zaak. Maar meer een kernregistratie van zaken met veel links (URL’s) naar objecten in andere registraties (dan wel verwijzen andere objecten naar zaken).
 Opmerking AK Essentie hiervan is dat objecten die nu in het RGBZ en daarmee in de ZRC voorkomen maar ook relevantie hebben in een andere context of domein, als aparte registratie neergezet worden om recht te doen aan de betekenis als zelfstandige objecttype.
-•	Dit kunnen zijn (niet uitputtend):
-o	Kernregistratie Klanten en Contacten (voor initiators,  belanghebbenden, gemachtigden e.d.)
-o	Kernregistratie medewerkers (o.a. voor behandelaars)
-o	Kernregistratie besluiten (besluiten)
-o	Documentregistratiecomponent (documenten cq. informatieobjecten)
-o	Zaaktyperegistratiecomponent (Zaaktype, Statustypen, Resultaattypen,..)
-o	Domein/objectregistraties (domein/objectgegevens; meerdere registraties: één per domein/proces)
-o	Meldingenregistratie (ontvangen aanvragen en meldingen)
-o	Basisregistraties (personen, bedrijven, panden, terreinen, percelen e.d.)
-o	Evt. andere kernregistraties (Zaakobjecten die nog niet genoemd zijn, maar wel behoren tot kerngegevens (meervoudig gebruikt))
+* Dit kunnen zijn (niet uitputtend):
+    * Kernregistratie Klanten en Contacten (voor initiators,  belanghebbenden, gemachtigden e.d.)
+    * Kernregistratie medewerkers (o.a. voor behandelaars)
+    * Kernregistratie besluiten (besluiten)
+* Documentregistratiecomponent (documenten cq. informatieobjecten)
+    * Zaaktyperegistratiecomponent (Zaaktype, Statustypen, Resultaattypen,..)
+    * Domein/objectregistraties (domein/objectgegevens; meerdere registraties: één per domein/proces)
+    * Meldingenregistratie (ontvangen aanvragen en meldingen)
+    * Basisregistraties (personen, bedrijven, panden, terreinen, percelen e.d.)
+    * Evt. andere kernregistraties (Zaakobjecten die nog niet genoemd zijn, maar wel behoren tot kerngegevens (meervoudig gebruikt))
  
 
 
