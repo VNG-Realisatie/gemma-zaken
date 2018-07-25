@@ -7,9 +7,9 @@
 Zaakgericht werken is een concept dat veel wordt gebruikt in gemeenten. Het kent ook vele vormen en implementatievarianten. In de GEMMA is hier de laatste jaren meer richting aan gegeven met het katern Zaakgericht Werken, Zaakgericht Werken in de praktijk en recentelijk de vertaling van Zaakgericht Werken in de GEMMA (informatiearchitectuur).
 
 Zie:
-https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken
-https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken#Zaakgericht_werken_in_de_praktijk 
-https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2 
+https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken (https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken) 
+https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken#Zaakgericht_werken_in_de_praktijk (https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken#Zaakgericht_werken_in_de_praktijk)
+https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2 (https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2) 
 
 Met de beweging van Common Ground (commonground.pleio.nl) beogen gemeenten een radicaal nieuw informatie- en applicatielandschap, een “gegevenslandschap”. Hierin worden gegevens gescheiden van eindgebruikersfunctionaliteit en dus uit de traditionele procesapplicaties gehaald en zijn in plaats daarvan via gestandaardiseerde API’s beschikbaar bij de bron.
 
@@ -116,6 +116,7 @@ Documenten bij een Verzoek worden bij het Verzoek vastgelegd. Later ook rechtstr
 Het is nog onduidelijk waar we in een gegevenslandschap “Procesinformatie” willen opslaan. In bovenstande figuur is dit – samen met procesdefinitiegegevens - gepositioneerd in de Zaakafhandelcomponent (net als nu in de diverse Taaksystemen). 
 Dit is echter (mogelijk) in strijd met het uitgangspunt in Common ground dat functionaliteit en gegevens van elkaar gescheiden moeten zijn. Procesgegevens zijn immers ook gegevens. 
 De procesdefinitie is in veel gevallen zelfs impliciet (hard gecodeeerde flow tussen schermen); dat valt dan niet eens los te knippen.
+
 Conclusie: hier is sprake van een glijdende schaal. Je wilt liefst alle domeingegevens en zo veel mogelijk procesgegevens uit de applicaties halen en via een gestandaardiseerde APi ontsluiten. We moeten echter wel oppassen dat we hier te ver in willen gaan en het paard daarmee achter de wagen spannen. In de praktijk zal dit voor veel bestaande taaksystemen een groeipad worden..
 
 Er is één maar. Het delen van procesinformatie is nodig om het handelen als overheid te verantwoorden: het moet dus gearchiveerd worden. Wie heeft op welke datum welke stap gezet? Welke procesflow (en keuzes) is er doorlopen? Welke informatie was wanneer beschikbaar? Hoe luidde de (deel)berekening die heeft geleid tot een bepaald resultaat? Dit is informatie die niet in één van de andere registraties past (tenzij als logfile in PDF in de DRC) en voor het grootste deel niet in de ZRC wordt vastgelegd (die kent meestal maar één behandelaar en vooral enkel het proces op hoofdlijnen: de Statussen).
@@ -155,9 +156,9 @@ Zaakgericht werken kent al een lange geschiedenis. Het stamt uit de tijd dat die
 In de loop der jaren zijn er diverse doelen voor zaakgericht werken ontstaan: dienstverlening verbeteren, als basis voor het archiveren, het bieden van managementinformatie,.. waarvan het de vraag is of je ze in een modern applicatielandschap nog met zaakgericht werken wilt oplossen. In het geval van een gemeente die met één dominant generiek zaaksysteem werkt ligt de oplossingsrichting voor de hand. In een gegevenslandshap veel minder. Bovendien zien we op vele vlakken een terugtrekkende beweging op het “gemeentebrede” dienstverlenigsconcept, meer richting domeinspecifieke Apps en portalen. Een meer domeingerichte dienstverlening en informatievoorziening (ipv generiek obv zaken) ligt dan meer voor de hand. Opmerking AK  Die twee zijn niet strijdig. Het lijkt er op dat in de redenering  en de voorbeelden het zaakgericht werken als panacee voor alle problemen en behoeften wordt gezien. Evenwel, zaakgericht werken is niet mee of minder dan een manier van procesgericht werken. Een manier die zo ver is uitgewerkt dat anderen dan de uitvoerenden van een proces dat proces ook kunnen begrijpen, op het niveau dat voor een ander volstaat: de hoofdlijnen. Dit ‘esperanto’ blijft een onderscheidend kenmerk van zaakgericht werken en zaken. Je krijgt daarmee twee niveau’s: domeinspecifiek en domeinoverstijgend. Het tweede doen we met zaken.
 
 Enkele voorbeelden:
-1.	een gemeente wil alle Meldingen Openbare Ruimte op een kaart tonen. Vraag je hiertoe alle melding-zaken op met een generiek ZDS-koppelvlak? Wetende dat de AVG dit voor het overgrote deel aan zaken/zaaktypen niet toestaat? Of kies je voor een meldingen-specifiek koppelvlak, dat mogelijk functioneel rijker is: type melding, prioriteit van de melding, tekstuele toelichting…allemaal wellicht nuttig om op een dergelijke kaart te kunnen weergeven. Maar niet of slechts met moeite (zaaktypespecifieke eigenschappen) met een generiek zaken-koppelvlak te realiseren.
-2.	Hoe wil je een proceseigenaar/afdelingshoofd van management-informatie voorzien? Op basis van zaken kun je erg generieke metrieken weergeven. Aantal zaken per afdeling, aantal zaken per status, zaken die voor of achter lopen op plandatum etc. Toch is het vergelijken van een subsidiezaak met een vergunnningenzaak appels met peren vergelijken. En zit een manager vergunningen vermoedelijk op heel andere metrieken te wachten: aantal vergunningen per wijk, aantal afhandeluren per bouwvolume-eenheid etc.
-3.	Hoe wil je status-informatie weergeven aan de klant? Heel generiek obv enkel voorgedefinieerde “zaakstatussen”, of wil je dit functioneel rijker doen in een domeinspecifiek portal, bijvoorbeeld specifiek voor subsidies?
+1. Een gemeente wil alle Meldingen Openbare Ruimte op een kaart tonen. Vraag je hiertoe alle melding-zaken op met een generiek ZDS-koppelvlak? Wetende dat de AVG dit voor het overgrote deel aan zaken/zaaktypen niet toestaat? Of kies je voor een meldingen-specifiek koppelvlak, dat mogelijk functioneel rijker is: type melding, prioriteit van de melding, tekstuele toelichting…allemaal wellicht nuttig om op een dergelijke kaart te kunnen weergeven. Maar niet of slechts met moeite (zaaktypespecifieke eigenschappen) met een generiek zaken-koppelvlak te realiseren.
+2. Hoe wil je een proceseigenaar/afdelingshoofd van management-informatie voorzien? Op basis van zaken kun je erg generieke metrieken weergeven. Aantal zaken per afdeling, aantal zaken per status, zaken die voor of achter lopen op plandatum etc. Toch is het vergelijken van een subsidiezaak met een vergunnningenzaak appels met peren vergelijken. En zit een manager vergunningen vermoedelijk op heel andere metrieken te wachten: aantal vergunningen per wijk, aantal afhandeluren per bouwvolume-eenheid etc.
+3. Hoe wil je status-informatie weergeven aan de klant? Heel generiek obv enkel voorgedefinieerde “zaakstatussen”, of wil je dit functioneel rijker doen in een domeinspecifiek portal, bijvoorbeeld specifiek voor subsidies?
 
 Het is belangrijk om hier als gemeente even goed bij stil te staan. In veel gevallen zal het nog steeds handig blijken om iets met zaken op te lossen, of misschien beide: generieke informatie via zaken tonen en als aanvulling daarop enkele functioneel rijkere portalen of apps per domein.
 
@@ -167,9 +168,9 @@ In een gegevenslandschap willen we geen zaken (of andere informatie) meer “ron
 
 ## 1.5 Uitwerking voor een specifieke casus
 
-Acties bovenstaande uitwerken voor een specifiek voorbeeld, met echte gegevensmodellen… Opmerking AK Hoe stel je je dat voor? Ik heb er nog geen beeld bij. Waarop doel je met ‘bovenstaande’?
+* Acties bovenstaande uitwerken voor een specifiek voorbeeld, met echte gegevensmodellen… Opmerking AK Hoe stel je je dat voor? Ik heb er nog geen beeld bij. Waarop doel je met ‘bovenstaande’?
 
 ## 1.6 Consequenties voor ZDS en andere standaarden 
 
-Acties hoe kunnen ZDS standaarden zowel GEMMA 2 als CG ondersteunen?
-Acties migratie: hoe de standaarden vormgeven, zodat hier stapsgewijs naartoe kan worden gemigreerd
+* Acties hoe kunnen ZDS standaarden zowel GEMMA 2 als CG ondersteunen?
+* Acties migratie: hoe de standaarden vormgeven, zodat hier stapsgewijs naartoe kan worden gemigreerd
