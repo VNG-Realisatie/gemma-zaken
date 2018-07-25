@@ -31,7 +31,7 @@ paths:
               $ref: '#/components/schemas/EnkelvoudigInformatieObject'
         required: true
     parameters: []
-  '/enkelvoudiginformatieobjecten/{id}':
+  '/enkelvoudiginformatieobjecten/{uuid}':
     get:
       operationId: enkelvoudiginformatieobject_read
       description: Geef de details van een EnkelvoudigInformatieObject.
@@ -45,12 +45,13 @@ paths:
       tags:
         - enkelvoudiginformatieobjecten
     parameters:
-      - name: id
+      - name: uuid
         in: path
-        description: A unique integer value identifying this informatieobject.
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
-          type: integer
+          type: string
+          format: uuid
   /zaakinformatieobjecten:
     post:
       operationId: zaakinformatieobject_create
@@ -71,7 +72,7 @@ paths:
               $ref: '#/components/schemas/ZaakInformatieObject'
         required: true
     parameters: []
-  '/zaakinformatieobjecten/{id}':
+  '/zaakinformatieobjecten/{uuid}':
     get:
       operationId: zaakinformatieobject_read
       description: Geef de details van een ZAAKINFORMATIEOBJECT relatie.
@@ -85,12 +86,13 @@ paths:
       tags:
         - zaakinformatieobjecten
     parameters:
-      - name: id
+      - name: uuid
         in: path
-        description: A unique integer value identifying this Zaakinformatieobject.
+        description: Unieke resource identifier (UUID4)
         required: true
         schema:
-          type: integer
+          type: string
+          format: uuid
 servers:
   - url: /api/v1
 components:
