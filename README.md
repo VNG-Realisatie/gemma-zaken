@@ -18,7 +18,9 @@ De volgende documenten beschrijven dit project:
 - De [FAQ](./docs/content/introduction/faq.md) beantwoordt vragen over het project
 - De [dev-straat](./docs/content/dev-straat.md) beschrijft de development
   inrichting en tooling
-- [Technische documentatie](./docs/content/developers/index.md) voor developers
+- [Technische documentatie](./docs/content/developers/_index.md) voor developers
+
+Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.cloud
 
 ## Rollen
 
