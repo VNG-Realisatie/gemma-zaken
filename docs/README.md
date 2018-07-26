@@ -45,7 +45,7 @@ Om de documentatie website via [Docker](https://docs.docker.com/) te draaien:
    ```
    $ cd docs
    $ docker build -t vngr/gemma-zaken-docs .
-   $ docker run -p 80:80 --rm --name vngr/gemma-zaken-docs vngr/gemma-zaken-docs
+   $ docker run -p 80:80 --rm --name gemma-zaken-docs vngr/gemma-zaken-docs
    ```
 
 2. De documentatie is nu beschikbaar op `http://localhost/`.
