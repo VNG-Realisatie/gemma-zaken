@@ -21,7 +21,7 @@ Indienen inzageverzoek door de aanvrager
 * Versturen van de beschikking door de behandelaar
 * Ontvangen van de beschikking door de aanvrager
 
-![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG.png)
+![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG%20v2.png)
 
 ## Architectuurschets User Story
 Inzageverzoeken voor de AVG worden afgehandeld door Advies JZ ondersteund door Volg je Vraag (VJV). Inzageverzoeken worden geregistreerd als zaak.
