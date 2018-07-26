@@ -7,19 +7,19 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 * [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153): Als burger wil ik een verzoek tot inzage in mijn persoonsgegevens kunnen doen via de website van de gemeente Delft.
 * [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154): Als burger wil ik de status en de relevante documenten van mijn in behandeling zijnde inzage verzoek kunnen inzien op de PIP van de gemeente Delft.
 
-## Toelichting op userstory 153 Als burger wil ik een inzageverzoek AVG willen doen via de website van de gemeente Delft
+## Toelichting op [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153)
 
 Delft wil de inzageverzoeken AVG als zaak registreren en behandelen zodat alle betrokkenen vanuit eenzelfde informatiepositie kunnen worden voorzien van informatie. Het inzageverzoek wordt gedaan het webformulier dat de gemeente hiervoor heeft ontwikkeld. Het systeem voor webformulieren heet Volg Je Vraag (VJV). 
 
 ## Beknopte procesbeschrijving
 
 Onderstaand proces toont het proces op hoofdlijnen:
-•	Indienen inzageverzoek door de aanvrager
-•	Routeren van het verzoek naar de behandelaar door JZ Advies
-•	Behandelen van het verzoek door de behandelaar
-•	Opstellen van de beschikking door de behandelaar
-•	Versturen van de beschikking door de behandelaar
-•	Ontvangen van de beschikking door de aanvrager
+Indienen inzageverzoek door de aanvrager
+* Routeren van het verzoek naar de behandelaar door JZ Advies
+* Behandelen van het verzoek door de behandelaar
+* Opstellen van de beschikking door de behandelaar
+* Versturen van de beschikking door de behandelaar
+* Ontvangen van de beschikking door de aanvrager
 
 ![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG.png)
 
@@ -27,8 +27,9 @@ Onderstaand proces toont het proces op hoofdlijnen:
 Inzageverzoeken voor de AVG worden afgehandeld door Advies JZ ondersteund door Volg je Vraag (VJV). Inzageverzoeken worden geregistreerd als zaak.
 Een inzageverzoek kan voor specifieke domeinen worden aangevraagd (WOB, jeugd, participatie, Schuldhulpverlening, overig), of er kan een algemeen verzoek worden ingediend. 
 De behandelaar controleert of de aanvraag voldoet aan de voorwaarden:
-•	Aanvrager is 16 jaar of ouder
-•	Aanvrager doet een inzageverzoek voor de eigen gegevens
+* Aanvrager is 16 jaar of ouder
+* Aanvrager doet een inzageverzoek voor de eigen gegevens
+
 Indien niet aan de voorwaarden wordt voldaan volgt een afwijzing.
 De behandelaar verzamelt vervolgens de benodigde gegevens (verwerkingen). Waar worden deze bewaard? De ruwe verzameling komt uit verschillende bronnen. Gaat daar nog een bepaald filter overheen. Kan de ruwe verzameling gegevens bevatten waar de aanvrager geen toegang toe mag krijgen?
 De behandelaar maakt de beschikking en stuurt deze naar de aanvrager.
