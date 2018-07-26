@@ -35,7 +35,8 @@ De behandelaar verzamelt vervolgens de benodigde gegevens (verwerkingen). Waar w
 De behandelaar maakt de beschikking en stuurt deze naar de aanvrager.
 De beschikking wordt per post verzonden. De aanvrager kan ervoor kiezen om deze ook digitaal te ontvangen.
 Voor het verwerken van de aanvragen wordt VJV gebruikt. De aanvraag wordt tevens als zaak geregistreerd in de ZRC. Overige (voor de zaak relevante) informatie wordt ook opgenomen in de ZRC, de beschikking wordt geregistreerd in de DRC.
-Werking van de standaard
+
+## Werking van de standaard
 Volgens de productvisie zijn actoren (medewerkers, behandelaars en klanten) bezig met een proces en niet met zaakgericht werken. 
 In de architectuurschets blijkt dit doordat de toepassing (en niet de actor) met de API’s communiceert bij de gegevens te verwerken uit de ZTC, ZRC en DRC (én ORC).
 Dit betekent dat die toepassing moet weten hoe de verschillende API’s aangesproken moeten worden. Wat vergelijkbaar is met de huidige situatie waarin van procesapplicaties (voor b.v. vergunningen, re-integratie, uitkering etc.) verwacht wordt dat ze de huidige ZDS standaard ondersteunen om zaakgericht te kunnen werken/registreren.
