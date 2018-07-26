@@ -36,6 +36,8 @@ De behandelaar maakt de beschikking en stuurt deze naar de aanvrager.
 De beschikking wordt per post verzonden. De aanvrager kan ervoor kiezen om deze ook digitaal te ontvangen.
 Voor het verwerken van de aanvragen wordt VJV gebruikt. De aanvraag wordt tevens als zaak geregistreerd in de ZRC. Overige (voor de zaak relevante) informatie wordt ook opgenomen in de ZRC, de beschikking wordt geregistreerd in de DRC.
 
+![Architectuur](./bestanden/Delft-Inzageverzoek/Architectuurschets%20Inzageverzoek%20AVG.png)
+
 ## Werking van de standaard
 Volgens de productvisie zijn actoren (medewerkers, behandelaars en klanten) bezig met een proces en niet met zaakgericht werken. 
 In de architectuurschets blijkt dit doordat de toepassing (en niet de actor) met de API’s communiceert bij de gegevens te verwerken uit de ZTC, ZRC en DRC (én ORC).
