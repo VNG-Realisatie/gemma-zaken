@@ -7,21 +7,6 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 * [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153): Als burger wil ik een verzoek tot inzage in mijn persoonsgegevens kunnen doen via de website van de gemeente Delft.
 * [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154): Als burger wil ik de status en de relevante documenten van mijn in behandeling zijnde inzage verzoek kunnen inzien op de PIP van de gemeente Delft.
 
-## Toelichting op [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153)
-
-Delft wil de inzageverzoeken AVG als zaak registreren en behandelen zodat alle betrokkenen vanuit eenzelfde informatiepositie kunnen worden voorzien van informatie. Het inzageverzoek wordt gedaan het webformulier dat de gemeente hiervoor heeft ontwikkeld. Het systeem voor webformulieren heet Volg Je Vraag (VJV). 
-
-## Beknopte procesbeschrijving
-
-Onderstaand proces toont het proces op hoofdlijnen:
-Indienen inzageverzoek door de aanvrager
-* Routeren van het verzoek naar de behandelaar door JZ Advies
-* Behandelen van het verzoek door de behandelaar
-* Opstellen van de beschikking door de behandelaar
-* Versturen van de beschikking door de behandelaar
-* Ontvangen van de beschikking door de aanvrager
-
-![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG%20v2.png)
 
 ## Architectuurschets User Story
 Inzageverzoeken voor de AVG worden afgehandeld door Advies JZ ondersteund door Volg je Vraag (VJV). Inzageverzoeken worden geregistreerd als zaak.
@@ -43,3 +28,26 @@ Volgens de productvisie zijn actoren (medewerkers, behandelaars en klanten) bezi
 In de architectuurschets blijkt dit doordat de toepassing (en niet de actor) met de API’s communiceert bij de gegevens te verwerken uit de ZTC, ZRC en DRC (én ORC).
 Dit betekent dat die toepassing moet weten hoe de verschillende API’s aangesproken moeten worden. Wat vergelijkbaar is met de huidige situatie waarin van procesapplicaties (voor b.v. vergunningen, re-integratie, uitkering etc.) verwacht wordt dat ze de huidige ZDS standaard ondersteunen om zaakgericht te kunnen werken/registreren.
 Wij verwachten dat de nieuwe standaard continu in ontwikkeling zal blijven. Betekent dit dat procesapplicaties daar ook continu op moeten spelen
+
+## Toelichting op [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153)
+
+Delft wil de inzageverzoeken AVG als zaak registreren en behandelen zodat alle betrokkenen vanuit eenzelfde informatiepositie kunnen worden voorzien van informatie. Het inzageverzoek wordt gedaan het webformulier dat de gemeente hiervoor heeft ontwikkeld. Het systeem voor webformulieren heet Volg Je Vraag (VJV). 
+
+### Beknopte procesbeschrijving
+
+Onderstaand proces toont het proces op hoofdlijnen:
+Indienen inzageverzoek door de aanvrager
+* Routeren van het verzoek naar de behandelaar door JZ Advies
+* Behandelen van het verzoek door de behandelaar
+* Opstellen van de beschikking door de behandelaar
+* Versturen van de beschikking door de behandelaar
+* Ontvangen van de beschikking door de aanvrager
+
+![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG%20v2.png)
+
+## Toelichting op [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154)
+
+
+
+### Beknopte procesbeschrijving
+
