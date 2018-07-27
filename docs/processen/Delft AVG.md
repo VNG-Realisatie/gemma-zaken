@@ -8,7 +8,7 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 * [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154): Als burger wil ik de status en de relevante documenten van mijn in behandeling zijnde inzage verzoek kunnen inzien op de PIP van de gemeente Delft.
 
 
-## Architectuurschets User Story
+## Architectuurschets
 Inzageverzoeken voor de AVG worden afgehandeld door Advies JZ ondersteund door Volg je Vraag (VJV). Inzageverzoeken worden geregistreerd als zaak.
 Een inzageverzoek kan voor specifieke domeinen worden aangevraagd (WOB, jeugd, participatie, Schuldhulpverlening, overig), of er kan een algemeen verzoek worden ingediend. 
 De behandelaar controleert of de aanvraag voldoet aan de voorwaarden:
