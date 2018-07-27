@@ -5,7 +5,7 @@ In dit hoofdstuk wordt een architectuurschets gegeven voor de user stories voor 
 ## User stories
 
 * [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153): Als burger wil ik een verzoek tot inzage in mijn persoonsgegevens kunnen doen via de website van de gemeente Delft.
-* [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154): Als burger wil ik de status en de relevante documenten van mijn in behandeling zijnde inzage verzoek kunnen inzien op de PIP van de gemeente Delft.
+* [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154): Als burger wil ik de status en de relevante documenten van mijn inzage verzoek kunnen inzien op de PIP van de gemeente Delft.
 
 
 ## Architectuurschets
@@ -31,6 +31,8 @@ Wij verwachten dat de nieuwe standaard continu in ontwikkeling zal blijven. Bete
 
 ## Toelichting op [User story #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153)
 
+"Als burger wil ik een verzoek tot inzage in mijn persoonsgegevens kunnen doen via de website van de gemeente Delft."
+
 Delft wil de inzageverzoeken AVG als zaak registreren en behandelen zodat alle betrokkenen vanuit eenzelfde informatiepositie kunnen worden voorzien van informatie. Het inzageverzoek wordt gedaan het webformulier dat de gemeente hiervoor heeft ontwikkeld. Het systeem voor webformulieren heet Volg Je Vraag (VJV). 
 
 ### Beknopte procesbeschrijving
@@ -47,7 +49,7 @@ Indienen inzageverzoek door de aanvrager
 
 ## Toelichting op [User story #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154)
 
-
+"Als burger wil ik de status en de relevante documenten van mijn inzage verzoek kunnen inzien op de PIP van de gemeente Delft."
 
 ### Beknopte procesbeschrijving
 
