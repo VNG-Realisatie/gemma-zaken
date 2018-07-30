@@ -695,7 +695,7 @@ components:
     Geometry:
       title: Geometry
       description: GeoJSON geometry
-      required: 
+      required:
         - type
       type: object
       properties:
@@ -726,12 +726,12 @@ components:
       minItems: 2
     Point:
       description: GeoJSON point geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               $ref: '#/components/schemas/Point2D'
@@ -739,12 +739,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.2'
     MultiPoint:
       description: GeoJSON multi-point geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               type: array
@@ -754,12 +754,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.3'
     LineString:
       description: GeoJSON line-string geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               type: array
@@ -770,12 +770,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.4'
     MultiLineString:
       description: GeoJSON multi-line-string geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               type: array
@@ -787,12 +787,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.5'
     Polygon:
       description: GeoJSON polygon geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               type: array
@@ -804,12 +804,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.6'
     MultiPolygon:
       description: GeoJSON multi-polygon geometry
-      required:
-        - coordinates
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - coordinates
+          type: object
           properties:
             coordinates:
               type: array
@@ -823,12 +823,12 @@ components:
         url: 'https://tools.ietf.org/html/rfc7946#section-3.1.7'
     GeometryCollection:
       description: GeoJSON multi-polygon geometry
-      required:
-        - geometries
       type: object
       allOf:
         - $ref: '#/components/schemas/Geometry'
-        - type: object
+        - required:
+            - geometries
+          type: object
           properties:
             geometries:
               type: array
