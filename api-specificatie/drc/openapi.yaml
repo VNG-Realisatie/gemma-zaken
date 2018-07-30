@@ -12,6 +12,20 @@ security:
   - basic: []
 paths:
   /enkelvoudiginformatieobjecten:
+    get:
+      operationId: enkelvoudiginformatieobject_list
+      description: EnkelvoudigInformatieObject resource.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+      tags:
+        - enkelvoudiginformatieobjecten
     post:
       operationId: enkelvoudiginformatieobject_create
       description: Registreer een EnkelvoudigInformatieObject.
@@ -53,6 +67,20 @@ paths:
           type: string
           format: uuid
   /zaakinformatieobjecten:
+    get:
+      operationId: zaakinformatieobject_list
+      description: Beheer relatie tussen InformatieObject en ZAAK.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZaakInformatieObject'
+      tags:
+        - zaakinformatieobjecten
     post:
       operationId: zaakinformatieobject_create
       description: Registreer een INFORMATIEOBJECT bij een ZAAK.
