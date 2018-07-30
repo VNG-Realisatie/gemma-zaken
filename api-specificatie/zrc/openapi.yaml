@@ -695,7 +695,8 @@ components:
     Geometry:
       title: Geometry
       description: GeoJSON geometry
-      required: type
+      required: 
+        - type
       type: object
       properties:
         type:
