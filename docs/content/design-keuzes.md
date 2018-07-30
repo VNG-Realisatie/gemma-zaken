@@ -35,3 +35,10 @@ parameters. De motivatie is verder dat deze:
 * semantisch bevragen niet onmogelijk maakt.
 
 [UUID (versie 4)]: https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)
+
+
+## Uitdrukken van duur
+
+Voor het uitdrukken van duur wordt gebruikt gemaakt van
+[ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations). Dit
+sluit aan bij ISO-8601 weergave van timestamps doorheen de API.
