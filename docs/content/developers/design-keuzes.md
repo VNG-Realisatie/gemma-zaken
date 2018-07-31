@@ -1,7 +1,7 @@
 ---
 title: "Ontwerpkeuzes"
 description: ""
-weight: 50
+weight: 30
 menu:
   docs:
     parent: "developers"

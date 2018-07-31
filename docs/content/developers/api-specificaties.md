@@ -7,7 +7,6 @@ menu:
     parent: "developers"
 ---
 
-
 De `master` versie specificaties worden via Swagger.io inzichtelijk gemaakt.
 
 Merk op dat de specificaties op dit moment nog heel erg aan verandering

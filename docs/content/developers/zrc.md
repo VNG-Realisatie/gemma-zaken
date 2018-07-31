@@ -1,5 +1,5 @@
 ---
-title: "Zaakregistratiecomponent (ZRC)"
+title: "Zaakregistratie (ZRC)"
 description: ""
 weight: 20
 menu:

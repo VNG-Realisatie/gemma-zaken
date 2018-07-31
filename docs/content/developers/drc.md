@@ -1,5 +1,5 @@
 ---
-title: "Documentregistratiecomponent (DRC)"
+title: "Documentregistratie (DRC)"
 description: ""
 weight: 21
 menu:

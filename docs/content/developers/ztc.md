@@ -1,5 +1,5 @@
 ---
-title: "Zaaktypecataloguscomponent (ZTC)"
+title: "Zaaktypecatalogus (ZTC)"
 description: ""
 weight: 22
 menu:
