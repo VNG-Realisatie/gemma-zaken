@@ -1,14 +1,13 @@
 ---
 title: "Veelgestelde vragen"
 description: ""
-weight: 10
+weight: 40
 menu:
   docs:
     parent: "introduction"
 ---
 
 ## Inhoud
-
 * [Wie is de opdrachtgever?](#wie-is-de-opdrachtgever)
 * [Wat is de opdracht?](#wat-is-de-opdracht)
 * [Wat is de relatie met Common Ground?](#wat-is-de-relatie-met-common-ground)

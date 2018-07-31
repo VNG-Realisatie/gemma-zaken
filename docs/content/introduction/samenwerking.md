@@ -1,11 +1,17 @@
 ---
-title: "ZAKEN Samenwerking"
+title: "Samenwerking"
 description: ""
-weight: 10
+weight: 20
 menu:
   docs:
     parent: "introduction"
 ---
+
+## Inhoud
+* [Samenwerkende partijen](#samenwerkende-partijen)
+* [Vorm](#vorm)
+* [Eigenaarschap en opdrachtgeverschap](#eigenaarschap-en-opdrachtgeverschap)
+
 
 ## Samenwerkende partijen
 
@@ -44,9 +50,6 @@ Deel van deze samenwerking is het samen uitvinden van een nieuwe verhouding tuss
 Daarbij wordt actief gestuurd op het vinden van antwoorden op de volgende vragen:
 
 - Wat betekent het (uitsluitend) gebruiken van API's die door anderen worden aangeboden voor het maken van software, kortom de beweging van het hebben naar het gebruiken van data?
-
 - Hoe worden overheden weer echt eigenaar van de data die zij produceren?
-
 - Hoe komen we tot meer openheid en transparantie over de manier waarop software van de overheid wordt ingezet bij het nemen van besluiten?
-
 - Hoe kunnen we voorgestelde wijzigingen in de standaard snel en adequaat beoordelen?

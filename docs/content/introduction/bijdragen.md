@@ -1,16 +1,28 @@
-# Bijdragen
+---
+title: "Bijdragen"
+description: ""
+weight: 30
+menu:
+  docs:
+    parent: "introduction"
+---
 
 Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn blij met feedback en verwelkomen verbeteringen in dit project. Brede samenwerking leidt tot de beste standaarden.
 
 'Issues' en 'Pull Requests' zijn meer dan welkom.
 
+## Inhoud
+* [Problemen, suggesties en vragen](#problemen-suggesties-en-vragen)
+* [Documentatie en code](#documentatie-en-code)
+* [Agile Scrum](#agile-scrum)
 
-## Problemen, suggesties en vragen in 'Issues'
+
+## Problemen, suggesties en vragen
 
 Het is niet nodig om software of documentatie te schrijven om toch bij te dragen. De ontwikkeling is ook gebaat bij gerapporteerde problemen, suggesties voor wijzigingen en vragen over dingen die (nog) onduidelijk zijn. Om dit te doen kan een [issue worden gemaakt](https://github.com/VNG-Realisatie/gemma-zaken/issues). Op de supportpagina's van GitHub staat [uitleg over het maken van issues](https://help.github.com/articles/creating-an-issue/).
 
 
-## Documentatie en code in 'Pull Requests'
+## Documentatie en code
 
 Maak om bij te dragen aan de documentatie of software van ZDS 2.0 een zogenaamde Pull Request. Lees alles over hoe git (en GitHub) werkt in deze [introductie over git flow](https://guides.github.com/introduction/flow/).
 

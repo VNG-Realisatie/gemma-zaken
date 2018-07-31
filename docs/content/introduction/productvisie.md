@@ -1,5 +1,5 @@
 ---
-title: "ZAKEN Productvisie ZDS 2.0"
+title: "Productvisie ZDS 2.0"
 description: ""
 weight: 10
 menu:
