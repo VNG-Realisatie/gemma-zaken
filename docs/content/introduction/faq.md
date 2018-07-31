@@ -1,12 +1,3 @@
----
-title: "Veelgestelde vragen"
-description: ""
-weight: 10
-menu:
-  docs:
-    parent: "introduction"
----
-
 ## Inhoud
 
 * [Wie is de opdrachtgever?](#wie-is-de-opdrachtgever)
@@ -65,6 +56,7 @@ Leveranciers zijn welkom bij sprint reviews (demo's). Zij kunnen met gemeentes o
 
 ## Wat betekent dit voor gemeentes?
 
+TODO
 
 ## Wat is de rol van VNG?
 
@@ -79,6 +71,7 @@ De Opdrachtgever, [VNG Realisatie](https://github.com/VNG-Realisatie/)
 
 ## Worden zaaksystemen hiermee beter, goedkoper, sneller, beter uitwisselbaar, etc.?
 
+TODO
 
 ## Is de referentie-implementatie bruikbaar in productie?
 
@@ -87,5 +80,17 @@ TODO: In het algemeen niet direct. Echter, we realiseren kleinere componenten wa
 ## Komt er een landelijke versie van dit "product"?
 
 TODO: Basisregistraties wel landelijk, kernregistraties niet.
+
+## Komt er een landelijke versie van dit "product"?
+
+TODO
+
+## Kan ik als gemeente aansluiten tijdens het project?
+
+TODO
+
+## Kan ik als leverancier aansluiten tijdens het project?
+
+TODO
 
 
