@@ -7,11 +7,9 @@ menu:
     parent: "developers"
 ---
 
-## API endpoints gebruiken UUID4 als ID-parameter voor het opvragen van een enkel object
+## UUID4 als ID-parameter in endpoints
 
-De ID-parameter, hieronder aangeduid met `{uuid}` wordt gebruikt om via de URL
-een enkel object van een bepaald type resource te vinden. Bijvoorbeeld een
-`Zaak`:
+De ID-parameter, hieronder aangeduid met `{uuid}` wordt gebruikt om via de URL een enkel object van een bepaald type resource te vinden. Bijvoorbeeld een `Zaak`:
 
 |URL|Voorbeeld|
 |---|---|
@@ -33,7 +31,7 @@ door de hele de API heen. Tevens wekt het de indruk dat dat deze parameters
 genoeg zijn om een Zaak te vinden maar dat is niet correct. De volledige URL is
 nodig voor het opvragen van een enkele Zaak.
 
-Daarom is beslist om gebruik te maken van [UUID (versie 4)] voor deze
+Daarom is besloten om gebruik te maken van [UUID (versie 4)] voor deze
 parameters. De motivatie is verder dat deze:
 
 * uniciteit garandeert, ook over meerdere systemen heen;
@@ -44,7 +42,7 @@ parameters. De motivatie is verder dat deze:
 [UUID (versie 4)]: https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)
 
 
-## Uitdrukken van duur
+## ISO-8601 durations voor uitdrukken van duur
 
 Voor het uitdrukken van duur wordt gebruikt gemaakt van
 [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations). Dit
