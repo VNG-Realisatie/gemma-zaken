@@ -7,18 +7,6 @@ menu:
     parent: "introduction"
 ---
 
-## Inhoud
-* [Wie is de opdrachtgever?](#wie-is-de-opdrachtgever)
-* [Wat is de opdracht?](#wat-is-de-opdracht)
-* [Wat is de relatie met Common Ground?](#wat-is-de-relatie-met-common-ground)
-* [Wat gaat er concreet gemaakt worden?](#wat-gaat-er-concreet-gemaakt-worden)
-* [Wat is de rol van leveranciers?](#wat-is-de-rol-van-leveranciers)
-* [Wat betekent dit voor leveranciers?](#wat-betekent-dit-voor-leveranciers)
-* [Wat is de rol van VNG?](#wat-is-de-rol-van-vng)
-* [Wie betaalt dit allemaal?](#wie-betaalt-dit-allemaal)
-* [Is de referentie-implementatie bruikbaar in productie?](#Is-de-referentie-implementatie-bruikbaar-in-productie)
-
-
 ## Wie is de opdrachtgever?
 
 VNG is beheerder en eigenaar van de standaard ZDS 2.0 (nu in ontwikkeling). Formeel opdrachtgever is [Theo Peters](https://github.com/TheoVNGPeters), Unit Manager Architectuur en Standaarden.

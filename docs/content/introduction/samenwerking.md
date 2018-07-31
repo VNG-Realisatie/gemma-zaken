@@ -7,12 +7,6 @@ menu:
     parent: "introduction"
 ---
 
-## Inhoud
-* [Samenwerkende partijen](#samenwerkende-partijen)
-* [Vorm](#vorm)
-* [Eigenaarschap en opdrachtgeverschap](#eigenaarschap-en-opdrachtgeverschap)
-
-
 ## Samenwerkende partijen
 
 Op 30 mei 2018 wordt gestart (sprint 0) met de volgende gemeenten:

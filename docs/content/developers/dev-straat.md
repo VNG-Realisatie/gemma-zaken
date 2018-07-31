@@ -13,14 +13,6 @@ automatisch leiden tot het bijwerken van (test-)omgevingen.
 Verder vinden er automatische checks plaats die de correctheid van
 implementaties en netheid van code bewaken.
 
-## Inhoud
-* [Github](#github)
-* [Jenkins](#jenkins)
-* [Docker Hub](#docker-hub)
-* [Kubernetes](#kubernetes)
-* [Swagger](#swagger)
-* [NLX Directory](#nlx-directory)
-* [Docker-compose](#docker-compose)
 
 **Architectuurschets**
 

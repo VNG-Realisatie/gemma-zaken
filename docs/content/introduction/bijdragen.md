@@ -11,11 +11,6 @@ Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn bli
 
 'Issues' en 'Pull Requests' zijn meer dan welkom.
 
-## Inhoud
-* [Problemen, suggesties en vragen](#problemen-suggesties-en-vragen)
-* [Documentatie en code](#documentatie-en-code)
-* [Agile Scrum](#agile-scrum)
-
 
 ## Problemen, suggesties en vragen
 

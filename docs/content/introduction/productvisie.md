@@ -7,17 +7,6 @@ menu:
     parent: "introduction"
 ---
 
-## Inhoud
-* [Introductie](#introductie)
-* [Productvisie ZDS](#productvisie-zds)
-* [Scope](#scope)
-* [Uitgangspunten](#uitgangspunten)
-* [Realisatie](#realisatie)
-* [Transitie](#transitie)
-* [Centraal aanbieden](#centraal-aanbieden)
-* [Gerelateerde trajecten](#gerelateerde-trajecten)
-
-
 ## Introductie
 
 Om Zaakgericht Werken een stap verder te brengen worden Zaak- en Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile proces vorm gegeven aan RESTful API's die concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen, en als referentie te dienen voor latere implementaties.
