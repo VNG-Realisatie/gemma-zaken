@@ -9,7 +9,14 @@ menu:
 
 *Component voor opslag en ontsluiting van zaaktypegegevens.*
 
-De component ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktypegegevens. Deze gegevens kunnen door applicaties worden gebruikt om voor zaken van een bepaald type de juiste gegevens(statussen, resultaattypen, documenttypen,..) te bepalen. Applicaties die gebruik maken van deze zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens vindt plaats conform het informatiemodel ZTC. De verzameling opgeslagen zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus".
+De component ondersteunt het opslaan en naar andere applicaties ontsluiten van
+zaaktypegegevens. Deze gegevens kunnen door applicaties worden gebruikt om voor
+zaken van een bepaald type de juiste gegevens(statussen, resultaattypen,
+  documenttypen,..) te bepalen. Applicaties die gebruik maken van deze
+  zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een
+  vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens
+  vindt plaats conform het informatiemodel ZTC. De verzameling opgeslagen
+  zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus".
 
 ## Verwijzingen
 
