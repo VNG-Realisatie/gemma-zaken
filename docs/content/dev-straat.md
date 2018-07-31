@@ -22,7 +22,7 @@ implementaties en netheid van code bewaken.
 ## Github
 
 Alle ontwikkeling vindt plaats op Github. Het centrale punt is de
-[gemma-zaken](https://github.com.com/VNG-Realisatie/gemma-zaken) repository.
+[gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken) repository.
 
 Het one-flow git-branching model wordt hier aangehouden - dit betekent dat de
 `master` branch altijd de 'huidige waarheid' is, en aanpassingen worden via
