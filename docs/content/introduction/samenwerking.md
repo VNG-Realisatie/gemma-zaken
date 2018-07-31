@@ -9,7 +9,7 @@ menu:
 
 ## Samenwerkende partijen
 
-Op 30 mei 2018 wordt gestart (sprint 0) met de volgende partijen:
+Op 30 mei 2018 wordt gestart (sprint 0) met de volgende gemeenten:
 
 - **Gemeente Amsterdam**
 - **Gemeente Delft**
@@ -20,16 +20,11 @@ Op 30 mei 2018 wordt gestart (sprint 0) met de volgende partijen:
 - **Dimpact**, samenwerkingsverband van 30 gemeenten:
   - **Enschede, Zwolle, Oldenzaal, Emmen, Coevorden, Oost Gelre, Hardenberg, Borger-Odoorn, Gemert-Bakel, Assen, Bellingwedde, Oldambt, Velsen, Waterland, Landsmeer, Blaricum, Eemnes, Laren, Kampen, Landerd, Roermond, Laarbeek, Ommen, Deventer, Olst-Wijhe, Raalte, Ten Boer, Groningen, Rotterdam en Twenterand**.
 
-De volgende leveranciers zijn vanaf het begin betrokken:
+De API specificatie en referentieimplementatie wordt gerealiseerd door **Maykin Media**.
 
-- **Atos**, huisleverancier van Dimpact
-- **Maykin Media**, maker van de ZRC van gemeente Haarlem
+**VNG Realisatie** faciliteert de totstandkoming van de nieuwe standaard, door de visie te bewaken, kennis rond het informatiemodel en GEMMA architectuur te leveren en te zorgen voor de formele stappen in het proces, zoals het verheffen tot standaard van opgeleverde producten.
 
-**VNG Realisatie** faciliteert de totstandkoming van de nieuwe standaard, door de visie te bewaken, kennis rond het informatiemodel te leveren en te zorgen voor de formele stappen in het proces, zoals het verheffen tot standaard van opgeleverde producten.
-
-Aangezien dit de eerste maal is dat op deze manier wordt samengewerkt moet hier de juiste vorm worden gevonden.
-
-VNG realisatie organiseert een schrijfster die zorgt voor voortgang tijdens de sprints van gezamenlijke onderdelen.
+Aangezien dit de eerste keer is dat op deze manier wordt samengewerkt moet de juiste vorm samen worden gevonden.
 
 
 ## Vorm
@@ -37,9 +32,9 @@ VNG realisatie organiseert een schrijfster die zorgt voor voortgang tijdens de s
 Elke gemeente levert een aantal user stories om te realiseren in de samenwerking.
 Op basis van een eerste analyse van de user stories wordt duidelijk welke API's voor de ZDS 2.0 gemaakt moeten worden. Alle user stories komen op een backlog welke gezamelijk wordt geprioriteerd. Daarbij wordt rekening gehouden met het toevoegen van zoveel mogelijk waarde bij zoveel mogelijk deelnemende partijen.
 
-De meewerkende leveranciers van achterliggende Zaakregistratiecomponenten (ZRC) bepalen samen hoe een RESTful API er uit moet zien, en komen gezamenlijk met een voorstel voor de standaard ZDS 2.0, welke groeit gedurende de samenwerking.
+Het scrumteam bepaalt samen hoe een RESTful API er uit moet zien, wat leidt tot een voorstel voor de standaard ZDS 2.0, welke groeit gedurende de samenwerking. Een rol voor leveranciers van Zaakregistratiecomponenten (ZRC) is gewenst, suggesties voor een samenwerking die leidt tot draagvlak en gelijke kansen zijn welkom. Vanaf sprint 3 moet dit goed functioneren.
 
-De gemeenten verzorgen hun eigen team, betrekken de proceseigenaar en financieren de ontwikkeling, configuratie van de proces inrichting.
+De gemeenten verzorgen hun eigen team en voeren zelfstandig projectwerkzaamheden uit die leiden tot User Stories zoals gewenst in deze samenwerking.
 
 
 ## Eigenaarschap en opdrachtgeverschap
