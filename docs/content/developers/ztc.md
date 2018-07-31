@@ -1,7 +1,7 @@
 ---
 title: "Zaaktypecataloguscomponent (ZTC)"
 description: ""
-weight: 10
+weight: 22
 menu:
   docs:
     parent: "developers"

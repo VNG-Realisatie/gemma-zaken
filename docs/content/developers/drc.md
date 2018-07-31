@@ -1,7 +1,7 @@
 ---
 title: "Documentregistratiecomponent (DRC)"
 description: ""
-weight: 10
+weight: 21
 menu:
   docs:
     parent: "developers"
