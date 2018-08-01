@@ -1,7 +1,7 @@
 ---
-title: "Documentregistratiecomponent (DRC)"
+title: "Documentregistratie (DRC)"
 description: ""
-weight: 10
+weight: 21
 menu:
   docs:
     parent: "developers"
@@ -9,7 +9,14 @@ menu:
 
 *Component voor opslag en ontsluiting van documenten en daarbij behorende metadata.*
 
-De component ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Opslag vindt plaats conform het informatie-objecten-gedeelte van het RGBZ. Ontsluiting vindt plaats volgens koppelvlakspecificaties zoals CMIS conform de door KING vastgestelde Zaak- en Documentservices.
+De component ondersteunt het opslaan en naar andere applicaties ontsluiten van
+informatieobjecten (in de 'volksmond': documenten). De component slaat deze
+gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in
+staat deze te wijzigen, te verwijderen en aan de hand van een aantal
+zoekcriteria op te vragen. Opslag vindt plaats conform het
+informatie-objecten-gedeelte van het RGBZ. Ontsluiting vindt plaats volgens
+koppelvlakspecificaties zoals CMIS conform de door KING vastgestelde Zaak- en
+Documentservices.
 
 ## Verwijzingen
 

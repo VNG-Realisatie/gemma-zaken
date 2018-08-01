@@ -1,9 +1,16 @@
-# API specificaties
+---
+title: "API Specificaties"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "developers"
+---
 
 De `master` versie specificaties worden via Swagger.io inzichtelijk gemaakt.
 
-Merk op dat de specificatie op dit moment nog heel erg aan verandering
-onderhevig is.
+Merk op dat de specificaties op dit moment nog heel erg aan verandering
+onderhevig zijn.
 
 De specificaties voor de verschillende componenten leven in
 `api-specificatie/<component>/openapi.yaml`.

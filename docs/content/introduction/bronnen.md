@@ -1,4 +1,11 @@
-# Overzicht relevante bronnen
+---
+title: "Bronnen"
+description: ""
+weight: 1
+menu:
+  docs:
+    parent: "introduction"
+---
 
 ## Algemeen
 - [Metamodel

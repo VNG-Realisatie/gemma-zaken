@@ -1,7 +1,7 @@
 ---
-title: "Zaakregistratiecomponent (ZRC)"
+title: "Zaakregistratie (ZRC)"
 description: ""
-weight: 10
+weight: 20
 menu:
   docs:
     parent: "developers"
@@ -9,7 +9,12 @@ menu:
 
 *Component voor opslag en ontsluiting van zaakgegevens.*
 
-De component ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in de documentenregistratiecomponent, medewerkergegevens in de medewerkerregistratiecomponent, etc. 
+De component ondersteunt het opslaan en het naar andere applicaties ontsluiten
+van gegevens over alle gemeentelijke zaken, van elk type. Opslag vindt plaats
+conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn
+beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden
+opgeslagen in de documentenregistratiecomponent, medewerkergegevens in de
+medewerkerregistratiecomponent, etc.
 
 ## Verwijzingen
 
