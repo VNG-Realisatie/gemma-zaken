@@ -30,12 +30,12 @@ het scrumteam zijn actief betrokken bij de realisatie van Common Ground.
 
 Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt
 Common Ground gevolgd. De principes volgend uit de Common Ground visie worden
-toegepast. _Zie: [productvisie](./productvisie.md)_
+toegepast. _Zie: [productvisie]({{< relref "productvisie.md" >}})_
 
 
 ## Wat gaat er concreet gemaakt worden?
 
-_Volgens [productvisie](./productvisie.md#realisatie)_
+_Volgens [productvisie]({{< relref "productvisie.md#realisatie" >}})_
 
 * Opstellen en realiseren van een nieuwe ZDS 2.0 API volgens Open API
 Specificatie v3 (AOS 3)

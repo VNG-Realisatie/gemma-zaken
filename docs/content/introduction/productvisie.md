@@ -54,7 +54,7 @@ beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld
 is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a.
 [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
-Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](./samenwerking.md)
+Vanaf mei 2018 wordt met een aantal partijen [samengewerkt]({{< relref "introduction/samenwerking.md" >}})
 aan realisatie van de "ZDS 2.0".
 
 De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken
@@ -216,8 +216,8 @@ open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
 Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility.
 
-Voor meer informatie over de samenwerking, zie
-[samenwerking.md](./samenwerking.md)
+Voor meer informatie over de samenwerking, zie 
+[samenwerking]({{< relref "samenwerking.md" >}})
 
 Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) gemaakt.
 De referentie implementatie heeft de volgende karakteristieken:

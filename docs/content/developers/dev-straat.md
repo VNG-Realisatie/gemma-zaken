@@ -16,7 +16,7 @@ implementaties en netheid van code bewaken.
 
 **Architectuurschets**
 
-![DevOps pipeline](../bestanden/dev-straat.png)
+![DevOps pipeline](/img/dev-straat.png)
 
 ## Github
 
@@ -136,7 +136,7 @@ is. In een latere fase komen er stabiele omgevingen.
 ## Swagger
 
 (Voorlopig) worden de gepubliceerde OAS 3.0 specificaties voor de services
-inzichtelijk gemaakt op Swagger.io. Zie de [spec documentatie](./spec.md).
+inzichtelijk gemaakt op Swagger.io. Zie de [spec documentatie]({{< relref "api-specificaties.md" >}}).
 
 ## NLX Directory
 
@@ -148,4 +148,4 @@ actie.
 ## Docker-compose
 
 Er is een `docker-compose` file beschikbaar om de volledige
-referentie-implementatie stack op te brengen. Zie de [developer documentatie](./developers/index.md).
+referentie-implementatie stack op te brengen. Zie de [developer documentatie]({{< relref "aan-de-slag.md" >}}).
