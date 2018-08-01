@@ -15,6 +15,7 @@ De volgende documenten beschrijven dit project:
 
 - We werken aan realisatie van de [Productvisie](./docs/content/introduction/productvisie.md) (concept)
 - Hoe we [samenwerken](./docs/content/introduction/samenwerking.md) is apart beschreven
+- Hoe u kunt [bijdragen](./docs/content/introduction/bijdragen.md) (inclusief het reviewproces)
 - De [FAQ](./docs/content/introduction/faq.md) beantwoordt vragen over het project
 - De [dev-straat](./docs/content/dev-straat.md) beschrijft de development
   inrichting en tooling
