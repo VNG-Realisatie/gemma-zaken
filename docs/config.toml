@@ -1,7 +1,7 @@
 title = "GEMMA Zaken API Guide"
 theme = "nlx"
 languageCode = "nl-nl"
-baseURL = "https://docs.nlx.io/"
+baseURL = "https://ref.tst.vng.cloud/"
 DefaultContentLanguage = "nl"
 
 [outputs]

@@ -5,11 +5,17 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <h1 id="content">{{ .Title }}</h1>
-                        {{ .Content }}
-
+                        <ul>
+                        <!-- Ranges through content/post/*.md -->
+                        {{ range .Pages }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                        {{ end }}
+                        </ul>
                     </div>
                     <div class="col-sm-3">
-                        {{.TableOfContents}}
+                        {{ .Content }}
                     </div>
                 </div>
             </section>
