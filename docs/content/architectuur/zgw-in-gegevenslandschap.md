@@ -1,4 +1,11 @@
-# Zaakgericht Werken in een Gegevenslandschap
+---
+title: "ZGW in Gegevenslandschap"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "architectuur"
+---
 
 ![Repo Status](https://img.shields.io/badge/status-concept-lightgrey.svg?style=plastic)
 
