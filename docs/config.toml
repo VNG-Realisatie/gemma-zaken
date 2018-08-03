@@ -18,3 +18,11 @@ home = [ "HTML", "RSS", "JSON"]
   weight = 2
   identifier = "developers"
   url = "/developers/"
+
+
+
+[[menu.docs]]
+  name = "Community"
+  weight = 40
+  identifier = "community"
+  url = "/community/"
