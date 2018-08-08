@@ -93,18 +93,43 @@ Het ZDS 2.0 traject is het meest concreet aan het werk met een team, projectplan
 
 #### Waar kunnen we de ‘zoemende’ API’s vinden?
 
+|Specificatie|Referentie|
+|---|---|
+|[ZRC OAS](https://ref.tst.vng.cloud/zrc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/zrc/api/v1/)|
+|[ZTC OAS](https://ref.tst.vng.cloud/ztc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/zrc/api/v1/)|
+|[DRC OAS](https://ref.tst.vng.cloud/ztc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/drc/api/v1/)|
+
 
 #### Referentie-implementatie van ZTC is leeg
 
 Dat klopt, op dit moment worden updates van de software automatisch deployed maar is nog geen aandacht gegeven aan persistente inhoud. Het is wel mogelijk de ZTC te vullen met een administratieve interface, maar de autorisatie daarvoor deze wordt voor de referentie-implementatie niet vrijgegeven. Wanneer de software lokaal wordt gedraaid kan een super-user worden aangemaakt volgens de instructies. Issue [#279](https://github.com/VNG-Realisatie/gemma-zaken/issues/279) is aangemaakt om om te regelen dat er ofwel een standaard vulling van de ZTC komt, ofwel de mogelijkheid dit met de API zelf te doen.
 
+
 #### Hoever gaan we in meenemen alle velden uit RGBZ2 en imZTC in de API's?
 
-#### Scopes API's, wat zijn de beelden daarbij?
+Dat is nu nog niet bekend. Vooralsnog breiden we de API's uit op basis van user stories, en komt er dus in wat nodig is. Daarna zal een fase komen waarbij we actief gaan kijken welke velden uit RGBZ2 er nog niet in zitten, en of er user stories zijn waar deze in gebruikt worden. Zo niet, dan blijven ze achterwege. Waarschijnlijk wordt de standaard kleiner dan de huidige, daarentegen zullen mogelijk ook wat compositie-API's worden toegevoegd om veelvoorkomende patronen te ondersteunen.
+
+
+#### Wat zijn de beelden bij de scopes van de API's?
+
+Autorisatie staat voor komende sprints op de planning. Gezocht wordt naar een balans tussen beheersbaarheid (= weinig verschillende scopes) en voldoende mogelijkheden om vertrouwelijkheid en integriteit te garanderen. Uitdaging rond data visibility kan worden opgelost door de afnemer zelf de mogelijkheid te geven te limiteren wat de API teruggeeft - met bijv. de ``?field=`` functionaliteit.
+
+
 #### Wordt rekening gehouden met Multitenancy?
-#### CMIS standaard, hoe zit dat?
+
+De API specificatie laat dit toe (net als RGBZ2), multitenancy heeft vooral te maken met de manier waarop geïmplementeerd wordt. In ieder geval kan één API endpoint meerdere organisaties faciliteren indien gewenst.
+
+
+#### Hoe wordt de CMIS standaard in ZDS 2.0 verwerkt?
+
+
+
+
+
 #### Seperation of concerns: wat doet welke component en wat mag worden verwacht van de basisinfra
+
 #### Wat kunnen we verwachten van NLX / infra
+
 #### Hoe gaan we om met de coordinatenstelsels?
 
 #### Wat is status van de referentieimplementatie
