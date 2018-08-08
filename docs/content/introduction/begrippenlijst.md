@@ -1,6 +1,7 @@
 ## Onderstaand een overzicht van begrippen zoals deze in dit project gehanteerd worden. Deze begrippenlijst 
 
 - BSM: Bericht Structuur Model, een UML klassediagram dat  is afgeleid van het UGM waarmee de structuur van een specifiek bericht wordt vastgelegd.
+- DRC: Documentregistratiecomponent. Component voor opslag en ontsluiting van documenten en daarbij behorende metadata. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878 
 - EA: Enterprise Architect. Tool waarmee UML (klasse)diagrammen worden getekend.
 - EAP: Xml bestand dat als tussenbestand wordt gegenereerd uit wat is geconfigureerd in het Enterprise Architect. Bevat alle informatie die nodig is om schema's, documentatie en testberichten te genereren.
 - Extern model: TODO
@@ -22,5 +23,6 @@
 - UML: Unified Modeling Language. Visuele modelleertaal waarin we informatiemodellen en koppelvlakken definiëren. We gebruiken alleen klasse diagrammen.
 - View: Weergave van een selectie van objecttypen en attributen uit een Model, bedoeld om een specifiek deel vanuit een bepaald perspectief weer te geven.
 - XSLT: Extensible Stylesheet Language Transformations - De techniek waarmee XML structuren kunnen worden omgezet naar andersoortige structuren (XML, CSV, TXT, HTML) en waarmee binnen dit project de XSD-schema's specifiek volgens StUF-regels worden gegenereerd op basis van de output van de Imvertor.
-
+- ZRC Zaakregistratiecomponent. Component voor opslag en ontsluiting van zaakgegevens. De component ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in het documentenregistratiecomponent, medewerkergegevens in de medewerkerregistratiecomponent, etc. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-a97b6545-d5a7-485d-9b13-3ce22db5b9cf
+- ZTC: Zaaktypecatalogus (Component). Component voor opslag en ontsluiting van zaaktypegegevens. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktypegegevens. Deze gegevens kunnen door applicaties worden gebruikt om voor zaken van een bepaald type de juiste gegevens(statussen, resultaattypen, documenttypen,..) te bepalen. Applicaties die gebruik maken van deze zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens vindt bij voorkeur plaats conform het informatiemodel ZTC. De verzameling opgeslagen zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus". Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314 
 
