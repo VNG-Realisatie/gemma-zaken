@@ -1,4 +1,5 @@
-## Onderstaand een overzicht van begrippen zoals deze in dit project gehanteerd worden. Deze begrippenlijst 
+## Begrippenlijst
+In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de verschillende content van deze repository toegelicht. 
 
 - BSM: Bericht Structuur Model, een UML klassediagram dat  is afgeleid van het UGM waarmee de structuur van een specifiek bericht wordt vastgelegd.
 - DRC: Documentregistratiecomponent. Component voor opslag en ontsluiting van documenten en daarbij behorende metadata. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878 
