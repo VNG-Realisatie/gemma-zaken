@@ -7,21 +7,24 @@ menu:
     parent: "introduction"
 ---
 
-## Wie is de opdrachtgever?
+
+### Algemeen
+
+#### Wie is de opdrachtgever?
 
 VNG is beheerder en eigenaar van de standaard ZDS 2.0 (nu in ontwikkeling).
 Formeel opdrachtgever is [Theo Peters](https://github.com/TheoVNGPeters), Unit
 Manager Architectuur en Standaarden.
 
 
-## Wat is de opdracht?
+#### Wat is de opdracht?
 
 `Het ontwikkelen van` ZDS 2.0 gebaseerd op User Stories, duidelijk herkenbare
 architectuurpatronen volgend en in lijn met de gewenste toepassing van RESTful
 APIs.
 
 
-## Wat is de relatie met Common Ground?
+#### Wat is de relatie met Common Ground?
 
 Gestreefd wordt naar de realisatie van een Gegevenslandschap waarbij data niet
 langer wordt gekopiëerd en gesynchroniseerd, maar wordt gebruikt in de bron die
@@ -33,9 +36,9 @@ Common Ground gevolgd. De principes volgend uit de Common Ground visie worden
 toegepast. _Zie: [productvisie]({{< relref "productvisie.md" >}})_
 
 
-## Wat gaat er concreet gemaakt worden?
+#### Wat gaat er concreet gemaakt worden?
 
-_Volgens [productvisie]({{< relref "productvisie.md#realisatie" >}})_
+_Volgens de [productvisie]({{< relref "productvisie.md#realisatie" >}})_
 
 * Opstellen en realiseren van een nieuwe ZDS 2.0 API volgens Open API
 Specificatie v3 (AOS 3)
@@ -56,7 +59,7 @@ bewegen in de richting van Common ground
   valt buiten scope van wat het scrumteam zal opleveren)
 
 
-## Wat betekent dit voor leveranciers?
+#### Wat betekent dit voor leveranciers?
 
 Er komt een nieuwe "standaard". Omdat deze vanuit gemeentes wordt gevraagd
 wordt er van uit gegaan dat leveranciers deze meer en meer gaan gebruiken.
@@ -66,7 +69,7 @@ De referentie implementatie biedt leveranciers een methode een eigen
 implementatie te toetsen aan de interpretatie van de specificaties.
 
 
-## Wat is de rol van leveranciers?
+#### Wat is de rol van leveranciers?
 
 Leveranciers zijn welkom bij sprint reviews (demo's). Zij kunnen met gemeentes
 overleggen of bepaalde User Stories in de backlog worden opgenomen. Zij kunnen
@@ -75,7 +78,7 @@ aan de specificaties. Nadere invulling van de rol wordt tijdens eerste sprints
 uitgewerkt.
 
 
-## Wat is de rol van VNG?
+#### Wat is de rol van VNG?
 
 * Beheerder van de standaarden en daarmee ook de standaard die wordt
 gerealiseerd.
@@ -84,12 +87,12 @@ gerealiseerd.
 * Kwaliteitsbewaking
 
 
-## Wie betaalt dit allemaal?
+#### Wie betaalt dit allemaal?
 
 De Opdrachtgever, [VNG Realisatie](https://github.com/VNG-Realisatie/)
 
 
-## Is de referentie-implementatie bruikbaar in productie?
+#### Is de referentie-implementatie bruikbaar in productie?
 
 Dat is niet het doel en wordt niet aanbevolen. Echter, er worden  kleine Open
 Source componenten gerealiseerd waar leveranciers wellicht geen uitbreidingen
