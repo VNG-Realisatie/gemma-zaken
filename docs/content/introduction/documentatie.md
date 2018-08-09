@@ -22,10 +22,10 @@ De *functionele documentatie* van de API is bedoeld voor business developers, ar
 
 **Indeling**
 
-Dit document beantwoord de volgende vragen:
+Dit document beantwoordt de volgende vragen:
 
 * Welke functionaliteit en/of welke data biedt de API?
-* Waar bevind deze API zich in de GEMMA architectuur?
+* Waar bevindt deze API zich in de GEMMA architectuur?
 * Welke relaties zijn er met andere API's (ook toegelicht aan de hand van proces)?
 * Welke standaarden en informatiemodellen worden er gehanteerd?
 * Welke beveiligingsmaatregelen zijn er op deze API van toepassing (toegang, authenticatie, privacy, ...)?
@@ -47,7 +47,7 @@ De *API documentatie* is voor ontwikkelaars van zowel client- als server-softwar
 
 **Indeling**
 
-Dit document beantwoord de volgende vragen:
+Dit document beantwoordt de volgende vragen:
 
 * Hoe krijg ik toegang tot de API?
 * Welke resources zijn beschikbaar binnen de API?
@@ -73,7 +73,7 @@ De *component implementatie documentatie* is voor ontwikkelaars die een eigen co
 
 **Indeling**
 
-Dit document beantwoord de volgende vragen:
+Dit document beantwoordt de volgende vragen:
 
 * Welke design keuzes zijn gemaakt bij de referentie implementatie?
 * Welke standaard functies zijn voor elke resource beschikbaar?
@@ -98,7 +98,7 @@ De *client implementatie documentatie* is voor ontwikkelaars die een eigen clien
 
 **Indeling**
 
-Dit document beantwoord de volgende vragen:
+Dit document beantwoordt de volgende vragen:
 
 * Wat zijn typische use-cases/verzoeken die een client zou kunnen maken?
 * Wat zijn de best practices?
