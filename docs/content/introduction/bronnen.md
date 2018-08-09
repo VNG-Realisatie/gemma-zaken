@@ -21,12 +21,12 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [Thema Zaakgericht Werken](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken)
 - [GEMMA 2 Katern Zaakgericht Werken](https://www.gemmaonline.nl/index.php/GEMMA_2_Katern_Zaakgericht_Werken)
 - [Zaakgericht Werken in GEMMA 2](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2)
-- [Zaak- Documentservices 1.1 en 1.2] (https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices)
+- [Zaak- Documentservices 1.1 en 1.2](https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices)
 
 
 ## Informatiemodellen
 - [Informatiemodel RGBZ](https://www.gemmaonline.nl/images/gemmaonline/a/a4/EgIM_20180621_-_ag_4_-_GEMMA_RGBZ_2.0_-_CONCEPT_20180613.zip) (v2.00.02 - concept)(.zip!)
-- [Informatiemodel RGBZ in ontwikkeling] (https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling) Met oa. achtergrondinformatie en de belangrijkste wijzigingen ten opzichte van RGBZ 1
+- [Informatiemodel RGBZ 2.0 in ontwikkeling](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling) Met oa. achtergrondinformatie en de belangrijkste wijzigingen ten opzichte van RGBZ 1
 - [Informatiemodel ImZTC](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (v2.02.01 - concept)(.zip!)
 - [Klantcontacten en het RGBZ](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ)
 
@@ -41,5 +41,4 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [Community](https://commonground.pleio.nl)
 
 ## Internationale standaarden
-- [CMIS op forum standaardisatie] (https://www.forumstandaardisatie.nl/standaard/cmis)
-
+- [CMIS op forum standaardisatie](https://www.forumstandaardisatie.nl/standaard/cmis)
