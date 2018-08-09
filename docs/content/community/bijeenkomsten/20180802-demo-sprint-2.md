@@ -137,3 +137,17 @@ De API specificatie laat dit toe (net als RGBZ2), multitenancy heeft vooral te m
 
 
 #### Concurrency / locking, hoe werkt dat?
+
+Kort samengevat - hier is nog geen concrete beslissing over genomen.
+
+Echter, dit is technisch in ieder geval mogelijk via het gebruik maken van
+`ETag` headers - bij het uitgeven van een resource
+krijg je een dergelijke tag en bij het aanpassen stuur je deze weer mee. De
+waarde wijzigt als de resource wijzigt, dus als iemand anders ondertussen de
+resource had gewijzigd, dan weet je dat jouw lokale kopie niet up-to-date is.
+
+Zie bijvoorbeeld [optimistic locking](https://sookocheff.com/post/api/optimistic-locking-in-a-rest-api/)
+
+Een alternatief zou expliciet locken/unlocken van een resource kunnen zijn,
+maar dat introduceert wel een extra complexiteit en risico dat een lock nooit
+vrijgegeven wordt, dus hier moet goed over nagedacht worden (= pessimistic locking).
