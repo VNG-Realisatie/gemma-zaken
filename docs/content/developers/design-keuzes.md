@@ -46,3 +46,43 @@ parameters. De motivatie is verder dat deze:
 ## ISO-8601 durations voor uitdrukken van duur
 
 Voor het uitdrukken van duur wordt gebruikt gemaakt van [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations). Dit sluit aan bij ISO-8601 weergave van timestamps doorheen de API.
+
+
+## Omgang met polymorfe resources
+
+In het RGBZ zijn er voor sommige relaties meerdere types van gerelateerde
+resources mogelijk. Concrete voorbeelden hiervan zijn:
+
+* betrokkenen bij een zaak - dit kunnen `Natuurlijke Personen`, `Medewerkers`,
+  `Organisatorische Eenheden` en meer zijn. Elk van deze betrokkenen heeft
+  verschillende attributen, en een aantal komen (bijna) overal voor.
+
+* objecten gerelateerd aan een zaak via ZAAKOBJECT. Hier zijn erg veel types
+  mogelijk, bijvoorbeeld: `Huishouden`, `OpenbareRuimte`, `Wegdeel` etc.
+
+In essentie is dit een vorm van polymorfisme.
+
+Door het uitgangspunt van Common Ground om data-bij-de-bron-opslaan te hanteren,
+werken we in de ZDS 2.0 API specificaties met _linked data_, wat betekent
+dat de relaties een referentie-url geven naar de gerelateerde resource. Een
+client/consumer weet op voorhand niet naar welke vorm van gerelateerde resource
+er verwezen wordt.
+
+Daarom is ervoor gekozen om op de relatie bij te houden om welk type resource
+het gaat. Een concreet voorbeeld van een response is dan:
+
+```
+GET /api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a
+Content-Type: application/json
+
+{
+    "url": "https://example.com/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a",
+    "zaak": "https://example.com/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
+    "betrokkene": "https://brp.utrecht.nl/api/v1/np/ab44ed92-ff55-4c4c-87aa-c538d58e887d",
+    "betrokkene_type": "Natuurlijk persoon",
+}
+```
+
+Het gaat hier dan om het `betrokkene_type` veld.
+
+De URLs in dit voorbeeld zijn uiteraard fictief.
