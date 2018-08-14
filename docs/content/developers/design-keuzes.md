@@ -86,3 +86,15 @@ Content-Type: application/json
 Het gaat hier dan om het `betrokkene_type` veld.
 
 De URLs in dit voorbeeld zijn uiteraard fictief.
+
+## Naamgeving van de API velden binnen een resource
+
+* Prefixes die slaan op de eigen resource, worden niet gebruikt. Voorbeeld:
+  Attribuutsoort [informatieobjecttype.informatieobjecttype-omschrijving](https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/informatieobjecttype.informatieobjecttype-omschrijving)
+  in RGBZ2 krijgt de naam "omschrijving" in de API, aangezien het een veld is
+  binnen de resource `informatieobjecttype`.
+* Indien verwezen wordt naar een andere resource, wordt de volledige naam van
+  de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak` heeft een
+  veld `zaaktype` en niet `type`.
+* Uitzondering zijn mogelijk (blijkbaar): De resource `zaak` heeft een veld
+  `zaakidentificatie` en niet `identificatie`...
