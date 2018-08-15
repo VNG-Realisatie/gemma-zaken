@@ -32,7 +32,7 @@ Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.clo
 
 ## API spec bekijken
 
-Zie de relevante links in dit [overzicht](./docs/content/developers/api-specifications.md).
+Zie de relevante links in dit [overzicht](./docs/content/developers/api-specificaties.md).
 
 ## Licentie
 Copyright © VNG Realisatie 2018
