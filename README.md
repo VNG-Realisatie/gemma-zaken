@@ -34,6 +34,22 @@ Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.clo
 
 Zie de relevante links in dit [overzicht](./docs/content/developers/api-specificaties.md).
 
+## Snelle links
+
+**Referentiecomponenten**
+
+* [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
+* [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
+* [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
+
+**Ondersteunende tooling**
+
+* [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
+* [Overige registratiescomponent](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
+* [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
+* [ZDS Client](https://github.com/VNG-Realisatie/gemma-zds-client)
+* [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
+
 ## Licentie
 Copyright © VNG Realisatie 2018
 
