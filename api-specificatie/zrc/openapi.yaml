@@ -296,7 +296,7 @@ paths:
       operationId: zaak_list
       description: Geef een lijst van ZAAKen.
       parameters:
-        - name: zaakidentificatie
+        - name: identificatie
           in: query
           description: >-
             De unieke identificatie van de ZAAK binnen de organisatie die
@@ -356,7 +356,7 @@ paths:
       description: |-
         Maak een ZAAK aan.
 
-        Indien geen zaakidentificatie gegeven is, dan wordt deze automatisch
+        Indien geen identificatie gegeven is, dan wordt deze automatisch
         gegenereerd.
       parameters:
         - name: Accept-Crs
@@ -883,8 +883,8 @@ components:
           type: string
           format: uri
           readOnly: true
-        zaakidentificatie:
-          title: Zaakidentificatie
+        identificatie:
+          title: Identificatie
           description: >-
             De unieke identificatie van de ZAAK binnen de organisatie die
             verantwoordelijk is voor de behandeling van de ZAAK.
@@ -956,8 +956,8 @@ components:
       properties:
         zaakgeometrie:
           $ref: '#/components/schemas/GeoWithin'
-        zaakidentificatie:
-          title: Zaakidentificatie
+        identificatie:
+          title: Identificatie
           description: >-
             De unieke identificatie van de ZAAK binnen de organisatie die
             verantwoordelijk is voor de behandeling van de ZAAK.
