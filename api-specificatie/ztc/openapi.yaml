@@ -78,6 +78,59 @@ paths:
       tags:
         - catalogussen
     parameters: []
+  '/catalogussen/{catalogus_uuid}/informatieobjecttypen':
+    get:
+      operationId: informatieobjecttype_list
+      description: Een verzameling van INFORMATIEOBJECTTYPEn.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InformatieObjectType'
+      tags:
+        - catalogussen
+    parameters:
+      - name: catalogus_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+  '/catalogussen/{catalogus_uuid}/informatieobjecttypen/{uuid}':
+    get:
+      operationId: informatieobjecttype_read
+      description: >-
+        Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd door
+        de zaakbehandelende organisatie.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InformatieObjectType'
+      tags:
+        - catalogussen
+    parameters:
+      - name: catalogus_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
+        required: true
+        schema:
+          type: string
+          format: uuid
   '/catalogussen/{catalogus_uuid}/zaaktypen':
     get:
       operationId: zaaktype_list
@@ -446,6 +499,30 @@ components:
             format: uri
           readOnly: true
           uniqueItems: true
+    InformatieObjectType:
+      required:
+        - omschrijving
+        - catalogus
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        omschrijving:
+          title: Omschrijving
+          description: >-
+            Omschrijving van de aard van informatieobjecten van dit
+            INFORMATIEOBJECTTYPE.
+          type: string
+          maxLength: 80
+          minLength: 1
+        catalogus:
+          title: Catalogus
+          description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
+          type: string
+          format: uri
     ZaakType:
       required:
         - identificatie
