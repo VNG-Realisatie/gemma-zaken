@@ -205,7 +205,7 @@ components:
           title: Taal
           description: >-
             Een taal van de intellectuele inhoud van het ENKELVOUDIG
-            INFORMATIEOBJECT
+            INFORMATIEOBJECT. De waardes komen uit ISO 639-2/B
           type: string
           enum:
             - aar
