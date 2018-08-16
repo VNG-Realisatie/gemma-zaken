@@ -71,13 +71,13 @@ er verwezen wordt.
 Daarom is ervoor gekozen om op de relatie bij te houden om welk type resource
 het gaat. Een concreet voorbeeld van een response is dan:
 
-```
-GET /api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a
+```http
+GET /zrc/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a
 Content-Type: application/json
 
 {
-    "url": "https://example.com/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a",
-    "zaak": "https://example.com/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
+    "url": "https://example.com/zrc/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a",
+    "zaak": "https://example.com/zrc/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
     "betrokkene": "https://brp.utrecht.nl/api/v1/np/ab44ed92-ff55-4c4c-87aa-c538d58e887d",
     "betrokkene_type": "Natuurlijk persoon",
 }
@@ -86,3 +86,35 @@ Content-Type: application/json
 Het gaat hier dan om het `betrokkene_type` veld.
 
 De URLs in dit voorbeeld zijn uiteraard fictief.
+
+## Naamgeving van de API velden binnen een resource
+
+* Prefixes die slaan op de eigen resource, worden niet gebruikt. Voorbeeld:
+  Attribuutsoort [informatieobjecttype.informatieobjecttype-omschrijving](https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/informatieobjecttype.informatieobjecttype-omschrijving)
+  in RGBZ2 krijgt de naam "omschrijving" in de API, aangezien het een veld is
+  binnen de resource `informatieobjecttype`. Dit komt overeen met de in RGBZ
+  genoemde XML-tag.
+  
+  ```javascript
+  {
+      "url": "https://example.com/drc/api/v1/informatieobjecttypen/8534ba6a-bcde-4387-b054-6bde6d1ded8f",
+      "omschrijving": "Document"
+      // ...
+  }
+  ```
+* Relaties worden **niet** aangeduid met hun relatie omschrijving (`isVan`, 
+  `heeft`, `kent`, etc.). Dit heeft mede te maken met het feit dat er geen 
+  mnemonic attributen zijn (zoals in StUF-ZKN) in de REST API, waardoor het 
+  niet direct duidelijk is naar wat voor type resource verwezen wordt.
+* Indien verwezen wordt naar een andere resource (relatie), wordt de volledige 
+  naam van de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak` 
+  heeft een veld `zaaktype` en niet `type`. Ter vergelijking, in StUF-ZKN is 
+  dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het `zaaktype`.
+  
+  ```javascript
+  {
+      "url": "https://example.com/zrc/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
+      "zaaktype": "https://example.com/ztc/api/v1/zaaktypen/6232ba6a-beee-4357-b054-6bde6d1ded6c"
+      // ...
+  }
+  ```
