@@ -115,20 +115,6 @@ paths:
               - Initiator
               - Klantcontacter
               - Zaakcoördinator
-        - name: rolomschrijvingGeneriek
-          in: query
-          description: Algemeen gehanteerde benaming van de aard van de ROL
-          required: false
-          schema:
-            type: string
-            enum:
-              - Adviseur
-              - Behandelaar
-              - Belanghebbende
-              - Beslisser
-              - Initiator
-              - Klantcontacter
-              - Zaakcoördinator
               - Mede-initiator
       responses:
         '200':
@@ -587,7 +573,6 @@ components:
         - betrokkene
         - betrokkeneType
         - rolomschrijving
-        - rolomschrijvingGeneriek
         - roltoelichting
       type: object
       properties:
@@ -619,18 +604,6 @@ components:
             - Medewerker
         rolomschrijving:
           title: Rolomschrijving
-          description: Algemeen gehanteerde benaming van de aard van de ROL
-          type: string
-          enum:
-            - Adviseur
-            - Behandelaar
-            - Belanghebbende
-            - Beslisser
-            - Initiator
-            - Klantcontacter
-            - Zaakcoördinator
-        rolomschrijvingGeneriek:
-          title: Rolomschrijving generiek
           description: Algemeen gehanteerde benaming van de aard van de ROL
           type: string
           enum:
