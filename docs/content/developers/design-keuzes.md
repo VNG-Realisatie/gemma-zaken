@@ -121,8 +121,6 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
 
 ## Gerelateerde objecten zonder eigen resource / Groepsattributen
 
-01234567890123456789012345678901234567890123456789012345678901234567890123456789
-
 Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft, 
 dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
 (binnen het hoofdobject) geserializeerd. Deze child objecten zijn binnen RGBZ
