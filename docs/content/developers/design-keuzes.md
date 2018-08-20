@@ -118,3 +118,28 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
       // ...
   }
   ```
+
+## Gerelateerde objecten zonder eigen resource / Groepsattributen
+
+Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft, 
+dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
+(binnen het hoofdobject) ontsloten. Deze child objecten zijn binnen RGBZ
+ook wel gedefinieerd als *groepsattributen*. Typische voorbeelden zijn
+(zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
+en `Kenmerk` en `Eigenschap` de child objecten.
+
+Voorbeeld:
+
+```javascript
+{
+    "url": "https://example.com/zrc/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
+    "zaaktype": "https://example.com/ztc/api/v1/zaaktypen/6232ba6a-beee-4357-b054-6bde6d1ded6c"
+    // ...
+    "kenmerken": [
+        {
+            "kenmerk": "test",
+            "bron": "http://www.example.com/"
+        }
+    ]
+}
+```
