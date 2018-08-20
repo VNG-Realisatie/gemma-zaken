@@ -87,6 +87,7 @@ Het gaat hier dan om het `betrokkene_type` veld.
 
 De URLs in dit voorbeeld zijn uiteraard fictief.
 
+
 ## Naamgeving van de API velden binnen een resource
 
 * Prefixes die slaan op de eigen resource, worden niet gebruikt. Voorbeeld:
@@ -94,7 +95,7 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
   in RGBZ2 krijgt de naam "omschrijving" in de API, aangezien het een veld is
   binnen de resource `informatieobjecttype`. Dit komt overeen met de in RGBZ
   genoemde XML-tag.
-  
+
   ```javascript
   {
       "url": "https://example.com/drc/api/v1/informatieobjecttypen/8534ba6a-bcde-4387-b054-6bde6d1ded8f",
@@ -102,15 +103,15 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
       // ...
   }
   ```
-* Relaties worden **niet** aangeduid met hun relatie omschrijving (`isVan`, 
-  `heeft`, `kent`, etc.). Dit heeft mede te maken met het feit dat er geen 
-  mnemonic attributen zijn (zoals in StUF-ZKN) in de REST API, waardoor het 
+* Relaties worden **niet** aangeduid met hun relatie omschrijving (`isVan`,
+  `heeft`, `kent`, etc.). Dit heeft mede te maken met het feit dat er geen
+  mnemonic attributen zijn (zoals in StUF-ZKN) in de REST API, waardoor het
   niet direct duidelijk is naar wat voor type resource verwezen wordt.
-* Indien verwezen wordt naar een andere resource (relatie), wordt de volledige 
-  naam van de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak` 
-  heeft een veld `zaaktype` en niet `type`. Ter vergelijking, in StUF-ZKN is 
+* Indien verwezen wordt naar een andere resource (relatie), wordt de volledige
+  naam van de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak`
+  heeft een veld `zaaktype` en niet `type`. Ter vergelijking, in StUF-ZKN is
   dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het `zaaktype`.
-  
+
   ```javascript
   {
       "url": "https://example.com/zrc/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
@@ -119,9 +120,10 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
   }
   ```
 
+
 ## Gerelateerde objecten zonder eigen resource / Groepsattributen
 
-Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft, 
+Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft,
 dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
 (binnen het hoofdobject) ontsloten. Deze child objecten zijn binnen RGBZ
 ook wel gedefinieerd als *groepsattributen*. Typische voorbeelden zijn
@@ -143,3 +145,30 @@ Voorbeeld:
     ]
 }
 ```
+
+
+## Input validatie
+
+Componenten die APIs aanbieden (ZRC, DRC, ZTC) moet aan volledige
+inputvalidatie doen. Dit betekent dat er _meer_ validatie nodig is dan enkel
+garanderen dat een veld aan het url-formaat voldoet, en dat er communicatie
+tussen systemen is in het geval van gedistribueerde componenten.
+
+Een concreet voorbeeld hiervan is het zetten van een STATUS op een ZAAK:
+
+1. Het aanmaken van een status gebeurt door een nieuwe status te POSTen, met
+   onder andere de URL van het `statusType`.
+2. Het ZRC MOET deze `statusType` url opvragen uit het ZTC, en controleren dat
+   het zaaktype van dit statustype overeenkomt met het zaaktype van de
+   betreffende zaak.
+
+De foutberichten voor deze validatie zullen opgesteld worden en opgenomen in
+de API spec.
+
+Noot: voor suites kan de implementatie hiervan uiteraard afwijken - indien
+alles in 1 enkele database leeft, en de suite ontsluit 3 APIs, dan kan prima
+de validatie intern gebeuren op een geoptimaliseerde manier. Belangrijk is dat
+de fout-responses (zie ook #130) correct teruggegeven worden.
+
+Noot 2: authenticatie en authorisatie worden in een later stadium uitgewerkt.
+Het is bekend dat hier goed over nagedacht moet worden.
