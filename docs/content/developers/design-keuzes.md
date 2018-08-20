@@ -123,8 +123,8 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
 
 Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft, 
 dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
-(binnen het hoofdobject) geserializeerd. Deze child objecten zijn binnen RGBZ
-ook wel gedefinieerd als *groepsattributen*. Typische voorbeeld zijn
+(binnen het hoofdobject) ontsloten. Deze child objecten zijn binnen RGBZ
+ook wel gedefinieerd als *groepsattributen*. Typische voorbeelden zijn
 (zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
 en `Kenmerk` en `Eigenschap` de child objecten.
 
