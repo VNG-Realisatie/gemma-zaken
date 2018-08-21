@@ -74,8 +74,8 @@ Ook hier met je wellicht nog iets met rappelleren…
 
 * Een Deskundige moet zijn bevindingen kunnen inzien en wijzigen, [US #307](https://github.com/VNG-Realisatie/gemma-zaken/issues/307). Dit kan zolang niet alle Deskundigen hebben gereageerd en de status nog niet is igesteld op 'Advies ingewonnen'.
 * Zodra alle deskundigen hebben gereageerd, stelt de Behandelaar dat in. Registratie in de ZRC, [US #308](https://github.com/VNG-Realisatie/gemma-zaken/issues/308), statuswijziging 'Advies ingewonnen';
-* De Behandelaar start met het opstellen van de beschikking. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. [US #309](https://github.com/VNG-Realisatie/gemma-zaken/issues/309), statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
-* De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. [US #310](https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
+* De Behandelaar start met het opstellen van het Besluit. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. [US #309](https://github.com/VNG-Realisatie/gemma-zaken/issues/309), statuswijziging ‘Onderzoek afgerond’. Het Besluit is een informatieobject met vertrouwelijkheid ‘Intern’;
+* De Behandelaar stuurt het Informatieobject 'Verstuurde persoonsgegeven' naar de Aanvrager. Registratie in VJV, ZRC en DRC. [US #310](https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. De vraag is of alle informatieobjecten met de vertrouwelijkheid ‘Intern’ nu verwijderd kunnen worden. 
 
 ### Vervolg
 Bij de gemeente Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
