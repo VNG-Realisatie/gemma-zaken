@@ -50,25 +50,32 @@ Voor het verwerken van de aanvragen wordt VJV gebruikt. De aanvraag wordt tevens
 
 ![Proces](./bestanden/Delft-Inzageverzoek/Proces%20view%20Inzageverzoek%20AVG%20v2.png)
 
-* De aanvrager dient via de website (VJV) een inzageverzoek persoonsgegevens in en geeft (na authenticatie via DigiD) op welke onderdelen geanalyseerd moeten worden. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153);
+* De aanvrager (initiator) dient via de website (VJV) een inzageverzoek persoonsgegevens in en geeft (na authenticatie via DigiD) op welke onderdelen geanalyseerd moeten worden. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153);
 * De VJV wordt, na correct en volledige registratie, toegewezen aan de afdeling ‘Advies JZ’ en geregistreerd in VJV, de ZRC  en de Domeinspecifieke gegevens. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153), Status ‘Geregistreerd’.
 * Advies JZ routeert de VJV naar de Behandelaar van inzageverzoeken. Dit wordt geregistreerd in VJV en de ZRC. US #..., geen statuswijziging;
 Wij zouden graag zien dat deze actie uit het proces wordt gehaald omdat deze geen toegevoegde waarde heeft.
-* De Behandelaar van inzageverzoeken controleert of aanvraag voldoet aan de voorwaarden. US #..., statuswijziging ‘Toetsing wet- en regelgeving afgerond’;
-  * Indien dit niet het geval is volgt een afwijzing. Registratie in VJV, ZRC en DRC. US #..., statuswijziging ‘Afgehandeld’.
+* De Behandelaar van inzageverzoeken controleert of aanvraag voldoet aan de voorwaarden. US #301, statuswijziging ‘Toetsing wet- en regelgeving afgerond’;
+  * Indien dit niet het geval is volgt een afwijzing. Registratie in VJV, ZRC en DRC. US #302, statuswijziging ‘Afgehandeld’.
   * Indien dit wel het geval is controleert de Behandelaar of nog aanvullende gegevens nodig zijn (b.v. voor ‘Overige systemen’ en ‘Algemeen’);
-  Als er aanvullende gegevens nodig zijn, wordt per brief gevraagd om een precisering / aanvulling van het verzoek. Met een termijn van (b.v.) 2 weken. De behandeltermijn wordt met dezelfde termijn opgeschort. Registratie in VJV, ZRC en DRC. US…, statuswijziging ‘Geaccepteerd’;
-  Nog afstemmen en uitbreiden met wat er gebeurt als de reactietermijn verstreken is. Gaan we rappelleren, of wordt het inzageverzoek afgehandeld?
-  * Als er geen aanvullende gegevens (meer) nodig zijn, dan verzamelt de behandelaar de benodigde gegevens bij deskundigen. Registratie in VJV en ZRC. US #..., statuswijziging ‘In behandeling genomen’.
-  Idealiter worden hiervoor vanuit het ZAC taken toegewezen aan de diverse medewerkers die vervolgens hun resultaten toevoegen aan de Zaak. Het resultaat kan zijn:
+    * Als er aanvullende gegevens nodig zijn, wordt per brief gevraagd om een precisering / aanvulling van het verzoek. Met een termijn van (b.v.) 2 weken. De behandeltermijn wordt met dezelfde termijn opgeschort. Registratie in VJV, ZRC en DRC. US303, statuswijziging ‘Geaccepteerd’;
+      * Nog afstemmen en uitbreiden met wat er gebeurt als de reactietermijn verstreken is. Gaan we rappelleren, of wordt het inzageverzoek afgehandeld?
+    * Als de initiator aanvullende gegevens heeft verstrekt registreert de Behandelaar deze actie bij het inzageverzoek. Registratie in de ZRC en DRC. US#304.
+  * Als er geen aanvullende gegevens (meer) nodig zijn, dan verzamelt de behandelaar de benodigde gegevens bij deskundigen. Registratie in VJV en ZRC. US #305, statuswijziging ‘In behandeling genomen’.
+
+Idealiter worden hiervoor vanuit het ZAC taken toegewezen aan de diverse medewerkers die vervolgens hun resultaten toevoegen aan de Zaak, Registratie in de ZRC, DRC en ORC. Het resultaattype kan zijn:
     * Persoon komt niet voor;
-    * Een overzicht van de systemen waarin de persoon voorkomt volgens een vooraf vastgesteld formaat. Dit zou dus een vooraf gedefinieerd Informatieobjecttype kunnen zijn);
-    * Een afschrift van een dossier of;
-    * Een uitnodiging om het dossier in te zien.
-  Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens. Een afschrift van een dossier kan als informatieobject in de DRC worden opgenomen met vertrouwelijkheid ‘Zaakvertrouwelijk’. Een overzicht van systemen zou in de DRC als Informatieobject kunnen worden opgenomen met de vertrouwelijkheid ‘Intern’). Mogelijk moet of kun je hier Informatie-objecttypen voor definiëren;
+    * Persoon komt voor met een overzicht van registraties. Een overzicht van de systemen waarin de persoon voorkomt volgens een vooraf vastgesteld formaat. Dit zou dus een vooraf gedefinieerd Informatieobjecttype kunnen zijn);
+    * Persoon komt voor met informatieobject met een afschrift van een dossier of;
+    * Persoon komt voor met een uitnodiging om een afspraak te maken om het dossier in te zien. Ook dit kan een informatieobject zijn met details over de te maken afspraak.
+
+Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens (AVG-rechten). Een afschrift van een dossier kan als informatieobject in de DRC worden opgenomen met vertrouwelijkheid ‘Zaakvertrouwelijk’. Een overzicht van systemen en eventueel een uitnodiging voor het inzien van het dossier, kunnen als Informatieobject in de DRC  worden opgenomen met de vertrouwelijkheid ‘Intern’. Mogelijk moet of kun je hier Informatie-objecttypen voor definiëren;
+
 Ook hier met je wellicht nog iets met rappelleren…
-  * Zodra alle deskundigen hebben gereageerd, stelt de behandelaar de beschikking op. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. US #…, statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
-  * De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. US #..., statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
+
+* Een Deskundige moet zijn bevindingen kunnen inzien en wijzigen, US #307. Dit kan zolang niet alle Deskundigen hebben gereageerd en de status nog niet is igesteld op 'Advies ingewonnen'.
+* Zodra alle deskundigen hebben gereageerd, stelt de Behandelaar dat in. Registratie in de ZRC, US #308, statuswijziging 'Advies ingewonnen';
+* De Behandelaar start met het opstellen van de beschikking. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. US #309, statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
+  * De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. US #310, statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
 
 ### Vervolg
 Bij de gemeente  Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
@@ -79,7 +86,7 @@ De aanvrager moet op elk moment tussen aanvraag en afhandeling de status en rele
 
 ## Werking van de standaard
 Volgens de productvisie zijn actoren (medewerkers, behandelaars en klanten) bezig met een proces en niet met zaakgericht werken. 
-In de architectuurschets blijkt dit doordat de toepassing (en niet de actor) met de API’s communiceert bij de gegevens te verwerken uit de ZTC, ZRC en DRC (én ORC/Domeinspecifieke gegevens).
+In de architectuurschets blijkt dit doordat de toepassing (en niet de actor) met de API’s communiceert bij de gegevens te verwerken uit de ZTC, ZRC en DRC (én ORC/Domeinspecifieke gegevens/AVG-rechten).
 
 Dit betekent dat die toepassing moet weten hoe de verschillende API’s aangesproken moeten worden. Wat vergelijkbaar is met de huidige situatie waarin van procesapplicaties (voor b.v. vergunningen, re-integratie, uitkering etc.) verwacht wordt dat ze de huidige ZDS standaard ondersteunen om zaakgericht te kunnen werken/registreren.
 
