@@ -68,7 +68,7 @@ Idealiter worden hiervoor vanuit het ZAC taken toegewezen aan de diverse medewer
 * Persoon komt voor met informatieobject met een afschrift van een dossier of;
 * Persoon komt voor met een uitnodiging om een afspraak te maken om het dossier in te zien. Ook dit kan een informatieobject zijn met details over de te maken afspraak.
 
-Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens (AVG-rechten). Een afschrift van een dossier kan als informatieobject in de DRC worden opgenomen met vertrouwelijkheid ‘Zaakvertrouwelijk’. Een overzicht van systemen en eventueel een uitnodiging voor het inzien van het dossier, kunnen als Informatieobject in de DRC  worden opgenomen met de vertrouwelijkheid ‘Intern’. Mogelijk moet of kun je hier Informatie-objecttypen voor definiëren;
+Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens (AVG-rechten). Een afschrift van een dossier kan als informatieobject in de DRC worden opgenomen met vertrouwelijkheid ‘Zaakvertrouwelijk’. Een overzicht van systemen en eventueel een uitnodiging voor het inzien van het dossier, kunnen als Informatieobject in de DRC  worden opgenomen met de vertrouwelijkheid ‘Intern’. Mogelijk moet of kun je hier Informatie-objecttypen voor definiëren. Registratie in ZRC, DRC en ORC, [US #306](https://github.com/VNG-Realisatie/gemma-zaken/issues/306).
 
 Ook hier met je wellicht nog iets met rappelleren…
 
