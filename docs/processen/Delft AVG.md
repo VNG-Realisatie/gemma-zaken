@@ -54,13 +54,13 @@ Voor het verwerken van de aanvragen wordt VJV gebruikt. De aanvraag wordt tevens
 * De VJV wordt, na correct en volledige registratie, toegewezen aan de afdeling ‘Advies JZ’ en geregistreerd in VJV, de ZRC  en de Domeinspecifieke gegevens. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153), Status ‘Geregistreerd’.
 * Advies JZ routeert de VJV naar de Behandelaar van inzageverzoeken. Dit wordt geregistreerd in VJV en de ZRC. US #..., geen statuswijziging;
 Wij zouden graag zien dat deze actie uit het proces wordt gehaald omdat deze geen toegevoegde waarde heeft.
-* De Behandelaar van inzageverzoeken controleert of aanvraag voldoet aan de voorwaarden. US #301(https://github.com/VNG-Realisatie/gemma-zaken/issues/301), statuswijziging ‘Toetsing wet- en regelgeving afgerond’;
-  * Indien dit niet het geval is volgt een afwijzing. Registratie in VJV, ZRC en DRC. US #302(https://github.com/VNG-Realisatie/gemma-zaken/issues/302), statuswijziging ‘Afgehandeld’.
+* De Behandelaar van inzageverzoeken controleert of aanvraag voldoet aan de voorwaarden. [US #301](https://github.com/VNG-Realisatie/gemma-zaken/issues/301), statuswijziging ‘Toetsing wet- en regelgeving afgerond’;
+  * Indien dit niet het geval is volgt een afwijzing. Registratie in VJV, ZRC en DRC. [US #302](https://github.com/VNG-Realisatie/gemma-zaken/issues/302), statuswijziging ‘Afgehandeld’.
   * Indien dit wel het geval is controleert de Behandelaar of nog aanvullende gegevens nodig zijn (b.v. voor ‘Overige systemen’ en ‘Algemeen’);
-    * Als er aanvullende gegevens nodig zijn, wordt per brief gevraagd om een precisering / aanvulling van het verzoek. Met een termijn van (b.v.) 2 weken. De behandeltermijn wordt met dezelfde termijn opgeschort. Registratie in VJV, ZRC en DRC. US303(https://github.com/VNG-Realisatie/gemma-zaken/issues/303), statuswijziging ‘Geaccepteerd’;
+    * Als er aanvullende gegevens nodig zijn, wordt per brief gevraagd om een precisering / aanvulling van het verzoek. Met een termijn van (b.v.) 2 weken. De behandeltermijn wordt met dezelfde termijn opgeschort. Registratie in VJV, ZRC en DRC. [US #303](https://github.com/VNG-Realisatie/gemma-zaken/issues/303), statuswijziging ‘Geaccepteerd’;
       * Nog afstemmen en uitbreiden met wat er gebeurt als de reactietermijn verstreken is. Gaan we rappelleren, of wordt het inzageverzoek afgehandeld?
-    * Als de initiator aanvullende gegevens heeft verstrekt registreert de Behandelaar deze actie bij het inzageverzoek. Registratie in de ZRC en DRC. US#304(https://github.com/VNG-Realisatie/gemma-zaken/issues/304).
-  * Als er geen aanvullende gegevens (meer) nodig zijn, dan verzamelt de behandelaar de benodigde gegevens bij deskundigen. Registratie in VJV en ZRC. US #305(https://github.com/VNG-Realisatie/gemma-zaken/issues/305), statuswijziging ‘In behandeling genomen’.
+    * Als de initiator aanvullende gegevens heeft verstrekt registreert de Behandelaar deze actie bij het inzageverzoek. Registratie in de ZRC en DRC. [US #304](https://github.com/VNG-Realisatie/gemma-zaken/issues/304).
+  * Als er geen aanvullende gegevens (meer) nodig zijn, dan verzamelt de behandelaar de benodigde gegevens bij deskundigen. Registratie in VJV en ZRC. [US #305](https://github.com/VNG-Realisatie/gemma-zaken/issues/305), statuswijziging ‘In behandeling genomen’.
 
 Idealiter worden hiervoor vanuit het ZAC taken toegewezen aan de diverse medewerkers die vervolgens hun resultaten toevoegen aan de Zaak, Registratie in de ZRC, DRC en ORC. Het resultaattype kan zijn:
     * Persoon komt niet voor;
@@ -72,10 +72,10 @@ Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens (AVG-rechten). Ee
 
 Ook hier met je wellicht nog iets met rappelleren…
 
-* Een Deskundige moet zijn bevindingen kunnen inzien en wijzigen, US #307(https://github.com/VNG-Realisatie/gemma-zaken/issues/307). Dit kan zolang niet alle Deskundigen hebben gereageerd en de status nog niet is igesteld op 'Advies ingewonnen'.
-* Zodra alle deskundigen hebben gereageerd, stelt de Behandelaar dat in. Registratie in de ZRC, US #308(https://github.com/VNG-Realisatie/gemma-zaken/issues/308), statuswijziging 'Advies ingewonnen';
-* De Behandelaar start met het opstellen van de beschikking. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. US #309(https://github.com/VNG-Realisatie/gemma-zaken/issues/309), statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
-  * De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. US #310(https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
+* Een Deskundige moet zijn bevindingen kunnen inzien en wijzigen, [US #307](https://github.com/VNG-Realisatie/gemma-zaken/issues/307). Dit kan zolang niet alle Deskundigen hebben gereageerd en de status nog niet is igesteld op 'Advies ingewonnen'.
+* Zodra alle deskundigen hebben gereageerd, stelt de Behandelaar dat in. Registratie in de ZRC, [US #308](https://github.com/VNG-Realisatie/gemma-zaken/issues/308), statuswijziging 'Advies ingewonnen';
+* De Behandelaar start met het opstellen van de beschikking. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. [US #309](https://github.com/VNG-Realisatie/gemma-zaken/issues/309), statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
+  * De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. [US #310](https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
 
 ### Vervolg
 Bij de gemeente  Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
