@@ -63,10 +63,10 @@ Wij zouden graag zien dat deze actie uit het proces wordt gehaald omdat deze gee
   * Als er geen aanvullende gegevens (meer) nodig zijn, dan verzamelt de behandelaar de benodigde gegevens bij deskundigen. Registratie in VJV en ZRC. [US #305](https://github.com/VNG-Realisatie/gemma-zaken/issues/305), statuswijziging ‘In behandeling genomen’.
 
 Idealiter worden hiervoor vanuit het ZAC taken toegewezen aan de diverse medewerkers die vervolgens hun resultaten toevoegen aan de Zaak, Registratie in de ZRC, DRC en ORC. Het resultaattype kan zijn:
-    * Persoon komt niet voor;
-    * Persoon komt voor met een overzicht van registraties. Een overzicht van de systemen waarin de persoon voorkomt volgens een vooraf vastgesteld formaat. Dit zou dus een vooraf gedefinieerd Informatieobjecttype kunnen zijn);
-    * Persoon komt voor met informatieobject met een afschrift van een dossier of;
-    * Persoon komt voor met een uitnodiging om een afspraak te maken om het dossier in te zien. Ook dit kan een informatieobject zijn met details over de te maken afspraak.
+* Persoon komt niet voor;
+* Persoon komt voor met een overzicht van registraties. Een overzicht van de systemen waarin de persoon voorkomt volgens een vooraf vastgesteld formaat. Dit zou dus een vooraf gedefinieerd Informatieobjecttype kunnen zijn);
+* Persoon komt voor met informatieobject met een afschrift van een dossier of;
+* Persoon komt voor met een uitnodiging om een afspraak te maken om het dossier in te zien. Ook dit kan een informatieobject zijn met details over de te maken afspraak.
 
 Het resultaat wordt opgeslagen in de Domeinspecifieke gegevens (AVG-rechten). Een afschrift van een dossier kan als informatieobject in de DRC worden opgenomen met vertrouwelijkheid ‘Zaakvertrouwelijk’. Een overzicht van systemen en eventueel een uitnodiging voor het inzien van het dossier, kunnen als Informatieobject in de DRC  worden opgenomen met de vertrouwelijkheid ‘Intern’. Mogelijk moet of kun je hier Informatie-objecttypen voor definiëren;
 
@@ -75,10 +75,10 @@ Ook hier met je wellicht nog iets met rappelleren…
 * Een Deskundige moet zijn bevindingen kunnen inzien en wijzigen, [US #307](https://github.com/VNG-Realisatie/gemma-zaken/issues/307). Dit kan zolang niet alle Deskundigen hebben gereageerd en de status nog niet is igesteld op 'Advies ingewonnen'.
 * Zodra alle deskundigen hebben gereageerd, stelt de Behandelaar dat in. Registratie in de ZRC, [US #308](https://github.com/VNG-Realisatie/gemma-zaken/issues/308), statuswijziging 'Advies ingewonnen';
 * De Behandelaar start met het opstellen van de beschikking. De overzichten van systemen worden hierbij gecontroleerd en samengevoegd tot één overzicht. Registratie in VJV, ZRC en DRC. [US #309](https://github.com/VNG-Realisatie/gemma-zaken/issues/309), statuswijziging ‘Onderzoek afgerond’. De beschikking is een informatieobject met vertrouwelijkheid ‘Zaakvertrouwelijk’;
-  * De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. [US #310](https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
+* De Behandelaar stuurt de beschikking op naar de Aanvrager. Registratie in VJV, ZRC en DRC. [US #310](https://github.com/VNG-Realisatie/gemma-zaken/issues/310), statuswijziging ‘Afgehandeld’. Alle informatieobjecten met de vertrouwelijkheid ‘Intern’ kunnen nu verwijderd worden. 
 
 ### Vervolg
-Bij de gemeente  Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
+Bij de gemeente Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
 Dit betekent dat bij een eventueel bezwaar en beroep het e-Depot informatie uit de originele zaak levert en niet de combinatie ZRC/DRC/Domeinspecifieke gegevens. Delft wil graag onderzoeken wat dit betekent voor de standaard, wat dit betekent voor de ZAC (VJV), of de keuze voor uitplaatsing wel past bij het gebruik van de standaard
 
 ## User story opvragen status en relevante gegevens
