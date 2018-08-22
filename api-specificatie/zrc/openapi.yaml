@@ -366,11 +366,7 @@ paths:
       tags:
         - zaken
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Zaak'
-        required: true
+        $ref: '#/components/requestBodies/Zaak'
     parameters: []
   /zaken/_zoek:
     post:
@@ -451,6 +447,78 @@ paths:
                 $ref: '#/components/schemas/Zaak'
       tags:
         - zaken
+    put:
+      operationId: zaak_update
+      description: Opvragen en bewerken van ZAAKen.
+      parameters:
+        - name: Accept-Crs
+          in: header
+          description: >-
+            Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
+            de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als
+            WGS84).
+          required: true
+          schema:
+            type: string
+            enum:
+              - 'EPSG:4326'
+      responses:
+        '200':
+          description: ''
+          headers:
+            Content-Crs:
+              description: >-
+                Het 'Coordinate Reference System' (CRS) van de antwoorddata.
+                Volgens de GeoJSON spec is WGS84 de default (EPSG:4326 is
+                hetzelfde als WGS84).
+              schema:
+                type: string
+                enum:
+                  - 'EPSG:4326'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
+      tags:
+        - zaken
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
+    patch:
+      operationId: zaak_partial_update
+      description: Opvragen en bewerken van ZAAKen.
+      parameters:
+        - name: Accept-Crs
+          in: header
+          description: >-
+            Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
+            de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als
+            WGS84).
+          required: true
+          schema:
+            type: string
+            enum:
+              - 'EPSG:4326'
+      responses:
+        '200':
+          description: ''
+          headers:
+            Content-Crs:
+              description: >-
+                Het 'Coordinate Reference System' (CRS) van de antwoorddata.
+                Volgens de GeoJSON spec is WGS84 de default (EPSG:4326 is
+                hetzelfde als WGS84).
+              schema:
+                type: string
+                enum:
+                  - 'EPSG:4326'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
+      tags:
+        - zaken
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
     parameters:
       - name: uuid
         in: path
@@ -531,6 +599,13 @@ paths:
 servers:
   - url: /api/v1
 components:
+  requestBodies:
+    Zaak:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Zaak'
+      required: true
   securitySchemes:
     basic:
       type: http
@@ -689,6 +764,7 @@ components:
           enum:
             - VerblijfsObject
             - MeldingOpenbareRuimte
+            - InzageVerzoek
     Geometry:
       title: Geometry
       description: GeoJSON geometry
@@ -844,10 +920,30 @@ components:
         - $ref: '#/components/schemas/Polygon'
         - $ref: '#/components/schemas/MultiPolygon'
         - $ref: '#/components/schemas/GeometryCollection'
+    ZaakKenmerk:
+      description: Lijst van kenmerken
+      required:
+        - kenmerk
+        - bron
+      type: object
+      properties:
+        kenmerk:
+          title: Kenmerk
+          description: Identificeert uniek de zaak in een andere administratie.
+          type: string
+          maxLength: 40
+          minLength: 1
+        bron:
+          title: Bron
+          description: De aanduiding van de administratie waar het kenmerk op slaat.
+          type: string
+          maxLength: 40
+          minLength: 1
     Zaak:
       required:
         - bronorganisatie
         - zaaktype
+        - verantwoordelijkeOrganisatie
         - startdatum
       type: object
       properties:
@@ -871,6 +967,11 @@ components:
           type: string
           maxLength: 9
           minLength: 1
+        omschrijving:
+          title: Omschrijving
+          description: Een korte omschrijving van de zaak.
+          type: string
+          maxLength: 80
         zaaktype:
           title: Zaaktype
           description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
@@ -886,6 +987,15 @@ components:
             vandaag gebruikt.
           type: string
           format: date
+        verantwoordelijkeOrganisatie:
+          title: Verantwoordelijke organisatie
+          description: >-
+            URL naar de Niet-natuurlijk persoon zijnde de organisatie die
+            eindverantwoordelijk is voor de behandeling van de zaak.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
         startdatum:
           title: Startdatum
           description: De datum waarop met de uitvoering van de zaak is gestart
@@ -903,6 +1013,13 @@ components:
             afgerond wordt.
           type: string
           format: date
+        uiterlijkeEinddatumAfdoening:
+          title: Uiterlijke einddatum afdoening
+          description: >-
+            De laatste datum waarop volgens wet- en regelgeving de zaak afgerond
+            dient te zijn.
+          type: string
+          format: date
         toelichting:
           title: Toelichting
           description: Een toelichting op de zaak.
@@ -916,6 +1033,11 @@ components:
           type: string
           format: uri
           readOnly: true
+        kenmerken:
+          description: Lijst van kenmerken
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakKenmerk'
     GeoWithin:
       title: Zaakgeometrie
       type: object
