@@ -79,7 +79,8 @@ Ook hier met je wellicht nog iets met rappelleren…
 
 ### Vervolg
 Bij de gemeente Delft loopt een pilot voor het e-Depot. Delft test hierbij het scenario van uitplaatsing, waarbij zaken nadat ze zijn afgehandeld worden uitgeplaatst bij het e-Depot.
-Dit betekent dat bij een eventueel bezwaar en beroep het e-Depot informatie uit de originele zaak levert en niet de combinatie ZRC/DRC/Domeinspecifieke gegevens. Delft wil graag onderzoeken wat dit betekent voor de standaard, wat dit betekent voor de ZAC (VJV), of de keuze voor uitplaatsing wel past bij het gebruik van de standaard
+Dit betekent dat bij een eventueel bezwaar en beroep het e-Depot informatie uit de originele zaak levert en niet de combinatie ZRC/DRC/Domeinspecifieke gegevens. Delft wil graag onderzoeken wat dit betekent voor de standaard, wat dit betekent voor de ZAC (VJV), of de keuze voor uitplaatsing wel past bij het gebruik van de standaard.
+Verder komt 'uitgeplaatst' niet voor in de enumeratie voor archiefstatus. Er is wel een archiefstatus voor 'overgedragen', maar of dat fundamentalistisch correct is. 
 
 ## User story opvragen status en relevante gegevens
 De aanvrager moet op elk moment tussen aanvraag en afhandeling de status en relevante informatie kunnen opvragen. Dit is vervat in user story [US #154](https://github.com/VNG-Realisatie/gemma-zaken/issues/154).
