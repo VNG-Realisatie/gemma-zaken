@@ -100,7 +100,7 @@ en **[hier](<https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Regist
 
 > Fig.4, GEMMA Mapping
 
-![fig.4](./bestanden/amsterdam/GEMMA_Mapping.png?raw=true)
+![fig.4](./bestanden/amsterdam/1_3_0_ZDS_GEMMA_Mapping.png?raw=true)
 
 |GEMMA comp.       |  J/N  | Verklaring                                        | Akkoord |
 |:-----------------|:-----:|:-------------------------------------------------|:------:|
