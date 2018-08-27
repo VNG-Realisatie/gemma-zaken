@@ -172,3 +172,15 @@ de fout-responses (zie ook #130) correct teruggegeven worden.
 
 Noot 2: authenticatie en authorisatie worden in een later stadium uitgewerkt.
 Het is bekend dat hier goed over nagedacht moet worden.
+
+
+## Besluitenregistratie (BRC)
+
+Er komt een aparte besluitenregistratie (naast ZRC, ZTC en DRC) om besluiten
+in vast te leggen. De motivatie hiervoor is dat er besluiten zijn
+niet-gerelateerd aan zaken, maar deze zijn nog niet uitgemodelleerd (RGBZ
+besluiten slaan nu enkel op zaken). Hierbij lopen we vooruit, maar volgen
+we wel data-bij-de-bron principes uit Common Ground.
+
+De verwachting is dat gelijkaardige designkeuzes gemaakt worden voor
+klantcontacten bijvoorbeeld.
