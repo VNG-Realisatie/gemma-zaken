@@ -28,4 +28,18 @@ zaken van een bepaald type de juiste gegevens(statussen, resultaattypen,
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 
+## Testdata
+
+Momenteel is de API van de referentie-implementatie read-only. Leveranciers en
+overige ontwikkelaars die tegen de referentie-implementatie willen testen,
+kunnen in de [ZTC admin][ztcadmin] data inrichten. De inloggegevens hiervoor
+zijn:
+
+* gebruikersnaam: `demo`
+* wachtwoord `fmuQC4EDJ8m7vzbh3iu6`
+
+Deze gebruiker heeft geen rechten om objecten te verwijderen, zodat referenties
+van andere mensen niet stuk gaan.
+
 [jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
+[ztcadmin]: https://ref.tst.vng.cloud/ztc/api/
