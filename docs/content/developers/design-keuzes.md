@@ -110,7 +110,7 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
 * Indien verwezen wordt naar een andere resource (relatie), wordt de volledige
   naam van de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak`
   heeft een veld `zaaktype` en niet `type`. Ter vergelijking, in StUF-ZKN is
-  dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het `zaaktype`.
+  dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het  (een`zaaktype`.
 
   ```javascript
   {
@@ -121,14 +121,12 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
   ```
 
 
-## Gerelateerde objecten zonder eigen resource / Groepsattributen
+## Groepsattributen
 
-Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft,
-dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
-(binnen het hoofdobject) ontsloten. Deze child objecten zijn binnen RGBZ
-ook wel gedefinieerd als *groepsattributen*. Typische voorbeelden zijn
-(zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
-en `Kenmerk` en `Eigenschap` de child objecten.
+Indien een object een groepattribuutsoort heeft (een groep van bij elkaar behorende attribuutsoorten), al dan niet herhalend d.w.z. kardinaliteit 1 of meer (een 'lijst' van waarden van de attributen van het groepattribuut), dan wordt het groepattribuut inline
+(binnen het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaantsrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten. 
+Typische voorbeelden zijn (zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
+en `Kenmerk` en `Eigenschap` de groepattributen.
 
 Voorbeeld:
 
