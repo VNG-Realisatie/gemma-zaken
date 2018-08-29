@@ -185,8 +185,8 @@ Hierbij lopen we wat vooruit, maar volgen we wel data-bij-de-bron principes uit
 Common Ground.
 BESLUITTYPE laten we vooralsnog in de ZTC. Nader bepaald moet gaan worden hoe we hiermee omgaan, zoals onderbrengen in de BRC, aparte type-componenten cq. api's e.d.
 
-Dit betekent dat er voor BESLUIT een informatiemodel moet komen, ontrokken aan
-RGBZ resp. ImZTC. BESLUIT krijgt een optionele relatie naar ZAAK.
+Dit betekent dat er voor BESLUIT een informatiemodel moet komen, ontrokken aan het
+RGBZ. BESLUIT krijgt een optionele relatie naar ZAAK.
 
 De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
 andere resources, zoals bijvoorbeeld klantcontacten.
