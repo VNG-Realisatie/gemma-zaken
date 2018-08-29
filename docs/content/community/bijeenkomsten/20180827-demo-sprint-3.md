@@ -11,7 +11,7 @@ Haarlem, 27 augustus 2018
 - Vooruitkijken naar sprint 4 (?)
 - Feedback (@TCIMEddy)
 
-Slides: [ZDS2 Demo Spint 3.pdf](../bestanden/zds2-demo-sprint-3.pdf)
+Slides: [ZDS2 Demo Spint 3.pdf](/community/bestanden/zds2-demo-sprint-3.pdf)
 
 ## Feedback
 
