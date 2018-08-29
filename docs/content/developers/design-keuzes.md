@@ -172,3 +172,21 @@ de fout-responses (zie ook #130) correct teruggegeven worden.
 
 Noot 2: authenticatie en authorisatie worden in een later stadium uitgewerkt.
 Het is bekend dat hier goed over nagedacht moet worden.
+
+
+## Besluitenregistratie (BRC)
+
+Er komt een aparte besluitenregistratie (naast ZRC, ZTC en DRC) om besluiten
+in vast te leggen. De motivatie hiervoor is dat besluiten een bestaansrecht
+hebben onafhankelijk van zaken: niet elk besluit ontstaat gedurende de
+uitvoering van een zaak (denk aan raadsbesluiten).
+
+Hierbij lopen we wat vooruit, maar volgen we wel data-bij-de-bron principes uit
+Common Ground.
+BESLUITTYPE laten we vooralsnog in de ZTC. Nader bepaald moet gaan worden hoe we hiermee omgaan, zoals onderbrengen in de BRC, aparte type-componenten cq. api's e.d.
+
+Dit betekent dat er voor BESLUIT een informatiemodel moet komen, ontrokken aan het
+RGBZ. BESLUIT krijgt een optionele relatie naar ZAAK.
+
+De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
+andere resources, zoals bijvoorbeeld klantcontacten.
