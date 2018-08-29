@@ -11,7 +11,7 @@ Delft, 2 augustus 2018
 - Vooruitkijken naar sprint 3 (@ehotting)
 - Feedback (@TCIMEddy)
 
-Slides: [ZDS2 Demo Spint 2.pdf](../bestanden/ZDS2 DEmo Sprint 2.pdf)
+Slides: [ZDS2 Demo Spint 2.pdf](../bestanden/zds2-demo-sprint-2.pdf)
 
 ## Feedback
 
