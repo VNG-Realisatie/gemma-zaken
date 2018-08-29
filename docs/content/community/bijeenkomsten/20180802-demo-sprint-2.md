@@ -75,9 +75,9 @@ Dit is iets te bespreken in de bijeenkomst met leveranciers, zie issue [#280](ht
 Punt is helder en doorgegeven aan VNG Realisatie.
 
 
-#### Gaan we eisen (architectuur) dat alles zaaksystemen met componenten van anderen kunnen werken?
+#### Gaan we eisen (architectuur) dat alle zaaksystemen met componenten van anderen kunnen werken?
 
-Ja, dat is wel expliciet de bedoeling. We standaardiseren op het niveau van de API specificaties. In de bijbehorende architctuur en afspraken zal o.a. staan dat componenten iedere los gedefiniëerde API ook los moeten aanbieden. Een gevolg zal zijn dat zaaksystemen met componenten van anderen kunnen werken. Dit maakt een einde aan de huidige praktijk waarbij functionaliteit vaak onnodig redundant in organisaties aanwezig is, en waarbij data gekopiëerd en gesynchroniseerd moet worden.
+Ja, dat is wel expliciet de bedoeling. We standaardiseren op het niveau van de API specificaties. In de bijbehorende architectuur en afspraken zal o.a. staan dat componenten iedere los gedefinieerde API ook los moeten aanbieden. Een gevolg zal zijn dat zaaksystemen met componenten van anderen kunnen werken. Dit maakt een einde aan de huidige praktijk waarbij functionaliteit vaak onnodig redundant in organisaties aanwezig is, en waarbij data gekopieerd en gesynchroniseerd moet worden.
 
 #### Is StUF end-of-life?
 
@@ -122,18 +122,27 @@ De API specificatie laat dit toe (net als RGBZ2), multitenancy heeft vooral te m
 
 #### Hoe wordt de CMIS standaard in ZDS 2.0 verwerkt?
 
-
-
-
+Zie hiervoor [#223](https://github.com/VNG-Realisatie/gemma-zaken/issues/223)
 
 #### Seperation of concerns: wat doet welke component en wat mag worden verwacht van de basisinfra
 
+[nog te beantwoorden]
+
 #### Wat kunnen we verwachten van NLX / infra
+
+[nog te beantwoorden]
 
 #### Hoe gaan we om met de coordinatenstelsels?
 
+Dit staat beschreven in de DSO API strategie. Momenteel is er 1 stelsel
+ondersteund, maar volgens DSO moeten er nog een EU- en Nederland-specifiek (RD)
+stelsel ondersteund worden. Zie
+[#216](https://github.com/VNG-Realisatie/gemma-zaken/issues/216) voor de DSO
+checklist.
+
 #### Wat is status van de referentieimplementatie
-    ->  We gaan de referentieimplementatie duiden en definieren
+
+    ->  We gaan de referentieimplementatie nog duiden en definieren
 
 
 #### Concurrency / locking, hoe werkt dat?
