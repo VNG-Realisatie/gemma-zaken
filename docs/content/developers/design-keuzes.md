@@ -189,4 +189,4 @@ Dit betekent dat er voor BESLUIT een informatiemodel moet komen, ontrokken aan
 RGBZ resp. ImZTC. BESLUIT krijgt een optionele relatie naar ZAAK.
 
 De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
-andere resources, bijvoorbeeld klantcontacten, besluittype, etc.
+andere resources, zoals bijvoorbeeld klantcontacten.
