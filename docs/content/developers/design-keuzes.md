@@ -184,8 +184,8 @@ uitvoering van een zaak (denk aan raadsbesluiten).
 Hierbij lopen we wat vooruit, maar volgen we wel data-bij-de-bron principes uit
 Common Ground.
 
-Dit betekent dat er voor BESLUIT en BESLUITTYPE een informatiemodel moet komen,
-ontrokken aan RGBZ resp. ImZTC. BESLUIT krijgt een optionele relatie naar ZAAK.
+Dit betekent dat er voor BESLUIT een informatiemodel moet komen, ontrokken aan
+RGBZ resp. ImZTC. BESLUIT krijgt een optionele relatie naar ZAAK.
 
 De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
-andere resources, bijvoorbeeld klantcontacten.
+andere resources, bijvoorbeeld klantcontacten, besluittype, etc.
