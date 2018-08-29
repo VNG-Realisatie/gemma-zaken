@@ -176,7 +176,16 @@ Het is bekend dat hier goed over nagedacht moet worden.
 
 ## Besluitenregistratie (BRC)
 
-Er komt een aparte besluitenregistratie (naast ZRC, ZTC en DRC) om besluiten in vast te leggen. De motivatie hiervoor is dat besluiten een bestaansrecht hebben onafhankelijk van zaken: niet elk besluit ontstaat gedurende de uitvoering van een zaak. 
-Hierbij lopen we vooruit op, maar volgen we wel data-bij-de-bron principes uit Common Ground.
-Consequentie is dat BESLUIT en BESLUITTYPE aan RGBZ resp. ImZTC onttrokken moeten worden en als apart domein geinfomodelleerd moeten worden, met een optionele relatie naar ZAAK.
-De verwachting is dat vergelijkbare designkeuzes gemaakt worden voor klantcontacten bijvoorbeeld.
+Er komt een aparte besluitenregistratie (naast ZRC, ZTC en DRC) om besluiten
+in vast te leggen. De motivatie hiervoor is dat besluiten een bestaansrecht
+hebben onafhankelijk van zaken: niet elk besluit ontstaat gedurende de
+uitvoering van een zaak (denk aan raadsbesluiten).
+
+Hierbij lopen we wat vooruit, maar volgen we wel data-bij-de-bron principes uit
+Common Ground.
+
+Dit betekent dat er voor BESLUIT en BESLUITTYPE een informatiemodel moet komen,
+ontrokken aan RGBZ resp. ImZTC. BESLUIT krijgt een optionele relatie naar ZAAK.
+
+De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
+andere resources, bijvoorbeeld klantcontacten.
