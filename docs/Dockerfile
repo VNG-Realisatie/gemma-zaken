@@ -12,7 +12,7 @@ WORKDIR /app
 RUN make
 
 # Copy static docs to alpine-based nginx container.
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
 # Copy nginx configuration
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
