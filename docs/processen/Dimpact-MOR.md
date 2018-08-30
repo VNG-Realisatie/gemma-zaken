@@ -50,6 +50,13 @@ Deze procesbeschrijving overstijgt de user stories; deze kunnen a.h.w. geplaatst
 
 ![Bedrijfsproces i.r.t. API's](./bestanden/Dimpact/mor-proces.png?raw=true)
 
+### Managementrapportages
+Om het operationele proces voor het afhandelen van meldingen te kunnen sturen wordt gebruik gemaakt van managementrapportages die real-time informatie geven over meldingen geaggregeerd naar verschillende kenmerken zoals categorie, status, periode, service level, etc. De volgende typen rapportages worden in [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137) onderscheiden:
+1. Openstaande meldingen (periode van-tot)
+2. Meldingen per wijk en periode (periode van-tot en per jaar/maand/week/dag)
+3. Meldingen per wijk en categorie (periode van-tot en per jaar/maand/week/dag)
+4. Melding per categorie en periode (periode van-tot en per jaar/maand/week/dag). In [dit document](./bestanden/Dimpact/Meldingen_per_categorie_en_periode.pdf) is een voorbeeld gegeven van zo'n rapportage.
+
 
 ## Generieke architectuurschets (GEMMA-referentiecomponenten)
 De architectuurschets van het proces is reeds in termen van GEMMA 2 referentiecomponenten.
