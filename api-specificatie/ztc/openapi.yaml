@@ -763,6 +763,7 @@ components:
     StatusType:
       required:
         - omschrijving
+        - volgnummer
       type: object
       properties:
         url:
@@ -798,3 +799,9 @@ components:
           type: string
           format: uri
           readOnly: true
+        volgnummer:
+          title: Volgnummer
+          description: Een volgnummer voor statussen van het STATUSTYPE binnen een zaak.
+          type: integer
+          maximum: 9999
+          minimum: 1
