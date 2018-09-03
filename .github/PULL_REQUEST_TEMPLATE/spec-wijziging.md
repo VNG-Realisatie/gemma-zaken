@@ -9,6 +9,9 @@ about: Voorstel tot aanpassing API specificatie (OAS 3)
 [beschrijf overkoepelend wat de aanpassingen zijn. Hieronder kan je in meer
 detail per component omschrijven wat er gewijzigd is]
 
+* Zie: [User Story](https://github.com/VNG-Realisatie/gemma-zaken/issues/XXX)
+* Zie: [Architectuurschets](https://github.com/VNG-Realisatie/gemma-zaken/issues/XXX)
+
 ## ZRC
 
 **Links**
@@ -32,7 +35,7 @@ aanpassingen:
 **Links**
 
 * [Aanpassingen](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent/pull/X)
-* [API documentatie](hhttp://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/drc/openapi.yaml)
+* [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/drc/openapi.yaml)
 
 
 **Wijzigingen**
@@ -50,7 +53,7 @@ aanpassingen:
 **Links**
 
 * [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaaktypecatalous/pull/X)
-* [API documentatie](hhttp://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/ztc/openapi.yaml)
+* [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/ztc/openapi.yaml)
 
 
 **Wijzigingen**
