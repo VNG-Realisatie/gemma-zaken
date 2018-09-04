@@ -190,3 +190,66 @@ RGBZ. BESLUIT krijgt een optionele relatie naar ZAAK.
 
 De verwachting is dat er later vergelijkbare designkeuzes gemaakt worden voor
 andere resources, zoals bijvoorbeeld klantcontacten.
+
+
+## Response bij input validatie
+
+De DSO schrijft een structuur voor waar een fout-response aan moet voldoen
+in het geval van validatiefouten:
+
+```json
+{
+    "type": "...",
+    "title": "...",
+    "status": 400,
+    "detail": "...",
+    "instance": "...",
+    "invalid-params": [{
+        "type": "...",
+        "name": "<veldnaam>",
+        "reason": "Maximale lengte overschreden.",
+    }]
+}
+```
+
+Op het [forum](https://forum.pdok.nl/t/formaat-foutafhandeling-input-validatie-api-50/1848)
+is nagevraagd hoe er moet omgegaan worden met meerdere fouten op hetzelfde veld,
+met de conclusie dat dit beter gespecifieerd moet worden.
+
+In ZDS 2.0 kiezen we ervoor om elke fout op een veld als apart object op te
+nemen binnen de `"invalid-params"` sleutel. Dit laat clients toe om elke
+individuele fout te renderen zoals zij wensen.
+
+Tevens voegen we op hoofdniveau van fouten en binnen een object in
+`"invalid-params"` een sleutel `"code"` toe. Dit veld bevat een waarde die door
+machines kan begrepen worden, bijvoorbeeld `"invalid"` of
+`"max_length_exceeded"`. De `"type"` sleutel is namelijk optioneel en bedoeld
+voor developers om meer informatie over het fouttype te lezen, en niet voor
+automatische verwerking.
+
+Een voorbeeld response is dan:
+
+```json
+{
+    "type": "URI: https://ref.tst.vng.cloud/ref/fouten/ValidationError/",
+    "title": "Ongeldige gegevens",
+    "status": 400,
+    "code": "invalid",
+    "detail": "Er deden zich validatiefouten voor",
+    "instance": "urn:uuid:2d3f8adb-470d-4bf4-8c43-4b2ebeef7504",
+    "invalid-params": [
+        {
+            "name": "identificatie",
+            "code": "max-length",
+            "reason": "Maximale lengte overschreden.",
+        },
+            {
+            "name": "identificatie",
+            "code": "special-characters",
+            "reason": "De identificatie mag geen speciale karakters bevatten.",
+        }
+    ]
+}
+```
+
+Merk op dat de concrete codes hier fictief zijn en puur ter illustratie zijn.
