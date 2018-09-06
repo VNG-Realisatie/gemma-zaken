@@ -52,8 +52,6 @@ Voor het verwerken van de aanvragen wordt VJV gebruikt. De aanvraag wordt tevens
 
 * De aanvrager (initiator) dient via de website (VJV) een inzageverzoek persoonsgegevens in en geeft (na authenticatie via DigiD) op welke onderdelen geanalyseerd moeten worden. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153);
 * De VJV wordt, na correct en volledige registratie, toegewezen aan de afdeling ‘Advies JZ’ en geregistreerd in VJV, de ZRC  en de Domeinspecifieke gegevens. [US #153](https://github.com/VNG-Realisatie/gemma-zaken/issues/153), Status ‘Geregistreerd’.
-* Advies JZ routeert de VJV naar de Behandelaar van inzageverzoeken. Dit wordt geregistreerd in VJV en de ZRC. US #..., geen statuswijziging;
-Wij zouden graag zien dat deze actie uit het proces wordt gehaald omdat deze geen toegevoegde waarde heeft.
 * De Behandelaar van inzageverzoeken controleert of aanvraag voldoet aan de voorwaarden. [US #301](https://github.com/VNG-Realisatie/gemma-zaken/issues/301), statuswijziging ‘Toetsing wet- en regelgeving afgerond’;
   * Indien dit niet het geval is volgt een afwijzing. Registratie in VJV, ZRC en DRC. [US #302](https://github.com/VNG-Realisatie/gemma-zaken/issues/302), statuswijziging ‘Afgehandeld’.
   * Indien dit wel het geval is controleert de Behandelaar of nog aanvullende gegevens nodig zijn (b.v. voor ‘Overige systemen’ en ‘Algemeen’);
