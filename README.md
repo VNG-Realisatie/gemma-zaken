@@ -20,6 +20,7 @@ De volgende documenten beschrijven dit project:
 - De [dev-straat](./docs/content/developers/dev-straat.md) beschrijft de development
   inrichting en tooling
 - [Technische documentatie](./docs/content/developers/_index.md) voor developers
+- [Designkeuzes en besluiten](./docs/content/developers/design-keuzes.md) voor scrumteam, developers en stakeholders
 
 Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.cloud
 
