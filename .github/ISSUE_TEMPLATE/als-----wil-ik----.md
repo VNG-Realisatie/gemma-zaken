@@ -24,6 +24,8 @@ about: Beschrijving van een feature/user story
 - [ ] de specificatie is gepubliceerd leesbaar
 - [ ] er is een referentieimplementatie
 - [ ] de DSO URI- en API-strategie worden gevolgd
+- [ ] eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
+- [ ] er zijn geen (nieuwe) conflicten met ontwerp keuzes in [BIP](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/docs/design_decisions.md)
 
 **Acceptatiecriteria**
 Uit de algemene uitgangspunten:
