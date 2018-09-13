@@ -25,11 +25,12 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 
 
 ## Informatiemodellen
-- [Informatiemodel RGBZ](https://www.gemmaonline.nl/images/gemmaonline/a/a4/EgIM_20180621_-_ag_4_-_GEMMA_RGBZ_2.0_-_CONCEPT_20180613.zip) (v2.00.02 - concept)(.zip!)
+- [Informatiemodel RGBZ](https://www.gemmaonline.nl/images/gemmaonline/a/a4/EgIM_20180621_-_ag_4_-_GEMMA_RGBZ_2.0_-_CONCEPT_20180613.zip) (v2.00.02 - concept, ZIP-bestand)
 - [Informatiemodel RGBZ 2.0 in ontwikkeling](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling) Met oa. achtergrondinformatie en de belangrijkste wijzigingen ten opzichte van RGBZ 1
-- [Informatiemodel ImZTC](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (v2.02.01 - concept)(.zip!)
+- [Informatiemodel ImZTC](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (v2.02.01 - concept, ZIP-bestand)
 - [Klantcontacten en het RGBZ](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ)
 
+- [Dekking RGBZ/ImZTC door ZDS 2.0](https://docs.google.com/drawings/d/1vtdp3qMEetb8-kYNM7fp3et6jz1IDf7_yQahraRAGng/)
 
 ## Informatiebeheer
 - [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
