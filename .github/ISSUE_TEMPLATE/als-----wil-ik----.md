@@ -23,7 +23,7 @@ about: Beschrijving van een feature/user story
 - [ ] er is een OAS 3.0 specificatie
 - [ ] de specificatie is gepubliceerd leesbaar
 - [ ] er is een referentieimplementatie
-- [ ] de DSO URI- en API-strategie worden gevolgd
+- [ ] de DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
 - [ ] eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
 - [ ] er zijn geen (nieuwe) conflicten met ontwerp keuzes in [BIP](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/docs/design_decisions.md)
 
