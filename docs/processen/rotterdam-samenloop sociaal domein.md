@@ -1,19 +1,15 @@
-# RDAM – Samenloop
+# RDAM – Samenloop in het Sociaal Domein
 
-In dit hoofdstuk wordt een globale architectuurschets gegeven voor de User Stories in het kader van Samenloopdetectie. Het gaat om de volgende User Stories.
+In dit hoofdstuk wordt een globale architectuurschets gegeven voor de User Stories in het kader van samenloopdetectie in het Sociaal Domein. 
 
-## User stories
+## User story
+* [User story #65](https://github.com/VNG-Realisatie/gemma-zaken/issues/65): als gemeentemedewerker wil ik inzage in alle zaken die betrekking hebben op de persoon/aanvrager behorend bij een zaak die ik in behandeling heb, zodat ik alle relevante informatie heb over de sociale omgeving, zijnde het gezin en betrokken personen.
 
-* [User story #64](https://github.com/VNG-Realisatie/gemma-zaken/issues/64): Als gemeentemedewerker wil ik een lijst opvragen met aangevraagde en toegekende vergunningen die betrekking hebben op BGT-objecten binnen de wijk (postcodegebied) waarin ik nu loop
-* [User story #65](https://github.com/VNG-Realisatie/gemma-zaken/issues/65): als gemeentemedewerker wil ik inzage in alle zaken die betrekking hebben op de persoon/aanvrager behorend bij een zaak die ik in behandeling heb
+## Toelichting user story
 
-## Toelichting user stories
+Het gaat hier om, bezien vanuit het sociale domein, inzicht te hebben in de aanpalende trajecten (zaken) welke elders binnen de gemeente worden uitgevoerd:
 
-Het gaat hier om een aantal Rotterdamse User Stories waarin, bezien vanuit het sociale domein en het fysieke domein, inzicht nodig is in de aanpalende trajecten (zaken) welke elders binnen de gemeente worden uitgevoerd.
-
-### 'Samenloopdetectie':
-
-* Medewerkers – werkend vanuit een taakapplicatie of app - moeten weten of een burger/bedrijf/object al betrokken is in een traject, dat aan een onderwerp gerelateerd is, maar waarvan de dienstverlening niet via de betreffende taakapplicatie loopt.
+* Medewerkers – werkend vanuit een taakapplicatie of app - moeten weten of een burger/gezin al betrokken is in een traject, dat aan een onderwerp gerelateerd is, maar waarvan de dienstverlening niet via de betreffende taakapplicatie verloopt.
 * Dit voor zover de classificatie en doelbinding dit toestaat.
 * Met een onderscheid, voor daartoe geautoriseerde medewerkers, in:
     * ‘dat’ informatie = een lijst met zaaknummers en behandelaars
@@ -21,7 +17,9 @@ Het gaat hier om een aantal Rotterdamse User Stories waarin, bezien vanuit het s
 
 ### Voorbeeld Zorg traject
 
-In een aanvraag voor zorg is het nodig om te weten of er al trajecten lopen voor schuldhulp of leerlingen verzuim (op de persoon en binnen de gezinssituatie). Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-informatie') opgevraagd worden, maar alleen het bestaan ervan (de 'dat-informatie') aangevuld met contactgegevens van de behandelaar/casusregisseur.
+In de behandeling van een zorgcasus van een client is het nodig om op de hoogte te zijn van de trajecten die lopen met bijvoorbeeld schuldhulpverlening, leerlingen verzuim, uitkeringverstrekking, e.d. Niet alleen trajecten van de client zelf, maar ook binnen de gezinssituatie. Is er bijvoorbeeld sprake van een voogd of bewindvoering. Met een integraal overzicht van alle bestaande raakvlakken met de gemeente, kan de dienstverlening beter op de situatie worden afgestemd. Onderling kunnen afdelingen beter samenwerken en heeft de client een eenduidig beeld vanuit de gemeente. 
+
+Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-informatie') zonder doelbinding opgevraagd worden, maar alleen het bestaan ervan (de 'dat-informatie') aangevuld met contactgegevens van de behandelaar/casusregisseur. <juridische check>
 
 ### Voorbeeld Fysiek traject
 
