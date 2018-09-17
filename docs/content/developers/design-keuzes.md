@@ -225,6 +225,7 @@ Tevens voegen we op hoofdniveau van fouten en binnen een object in
 machines kan begrepen worden, bijvoorbeeld `"invalid"` of
 `"max_length_exceeded"`. De `"type"` sleutel is namelijk optioneel en bedoeld
 voor developers om meer informatie over het fouttype te lezen, en niet voor
+
 automatische verwerking.
 
 Een voorbeeld response is dan:
@@ -253,3 +254,21 @@ Een voorbeeld response is dan:
 ```
 
 Merk op dat de concrete codes hier fictief zijn en puur ter illustratie zijn.
+
+# Vertaling van relaties
+Een **0-op-N** of **1-op-N** relatie tussen objecttypen A en B in een informatiemodel zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een  REST API door een hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar de gerelateerde resource A. 
+
+Bijvoorbeeld een zaak kan nul of meer statussen hebben en een status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N relatie tussen Zaak en Status. De resource Status bevat naast zijn eigen gegevens het (toegevoegde) veld "zaak" dat de url naar de resource van de gerelateerde zaak bevat.
+
+NB We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
+
+Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe resource R die fungeert als een kruistabel zoals in databases. De resource R bevat de volgende velden:
+* url naar zichzelf (resource R),
+* url naar resource A,
+* url naar resource B, 
+* de gegevens van de relatie zelf (als die er zijn).
+
+Bijvoorbeeld de relatie tussen Zaak en Informatieobject is N-op-M. Deze relatie is vertaald naar de resource ZaakInformatieobject met de volgende velden:
+* url (hyperlink naar zichzelf),
+* zaak (hyperlink naar de gerelateerde zaak),
+* informatieobject (hyperlink naar het gerelateerde informatieobject).
