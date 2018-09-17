@@ -3,13 +3,13 @@ info:
   title: Documentregistratiecomponent (drc) API
   description: Een API om een documentregistratiecomponent te benaderen
   contact:
-    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
+    url: https://github.com/VNG-Realisatie/gemma-zaken
     email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
   version: '1'
 security:
-  - basic: []
+- basic: []
 paths:
   /enkelvoudiginformatieobjecten:
     get:
@@ -27,59 +27,59 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - enkelvoudiginformatieobjecten
+      - enkelvoudiginformatieobjecten
     post:
       operationId: enkelvoudiginformatieobject_create
-      description: |-
-        Registreer een EnkelvoudigInformatieObject.
+      description: 'Registreer een EnkelvoudigInformatieObject.
 
-        De URL naar het informatieobjecttype wordt gevalideerd op geldigheid.
+
+        De URL naar het informatieobjecttype wordt gevalideerd op geldigheid.'
       responses:
         '201':
           description: ''
@@ -90,59 +90,59 @@ paths:
         '400':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - enkelvoudiginformatieobjecten
+      - enkelvoudiginformatieobjecten
       requestBody:
         content:
           application/json:
@@ -150,7 +150,7 @@ paths:
               $ref: '#/components/schemas/EnkelvoudigInformatieObject'
         required: true
     parameters: []
-  '/enkelvoudiginformatieobjecten/{uuid}':
+  /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
       description: Geef de details van een EnkelvoudigInformatieObject.
@@ -164,86 +164,86 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - enkelvoudiginformatieobjecten
+      - enkelvoudiginformatieobjecten
     parameters:
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
   /zaakinformatieobjecten:
     get:
       operationId: zaakinformatieobject_list
       description: Beheer relatie tussen InformatieObject en ZAAK.
       parameters:
-        - name: zaak
-          in: query
-          description: URL naar de ZAAK in het ZRC.
-          required: false
-          schema:
-            type: string
-            format: uri
-        - name: informatieobject
-          in: query
-          description: URL to the related resource
-          required: false
-          schema:
-            type: string
-            format: uri
+      - name: zaak
+        in: query
+        description: URL naar de ZAAK in het ZRC.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: informatieobject
+        in: query
+        description: URL to the related resource
+        required: false
+        schema:
+          type: string
+          format: uri
       responses:
         '200':
           description: ''
@@ -256,53 +256,53 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - zaakinformatieobjecten
+      - zaakinformatieobjecten
     post:
       operationId: zaakinformatieobject_create
       description: Registreer een INFORMATIEOBJECT bij een ZAAK.
@@ -316,59 +316,59 @@ paths:
         '400':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - zaakinformatieobjecten
+      - zaakinformatieobjecten
       requestBody:
         content:
           application/json:
@@ -376,7 +376,7 @@ paths:
               $ref: '#/components/schemas/ZaakInformatieObject'
         required: true
     parameters: []
-  '/zaakinformatieobjecten/{uuid}':
+  /zaakinformatieobjecten/{uuid}:
     get:
       operationId: zaakinformatieobject_read
       description: Geef de details van een ZAAKINFORMATIEOBJECT relatie.
@@ -390,69 +390,69 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - zaakinformatieobjecten
+      - zaakinformatieobjecten
     parameters:
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
 servers:
-  - url: /api/v1
+- url: /api/v1
 components:
   securitySchemes:
     basic:
@@ -461,11 +461,11 @@ components:
   schemas:
     EnkelvoudigInformatieObject:
       required:
-        - creatiedatum
-        - titel
-        - auteur
-        - taal
-        - informatieobjecttype
+      - creatiedatum
+      - titel
+      - auteur
+      - taal
+      - informatieobjecttype
       type: object
       properties:
         url:
@@ -475,25 +475,21 @@ components:
           readOnly: true
         identificatie:
           title: Identificatie
-          description: >-
-            Een binnen een gegeven context ondubbelzinnige referentie naar het
-            INFORMATIEOBJECT.
+          description: Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
           type: string
           maxLength: 40
           minLength: 1
         bronorganisatie:
           title: Bronorganisatie
-          description: >-
-            Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die
-            het informatieobject heeft gecreëerd of heeft ontvangen en als
-            eerste in een samenwerkingsketen heeft vastgelegd.
+          description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
         creatiedatum:
           title: Creatiedatum
-          description: >-
-            Een datum of een gebeurtenis in de levenscyclus van het
-            INFORMATIEOBJECT.
+          description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
           type: string
           format: date
         titel:
@@ -504,526 +500,522 @@ components:
           minLength: 1
         vertrouwelijkaanduiding:
           title: Vertrouwelijkaanduiding
-          description: >-
-            Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
             openbaarheid bestemd is.
           type: string
           enum:
-            - openbaar
-            - beperkt openbaar
-            - intern
-            - zaakvertrouwelijk
-            - vertrouwelijk
-            - confidentieel
-            - geheim
-            - zeer geheim
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
         auteur:
           title: Auteur
-          description: >-
-            De persoon of organisatie die in de eerste plaats verantwoordelijk
-            is voor het creëren van de inhoud van het INFORMATIEOBJECT.
+          description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
+            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1
         formaat:
           title: Formaat
-          description: >-
-            De code voor de wijze waarop de inhoud van het ENKELVOUDIG
+          description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
             INFORMATIEOBJECT is vastgelegd in een computerbestand.
           type: string
           maxLength: 255
         taal:
           title: Taal
-          description: >-
-            Een taal van de intellectuele inhoud van het ENKELVOUDIG
-            INFORMATIEOBJECT. De waardes komen uit ISO 639-2/B
+          description: Een taal van de intellectuele inhoud van het ENKELVOUDIG INFORMATIEOBJECT.
+            De waardes komen uit ISO 639-2/B
           type: string
           enum:
-            - aar
-            - abk
-            - ace
-            - ach
-            - ada
-            - ady
-            - afh
-            - afr
-            - ain
-            - aka
-            - akk
-            - ale
-            - alt
-            - amh
-            - ang
-            - anp
-            - ara
-            - arc
-            - arg
-            - arn
-            - arp
-            - arw
-            - asm
-            - ast
-            - ava
-            - ave
-            - awa
-            - aym
-            - aze
-            - bak
-            - bal
-            - bam
-            - ban
-            - bas
-            - bej
-            - bel
-            - bem
-            - ben
-            - bho
-            - bik
-            - bin
-            - bis
-            - bla
-            - tib
-            - bos
-            - bra
-            - bre
-            - bua
-            - bug
-            - bul
-            - byn
-            - cad
-            - car
-            - cat
-            - ceb
-            - cze
-            - cha
-            - chb
-            - che
-            - chg
-            - chk
-            - chm
-            - chn
-            - cho
-            - chp
-            - chr
-            - chu
-            - chv
-            - chy
-            - cop
-            - cor
-            - cos
-            - cre
-            - crh
-            - csb
-            - wel
-            - dak
-            - dan
-            - dar
-            - del
-            - den
-            - ger
-            - dgr
-            - din
-            - div
-            - doi
-            - dsb
-            - dua
-            - dum
-            - dyu
-            - dzo
-            - efi
-            - egy
-            - eka
-            - gre
-            - elx
-            - eng
-            - enm
-            - epo
-            - est
-            - baq
-            - ewe
-            - ewo
-            - fan
-            - fao
-            - per
-            - fat
-            - fij
-            - fil
-            - fin
-            - fon
-            - fre
-            - frm
-            - fro
-            - frr
-            - frs
-            - fry
-            - ful
-            - fur
-            - gaa
-            - gay
-            - gba
-            - gez
-            - gil
-            - gla
-            - gle
-            - glg
-            - glv
-            - gmh
-            - goh
-            - gon
-            - gor
-            - got
-            - grb
-            - grc
-            - grn
-            - gsw
-            - guj
-            - gwi
-            - hai
-            - hat
-            - hau
-            - haw
-            - heb
-            - her
-            - hil
-            - hin
-            - hit
-            - hmn
-            - hmo
-            - hrv
-            - hsb
-            - hun
-            - hup
-            - arm
-            - iba
-            - ibo
-            - ido
-            - iii
-            - iku
-            - ile
-            - ilo
-            - ina
-            - ind
-            - inh
-            - ipk
-            - ice
-            - ita
-            - jav
-            - jbo
-            - jpn
-            - jpr
-            - jrb
-            - kaa
-            - kab
-            - kac
-            - kal
-            - kam
-            - kan
-            - kas
-            - geo
-            - kau
-            - kaw
-            - kaz
-            - kbd
-            - kha
-            - khm
-            - kho
-            - kik
-            - kin
-            - kir
-            - kmb
-            - kok
-            - kom
-            - kon
-            - kor
-            - kos
-            - kpe
-            - krc
-            - krl
-            - kru
-            - kua
-            - kum
-            - kur
-            - kut
-            - lad
-            - lah
-            - lam
-            - lao
-            - lat
-            - lav
-            - lez
-            - lim
-            - lin
-            - lit
-            - lol
-            - loz
-            - ltz
-            - lua
-            - lub
-            - lug
-            - lui
-            - lun
-            - luo
-            - lus
-            - mad
-            - mag
-            - mah
-            - mai
-            - mak
-            - mal
-            - man
-            - mar
-            - mas
-            - mdf
-            - mdr
-            - men
-            - mga
-            - mic
-            - min
-            - mis
-            - mac
-            - mlg
-            - mlt
-            - mnc
-            - mni
-            - moh
-            - mon
-            - mos
-            - mao
-            - may
-            - mul
-            - mus
-            - mwl
-            - mwr
-            - bur
-            - myv
-            - nap
-            - nau
-            - nav
-            - nbl
-            - nde
-            - ndo
-            - nds
-            - nep
-            - new
-            - nia
-            - niu
-            - dut
-            - nno
-            - nob
-            - nog
-            - non
-            - nor
-            - nqo
-            - nso
-            - nwc
-            - nya
-            - nym
-            - nyn
-            - nyo
-            - nzi
-            - oci
-            - oji
-            - ori
-            - orm
-            - osa
-            - oss
-            - ota
-            - pag
-            - pal
-            - pam
-            - pan
-            - pap
-            - pau
-            - peo
-            - phn
-            - pli
-            - pol
-            - pon
-            - por
-            - pro
-            - pus
-            - que
-            - raj
-            - rap
-            - rar
-            - roh
-            - rom
-            - rum
-            - run
-            - rup
-            - rus
-            - sad
-            - sag
-            - sah
-            - sam
-            - san
-            - sas
-            - sat
-            - scn
-            - sco
-            - sel
-            - sga
-            - shn
-            - sid
-            - sin
-            - slo
-            - slv
-            - sma
-            - sme
-            - smj
-            - smn
-            - smo
-            - sms
-            - sna
-            - snd
-            - snk
-            - sog
-            - som
-            - sot
-            - spa
-            - alb
-            - srd
-            - srn
-            - srp
-            - srr
-            - ssw
-            - suk
-            - sun
-            - sus
-            - sux
-            - swa
-            - swe
-            - syc
-            - syr
-            - tah
-            - tam
-            - tat
-            - tel
-            - tem
-            - ter
-            - tet
-            - tgk
-            - tgl
-            - tha
-            - tig
-            - tir
-            - tiv
-            - tkl
-            - tlh
-            - tli
-            - tmh
-            - tog
-            - ton
-            - tpi
-            - tsi
-            - tsn
-            - tso
-            - tuk
-            - tum
-            - tur
-            - tvl
-            - twi
-            - tyv
-            - udm
-            - uga
-            - uig
-            - ukr
-            - umb
-            - und
-            - urd
-            - uzb
-            - vai
-            - ven
-            - vie
-            - vol
-            - vot
-            - wal
-            - war
-            - was
-            - wln
-            - wol
-            - xal
-            - xho
-            - yao
-            - yap
-            - yid
-            - yor
-            - zap
-            - zbl
-            - zen
-            - zgh
-            - zha
-            - chi
-            - zul
-            - zun
-            - zxx
-            - zza
-            - afa
-            - alg
-            - apa
-            - art
-            - ath
-            - aus
-            - bad
-            - bai
-            - bat
-            - ber
-            - bih
-            - bnt
-            - btk
-            - cai
-            - cau
-            - cel
-            - cmc
-            - cpe
-            - cpf
-            - cpp
-            - crp
-            - cus
-            - day
-            - dra
-            - fiu
-            - gem
-            - ijo
-            - inc
-            - ine
-            - ira
-            - iro
-            - kar
-            - khi
-            - kro
-            - map
-            - mkh
-            - mno
-            - mun
-            - myn
-            - nah
-            - nai
-            - nic
-            - nub
-            - oto
-            - paa
-            - phi
-            - pra
-            - roa
-            - sai
-            - sal
-            - sem
-            - sgn
-            - sio
-            - sit
-            - sla
-            - smi
-            - son
-            - ssa
-            - tai
-            - tup
-            - tut
-            - wak
-            - wen
-            - ypk
-            - znd
-            - him
+          - aar
+          - abk
+          - ace
+          - ach
+          - ada
+          - ady
+          - afh
+          - afr
+          - ain
+          - aka
+          - akk
+          - ale
+          - alt
+          - amh
+          - ang
+          - anp
+          - ara
+          - arc
+          - arg
+          - arn
+          - arp
+          - arw
+          - asm
+          - ast
+          - ava
+          - ave
+          - awa
+          - aym
+          - aze
+          - bak
+          - bal
+          - bam
+          - ban
+          - bas
+          - bej
+          - bel
+          - bem
+          - ben
+          - bho
+          - bik
+          - bin
+          - bis
+          - bla
+          - tib
+          - bos
+          - bra
+          - bre
+          - bua
+          - bug
+          - bul
+          - byn
+          - cad
+          - car
+          - cat
+          - ceb
+          - cze
+          - cha
+          - chb
+          - che
+          - chg
+          - chk
+          - chm
+          - chn
+          - cho
+          - chp
+          - chr
+          - chu
+          - chv
+          - chy
+          - cop
+          - cor
+          - cos
+          - cre
+          - crh
+          - csb
+          - wel
+          - dak
+          - dan
+          - dar
+          - del
+          - den
+          - ger
+          - dgr
+          - din
+          - div
+          - doi
+          - dsb
+          - dua
+          - dum
+          - dyu
+          - dzo
+          - efi
+          - egy
+          - eka
+          - gre
+          - elx
+          - eng
+          - enm
+          - epo
+          - est
+          - baq
+          - ewe
+          - ewo
+          - fan
+          - fao
+          - per
+          - fat
+          - fij
+          - fil
+          - fin
+          - fon
+          - fre
+          - frm
+          - fro
+          - frr
+          - frs
+          - fry
+          - ful
+          - fur
+          - gaa
+          - gay
+          - gba
+          - gez
+          - gil
+          - gla
+          - gle
+          - glg
+          - glv
+          - gmh
+          - goh
+          - gon
+          - gor
+          - got
+          - grb
+          - grc
+          - grn
+          - gsw
+          - guj
+          - gwi
+          - hai
+          - hat
+          - hau
+          - haw
+          - heb
+          - her
+          - hil
+          - hin
+          - hit
+          - hmn
+          - hmo
+          - hrv
+          - hsb
+          - hun
+          - hup
+          - arm
+          - iba
+          - ibo
+          - ido
+          - iii
+          - iku
+          - ile
+          - ilo
+          - ina
+          - ind
+          - inh
+          - ipk
+          - ice
+          - ita
+          - jav
+          - jbo
+          - jpn
+          - jpr
+          - jrb
+          - kaa
+          - kab
+          - kac
+          - kal
+          - kam
+          - kan
+          - kas
+          - geo
+          - kau
+          - kaw
+          - kaz
+          - kbd
+          - kha
+          - khm
+          - kho
+          - kik
+          - kin
+          - kir
+          - kmb
+          - kok
+          - kom
+          - kon
+          - kor
+          - kos
+          - kpe
+          - krc
+          - krl
+          - kru
+          - kua
+          - kum
+          - kur
+          - kut
+          - lad
+          - lah
+          - lam
+          - lao
+          - lat
+          - lav
+          - lez
+          - lim
+          - lin
+          - lit
+          - lol
+          - loz
+          - ltz
+          - lua
+          - lub
+          - lug
+          - lui
+          - lun
+          - luo
+          - lus
+          - mad
+          - mag
+          - mah
+          - mai
+          - mak
+          - mal
+          - man
+          - mar
+          - mas
+          - mdf
+          - mdr
+          - men
+          - mga
+          - mic
+          - min
+          - mis
+          - mac
+          - mlg
+          - mlt
+          - mnc
+          - mni
+          - moh
+          - mon
+          - mos
+          - mao
+          - may
+          - mul
+          - mus
+          - mwl
+          - mwr
+          - bur
+          - myv
+          - nap
+          - nau
+          - nav
+          - nbl
+          - nde
+          - ndo
+          - nds
+          - nep
+          - new
+          - nia
+          - niu
+          - dut
+          - nno
+          - nob
+          - nog
+          - non
+          - nor
+          - nqo
+          - nso
+          - nwc
+          - nya
+          - nym
+          - nyn
+          - nyo
+          - nzi
+          - oci
+          - oji
+          - ori
+          - orm
+          - osa
+          - oss
+          - ota
+          - pag
+          - pal
+          - pam
+          - pan
+          - pap
+          - pau
+          - peo
+          - phn
+          - pli
+          - pol
+          - pon
+          - por
+          - pro
+          - pus
+          - que
+          - raj
+          - rap
+          - rar
+          - roh
+          - rom
+          - rum
+          - run
+          - rup
+          - rus
+          - sad
+          - sag
+          - sah
+          - sam
+          - san
+          - sas
+          - sat
+          - scn
+          - sco
+          - sel
+          - sga
+          - shn
+          - sid
+          - sin
+          - slo
+          - slv
+          - sma
+          - sme
+          - smj
+          - smn
+          - smo
+          - sms
+          - sna
+          - snd
+          - snk
+          - sog
+          - som
+          - sot
+          - spa
+          - alb
+          - srd
+          - srn
+          - srp
+          - srr
+          - ssw
+          - suk
+          - sun
+          - sus
+          - sux
+          - swa
+          - swe
+          - syc
+          - syr
+          - tah
+          - tam
+          - tat
+          - tel
+          - tem
+          - ter
+          - tet
+          - tgk
+          - tgl
+          - tha
+          - tig
+          - tir
+          - tiv
+          - tkl
+          - tlh
+          - tli
+          - tmh
+          - tog
+          - ton
+          - tpi
+          - tsi
+          - tsn
+          - tso
+          - tuk
+          - tum
+          - tur
+          - tvl
+          - twi
+          - tyv
+          - udm
+          - uga
+          - uig
+          - ukr
+          - umb
+          - und
+          - urd
+          - uzb
+          - vai
+          - ven
+          - vie
+          - vol
+          - vot
+          - wal
+          - war
+          - was
+          - wln
+          - wol
+          - xal
+          - xho
+          - yao
+          - yap
+          - yid
+          - yor
+          - zap
+          - zbl
+          - zen
+          - zgh
+          - zha
+          - chi
+          - zul
+          - zun
+          - zxx
+          - zza
+          - afa
+          - alg
+          - apa
+          - art
+          - ath
+          - aus
+          - bad
+          - bai
+          - bat
+          - ber
+          - bih
+          - bnt
+          - btk
+          - cai
+          - cau
+          - cel
+          - cmc
+          - cpe
+          - cpf
+          - cpp
+          - crp
+          - cus
+          - day
+          - dra
+          - fiu
+          - gem
+          - ijo
+          - inc
+          - ine
+          - ira
+          - iro
+          - kar
+          - khi
+          - kro
+          - map
+          - mkh
+          - mno
+          - mun
+          - myn
+          - nah
+          - nai
+          - nic
+          - nub
+          - oto
+          - paa
+          - phi
+          - pra
+          - roa
+          - sai
+          - sal
+          - sem
+          - sgn
+          - sio
+          - sit
+          - sla
+          - smi
+          - son
+          - ssa
+          - tai
+          - tup
+          - tut
+          - wak
+          - wen
+          - ypk
+          - znd
+          - him
         inhoud:
           title: Inhoud
           type: string
@@ -1031,7 +1023,8 @@ components:
           format: uri
         link:
           title: Link
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
+            is.
           type: string
           format: uri
           maxLength: 200
@@ -1049,16 +1042,16 @@ components:
           minLength: 1
     Fout:
       required:
-        - code
-        - title
-        - status
-        - detail
-        - instance
+      - code
+      - title
+      - status
+      - detail
+      - instance
       type: object
       properties:
         type:
           title: Type
-          description: 'URI referentie naar het type fout, bedoeld voor developers'
+          description: URI referentie naar het type fout, bedoeld voor developers
           type: string
         code:
           title: Code
@@ -1076,21 +1069,20 @@ components:
           type: integer
         detail:
           title: Detail
-          description: 'Extra informatie bij de fout, indien beschikbaar'
+          description: Extra informatie bij de fout, indien beschikbaar
           type: string
           minLength: 1
         instance:
           title: Instance
-          description: >-
-            URI met referentie naar dit specifiek voorkomen van de fout. Deze
-            kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
     FieldValidationError:
       required:
-        - name
-        - code
-        - reason
+      - name
+      - code
+      - reason
       type: object
       properties:
         name:
@@ -1110,17 +1102,17 @@ components:
           minLength: 1
     ValidatieFout:
       required:
-        - code
-        - title
-        - status
-        - detail
-        - instance
-        - invalid-params
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      - invalid-params
       type: object
       properties:
         type:
           title: Type
-          description: 'URI referentie naar het type fout, bedoeld voor developers'
+          description: URI referentie naar het type fout, bedoeld voor developers
           type: string
         code:
           title: Code
@@ -1138,14 +1130,13 @@ components:
           type: integer
         detail:
           title: Detail
-          description: 'Extra informatie bij de fout, indien beschikbaar'
+          description: Extra informatie bij de fout, indien beschikbaar
           type: string
           minLength: 1
         instance:
           title: Instance
-          description: >-
-            URI met referentie naar dit specifiek voorkomen van de fout. Deze
-            kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
         invalid-params:
@@ -1154,8 +1145,8 @@ components:
             $ref: '#/components/schemas/FieldValidationError'
     ZaakInformatieObject:
       required:
-        - zaak
-        - informatieobject
+      - zaak
+      - informatieobject
       type: object
       properties:
         url:
