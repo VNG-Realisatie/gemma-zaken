@@ -258,7 +258,7 @@ Merk op dat de concrete codes hier fictief zijn en puur ter illustratie zijn.
 # Vertaling van relaties
 Een **0-op-N** of **1-op-N** relatie tussen objecttypen A en B in een informatiemodel zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een  REST API door een hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar de gerelateerde resource A. 
 
-Bijvoorbeeld een zaak kan nul of meer statussen hebben en een status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N relatie tussen Zaak en Status. De resource Status bevat naast zijn eigen gegevens het (toegevoegde) veld "zaak" dat de url naar de resource van de gerelateerde zaak bevat.
+Bijvoorbeeld in het RGBZ kan een zaak kan nul of meer statussen hebben en een status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N relatie tussen Zaak en Status. De resource Status bevat naast zijn eigen gegevens het (toegevoegde) veld "zaak" dat de url naar de resource van de gerelateerde zaak bevat.
 
 NB We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
 
@@ -268,7 +268,9 @@ Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe r
 * url naar resource B, 
 * de gegevens van de relatie zelf (als die er zijn).
 
-Bijvoorbeeld de relatie tussen Zaak en Informatieobject is N-op-M. Deze relatie is vertaald naar de resource ZaakInformatieobject met de volgende velden:
+Het voordeel om een N-op-M relatie als resource te vertalen is dat je POST en DELETE operations kunt uitvoeren om relaties toe te voegen of te verwijderen. Als je dat niet doet en je de relaties bijvoorbeeld bijhoudt bij één of beide gerelateerde resources, dan belandt je al snel in een minder voordelige situtie waabij je de PATCH-operatie moet gebruiken om het lijstje met hyperlinks naar de gerelateerde resources bij te werken.
+
+Bijvoorbeeld in het RGBZ is de relatie tussen Zaak en Informatieobject N-op-M. Deze relatie is vertaald naar de resource ZaakInformatieobject met de volgende velden:
 * url (hyperlink naar zichzelf),
 * zaak (hyperlink naar de gerelateerde zaak),
 * informatieobject (hyperlink naar het gerelateerde informatieobject).
