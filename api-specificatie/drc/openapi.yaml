@@ -79,7 +79,9 @@ paths:
       description: 'Registreer een EnkelvoudigInformatieObject.
 
 
-        De URL naar het informatieobjecttype wordt gevalideerd op geldigheid.'
+        Er wordt gevalideerd op:
+
+        - geldigheid informatieobjecttype URL'
       responses:
         '201':
           description: ''
@@ -225,14 +227,14 @@ paths:
       schema:
         type: string
         format: uuid
-  /zaakinformatieobjecten:
+  /objectinformatieobjecten:
     get:
-      operationId: zaakinformatieobject_list
-      description: Beheer relatie tussen InformatieObject en ZAAK.
+      operationId: objectinformatieobject_list
+      description: Beheer relatie tussen InformatieObject en OBJECT.
       parameters:
-      - name: zaak
+      - name: object
         in: query
-        description: URL naar de ZAAK in het ZRC.
+        description: URL naar het gerelateerde OBJECT.
         required: false
         schema:
           type: string
@@ -252,7 +254,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ZaakInformatieObject'
+                  $ref: '#/components/schemas/ObjectInformatieObject'
         '401':
           description: ''
           content:
@@ -302,17 +304,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-      - zaakinformatieobjecten
+      - objectinformatieobjecten
     post:
-      operationId: zaakinformatieobject_create
-      description: Registreer een INFORMATIEOBJECT bij een ZAAK.
+      operationId: objectinformatieobject_create
+      description: 'Registreer een INFORMATIEOBJECT bij een OBJECT.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid informatieobject URL
+
+        - geldigheid object URL
+
+        - de registratiedatum mag niet in de toekomst liggen
+
+
+        Bij het aanmaken wordt ook in de bron van het OBJECT de gespiegelde
+
+        relatie aangemaakt, echter zonder de relatie-informatie.'
       responses:
         '201':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakInformatieObject'
+                $ref: '#/components/schemas/ObjectInformatieObject'
         '400':
           description: ''
           content:
@@ -368,25 +384,25 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-      - zaakinformatieobjecten
+      - objectinformatieobjecten
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ZaakInformatieObject'
+              $ref: '#/components/schemas/ObjectInformatieObject'
         required: true
     parameters: []
-  /zaakinformatieobjecten/{uuid}:
+  /objectinformatieobjecten/{uuid}:
     get:
-      operationId: zaakinformatieobject_read
-      description: Geef de details van een ZAAKINFORMATIEOBJECT relatie.
+      operationId: objectinformatieobject_read
+      description: Geef de details van een OBJECTINFORMATIEOBJECT relatie.
       responses:
         '200':
           description: ''
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakInformatieObject'
+                $ref: '#/components/schemas/ObjectInformatieObject'
         '401':
           description: ''
           content:
@@ -442,7 +458,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-      - zaakinformatieobjecten
+      - objectinformatieobjecten
     parameters:
     - name: uuid
       in: path
@@ -1143,10 +1159,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'
-    ZaakInformatieObject:
+    ObjectInformatieObject:
       required:
-      - zaak
       - informatieobject
+      - object
+      - objectType
+      - registratiedatum
       type: object
       properties:
         url:
@@ -1154,14 +1172,39 @@ components:
           type: string
           format: uri
           readOnly: true
-        zaak:
-          title: Zaak
-          description: URL naar de ZAAK in het ZRC.
-          type: string
-          format: uri
-          maxLength: 200
-          minLength: 1
         informatieobject:
           title: Informatieobject
           type: string
           format: uri
+        object:
+          title: Object
+          description: URL naar het gerelateerde OBJECT.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        objectType:
+          title: Objecttype
+          type: string
+          enum:
+          - besluit
+          - zaak
+        titel:
+          title: Titel
+          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
+            is.
+          type: string
+          maxLength: 200
+        beschrijving:
+          title: Beschrijving
+          description: Een op het object gerichte beschrijving van de inhoud vanhet
+            INFORMATIEOBJECT.
+          type: string
+          maxLength: 1000
+        registratiedatum:
+          title: Registratiedatum
+          description: De datum waarop de behandelende organisatie het INFORMATIEOBJECT
+            heeft geregistreerd bij het OBJECT. Geldige waardes zijn datumtijden gelegen
+            op of voor de huidige datum en tijd.
+          type: string
+          format: date-time
