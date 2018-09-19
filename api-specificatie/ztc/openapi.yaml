@@ -1,16 +1,14 @@
 openapi: 3.0.0
 info:
   title: Zaaktypecatalogus (ZTC) API documentatie
-  description: >-
-    Introductie
+  description: 'Introductie
 
     -----------
 
 
     De GEMMA Zaaktypecatalogus 2 (ZTC2, ofwel de 2e generatie zaaktypecatalogus)
 
-    helpt gemeenten om het proces vanuit de 'vraag van een klant'
-    (productaanvraag,
+    helpt gemeenten om het proces vanuit de ''vraag van een klant'' (productaanvraag,
 
     melding, aangifte, informatieverzoek e.d.) tot en met het leveren van een
 
@@ -23,22 +21,18 @@ info:
 
     De catalogi worden middels een RESTful API ontsloten. Hierbij is zeer sterk
 
-    gekeken naar het [Digitaal Stelsel Omgevingswet][2] (DSO) voor de API- en
-    URI
+    gekeken naar het [Digitaal Stelsel Omgevingswet][2] (DSO) voor de API- en URI
 
-    strategie, en [StUF-ZTC][3] om zo goed mogelijk aan te sluiten op de
-    services
+    strategie, en [StUF-ZTC][3] om zo goed mogelijk aan te sluiten op de services
 
     zoals deze zijn gedefinieerd in SOAP.
 
 
     [1]: http://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC)
 
-    [2]:
-    https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/
+    [2]: https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/
 
-    [3]:
-    https://www.gemmaonline.nl/index.php/Sectormodel_Zaaktypen(-catalogus):_StUF%E2%80%93ZTC
+    [3]: https://www.gemmaonline.nl/index.php/Sectormodel_Zaaktypen(-catalogus):_StUF%E2%80%93ZTC
 
 
 
@@ -51,16 +45,16 @@ info:
 
     changes voorkomen zolang de Zaaktypecatalogus nog niet versie 1.0.0 heeft
 
-    bereikt.
+    bereikt.'
   contact:
-    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
+    url: https://github.com/VNG-Realisatie/gemma-zaken
     email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
   version: '1'
 security:
-  - Bearer: []
-  - OAuth2: []
+- Bearer: []
+- OAuth2: []
 paths:
   /catalogussen:
     get:
@@ -78,55 +72,211 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters: []
-  '/catalogussen/{catalogus_uuid}/informatieobjecttypen':
+  /catalogussen/{catalogus_uuid}/besluittypen:
+    get:
+      operationId: besluittype_list
+      description: 'Alle BESLUITTYPEn van de besluiten die het resultaat kunnen zijn
+        van het
+
+        zaakgericht werken van de behandelende organisatie(s).'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BesluitType'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - catalogussen
+    parameters:
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/besluittypen/{uuid}:
+    get:
+      operationId: besluittype_read
+      description: Generieke aanduiding van de aard van een besluit.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BesluitType'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - catalogussen
+    parameters:
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/informatieobjecttypen:
     get:
       operationId: informatieobjecttype_list
       description: Een verzameling van INFORMATIEOBJECTTYPEn.
@@ -142,67 +292,66 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/informatieobjecttypen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/informatieobjecttypen/{uuid}:
     get:
       operationId: informatieobjecttype_read
-      description: >-
-        Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd door
-        de zaakbehandelende organisatie.
+      description: Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd
+        door de zaakbehandelende organisatie.
       responses:
         '200':
           description: ''
@@ -213,75 +362,75 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen:
     get:
       operationId: zaaktype_list
       description: Een verzameling van ZAAKTYPEn.
@@ -297,66 +446,65 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{uuid}:
     get:
       operationId: zaaktype_read
-      description: >-
-        Het geheel van karakteristieke eigenschappen van zaken van eenzelfde
+      description: Het geheel van karakteristieke eigenschappen van zaken van eenzelfde
         soort.
       responses:
         '200':
@@ -368,75 +516,75 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen:
     get:
       operationId: eigenschap_list
       description: Een verzameling van EIGENSCHAPpen.
@@ -452,76 +600,75 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/eigenschappen/{uuid}:
     get:
       operationId: eigenschap_read
-      description: >-
-        Een relevant inhoudelijk gegeven dat bij ZAAKen van dit ZAAKTYPE
+      description: 'Een relevant inhoudelijk gegeven dat bij ZAAKen van dit ZAAKTYPE
         geregistreerd moet kunnen worden en geen standaard
 
-        kenmerk is van een zaak.
+        kenmerk is van een zaak.'
       responses:
         '200':
           description: ''
@@ -532,101 +679,101 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/roltypen':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/roltypen:
     get:
       operationId: roltype_list
       description: Een verzameling van ROLTYPEn.
       parameters:
-        - name: omschrijvingGeneriek
-          in: query
-          description: Algemeen gehanteerde omschrijving van de aard van de ROL.
-          required: false
-          schema:
-            type: string
-            enum:
-              - Adviseur
-              - Behandelaar
-              - Belanghebbende
-              - Beslisser
-              - Initiator
-              - Klantcontacter
-              - Zaakcoördinator
-              - Mede-initiator
+      - name: omschrijvingGeneriek
+        in: query
+        description: Algemeen gehanteerde omschrijving van de aard van de ROL.
+        required: false
+        schema:
+          type: string
+          enum:
+          - Adviseur
+          - Behandelaar
+          - Belanghebbende
+          - Beslisser
+          - Initiator
+          - Klantcontacter
+          - "Zaakco\xF6rdinator"
+          - Mede-initiator
       responses:
         '200':
           description: ''
@@ -639,74 +786,73 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/roltypen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/roltypen/{uuid}:
     get:
       operationId: roltype_read
-      description: >-
-        Generieke aanduiding van de aard van een ROL die een BETROKKENE kan
-        uitoefenen in ZAAKen van een ZAAKTYPE.
+      description: Generieke aanduiding van de aard van een ROL die een BETROKKENE
+        kan uitoefenen in ZAAKen van een ZAAKTYPE.
       responses:
         '200':
           description: ''
@@ -717,81 +863,81 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: uuid
-        in: path
-        required: true
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen:
     get:
       operationId: statustype_list
       description: Een verzameling van STATUSTYPEn.
@@ -807,69 +953,69 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{catalogus_uuid}/zaaktypen/{zaaktype_uuid}/statustypen/{uuid}:
     get:
       operationId: statustype_read
       description: Generieke aanduiding van de aard van een status.
@@ -883,89 +1029,86 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: catalogus_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
-      - name: zaaktype_uuid
-        in: path
-        required: true
-        description: Unieke resource identifier (UUID4)
-        schema:
-          type: string
-          format: uuid
-  '/catalogussen/{uuid}':
+    - name: catalogus_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+    - name: zaaktype_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /catalogussen/{uuid}:
     get:
       operationId: catalogus_read
-      description: >-
-        De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen -
-        voor een Domein die als één geheel beheerd
-
-        wordt.
+      description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
+        \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
       responses:
         '200':
           description: ''
@@ -976,69 +1119,69 @@ paths:
         '401':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
           content:
-            application/json:
+            application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - catalogussen
+      - catalogussen
     parameters:
-      - name: uuid
-        in: path
-        description: Unieke resource identifier (UUID4)
-        required: true
-        schema:
-          type: string
-          format: uuid
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
 servers:
-  - url: /api/v1
+- url: /api/v1
 components:
   securitySchemes:
     Bearer:
@@ -1056,9 +1199,9 @@ components:
   schemas:
     Catalogus:
       required:
-        - domein
-        - rsin
-        - contactpersoonBeheerNaam
+      - domein
+      - rsin
+      - contactpersoonBeheerNaam
       type: object
       properties:
         url:
@@ -1068,40 +1211,35 @@ components:
           readOnly: true
         domein:
           title: Domein
-          description: >-
-            Een afkorting waarmee wordt aangegeven voor welk domein in een
-            CATALOGUS ZAAKTYPEn zijn uitgewerkt.
+          description: Een afkorting waarmee wordt aangegeven voor welk domein in
+            een CATALOGUS ZAAKTYPEn zijn uitgewerkt.
           type: string
           maxLength: 5
           minLength: 1
         rsin:
           title: Rsin
-          description: >-
-            Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+          description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
             NIET-NATUURLIJK PERSOON die de eigenaar is van een CATALOGUS.
           type: string
           maxLength: 9
           minLength: 1
         contactpersoonBeheerNaam:
           title: Naam
-          description: >-
-            De naam van de contactpersoon die verantwoordelijk is voor het
-            beheer van de CATALOGUS.
+          description: De naam van de contactpersoon die verantwoordelijk is voor
+            het beheer van de CATALOGUS.
           type: string
           maxLength: 40
           minLength: 1
         contactpersoonBeheerTelefoonnummer:
           title: Telefoonnummer
-          description: >-
-            Het telefoonnummer van de contactpersoon die verantwoordelijk is
-            voor het beheer van de CATALOGUS.
+          description: Het telefoonnummer van de contactpersoon die verantwoordelijk
+            is voor het beheer van de CATALOGUS.
           type: string
           maxLength: 20
         contactpersoonBeheerEmailadres:
           title: Emailadres
-          description: >-
-            Het emailadres van de contactpersoon die verantwoordelijk is voor
-            het beheer van de CATALOGUS.
+          description: Het emailadres van de contactpersoon die verantwoordelijk is
+            voor het beheer van de CATALOGUS.
           type: string
           format: email
           maxLength: 254
@@ -1112,18 +1250,25 @@ components:
             format: uri
           readOnly: true
           uniqueItems: true
+        besluittypen:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
     Fout:
       required:
-        - code
-        - title
-        - status
-        - detail
-        - instance
+      - code
+      - title
+      - status
+      - detail
+      - instance
       type: object
       properties:
         type:
           title: Type
-          description: 'URI referentie naar het type fout, bedoeld voor developers'
+          description: URI referentie naar het type fout, bedoeld voor developers
           type: string
         code:
           title: Code
@@ -1141,20 +1286,91 @@ components:
           type: integer
         detail:
           title: Detail
-          description: 'Extra informatie bij de fout, indien beschikbaar'
+          description: Extra informatie bij de fout, indien beschikbaar
           type: string
           minLength: 1
         instance:
           title: Instance
-          description: >-
-            URI met referentie naar dit specifiek voorkomen van de fout. Deze
-            kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
+    BesluitType:
+      required:
+      - catalogus
+      - omschrijving
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        catalogus:
+          title: Catalogus
+          description: De CATALOGUS waartoe dit BESLUITTYPE behoort.
+          type: string
+          format: uri
+        zaaktypes:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
+        omschrijving:
+          title: Omschrijving
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          type: string
+          maxLength: 80
+        omschrijvingGeneriek:
+          title: Omschrijving generiek
+          description: Algemeen gehanteerde omschrijving van de aard van BESLUITen
+            van het BESLUITTYPE
+          type: string
+          maxLength: 80
+        besluitcategorie:
+          title: Besluitcategorie
+          description: Typering van de aard van BESLUITen van het BESLUITTYPE.
+          type: string
+          maxLength: 40
+        reactietermijn:
+          title: Reactietermijn
+          description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
+            waarbinnen verweer tegen een besluit van het besluittype mogelijk is.
+          type: string
+        publicatieIndicatie:
+          title: Publicatie indicatie
+          description: Aanduiding of BESLUITen van dit BESLUITTYPE gepubliceerd moeten
+            worden.
+          type: boolean
+        publicatietekst:
+          title: Publicatietekst
+          description: De generieke tekst van de publicatie van BESLUITen van dit
+            BESLUITTYPE
+          type: string
+          maxLength: 1000
+        publicatietermijn:
+          title: Publicatietermijn
+          description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
+            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.
+          type: string
+        toelichting:
+          title: Toelichting
+          description: Een eventuele toelichting op dit BESLUITTYPE.
+          type: string
+          maxLength: 1000
+        informatieobjecttypes:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
     InformatieObjectType:
       required:
-        - omschrijving
-        - catalogus
+      - omschrijving
+      - catalogus
       type: object
       properties:
         url:
@@ -1164,9 +1380,7 @@ components:
           readOnly: true
         omschrijving:
           title: Omschrijving
-          description: >-
-            Omschrijving van de aard van informatieobjecten van dit
-            INFORMATIEOBJECTTYPE.
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
           type: string
           maxLength: 80
           minLength: 1
@@ -1177,10 +1391,10 @@ components:
           format: uri
     ZaakType:
       required:
-        - identificatie
-        - omschrijving
-        - doorlooptijd
-        - maaktDeelUitVan
+      - identificatie
+      - omschrijving
+      - doorlooptijd
+      - maaktDeelUitVan
       type: object
       properties:
         url:
@@ -1190,9 +1404,8 @@ components:
           readOnly: true
         identificatie:
           title: Identificatie
-          description: >-
-            Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het
-            ZAAKTYPE voorkomt.
+          description: Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin
+            het ZAAKTYPE voorkomt.
           type: integer
           maximum: 99999
           minimum: 0
@@ -1204,23 +1417,20 @@ components:
           minLength: 1
         omschrijvingGeneriek:
           title: Omschrijving generiek
-          description: >-
-            Algemeen gehanteerde omschrijving van de aard van ZAAKen van het
-            ZAAKTYPE
+          description: Algemeen gehanteerde omschrijving van de aard van ZAAKen van
+            het ZAAKTYPE
           type: string
           maxLength: 80
         doorlooptijd:
           title: Doorlooptijd
-          description: >-
-            De periode waarbinnen volgens wet- en regelgeving een ZAAK van het
-            ZAAKTYPE afgerond dient te zijn, in kalenderdagen.
+          description: De periode waarbinnen volgens wet- en regelgeving een ZAAK
+            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen.
           type: string
         servicenorm:
           title: Servicenorm
-          description: >-
-            De periode waarbinnen verwacht wordt dat een ZAAK van het ZAAKTYPE
-            afgerond wordt conform de geldende servicenormen van de
-            zaakbehandelende organisatie(s).
+          description: De periode waarbinnen verwacht wordt dat een ZAAK van het ZAAKTYPE
+            afgerond wordt conform de geldende servicenormen van de zaakbehandelende
+            organisatie(s).
           type: string
         maaktDeelUitVan:
           title: Maakt deel uit van
@@ -1251,49 +1461,44 @@ components:
     EigenschapSpecificatie:
       title: Specificatie
       required:
-        - formaat
-        - lengte
-        - kardinaliteit
+      - formaat
+      - lengte
+      - kardinaliteit
       type: object
       properties:
         groep:
           title: Groep
-          description: >-
-            Benaming van het object of groepattribuut waarvan de EIGENSCHAP een
-            inhoudelijk gegeven specificeert.
+          description: Benaming van het object of groepattribuut waarvan de EIGENSCHAP
+            een inhoudelijk gegeven specificeert.
           type: string
           maxLength: 32
         formaat:
           title: Formaat
-          description: >-
-            Het soort tekens waarmee waarden van de EIGENSCHAP kunnen worden
+          description: Het soort tekens waarmee waarden van de EIGENSCHAP kunnen worden
             vastgelegd.
           type: string
           enum:
-            - tekst
-            - getal
-            - datum (jjjjmmdd)
-            - datum/tijd (jjjjmmdduummss)
+          - tekst
+          - getal
+          - datum (jjjjmmdd)
+          - datum/tijd (jjjjmmdduummss)
         lengte:
           title: Lengte
-          description: >-
-            Het aantal karakters (lengte) waarmee waarden van de EIGENSCHAP
+          description: Het aantal karakters (lengte) waarmee waarden van de EIGENSCHAP
             worden vastgelegd.
           type: string
           maxLength: 14
           minLength: 1
         kardinaliteit:
           title: Kardinaliteit
-          description: >-
-            Het aantal mogelijke voorkomens van waarden van deze EIGENSCHAP bij
-            een zaak van het ZAAKTYPE.
+          description: Het aantal mogelijke voorkomens van waarden van deze EIGENSCHAP
+            bij een zaak van het ZAAKTYPE.
           type: string
           maxLength: 3
           minLength: 1
         waardenverzameling:
-          description: >-
-            Waarden die deze EIGENSCHAP kan hebben (Gebruik een komma om waarden
-            van elkaar te onderscheiden.)
+          description: Waarden die deze EIGENSCHAP kan hebben (Gebruik een komma om
+            waarden van elkaar te onderscheiden.)
           type: array
           items:
             title: Waardenverzameling
@@ -1303,9 +1508,9 @@ components:
       readOnly: true
     Eigenschap:
       required:
-        - naam
-        - definitie
-        - ingangsdatumObject
+      - naam
+      - definitie
+      - ingangsdatumObject
       type: object
       properties:
         url:
@@ -1329,9 +1534,8 @@ components:
           $ref: '#/components/schemas/EigenschapSpecificatie'
         toelichting:
           title: Toelichting
-          description: >-
-            Een toelichting op deze EIGENSCHAP en het belang hiervan voor zaken
-            van dit ZAAKTYPE.
+          description: Een toelichting op deze EIGENSCHAP en het belang hiervan voor
+            zaken van dit ZAAKTYPE.
           type: string
           maxLength: 1000
         ingangsdatumObject:
@@ -1351,8 +1555,8 @@ components:
           readOnly: true
     MogelijkeBetrokkene:
       required:
-        - betrokkene
-        - betrokkeneType
+      - betrokkene
+      - betrokkeneType
       type: object
       properties:
         betrokkene:
@@ -1366,16 +1570,16 @@ components:
           title: Betrokkene type
           type: string
           enum:
-            - Natuurlijk persoon
-            - Niet-natuurlijk persoon
-            - Vestiging
-            - Organisatorische eenheid
-            - Medewerker
+          - Natuurlijk persoon
+          - Niet-natuurlijk persoon
+          - Vestiging
+          - Organisatorische eenheid
+          - Medewerker
     RolType:
       required:
-        - omschrijving
-        - omschrijvingGeneriek
-        - mogelijkeBetrokkenen
+      - omschrijving
+      - omschrijvingGeneriek
+      - mogelijkeBetrokkenen
       type: object
       properties:
         url:
@@ -1399,22 +1603,22 @@ components:
           description: Algemeen gehanteerde omschrijving van de aard van de ROL.
           type: string
           enum:
-            - Adviseur
-            - Behandelaar
-            - Belanghebbende
-            - Beslisser
-            - Initiator
-            - Klantcontacter
-            - Zaakcoördinator
-            - Mede-initiator
+          - Adviseur
+          - Behandelaar
+          - Belanghebbende
+          - Beslisser
+          - Initiator
+          - Klantcontacter
+          - "Zaakco\xF6rdinator"
+          - Mede-initiator
         mogelijkeBetrokkenen:
           type: array
           items:
             $ref: '#/components/schemas/MogelijkeBetrokkene'
     StatusType:
       required:
-        - omschrijving
-        - volgnummer
+      - omschrijving
+      - volgnummer
       type: object
       properties:
         url:
@@ -1424,24 +1628,21 @@ components:
           readOnly: true
         omschrijving:
           title: Omschrijving
-          description: >-
-            Een korte, voor de initiator van de zaak relevante, omschrijving van
-            de aard van de STATUS van zaken van een ZAAKTYPE.
+          description: Een korte, voor de initiator van de zaak relevante, omschrijving
+            van de aard van de STATUS van zaken van een ZAAKTYPE.
           type: string
           maxLength: 80
           minLength: 1
         omschrijvingGeneriek:
           title: Omschrijving generiek
-          description: >-
-            Algemeen gehanteerde omschrijving van de aard van STATUSsen van het
-            STATUSTYPE
+          description: Algemeen gehanteerde omschrijving van de aard van STATUSsen
+            van het STATUSTYPE
           type: string
           maxLength: 80
         statustekst:
           title: Statustekst
-          description: >-
-            De tekst die wordt gebruikt om de Initiator te informeren over het
-            bereiken van een STATUS van dit STATUSTYPE bij het desbetreffende
+          description: De tekst die wordt gebruikt om de Initiator te informeren over
+            het bereiken van een STATUS van dit STATUSTYPE bij het desbetreffende
             ZAAKTYPE.
           type: string
           maxLength: 1000
@@ -1452,7 +1653,8 @@ components:
           readOnly: true
         volgnummer:
           title: Volgnummer
-          description: Een volgnummer voor statussen van het STATUSTYPE binnen een zaak.
+          description: Een volgnummer voor statussen van het STATUSTYPE binnen een
+            zaak.
           type: integer
           maximum: 9999
           minimum: 1
