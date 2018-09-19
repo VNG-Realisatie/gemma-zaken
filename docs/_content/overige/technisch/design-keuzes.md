@@ -168,6 +168,36 @@ Noot 2: authenticatie en authorisatie worden in een later stadium uitgewerkt.
 Het is bekend dat hier goed over nagedacht moet worden.
 
 
+## Documenteren (input)validatie
+
+De [input validatie](#input-validatie) kan enkel in tekstuele vorm in de OAS
+api-spec opgenomen worden. We houden het formaat:
+
+```md
+Er wordt gevalideerd op:
+- geldigheid besluit URL
+- geldigheid informatieobject URL
+```
+
+Deze documentatie wordt opgenomen in de `description` key voor de operation
+(bijvoorbeeld `besluitinformatieobject_create`).
+
+Voorbeeld:
+
+```yaml
+paths:
+  /besluiten:
+    post:
+      operationId: besluitinformatieobject_create
+      description: |-
+        Registreer in welk(e) INFORMATIEOBJECT(en) een BESLUIT vastgelegd is.
+
+        Er wordt gevalideerd op:
+        - geldigheid besluit URL
+        - geldigheid informatieobject URL
+```
+
+
 ## Besluitenregistratie (BRC)
 
 Er komt een aparte besluitenregistratie (naast ZRC, ZTC en DRC) om besluiten

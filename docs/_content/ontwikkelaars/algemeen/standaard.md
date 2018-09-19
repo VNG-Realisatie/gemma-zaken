@@ -139,7 +139,6 @@ Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven
 staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook
 toe te voegen.
 
-
 ### Run-time gedrag
 
 Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
