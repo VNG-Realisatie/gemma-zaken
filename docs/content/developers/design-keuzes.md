@@ -236,7 +236,7 @@ Een voorbeeld response is dan:
 
 "status": 400,
     "code": "invalid",
-    "detail": "Er deden zich validatiefouten voor",
+e    "detail": "Er deden zich validatiefouten voor",
     "instance": "urn:uuid:2d3f8adb-470d-4bf4-8c43-4b2ebeef7504",
     "invalid-params": [
         {
@@ -277,4 +277,4 @@ Bijvoorbeeld in het RGBZ is de relatie tussen Zaak en Informatieobject N-op-M. D
 * zaak (hyperlink naar de gerelateerde zaak),
 * informatieobject (hyperlink naar het gerelateerde informatieobject).
 
-In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistrubeerd over meerdere zrc- en drc-componenten en daarmee een speciaal geval. Hier is gekozen om de resource ZaakInformatieobject zowel bij te houden in het zrc- als drc-component. Elke update op deze relatie zal eerst worden doorgvoerd op de API van het drc en daarna op de achtergrond worden gesynchroniseerd naar de zrc
+In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistrubeerd over meerdere zrc- en drc-componenten en daarmee een speciaal geval. Hier is gekozen om de resource ZaakInformatieobject zowel bij te houden in het zrc- als drc-component. Elke update op deze relatie zal eerst worden doorgevoerd op de API van het drc en daarna op de achtergrond worden gesynchroniseerd naar de zrc. Zowel de componenten drc als zrc zullen een ZaakInformatieobject resource beschikbaar stellen in hun API met het enige verschil dat in de zrc er geen gegevens van de relatie zelf in de ZaakInformatieobject resource zullen worden bijgehouden om duplicatie van gegevevens zoveel mogelijk te voorkomen. In dit geval worden alleen de links van de relatie gedupliceerd om performance te kunnen garanderen in een gedistribueerd applicatielandschap.
