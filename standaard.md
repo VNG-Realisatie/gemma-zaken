@@ -21,6 +21,9 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Documentregistratiecomponent](#documentregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie-1)
     - [Run-time gedrag](#run-time-gedrag-1)
+- [Besluitregistratiecomponent](#besluitregistratiecomponent)
+  - [OpenAPI specificatie](#openapi-specificatie-2)
+  - [Run-time gedrag](#run-time-gedrag-2)
 
 ## Definities
 
@@ -202,3 +205,61 @@ Een voorbeeld met een object van het type `ZAAK`:
 Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+## Besluitregistratiecomponent
+
+Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
+
+* de BRC `openapi.yaml` MOET volledig geïmplementeerd zijn
+
+* het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
+  zijn.
+
+### OpenAPI specificatie
+
+Alle operaties beschreven in [`openapi.yaml`](./api-specificatie/brc/openapi.yaml)
+MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
+referentie-implementatie van het BRC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven
+staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook
+toe te voegen.
+
+### Run-time gedrag
+
+Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
+businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
+zoals beschreven geïmplementeerd worden.
+
+#### Valideren `besluittype` op de `Besluit`-resource
+
+Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
+`besluit_partial_update`) MOET de URL-referentie naar het `besluittype` gevalideerd
+worden op het bestaan. Indien het ophalen van het besluittype niet (uiteindelijk)
+resulteert in een `HTTP 200` status code, MOET het BRC antwoorden met een
+`HTTP 400` foutbericht.
+
+(TODO: valideren dat het inderdaad om een besluittype resource gaat -> validatie
+aanscherpen)
+
+#### Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource
+
+Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
+`besluit_partial_update`) MOET gevalideerd worden dat de combiantie `identificatie`
+en `verantwoordelijke_organisatie` uniek is, indien de `identificatie` door de consumer
+meegestuurd wordt.
+
+Indien de identificatie niet door de consumer gestuurd wordt, dan MOET het BRC
+de identificatie genereren op een manier die garandeert dat de identificatie
+uniek is binnen de verantwoordelijke_organisatie.
+
+#### Valideren `informatieobject` op de `BesluitInformatieObject`-resource
+
+Bij het aanmaken (`besluitinformatieobject_create`) MOET de URL-referentie naar
+het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
+van het informatieobject niet (uiteindelijk) resulteert in een `HTTP 200`
+status code, MOET het BRC antwoorden met een `HTTP 400` foutbericht.
+
+Er MOET gevalideerd worden dat de combinatie `besluit` en `informatieobject`
+niet eerder voorkomt. Indien deze al bestaat, dan MOET het BRC antwoorden met
+een `HTTP 400` foutbericht.
