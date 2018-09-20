@@ -321,34 +321,34 @@ Deze beslissing komt voort uit
 
 Tussen twee componenten A en B (met component A de component waar in het IM de
 relatie naar component B loopt), wordt de relatie in beide componenten
-bewaard. Eventuele meta-gegevens (extra informatie op de relatie) komt in
+bewaard. Eventuele metagegevens (extra informatie op de relatie) komt in
 component A te liggen, en component B bevat _enkel_ de relatieinformatie zelf.
 
 Dit is een technische oplossing zodat beide componenten de relaties kunnen
 opvragen zonder alle (mogelijks honderden) componenten af te moeten lopen om
 te vragen of ze een relatie hebben.
 
-Een consumer maakt 1x een relatie aan, tussen component A en B, met meta
-gegevens over de relatie in component A. Component A is vervolgens
+Een consumer maakt 1x een relatie aan, tussen component A en B, met
+metagegevens over de relatie in component A. Component A is vervolgens
 verantwoordelijk om de relatie in component B aan te maken.
 
 We stemmen de `objectTypes` af zodat die mappen op de namen van resources om
-generieke implementaties mogelijk te maken.
+generieke synchronisatieimplementaties mogelijk te maken.
 
 Component B moet dan aan de volgende spelregels voldoen:
 
 - de naam van de resource is `{resourceB}{resourceA}`, in component B
-- de resource wordt genest ontsloten binnen `resourceB`
+- de resource wordt genest ontsloten binnen `ResourceB`
 - de resource accepteert een URL-veld met de naam `resourceA`
 
-Deze spelregels en interactief worden actief getest in
-https://github.com/vng-Realisatie/gemma-zaken-test-integratie om compliancy
-af te kunnen dwingen.
+Deze spelregels en interactie worden actief getest in de
+[integratietests](https://github.com/vng-Realisatie/gemma-zaken-test-integratie)
+om compliancy af te kunnen dwingen.
 
 Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een
 `ZAAK` in het ZRC:
 
-1. De consumer maakt in het DRC een relatie (met polymorfisme-informatie):
+1. De consumer maakt in het DRC een relatie (met polymorfe relatieinformatie):
 
     ```http
     POST https://drc.nl/api/v1/objectinformatieobjecten
