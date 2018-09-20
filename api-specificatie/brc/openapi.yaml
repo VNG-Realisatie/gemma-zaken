@@ -1,0 +1,1126 @@
+openapi: 3.0.0
+info:
+  title: Besluitregistratiecomponent (brc) API
+  description: Een API om een besluitregistratiecomponent te benaderen
+  contact:
+    url: https://github.com/VNG-Realisatie/gemma-zaken
+    email: support@maykinmedia.nl
+  license:
+    name: EUPL 1.2
+  version: '1'
+security:
+- basic: []
+paths:
+  /besluiten:
+    get:
+      operationId: besluit_list
+      description: Geef een lijst van BESLUITen, waarin gefiltered kan worden.
+      parameters:
+      - name: identificatie
+        in: query
+        description: Identificatie van het besluit binnen de organisatie die het besluit
+          heeft vastgesteld.
+        required: false
+        schema:
+          type: string
+      - name: verantwoordelijkeOrganisatie
+        in: query
+        description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+          die het besluit heeft vastgesteld.
+        required: false
+        schema:
+          type: string
+      - name: besluittype
+        in: query
+        description: Aanduiding van de aard van het BESLUIT. Referentie naar het BESLUITTYPE
+          in de zaaktypecatalogus.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: zaak
+        in: query
+        description: Referentie naar de ZAAK waarvan dit besluit uitkomst is
+        required: false
+        schema:
+          type: string
+          format: uri
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Besluit'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+    post:
+      operationId: besluit_create
+      description: 'Registreer een besluit.
+
+
+        Indien geen identificatie gegeven is, dan wordt deze automatisch
+
+        gegenereerd.
+
+
+        Er wordt gevalideerd op:
+
+        - uniciteit van verantwoorlijke organisatie + identificatie
+
+        - RSIN verantwoorlijke organisatie
+
+        - geldigheid besluittype URL
+
+        - geldigheid zaak URL
+
+        - datum in het verleden of nu'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Besluit'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
+    parameters: []
+  /besluiten/{besluit_uuid}/informatieobjecten:
+    get:
+      operationId: besluitinformatieobject_list
+      description: 'Geef een lijst van relaties tussen BESLUITen en INFORMATIEOBJECTen.
+
+
+        Door te filteren op besluit en/of informatieobject kan je opvragen in welke
+
+        informatieobjecten een besluit is vastgelegd, of welke besluiten in een
+
+        informatieobject vastgelegd zijn.'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BesluitInformatieObject'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+    post:
+      operationId: besluitinformatieobject_create
+      description: 'Registreer in welk(e) INFORMATIEOBJECT(en) een BESLUIT vastgelegd
+        is.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid informatieobject URL'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BesluitInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
+    parameters:
+    - name: besluit_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+  /besluiten/{besluit_uuid}/informatieobjecten/{uuid}:
+    get:
+      operationId: besluitinformatieobject_read
+      description: Opvragen en bwerken van Besluit-Informatieobject relaties.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BesluitInformatieObject'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+    put:
+      operationId: besluitinformatieobject_update
+      description: 'Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid informatieobject URL'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BesluitInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
+    patch:
+      operationId: besluitinformatieobject_partial_update
+      description: 'Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid informatieobject URL'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BesluitInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
+    delete:
+      operationId: besluitinformatieobject_delete
+      description: Ontkoppel een BESLUIT en INFORMATIEOBJECT-relatie.
+      responses:
+        '204':
+          description: ''
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+    parameters:
+    - name: besluit_uuid
+      in: path
+      required: true
+      description: Unieke resource identifier (UUID4)
+      schema:
+        type: string
+        format: uuid
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /besluiten/{uuid}:
+    get:
+      operationId: besluit_read
+      description: Geef de details van 1 enkel BESLUIT.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Besluit'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+    put:
+      operationId: besluit_update
+      description: 'Werk een BESLUIT bij.
+
+
+        Er wordt gevalideerd op:
+
+        - uniciteit van verantwoorlijke organisatie + identificatie
+
+        - RSIN verantwoorlijke organisatie
+
+        - geldigheid besluittype URL
+
+        - geldigheid zaak URL
+
+        - datum in het verleden of nu'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Besluit'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
+    patch:
+      operationId: besluit_partial_update
+      description: 'Werk een BESLUIT bij.
+
+
+        Er wordt gevalideerd op:
+
+        - uniciteit van verantwoorlijke organisatie + identificatie
+
+        - RSIN verantwoorlijke organisatie
+
+        - geldigheid besluittype URL
+
+        - geldigheid zaak URL
+
+        - datum in het verleden of nu'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Besluit'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - besluiten
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
+    parameters:
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+servers:
+- url: /api/v1
+components:
+  requestBodies:
+    Besluit:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Besluit'
+      required: true
+    BesluitInformatieObject:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BesluitInformatieObject'
+      required: true
+  securitySchemes:
+    basic:
+      type: http
+      scheme: basic
+  schemas:
+    Besluit:
+      required:
+      - verantwoordelijkeOrganisatie
+      - besluittype
+      - datum
+      - ingangsdatum
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        identificatie:
+          title: Identificatie
+          description: Identificatie van het besluit binnen de organisatie die het
+            besluit heeft vastgesteld.
+          type: string
+          maxLength: 50
+          minLength: 1
+        verantwoordelijkeOrganisatie:
+          title: Verantwoordelijke organisatie
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die het besluit heeft vastgesteld.
+          type: string
+          maxLength: 9
+          minLength: 1
+        besluittype:
+          title: Besluittype
+          description: Aanduiding van de aard van het BESLUIT. Referentie naar het
+            BESLUITTYPE in de zaaktypecatalogus.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        zaak:
+          title: Zaak
+          description: Referentie naar de ZAAK waarvan dit besluit uitkomst is
+          type: string
+          format: uri
+          maxLength: 200
+        datum:
+          title: Datum
+          description: De beslisdatum (AWB) van het besluit.
+          type: string
+          format: date-time
+        toelichting:
+          title: Toelichting
+          description: Toelichting bij het besluit.
+          type: string
+          maxLength: 1000
+        bestuursorgaan:
+          title: Bestuursorgaan
+          description: Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld
+            of een persoon of college, met enig openbaar gezag bekleed onder wiens
+            verantwoordelijkheid het besluit vastgesteld is.
+          type: string
+          maxLength: 50
+        ingangsdatum:
+          title: Ingangsdatum
+          description: Ingangsdatum van de werkingsperiode van het besluit.
+          type: string
+          format: date
+        vervaldatum:
+          title: Vervaldatum
+          description: Datum waarop de werkingsperiode van het besluit eindigt.
+          type: string
+          format: date
+        vervalreden:
+          title: Vervalreden
+          type: string
+          enum:
+          - tijdelijk
+          - ingetrokken_overheid
+          - ingetrokken_belanghebbende
+        publicatiedatum:
+          title: Publicatiedatum
+          description: Datum waarop het besluit gepubliceerd wordt.
+          type: string
+          format: date
+        verzenddatum:
+          title: Verzenddatum
+          description: Datum waarop het besluit verzonden is.
+          type: string
+          format: date
+        uiterlijkeReactiedatum:
+          title: Uiterlijke reactiedatum
+          description: De datum tot wanneer verweer tegen het besluit mogelijk is.
+          type: string
+          format: date
+    Fout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+    FieldValidationError:
+      required:
+      - name
+      - code
+      - reason
+      type: object
+      properties:
+        name:
+          title: Name
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          title: Reason
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+    ValidatieFout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      - invalid-params
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalid-params:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldValidationError'
+    BesluitInformatieObject:
+      required:
+      - informatieobject
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        informatieobject:
+          title: Informatieobject
+          description: URL-referentie naar het informatieobject waarin (een deel van)
+            het besluit beschreven is.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
