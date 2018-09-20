@@ -214,9 +214,7 @@ in het geval van validatiefouten:
 
 Op het [forum](https://forum.pdok.nl/t/formaat-foutafhandeling-input-validatie-api-50/1848)
 is nagevraagd hoe er moet omgegaan worden met meerdere fouten op hetzelfde veld,
-met de conclusie dat dit beter gespecifieerd moet worden.
-
-In ZDS 2.0 kiezen we ervoor om elke fout op een veld als apart object op te
+met de conclusie dat dit beter gespecifieerd moet wordenIn ZDS 2.0 kiezen we ervoor om elke fout op een veld als apart object op te
 nemen binnen de `"invalid-params"` sleutel. Dit laat clients toe om elke
 individuele fout te renderen zoals zij wensen.
 
@@ -225,6 +223,8 @@ Tevens voegen we op hoofdniveau van fouten en binnen een object in
 machines kan begrepen worden, bijvoorbeeld `"invalid"` of
 `"max_length_exceeded"`. De `"type"` sleutel is namelijk optioneel en bedoeld
 voor developers om meer informatie over het fouttype te lezen, en niet voor
+
+
 automatische verwerking.
 
 Een voorbeeld response is dan:
@@ -233,9 +233,10 @@ Een voorbeeld response is dan:
 {
     "type": "URI: https://ref.tst.vng.cloud/ref/fouten/ValidationError/",
     "title": "Ongeldige gegevens",
-    "status": 400,
+
+"status": 400,
     "code": "invalid",
-    "detail": "Er deden zich validatiefouten voor",
+e    "detail": "Er deden zich validatiefouten voor",
     "instance": "urn:uuid:2d3f8adb-470d-4bf4-8c43-4b2ebeef7504",
     "invalid-params": [
         {
@@ -253,3 +254,27 @@ Een voorbeeld response is dan:
 ```
 
 Merk op dat de concrete codes hier fictief zijn en puur ter illustratie zijn.
+
+# Vertaling van relaties
+In deze sectie beperken we ons tot de vertaling van relaties binnen één registratiecomponent. Het vertalen van relaties over registratiecomponenten heen is ingewikkelder en zal op een later moment worden uitgewerkt.
+
+Een **0-op-N** of **1-op-N** relatie tussen objecttypen A en B in een informatiemodel zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een  REST API door een hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar de gerelateerde resource A. 
+
+Bijvoorbeeld in het RGBZ kan een zaak kan nul of meer statussen hebben en een status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N relatie tussen Zaak en Status. De resource Status bevat naast zijn eigen gegevens het (toegevoegde) veld "zaak" dat de url naar de resource van de gerelateerde zaak bevat.
+
+NB We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
+
+Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe resource R die fungeert als een kruistabel zoals in databases. De resource R bevat de volgende velden:
+* url naar zichzelf (resource R),
+* url naar resource A,
+* url naar resource B, 
+* de gegevens van de relatie zelf (als die er zijn).
+
+Het voordeel om een N-op-M relatie als resource te vertalen is dat je POST en DELETE operations kunt uitvoeren om relaties toe te voegen of te verwijderen. Als je dat niet doet en je de relaties bijvoorbeeld bijhoudt bij één of beide gerelateerde resources, dan belandt je al snel in een minder voordelige situtie waabij je de PATCH-operatie moet gebruiken om het lijstje met hyperlinks naar de gerelateerde resources bij te werken.
+
+Bijvoorbeeld in het RGBZ is de relatie tussen Zaak en Informatieobject N-op-M. Deze relatie is vertaald naar de resource ZaakInformatieobject met de volgende velden:
+* url (hyperlink naar zichzelf),
+* zaak (hyperlink naar de gerelateerde zaak),
+* informatieobject (hyperlink naar het gerelateerde informatieobject).
+
+In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistrubeerd over meerdere zrc- en drc-componenten en daarmee een speciaal geval. Hier is gekozen om de resource ZaakInformatieobject zowel bij te houden in het zrc- als drc-component. Elke update op deze relatie zal eerst worden doorgevoerd op de API van het drc en daarna op de achtergrond worden gesynchroniseerd naar de zrc. Zowel de componenten drc als zrc zullen een ZaakInformatieobject resource beschikbaar stellen in hun API met het enige verschil dat in de zrc er geen gegevens van de relatie zelf in de ZaakInformatieobject resource zullen worden bijgehouden om duplicatie van gegevevens zoveel mogelijk te voorkomen. In dit geval worden alleen de links van de relatie gedupliceerd om performance te kunnen garanderen in een gedistribueerd applicatielandschap.
