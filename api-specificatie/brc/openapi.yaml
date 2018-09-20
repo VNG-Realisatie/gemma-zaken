@@ -194,14 +194,7 @@ paths:
   /besluiten/{besluit_uuid}/informatieobjecten:
     get:
       operationId: besluitinformatieobject_list
-      description: 'Geef een lijst van relaties tussen BESLUITen en INFORMATIEOBJECTen.
-
-
-        Door te filteren op besluit en/of informatieobject kan je opvragen in welke
-
-        informatieobjecten een besluit is vastgelegd, of welke besluiten in een
-
-        informatieobject vastgelegd zijn.'
+      description: Geef een lijst van relaties tussen BESLUITen en INFORMATIEOBJECTen.
       responses:
         '200':
           description: ''
@@ -263,13 +256,10 @@ paths:
       - besluiten
     post:
       operationId: besluitinformatieobject_create
-      description: 'Registreer in welk(e) INFORMATIEOBJECT(en) een BESLUIT vastgelegd
-        is.
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid informatieobject URL'
+      description: "Registreer in welk(e) INFORMATIEOBJECT(en) een BESLUIT vastgelegd\
+        \ is.\n\nEr wordt gevalideerd op:\n- geldigheid informatieobject URL\n- uniek\
+        \ zijn van relatie BESLUIT-INFORMATIEOBJECT\n- bestaan van relatie BESLUIT-INFORMATIEOBJECT\
+        \ in het DRC waar het\n  informatieobject leeft"
       responses:
         '201':
           description: ''
@@ -412,12 +402,10 @@ paths:
       - besluiten
     put:
       operationId: besluitinformatieobject_update
-      description: 'Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid informatieobject URL'
+      description: "Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.\n\n\
+        Er wordt gevalideerd op:\n- geldigheid informatieobject URL\n- uniek zijn\
+        \ van relatie BESLUIT-INFORMATIEOBJECT\n- bestaan van relatie BESLUIT-INFORMATIEOBJECT\
+        \ in het DRC waar het\n  informatieobject leeft"
       responses:
         '200':
           description: ''
@@ -491,12 +479,10 @@ paths:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     patch:
       operationId: besluitinformatieobject_partial_update
-      description: 'Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid informatieobject URL'
+      description: "Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.\n\n\
+        Er wordt gevalideerd op:\n- geldigheid informatieobject URL\n- uniek zijn\
+        \ van relatie BESLUIT-INFORMATIEOBJECT\n- bestaan van relatie BESLUIT-INFORMATIEOBJECT\
+        \ in het DRC waar het\n  informatieobject leeft"
       responses:
         '200':
           description: ''
