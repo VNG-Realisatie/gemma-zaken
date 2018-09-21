@@ -7,17 +7,17 @@ In dit hoofdstuk wordt een globale architectuurschets gegeven voor de User Stori
 
 ## Toelichting user story
 
-Het gaat hier om, bezien vanuit het sociale domein, inzicht te hebben in de aanpalende trajecten (zaken) welke elders binnen de gemeente worden uitgevoerd:
+Het gaat hier om, bezien vanuit het sociale domein, inzicht te verkrijgen in de aanpalende trajecten (zaken) rondom een casus van een burger/gezin, welke elders binnen de gemeente worden uitgevoerd. De medewerker werkt aan de casus in een eigen taakapplicatie of app (de zaakafhandelcompnent) en wil inzage in zaakinformatie van afgesloten en in behandeling zijnde zaken. Deze zaken kunnen  zich zowel binnen als buiten de eigen zaakafhandelcomponent bevinden.
 
-* Medewerkers – werkend vanuit een taakapplicatie of app - moeten weten of een burger/gezin al betrokken is in een traject, dat aan een onderwerp gerelateerd is, maar waarvan de dienstverlening niet via de betreffende taakapplicatie verloopt.
 * Dit voor zover de classificatie en doelbinding dit toestaat.
 * Met een onderscheid, voor daartoe geautoriseerde medewerkers, in:
     * ‘dat’ informatie = een lijst met zaaknummers en behandelaars
     * ‘wat’ informatie = na doorklikken op een zaaknummer, inzage krijgen in status en zaakdocumenten.
+* Binnen de operational datastore van de taakapplicatie is bekend welke personen onderdeel uitmaken van het gezin en betrokken personen.
 
 ### Voorbeeld Zorg traject
 
-In de behandeling van een zorgcasus van een client is het nodig om op de hoogte te zijn van de trajecten die lopen met bijvoorbeeld schuldhulpverlening, leerlingen verzuim, uitkeringverstrekking, e.d. Niet alleen trajecten van de client zelf, maar ook binnen de gezinssituatie. Is er bijvoorbeeld sprake van een voogd of bewindvoering. Met een integraal overzicht van alle bestaande raakvlakken met de gemeente, kan de dienstverlening beter op de situatie worden afgestemd. Onderling kunnen afdelingen beter samenwerken en heeft de client een eenduidig beeld vanuit de gemeente. 
+In de behandeling van een zorgcasus van een client is het nodig om te weten wat in het verleden aan trajecten zijn doorlopen en welke onderhanden zijn. Denk bijvoorbeeld aan schuldhulpverlening, leerlingen verzuim, uitkeringverstrekking, e.d. Niet alleen trajecten van de client zelf, maar ook binnen de gezinssituatie. Is er bijvoorbeeld sprake van een voogd of bewindvoering. Met een integraal overzicht van alle bestaande raakvlakken met de gemeente, kan de dienstverlening beter op de situatie worden afgestemd. Onderling kunnen afdelingen beter samenwerken en heeft de client een eenduidig beeld vanuit de gemeente. 
 
 Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-informatie') zonder doelbinding opgevraagd worden, maar alleen het bestaan ervan (de 'dat-informatie') aangevuld met contactgegevens van de behandelaar/casusregisseur. <juridische check>
 
