@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<nav>
+    {% assign group_pages = site.content | where_exp: "item", "item.parent == page.parent" | sort: "weight" | shift %}
+    <ul>
+        {% for page in group_pages %}
+            <li>
+                <a href="{{ page.url }}">{{ page.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

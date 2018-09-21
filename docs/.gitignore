@@ -1,1 +1,9 @@
 /public
+
+# Jekyll
+_site
+.sass-cache
+.jekyll-metadata
+
+# vscode
+.vscode/

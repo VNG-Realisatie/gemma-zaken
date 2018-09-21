@@ -1,0 +1,39 @@
+title: Documentatie
+email: jose.boon@maykinmedia.nl
+description: >- # this means to ignore newlines until "baseurl:"
+  Jekyll version for gemma-zaken.
+baseurl: "/gemma-zaken" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username:  JoseJBoon
+
+theme: minima
+markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
+
+# Serving
+show_dir_listing: false
+
+collections:
+  pages:
+    output: true
+  content:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "content"
+    values:
+      layout: default
+
+# This is default behaviour
+sass:
+  load_paths: 
+    - _sass

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+{%- include head.html -%}
+
+    <body class="bg-white">
+        {% include header.html %}
+
+        <article class="sidebar bg-light">
+            {% include navigation.html %}
+        </article>
+        <main class="content">
+            <div class="container-fluid gutter-lg">
+                <div class="container-fluid gutter-lg">
+                    <section>
+                        <div class="row">
+                            <article class="col-sm-9">
+                                <h1>{{ page.title }}</h1>
+                                {{ content }}
+                            </article>
+                            <article class="col-sm-3">
+                                <div class="mt-4">
+                                    <nav id="TableOfContents">
+                                        {% include toc.html html=content %}
+                                    </nav>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        {% include footer.html %}
+    </body>
+</html>
