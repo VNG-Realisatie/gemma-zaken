@@ -21,6 +21,7 @@ spec:
   - host: ref.tst.vng.cloud
     http:
       paths:
+      # ref implementations
       - path: "/zrc/"
         backend:
           serviceName: zrc
@@ -33,6 +34,18 @@ spec:
         backend:
           serviceName: ztc
           servicePort: 8000
+
+      # nlx
+      - path: "/outway/"
+        backend:
+          serviceName: outway
+          servicePort: 80
+      - path: "/inway/"
+        backend:
+          serviceName: inway
+          servicePort: 80
+
+      # docs
       - path: "/"
         backend:
           serviceName: zaken-docs

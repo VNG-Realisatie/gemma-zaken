@@ -1,0 +1,45 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: outway
+  namespace: gemma
+  labels:
+    k8s-app: outway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: outway
+  template:
+    metadata:
+      name: outway
+      labels:
+        k8s-app: outway
+    spec:
+      containers:
+      - name: outway
+        image: vngr/nlx-outway:latest
+        # TODO: secrets store for the private key, with volumes? -> ask Joeri
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: outway
+  namespace: gemma
+  labels:
+    k8s-app: outway
+spec:
+  selector:
+    k8s-app: outway
+  ports:
+  - protocol: TCP
+    port: 12018
+    targetPort: 80

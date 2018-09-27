@@ -1,0 +1,29 @@
+[services]
+
+    [services.zrc]
+    endpoint-url = "https://ref.tst.vng.cloud/zrc"
+    documentation-url = "https://ref.tst.vng.cloud/zrc/api/v1/schema/"
+    authorization-model = "none"
+    api-specification-type = "OpenAPI2"
+    api-specification-document-url = "https://ref.tst.vng.cloud/zrc/api/v1/schema/openapi.yaml"
+
+    [services.drc]
+    endpoint-url = "https://ref.tst.vng.cloud/drc"
+    documentation-url = "https://ref.tst.vng.cloud/drc/api/v1/schema/"
+    authorization-model = "none"
+    api-specification-type = "OpenAPI2"
+    api-specification-document-url = "https://ref.tst.vng.cloud/drc/api/v1/schema/openapi.yaml"
+
+    [services.ztc]
+    endpoint-url = "https://ref.tst.vng.cloud/ztc"
+    documentation-url = "https://ref.tst.vng.cloud/ztc/api/v1/schema/"
+    authorization-model = "none"
+    api-specification-type = "OpenAPI2"
+    api-specification-document-url = "https://ref.tst.vng.cloud/ztc/api/v1/schema/openapi.yaml"
+
+    [services.brc]
+    endpoint-url = "https://ref.tst.vng.cloud/brc"
+    documentation-url = "https://ref.tst.vng.cloud/brc/api/v1/schema/"
+    authorization-model = "none"
+    api-specification-type = "OpenAPI2"
+    api-specification-document-url = "https://ref.tst.vng.cloud/brc/api/v1/schema/openapi.yaml"

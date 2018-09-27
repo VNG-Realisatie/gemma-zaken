@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nlx-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+    # outway
+    - port: 12018
+      targetPort: 12018
+      protocol: TCP
+    # inway
+    - port: 4081
+      targetPort: 4081
+      protocol: TCP
+  selector:
+    name: nlx

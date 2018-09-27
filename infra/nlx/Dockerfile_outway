@@ -1,0 +1,17 @@
+FROM nlxio/outway:latest
+
+# copy the public certs
+COPY ./certificates/root.crt /certs/root.crt
+COPY ./certificates/localhost.crt /certs/localhost.crt
+
+EXPOSE 80
+CMD [\
+    "/usr/local/bin/nlx-outway",\
+    "--log-type=development",\
+    "--log-level=debug",\
+    "--directory-address=directory.demo.nlx.io:1984",\
+    "--tls-nlx-root-cert=/certs/root.crt",\
+    "--tls-org-cert=/certs/localhost.crt",\
+    "--tls-org-key=/certs/localhost.key",\
+    "--disable-logdb"\
+]

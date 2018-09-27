@@ -1,0 +1,45 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: inway
+  namespace: gemma
+  labels:
+    k8s-app: inway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: inway
+  template:
+    metadata:
+      name: inway
+      labels:
+        k8s-app: inway
+    spec:
+      containers:
+      - name: inway
+        image: vngr/nlx-inway:latest
+        # TODO: secrets store for the private key, with volumes? -> ask Joeri
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: inway
+  namespace: gemma
+  labels:
+    k8s-app: inway
+spec:
+  selector:
+    k8s-app: inway
+  ports:
+  - protocol: TCP
+    port: 4081
+    targetPort: 80

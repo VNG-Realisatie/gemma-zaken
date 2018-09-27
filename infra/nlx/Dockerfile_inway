@@ -1,0 +1,18 @@
+FROM nlxio/inway:latest
+
+# copy the public certs
+COPY ./certificates/root.crt /certs/root.crt
+COPY ./certificates/localhost.crt /certs/localhost.crt
+COPY ./service-config.toml /service-config.toml
+
+EXPOSE 80
+CMD [\
+    "/usr/local/bin/nlx-outway",\
+    "--env DIRECTORY_ADDRESS=directory-api.demo.nlx.io:1984",\
+    "--env SELF_ADDRESS=ref.tst.vng.cloud:4081",\
+    "--env SERVICE_CONFIG=/service-config.toml",\
+    "--env TLS_NLX_ROOT_CERT=/certs/root.crt",\
+    "--env TLS_ORG_CERT=/certs/localhost.crt",\
+    "--env TLS_ORG_KEY=/certs/localhost.key",\
+    "--env DISABLE_LOGDB=1",\
+]
