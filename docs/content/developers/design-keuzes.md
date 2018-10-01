@@ -314,6 +314,53 @@ Conceptueel is dit precies zoals het moet zijn. Echter, voortschrijdend inzicht,
 Concreet voorbeeld is een consumer die een lijst van ZAKEN van verschillende ZAAKTYPEN laat zien en daar het STATUSTYPE bij wil laten zien. Conceptueel bevind een STATUSTYPE zich altijd binnen ZAAKTYPE (in het ImZTC). Echter, dit zou in het voorbeeld betekenen dat we voor elk ZAAKTYPE dat voorkomt in de lijst van ZAKEN, een aparte call gemaakt moet worden om de STATUSTYPEs op te halen. Veel efficienter is het om in 1x een lijst van STATUSTYPEN op te halen en de consumer deze te koppelen aan de relevante ZAAK.
 
 
+## Vertaling van relaties
+
+Een 0-op-N of 1-op-N relatie tussen objecttypen A en B in een informatiemodel
+zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een REST API door een
+hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de
+relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar
+de gerelateerde resource A. Dit is het principe van 'linked data'.
+
+Bijvoorbeeld in het RGBZ kan een zaak kan nul of meer statussen hebben en een
+status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N
+relatie tussen `Zaak` en `Status`. De resource `Status` bevat naast zijn eigen
+gegevens het (toegevoegde) veld `"zaak"` dat de url naar de resource van de
+gerelateerde zaak bevat.
+
+Opmerking: We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen
+eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
+
+Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe
+resource R die fungeert als een kruistabel zoals in databases. De resource R
+bevat de volgende velden:
+
+* url naar zichzelf (resource R),
+* url naar resource A,
+* url naar resource B,
+* de gegevens van de relatie zelf (als die er zijn).
+
+Het voordeel om een N-op-M relatie als resource te vertalen is dat je `POST` en
+`DELETE` operaties kunt uitvoeren om relaties toe te voegen of te verwijderen.
+Als je dat niet doet en je de relaties bijvoorbeeld bijhoudt bij één of beide
+gerelateerde resources, dan belandt je al snel in een minder handige situtie
+waabij je de `PATCH` (of `PUT`)-operaties moet gebruiken om het lijstje met
+hyperlinks naar de gerelateerde resources bij te werken.
+
+Bijvoorbeeld in het RGBZ is de relatie tussen `Zaak` en `Informatieobject` N-op-M.
+Deze relatie is vertaald naar de resource `ZaakInformatieObject` met de
+volgende velden:
+
+* url (hyperlink naar zichzelf),
+* zaak (hyperlink naar de gerelateerde zaak),
+* informatieobject (hyperlink naar het gerelateerde informatieobject).
+
+In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistribueerd
+over meerdere ZRC- en DRC-instanties en daarmee een speciaal geval. Zie
+[Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
+voor de designkeuzes hierbij.
+
+
 ## Many-to-many relaties verspreid over API's
 
 Deze beslissing komt voort uit
