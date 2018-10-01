@@ -245,7 +245,7 @@ aanscherpen)
 #### Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource
 
 Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
-`besluit_partial_update`) MOET gevalideerd worden dat de combiantie `identificatie`
+`besluit_partial_update`) MOET gevalideerd worden dat de combinatie `identificatie`
 en `verantwoordelijke_organisatie` uniek is, indien de `identificatie` door de consumer
 meegestuurd wordt.
 
