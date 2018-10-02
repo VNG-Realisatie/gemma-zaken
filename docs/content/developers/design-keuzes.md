@@ -253,3 +253,18 @@ Een voorbeeld response is dan:
 ```
 
 Merk op dat de concrete codes hier fictief zijn en puur ter illustratie zijn.
+
+
+## Relaties aangeven in query parameters
+
+Om relaties zowel naar een andere resource (zoals `status`) als naar een genest attribuut (zoals `kenmerken`) te gebruiken binnen query parameters, wordt de `__` (dubbele underscore) gebruikt tussen de attribuutnamen.
+
+**Voorbeelden**
+
+*Voor filteren:*
+`?zaak__kenmerken=test`
+`?zaak__status=http://example.com`
+
+*Voor de `fields` query parameter:*
+`?fields=zaak__kenmerken`
+`?fields=zaak__status`
