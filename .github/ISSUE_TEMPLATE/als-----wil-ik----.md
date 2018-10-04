@@ -17,7 +17,7 @@ about: Beschrijving van een feature/user story
 - [ ] _**Userstory is ingevuld op template architectuurschets**_
 - [ ] **_Userstory is voorzien van veldmapping naar RGBZ2_**
 - [ ] **_Userstory past op wenselijk gebruik ZGW volgens GEMMA 2_**
-- [ ] Vastgelegd Github en in geplaatst in kolom ready
+- [ ] Vastgelegd in Github en geplaatst in kolom ready
 
 **Definition of done**
 - [ ] er is een OAS 3.0 specificatie
