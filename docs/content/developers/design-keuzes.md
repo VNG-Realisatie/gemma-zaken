@@ -110,7 +110,7 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
 * Indien verwezen wordt naar een andere resource (relatie), wordt de volledige
   naam van de resource gebruikt als veldnaam. Voorbeeld: De resource `zaak`
   heeft een veld `zaaktype` en niet `type`. Ter vergelijking, in StUF-ZKN is
-  dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het  (een`zaaktype`.
+  dit: `zaak-isVan-<zaak type data>` waar `isVan` verwijst naar het `zaaktype`.
 
   ```javascript
   {
@@ -121,11 +121,11 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
   ```
 
 
-## Groepsattributen
+## Groepattributen
 
-Indien een object een groepattribuutsoort heeft (een groep van bij elkaar behorende attribuutsoorten), al dan niet herhalend d.w.z. kardinaliteit 1 of meer (een 'lijst' van waarden van de attributen van het groepattribuut), dan wordt het groepattribuut inline
-(binnen het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaantsrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten. 
-Typische voorbeelden zijn (zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
+Indien een object een groepattribuutsoort heeft (een groep van bij elkaar behorende attribuutsoorten), al dan niet herhalend d.w.z. kardinaliteit nul of meer (een 'lijst' van waarden van de attributen van het groepattribuut), dan wordt het groepattribuut inline
+(binnen de resource voor het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaansrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten. 
+Typische voorbeelden zijn (zaak-)kenmerken en (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
 en `Kenmerk` en `Eigenschap` de groepattributen.
 
 Voorbeeld:
