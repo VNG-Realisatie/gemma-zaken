@@ -27,9 +27,9 @@ Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-in
 
 ![datenwat](./bestanden/rotterdam/datenwat.png?raw=true)
 
-## Architectuurschets
+## Generieke architectuurschets (GEMMA-referentiecomponenten)
 
-![architectuurschetsrotterdam](./bestanden/rotterdam/architectuurschetsrotterdam.png?raw=true)
+![architectuurschetsrotterdam](./bestanden/rotterdam/US65-arch-1.png?raw=true)
 
 Toelichting architectuurschets: Cliënten (burgers) maken gebruik van dienstverlening, hier Zorg genoemd. De dienstverlening wordt geleverd door Professionals (intern medewerkers en ketenpartners) vanuit het sociaal domein. Voor het bepalen van de juiste dienstverlening wordt samenloopdetectie gebruikt. Hiervoor wordt samenloopfunctionaliteit geleverd vanuit een app (moet nog geeraliseerd) of de taakapplicaties Gidso en Edison. Deze taakapplicaties doen hiervoor een beroep op ZDS 2.0 functionaliteit door de api interfaces aan te roepen. De ZDS2.0 api's maken onderliggend gebruik van de ZDS 2.0 referentie applicatiecomponenten, welke binnen Rotterdam ingevuld worden vanuit de e-Suite applicatiecomponent.
 
@@ -41,6 +41,16 @@ Omdat samenloop gaat over vanuit doelbinding relevante zaken wordt in de toepass
 2.	De toepassing geeft de ‘dat-informatie’ (= een lijst met zaaknummers en behandelaars) terug.
 3.	In geval de autorisatie (bepaald op zaaktype adhv doelbinding, classificatie en toegepast voor rol/functie) dit toestaat, wordt, na doorklikken op een zaaknummer, inzage verkregen in de ‘wat-informatie’ (detailinformatie en zaakdocumenten (indien vertrouwelijkheidsbepaling dit niet beperkt)).
 
-## Generieke architectuurschets (GEMMA-referentiecomponenten)
+## Generieke architectuurschets in Common Ground applicatiearchitectuur
 
-Architectuurschetsen zijn reeds in termen van GEMMA 2 referentiecomponenten.
+Navolgend is de uiteindelijke situatie geschetst in een view
+op de commonground applicatie architectuur. Ten behoeve van een demo app
+tijdens het ontwikkeltraject is dit ook de uitgangssituatie.
+
+![CGschetsrotterdam](./bestanden/rotterdam/US65-arch-3.png?raw=true)
+
+Indien de samenloopfunctionaliteit binnen het huidige
+landschap met bestaande voorliggende voorzieningen moet worden gerealiseerd is hiervan
+de view in navolgende figuur weergegeven:
+
+![implementatieschetsrotterdam](./bestanden/rotterdam/US65-arch-2.png?raw=true)
