@@ -22,14 +22,15 @@ about: Beschrijving van een feature/user story
 
 **Definition of done**
 - [ ] er is een OAS 3.0 specificatie
-- [ ] de specificatie is gepubliceerd leesbaar (functioneel en technisch) 
+- [ ] de functionele specificatie is gepubliceerd leesbaar
+- [ ] de technische specificatie is gepubliceerd leesbaar
+- [ ] wijzigigen als gevolg van user story zijn vindbaar en gedocumenteerd
 - [ ] er is een referentieimplementatie
 - [ ] de DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
 - [ ] eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
 - [ ] er zijn geen (nieuwe) conflicten met ontwerp keuzes in [BIP](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/docs/design_decisions.md)
 - [ ] review heeft plaatsgevonden (dus reviewers hebben voldoende en vindbare info om te kunnen reviewen (dus duidelijke verwijzing in issue/user story naar deze documentatie)
 
-_Zorg ervoor dat in de documentatie duidelijk is welke wijzigingen zijn doorgevoerd t.a.v. specifieke user story, zodat het voor iedereen duidelijk is wat er gewijzigd of toegevoegd is._
 
 **Acceptatiecriteria**
 Uit de algemene uitgangspunten:
