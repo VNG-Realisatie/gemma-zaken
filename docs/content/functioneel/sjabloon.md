@@ -23,9 +23,19 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST), te wijzige
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | [wat is de reden of gebeurtenis dat een component (consumer) van deze resource gebruik wil maken]                                                                                     |
-| Voorwaarde     | [aan welke voorwaarden dient de consumer voldaan te hebben alvorens de resoure te kunnen aanroepen; welke objecten en/of gegevens dienen beschikbaar te zijn]                                         |
-| Gevolg         | [wat gebeurt er als gevolg van het aanroepen van de resource]                                                                                                                         |
+| Aanleiding     | [wat is de reden of gebeurtenis dat een component (consumer) van deze resource gebruik wil maken]            |
+| *Toevoegen*    |      |
+| - voorwaarde   | [aan welke voorwaarden dient de consumer voldaan te hebben alvorens de resoure te kunnen aanroepen om een object toe te voegen; welke objecten en/of gegevens dienen beschikbaar te zijn]         |
+| - gevolg       | [wat gebeurt er als gevolg van het aanroepen van de resource (t.b.v. het toevoegen]             |
+| *Wijzigen*     |      |
+| - voorwaarde   | [aan welke voorwaarden dient de consumer voldaan te hebben alvorens de resoure te kunnen aanroepen om een object te wijzigen; welke objecten en/of gegevens dienen beschikbaar te zijn]         |
+| - gevolg       | [wat gebeurt er als gevolg van het aanroepen van de resource (t.b.v. het wijzigen]             |
+| *Verwijderen*  |      |
+| - voorwaarde   | [aan welke voorwaarden dient de consumer voldaan te hebben alvorens de resoure te kunnen aanroepen om een object te verwijderen; welke objecten en/of gegevens dienen beschikbaar te zijn]         |
+| - gevolg       | [wat gebeurt er als gevolg van het aanroepen van de resource (t.b.v. het verwijderen]             |
+| *Raadplegen*   |      |
+| - voorwaarde   | [aan welke voorwaarden dient de consumer voldaan te hebben alvorens de resoure te kunnen aanroepen om objecten te raadplegen; welke objecten en/of gegevens dienen beschikbaar te zijn]         |
+| - gevolg       | [wat gebeurt er als gevolg van het aanroepen van de resource (t.b.v. het raadplegen]             |
 | Gegevens       | [de objecttypen waarvan gegevens in de API betrokken zijn; bij voorkeur een plaatje van het desbetreffende deel van het (domein)informatiemodel en/of een link naar de informatiemodel-specificatie van het objecttype] <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | [link naar de plek waar de technische specificaties van de resource zijn te vinden]                                                                                                   |
 | Samenhang      | [beschrijving van de samenhang met andere resources, bijvoorbeeld dat een andere resource eerst uitgevoerd moet worden om gegevens te verkrijgen waarmee deze resource aangeroepen kan worden] |
