@@ -124,7 +124,7 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
 ## Groepattributen
 
 Indien een object een groepattribuutsoort heeft (een groep van bij elkaar behorende attribuutsoorten), al dan niet herhalend d.w.z. kardinaliteit nul of meer (een 'lijst' van waarden van de attributen van het groepattribuut), dan wordt het groepattribuut inline
-(binnen de resource voor het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaansrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten. 
+(binnen de resource voor het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaansrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten.
 Typische voorbeelden zijn (zaak-)kenmerken en (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
 en `Kenmerk` en `Eigenschap` de groepattributen.
 
@@ -293,3 +293,77 @@ en [Facebook](https://developers.facebook.com/docs/graph-api/reference/photo/#Cr
 Verschillende bronnen zijn hier wel over verdeeld, zoals
 [REST API tutorial](https://restfulapi.net/resource-naming/) en [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Relationship_between_URL_and_HTTP_methods)
 maar er is gekozen om te kijken naar de praktijk en DSO.
+
+## Zaak afsluiten
+
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`.
+Elk `ZAAKTYPE` moet (minimaal) 1 eindstatus kennen. De eindstatus binnen een
+`ZAAKTYPE` wordt afgeleid uit de `ZAAKSTATUS` met het hoogste `volgnummer`.
+
+Het toekennen van deze `STATUS` bepaald ook een logisch af te leiden
+`ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus is
+toegekend. `ZAAK.einddatum` is daarom ook een alleen-lezen attribuut van een `ZAAK`.
+
+Als een ZAAK een eindstatus heeft, betekent dat op het moment van schrijven
+niet dat een ZAAK niet meer aangepast mag worden. Dit wordt voorlopig een
+verantwoordelijkheid van de consumer of autorisatielaag.
+
+In API-calls, kan de flow er als volgt uit zien:
+
+1. Consumer wil onderstaande `ZAAK` afsluiten:
+```http request
+GET /zrc/api/v1/zaken/12345
+
+HTTP 200
+{
+    "einddatum": null,
+    # ...
+}
+```
+
+2. Consumer wil onderstaande eindstatus zetten:
+```http request
+GET /ztc/api/v1/catalogus/12345/statustypen?zaaktype=/ztc/api/v1/zaaktype/44912
+
+HTTP 200
+[{
+    "uuid": 99321,
+    "volgnummer": 1,
+    # ...
+},{
+    "uuid": 67890,
+    "volgnummer": 2,  # Het laatste STATUSTYPE binnen dit ZAAKTYPE
+    # ...
+}]
+```
+
+3. Consumer werkt een `ZAAK` bij met de eindstatus:
+```http request
+POST /zrc/api/v1/zaakstatussen
+{
+    "zaak": "/zrc/api/v1/zaken/45678",
+    "statustype": "/ztc/api/v1/catalogus/12345/statustypen/67890",
+    "datumStatusGezet": "2018-10-8T12:23:07+01:00",
+    # ...
+}
+```
+
+4. Consumer haalt de `ZAAK` opnieuw op:
+```http request
+GET /zrc/api/v1/zaken/12345
+
+HTTP 200
+{
+    "eindDatum": "2018-10-8T12:23:07+01:00",
+    # ...
+}
+```
+
+**Rationale**
+
+In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak).
+
+Er is echter behoefte aan een consistente manier om zaken af te sluiten. In
+deze oplossing worden zowel `ZAAK.einddatum` als `STATUSTYPE` gebruikt waarbij
+er geen onduidelijkheid meer ontstaat over welk attribuut nu wordt gebruikt
+voor het afsluiten van een `ZAAK`.
