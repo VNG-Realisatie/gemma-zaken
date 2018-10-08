@@ -262,9 +262,36 @@ Om relaties zowel naar een andere resource (zoals `status`) als naar een genest 
 **Voorbeelden**
 
 *Voor filteren:*
-`?zaak__kenmerken=test`
-`?zaak__status=http://example.com`
+* `?zaak__kenmerken=test`
+* `?zaak__status=http://example.com`
 
 *Voor de `fields` query parameter:*
-`?fields=zaak__kenmerken`
-`?fields=zaak__status`
+* `?fields=zaak__kenmerken`
+* `?fields=zaak__status`
+
+
+## URIs eindigen nooit op een trailing slash ("/")
+
+De URIs die gebruikt worden om collecties van objecten, of individuele objecten
+op te vragen, eindigen nooit op een trailing slash:
+
+**Voorbeelden**
+
+*Goed*
+* `/api/v1/zaken`
+* `/api/v1/zaken?identificatie=12345`
+* `/api/v1/zaken/67890`
+
+*Fout*
+* `/api/v1/zaken/`
+* `/api/v1/zaken/?identificatie=12345`
+* `/api/v1/zaken/67890/`
+
+**Rationale**
+De DSO heeft hier geen expliciet standpunt over maar alle voorbeelden zijn
+zonder trailing slash. Daarnaast zijn veel commerciele APIs die dit voorbeeld
+volgen zoals [Google](https://developers.google.com/gmail/api/v1/reference/users/drafts/list)
+en [Facebook](https://developers.facebook.com/docs/graph-api/reference/photo/#Creating).
+Verschillende bronnen zijn hier wel over verdeeld, zoals
+[REST API tutorial](https://restfulapi.net/resource-naming/) en [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Relationship_between_URL_and_HTTP_methods)
+maar er is gekozen om te kijken naar de praktijk en DSO.
