@@ -3,16 +3,6 @@ info:
   title: Zaakregistratiecomponent (ZRC) API
   description: Een API om een zaakregistratiecomponent te benaderen
   contact:
-    url: 'https://github.com/VNG-Realisatie/gemma-zaken'
-    email: support@maykinmedia.nl
-  license:
-    name: EUPL 1.2
-  version: '1'
-security:openapi: 3.0.0
-info:
-  title: Zaakregistratiecomponent (ZRC) API
-  description: Een API om een zaakregistratiecomponent te benaderen
-  contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
     email: support@maykinmedia.nl
   license:
