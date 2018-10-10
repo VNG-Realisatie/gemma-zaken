@@ -2,25 +2,19 @@ ZAAKTYPEN API
 ===============================================
 **FUNCTIONELE DOCUMENTATIE**
 
-[aanzet tot documentatie van de API’s van het ZDS2-koppelvlak. Is vooralsnog een
-‘try-out’ n.a.v. [userstory
-\#188](https://github.com/VNG-Realisatie/gemma-zaken/issues/188) om inzicht te
-krijgen in de wijze van (functioneel) documenteren van API’s, als onderdeel van
-koppelvlakdocumentatie]
-
 | **Aspect**      | **Beschrijving**                                                                                                                                                                                  |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Doel            | Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van zaaktypecatalogus (ZTC) inclusief daarinopgenomen zaaktypen, statustypen, roltypen en informatieobjecttypen, rollen en relaties naar betrokkenen, objecten, zaaktypen en statustypen. |
+| Doel            | Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van zaaktypen en de zaaktypecatalogi (ZTC) waarvan zij deel uit maken. |
 | Domein          | Zaakgericht werken                                                                                                                                                                                |
-| Provider        | [Zaaktypecataloguscomponent](https://www.gemmaonline.nl/index.php/Omgevingswet/1.5/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314) (GEMMA2)                                                              |
-| Consumer        | Componenten waarmee zaken behandeld worden (Zaakafhandelcomponenten; ZAC’s) en (andere) componenten die zaaktypegegevens raadplegen.                                                              |
-| Informatiemodel | [IMZTC, versie 2.1](https://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC)) (in-ontwikkeling)                                         |
+| Provider        | [Zaaktypecataloguscomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314) (GEMMA2)                                                              |
+| Consumer        | Componenten waarmee zaaktypen beheerd worden en componenten die zaaktypegegevens gebruiken voor het behandelen van zaken, zoals Zaakafhandelcomponenten (ZAC’s).                                                              |
+| Informatiemodel | [IMZTC, versie 2.2](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (in-ontwikkeling)                                         |
 | Specificaties   | <https://ref.tst.vng.cloud/zrc/api/v1/schema>                                                                                                                                                     |
-| Bijzonderheden  |  Deze API omvat (vooralsnog) de resources Catalogussen, Zaaktypen, Informatieobjecttypen, Roltypen, Statustypen en Zaakobjecten                                                    |
+| Bijzonderheden  | -                                                    |
 
-Deze API omvat (vooralsnog) de resources Zaken, Klantcontacten, Rollen, Statussen en Eigenschappen.
+Deze API omvat (vooralsnog) de resources Catalogussen, Zaaktypen, Informatieobjecttypen, Roltypen, Statustypen en Zaakobjecten.
 
-Op dit moment biedt deze API alleen nog de mogelijkheid de zaaktypecatalogus te raadplegen middels GET.
+Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de gegevens (GET).
 
 ### Resource: catalogus
 
