@@ -112,6 +112,11 @@ Er MOET gevalideerd worden dat de combinatie `zaak` en `informatieobject`
 niet eerder voorkomt. Indien deze al bestaat, dan MOET het ZRC antwoorden met
 een `HTTP 400` foutbericht.
 
+Er MOET gevalideerd worden dat de relatie tussen het informatieobject en de
+zaak al bestaat in het DRC. De bron van het informatieobject is bekend door
+de eerdere validaties op deze URL. De API-spec van het DRC voorziet in query-
+parameters om het bestaan te kunnen valideren.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
