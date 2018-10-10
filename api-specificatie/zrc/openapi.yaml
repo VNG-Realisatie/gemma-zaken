@@ -1649,84 +1649,6 @@ paths:
       schema:
         type: string
         format: uuid
-  /zaken/{zaak_uuid}/informatieobjecten/{uuid}:
-    delete:
-      operationId: zaakinformatieobject_delete
-      description: Ontkoppel een ZAAK en INFORMATIEOBJECT-relatie.
-      responses:
-        '204':
-          description: ''
-        '401':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
-          description: ''
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-      tags:
-      - zaken
-    parameters:
-    - name: uuid
-      in: path
-      description: Unieke resource identifier (UUID4)
-      required: true
-      schema:
-        type: string
-        format: uuid
-    - name: zaak_uuid
-      in: path
-      required: true
-      description: Unieke resource identifier (UUID4)
-      schema:
-        type: string
-        format: uuid
   /zaken/{zaak_uuid}/zaakeigenschappen:
     get:
       operationId: zaakeigenschap_list
@@ -2525,11 +2447,6 @@ components:
       - informatieobject
       type: object
       properties:
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
         informatieobject:
           title: Informatieobject
           description: URL-referentie naar het informatieobject in het DRC, waar ook

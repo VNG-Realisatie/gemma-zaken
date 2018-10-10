@@ -307,23 +307,14 @@ paths:
       - objectinformatieobjecten
     post:
       operationId: objectinformatieobject_create
-      description: 'Registreer een INFORMATIEOBJECT bij een OBJECT.
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid informatieobject URL
-
-        - geldigheid object URL
-
-        - de registratiedatum mag niet in de toekomst liggen
-
-        - de combinatie informatieobject en object moet uniek zijn
-
-
-        Bij het aanmaken wordt ook in de bron van het OBJECT de gespiegelde
-
-        relatie aangemaakt, echter zonder de relatie-informatie.'
+      description: "Registreer een INFORMATIEOBJECT bij een OBJECT.\n\nEr wordt gevalideerd\
+        \ op:\n- geldigheid informatieobject URL\n- geldigheid object URL\n- registratiedatum\
+        \ is verplicht indien het een object van het type ZAAK\n  betreft\n- de registratiedatum\
+        \ mag niet in de toekomst liggen\n- de combinatie informatieobject en object\
+        \ moet uniek zijn\n\nBij het aanmaken wordt ook in de bron van het OBJECT\
+        \ de gespiegelde\nrelatie aangemaakt, echter zonder de relatie-informatie.\n\
+        \nTitel, beschrijving en registratiedatum worden genegeneerd als het om een\n\
+        object van het type BESLUIT gaat."
       responses:
         '201':
           description: ''
@@ -388,11 +379,7 @@ paths:
       tags:
       - objectinformatieobjecten
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ObjectInformatieObject'
-        required: true
+        $ref: '#/components/requestBodies/ObjectInformatieObject'
     parameters: []
   /objectinformatieobjecten/{uuid}:
     get:
@@ -461,6 +448,160 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - objectinformatieobjecten
+    put:
+      operationId: objectinformatieobject_update
+      description: "Update een INFORMATIEOBJECT bij een OBJECT.\n\nEr wordt gevalideerd\
+        \ op:\n- geldigheid informatieobject URL\n- geldigheid object URL\n- registratiedatum\
+        \ is verplicht indien het een object van het type ZAAK\n  betreft\n- de registratiedatum\
+        \ mag niet in de toekomst liggen\n- de combinatie informatieobject en object\
+        \ moet uniek zijn\n\nBij het aanmaken wordt ook in de bron van het OBJECT\
+        \ de gespiegelde\nrelatie bijgewerkt.\n\nTitel, beschrijving en registratiedatum\
+        \ worden genegeneerd als het om een\nobject van het type BESLUIT gaat."
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - objectinformatieobjecten
+      requestBody:
+        $ref: '#/components/requestBodies/ObjectInformatieObject'
+    patch:
+      operationId: objectinformatieobject_partial_update
+      description: Beheer relatie tussen InformatieObject en OBJECT.
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - objectinformatieobjecten
+      requestBody:
+        $ref: '#/components/requestBodies/ObjectInformatieObject'
     parameters:
     - name: uuid
       in: path
@@ -472,6 +613,13 @@ paths:
 servers:
 - url: /api/v1
 components:
+  requestBodies:
+    ObjectInformatieObject:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ObjectInformatieObject'
+      required: true
   securitySchemes:
     basic:
       type: http
@@ -1166,7 +1314,6 @@ components:
       - informatieobject
       - object
       - objectType
-      - registratiedatum
       type: object
       properties:
         url:
@@ -1202,7 +1349,6 @@ components:
           description: Een op het object gerichte beschrijving van de inhoud vanhet
             INFORMATIEOBJECT.
           type: string
-          maxLength: 1000
         registratiedatum:
           title: Registratiedatum
           description: De datum waarop de behandelende organisatie het INFORMATIEOBJECT

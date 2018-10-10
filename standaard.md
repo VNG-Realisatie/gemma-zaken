@@ -166,10 +166,20 @@ een `HTTP 400` foutbericht.
 
 (TODO: valideren dat het van het type `object_type` is -> validatie aanscherpen)
 
+#### Valideren relatieinformatie op `ObjectInformatieObject`-resource
+
+De resource bevat de velden `titel`, `beschrijving` en `registratiedatum`. Deze
+velden zijn enkel van toepassing op het `objectType` `zaak` en moeten genegeerd
+worden bij het `objectType` `besluit`.
+
+De `registratiedatum`, indien relevant, moet gevalideerd worden zodat die niet
+in de toekomst kan liggen.
+
 #### Synchroniseren relaties met informatieobjecten
 
 Wanneer een relatie tussen een `INFORMATIEOBJECT` en een ander `OBJECT` gemaakt
-wordt, dan MOET het DRC in de bron van `OBJECT` ook deze relatie aanmaken.
+of bijgewerkt wordt, dan MOET het DRC in de bron van `OBJECT` ook deze relatie
+aanmaken/bijwerken.
 
 `OBJECT` is van `OBJECTTYPE`. `OBJECTTYPE` bepaalt de naam van de
 relatieresource in de bron van `OBJECT`, zijnde `{objecttype}informatieobject`.
