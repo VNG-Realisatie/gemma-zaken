@@ -4,15 +4,15 @@ ZAAKTYPEN API
 
 | **Aspect**      | **Beschrijving**                                                                                                                                                                                  |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Doel            | Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van zaaktypen en de zaaktypecatalogi (ZTC) waarvan zij deel uit maken. |
+| Doel            | Het kunnen aanspreken van een voorziening voor het raadplegen van zaaktypen en de zaaktypecatalogi (ZTC) waarvan zij deel uit maken. |
 | Domein          | Zaakgericht werken                                                                                                                                                                                |
 | Provider        | [Zaaktypecataloguscomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314) (GEMMA2)                                                              |
 | Consumer        | Componenten waarmee zaaktypen beheerd worden en componenten die zaaktypegegevens gebruiken voor het behandelen van zaken, zoals Zaakafhandelcomponenten (ZAC’s).                                                              |
-| Informatiemodel | [IMZTC, versie 2.2](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (in-ontwikkeling)                                         |
-| Specificaties   | <https://ref.tst.vng.cloud/zrc/api/v1/schema>                                                                                                                                                     |
+| Informatiemodel | [ImZTC, versie 2.2](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (in-ontwikkeling)                                         |
+| Specificaties   | <https://ref.tst.vng.cloud/ztc/api/v1/schema>        | 
 | Bijzonderheden  | -                                                    |
 
-Deze API omvat (vooralsnog) de resources Catalogussen, Zaaktypen, Informatieobjecttypen, Roltypen, Statustypen en Zaakobjecten.
+Deze API omvat (vooralsnog) de resources Catalogussen, Zaaktypen, Informatieobjecttypen, Roltypen, Statustypen en Besluittypen.
 
 Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de gegevens (GET).
 
@@ -34,7 +34,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | - voorwaarde   | nvt.         |
 | - gevolg       | Een lijst met beschikbare catalogussen wordt teruggegeven aan de consumer bij het opvragen van de lijst.<br>Een specificieke catalogus wordt teruggegeven aan de consumer. |
 | Gegevens       | objecttype CATALOGUS inclusief een lijst met relaties naar daarin gedefinieerde ZAAKTYPEn.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
-| Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogus                                                                                                   |
+| Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen                                                                                                   |
 | Samenhang      | nvt. |
 | Bijzonderheden | nvt. |
         
@@ -58,7 +58,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | - voorwaarde   | Om zaaktype informatie op te kunnen vragen moet de consumer de UUID van de catalogus waarin het zaaktype is opgenomen weten. Deze UUID kan opgevraagd worden met de catalogus bevragingen services.       |
 | - gevolg       | Een lijst met in de catalogus opgenomen zaaktypen wordt teruggegeven aan de consumer bij het opvragen van de lijst.<br>Een specificiek zaaktype wordt teruggegeven aan de consumer.         |
 | Gegevens       | ZAAKTYPE inclusief STATUSTYPEn, EIGENSCHAPpen en ROLTYPEn<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
-| Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/zaaktype                                                                                |
+| Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_list                                                                                |
 | Samenhang      | - |
 | Bijzonderheden | -           |
 
@@ -83,7 +83,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
          |
 | - gevolg       | Een (lijst met) besluittype informatie zoals opgenomen in de catalogus wordt teruggegeven.             |
 | Gegevens       | Besluittype <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
-| Specificaties  | [https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/besluittype                                                                                                   |
+| Specificaties  | [https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/besluittype  |
 | Samenhang      | - |
 | Bijzonderheden | -           |
 
@@ -105,7 +105,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | *Raadplegen*   |      |
 | - voorwaarde   | Om informatieobjecttype informatie op te kunnen vragen moet de consumer de UUID van de catalogus waarin het informatieobjecttype is opgenomen weten. Deze UUID kan opgevraagd worden met de catalogus bevragingen services.
          |
-| - gevolg       | Een (lijst met) besluittype informatie zoals opgenomen in de catalogus wordt teruggegeven.             |
+| - gevolg       | Een (lijst met) Informatieobjecttype informatie zoals opgenomen in de catalogus wordt teruggegeven.             |
 | Gegevens       | Informatieobjecttype <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | [https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/informatieobjecttype                                                                                                   |
 | Samenhang      | - |
