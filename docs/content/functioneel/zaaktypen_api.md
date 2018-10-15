@@ -23,13 +23,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil informatie van alle beschikbare catalogussen of een specifieke catalogus opvragen.         |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.         |
-| - gevolg       | ntb.             |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.         |
-| - gevolg       | ntb.             |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.         |
-| - gevolg       | ntb.             |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Geen aanvullende voorwaarden gesteld.  |
 | - gevolg       | Een lijst met beschikbare catalogussen wordt teruggegeven aan de consumer bij het opvragen van de lijst. |
@@ -50,13 +50,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil zaaktypeinformatie opvragen uit de catalogus.            |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.         |
-| - gevolg       | ntb.  |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.         |
-| - gevolg       | ntb.             |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om zaaktypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het zaaktype is opgenomen. |
 | - gevolg       | Een lijst met in de catalogus opgenomen zaaktypen wordt teruggegeven aan de consumer bij het opvragen van de lijst. |
@@ -77,13 +77,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil besluittypeinformatie van de besluiten die het resultaat kunnen zijn van het zaakgericht werken van de behandelende organisatie(s) opvragen.            |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om besluittypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het besluittype is opgenomen. |
 | - gevolg       | Een overzicht met besluittype informatie zoals opgenomen in de catalogus wordt teruggegeven.             |
@@ -102,13 +102,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil informatieobjecttypeinformatie van de informatieobjecten die voor kunnen komen bij het zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.            |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om informatieobjecttypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het besluittype is opgenomen. |
 | - gevolg       | Een overzicht van Informatieobjecttypeinformatie zoals opgenomen in de catalogus wordt teruggegeven.             |
@@ -128,13 +128,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil alle eigenschappen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.             |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om eigenschapinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype de eigenschap is opgenomen. |
 | - gevolg       | Een overzicht van eigenschapinformatie van het zaaktype wordt teruggegeven.            |
@@ -153,13 +153,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil alle roltypen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.            |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om roltypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype het roltype is opgenomen. |
 | - gevolg       | Een lijst met roltypeinformatie behorend bij het zaaktype wordt teruggegeven aan de consumer.             |
@@ -179,13 +179,13 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Aanleiding     | Een consumer wil statustypeinformatie van een ZAAKTYPE zoals opgenomen in de CATALOGUS van de organisatie opvragen.           |
 | *Toevoegen*    |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Wijzigen*     |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Verwijderen*  |      |
 | - voorwaarde   | Nog niet beschikbaar.  |
-| - gevolg       | ntb. |
+| - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om statustypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype het statustype is opgenomen. |
 | - gevolg       | Een lijst met statustypeinformatie wordt teruggegeven aan de consumer.             |
