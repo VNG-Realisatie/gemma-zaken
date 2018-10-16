@@ -296,74 +296,78 @@ maar er is gekozen om te kijken naar de praktijk en DSO.
 
 ## Zaak afsluiten
 
-Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`.
-Elk `ZAAKTYPE` moet (minimaal) 1 eindstatus kennen. De eindstatus binnen een
-`ZAAKTYPE` wordt afgeleid uit de `ZAAKSTATUS` met het hoogste `volgnummer`.
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
+`ZAAKTYPE` heeft minimaal één `STATUSTYPE`. De eindstatus binnen een `ZAAKTYPE`
+is het `STATUSTYPE` met het hoogste `volgnummer`.
 
-Het toekennen van deze `STATUS` bepaald ook een logisch af te leiden
-`ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus is
-toegekend. `ZAAK.einddatum` is daarom ook een alleen-lezen attribuut van een `ZAAK`.
+Het toekennen van dit `STATUSTYPE` aan een `ZAAK` bepaald ook een logisch af te 
+leiden `ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus
+is toegekend. `ZAAK.einddatum` is daarom ook een alleen-lezen attribuut van een 
+`ZAAK`.
 
-Als een ZAAK een eindstatus heeft, betekent dat op het moment van schrijven
-niet dat een ZAAK niet meer aangepast mag worden. Dit wordt voorlopig een
-verantwoordelijkheid van de consumer of autorisatielaag.
+Als een `ZAAK` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
+van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit 
+is voorlopig een verantwoordelijkheid van de consumer en/of autorisatielaag.
 
 In API-calls, kan de flow er als volgt uit zien:
 
 1. Consumer wil onderstaande `ZAAK` afsluiten:
-```http request
+```javascript
 GET /zrc/api/v1/zaken/12345
 
 HTTP 200
 {
     "einddatum": null,
-    # ...
+    // ...
 }
 ```
 
 2. Consumer wil onderstaande eindstatus zetten:
-```http request
+```javascript
 GET /ztc/api/v1/catalogus/12345/statustypen?zaaktype=/ztc/api/v1/zaaktype/44912
 
 HTTP 200
 [{
     "uuid": 99321,
     "volgnummer": 1,
-    # ...
+    // ...
 },{
     "uuid": 67890,
     "volgnummer": 2,  # Het laatste STATUSTYPE binnen dit ZAAKTYPE
-    # ...
+    // ...
 }]
 ```
 
 3. Consumer werkt een `ZAAK` bij met de eindstatus:
-```http request
+```javascript
 POST /zrc/api/v1/zaakstatussen
 {
     "zaak": "/zrc/api/v1/zaken/45678",
     "statustype": "/ztc/api/v1/catalogus/12345/statustypen/67890",
     "datumStatusGezet": "2018-10-8T12:23:07+01:00",
-    # ...
+    // ...
 }
 ```
 
 4. Consumer haalt de `ZAAK` opnieuw op:
-```http request
+```javascript
 GET /zrc/api/v1/zaken/12345
 
 HTTP 200
 {
     "eindDatum": "2018-10-8T12:23:07+01:00",
-    # ...
+    // ...
 }
 ```
 
 **Rationale**
 
-In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak).
+In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over 
+hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
+Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste 
+`volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de 
+`ZAAK`).
 
 Er is echter behoefte aan een consistente manier om zaken af te sluiten. In
 deze oplossing worden zowel `ZAAK.einddatum` als `STATUSTYPE` gebruikt waarbij
-er geen onduidelijkheid meer ontstaat over welk attribuut nu wordt gebruikt
-voor het afsluiten van een `ZAAK`.
+er geen onduidelijkheid meer ontstaat over hoe een `ZAAK` wordt afgesloten.
