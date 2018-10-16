@@ -294,6 +294,26 @@ Verschillende bronnen zijn hier wel over verdeeld, zoals
 [REST API tutorial](https://restfulapi.net/resource-naming/) en [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Relationship_between_URL_and_HTTP_methods)
 maar er is gekozen om te kijken naar de praktijk en DSO.
 
+
+## Nesten van resources
+
+De [DSO API-strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/) stelt:
+
+> **API-09 Relaties van geneste resources worden binnen het eindpunt gecreëerd"**
+> Als een relatie alleen kan bestaan binnen een andere resource (geneste resource), wordt de relatie binnen het eindpunt gecreëerd. De afhankelijke resource heeft geen eigen eindpunt
+
+Aanvullingen hierop:
+
+* Er mag worden afgeweken van deze richtlijn, mits goed onderbouwd en gedocumenteerd.
+* Er wordt niet dieper genest dan 1 niveau, tenzij goed onderbouwd en gedocumenteerd.
+
+**Rationale**
+
+Conceptueel is dit precies zoals het moet zijn. Echter, voortschrijdend inzicht, voortkomend uit gemaakte implementaties van referentie componenten en demo consumers, leidt er toe dat deze richtlijn wordt opgerekt.
+
+Concreet voorbeeld is een consumer die een lijst van ZAKEN van verschillende ZAAKTYPEN laat zien en daar het STATUSTYPE bij wil laten zien. Conceptueel bevind een STATUSTYPE zich altijd binnen ZAAKTYPE (in het ImZTC). Echter, dit zou in het voorbeeld betekenen dat we voor elk ZAAKTYPE dat voorkomt in de lijst van ZAKEN, een aparte call gemaakt moet worden om de STATUSTYPEs op te halen. Veel efficienter is het om in 1x een lijst van STATUSTYPEN op te halen en de consumer deze te koppelen aan de relevante ZAAK.
+
+
 ## Zaak afsluiten
 
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk

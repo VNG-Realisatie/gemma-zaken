@@ -26,7 +26,7 @@ Daarnaast blijken de user stories van Dimpact voor de MOR samen te vallen met ee
 
 
 ## Architectuurschets
-De architectuurschets geeft de nieuwe versie van Zaak- Documentservices 2.0 weer; deze bestaat in feite uit drie API specificaties, t.w. die voor Zaaktypen, Zaken en Documenten. Deze API's worden aangeboden (gerealiseerd) door resp. de componenten Zaaktypecatalogus (ZTC), Zaakregistratiecomponent (ZRC) en Documentregistratiecomponent (DRC). Hieronder staan twee architectuurmodellen. Het linker model geeft de specifieke situatie bij Dimpact weer met gebruik van de Atos e-Suite. Het rechter model geeft de situatie weer in het algemene geval.
+De architectuurschets geeft de nieuwe versie van Zaak- Documentservices 2.0 weer; deze bestaat in feite uit meerdere API-specificaties, waaronder die voor Zaaktypen, Zaken en Documenten. Deze API's worden aangeboden (gerealiseerd) door resp. de componenten Zaaktypecatalogus (ZTC), Zaakregistratiecomponent (ZRC) en Documentregistratiecomponent (DRC). Hieronder staan twee architectuurmodellen. Het linker model geeft de specifieke situatie bij Dimpact weer met gebruik van de Atos e-Suite. Het rechter model geeft de situatie weer in het algemene geval.
 
 | ![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/apis-componenten-dimpact.png?raw=true) | ![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/apis-componenten-generiek.png?raw=true) |
 | --- | --- |
@@ -36,22 +36,24 @@ De burger kan gebruik maken van een formulier om een melding te maken, maar ook 
 
 Medewerkers maken gebruik van het Medewerkerportaal van de e-Suite. Dit is in feite een generieke Zaakafhandelcomponent (ZAC).
 
-Managers maken ook gebruik van het Medewerkerportaal o.a. om de werkvoorraad te verdelen, te plannen en om de voortgang te bewaken. Hiervoor kunnen zij gebruik maken van managementrapportages die realtime informatie uit de ZRC verwerken.
+Managers maken ook gebruik van het Medewerkerportaal o.a. om de werkvoorraad te verdelen, te plannen en om de voortgang te bewaken. Hiervoor kunnen zij gebruik maken van managementrapportages die realtime informatie uit de MRC en ZRC verwerken.
 
 
 ## Beknopte Procesbeschrijving
 Het MOR-proces is een vrij eenvoudig proces dat start met een melding door de burger. De afhandeling door ketenpartners is niet uitgewerkt.
-1. Burger vult een formulier in of gebruikt een app om een melding openbare ruimte te doen. Hij kan daarbij zien welke meldingen al gedaan zijn in het gebied waarin hij zich bevindt. Ook kan hij een bestaande melding aanklikken om deze te "liken" (bevestigen).
-2. De medewerker krijgt de melding in zijn werkvoorraad en beoordeelt deze. Ook de medewerker kan de melding op een kaartje zien samen met andere meldingen in hetzelfde gebied. Als de melding voldoende gegevens bevat voor behandeling (en valt onder verantwoordelijkheid van de gemeente), dan maakt de medewerker een zaak aan.
-3. De zaak wordt voor behandeling doorgezet naar een medewerker, afdeling (of externe ketenpartner).
-4. Als de melding is afgehandeld krijgt de burger een terugmelding (bijv. via e-mail)
+1. Burger vult een formulier in of gebruikt een app om een melding openbare ruimte te doen. Hij kan daarbij zien welke meldingen al gedaan zijn in het gebied waarin hij zich bevindt. Ook kan hij een bestaande melding aanklikken om deze te "liken" (bevestigen). Bij een bestaande melding kan hij zijn gegevens achterlaten als hij op de hoogte wil worden gehouden van de afhandeling.
+2. De melding wordt geregistreerd in een Melding Registratie Component (MRC) inclusief alle benodigde specifieke velden zoals categorie, beschrijving van het probleem, etc.
+3. De medewerker krijgt de melding in zijn werkvoorraad en beoordeelt deze. Ook de medewerker kan de melding op een kaartje zien samen met andere meldingen in hetzelfde gebied. Als de melding voldoende gegevens bevat voor behandeling (en valt onder verantwoordelijkheid van de gemeente), dan maakt de medewerker een zaak aan.
+4. De zaak wordt voor behandeling doorgezet naar een medewerker, afdeling (of externe ketenpartner). In gerval van een ketenpartner wordt bij de ZRC van de ketenpartner (in geval deze ook zaakgericht werkt) een gerelateerde zaak aangemaakt.
+5. Als de melding is afgehandeld krijgt de burger een terugmelding (bijv. via e-mail)
 
 Deze procesbeschrijving overstijgt de user stories; deze kunnen a.h.w. geplaatst worden in het proces.
+
 
 ![Bedrijfsproces i.r.t. API's](./bestanden/Dimpact/mor-proces.png?raw=true)
 
 ### Managementrapportages
-Om het operationele proces voor het afhandelen van meldingen te kunnen sturen wordt gebruik gemaakt van managementrapportages die real-time informatie geven over meldingen geaggregeerd naar verschillende kenmerken zoals categorie, status, periode, service level, etc. De volgende typen rapportages worden in [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137) onderscheiden:
+Om het operationele proces voor het afhandelen van meldingen te kunnen sturen wordt gebruik gemaakt van managementrapportages die real-time informatie geven over meldingen, zaken en documenten geaggregeerd naar verschillende kenmerken zoals categorie, status, periode, service level, etc. De volgende typen rapportages worden in [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137) onderscheiden:
 1. Openstaande meldingen (periode van-tot)
 2. Meldingen per wijk en periode (periode van-tot en per jaar/maand/week/dag)
 3. Meldingen per wijk en categorie (periode van-tot en per jaar/maand/week/dag)
@@ -69,8 +71,8 @@ De architectuurschets van het proces is reeds in termen van GEMMA 2 referentieco
 | [User story #169](https://github.com/VNG-Realisatie/gemma-zaken/issues/169): Als burger wil ik een melding openbare ruimte kunnen doen zodat de gemeente deze kan behandelen. | DRC API, ZRC API | Ophalen meldingen in hetzelfde gebied, Het registreren van een melding (leidt tot een document/informatieobject) |
 | [User story #139](https://github.com/VNG-Realisatie/gemma-zaken/issues/139): Als medewerker wil ik weten waar welk type melding openbare ruimte (categorie) is gedaan zodat ik de melding kan doorzetten naar de juiste behandelaar of ketenpartner. | DRC API, ZRC API | Behandelaar aanpassen, status bijwerken, ophalen meldingen in hetzelfde gebied |
 | [User story #138](https://github.com/VNG-Realisatie/gemma-zaken/issues/138): Als gemeente wil ik een melding openbare ruimte over afval in het buitengebied automatisch laten routeren naar een afdeling of ketenpartner op basis van de locatie en de categorie van de melding zodat ik een efficiëntere bedrijfsvoering verkrijg. | DRC API | Behandelaar aanpassen, status bijwerken | 
-| [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137): Als manager wil ik een rapportage kunnen maken van meldingen in de openbare ruimte zodat ik kan achterhalen hoe vaak welke categorie meldingen in welke straat, buurt of wijk voorkomen. | ZRC API, DRC API, ZTC API | Selecties ophalen van zaken en/of documenten op basis van criteria als zaaktype, categorie, locatie, trefwoorden. Filteren op basis van servicenormen uit de ZTC |
-| [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan afhandelen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner). | ZRC API, DRC API | Zoeken naar meldingen op basis van zaaktype, locatie, categorie, etc.  ||
+| [User story #137](https://github.com/VNG-Realisatie/gemma-zaken/issues/137): Als manager wil ik een rapportage kunnen maken van meldingen in de openbare ruimte zodat ik kan achterhalen hoe vaak welke categorie meldingen in welke straat, buurt of wijk voorkomen. | ZRC API, DRC API, ZTC API, MRC API | Selecties ophalen van meldingen, zaken, en/of documenten op basis van criteria als zaaktype, categorie, locatie, trefwoorden. Filteren op basis van servicenormen uit de ZTC |
+| [User story #111](https://github.com/VNG-Realisatie/gemma-zaken/issues/111): Als behandelaar van een melding openbare ruimte wil ik kunnen zoeken naar zaken en contacten die betrekking hebben op meldingen in hetzelfde gebied van dezelfde categorie of over hetzelfde probleem gaan zodat ik dubbele meldingen kan afhandelen en meldingen kan plannen en routeren voor onze medewerkers in het veld (of voor een ketenpartner). | MRC API, ZRC API, DRC API | Zoeken naar meldingen en zaken op basis van locatie, categorie, etc.  ||
 
 
 
