@@ -16,7 +16,7 @@ Deze API omvat (vooralsnog) de resources Catalogussen, Zaaktypen, Informatieobje
 
 Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de gegevens (GET).
 
-### Resource: catalogus
+### Resource: Catalogussen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
         
 
 
-### Resource: zaaktype
+### Resource: Zaaktypen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -70,7 +70,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 
 
-### Resource: BESLUITTYPE
+### Resource: Besluittypen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -95,7 +95,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Samenhang      | - |
 | Bijzonderheden | - |
 
-### Resource: INFORMATIEOBJECTTYPE
+### Resource: Informatieobjecttypen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -121,7 +121,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Bijzonderheden | - |
 
 
-### Resource: eigenschap
+### Resource: Eigenschapen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -146,7 +146,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Samenhang      | Een relevant inhoudelijk gegeven dat bj ZAAKen van dit ZAAKTYPE geregistreerd moet kunnen worden en geen standaard kenmerk is van een ZAAK. |
 | Bijzonderheden | - |
       
-### Resource: roltype
+### Resource: Roltypen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -172,7 +172,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Bijzonderheden | Generieke aanduiding van de aard van een ROL die een BETROKKENE kan uitoefenen in ZAAKen van een ZAAKTYPE.       |
 
        
-### Resource: STATUSTYPE
+### Resource: Statustypen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
