@@ -27,18 +27,20 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | *Toevoegen*    |      |
 | - voorwaarde   | Het enkelvoudg document dient beschikbaar te zijn voordat dit toegevoegd kan worden aan de DRC         |
 | - gevolg       | Na het succesvol toevoegen wordt een verwijzing in de vorm van een URI naar het enkelvoudig document teruggeven aan de comsumer.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_create   | 
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Geen voorwaarden.  |
-| - gevolg       | Een lijst met identificaties van in de Documentregistratiecomponent opgeslagen informatieobjecten wordt geretourneerd.|
+| - gevolg       | Een overzicht van in de Documentregistratiecomponent opgeslagen informatieobjecten wordt geretourneerd.|
+| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_list   | 
 | *Raadplegen details*   |      |
 | - voorwaarde   | Bij het opvragen van een specifiek enkelvoudg informatieobject moet de identificatie van het informatieobject door de consumer aangeleverd worden.     |
-| - gevolg       | Een enkelvoudg informatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd. |
+| - gevolg       | Een enkelvoudg informatieobject geïdentificeerd door de aangeleverde identificatie wordt geretourneerd. |
 | Gegevens       | Objecttype ENKELVOUDIGINFORMATIEOBJECT inclusief relatie naar INFORMATIEOBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read   | 
 | Samenhang      | - |
@@ -56,15 +58,17 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | *Toevoegen*    |      |
 | - voorwaarde   | Zowel de verwijzing (URI) waarmee de zaak als de verwijzing (URI) waarmee het informatieobject geïdentificeerd kunnen worden moeten aangeleverd worden door de consumer.         |
 | - gevolg       | Na het toevoegen van een objectinformatieobject is het informatieobject gekoppeld aan een zaak.|
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_create   |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Geen voorwaarden   |
-| - gevolg       | Een lijst met identificaties van in de Documentregistratiecomponent opgeslagen objectinformatieobjecten wordt geretourneerd. |
+| - gevolg       | Een overzicht van in de Documentregistratiecomponent opgeslagen objectinformatieobjecten wordt geretourneerd. |
+| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_list   |
 | *Raadplegen detail*   |      |
 | - voorwaarde   | Bij het opvragen van een specifiek zaakinformatieobject moet de identificatie van het objectinformatieobject door de consumer aangeleverd worden.         |
 | - gevolg       | Het objectinformatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd.             |
