@@ -20,15 +20,15 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil informatie van alle beschikbare catalogussen of een specifieke catalogus opvragen.         |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| Aanleiding     | Een consumer wil informatie opvragen van alle beschikbare catalogussen of een specifieke catalogus.         |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Geen aanvullende voorwaarden gesteld.  |
@@ -48,18 +48,18 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil zaaktypeinformatie opvragen uit de catalogus.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.         |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.         |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om zaaktypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het zaaktype is opgenomen. |
-| - gevolg       | Een lijst met in de catalogus opgenomen zaaktypen wordt teruggegeven aan de consumer bij het opvragen van de lijst. |
+| - gevolg       | Een overzicht van zaaktypen zoals opgenomen in de catalogus wordt teruggegeven aan de consumer bij het opvragen van de lijst. |
 | *Raadplegen details*   |      |
 | - voorwaarde   | Om specifieke zaaktypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het zaaktype is opgenomen. Tevens moet de identficatie van het zaaktype wat uitgevraagd wordt bekend zijn. |
 | - gevolg       | Een specificiek zaaktype wordt teruggegeven aan de consumer.         |
@@ -75,18 +75,18 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil (gegevens van een) besluittype(n) opvragen.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bpalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om besluittypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het besluittype is opgenomen. |
-| - gevolg       | Een overzicht met besluittype informatie zoals opgenomen in de catalogus wordt teruggegeven.             |
+| - gevolg       | Een overzicht met besluittypen zoals opgenomen in de catalogus wordt teruggegeven.             |
 | *Raadplegen details*   |      |
 | - voorwaarde   | Om specifieke besluittypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het besluittype is opgenomen. Tevens moet de identficatie  van het besluittype wat uitgevraagd wordt bekend zijn. |
 | - gevolg       | Besluittypeinformatie zoals opgenomen in de catalogus wordt teruggegeven.             |
@@ -100,18 +100,18 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil informatieobjecttypeinformatie van de informatieobjecten zoals opgenomen in de catalogus van de organisatie opvragen.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Wijzigen*     | Nog niet beschikbaar.    |
+| - voorwaarde   | Nog tebepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om informatieobjecttypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het informatieobjecttypeinformatie is opgenomen. |
-| - gevolg       | Een overzicht van Informatieobjecttypeinformatie zoals opgenomen in de catalogus wordt teruggegeven.             |
+| - gevolg       | Een overzicht van Informatieobjecttypen zoals opgenomen in de catalogus wordt teruggegeven.             |
 | *Raadplegen details*   |      |
 | - voorwaarde   | Om details van informatieobjecttypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het informatieobjecttype is opgenomen. Tevens moet de identficatie van het informatieobjecttype wat uitgevraagd wordt bekend zijn. |
 | - gevolg       | Informatieobjecttypeinformatie zoals opgenomen in de catalogus wordt teruggegeven.             |
@@ -126,14 +126,14 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil alle eigenschappen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.             |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om eigenschapinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype de eigenschap is opgenomen. |
@@ -151,14 +151,14 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil alle roltypen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om roltypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype het roltype is opgenomen. |
@@ -177,14 +177,14 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Aanleiding     | Een consumer wil statustypeinformatie van een ZAAKTYPE zoals opgenomen in de CATALOGUS van de organisatie opvragen.           |
-| *Toevoegen*    |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Toevoegen*    | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Wijzigen*     |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Wijzigen*     | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  |      |
-| - voorwaarde   | Nog niet beschikbaar.  |
+| *Verwijderen*  | Nog niet beschikbaar.     |
+| - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Om statustypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype het statustype is opgenomen. |
