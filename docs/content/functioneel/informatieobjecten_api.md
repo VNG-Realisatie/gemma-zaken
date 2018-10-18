@@ -18,7 +18,7 @@ Deze API omvat (vooralsnog) de resources Enkelvoudiginformatieobject en Zaakinfo
 Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadplegen (GET), tenzij anders vermeld.
 
 
-### Resource: enkelvoudiginformatieobjecten
+### Resource: Enkelvoudiginformatieobjecten
 
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
@@ -39,7 +39,7 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | *Raadplegen details*   |      |
 | - voorwaarde   | Bij het opvragen van een specifiek enkelvoudg informatieobject moet de identificatie van het informatieobject door de consumer aangeleverd worden.     |
 | - gevolg       | Een enkelvoudg informatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd. |
-| Gegevens       | Enkelvoudige informatieobjecten <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
+| Gegevens       | Objecttype ENKELVOUDIGINFORMATIEOBJECT inclusief relatie naar INFORMATIEOBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read   | 
 | Samenhang      | - |
 | Bijzonderheden | Enkelvoudig Informatieobject is een subtype van Informatieobject. Beide objecttypen zijn "platgeslagen" zodat met het opvragen van een enkelvoudiginformatieobject ook de eigenschappen van het type informatieobject geretourneerd worden.
@@ -47,7 +47,7 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 
 
 
-### Resource: objectinformatieobjecten
+### Resource: Objectinformatieobjecten
 
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
@@ -67,8 +67,8 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | - gevolg       | Een lijst met identificaties van in de Documentregistratiecomponent opgeslagen objectinformatieobjecten wordt geretourneerd. |
 | *Raadplegen detail*   |      |
 | - voorwaarde   | Bij het opvragen van een specifiek zaakinformatieobject moet de identificatie van het objectinformatieobject door de consumer aangeleverd worden.         |
-| - gevolg       | Het zaakinformatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd.             |
-| Gegevens       | Zaakinformatieobjecten  <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
+| - gevolg       | Het objectinformatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd.             |
+| Gegevens       | Objecttype OBJECTINFORMATIEOBJECT inclusief relaties naar INFORMATIEOBJECT en OBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_read   |
-| Samenhang      | Om een objectinformatieobject toe te voegen dienen eerst zowel het object als het enkelvoudiginoformatieobject toegevoegd te worden. |
+| Samenhang      | Om een objectinformatieobject toe te voegen dienen zowel het object als het enkelvoudiginformatieobject te bestaan. |
 | Bijzonderheden | -  |
