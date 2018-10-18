@@ -11,7 +11,7 @@ menu:
 
 |datum|bijeenkomst|locatie|doelgroep|
 |---|---|---|---|
-|20 december 2018|Demo Sprint 7|Den Haag|Technisch|geïnteresseerden|
+|20 december 2018|Demo Sprint 7|Den Haag|Technisch geïnteresseerden|
 |22 november 2018|Demo Sprint 6|Rotterdam|Technisch geïnteresseerden|
 |25 oktober 2018|Demo Sprint 5|Amsterdam|Technisch geïnteresseerden|
 
