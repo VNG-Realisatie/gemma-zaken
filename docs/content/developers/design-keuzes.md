@@ -320,13 +320,13 @@ Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
 `ZAAKTYPE` heeft minimaal één `STATUSTYPE`. De eindstatus binnen een `ZAAKTYPE`
 is het `STATUSTYPE` met het hoogste `volgnummer`.
 
-Het toekennen van dit `STATUSTYPE` aan een `ZAAK` bepaald ook een logisch af te 
+Het toekennen van dit `STATUSTYPE` aan een `ZAAK` bepaalt ook een logisch af te
 leiden `ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus
-is toegekend. `ZAAK.einddatum` is daarom ook een alleen-lezen attribuut van een 
+is toegekend. Om die reden is `ZAAK.einddatum` een alleen-lezen attribuut van
 `ZAAK`.
 
 Als een `ZAAK` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
-van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit 
+van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
 is voorlopig een verantwoordelijkheid van de consumer en/of autorisatielaag.
 
 In API-calls, kan de flow er als volgt uit zien:
@@ -382,10 +382,10 @@ HTTP 200
 
 **Rationale**
 
-In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over 
+In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over
 hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
-Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste 
-`volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de 
+Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste
+`volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de
 `ZAAK`).
 
 Er is echter behoefte aan een consistente manier om zaken af te sluiten. In
