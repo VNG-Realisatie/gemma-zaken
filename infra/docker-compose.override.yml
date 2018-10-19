@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  zrc_web:
+    ports:
+      - 8000:8000
+
+  drc_web:
+    ports:
+      - 8001:8000
+
+  ztc_web:
+    ports:
+      - 8002:8000
