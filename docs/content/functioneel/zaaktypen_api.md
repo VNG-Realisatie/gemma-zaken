@@ -121,7 +121,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | Bijzonderheden | - |
 
 
-### Resource: Eigenschapen
+### Resource: Eigenschappen
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
