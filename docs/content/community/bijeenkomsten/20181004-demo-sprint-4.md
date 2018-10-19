@@ -22,7 +22,7 @@ NB: Mogelijk zou dit in één gecombineerde "convenience method" opgenomen kunne
 
 #### Wanneer een document bij een besluit hoort, moet dit dan zowel aan de zaak als het besluit gekoppeld worden? Deze opzet betekent dat de componenten (ZRC en DRC) elkaar moeten kunnen bereiken?
 
-Dat klopt inderdaad. Mogelijk spelen hier ook nog authenticatie en autorisatie issues mee, dit zullen we moeten bekijken. Autorisatie en Authenticatie staat voor de komende sprint (5) op het programma.
+Dat klopt inderdaad. Mogelijk spelen hier ook nog authenticatie en autorisatie-uitdagingen mee, dit zullen we moeten bekijken. Autorisatie en Authenticatie staat voor de komende sprint (5) op het programma.
 
 #### Moet deze invulling extra eisen stellen aan het compliant zijn?
 
@@ -81,17 +81,31 @@ in het ZTC toe te passen.
 (principe CG om technisch mogelijk te maken dat dit kan)
 
 #### Deze manier van werken vereist business logca, niet meer alleen opslaan zoals nu in de standaard staat.
-Dit klopt inderdaad.Door deze business logica te beschrijven wordt het gemakkelijker bovenop deze standaarden te ontwikkelen. Punt van aandacht is wel dat er gradaties zijn van wat een gemeente verstaat onder "zaakgericht werken". Omdat er nooit goed opgeschreven is wat er wel/niet onder verstaan wordt is een doelstelling om deze onduidelijkheid weg te nemen. In ieder geval moet de kern vastgelegd worden waar we het over eens zijn waarbij het belangrijk is de consistentie regels op te nemen.
+
+Dit klopt inderdaad. Door deze business logica te beschrijven wordt het gemakkelijker bovenop deze standaarden te ontwikkelen. Punt van aandacht is wel dat er gradaties zijn van wat een gemeente verstaat onder "zaakgericht werken". Omdat er nooit goed opgeschreven is wat er wel/niet onder verstaan wordt is een doelstelling om deze onduidelijkheid weg te nemen. In ieder geval moet de kern vastgelegd worden waar we het over eens zijn waarbij het belangrijk is de consistentieregels op te nemen.
 
 #### Hoe worden designkeuzes bepaald en vastgelegd?
-Dit zijn we nog aan het ontdekken. Weliswaar zit het in de mens om hiervoor een procedure voor te bedenken ("zo gaan we het doen") maar het belangrijkste is elkaar op te zoeken en te overleggen waar nodig is.
+
+Dit zijn we nog aan het ontdekken. Weliswaar zit het in de mens om hiervoor een procedure te bedenken ("zo gaan we het doen") maar het belangrijkste is elkaar op te zoeken en te overleggen waar nodig is.
 
 #### Wordt een Besluit niet meer gezien als een subtype van een Informatieobject?
-Een Besluit is een zelfstandig concept, een Informatieobject is een manier om het Besluit kenbaar te maken maar een ander concept.
+
+BESLUIT is nooit een subtype van INFORMATIEOBJECT geweest. Een Besluit is een
+zelfstandig concept met kenmerken als besluitdatum en werkingsperiode. Een
+Informatieobject is een ander concept waarin alleen de inhoud van het
+besluit wordt vastgelegd.
 
 #### Zijn bijvoorbeeld informatiemanagers geïnteresseerd in het soort documentatie zoals die nu gemaakt wordt?
 
-Antwoord: Dat is precies de vraag die wij proberen te (laten) beantwoorden. In de werkgroep zitten veelal techneuten en inhoudsdeskundigen waardoor het lastig in te schatten is of documentatie diep genoeg of juist niet te diep gaat en of niet teveel kennis verondersteld wordt aanwezig te zijn. De documentatie die er nu is wordt gegenereerd uit de OAS en is voor niet-technische mensen begrijpelijker dan de OAS.
+Dat is precies de vraag die wij proberen te (laten) beantwoorden. In de werkgroep zitten veelal techneuten en inhoudsdeskundigen waardoor het lastig in te schatten is of documentatie diep genoeg of juist niet te diep gaat en of niet teveel kennis verondersteld wordt aanwezig te zijn. De documentatie die er nu is wordt gegenereerd uit de OAS en is voor niet-technische mensen begrijpelijker dan de OAS.
+
+We werken aan functionele documentatie, onder meer om zicht te krijgen op de behoefte daaraan en invulling daarvan, zie bijvoorbeeld:
+
+* https://github.com/VNG-Realisatie/gemma-zaken/pull/451
+* https://github.com/VNG-Realisatie/gemma-zaken/pull/457
+* https://github.com/VNG-Realisatie/gemma-zaken/pull/476
+
+De huidige versie hiervan staat op github: https://github.com/VNG-Realisatie/gemma-zaken/tree/master/docs/content/functioneel
 
 #### Documenten heten inmiddels informatieobjecten, waarom heet de DRC nog steeds Documentregistratiecomponent?
 
