@@ -15,14 +15,31 @@ Slides: [ZDS2 Demo Spint 3.pdf](/community/bestanden/zds2-demo-sprint-3.pdf)
 
 ## Feedback
 
-Alle reacties tijdens de demo zijn hieronder opgenomen, in de categoriën 'proces' en 'inhoudelijk'. Waar nodig zijn issues aangemaakt. Dit zijn de antwoorden van het scrum team.
+Alle reacties en vragen tijdens de demo zijn hieronder opgenomen. Waar nodig zijn issues aangemaakt. Dit zijn de antwoorden van het scrumteam. 
 
+#### Hoe wordt samenhang tussen de verschillende initiatieven en projecten bewaakt?
+todo
 
-### Proces
+#### Komt documentatie in het Engels?
+todo
 
-#### [Aan te vullen...]
+##### Zijn de API Calls in het Engels?
+todo
 
+##### Zijn er al user stories op de backlog staan die al kunnen?
+todo
 
-### Inhoudelijk
+#### Wordt HAL gebruikt?
+todo
 
-#### [Aan te vullen...]
+#### Is er al gewerkt aan authenticatie en indentitificatie?
+todo
+
+#### Mag ik als leverancier of stakeholders een pull request doen?
+todo
+
+#### Staan de designkeuzes vast?
+todo
+
+#### Waar kan ik de designkeuze vinden?
+todo
