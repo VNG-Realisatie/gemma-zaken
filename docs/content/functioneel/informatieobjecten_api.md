@@ -57,7 +57,7 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | Aanleiding     | Een consumer wil objectinformatieobjecten opvragen uit of een objectinformatieobject toevoegen aan de documentregistratiecomponent DRC.            |
 | *Toevoegen*    |      |
 | - voorwaarde   | Zowel de verwijzing (URI) waarmee de zaak als de verwijzing (URI) waarmee het informatieobject geïdentificeerd kunnen worden moeten aangeleverd worden door de consumer.         |
-| - gevolg       | Na het toevoegen van een objectinformatieobject is het informatieobject gekoppeld aan een zaak.|
+| - gevolg       | Na het toevoegen van een objectinformatieobject is het informatieobject gekoppeld aan een ander object, zoals een zaak of een besluit.|
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_create   |
 | *Wijzigen*     | Nog niet beschikbaar.     |
 | - voorwaarde   | Nog te bepalen.         |
