@@ -40,7 +40,7 @@ Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadp
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_list   | 
 | *Raadplegen details*   |      |
 | - voorwaarde   | Bij het opvragen van een specifiek enkelvoudg informatieobject moet de identificatie van het informatieobject door de consumer aangeleverd worden.     |
-| - gevolg       | Een enkelvoudg informatieobject geïdentificeerd door de aangeleverde identificatie wordt geretourneerd. |
+| - gevolg       | Een enkelvoudig informatieobject geïdentificeerd door de aangeleverde identificatie wordt geretourneerd. |
 | Gegevens       | Objecttype ENKELVOUDIGINFORMATIEOBJECT inclusief relatie naar INFORMATIEOBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read   | 
 | Samenhang      | - |
