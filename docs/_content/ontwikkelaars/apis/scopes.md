@@ -4,7 +4,15 @@
 - roltypen
 - AVG/privacy
 
+## Algemeen
+[bijdrage Arjan]<br>
+De mogelijkheden voor een gebruiker om gegevens van een object, zoals Zaak 1234 of Document Abcd, te mogen raadplegen en bewerken (cq. om een operatie op een - voorkomen in een - resource uit te voeren) hangen m.i. af van (minimaal) vier factoren.
+1) **_De categorie van het object_**. Bijvoorbeeld het zaaktype van een zaak, of een zaak al dan niet beeindigd is, etc. Zo zal een gebruiker veelal slechts zaken van bepaalde zaaktypen mogen raadplegen, of alleen onderhanden zaken. 
+2) **_De betrokkenheid van de gebruiker bij het object_**. Voor sommige objecten kan hiervan sprake zijn, bijvoorbeeld zaken (betrokkenen in rollen), veelal is hiervan voor andere objecten geen sprake (zoals zaaktype). Zo zijn de mogelijheden voor een gebruiker zijnde een Behandelaar van een Zaak anders dan een Initiator van een zaak en geheel anders dan een gebruiker die geen Rol heeft als Betrokkene bij de zaak. 
+3) **_De categorie van het gegeven (van het object)_** De gebruiker wil iets met een gegeven (of relatie) van het object (of met een groep gegevens). Met het ene gegeven zal hij/zij meer mogen dan met een ander gegeven. Het maakt bijvoorbeeld nogal uit of het om persoonsgegevens gaat of om archiveringsgegevens. 
+4) **_De mate van vertrouwelijkheid van het gegeven (van het object)_**. Ook al zou een gebruiker op grond van de voorgaande factoren het gegeven mogen raadplegen, dan nog kan het zijn dat hij/zij dat vanwege een bepaalde mate van vertrouwelijkheid toch niet mag.
 
+[uitwerken op de dwarsdoorsnedes van deze factoren, te beginnen met rollen versus vertrouwelijkheidniveau's]
 
 
 ## Op basis van roltype:
