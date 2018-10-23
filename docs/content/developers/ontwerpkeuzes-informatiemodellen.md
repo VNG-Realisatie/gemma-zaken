@@ -1,3 +1,5 @@
+## Aanpassingen RGBZ en ImZTC
+
 Bij het ontwikkelen van de API's aan de hand van user-story's kan voortschrijdend inzicht er toe leiden dat in de API cq. resource afgeweken wordt van het desbetreffende informatiemodel, i.c. RGBZ of ImZTC. Het desbetreffende informatiemodel moet daarop aangepast worden. Ook kan een (generieke) ontwerpkeuze (zie [hier](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/content/developers/design-keuzes.md)) als consequentie hebben dat een informatiemodel aangepast moet worden. 
 Hieronder vermelden we de gemaakte keuzes tot aanpassing van RGBZ en ImZTC. 
 
