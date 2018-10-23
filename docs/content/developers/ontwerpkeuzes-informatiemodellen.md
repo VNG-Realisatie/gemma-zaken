@@ -2,7 +2,7 @@ Bij het ontwikkelen van de API's aan de hand van user-story's kan voortschrijden
 Hieronder vermelden we de gemaakte keuzes tot aanpassing van RGBZ en ImZTC. 
 
 [nog uit te werken:]
-- Einddatum van zaak als afgeleid gegeven
+- Einddatum van zaak als afgeleid gegeven (en STATUSTYPE in ImZTC met hoogste volgnummer is laatste status). 
 - Omschrijving-attributen niet meer AN1000 maar AN ('string')
 - Richting van relatie ZAAK - INFORMATIEOBJECT omdraaien
 - Richting van relatie BESLUIT - INFORMATIEOBJECT omdraaien 
