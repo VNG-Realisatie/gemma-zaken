@@ -439,6 +439,7 @@ is voorlopig een verantwoordelijkheid van de consumer en/of autorisatielaag.
 In API-calls, kan de flow er als volgt uit zien:
 
 1. Consumer wil onderstaande `ZAAK` afsluiten:
+
 ```javascript
 GET /zrc/api/v1/zaken/12345
 
@@ -450,6 +451,7 @@ HTTP 200
 ```
 
 2. Consumer wil onderstaande eindstatus zetten:
+
 ```javascript
 GET /ztc/api/v1/catalogus/12345/statustypen?zaaktype=/ztc/api/v1/zaaktype/44912
 
@@ -457,32 +459,36 @@ HTTP 200
 [{
     "uuid": 99321,
     "volgnummer": 1,
+    "isEindstatus": false,
     // ...
 },{
     "uuid": 67890,
     "volgnummer": 2,  # Het laatste STATUSTYPE binnen dit ZAAKTYPE
+    "isEindstatus": true,
     // ...
 }]
 ```
 
 3. Consumer werkt een `ZAAK` bij met de eindstatus:
+
 ```javascript
 POST /zrc/api/v1/zaakstatussen
 {
     "zaak": "/zrc/api/v1/zaken/45678",
     "statustype": "/ztc/api/v1/catalogus/12345/statustypen/67890",
-    "datumStatusGezet": "2018-10-8T12:23:07+01:00",
+    "datumStatusGezet": "2018-10-08T12:23:07+01:00",
     // ...
 }
 ```
 
 4. Consumer haalt de `ZAAK` opnieuw op:
+
 ```javascript
 GET /zrc/api/v1/zaken/12345
 
 HTTP 200
 {
-    "eindDatum": "2018-10-8T12:23:07+01:00",
+    "einddatum": "2018-10-08",
     // ...
 }
 ```
