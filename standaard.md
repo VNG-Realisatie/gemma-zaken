@@ -168,12 +168,17 @@ een `HTTP 400` foutbericht.
 
 #### Valideren relatieinformatie op `ObjectInformatieObject`-resource
 
-De resource bevat de velden `titel`, `beschrijving` en `registratiedatum`. Deze
-velden zijn enkel van toepassing op het `objectType` `zaak` en moeten genegeerd
-worden bij het `objectType` `besluit`.
+De resource bevat de velden `titel` en `beschrijving`. Deze velden zijn enkel
+van toepassing op het `objectType` `zaak` en moeten genegeerd worden bij het
+`objectType` `besluit`.
 
-De `registratiedatum`, indien relevant, moet gevalideerd worden zodat die niet
-in de toekomst kan liggen.
+De `registratiedatum` moet door het systeem gezet worden op het moment van
+aanmaken.
+
+Bij het updaten (`objectinformatieobject_update` en
+`objectinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
+te wijzingen. Bij andere waardes voor de attributen `object`, `objectType` en
+`informatieobject` MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
 #### Synchroniseren relaties met informatieobjecten
 
@@ -202,8 +207,7 @@ Een voorbeeld met een object van het type `ZAAK`:
         "object": "https://zrc.nl/api/v1/zaken/456789",
         "objectType": "zaak",
         "titel": "",
-        "beschrijving": "",
-        "registratiedatum": "2018-09-19T17:57:08+0200"
+        "beschrijving": ""
     }
     ```
 
