@@ -314,6 +314,113 @@ Conceptueel is dit precies zoals het moet zijn. Echter, voortschrijdend inzicht,
 Concreet voorbeeld is een consumer die een lijst van ZAKEN van verschillende ZAAKTYPEN laat zien en daar het STATUSTYPE bij wil laten zien. Conceptueel bevind een STATUSTYPE zich altijd binnen ZAAKTYPE (in het ImZTC). Echter, dit zou in het voorbeeld betekenen dat we voor elk ZAAKTYPE dat voorkomt in de lijst van ZAKEN, een aparte call gemaakt moet worden om de STATUSTYPEs op te halen. Veel efficienter is het om in 1x een lijst van STATUSTYPEN op te halen en de consumer deze te koppelen aan de relevante ZAAK.
 
 
+## Vertaling van relaties
+
+Een 0-op-N of 1-op-N relatie tussen objecttypen A en B in een informatiemodel
+zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een REST API door een
+hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de
+relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar
+de gerelateerde resource A. Dit is het principe van 'linked data'.
+
+Bijvoorbeeld in het RGBZ kan een zaak kan nul of meer statussen hebben en een
+status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N
+relatie tussen `Zaak` en `Status`. De resource `Status` bevat naast zijn eigen
+gegevens het (toegevoegde) veld `"zaak"` dat de url naar de resource van de
+gerelateerde zaak bevat.
+
+Opmerking: We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen
+eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
+
+Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe
+resource R die fungeert als een kruistabel zoals in databases. De resource R
+bevat de volgende velden:
+
+* url naar zichzelf (resource R),
+* url naar resource A,
+* url naar resource B,
+* de gegevens van de relatie zelf (als die er zijn).
+
+Het voordeel om een N-op-M relatie als resource te vertalen is dat je `POST` en
+`DELETE` operaties kunt uitvoeren om relaties toe te voegen of te verwijderen.
+Als je dat niet doet en je de relaties bijvoorbeeld bijhoudt bij één of beide
+gerelateerde resources, dan belandt je al snel in een minder handige situtie
+waabij je de `PATCH` (of `PUT`)-operaties moet gebruiken om het lijstje met
+hyperlinks naar de gerelateerde resources bij te werken.
+
+Bijvoorbeeld in het RGBZ is de relatie tussen `Zaak` en `Informatieobject` N-op-M.
+Deze relatie is vertaald naar de resource `ZaakInformatieObject` met de
+volgende velden:
+
+* url (hyperlink naar zichzelf),
+* zaak (hyperlink naar de gerelateerde zaak),
+* informatieobject (hyperlink naar het gerelateerde informatieobject).
+
+In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistribueerd
+over meerdere ZRC- en DRC-instanties en daarmee een speciaal geval. Zie
+[Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
+voor de designkeuzes hierbij.
+
+
+## Many-to-many relaties verspreid over API's
+
+Deze beslissing komt voort uit
+[issue #166](https://github.com/VNG-Realisatie/gemma-zaken/issues/166).
+
+Tussen twee componenten A en B (met component A de component waar in het IM de
+relatie naar component B loopt), wordt de relatie in beide componenten
+bewaard. Eventuele metagegevens (extra informatie op de relatie) komt in
+component A te liggen, en component B bevat _enkel_ de relatieinformatie zelf.
+
+Dit is een technische oplossing zodat beide componenten de relaties kunnen
+opvragen zonder alle (mogelijks honderden) componenten af te moeten lopen om
+te vragen of ze een relatie hebben.
+
+Een consumer maakt 1x een relatie aan, tussen component A en B, met
+metagegevens over de relatie in component A. Component A is vervolgens
+verantwoordelijk om de relatie in component B aan te maken.
+
+We stemmen de `objectTypes` af zodat die mappen op de namen van resources om
+generieke synchronisatieimplementaties mogelijk te maken.
+
+Component B moet dan aan de volgende spelregels voldoen:
+
+- de naam van de resource is `{resourceB}{resourceA}`, in component B
+- de resource wordt genest ontsloten binnen `ResourceB`
+- de resource accepteert een URL-veld met de naam `resourceA`
+
+Deze spelregels en interactie worden actief getest in de
+[integratietests](https://github.com/vng-Realisatie/gemma-zaken-test-integratie)
+om compliancy af te kunnen dwingen.
+
+Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een
+`ZAAK` in het ZRC:
+
+1. De consumer maakt in het DRC een relatie (met polymorfe relatieinformatie):
+
+    ```http
+    POST https://drc.nl/api/v1/objectinformatieobjecten
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "object": "https://zrc.nl/api/v1/zaken/456789",
+        "objectType": "zaak",
+        "titel": "",
+        "beschrijving": "",
+        "registratiedatum": "2018-09-19T17:57:08+0200"
+    }
+    ```
+
+2. Het DRC doet vervolgens een request naar het ZRC (op basis van de URL van `object`):
+
+    ```http
+    POST https://zrc.nl/api/v1/zaken/456789/zaakinformatieobjecten
+
+    {
+       "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+    }
+    ```
+
+
 ## Zaak afsluiten
 
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
