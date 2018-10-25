@@ -1916,6 +1916,7 @@ components:
       - informatieobject
       - object
       - objectType
+      - aardRelatie
       type: object
       properties:
         url:
@@ -1940,6 +1941,17 @@ components:
           enum:
           - besluit
           - zaak
+        aardRelatie:
+          title: Aard relatie
+          type: string
+          enum:
+          - hoort_bij
+          - legt_vast
+        aardRelatieWeergave:
+          title: Aard relatie weergave
+          type: string
+          readOnly: true
+          minLength: 1
         titel:
           title: Titel
           description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
