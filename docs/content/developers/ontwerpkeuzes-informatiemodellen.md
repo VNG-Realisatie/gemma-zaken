@@ -5,6 +5,11 @@ Hieronder vermelden we de gemaakte keuzes tot aanpassing van RGBZ en ImZTC.
 
 [nog uit te werken:]
 - Einddatum van zaak als afgeleid gegeven (en STATUSTYPE in ImZTC met hoogste volgnummer is laatste status). 
-- Omschrijving-attributen niet meer AN1000 maar AN ('string')
+- Omschrijving- en Toelichting-attributen niet meer AN1000 maar AN ('string'); ook BESLUIT.Publicatietekst
 - Richting van relatie ZAAK - INFORMATIEOBJECT omdraaien
 - Richting van relatie BESLUIT - INFORMATIEOBJECT omdraaien 
+- Formele historie op relaties van BESLUIT: ze kunnen gewijzigd worden
+- BESLUIT kan vastgelegd zijn als: regel dat het info-object aan dezelfde zaak gekoppeld moet zijn als het Besluit (nog niet in API)
+- BESLUITTYPE: referentielijsten bij Categorie en Generieke omschrijving (nog niet in API)
+- BESLUIT.Besluitdatum: in Patroon 'en tijd' weg (het gaat alleen om de datum).
+
