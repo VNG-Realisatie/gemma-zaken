@@ -32,11 +32,11 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | - gevolg       | Nog te bepalen.             |
 | *Raadplegen lijst*   |      |
 | - voorwaarde   | Geen aanvullende voorwaarden gesteld.  |
-| - gevolg       | Een lijst met beschikbare catalogussen wordt teruggegeven aan de consumer bij het opvragen van de lijst. |
+| - gevolg       | De beschikbare catalogussen worden teruggegeven aan de consumer. |
 | *Raadplegen details*   |      |
 | - voorwaarde   | De identificatie van de catalogus die opgevraagd wordt moet bekend zijn.  |
 | - gevolg       | Een specificieke catalogus wordt teruggegeven aan de consumer. |
-| Gegevens       | objecttype CATALOGUS inclusief een lijst met relaties naar daarin gedefinieerde ZAAKTYPEn.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
+| Gegevens       | Objecttype CATALOGUS inclusief relatie naar ZAAKTYPEn.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen                                                                                                   |
 | Samenhang      | - |
 | Bijzonderheden | - |
@@ -63,7 +63,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | *Raadplegen details*   |      |
 | - voorwaarde   | Om specifieke zaaktypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus het zaaktype is opgenomen. Tevens moet de identficatie van het zaaktype wat uitgevraagd wordt bekend zijn. |
 | - gevolg       | Een specificiek zaaktype wordt teruggegeven aan de consumer.         |
-| Gegevens       | Objecttype ZAAKTYPE inclusief STATUSTYPEn, EIGENSCHAPpen en ROLTYPEn<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
+| Gegevens       | Objecttype ZAAKTYPE inclusief relaties naar STATUSTYPEn, EIGENSCHAPpen en ROLTYPEn<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_read                                                                                |
 | Samenhang      | - |
 | Bijzonderheden | - |
@@ -99,7 +99,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil informatieobjecttypeinformatie van de informatieobjecten zoals opgenomen in de catalogus van de organisatie opvragen.            |
+| Aanleiding     | Een consumer wil informatie opvragen van één of meer informatieobjecttypen die voorkomen in een zaaktypecatalogus van de organisatie.            |
 | *Toevoegen*    | Nog niet beschikbaar.     |
 | - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
@@ -150,7 +150,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil alle roltypen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.            |
+| Aanleiding     | Een consumer wil informatie opvragen van een specifiek roltype of van alle roltypen van een zaaktype zoals opgenomen in de catalogus van de organisatie.            |
 | *Toevoegen*    | Nog niet beschikbaar.     |
 | - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
@@ -166,7 +166,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 | *Raadplegen details*   |      |
 | - voorwaarde   | Om roltypeinformatie op te kunnen vragen moet de consumer weten in welke catalogus en bij welk zaaktype het roltype is opgenomen. Tevens moet de identficatie van het roltype wat uitgevraagd wordt bekend zijn. |
 | - gevolg       | Roltypeinformatie wordt teruggegeven aan de consumer.             |
-| Gegevens       | Objecttype ROLTYPE <br>Zie de volgende tabel voor de gegevens van deze resource                                 |
+| Gegevens       | Objecttype ROLTYPE inclusief relatie naar het ZAAKTYPE waar het ROLTYPE bij hoort.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
 | Specificaties  | https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_read                                                                                                   |
 | Samenhang      | - |
 | Bijzonderheden | - |
@@ -176,7 +176,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil statustypeinformatie van een ZAAKTYPE zoals opgenomen in de CATALOGUS van de organisatie opvragen.           |
+| Aanleiding     | Een consumer wil informatie opvragen van een specifiek statustype of van alle statustypen van een zaaktype zoals opgenomen in de catalogus van de organisatie.           |
 | *Toevoegen*    | Nog niet beschikbaar.     |
 | - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
