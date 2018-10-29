@@ -974,6 +974,14 @@ components:
           - tijdelijk
           - ingetrokken_overheid
           - ingetrokken_belanghebbende
+        vervalredenWeergave:
+          title: Vervalreden weergave
+          type: string
+          enum:
+          - Besluit met tijdelijke werking
+          - Besluit ingetrokken door overheid
+          - Besluit ingetrokken o.v.v. belanghebbende
+          readOnly: true
         publicatiedatum:
           title: Publicatiedatum
           description: Datum waarop het besluit gepubliceerd wordt.
