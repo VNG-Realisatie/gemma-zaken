@@ -949,7 +949,6 @@ components:
           title: Toelichting
           description: Toelichting bij het besluit.
           type: string
-          maxLength: 1000
         bestuursorgaan:
           title: Bestuursorgaan
           description: Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld
