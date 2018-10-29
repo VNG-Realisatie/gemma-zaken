@@ -307,7 +307,15 @@ paths:
       - objectinformatieobjecten
     post:
       operationId: objectinformatieobject_create
-      description: 'Registreer een INFORMATIEOBJECT bij een OBJECT.
+      description: 'Registreer een INFORMATIEOBJECT bij een OBJECT. Er worden twee
+        types van
+
+        relaties met andere objecten gerealiseerd:
+
+
+        * INFORMATIEOBJECT behoort bij [OBJECT] en
+
+        * INFORMATIEOBJECT is vastlegging van [OBJECT].
 
 
         Er wordt gevalideerd op:
@@ -319,7 +327,9 @@ paths:
         - de combinatie informatieobject en object moet uniek zijn
 
 
-        De registratiedatum wordt door het systeem op ''NU'' gezet.
+        De registratiedatum wordt door het systeem op ''NU'' gezet. De aard_relatie
+
+        wordt ook door het systeem gezet.
 
 
         Bij het aanmaken wordt ook in de bron van het OBJECT de gespiegelde
@@ -327,9 +337,9 @@ paths:
         relatie aangemaakt, echter zonder de relatie-informatie.
 
 
-        Titel en beschrijving zijn enkel relevant als het om een
+        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
 
-        object van het type ZAAK gaat.'
+        object van het type ZAAK gaat (aard relatie "hoort bij").'
       responses:
         '201':
           description: ''
@@ -475,9 +485,9 @@ paths:
         - informatieobject URL, object URL en objectType mogen niet veranderen
 
 
-        Titel en beschrijving zijn enkel relevant als het om een
+        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
 
-        object van het type ZAAK gaat.'
+        object van het type ZAAK gaat (aard relatie "hoort bij").'
       responses:
         '200':
           description: ''
@@ -1916,7 +1926,6 @@ components:
       - informatieobject
       - object
       - objectType
-      - aardRelatie
       type: object
       properties:
         url:
@@ -1941,17 +1950,13 @@ components:
           enum:
           - besluit
           - zaak
-        aardRelatie:
-          title: Aard relatie
-          type: string
-          enum:
-          - hoort_bij
-          - legt_vast
         aardRelatieWeergave:
           title: Aard relatie weergave
           type: string
+          enum:
+          - 'Hoort bij, omgekeerd: kent'
+          - 'Legt vast, omgekeerd: kan vastgelegd zijn als'
           readOnly: true
-          minLength: 1
         titel:
           title: Titel
           description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
