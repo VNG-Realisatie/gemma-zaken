@@ -9,7 +9,10 @@ Amsterdam, 25 oktober 2018
 - Techniek sprint 5 (@sergei-maertens & @joeribekker)
 - Aanpassingen RGBZ (@ArjanKloosterboer)
 
-Slides: [ZDS2 Demo Spint 5.pdf](/community/bestanden/zds2-demo-sprint-5.pdf)
+Slides:
+
+* [ZDS2 Demo Spint 5.pdf](/community/bestanden/zds2-demo-sprint-5.pdf)
+* [Opsplitsen RGBZ](/community/bestanden/opsplitsen-rgbz.pdf))
 
 ## Feedback
 
