@@ -772,7 +772,7 @@ paths:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
       responses:
         '200':
@@ -1108,7 +1108,7 @@ paths:
     get:
       operationId: catalogus_read
       description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
-        \ - voor een Domein die als \xC3\xA9\xC3\xA9n geheel beheerd\nwordt."
+        \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
       responses:
         '200':
           description: ''
@@ -1349,7 +1349,6 @@ components:
           description: De generieke tekst van de publicatie van BESLUITen van dit
             BESLUITTYPE
           type: string
-          maxLength: 1000
         publicatietermijn:
           title: Publicatietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
@@ -1359,7 +1358,6 @@ components:
           title: Toelichting
           description: Een eventuele toelichting op dit BESLUITTYPE.
           type: string
-          maxLength: 1000
         informatieobjecttypes:
           type: array
           items:
@@ -1609,7 +1607,7 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
         mogelijkeBetrokkenen:
           type: array
