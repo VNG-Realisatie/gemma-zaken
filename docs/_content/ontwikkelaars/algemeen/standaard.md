@@ -18,6 +18,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Definities](#definities)
+- [Gegevensformaten](#gegevensformaten)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -56,6 +57,16 @@ Voorbeelden van geldige URLs:
 
 De service-naar-service communicatie MOET het schema opvragen om operaties op
 resources uit te voeren.
+
+## Gegevensformaten
+
+Een aantal formaten zijn nog niet formeel vastgelegd in OAS of JSON-Schema,
+echter deze worden wel binnen de ZDS APIs gebruikt en opgelegd.
+
+### Duur
+
+Een duur (EN: duration) MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+uitgedrukt worden.
 
 ## Zaakregistratiecomponent
 
