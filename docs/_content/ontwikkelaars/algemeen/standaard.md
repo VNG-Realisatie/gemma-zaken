@@ -285,14 +285,16 @@ aanscherpen)
 
 #### Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource
 
-Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
-`besluit_partial_update`) MOET gevalideerd worden dat de combinatie `identificatie`
-en `verantwoordelijke_organisatie` uniek is, indien de `identificatie` door de consumer
-meegestuurd wordt.
+Bij het aanmaken (`besluit_create`) MOET gevalideerd worden dat de combinatie
+`identificatie` en `verantwoordelijke_organisatie` uniek is, indien de
+`identificatie` door de consumer meegestuurd wordt.
 
 Indien de identificatie niet door de consumer gestuurd wordt, dan MOET het BRC
 de identificatie genereren op een manier die garandeert dat de identificatie
 uniek is binnen de verantwoordelijke_organisatie.
+
+Bij het bijwerken (`besluit_update` en `besluit_partial_update`) is het NIET
+TOEGESTAAN om `identificatie` en `verantwoordelijke_organisatie` te wijzingen.
 
 #### Valideren `informatieobject` op de `BesluitInformatieObject`-resource
 
