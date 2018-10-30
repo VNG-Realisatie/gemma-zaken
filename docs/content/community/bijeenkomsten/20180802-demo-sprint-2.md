@@ -20,7 +20,7 @@ Alle reacties tijdens de demo zijn hieronder opgenomen, in de categoriën 'proce
 
 ### Proces
 
-#### Wanneer is de nieuwe standaard klaar / bruikbaar?
+#### Wanneer is de nieuwe standaard klaar/bruikbaar?
 Het is aan VNG Realisatie (als beheerder van de standaard) om ZDS 2.0 tot standaard te verheffen. Vooralsnog zijn de API's daar nog niet klaar voor. Daarnaast moet VNG Realisatie met de leveranciers nog bedenken hoe het vaststellen van dit type nieuwe standaarden precies werkt. Input is welkom op dit onderwerp! Voorzien is dat het scrum team in ieder geval een half jaar aan ZDS 2.0 werkt, tot eind 2018. Daarbij is de verwachting dat de API's al eerder bruikbaar zijn, maar wellicht nog niet tot standaard verheven.
 
 
@@ -61,7 +61,7 @@ Op dit moment wordt opportunistisch geprioriteerd, omdat feedback van gebruikers
 De zes demo's zijn ieder gepland in een gemeente die betrokken is bij het opstellen van de standaard. Op deze manier houden we de kosten van de organisatie laag en de betrokkenheid van de deelnemende gemeenten groot.
 
 
-#### Dit soort demo's is leuk / zinvol
+#### Dit soort demo's is leuk/zinvol!
 
 Dank! Het is deel van de agile scrum-methodiek, waaraan we zo goed mogelijk invulling proberen te geven ondanks de uitdagingen qua werken op afstand en de grootte van het team. De demo's zijn erg belangrijk voor de transparantie over de voortgang, het controleren of in de juiste richting wordt gewerkt en om feedback op te halen.
 
@@ -128,7 +128,7 @@ Zie hiervoor [#223](https://github.com/VNG-Realisatie/gemma-zaken/issues/223)
 
 [nog te beantwoorden]
 
-#### Wat kunnen we verwachten van NLX / infra
+#### Wat kunnen we verwachten van NLX/infra?
 
 [nog te beantwoorden]
 
@@ -140,12 +140,12 @@ stelsel ondersteund worden. Zie
 [#216](https://github.com/VNG-Realisatie/gemma-zaken/issues/216) voor de DSO
 checklist.
 
-#### Wat is status van de referentieimplementatie
+#### Wat is status van de referentieimplementatie?
 
     ->  We gaan de referentieimplementatie nog duiden en definieren
 
 
-#### Concurrency / locking, hoe werkt dat?
+#### Concurrency/locking, hoe werkt dat?
 
 Kort samengevat - hier is nog geen concrete beslissing over genomen.
 
