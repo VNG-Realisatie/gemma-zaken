@@ -30,3 +30,9 @@ home = [ "HTML", "RSS", "JSON"]
   weight = 40
   identifier = "community"
   url = "/community/"
+
+[[menu.docs]]
+  name = "Functioneel"
+  weight = 50
+  identifier = "functioneel"
+  url = "/functioneel/"

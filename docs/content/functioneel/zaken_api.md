@@ -1,5 +1,15 @@
+---
+title: "Zaken-API"
+description: ""
+weight: 10
+menu:
+  docs:
+    parent: "functioneel"
+---
+
 ZAKEN API
 ===============================================
+
 **FUNCTIONELE DOCUMENTATIE**
 
 [aanzet tot documentatie van de API’s van het ZDS2-koppelvlak. Is vooralsnog een
