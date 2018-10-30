@@ -125,7 +125,7 @@ Op dit moment bieden de resources alleen de mogelijkheid tot raadplegen van de g
 
 | **Aspect**     | **Beschrijving**                                                                                                                                                                 |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil alle eigenschappen van een zaaktype zoals opgenomen in de catalogus van de organisatie opvragen.             |
+| Aanleiding     | Een consumer wil een eigenschap of een overzicht van alle eigenschappen opvragen van een zaaktype zoals opgenomen in de catalogus van de organisatie.             |
 | *Toevoegen*    | Nog niet beschikbaar.     |
 | - voorwaarde   | Nog te bepalen.  |
 | - gevolg       | Nog te bepalen.             |
