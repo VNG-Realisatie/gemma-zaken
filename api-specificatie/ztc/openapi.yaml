@@ -772,7 +772,7 @@ paths:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xF6rdinator"
+          - "Zaakco\xC3\xB6rdinator"
           - Mede-initiator
       responses:
         '200':
@@ -1108,7 +1108,7 @@ paths:
     get:
       operationId: catalogus_read
       description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
-        \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
+        \ - voor een Domein die als \xC3\xA9\xC3\xA9n geheel beheerd\nwordt."
       responses:
         '200':
           description: ''
@@ -1609,7 +1609,7 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xF6rdinator"
+          - "Zaakco\xC3\xB6rdinator"
           - Mede-initiator
         mogelijkeBetrokkenen:
           type: array
@@ -1658,3 +1658,9 @@ components:
           type: integer
           maximum: 9999
           minimum: 1
+        isEindstatus:
+          title: Is eindstatus
+          description: Geeft aan dat dit STATUSTYPE een eindstatus betreft. Dit gegeven
+            is afgeleid uit alle STATUSTYPEn van dit ZAAKTYPE met het hoogste volgnummer.
+          type: boolean
+          readOnly: true
