@@ -121,14 +121,12 @@ De URLs in dit voorbeeld zijn uiteraard fictief.
   ```
 
 
-## Gerelateerde objecten zonder eigen resource / Groepsattributen
+## Groepattributen
 
-Indien een (hoofd)object een gerelateerd object (of lijst van objecten) heeft,
-dat **geen** eigen resource URL nodig heeft, dan wordt het (child)object inline
-(binnen het hoofdobject) ontsloten. Deze child objecten zijn binnen RGBZ
-ook wel gedefinieerd als *groepsattributen*. Typische voorbeelden zijn
-(zaak-)kenmerken of (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
-en `Kenmerk` en `Eigenschap` de child objecten.
+Indien een object een groepattribuutsoort heeft (een groep van bij elkaar behorende attribuutsoorten), al dan niet herhalend d.w.z. kardinaliteit nul of meer (een 'lijst' van waarden van de attributen van het groepattribuut), dan wordt het groepattribuut inline
+(binnen de resource voor het object) ontsloten. Het krijgt dus geen eigen resource, het heeft immers geen zelfstandig bestaansrecht. Het heeft alleen bestaansrecht als eigenschap van het object, net zoals attribuutsoorten.
+Typische voorbeelden zijn (zaak-)kenmerken en (zaak-)eigenschappen waarin `Zaak` het hoofdobject betreft,
+en `Kenmerk` en `Eigenschap` de groepattributen.
 
 Voorbeeld:
 
@@ -262,9 +260,247 @@ Om relaties zowel naar een andere resource (zoals `status`) als naar een genest 
 **Voorbeelden**
 
 *Voor filteren:*
-`?zaak__kenmerken=test`
-`?zaak__status=http://example.com`
+* `?zaak__kenmerken=test`
+* `?zaak__status=http://example.com`
 
 *Voor de `fields` query parameter:*
-`?fields=zaak__kenmerken`
-`?fields=zaak__status`
+* `?fields=zaak__kenmerken`
+* `?fields=zaak__status`
+
+
+## URIs eindigen nooit op een trailing slash ("/")
+
+De URIs die gebruikt worden om collecties van objecten, of individuele objecten
+op te vragen, eindigen nooit op een trailing slash:
+
+**Voorbeelden**
+
+*Goed*
+* `/api/v1/zaken`
+* `/api/v1/zaken?identificatie=12345`
+* `/api/v1/zaken/67890`
+
+*Fout*
+* `/api/v1/zaken/`
+* `/api/v1/zaken/?identificatie=12345`
+* `/api/v1/zaken/67890/`
+
+**Rationale**
+De DSO heeft hier geen expliciet standpunt over maar alle voorbeelden zijn
+zonder trailing slash. Daarnaast zijn veel commerciele APIs die dit voorbeeld
+volgen zoals [Google](https://developers.google.com/gmail/api/v1/reference/users/drafts/list)
+en [Facebook](https://developers.facebook.com/docs/graph-api/reference/photo/#Creating).
+Verschillende bronnen zijn hier wel over verdeeld, zoals
+[REST API tutorial](https://restfulapi.net/resource-naming/) en [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Relationship_between_URL_and_HTTP_methods)
+maar er is gekozen om te kijken naar de praktijk en DSO.
+
+
+## Nesten van resources
+
+De [DSO API-strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/) stelt:
+
+> **API-09 Relaties van geneste resources worden binnen het eindpunt gecreëerd"**
+> Als een relatie alleen kan bestaan binnen een andere resource (geneste resource), wordt de relatie binnen het eindpunt gecreëerd. De afhankelijke resource heeft geen eigen eindpunt
+
+Aanvullingen hierop:
+
+* Er mag worden afgeweken van deze richtlijn, mits goed onderbouwd en gedocumenteerd.
+* Er wordt niet dieper genest dan 1 niveau, tenzij goed onderbouwd en gedocumenteerd.
+
+**Rationale**
+
+Conceptueel is dit precies zoals het moet zijn. Echter, voortschrijdend inzicht, voortkomend uit gemaakte implementaties van referentie componenten en demo consumers, leidt er toe dat deze richtlijn wordt opgerekt.
+
+Concreet voorbeeld is een consumer die een lijst van ZAKEN van verschillende ZAAKTYPEN laat zien en daar het STATUSTYPE bij wil laten zien. Conceptueel bevind een STATUSTYPE zich altijd binnen ZAAKTYPE (in het ImZTC). Echter, dit zou in het voorbeeld betekenen dat we voor elk ZAAKTYPE dat voorkomt in de lijst van ZAKEN, een aparte call gemaakt moet worden om de STATUSTYPEs op te halen. Veel efficienter is het om in 1x een lijst van STATUSTYPEN op te halen en de consumer deze te koppelen aan de relevante ZAAK.
+
+
+## Vertaling van relaties
+
+Een 0-op-N of 1-op-N relatie tussen objecttypen A en B in een informatiemodel
+zoals RGBZ of ImZTC kan eenvoudig vertaald worden naar een REST API door een
+hyperlink op te nemen in de resource dat meerdere keren kan voorkomen in de
+relatie, B in dit geval. Het veld met de hyperlink in resource B verwijst naar
+de gerelateerde resource A. Dit is het principe van 'linked data'.
+
+Bijvoorbeeld in het RGBZ kan een zaak kan nul of meer statussen hebben en een
+status kan niet bestaan zonder een zaak, oftewel er is sprake van een 1-op-N
+relatie tussen `Zaak` en `Status`. De resource `Status` bevat naast zijn eigen
+gegevens het (toegevoegde) veld `"zaak"` dat de url naar de resource van de
+gerelateerde zaak bevat.
+
+Opmerking: We gaan er gemakshalve vanuit dat 0-op-N of 1-op-N relaties geen
+eigen gegevens hebben. In het RGBZ komt dit in ieder geval niet voor.
+
+Een **N-op-M** relatie tussen objecttypen A en B wordt vertaald als een nieuwe
+resource R die fungeert als een kruistabel zoals in databases. De resource R
+bevat de volgende velden:
+
+* url naar zichzelf (resource R),
+* url naar resource A,
+* url naar resource B,
+* de gegevens van de relatie zelf (als die er zijn).
+
+Het voordeel om een N-op-M relatie als resource te vertalen is dat je `POST` en
+`DELETE` operaties kunt uitvoeren om relaties toe te voegen of te verwijderen.
+Als je dat niet doet en je de relaties bijvoorbeeld bijhoudt bij één of beide
+gerelateerde resources, dan belandt je al snel in een minder handige situtie
+waabij je de `PATCH` (of `PUT`)-operaties moet gebruiken om het lijstje met
+hyperlinks naar de gerelateerde resources bij te werken.
+
+Bijvoorbeeld in het RGBZ is de relatie tussen `Zaak` en `Informatieobject` N-op-M.
+Deze relatie is vertaald naar de resource `ZaakInformatieObject` met de
+volgende velden:
+
+* url (hyperlink naar zichzelf),
+* zaak (hyperlink naar de gerelateerde zaak),
+* informatieobject (hyperlink naar het gerelateerde informatieobject).
+
+In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistribueerd
+over meerdere ZRC- en DRC-instanties en daarmee een speciaal geval. Zie
+[Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
+voor de designkeuzes hierbij.
+
+
+## Many-to-many relaties verspreid over API's
+
+Deze beslissing komt voort uit
+[issue #166](https://github.com/VNG-Realisatie/gemma-zaken/issues/166).
+
+Tussen twee componenten A en B (met component A de component waar in het IM de
+relatie naar component B loopt), wordt de relatie in beide componenten
+bewaard. Eventuele metagegevens (extra informatie op de relatie) komt in
+component A te liggen, en component B bevat _enkel_ de relatieinformatie zelf.
+
+Dit is een technische oplossing zodat beide componenten de relaties kunnen
+opvragen zonder alle (mogelijks honderden) componenten af te moeten lopen om
+te vragen of ze een relatie hebben.
+
+Een consumer maakt 1x een relatie aan, tussen component A en B, met
+metagegevens over de relatie in component A. Component A is vervolgens
+verantwoordelijk om de relatie in component B aan te maken.
+
+We stemmen de `objectTypes` af zodat die mappen op de namen van resources om
+generieke synchronisatieimplementaties mogelijk te maken.
+
+Component B moet dan aan de volgende spelregels voldoen:
+
+- de naam van de resource is `{resourceB}{resourceA}`, in component B
+- de resource wordt genest ontsloten binnen `ResourceB`
+- de resource accepteert een URL-veld met de naam `resourceA`
+
+Deze spelregels en interactie worden actief getest in de
+[integratietests](https://github.com/vng-Realisatie/gemma-zaken-test-integratie)
+om compliancy af te kunnen dwingen.
+
+Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een
+`ZAAK` in het ZRC:
+
+1. De consumer maakt in het DRC een relatie (met polymorfe relatieinformatie):
+
+    ```http
+    POST https://drc.nl/api/v1/objectinformatieobjecten
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "object": "https://zrc.nl/api/v1/zaken/456789",
+        "objectType": "zaak",
+        "titel": "",
+        "beschrijving": "",
+        "registratiedatum": "2018-09-19T17:57:08+0200"
+    }
+    ```
+
+2. Het DRC doet vervolgens een request naar het ZRC (op basis van de URL van `object`):
+
+    ```http
+    POST https://zrc.nl/api/v1/zaken/456789/zaakinformatieobjecten
+
+    {
+       "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+    }
+    ```
+
+
+## Zaak afsluiten
+
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
+`ZAAKTYPE` heeft minimaal één `STATUSTYPE`. De eindstatus binnen een `ZAAKTYPE`
+is het `STATUSTYPE` met het hoogste `volgnummer`.
+
+Het toekennen van dit `STATUSTYPE` aan een `ZAAK` bepaalt ook een logisch af te
+leiden `ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus
+is toegekend. Om die reden is `ZAAK.einddatum` een alleen-lezen attribuut van
+`ZAAK`.
+
+Als een `ZAAK` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
+van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
+is voorlopig een verantwoordelijkheid van de consumer en/of autorisatielaag.
+
+In API-calls, kan de flow er als volgt uit zien:
+
+1. Consumer wil onderstaande `ZAAK` afsluiten:
+
+```javascript
+GET /zrc/api/v1/zaken/12345
+
+HTTP 200
+{
+    "einddatum": null,
+    // ...
+}
+```
+
+2. Consumer wil onderstaande eindstatus zetten:
+
+```javascript
+GET /ztc/api/v1/catalogus/12345/statustypen?zaaktype=/ztc/api/v1/zaaktype/44912
+
+HTTP 200
+[{
+    "uuid": 99321,
+    "volgnummer": 1,
+    "isEindstatus": false,
+    // ...
+},{
+    "uuid": 67890,
+    "volgnummer": 2,  # Het laatste STATUSTYPE binnen dit ZAAKTYPE
+    "isEindstatus": true,
+    // ...
+}]
+```
+
+3. Consumer werkt een `ZAAK` bij met de eindstatus:
+
+```javascript
+POST /zrc/api/v1/zaakstatussen
+{
+    "zaak": "/zrc/api/v1/zaken/45678",
+    "statustype": "/ztc/api/v1/catalogus/12345/statustypen/67890",
+    "datumStatusGezet": "2018-10-08T12:23:07+01:00",
+    // ...
+}
+```
+
+4. Consumer haalt de `ZAAK` opnieuw op:
+
+```javascript
+GET /zrc/api/v1/zaken/12345
+
+HTTP 200
+{
+    "einddatum": "2018-10-08",
+    // ...
+}
+```
+
+**Rationale**
+
+In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over
+hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
+Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste
+`volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de
+`ZAAK`).
+
+Er is echter behoefte aan een consistente manier om zaken af te sluiten. In
+deze oplossing worden zowel `ZAAK.einddatum` als `STATUSTYPE` gebruikt waarbij
+er geen onduidelijkheid meer ontstaat over hoe een `ZAAK` wordt afgesloten.
