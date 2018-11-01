@@ -48,7 +48,13 @@ iets fout.
 todo
 
 ### Wordt Docker veel gebruikt binnen gemeenten?
-todo
+
+Het korte antwoord is nee. Maar dat geldt waarschijnlijk ook voor REST APIs.
+
+Hoewel alle componenten nu in Docker gewrapped worden, is het geen verplichting
+of onderdeel van de standaard om componenten in een Docker aan te bieden. Wij
+gebruiken Docker omdat het makkelijk uit te rollen is, en relatief eenvoudig op
+een eigen server of ontwikkelomgeving op te zetten.
 
 ### Wat is de huidige toepasbaarheid van de API's?
 
