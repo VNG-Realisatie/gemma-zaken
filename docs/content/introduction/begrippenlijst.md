@@ -1,5 +1,13 @@
-## Begrippenlijst
-In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de verschillende content van deze repository toegelicht. 
+---
+title: "Begrippenlijst"
+description: ""
+weight: 50
+menu:
+  docs:
+    parent: "introduction"
+---
+
+In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de verschillende content van deze repository toegelicht.
 
 - API: (TODO)
 - BSM: Bericht Structuur Model, een UML klassediagram dat  is afgeleid van het UGM waarmee de structuur van een specifiek bericht wordt vastgelegd.
@@ -10,7 +18,7 @@ In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de
     - Update: Wijzigen van gegevens.
     - Delete: Verwijderen van gegevens.
 
-- DRC: Documentregistratiecomponent. Component voor opslag en ontsluiting van documenten en daarbij behorende metadata. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878 
+- DRC: Documentregistratiecomponent. Component voor opslag en ontsluiting van documenten en daarbij behorende metadata. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878
 - EA: Enterprise Architect. Tool waarmee UML (klasse)diagrammen worden getekend.
 - EAP: Xml bestand dat als tussenbestand wordt gegenereerd uit wat is geconfigureerd in het Enterprise Architect. Bevat alle informatie die nodig is om schema's, documentatie en testberichten te genereren.
 - Extern model: TODO
@@ -30,7 +38,7 @@ In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de
 - Python: Scripttaal gebruikt voor het maken van de referentieimplementaties van de ZRC, ZTC en DRC. Zie ook https://nl.wikipedia.org/wiki/Python_(programmeertaal)
 - Resource: (TODO)
 - SCRUM: (TODO)
-- SIM: Semantisch informatie model waarin alle begrippen die door meerdere partijen gebruikt en/of begrepen moeten worden zijn opgenomen in een samenhangend begrippenkader. Zie ook https://www.wikixl.nl/wiki/rosa/index.php/Semantisch_model en https://www.geonovum.nl/uploads/documents/Informatiemodellen_1.0.pdf 
+- SIM: Semantisch informatie model waarin alle begrippen die door meerdere partijen gebruikt en/of begrepen moeten worden zijn opgenomen in een samenhangend begrippenkader. Zie ook https://www.wikixl.nl/wiki/rosa/index.php/Semantisch_model en https://www.geonovum.nl/uploads/documents/Informatiemodellen_1.0.pdf
 - Stereotype: Mechanisme in UML om nieuwe type elementen in een model (bijvoorbeeld een SIM) te creeëren door deze van reeds bestaande types af te leiden. Zie ook: https://en.wikipedia.org/wiki/Stereotype_(UML)
 - Tracing: Leggen van een harde link tussen componenten in een UGM of koppelvlak naar gerelateerde componenten in UGM of SIM. Daarrmee worden toegekende eigenschappen en definities van de betreffende componenten die gebruikt worden in een UGM of koppelvlak overgenomen uit een (ander) UGM en/of SIM.
 - UGM: Uitwisselings gegevens model - Gegevensmodel waarin de opbouw van de gegevens in uitwisseling centraal staat.
@@ -38,5 +46,5 @@ In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de
 - View: Weergave van een selectie van objecttypen en attributen uit een Model, bedoeld om een specifiek deel vanuit een bepaald perspectief weer te geven.
 - XSLT: Extensible Stylesheet Language Transformations - De techniek waarmee XML structuren kunnen worden omgezet naar andersoortige structuren (XML, CSV, TXT, HTML) en waarmee binnen dit project de XSD-schema's specifiek volgens StUF-regels worden gegenereerd op basis van de output van de Imvertor.
 - ZRC Zaakregistratiecomponent. Component voor opslag en ontsluiting van zaakgegevens. De component ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in het documentenregistratiecomponent, medewerkergegevens in de medewerkerregistratiecomponent, etc. Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-a97b6545-d5a7-485d-9b13-3ce22db5b9cf
-- ZTC: Zaaktypecatalogus (Component). Component voor opslag en ontsluiting van zaaktypegegevens. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktypegegevens. Deze gegevens kunnen door applicaties worden gebruikt om voor zaken van een bepaald type de juiste gegevens(statussen, resultaattypen, documenttypen,..) te bepalen. Applicaties die gebruik maken van deze zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens vindt bij voorkeur plaats conform het informatiemodel ZTC. De verzameling opgeslagen zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus". Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314 
+- ZTC: Zaaktypecatalogus (Component). Component voor opslag en ontsluiting van zaaktypegegevens. De component ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktypegegevens. Deze gegevens kunnen door applicaties worden gebruikt om voor zaken van een bepaald type de juiste gegevens(statussen, resultaattypen, documenttypen,..) te bepalen. Applicaties die gebruik maken van deze zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens vindt bij voorkeur plaats conform het informatiemodel ZTC. De verzameling opgeslagen zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus". Zie ook https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314
 

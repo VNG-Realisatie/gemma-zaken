@@ -1,7 +1,7 @@
 ---
 title: "API Specificaties"
 description: ""
-weight: 10
+weight: 11
 menu:
   docs:
     parent: "developers"
