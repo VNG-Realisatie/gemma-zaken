@@ -34,10 +34,16 @@ wegnemen en dingen opleggen aan de gemeentes die niet de moeite waard geacht
 worden.
 
 ### Hoe staat het met authenticatie en autorisatie?
-todo
+
+Hier zijn verkennende gesprekken over geweest met de techneuten van de DSO en
+NLx. De oplossingsrichting is voorlopig om met
+[scopes](https://geonovum.github.io/KP-APIs-OAuthNL/#scopes) te gaan werken,
+die wellicht via een [JWT](https://jwt.io/introduction/) worden doorgegeven.
+OAuth biedt veel meer dan nodig is voor deze APIs en is daarom ter overweging.
 
 ### Hoe gaan jullie om met externe gebruikers m.b.t. authenticatie en autorisatie?
-todo
+
+Dat wordt nog onderzocht maar we nemen deze vraag mee in het uiteindelijke verhaal.
 
 ### De URL werkt niet bij update!?
 
