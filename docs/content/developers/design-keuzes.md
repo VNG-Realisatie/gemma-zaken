@@ -504,3 +504,66 @@ Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste
 Er is echter behoefte aan een consistente manier om zaken af te sluiten. In
 deze oplossing worden zowel `ZAAK.einddatum` als `STATUSTYPE` gebruikt waarbij
 er geen onduidelijkheid meer ontstaat over hoe een `ZAAK` wordt afgesloten.
+
+## Mechanisme voor autorisatie
+
+De DSO schrijft voor om OAUTH2 te gebruiken op API niveau voor authenticatie
+en autorisatie. Kort samengevat is OAUTH2 te complex voor onze behoeften en
+maken we geen gebruik van de features ervan. We gebruiken JSON Web Tokens
+om autorisatie te regelen, en dan in de HMAC 'signed' vorm (dus geen
+assymetrische encryptie).
+
+In de payload van het JWT voorzien we in een `scopes` key, met als waarde
+een lijst van strings die de scopes voorstellen:
+
+```json
+{
+    "scopes": [
+        "zds.scopes.scope1",
+        "zds.scopes.scope2.1",
+        "zds.scopes.scope2.3",
+    ]
+}
+```
+
+*(scope namen zijn fictief)*
+
+**Rationale**
+
+OAUTH2 is een framework voor token-uitgifte, wat complex is voor server en
+client. De grondslag is delegation - de eindgebruiker geeft een applicatie
+toestemming om als die gebruiker acties uit te voeren en/of hun gegevens te
+gebruiken. Hierbij identificeert de applicatie zich bij de service, wat
+registratie van applicaties bij elke instantie van de zaken-APIs met zich
+meebrengt (en dus extra beheer).
+
+Daarbij komt dat OAUTH2 geen authenticatie-service is, dus gemeentes moeten nog
+steeds een mechanisme hebben in de (centrale) authenticatie-service om een
+persoon te kunnen authenticeren met wat de gemeente gebruikt (bijvoorbeeld
+Active Directory).
+
+OAUTH2 kent twee soorten tokens die uitgegeven worden - opake tokens en
+transparante tokens (zoals JWT). JWT wordt vaak gecombineerd met OAUTH2 omdat
+je claims kan meegeven _en_ het token kan gevalideerd worden tegen _tampering_.
+
+JWT wordt typisch in een federatiecontext gebruikt - hierbij wordt de gebruiker
+losgekoppeld van het token zelf en gaat het om wat er wel/niet kan. De claims
+in JWT kunnen volgens afspraak ingesteld worden, wat alle flexibiliteit toelaat.
+
+Het grote voordeel van JWT is dat het stateless is, en er dus niet naar de
+autorisatieservice moet teruggekeerd worden om de claims te valideren.
+
+Vergeleken met OAUTH2 biedt JWT ons alles wat we nodig hebben, en het is veel
+meer lichtgewicht.
+
+Door de aard van de claims (aangeven van scopes), is het ook geen probleem
+dat de payload van de tokens niet versleuteld uitgewisseld wordt. Dit laat ons
+ook toe om bijvoorbeeld in NLX achter te kijken welke scopes/payloads over de
+lijn gingen - dit zou met encryptie niet mogelijk zijn.
+
+In de JWT-situatie wordt de organisatie zelf ook verantwoorlijke voor de
+token-uitgifte. Organisaties hebben alle vrijheid om dit naar eigen wensen
+in te richten.
+
+De volledige architectuur is uitgewerk in
+[de documentatie](../architectuur/authenticatie-autorisatie.md)
