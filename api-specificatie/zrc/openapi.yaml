@@ -271,7 +271,7 @@ paths:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
       responses:
         '200':
@@ -484,6 +484,21 @@ paths:
     get:
       operationId: status_list
       description: ''
+      parameters:
+      - name: zaak
+        in: query
+        description: URL to the related resource
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: statusType
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: string
+          format: uri
       responses:
         '200':
           description: ''
@@ -2069,7 +2084,7 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
         roltoelichting:
           title: Roltoelichting
