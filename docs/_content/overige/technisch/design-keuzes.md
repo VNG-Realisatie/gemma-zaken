@@ -593,3 +593,53 @@ in te richten.
 
 De volledige architectuur is uitgewerk in
 [de documentatie](../architectuur/authenticatie-autorisatie)
+
+## Weergave attributen
+
+In sommige gevallen wordt uit meerdere attributen een bepaalde geconstrueerde
+waarde gehaald. Typisch voorbeeld is `aanschrijfwijze` die vaak wordt bepaald
+uit geslacht, titels, voorletters en achternaam maar op zichzelf niet als
+attribuut voorkomt in het informatie model.
+
+In deze gevallen wordt een weergave-attribuut toegevoegd die alleen-lezen is en
+de geconstrueerde waarde bevat. Zo'n attribuut eindigd altijd op `Weergave` en
+kan ook nooit worden meegegeven bij het aanmaken of bijwerken van een object.
+
+## Enumeraties
+
+Enumeraties zijn in essentie lijstjes met mogelijke waarden. Deze waarden zijn
+semi-technisch van aard en geven niet altijd de volledige intentie aan van de
+waarde. Deze waarden staan op dit moment niet in het RGBZ.
+
+We kiezen er voor waarden in zo compact mogelijke tekstuele representatie van
+op te nemen in de OAS. Daarnaast mag voor elk attribuut dat een enumeratie
+betreft, een weergave-attribuut worden toegevoegd als `string`, die de
+volledige tekstuele waarde als alleen-lezen teruggeeft. Zo'n attribuut eindigd 
+altijd op `Weergave`.
+
+In de omschrijving van het enumeratie-attribuut, staat de mapping omschreven
+tussen de waarde en de omschrijving die wordt getoond in het weergave-attribuut.
+
+*Voorbeelden:*
+
+```json
+{
+  "taal": "en",
+  "taalWeergave": "Engels"
+}
+```
+
+In het schema:
+```
+"taal": {
+  "type": "string",
+  "description": "De taal afkorting volgens ISO 639-2:\n* dut - Dutch\n* eng - English"
+  "enum": [
+    "dut",
+    "eng"
+  ]
+},
+"taalWeergave": {
+  "type": "string",
+  "description": "De volledige naam van de taal"
+}
