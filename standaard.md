@@ -168,11 +168,20 @@ een `HTTP 400` foutbericht.
 
 #### Valideren relatieinformatie op `ObjectInformatieObject`-resource
 
-De resource bevat de velden `titel` en `beschrijving`. Deze velden zijn enkel
-van toepassing op het `objectType` `zaak` en moeten genegeerd worden bij het
-`objectType` `besluit`.
+Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
+RGBZ. Dit betekent:
 
-De `registratiedatum` moet door het systeem gezet worden op het moment van
+* `aardRelatie` is `"hoort_bij"`, indien `objectType`:
+    * `zaak`
+
+* `aardRelatie` is `"legt_vast"`, indien `objectType`:
+    * `besluit`
+
+De resource bevat de velden `titel`, `beschrijving` en `registratiedatum`. Deze
+velden zijn enkel van toepassing op `aardRelatie` `"hoort_bij"` en MOETEN
+genegeerd worden bij `aardRelatie` `"legt_vast"`.
+
+De `registratiedatum` MOET door het systeem gezet worden op het moment van
 aanmaken.
 
 Bij het updaten (`objectinformatieobject_update` en
