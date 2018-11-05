@@ -19,6 +19,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Definities](#definities)
 - [Gegevensformaten](#gegevensformaten)
+- [Autorisatie](#autorisatie)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -42,6 +43,15 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 - 'Uiteindelijk resulteren' betekent dat redirects (`HTTP 301`, `HTTP 302`)
   toegestaan zijn, mits deze redirect-locatie resulteert in een `HTTP 200`.
+
+- Autorisatie: het mechanisme om wel of niet toegang te verlenen tot operaties
+  en/of gegevens in de APIs. Niet te verwarren met authenticatie.
+
+- Authenticatie: het mechanisme om de identiteit van een een persoon of andere
+  entiteit vast te stellen.
+
+- Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
+  communiceert via de ZDS APIs.
 
 ## Beschikbaar stellen van API-spec
 
@@ -67,6 +77,34 @@ echter deze worden wel binnen de ZDS APIs gebruikt en opgelegd.
 
 Een duur (EN: duration) MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 uitgedrukt worden.
+
+## Autorisatie
+
+De API-endpoints vereisen autorisatie, in de minimale vorm met scopes. Deze
+scopes zijn opgenomen in de OAS spec.
+
+API requests van clients MOETEN een
+[JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) versturen naar de
+API. Dit token MOET in de `Authorization` HTTP header opgenomen worden.
+
+Client en server maken gebruik van `shared secret` om het JWT te signen, met
+het HMAC SHA-256 algoritme.
+
+De payload in het token bevat de scopes als lijst van strings, waarbij de
+`scopes` key gebruikt wordt. Voorbeeld:
+
+```json
+{
+    "scopes": [
+        "zds.scopes.zaken.aanmaken"
+    ]
+}
+```
+
+Later MOETEN andere claims ondersteund worden, zoals zaaktypen waar de
+eindgebruiker rechten op heeft.
+
+(TODO: specifieer hoe secrets limiteren tot 1 client)
 
 ## Zaakregistratiecomponent
 
