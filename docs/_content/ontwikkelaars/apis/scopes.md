@@ -1,3 +1,12 @@
+---
+title: "Scopes als autorisatiemechanisme"
+description: ""
+weight: 40
+menu:
+  docs:
+    parent: "developers"
+---
+
 # Scopes
 
 Een scope in deze context is een label, bijvoorbeeld `zds.scopes.zaken.lezen`
