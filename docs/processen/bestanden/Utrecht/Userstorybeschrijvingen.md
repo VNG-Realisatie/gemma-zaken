@@ -15,4 +15,5 @@ De mogelijkheid om documenten/informatieobjecten inclusief de metatada van het d
 Implementatie op basis van een Alfresco DMS. Reden: Alfresco wordt al veel gebruikt bij verschillende gemeenten, is ook open source en ondersteunt het CMIS protocol.
 
 **Architectuurbeschrijving**
-De DRC slaat de documenten op in een Alfresco DMS. 
+De DRC slaat de documenten op in een Alfresco DMS. Voor de communicatie tussen DRC en DMS wordt het CMIS protocol gebruikt.
+(https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/processen/bestanden/Utrecht/DRC-DMS.PNG)
