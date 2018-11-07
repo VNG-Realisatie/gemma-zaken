@@ -102,10 +102,14 @@ Context-check: gebruiker heeft rol adviseur op de zaak in kwestie
     * mag lezen
     * mag toevoegen
 
-
 Challenges:
 
 * limiteer in DRC tot zaken waar NP adviseur is
+
+**Scopes nodig voor deze rol**:
+
+* `zds.scopes.zaken.lezen`
+* ...
 
 ### Behandelaar
 
@@ -148,6 +152,11 @@ Challenges:
 * beperken op basis van:
     * zaaktypes
     * zaak bij informatieobjecten
+
+**Scopes nodig voor deze rol**:
+
+* `zds.scopes.zaken.lezen`
+* ...
 
 ### Belanghebbende
 
@@ -204,6 +213,12 @@ Mogelijks subtypes:
     - mag toevoegen
     - mag lezen
 
+**Scopes nodig voor deze rol**:
+
+* `zds.scopes.zaken.aanmaken`
+* `zds.scopes.zaken.lezen` (?)
+* ...
+
 ### TODO
 
 - klantcontacter
@@ -233,13 +248,13 @@ Een `✓` betekent dat het in de referentieimplementatie gebouwd is.
     * ZaakType
     * StatusType
 
-### Zaken alles lezen
+### Zaken alles lezen (✓)
 
 Superset van `zds.scopes.zaken.lezen.openbaar`
 
 **Label**
 
-`zds.scopes.zaken.lezen.volledig`
+`zds.scopes.zaken.lezen`
 
 **Omvat**
 
