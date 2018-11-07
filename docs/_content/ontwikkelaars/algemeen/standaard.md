@@ -88,23 +88,32 @@ API requests van clients MOETEN een
 API. Dit token MOET in de `Authorization` HTTP header opgenomen worden.
 
 Client en server maken gebruik van `shared secret` om het JWT te signen, met
-het HMAC SHA-256 algoritme.
+het HMAC SHA-256 algoritme. Iedere client MAG een eigen secret hebben. De
+server MOET aan de hand van de `client_identifier` key in de JWT header
+de bijhorende secret opvragen. De server MOET met het juiste shared secret
+het JWT valideren tegen tampering.
 
 De payload in het token bevat de scopes als lijst van strings, waarbij de
-`scopes` key gebruikt wordt. Voorbeeld:
+`scopes` key gebruikt wordt.
+
+De `zaaktypes` claim MOET gebruikt worden om zaakgegevens te limiteren. Indien
+deze claim ontbreekt, `null` is of een lege lijst, dan is het VERBODEN om
+zaakgegevens te ontsluiten. Een speciale waarde van `['*']` drukt uit dat alle
+zaaktypes toegestaan zijn.
+
+Voorbeeld van een payload:
 
 ```json
 {
     "scopes": [
         "zds.scopes.zaken.aanmaken"
+    ],
+    "zaaktypes": [
+        "https://haarlem.ztc.nl/api/v1/zaaktypen/123",
+        "https://haarlem.ztc.nl/api/v1/zaaktypen/124",
     ]
 }
 ```
-
-Later MOETEN andere claims ondersteund worden, zoals zaaktypen waar de
-eindgebruiker rechten op heeft.
-
-(TODO: specifieer hoe secrets limiteren tot 1 client)
 
 ## Zaakregistratiecomponent
 
@@ -168,6 +177,17 @@ Er MOET gevalideerd worden dat de relatie tussen het informatieobject en de
 zaak al bestaat in het DRC. De bron van het informatieobject is bekend door
 de eerdere validaties op deze URL. De API-spec van het DRC voorziet in query-
 parameters om het bestaan te kunnen valideren.
+
+#### Limiteren zaakgegevens op basis van `zaaktypes` claim
+
+De `zaaktypes` claim is een lijst van URLs van zaaktypes waar de eindgebruiker
+rechten op heeft.
+
+De server MOET resultaten van lijst-operaties (`zaak_list`, `zaak__zoek`)
+limiteren tot de zaaktypes in de zaaktypesclaim.
+
+De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
+een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
 ## Documentregistratiecomponent
 
