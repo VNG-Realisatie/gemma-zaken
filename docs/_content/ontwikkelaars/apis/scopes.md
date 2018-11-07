@@ -217,6 +217,8 @@ Mogelijks subtypes:
 
 Dit is heel erg WIP - we zoeken een goede balans!
 
+Een `✓` betekent dat het in de referentieimplementatie gebouwd is.
+
 ### Zaken openbaar lezen
 
 **Label**
@@ -245,7 +247,7 @@ Superset van `zds.scopes.zaken.lezen.openbaar`
 * Kan alle statussen van zaken lezen, met alle attributen
 * Kan alle zaakobjecten van zaken lezen, met alle attributen
 
-### Zaken aanmaken
+### Zaken aanmaken (✓)
 
 **Label**
 
