@@ -93,8 +93,10 @@ server MOET aan de hand van de `client_identifier` key in de JWT header
 de bijhorende secret opvragen. De server MOET met het juiste shared secret
 het JWT valideren tegen tampering.
 
-De payload in het token bevat de scopes als lijst van strings, waarbij de
-`scopes` key gebruikt wordt.
+De ZDS claims in de JWT-payload worden genamespaced onder `zds`.
+
+De claims bevatten de scopes als lijst van strings, waarbij de `scopes` key
+gebruikt wordt.
 
 De `zaaktypes` claim MOET gebruikt worden om zaakgegevens te limiteren. Indien
 deze claim ontbreekt, `null` is of een lege lijst, dan is het VERBODEN om
@@ -105,13 +107,15 @@ Voorbeeld van een payload:
 
 ```json
 {
-    "scopes": [
-        "zds.scopes.zaken.aanmaken"
-    ],
-    "zaaktypes": [
-        "https://haarlem.ztc.nl/api/v1/zaaktypen/123",
-        "https://haarlem.ztc.nl/api/v1/zaaktypen/124",
-    ]
+    "zds": {
+        "scopes": [
+            "zds.scopes.zaken.aanmaken"
+        ],
+        "zaaktypes": [
+            "https://haarlem.ztc.nl/api/v1/zaaktypen/123",
+            "https://haarlem.ztc.nl/api/v1/zaaktypen/124",
+        ]
+    }
 }
 ```
 
