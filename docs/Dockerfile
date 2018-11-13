@@ -8,8 +8,8 @@ WORKDIR /app
 
 RUN gem install jekyll bundler && \
     bundler install && \
-    make
-
+    rm -rf public && \
+    bundle exec jekyll build
 
 # Copy static docs to alpine-based nginx container.
 FROM nginx:stable-alpine
