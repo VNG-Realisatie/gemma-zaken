@@ -27,3 +27,5 @@ plugins:
   - jekyll-remote-theme
 
 remote_theme: maykinmedia/jekyll-vng-theme
+
+github: VNG-Realisatie/gemma-zaken
