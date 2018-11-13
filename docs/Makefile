@@ -4,7 +4,7 @@ all: clean build
 
 .PHONY: build
 build:
-	hugo
+	bundle exec jekyll build
 
 .PHONY: clean
 clean:

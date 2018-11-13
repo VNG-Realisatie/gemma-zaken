@@ -1,0 +1,31 @@
+collections:
+  pages:
+    output: true
+  content:
+    output: true
+    permalink: /:path
+  assets:
+    output: true
+    permalink: /:path
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "content"
+    values:
+      layout: default
+
+markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-remote-theme
+
+remote_theme: maykinmedia/jekyll-vng-theme
+
+github: VNG-Realisatie/gemma-zaken
