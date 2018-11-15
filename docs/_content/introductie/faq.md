@@ -1,6 +1,7 @@
 ---
 title: "Veelgestelde vragen"
 date: '31-5-2018'
+weight: 40
 ---
 
 
@@ -29,12 +30,12 @@ het scrumteam zijn actief betrokken bij de realisatie van Common Ground.
 
 Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt
 Common Ground gevolgd. De principes volgend uit de Common Ground visie worden
-toegepast. _Zie: [productvisie](/introduction/productvisie)_
+toegepast. _Zie: [productvisie](/introductie/productvisie)_
 
 
 #### Wat gaat er concreet gemaakt worden?
 
-_Volgens de [productvisie](/introduction/productvisie)_
+_Volgens de [productvisie](/introductie/productvisie)_
 
 * Opstellen en realiseren van een nieuwe ZDS 2.0 API volgens Open API
 Specificatie v3 (AOS 3)

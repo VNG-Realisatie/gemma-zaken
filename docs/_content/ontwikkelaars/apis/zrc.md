@@ -1,5 +1,5 @@
 ---
-title: "Zaakregistratie (ZRC)"
+title: "Zaken API | Zaak registratie component (ZRC)"
 date: '13-7-2018'
 ---
 

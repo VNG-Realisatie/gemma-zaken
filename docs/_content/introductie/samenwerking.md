@@ -1,6 +1,7 @@
 ---
 title: "Samenwerking"
 date: '28-5-2018'
+weight: 30
 ---
 
 ## Samenwerkende partijen

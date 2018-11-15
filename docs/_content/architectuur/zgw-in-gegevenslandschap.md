@@ -63,7 +63,7 @@ Grof geschetst bewegen we van een situatie zoals in figuur 1 naar een situatie z
 
 In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreven door GEMMA 2.
 
-![zgw-in-gemma2.png](./bestanden/zgw-in-gemma2.png?raw=true)
+![zgw-in-gemma2.png](./_assets/zgw-in-gemma2.png?raw=true)
 *Figuur 1 - ZGW in de huidige situatie (~GEMMA 2)*
 
 * Een zaak is geregistreerd in een ZRC. Aan een zaak gerelateerde objecten (RGBZ) worden ook geregistreerd in de ZRC: betrokkenen, besluiten, klantcontacten, zaakobjecten en eventuele zaaktypespecifieke objecten met zaaktypespecifieke eigenschappen.
@@ -83,7 +83,7 @@ In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreve
 
 In een gegevenslandschap komt bovenstaand plaatje er, door het scheiden van proces en data, eenmalige opslag en bevraging ‘bij de bron’ en het verminderen van informatiestromen anders uit te zien (zie figuur 2):
 
-![zgw-in-gegevenslandschap.png](./bestanden/zgw-in-gegevenslandschap.png?raw=true)
+![zgw-in-gegevenslandschap.png](./_assets/zgw-in-gegevenslandschap.png?raw=true)
 *Figuur 2 - ZGW in een Gegevenslandschap*
 
 * De domein/objectgegevens gegevens zijn uit de Zaakafhandelcomponent verdwenen. Procesdefinities en procesgegevens blijven daar echter achter .

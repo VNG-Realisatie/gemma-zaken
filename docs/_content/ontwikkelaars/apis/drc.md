@@ -1,5 +1,5 @@
 ---
-title: "Documentregistratie (DRC)"
+title: "Documenten API | Document registratie component (DRC)"
 date: '13-7-2018'
 ---
 

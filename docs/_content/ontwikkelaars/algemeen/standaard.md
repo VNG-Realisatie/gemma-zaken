@@ -1,6 +1,9 @@
-# Zaakdocumentservices 2.0 Standaard
+---
+title: "Zaakdocumentservices 2.0 Standaard"
+date: '14-11-2018'
+---
 
-#### Versie 0.1
+*Versie 0.1*
 
 ## Inleiding
 

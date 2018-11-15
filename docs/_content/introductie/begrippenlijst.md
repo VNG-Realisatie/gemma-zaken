@@ -1,6 +1,7 @@
 ---
 title: "Begrippenlijst"
 date: '8-8-2018'
+weight: 10
 ---
 
 In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de verschillende content van deze repository toegelicht.

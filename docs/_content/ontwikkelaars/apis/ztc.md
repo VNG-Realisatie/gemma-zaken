@@ -1,5 +1,5 @@
 ---
-title: "Zaaktypecatalogus (ZTC)"
+title: "Catalogus API | Zaak type catalogus (ZTC)"
 date: '13-7-2018'
 ---
 
