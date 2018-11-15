@@ -1,5 +1,5 @@
 ---
-title: "Documentatie"
+title: "Type documentatie"
 date: '9-8-2018'
 ---
 

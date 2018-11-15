@@ -1,6 +1,4 @@
 collections:
-  pages:
-    output: true
   content:
     output: true
     permalink: /:path
@@ -26,6 +24,6 @@ plugins:
   - jekyll-redirect-from
   - jekyll-remote-theme
 
-remote_theme: maykinmedia/jekyll-vng-theme
+remote_theme: maykinmedia/jekyll-theme-vng
 
 github: VNG-Realisatie/gemma-zaken

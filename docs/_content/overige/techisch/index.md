@@ -1,4 +1,4 @@
 ---
-title: Introductie
+title: Technisch
 layout: subjects
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Bronnen"
 date: '1-8-2018'
+weight: 20
 ---
 
 ## Algemeen

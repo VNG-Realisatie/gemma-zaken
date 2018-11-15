@@ -1,4 +1,4 @@
 ---
-title: Ontwikkelaars
+title: Overige
 layout: subjects
 ---

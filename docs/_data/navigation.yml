@@ -1,18 +1,15 @@
 - name: Introductie
-  link: /introduction/
-  weight: 1
-- name: Ontwikkelaars
-  link: /developers/
-  weight: 2
+  link: /introductie/
+  weight: 10
 - name: Architectuur
   link: /architectuur/
-  weight: 3
+  weight: 20
+- name: Ontwikkelaars
+  link: /ontwikkelaars/
+  weight: 30
 - name: Community
   link: /community/
-  weight: 4
-- name: Functioneel
-  link: /functioneel/
-  weight: 5
-- name: Processen
-  link: /processen/
-  weight: 6
+  weight: 40
+- name: Overige
+  link: /overige/
+  weight: 50

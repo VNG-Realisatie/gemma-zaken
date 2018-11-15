@@ -1,6 +1,7 @@
 ---
 title: "Productvisie ZDS 2.0"
 date: '29-5-2018'
+weight: 100
 ---
 
 ## Introductie
@@ -50,7 +51,7 @@ beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld
 is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a.
 [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
-Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](/introduction/samenwerking)
+Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](samenwerking)
 aan realisatie van de "ZDS 2.0".
 
 De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken

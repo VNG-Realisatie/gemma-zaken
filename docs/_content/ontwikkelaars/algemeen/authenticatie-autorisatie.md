@@ -71,7 +71,7 @@ is tussen de API en de auth service van de organisatie.
 
 Dit mechanisme zet zich door tot aan de zaaktypecatalogus.
 
-![sequence](./bestanden/authenticatie-autorisatie.png?raw=true)
+![sequence](./_assets/authenticatie-autorisatie.png?raw=true)
 
 
 ## Referenties
