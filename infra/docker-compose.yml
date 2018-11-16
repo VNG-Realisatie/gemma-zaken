@@ -8,17 +8,17 @@ version: '3.4'
 services:
   # databases
   zrc_db:
-    image: mdillon/postgis
+    image: mdillon/postgis:10
     volumes:
       - zrc_postgres_data:/var/lib/postgresql/data
 
   drc_db:
-    image: postgres
+    image: postgres:10
     volumes:
       - drc_postgres_data:/var/lib/postgresql/data
 
   ztc_db:
-    image: postgres
+    image: postgres:10
     volumes:
       - ztc_postgres_data:/var/lib/postgresql/data
 
