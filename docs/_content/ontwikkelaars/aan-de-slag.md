@@ -4,17 +4,25 @@ date: '14-11-2018'
 weight: 100
 ---
 
+* Snel een API-request doen tegen de door VNG gehoste referentie 
+  implementaties? Ga naar de [API guides](guides).
+* Zelf een implementatie bouwen op basis van de specificaties? Ga naar de
+  [API specificaties](apis/index).
+* Zelf de componenten draaien voor eigen gebruik? Lees verder!
+
+# Zelf de componenten draaien
+
 *Deze sectie beschrijft hoe ontwikkelaars snel aan de slag kunnen met de 
-referentie componenten.*
+referentie componenten in hun eigen ontwikkelomgeving.*
 
 De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een 
-ontbrekend component in de eigen software te simuleren. 
+ontbrekend component in de eigen software te simuleren.
 
 ## Snelle start
 
 Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van 
-start te gaan:
+start te gaan. Ga anders naar de **Voorbereiding**.
 
 ```bash
 $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
@@ -117,6 +125,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      * ZTC: `http://192.168.99.100:8002`
      * BRC: `http://192.168.99.100:8003`
 
+[gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
 
 ## En verder...
 
@@ -135,7 +144,7 @@ Elk referentie componenent heeft een beheer interface. Om deze beheer interface
 te benaderen, moet een gebruiker worden aangemaakt (voorbeeld voor het ZTC):
 
 ```bash
-docker-compose run ztc_web python src/manage.py createsuperuser
+docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
 ```
 
 In plaats van `ztc_web` kunnen ook de andere Docker containers benaderd worden
@@ -154,5 +163,31 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
 ### API Guides
 
-Er zijn verschillende [API guides](guides/index) beschikbaar met 
+Er zijn verschillende [API guides](guides) beschikbaar met 
 veelvoorkomende consumer handelingen.
+
+## Eerste hulp
+
+Bekijk de status van de Docker containers:
+
+```bash
+$ docker container ls --all
+```
+
+Zijn er één of meerdere containers met de status `Exited`? Dan gaat er iets 
+niet goed.
+
+In dit stadium van de referentie componenten kan het voorkomen dat er niet goed
+gemigreerd wordt van een oude naar een nieuwe versie, of dat er ergens iets
+stuk is gegaan. Wat mogelijk helpt is alle oude data te verwijderen en de
+referentie componenten opnieuw installeren:
+
+```bash
+$ docker-compose down
+$ docker system prune  # Verwijdert alle data!
+$ docker-compose pull
+$ docker-compose up -d
+```
+
+
+

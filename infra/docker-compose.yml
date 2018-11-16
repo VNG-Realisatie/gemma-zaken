@@ -8,7 +8,7 @@ version: '3.4'
 services:
   # databases
   zrc_db:
-    image: mdillon/postgis:10
+    image: mdillon/postgis:9.3
     volumes:
       - zrc_postgres_data:/var/lib/postgresql/data
 
