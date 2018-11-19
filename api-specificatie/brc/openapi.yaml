@@ -968,6 +968,18 @@ components:
           format: date
         vervalreden:
           title: Vervalreden
+          description: 'De omschrijving die aangeeft op grond waarvan het besluit
+            is of komt te vervallen.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `tijdelijk` - Besluit met tijdelijke werking
+
+            * `ingetrokken_overheid` - Besluit ingetrokken door overheid
+
+            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende'
           type: string
           enum:
           - tijdelijk
@@ -976,11 +988,8 @@ components:
         vervalredenWeergave:
           title: Vervalreden weergave
           type: string
-          enum:
-          - Besluit met tijdelijke werking
-          - Besluit ingetrokken door overheid
-          - Besluit ingetrokken o.v.v. belanghebbende
           readOnly: true
+          minLength: 1
         publicatiedatum:
           title: Publicatiedatum
           description: Datum waarop het besluit gepubliceerd wordt.
