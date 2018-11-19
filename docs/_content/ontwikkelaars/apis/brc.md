@@ -6,7 +6,14 @@ date: '14-11-2018'
 *Component voor opslag en ontsluiting van besluiten en daarbij behorende metadata.*
 
 Dit component is losgetrokken van het ZRC om besluiten vast te leggen van Zaken
-en andere objecten.
+-en andere objecten.
+
+De component ondersteunt het opslaan en het naar andere applicaties ontsluiten
+van gegevens over alle gemeentelijke besluiten, van elk type. Opslag vindt plaats
+conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn
+beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden
+opgeslagen in de documentenregistratiecomponent, medewerkergegevens in de
+medewerkerregistratiecomponent, etc.
 
 ## Verwijzingen
 

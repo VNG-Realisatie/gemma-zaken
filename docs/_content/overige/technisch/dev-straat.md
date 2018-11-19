@@ -33,6 +33,7 @@ Iedere referentieimplementatie van een component leeft in zijn eigen repository:
 * [ZRC](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
 * [DRC](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
 * [ZTC](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
+* [BRC](https://github.com/VNG-Realisatie/gemma-besluitregistratie)
 
 Voor de referentieimplementaties wordt het git-flow git-branching model
 aangehouden. Dit houdt in dat de `master` branch de huidige stabiele,
@@ -125,6 +126,7 @@ De referentieimplementaties zijn gehost op:
 * ZRC: https://ref.tst.vng.cloud/zrc/api/v1/
 * DRC: https://ref.tst.vng.cloud/drc/api/v1/
 * ZTC: https://ref.tst.vng.cloud/ztc/api/v1/
+* BRC: https://ref.tst.vng.cloud/brc/api/v1/
 
 Merk op dat dit testomgevingen zijn waar geen enkele garantie van stabiliteit
 is. In een latere fase komen er stabiele omgevingen.

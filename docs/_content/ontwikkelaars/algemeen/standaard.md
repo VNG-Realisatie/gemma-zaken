@@ -18,6 +18,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Definities](#definities)
+- [Gegevensformaten](#gegevensformaten)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -56,6 +57,16 @@ Voorbeelden van geldige URLs:
 
 De service-naar-service communicatie MOET het schema opvragen om operaties op
 resources uit te voeren.
+
+## Gegevensformaten
+
+Een aantal formaten zijn nog niet formeel vastgelegd in OAS of JSON-Schema,
+echter deze worden wel binnen de ZDS APIs gebruikt en opgelegd.
+
+### Duur
+
+Een duur (EN: duration) MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+uitgedrukt worden.
 
 ## Zaakregistratiecomponent
 
@@ -138,7 +149,6 @@ implementatie van het DRC.
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven
 staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook
 toe te voegen.
-
 
 ### Run-time gedrag
 
@@ -275,14 +285,16 @@ aanscherpen)
 
 #### Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource
 
-Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
-`besluit_partial_update`) MOET gevalideerd worden dat de combinatie `identificatie`
-en `verantwoordelijke_organisatie` uniek is, indien de `identificatie` door de consumer
-meegestuurd wordt.
+Bij het aanmaken (`besluit_create`) MOET gevalideerd worden dat de combinatie
+`identificatie` en `verantwoordelijke_organisatie` uniek is, indien de
+`identificatie` door de consumer meegestuurd wordt.
 
 Indien de identificatie niet door de consumer gestuurd wordt, dan MOET het BRC
 de identificatie genereren op een manier die garandeert dat de identificatie
 uniek is binnen de verantwoordelijke_organisatie.
+
+Bij het bijwerken (`besluit_update` en `besluit_partial_update`) is het NIET
+TOEGESTAAN om `identificatie` en `verantwoordelijke_organisatie` te wijzingen.
 
 #### Valideren `informatieobject` op de `BesluitInformatieObject`-resource
 

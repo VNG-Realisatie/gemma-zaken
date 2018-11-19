@@ -52,8 +52,26 @@ aanpassingen:
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaaktypecatalous/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/ztc/openapi.yaml)
+
+
+**Wijzigingen**
+Deze uitbreiding (en aanpassing) op de spec heeft de volgende
+aanpassingen:
+
+* ...
+
+**Kanttekeningen**
+
+* ...
+
+## BRC
+
+**Links**
+
+* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent/pull/X)
+* [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/brc/openapi.yaml)
 
 
 **Wijzigingen**

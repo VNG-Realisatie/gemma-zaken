@@ -944,12 +944,11 @@ components:
           title: Datum
           description: De beslisdatum (AWB) van het besluit.
           type: string
-          format: date-time
+          format: date
         toelichting:
           title: Toelichting
           description: Toelichting bij het besluit.
           type: string
-          maxLength: 1000
         bestuursorgaan:
           title: Bestuursorgaan
           description: Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld
@@ -969,11 +968,28 @@ components:
           format: date
         vervalreden:
           title: Vervalreden
+          description: 'De omschrijving die aangeeft op grond waarvan het besluit
+            is of komt te vervallen.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `tijdelijk` - Besluit met tijdelijke werking
+
+            * `ingetrokken_overheid` - Besluit ingetrokken door overheid
+
+            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende'
           type: string
           enum:
           - tijdelijk
           - ingetrokken_overheid
           - ingetrokken_belanghebbende
+        vervalredenWeergave:
+          title: Vervalreden weergave
+          type: string
+          readOnly: true
+          minLength: 1
         publicatiedatum:
           title: Publicatiedatum
           description: Datum waarop het besluit gepubliceerd wordt.

@@ -6,7 +6,8 @@ weight: 10
 
 In onderstaande begrippenlijst worden begrippen zoals deze gebruikt worden in de verschillende content van deze repository toegelicht.
 
-- API: (TODO)
+- API: Application Programming Interface - dit is een publieke, technologie-onafhankelijke interface voor gegevensuitwisseling tussen betrokken partijen.
+- BRC: Besluitregistratiecomponent. Component voor opslag en ontsluiting van (zaak)besluiten.
 - BSM: Bericht Structuur Model, een UML klassediagram dat  is afgeleid van het UGM waarmee de structuur van een specifiek bericht wordt vastgelegd.
 - CRUD: CRUD is een afkorting uit de informatica die staat voor de vier basisoperaties die op duurzame gegevens (meestal een database) uitgevoerd kunnen worden. Deze zijn:
 
