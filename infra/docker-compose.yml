@@ -23,7 +23,7 @@ services:
       - ztc_postgres_data:/var/lib/postgresql/data
 
   brc_db:
-    image: postgres
+    image: postgres:10
     volumes:
       - brc_postgres_data:/var/lib/postgresql/data
 
