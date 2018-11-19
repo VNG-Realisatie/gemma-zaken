@@ -12,9 +12,6 @@ weight: 100
 
 # Zelf de componenten draaien
 
-*Deze sectie beschrijft hoe ontwikkelaars snel aan de slag kunnen met de 
-referentie componenten in hun eigen ontwikkelomgeving.*
-
 De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een 
 ontbrekend component in de eigen software te simuleren.
@@ -39,7 +36,10 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 **Verplicht**
 
 * Docker
-  * [Windows][docker-win] (Docker Toolbox, niet Docker for Windows)
+  * [Windows][docker-win-legacy] (Docker Toolbox, indien Virtualbox moet 
+    blijven werken)
+  * [Windows][docker-win] (Docker for Windows, als Virtualbox niet belangrijk
+    is)
   * [MacOS][docker-mac] (Docker for Mac)
   * [Linux][docker-linux] (Docker for Linux)
 * Docker Compose (inbegrepen bij Docker Toolbox en Docker for Mac)
@@ -50,7 +50,8 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 * [Git][git-scm] (handig om snel updates binnen te halen)
 
 [docker]: https://docs.docker.com/
-[docker-win]: https://docs.docker.com/toolbox/toolbox_install_windows/
+[docker-win-legacy]: https://docs.docker.com/toolbox/toolbox_install_windows/
+[docker-win]: https://docs.docker.com/docker-for-windows/
 [docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [docker-linux]: https://docs.docker.com/docker-for-mac/install/
 [docker-compose-linux]: https://docs.docker.com/compose/install/
@@ -69,13 +70,13 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 2. Navigeer naar de `infra` folder in deze repository.
    
-   * Voor **MacOS en Linux**:
+   * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
    
      ```bash
      $ cd gemma-zaken/infra
      ```
     
-   * Voor **Windows**:
+   * Voor **Windows (met Docker Toolbox)**:
    
      1. Start de **Docker Quickstart Terminal** vanuit het Start menu.
      2. Navigeer naar de folder waar de repository staat. Als deze bijvoorbeeld
@@ -95,7 +96,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 4. Bevraag de APIs via de browser.
 
-   * Voor **MacOS en Linux**:
+   * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
    
      Navigeer in de browser naar:
     
@@ -104,7 +105,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      * ZTC: `http://localhost:8002`
      * BRC: `http://localhost:8003`
 
-   * Voor **Windows** (of **Docker Toolbox** gebruikers):
+   * Voor **Windows (met Docker Toolbox)**:
    
      Docker Toolbox werkt iets anders en de referentie componenten zijn niet op
      `localhost` bereikbaar. In plaats daarvan moet het Docker VM IP-adres
@@ -147,9 +148,10 @@ te benaderen, moet een gebruiker worden aangemaakt (voorbeeld voor het ZTC):
 docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
 ```
 
-In plaats van `ztc_web` kunnen ook de andere Docker containers benaderd worden
-met de andere componenten: `zrc_web`, `drc_web`, `brc_web`, etc. Een lijst van
-alle componenten is te zien middels `docker container ls`.
+In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers benaderd
+worden met de andere componenten: `infra_zrc_web_1`, `infra_drc_web_1`,
+`infra_brc_web_1`, etc. Een lijst van alle componenten is te zien middels
+`docker container ls`.
 
 Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om 
 testdata in te kunnen richten of gegevens te raadplegen.
@@ -185,6 +187,7 @@ referentie componenten opnieuw installeren:
 ```bash
 $ docker-compose down
 $ docker system prune  # Verwijdert alle data!
+$ git pull
 $ docker-compose pull
 $ docker-compose up -d
 ```
