@@ -4,9 +4,10 @@ set -e # exit on error
 set -x # echo commands
 
 CONTAINER_REPO=vngr/gemma-zaken-docs
+BRANCH_TO_PUSH=master
 
 git_tag=$(git tag --points-at HEAD) &>/dev/null
-git_branch=$(git symbolic-ref HEAD 2>/dev/null) || branch_name="(unnamed branch)"     # detached HEAD
+git_branch=$(git symbolic-ref HEAD 2>/dev/null) || git_branch="(unnamed branch)"     # detached HEAD
 
 
 build_image() {
@@ -30,7 +31,7 @@ push_image() {
     # JOB_NAME is set by Jenkins
     # only push the image if running in CI
     release_tag=$1
-    if [[ -n "$JOB_NAME" && $git_branch -eq "master" ]]; then
+    if [[ -n "$JOB_NAME" && $git_branch = $BRANCH_TO_PUSH ]]; then
         docker push ${CONTAINER_REPO}:${release_tag}
     else
         echo "Not pushing image, set the JOB_NAME envvar to push after building and ensure you're on the master branch"
