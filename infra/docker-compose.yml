@@ -63,8 +63,6 @@ services:
       - DJANGO_SETTINGS_MODULE=brc.conf.docker
       - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
       - DATABASE_HOST=brc_db
-    ports:
-      - 8003:8000
     depends_on:
       - brc_db
 
