@@ -9,7 +9,7 @@ info:
     name: EUPL 1.2
   version: '1'
 security:
-- basic: []
+- JWT-Claims: []
 paths:
   /klantcontacten:
     get:
@@ -398,6 +398,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - rollen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.aanmaken
       requestBody:
         content:
           application/json:
@@ -558,6 +561,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - statussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     post:
       operationId: status_create
       description: ''
@@ -624,6 +630,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - statussen
+      security:
+      - JWT-Claims:
+        - (zds.scopes.zaken.aanmaken | zds.scopes.statussen.toevoegen)
       requestBody:
         content:
           application/json:
@@ -698,6 +707,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - statussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     parameters:
     - name: uuid
       in: path
@@ -769,6 +781,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaakobjecten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     post:
       operationId: zaakobject_create
       description: Registreer een ZAAKOBJECT relatie.
@@ -835,6 +850,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaakobjecten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.aanmaken
       requestBody:
         content:
           application/json:
@@ -909,6 +927,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaakobjecten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     parameters:
     - name: uuid
       in: path
@@ -1026,6 +1047,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     post:
       operationId: zaak_create
       description: 'Maak een ZAAK aan.
@@ -1116,6 +1140,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.aanmaken
       requestBody:
         $ref: '#/components/requestBodies/Zaak'
     parameters: []
@@ -1213,6 +1240,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
       requestBody:
         content:
           application/json:
@@ -1312,6 +1342,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
     put:
       operationId: zaak_update
       description: Opvragen en bewerken van ZAAKen.
@@ -1900,9 +1933,10 @@ components:
             $ref: '#/components/schemas/Zaak'
       required: true
   securitySchemes:
-    basic:
+    JWT-Claims:
+      bearerFormat: JWT
+      scheme: bearer
       type: http
-      scheme: basic
   schemas:
     KlantContact:
       required:

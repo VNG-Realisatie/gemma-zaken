@@ -53,8 +53,7 @@ info:
     name: EUPL 1.2
   version: '1'
 security:
-- Bearer: []
-- OAuth2: []
+- JWT-Claims: []
 paths:
   /catalogussen:
     get:
@@ -119,6 +118,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters: []
   /catalogussen/{catalogus_uuid}/besluittypen:
     get:
@@ -186,6 +188,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -261,6 +266,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -339,6 +347,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -415,6 +426,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -493,6 +507,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -569,6 +586,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -647,6 +667,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -732,6 +755,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -833,6 +859,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -916,6 +945,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1000,6 +1032,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1082,6 +1117,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1172,6 +1210,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: uuid
       in: path
@@ -1184,18 +1225,10 @@ servers:
 - url: /api/v1
 components:
   securitySchemes:
-    Bearer:
-      in: header
-      name: Authorization
-      type: apiKey
-    OAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: /oauth2/token/
-          scopes:
-            write: Schrijftoegang tot de catalogus en gerelateerde objecten.
-            read: Leestoegang tot de catalogus en gerelateerde objecten.
+    JWT-Claims:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
   schemas:
     Catalogus:
       required:

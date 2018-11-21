@@ -18,6 +18,7 @@ medewerkerregistratiecomponent, etc.
 
 * [API-specificatie](https://ref.tst.vng.cloud/zrc/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent)
+* [Beschikbare scopes](https://ref.tst.vng.cloud/zrc/ref/scopes/)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 

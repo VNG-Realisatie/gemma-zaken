@@ -19,6 +19,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Definities](#definities)
 - [Gegevensformaten](#gegevensformaten)
+- [Autorisatie](#autorisatie)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -42,6 +43,15 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 - 'Uiteindelijk resulteren' betekent dat redirects (`HTTP 301`, `HTTP 302`)
   toegestaan zijn, mits deze redirect-locatie resulteert in een `HTTP 200`.
+
+- Autorisatie: het mechanisme om wel of niet toegang te verlenen tot operaties
+  en/of gegevens in de APIs. Niet te verwarren met authenticatie.
+
+- Authenticatie: het mechanisme om de identiteit van een een persoon of andere
+  entiteit vast te stellen.
+
+- Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
+  communiceert via de ZDS APIs.
 
 ## Beschikbaar stellen van API-spec
 
@@ -67,6 +77,47 @@ echter deze worden wel binnen de ZDS APIs gebruikt en opgelegd.
 
 Een duur (EN: duration) MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 uitgedrukt worden.
+
+## Autorisatie
+
+De API-endpoints vereisen autorisatie, in de minimale vorm met scopes. Deze
+scopes zijn opgenomen in de OAS spec.
+
+API requests van clients MOETEN een
+[JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) versturen naar de
+API. Dit token MOET in de `Authorization` HTTP header opgenomen worden.
+
+Client en server maken gebruik van `shared secret` om het JWT te signen, met
+het HMAC SHA-256 algoritme. Iedere client MAG een eigen secret hebben. De
+server MOET aan de hand van de `client_identifier` key in de JWT header
+de bijhorende secret opvragen. De server MOET met het juiste shared secret
+het JWT valideren tegen tampering.
+
+De ZDS claims in de JWT-payload worden genamespaced onder `zds`.
+
+De claims bevatten de scopes als lijst van strings, waarbij de `scopes` key
+gebruikt wordt.
+
+De `zaaktypes` claim MOET gebruikt worden om zaakgegevens te limiteren. Indien
+deze claim ontbreekt, `null` is of een lege lijst, dan is het VERBODEN om
+zaakgegevens te ontsluiten. Een speciale waarde van `['*']` drukt uit dat alle
+zaaktypes toegestaan zijn.
+
+Voorbeeld van een payload:
+
+```json
+{
+    "zds": {
+        "scopes": [
+            "zds.scopes.zaken.aanmaken"
+        ],
+        "zaaktypes": [
+            "https://haarlem.ztc.nl/api/v1/zaaktypen/123",
+            "https://haarlem.ztc.nl/api/v1/zaaktypen/124",
+        ]
+    }
+}
+```
 
 ## Zaakregistratiecomponent
 
@@ -130,6 +181,17 @@ Er MOET gevalideerd worden dat de relatie tussen het informatieobject en de
 zaak al bestaat in het DRC. De bron van het informatieobject is bekend door
 de eerdere validaties op deze URL. De API-spec van het DRC voorziet in query-
 parameters om het bestaan te kunnen valideren.
+
+#### Limiteren zaakgegevens op basis van `zaaktypes` claim
+
+De `zaaktypes` claim is een lijst van URLs van zaaktypes waar de eindgebruiker
+rechten op heeft.
+
+De server MOET resultaten van lijst-operaties (`zaak_list`, `zaak__zoek`)
+limiteren tot de zaaktypes in de zaaktypesclaim.
+
+De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
+een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
 ## Documentregistratiecomponent
 
