@@ -22,7 +22,6 @@ about: Beschrijving van een feature/user story
 - [ ] Er is een referentieimplementatie
 - [ ] Er zijn tests aanwezig die de wijziging aantonen
 - [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
-- [ ] Wijzigigen als gevolg van user story zijn vindbaar en gedocumenteerd in het issue of Pull Request
 
 **Acceptatiecriteria**
 - [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
