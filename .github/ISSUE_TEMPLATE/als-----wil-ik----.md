@@ -11,9 +11,6 @@ about: Beschrijving van een feature/user story
 - [ ] de gewenste (aanvulling op de) functionaliteit van de API's duidelijk en beschreven is.
 - [ ] Is klein genoeg (maximaal 1/5 van sprint)
 - [ ] Product Owner akkoord en voorzien van prioriteit (mag alleen afgevinkt worden door Eelco)
-- [ ] Voorzien van acceptatiecriteria (duidelijk en testbaar)
-- [ ] Voorzien van Definition of Done (duidelijk en testbaar)
-- [ ] Voorzien van taken
 - [ ] Idee hebben van hoe deze user story kan worden gedemonstreerd.
 - [ ] _**Userstory is ingevuld op template architectuurschets**_
 - [ ] **_Userstory is voorzien van veldmapping naar RGBZ2_** (mag alleen afgevinkt worden door Arjan)
@@ -21,28 +18,20 @@ about: Beschrijving van een feature/user story
 - [ ] Vastgelegd in Github en geplaatst in kolom ready
 
 **Definition of done**
-- [ ] er is een OAS 3.0 specificatie
-- [ ] de functionele specificatie is gepubliceerd leesbaar
-- [ ] de technische specificatie is gepubliceerd leesbaar
-- [ ] er is een referentieimplementatie
-- [ ] de DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
-- [ ] eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
-- [ ] er zijn geen (nieuwe) conflicten met ontwerp keuzes in [BIP](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/docs/design_decisions.md)
-- [ ] review heeft plaatsgevonden (dus reviewers hebben voldoende en vindbare info om te kunnen reviewen (dus duidelijke verwijzing in issue/user story naar deze documentatie)
-- [ ] wijzigigen als gevolg van user story zijn vindbaar en gedocumenteerd
-- [ ] functionele documentatie is gereviewd door developers (lees is techniek in overeenstemming met functionele documentatie)
-
+- [ ] Er is een OAS 3.0 specificatie
+- [ ] Er is een referentieimplementatie
+- [ ] Er zijn tests aanwezig die de wijziging aantonen
+- [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
+- [ ] Wijzigigen als gevolg van user story zijn vindbaar en gedocumenteerd in het issue of Pull Request
 
 **Acceptatiecriteria**
-Uit de algemene uitgangspunten:
-- [ ] Voldoet aan RGBZ 2.0
-- [ ] Voldoet aan GEMMA 2.0
+- [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
+- [ ] Eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
+- [ ] Er zijn geen bekende GEMMA tegenstrijdigheden of afwijkingen zijn vastgelegd.
+- [ ] Er zijn geen bekende RGBZ tegenstrijdigheden of afwijkingen zijn vastgelegd
 
 **Taken**
-- [ ] Opstellen welke velden bij een melding horen [_verantwoordelijke_]
-- [ ] Aanleveren testdata [_verantwoordelijke_]
-- [ ] Schrijven (unit) test voor referentie-implementatie [_verantwoordelijke_]
 - [ ] Implementeren in referentie-implementatie [_verantwoordelijke_]
+- [ ] Schrijven (unit) test voor referentie-implementatie [_verantwoordelijke_]
 - [ ] Genereren/opstellen van OAS 3.0 [_verantwoordelijke_]
-- [ ] Functionele documentatie [_verantwoordelijke_]
 - [ ] Human Readable publiceren Open API Specificatie (v.3.0) [_verantwoordelijke_]
