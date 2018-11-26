@@ -16,7 +16,7 @@ detail per component omschrijven wat er gewijzigd is]
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/zrc/openapi.yaml)
 
 
