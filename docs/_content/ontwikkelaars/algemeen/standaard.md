@@ -20,6 +20,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Definities](#definities)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
+- [Filter parameters](#filter-parameters)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -118,6 +119,18 @@ Voorbeeld van een payload:
     }
 }
 ```
+
+## Filter parameters
+
+Componenten ondersteunen het filteren van gegevens op basis van parameters in
+de querystring. Deze parameters MOETEN gevalideerd worden op het juiste
+formaat, net zoals inputvalidatie plaatsvindt bij een `create` of `update`.
+
+Indien de validatie faalt, dan MOET de API antwoorden met een HTTP 400
+foutbericht, waarbij de `invalid-params` key meer informatie bevat over de fout.
+
+Indien een parameter wordt toegepast die niet in de OAS van de betreffende API
+staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 
 ## Zaakregistratiecomponent
 
