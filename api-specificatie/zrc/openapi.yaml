@@ -282,6 +282,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Rol'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
@@ -511,6 +517,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Status'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
@@ -991,6 +1003,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Zaak'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
