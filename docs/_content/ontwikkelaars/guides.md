@@ -18,9 +18,7 @@ referentie implementaties van de verschillende componenten.
 Om gebruik te kunnen maken van de verschillende APIs moet u beschikken over de
 juiste autorisaties. Dit gebeurt middels een JSON Web Token ([JWT][jwt]) die de 
 rechten bevat om gebruik te maken van bepaalde APIs en/of API resources. Het
-JWT dient bij elk verzoek aan de APIs te worde meegegeven.
-
-
+JWT dient bij elk verzoek aan de APIs te worden meegegeven.
 
 U kunt deze JWT eenvoudig verkrijgen door onderstaande stappen te volgen.
 
@@ -90,7 +88,7 @@ U kunt altijd een nieuw JWT genereren met andere autorisaties.
 #### Stap 4: Gebruik het JWT
 
 Het gegenereerde JWT moet worden meegegeven aan elk API-verzoek in de 
-`Authorisation` header: `Authorization: Bearer <JWT>`. Ter illustratie:
+`Authorization` header: `Authorization: Bearer <JWT>`. Ter illustratie:
 
 ```bash
 $ curl \
@@ -100,7 +98,7 @@ $ curl \
 ```
 
    
-Benieuwd hoe het JWT er ongecodeerd uit ziet? Plak de waarde op eens
+Benieuwd hoe het JWT er ongecodeerd uit ziet? Plak de waarde eens op
 [jwt.io][jwt].
 
 [jwt]: https://jwt.io/
