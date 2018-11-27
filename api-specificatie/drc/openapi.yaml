@@ -9,7 +9,7 @@ info:
     name: EUPL 1.2
   version: '1'
 security:
-- basic: []
+- JWT-Claims: []
 paths:
   /enkelvoudiginformatieobjecten:
     get:
@@ -255,6 +255,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ObjectInformatieObject'
+        '400':
+          description: ''
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           content:
@@ -652,9 +658,10 @@ components:
             $ref: '#/components/schemas/ObjectInformatieObject'
       required: true
   securitySchemes:
-    basic:
+    JWT-Claims:
+      bearerFormat: JWT
+      scheme: bearer
       type: http
-      scheme: basic
   schemas:
     EnkelvoudigInformatieObject:
       required:
