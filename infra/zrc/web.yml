@@ -28,11 +28,11 @@ spec:
             value: zrc.conf.docker
           - name: SUBPATH
             value: /zrc
-          - name: DATABASE_HOST
+          - name: DB_HOST
             value: postgres-zrc
           - name: SECRET_KEY
             value: <REDACTED>
-          - name: DATABASE_PASSWORD
+          - name: DB_PASSWORD
             value: <REDACTED>
           - name: SENTRY_DSN
             value: <REDACTED>
