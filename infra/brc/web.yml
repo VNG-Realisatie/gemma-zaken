@@ -28,11 +28,11 @@ spec:
             value: brc.conf.docker
           - name: SUBPATH
             value: /brc
-          - name: DATABASE_HOST
+          - name: DB_HOST
             value: postgres-brc
           - name: SECRET_KEY
             value: <REDACTED>
-          - name: DATABASE_PASSWORD
+          - name: DB_PASSWORD
             value: <REDACTED>
           - name: SENTRY_DSN
             value: <REDACTED>

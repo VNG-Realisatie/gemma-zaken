@@ -4,7 +4,7 @@ date: '14-11-2018'
 weight: 100
 ---
 
-* Snel een API-request doen tegen de door VNG gehoste referentie 
+* Snel een API-request doen tegen de door VNG gehoste referentie
   implementaties? Ga naar de [API guides](guides).
 * Zelf een implementatie bouwen op basis van de specificaties? Ga naar de
   [API specificaties](apis/index).
@@ -13,12 +13,12 @@ weight: 100
 # Zelf de componenten draaien
 
 De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
-eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een 
+eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een
 ontbrekend component in de eigen software te simuleren.
 
 ## Snelle start
 
-Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van 
+Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van
 start te gaan. Ga anders naar de **Voorbereiding**.
 
 ```bash
@@ -36,7 +36,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 **Verplicht**
 
 * Docker
-  * [Windows][docker-win-legacy] (Docker Toolbox, indien Virtualbox moet 
+  * [Windows][docker-win-legacy] (Docker Toolbox, indien Virtualbox moet
     blijven werken)
   * [Windows][docker-win] (Docker for Windows, als Virtualbox niet belangrijk
     is)
@@ -64,24 +64,24 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
-  
+
    Of, [download][gemma-zaken-download] de repository handmatig en pak deze uit
    in de `gemma-zaken` folder.
 
 2. Navigeer naar de `infra` folder in deze repository.
-   
+
    * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
-   
+
      ```bash
      $ cd gemma-zaken/infra
      ```
-    
+
    * Voor **Windows (met Docker Toolbox)**:
-   
+
      1. Start de **Docker Quickstart Terminal** vanuit het Start menu.
      2. Navigeer naar de folder waar de repository staat. Als deze bijvoorbeeld
         staat in `C:\Projecten\gemma-zaken` gaat dat als volgt:
-        
+
         ```bash
         $ cd /C/Projecten/gemma-zaken
         $ cd infra
@@ -97,16 +97,16 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 4. Bevraag de APIs via de browser.
 
    * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
-   
+
      Navigeer in de browser naar:
-    
+
      * ZRC: `http://localhost:8000`
      * DRC: `http://localhost:8001`
      * ZTC: `http://localhost:8002`
      * BRC: `http://localhost:8003`
 
    * Voor **Windows (met Docker Toolbox)**:
-   
+
      Docker Toolbox werkt iets anders en de referentie componenten zijn niet op
      `localhost` bereikbaar. In plaats daarvan moet het Docker VM IP-adres
      gebruikt worden:
@@ -116,11 +116,11 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      NAME      ACTIVE   DRIVER       STATE     URL
      default   *        virtualbox   Running   tcp://<ip>:<port>
      ```
-     
-     Het `<ip>` hierboven is het IP waarop de referentie componenten 
+
+     Het `<ip>` hierboven is het IP waarop de referentie componenten
      beschikbaar zijn. Typisch is dit: `192.168.99.100`. Navigeer de browser
      naar:
-    
+
      * ZRC: `http://192.168.99.100:8000`
      * DRC: `http://192.168.99.100:8001`
      * ZTC: `http://192.168.99.100:8002`
@@ -153,7 +153,7 @@ worden met de andere componenten: `infra_zrc_web_1`, `infra_drc_web_1`,
 `infra_brc_web_1`, etc. Een lijst van alle componenten is te zien middels
 `docker container ls`.
 
-Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om 
+Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om
 testdata in te kunnen richten of gegevens te raadplegen.
 
 ### APIs benaderen
@@ -165,8 +165,46 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
 ### API Guides
 
-Er zijn verschillende [API guides](guides) beschikbaar met 
+Er zijn verschillende [API guides](guides) beschikbaar met
 veelvoorkomende consumer handelingen.
+
+### Poorten wijzigen
+
+De docker-compose setup gebruikt de `host` network mode. Dit zorgt ervoor
+dat containers met elkaar kunnen verbinden, ook als URLs naar `localhost`
+verwijzen (zie [#537](https://github.com/VNG-Realisatie/gemma-zaken/issues/537)).
+
+Het nadeel hiervan is dat de database en webservices poorten in gebruik nemen
+op je lokale machine. Concreet gaat het om:
+
+* 5436, 8000 voor het ZRC
+* 5437, 8001 voor het DRC
+* 5438, 8002 voor het ZTC
+* 5439, 8003 voor het BRC
+
+Je kan deze poorten aanpassen, indien gewenst. Dit doe je door een bestand
+`.env` aan te maken in de map `infra` (=zelfde locatie waar je `docker-compose up`
+uitvoert).
+
+De inhoud hiervan is (met de defaults):
+
+```
+ZRC_DB_PORT=5436
+ZRC_UWSGI_PORT=8000
+
+DRC_DB_PORT=5437
+DRC_UWSGI_PORT=8001
+
+ZTC_DB_PORT=5438
+ZTC_UWSGI_PORT=8002
+
+BRC_DB_PORT=5439
+BRC_UWSGI_PORT=8003
+```
+
+Je kan zelf de vrije poortnummers invullen die je wenst te gebruiken. Je hoeft
+enkel de poorten op te geven die je wil wijzingen - indien variabelen ontbreken
+wordt op de defaults teruggevallen.
 
 ## Eerste hulp
 
@@ -176,7 +214,7 @@ Bekijk de status van de Docker containers:
 $ docker container ls --all
 ```
 
-Zijn er één of meerdere containers met de status `Exited`? Dan gaat er iets 
+Zijn er één of meerdere containers met de status `Exited`? Dan gaat er iets
 niet goed.
 
 In dit stadium van de referentie componenten kan het voorkomen dat er niet goed
