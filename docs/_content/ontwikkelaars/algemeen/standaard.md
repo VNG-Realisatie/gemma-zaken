@@ -86,7 +86,12 @@ scopes zijn opgenomen in de OAS spec.
 
 API requests van clients MOETEN een
 [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) versturen naar de
-API. Dit token MOET in de `Authorization` HTTP header opgenomen worden.
+API. Dit token MOET in de `Authorization` HTTP header opgenomen worden, met
+als type `Bearer`. Voorbeeld:
+
+```
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZG9jcy1VNW9hSGhmMUEyVFgifQ.eyJpc3MiOiJkb2NzLVU1b2FIaGYxQTJUWCIsImlhdCI6MTU0MzI0NjkwNywiemRzIjp7InNjb3BlcyI6W10sInphYWt0eXBlcyI6W119fQ.e9Khey44Tgobqu8boB_GclDQ8Et7I3DhbPmTTrIu9U4
+```
 
 Client en server maken gebruik van `shared secret` om het JWT te signen, met
 het HMAC SHA-256 algoritme. Iedere client MAG een eigen secret hebben. De
