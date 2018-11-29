@@ -17,7 +17,7 @@ De online demo applicatie is geconfigureerd om te communiceren met de gehoste
 referentie implementaties van de verschillende componenten. Deze demo
 applicatie kan **niet** anders worden geconfigureerd en is te vinden op:
 
-https://ref.tst.vng.cloud/zaken-demo/
+[https://ref.tst.vng.cloud/zaken-demo/](https://ref.tst.vng.cloud/zaken-demo/)
 
 
 # Gebruik een lokale versie van de demo applicatie
