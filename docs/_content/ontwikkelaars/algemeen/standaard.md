@@ -1,6 +1,7 @@
 ---
 title: "Zaakdocumentservices 2.0 Standaard"
 date: '14-11-2018'
+weight: 100
 ---
 
 *Versie 0.1*
