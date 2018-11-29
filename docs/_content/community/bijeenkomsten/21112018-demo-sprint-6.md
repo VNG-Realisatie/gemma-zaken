@@ -32,5 +32,6 @@ Rotterdam, 22 november 2018
 
 ### API lab: Wat gaan we doen? B
 
-### Cliënt beschikbaar? Ja
+### Cliënt beschikbaar?
 
+Ja
