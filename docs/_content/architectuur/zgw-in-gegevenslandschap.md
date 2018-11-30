@@ -72,7 +72,7 @@ In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreve
 
 In het Gegevenslandschap komt bovenstaand plaatje er, door het scheiden van proces en data, eenmalige opslag en bevraging ‘bij de bron’ en het verminderen van informatiestromen anders uit te zien (zie figuur 2):
 
-![ZGWgemma2.png](./_assets/ZGWgemma2.png?raw=true)
+![zgw-in-gegevenslandschap.png](./_assets/zgw-in-gegevenslandschap.png.?raw=true)
 *Figuur 2 - ZGW in een Gegevenslandschap*
 
 * De domein/objectgegevens gegevens zijn uit de Zaakafhandelcomponent verdwenen. Procesdefinities en procesgegevens blijven daar echter achter. Dit is ook precies het punt waar procesapplicaties zich op kunnen onderscheiden: goede procesondersteuning.
