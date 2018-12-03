@@ -116,14 +116,10 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      gebruikt worden:
 
      ```bash
-     $ docker-machine ls
-     NAME      ACTIVE   DRIVER       STATE     URL
-     default   *        virtualbox   Running   tcp://<ip>:<port>
+     $ docker-machine ip
      ```
 
-     Het `<ip>` hierboven is het IP waarop de referentie componenten
-     beschikbaar zijn. Typisch is dit: `192.168.99.100`. Navigeer de browser
-     naar:
+     Typisch is dit: `192.168.99.100`. Navigeer de browser dan naar:
 
      * ZRC: `http://192.168.99.100:8000`
      * DRC: `http://192.168.99.100:8001`
