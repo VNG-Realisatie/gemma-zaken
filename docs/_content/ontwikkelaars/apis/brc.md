@@ -1,6 +1,7 @@
 ---
 title: "Besluiten API | Besluit registratie component (BRC)"
 date: '14-11-2018'
+weight: 80
 ---
 
 *Component voor opslag en ontsluiting van besluiten en daarbij behorende metadata.*

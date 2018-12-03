@@ -1,6 +1,7 @@
 ---
 title: "Zaken API | Zaak registratie component (ZRC)"
 date: '13-7-2018'
+weight: 100
 ---
 
 *Component voor opslag en ontsluiting van zaakgegevens.*
