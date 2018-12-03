@@ -17,7 +17,7 @@ De online demo applicatie is geconfigureerd om te communiceren met de gehoste
 referentie implementaties van de verschillende componenten. Deze demo
 applicatie kan **niet** anders worden geconfigureerd en is te vinden op:
 
-[https://ref.tst.vng.cloud/zaken-demo/](https://ref.tst.vng.cloud/zaken-demo/)
+[https://ref.tst.vng.cloud/demo/](https://ref.tst.vng.cloud/demo/)
 
 
 # Gebruik een lokale versie van de demo applicatie
@@ -25,15 +25,19 @@ applicatie kan **niet** anders worden geconfigureerd en is te vinden op:
 Deze versie van de demo applicatie kunt u naar wens configureren op uw eigen
 omgeving.
 
+
 ## Snelle start
 
 Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van
 start te gaan. Ga anders naar de **Voorbereiding**.
 
 ```bash
-$ docker pull vngr/gemma-zaken-demo
-$ docker run -p 8000:8080 --name=gemma-zaken-demo vngr/gemma-zaken-demo
+$ git clone git@github.com:VNG-Realisatie/gemma-zaken-demo.git
+$ cd gemma-zaken-demo
+$ docker-compose pull
+$ docker-compose up -d
 ```
+
 
 ## Voorbereiding
 
@@ -52,36 +56,52 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 * Docker Compose (inbegrepen bij Docker Toolbox en Docker for Mac)
   * [Linux][docker-compose-linux]
 
+**Optioneel**
+
+* [Git][git-scm] (handig om snel updates binnen te halen)
+
 [docker]: https://docs.docker.com/
 [docker-win-legacy]: https://docs.docker.com/toolbox/toolbox_install_windows/
 [docker-win]: https://docs.docker.com/docker-for-windows/
 [docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [docker-linux]: https://docs.docker.com/docker-for-mac/install/
 [docker-compose-linux]: https://docs.docker.com/compose/install/
+[git-scm]: https://git-scm.com/downloads
 
-## Demo applicatie starten
+## Referentie componenten opstarten
 
-1. Download de demo applicatie als Docker container:
+1. Clone de `VNG-Realisatie/gemma-zaken` repository op de eigen computer:
+
+   ```bash
+   git clone git@github.com:VNG-Realisatie/gemma-zaken.git
+   ```
+
+   Of, [download][gemma-zaken-demo-download] de repository handmatig en pak 
+   deze uit in de `gemma-zaken-demo` folder.
+
+2. Navigeer naar de project folder.
 
    * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
 
      ```bash
-     $ docker pull vngr/gemma-zaken-demo
+     $ cd gemma-zaken-demo
      ```
 
    * Voor **Windows (met Docker Toolbox)**:
 
      1. Start de **Docker Quickstart Terminal** vanuit het Start menu.
-     2. Haal de container binnen:
+     2. Navigeer naar de folder waar de repository staat. Als deze bijvoorbeeld
+        staat in `C:\Projecten\gemma-zaken-demo` gaat dat als volgt:
 
         ```bash
-        $ docker pull vngr/gemma-zaken-demo
+        $ cd /C/Projecten/gemma-zaken-demo
         ```
 
 2. Start de demo applicatie:
 
    ```bash
-   $ docker run -p 8000:8080 --name=gemma-zaken-demo vngr/gemma-zaken-demo
+   $ docker-compose pull  # update naar nieuwste versie
+   $ docker-compose up -d
    ```
 
 3. Navigeer in de browser naar de demo applicatie.
@@ -115,8 +135,20 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
    referentie implementaties:
 
    ```bash
-   docker exec -it gemma-zaken-demo /app/src/manage.py loaddata refimpl-conf.json
+   docker exec -it gemmazakendemo_web_1 /app/src/manage.py loaddata /app/src/zac/fixtures/refimpl-conf.json
    ```
+
+
+[gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken-demo/archive/master.zip
+
 
 ## En verder...
 
+### Demo applicatie stoppen
+
+De referentie applicatie draait op de achtergrond. Om geen onnodige resources
+te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
+
+```bash
+$ docker-compose down
+```
