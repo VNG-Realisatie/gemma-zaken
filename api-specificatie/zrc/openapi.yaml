@@ -2436,8 +2436,7 @@ components:
           description: URL naar de Niet-natuurlijk persoon zijnde de organisatie die
             eindverantwoordelijk is voor de behandeling van de zaak.
           type: string
-          format: uri
-          maxLength: 200
+          maxLength: 9
           minLength: 1
         startdatum:
           title: Startdatum
