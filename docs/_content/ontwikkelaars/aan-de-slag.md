@@ -10,11 +10,13 @@ weight: 100
   [API specificaties](apis/index).
 * Zelf de componenten draaien voor eigen gebruik? Lees verder!
 
+
 # Zelf de componenten draaien
 
 De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een
 ontbrekend component in de eigen software te simuleren.
+
 
 ## Snelle start
 
@@ -27,6 +29,7 @@ $ cd gemma-zaken/infra
 $ docker-compose pull
 $ docker-compose up -d
 ```
+
 
 ## Voorbereiding
 
@@ -56,6 +59,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 [docker-linux]: https://docs.docker.com/docker-for-mac/install/
 [docker-compose-linux]: https://docs.docker.com/compose/install/
 [git-scm]: https://git-scm.com/downloads
+
 
 ## Referentie componenten opstarten
 
@@ -112,14 +116,10 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      gebruikt worden:
 
      ```bash
-     $ docker-machine ls
-     NAME      ACTIVE   DRIVER       STATE     URL
-     default   *        virtualbox   Running   tcp://<ip>:<port>
+     $ docker-machine ip
      ```
 
-     Het `<ip>` hierboven is het IP waarop de referentie componenten
-     beschikbaar zijn. Typisch is dit: `192.168.99.100`. Navigeer de browser
-     naar:
+     Typisch is dit: `192.168.99.100`. Navigeer de browser dan naar:
 
      * ZRC: `http://192.168.99.100:8000`
      * DRC: `http://192.168.99.100:8001`
@@ -127,6 +127,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      * BRC: `http://192.168.99.100:8003`
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
+
 
 ## En verder...
 
@@ -138,6 +139,7 @@ te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 ```bash
 $ docker-compose down
 ```
+
 
 ### Beheer interface
 
@@ -162,6 +164,7 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
 * `http://localhost:800x/api/v1/` - API root
 * `http://localhost:800x/api/v1/schema/` - API documentatie
+
 
 ### API Guides
 
@@ -205,6 +208,7 @@ BRC_UWSGI_PORT=8003
 Je kan zelf de vrije poortnummers invullen die je wenst te gebruiken. Je hoeft
 enkel de poorten op te geven die je wil wijzingen - indien variabelen ontbreken
 wordt op de defaults teruggevallen.
+
 
 ## Eerste hulp
 

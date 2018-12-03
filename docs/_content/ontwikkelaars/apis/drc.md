@@ -1,6 +1,7 @@
 ---
 title: "Documenten API | Document registratie component (DRC)"
 date: '13-7-2018'
+weight: 90
 ---
 
 *Component voor opslag en ontsluiting van documenten en daarbij behorende metadata.*

@@ -3,14 +3,10 @@ title: ZGW API guides
 weight: 90
 ---
 
-*WIP*
-
 In onderstaande voorbeelden wordt gebruik gemaakt van de door VNG gehoste
 referentie implementaties van de verschillende componenten.
 
-
 ## Voorbereidingen
-
 
 
 ### Autorisatie
@@ -26,12 +22,12 @@ U kunt deze JWT eenvoudig verkrijgen door onderstaande stappen te volgen.
 #### Stap 1: Client ID en secret aanmaken
 
 Alle componenten moeten weten wie u bent. Dit proces is voor test doeleinden 
-toegevoegd om uw **Client ID** en **secret** bekend te maken bij alle 
+toegevoegd om uw **Client ID** en **Secret** bekend te maken bij alle 
 componenten.
 
 1. Ga naar: https://ref.tst.vng.cloud/tokens/
 
-2. Vul het **Client label** in (_bijv. `mijn-consumer`_) en klik op **Submit**.
+2. Vul het **Clientlabel** in (_bijv. `mijn-consumer`_) en klik op **Bevestig**.
 
 3. Bewaar de gegevens op de volgende pagina:
    
@@ -44,11 +40,13 @@ Deze gegevens zijn nu direct bekend gemaakt bij alle beschikbare componenten.
 #### Stap 2: JWT genereren
 
 In onderstaande stap wordt het daadwerkelijk JWT gegenereerd op basis van het
-**Client ID** en een **secret** waar zowel u als de componenten van op de
+**Client ID** en een **Secret** waar zowel u als de componenten van op de
 hoogte zijn.
 
-1. Klik op **Generate a JWT**.
-      
+1. Klik op **Genereer een JWT**.
+
+   Als het goed is zijn het **Client ID** en **Secret** al vooringevuld.
+         
 2. Op de volgende pagina kent u de juiste autorisaties toe in de vorm van 
    *scopes* en *zaaktypes*:
 
@@ -58,7 +56,7 @@ hoogte zijn.
    b. Vink de verschillende **zaaktypes** aan die van toepassing zijn. Voor
       test doeleinden kan weer alles aangevinkt worden.
 
-3.  Klik op **Submit**.
+3.  Klik op **Bevestig**.
 
 4. Bewaar de waarde die staat achter **Authorization**. Dit is het gegenereerde
    JWT.
@@ -73,13 +71,13 @@ U kunt altijd een nieuw JWT genereren met andere autorisaties.
 
 1. Ga naar: https://ref.tst.vng.cloud/tokens/generate-jwt/
 
-2. Indien u recent stap 1 heeft gevolgd zijn de **Client ID** en **secret**
+2. Indien u recent stap 1 heeft gevolgd zijn de **Client ID** en **Secret**
    reeds voor ingevuld. Zo niet, dan moet u deze zelf invullen met de gegevens
    uit stap 1.
 
 3. Vink de **scopes** en/of **zaaktypes** aan die van toepassing zijn.
 
-4. Klik op **Submit**.
+4. Klik op **Bevestig**.
 
 5. Bewaar de waarde die staat achter **Authorization**. Dit is het gegenereerde
    JWT.

@@ -1,6 +1,7 @@
 ---
 title: "Authenticatie en autorisatie"
 date: '22-10-2018'
+weight: 70
 ---
 
 Authenticatie en autorisatie binnen de APIs zijn van elkaar losgekoppeld. De

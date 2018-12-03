@@ -2,9 +2,6 @@
 title: "Scopes als autorisatiemechanisme"
 description: ""
 weight: 40
-menu:
-  docs:
-    parent: "developers"
 ---
 
 # Scopes

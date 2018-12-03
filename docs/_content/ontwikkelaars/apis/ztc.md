@@ -1,6 +1,7 @@
 ---
 title: "Catalogus API | Zaak type catalogus (ZTC)"
 date: '13-7-2018'
+weight: 50
 ---
 
 *Component voor opslag en ontsluiting van zaaktypegegevens.*

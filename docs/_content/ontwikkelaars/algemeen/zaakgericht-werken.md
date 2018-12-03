@@ -1,6 +1,7 @@
 ---
 title: "Overzicht van Zaakgericht werken"
 date: '14-11-2018'
+weight: 10
 ---
 
 *WIP: Overgenomen uit RGBZ 2.0 zodat samenhang helder wordt maar moet worden herschreven*
