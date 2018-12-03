@@ -126,23 +126,41 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
      beschikbaar zijn. Typisch is dit: `192.168.99.100`. Navigeer de browser
      naar: `http://192.168.99.100:8080`
 
-4. In de browser, klik op `Configuratie` en login met onderstaande gegevens:
+4. Maak een gebruiker aan om de configuratie in te stellen:
 
-   * Gebruikersnaam: `admin`
-   * Wachtwoord: `admin`
+   ```bash
+   docker exec -it gemmazakendemo_web_1 /app/src/manage.py createsuperuser
+   ```
 
-5. Optioneel: Laad voorbeeld configuratie in die gebruik maakt van de gehoste
+5. In de browser, klik op `Configuratie` en login met de gegevens die in de
+   vorige stap zijn ingevuld.
+
+6. Optioneel: Laad voorbeeld configuratie in die gebruik maakt van de gehoste
    referentie implementaties:
 
    ```bash
    docker exec -it gemmazakendemo_web_1 /app/src/manage.py loaddata /app/src/zac/fixtures/refimpl-conf.json
    ```
+   
+   _TIP: Het kan zijn dat de configuratie niet goed hergeladen wordt. In dat
+   geval kan in de admin de configuratie nogmaals worden opgeslagen of de Docker
+   instantie moet opnieuw gestart worden._
 
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken-demo/archive/master.zip
 
 
 ## En verder...
+
+### Demo applicatie stoppen
+
+De referentie applicatie draait op de achtergrond. Om geen onnodige resources
+te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
+
+```bash
+$ docker-compose down
+```
+
 
 ### Demo applicatie stoppen
 
