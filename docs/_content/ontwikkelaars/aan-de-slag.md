@@ -27,7 +27,7 @@ start te gaan. Ga anders naar de **Voorbereiding**.
 $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
 $ cd gemma-zaken/infra
 $ docker-compose pull
-$ docker-compose up -d
+$ docker-compose -f docker-compose.desktop.yml up -d
 ```
 
 
@@ -95,7 +95,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
    ```bash
    $ docker-compose pull  # update naar nieuwste versie
-   $ docker-compose up -d
+   $ docker-compose -f docker-compose.desktop.yml up -d
    ```
 
 4. Bevraag de APIs via de browser.
@@ -227,11 +227,11 @@ stuk is gegaan. Wat mogelijk helpt is alle oude data te verwijderen en de
 referentie componenten opnieuw installeren:
 
 ```bash
-$ docker-compose down
+$ docker-compose -f docker-compose.desktop.yml down
 $ docker system prune  # Verwijdert alle data!
 $ git pull
 $ docker-compose pull
-$ docker-compose up -d
+$ docker-compose -f docker-compose.desktop.yml up -d
 ```
 
 
