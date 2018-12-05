@@ -53,7 +53,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
     is)
   * [MacOS][docker-mac] (Docker for Mac)
   * [Linux][docker-linux] (Docker for Linux)
-* Docker Compose (inbegrepen bij Docker Toolbox en Docker for Mac)
+* Docker Compose (alleen niet inbegrepen bij Docker for Linux)
   * [Linux][docker-compose-linux]
 
 **Optioneel**
@@ -75,6 +75,9 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
+   
+   Of, gebruik `git clone https://github.com/VNG-Realisatie/gemma-zaken.git`
+   als authenticatie een issue is.
 
    Of, [download][gemma-zaken-demo-download] de repository handmatig en pak 
    deze uit in de `gemma-zaken-demo` folder.
@@ -101,29 +104,51 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
    ```bash
    $ docker-compose pull  # update naar nieuwste versie
-   $ docker-compose up -d
+   $ docker-compose up -d --build
    ```
 
-3. Navigeer in de browser naar de demo applicatie.
+3. Vind en gebruik het juiste IP:
 
-   * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
+   * Voor **MacOS en Linux**:
 
-     Navigeer in de browser naar: `http://localhost:8080`
+     Alle containers zijn bereikbaar op `localhost` of `127.0.0.1`.
+
+   * Voor **Windows (met Docker for Windows)**:
+   
+     Het beste is om het NAT IP te gebruiken in plaats van `localhost`. Deze
+     laatste kan soms problemen geven als een proces vanuit een Docker 
+     container met een andere Docker container wil communiceren.
+     
+     In een shell, voer `ipconfig` uit en zoek naar `DockerNAT`:
+     
+     ```bash
+     $ ipconfig
+     ...
+     Ethernet adapter vEthernet (DockerNAT):
+        Connection-specific DNS Suffix  . :
+        IPv4 Address. . . . . . . . . . . : 10.0.75.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . :
+     ```
+   
+     Alle containers zijn bereikbaar op `10.0.75.1`.
 
    * Voor **Windows (met Docker Toolbox)**:
 
-     Docker Toolbox werkt iets anders en de demo applicatie is niet op
+     Docker Toolbox werkt iets anders en de referentie componenten zijn niet op
      `localhost` bereikbaar. In plaats daarvan moet het Docker VM IP-adres
      gebruikt worden:
 
      ```bash
      $ docker-machine ip
+     192.168.99.100
      ```
+    
+    Alle containers zijn bereikbaar op `192.168.99.100`.
 
-     Typisch is dit: `192.168.99.100`. Navigeer de browser dan naar: 
-     `http://192.168.99.100:8080`
+4. Navigeer in de browser naar de demo applicatie: `http://<ip>:8080/`
 
-4. Maak een gebruiker aan om de configuratie in te stellen:
+5. Maak een gebruiker aan om de configuratie in te stellen:
 
    ```bash
    docker exec -it gemmazakendemo_web_1 /app/src/manage.py createsuperuser
@@ -151,18 +176,8 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
 ### Demo applicatie stoppen
 
-De referentie applicatie draait op de achtergrond. Om geen onnodige resources
-te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
-
-```bash
-$ docker-compose down
-```
-
-
-### Demo applicatie stoppen
-
-De referentie applicatie draait op de achtergrond. Om geen onnodige resources
-te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
+De demo applicatie draait op de achtergrond. Om geen onnodige resources te 
+gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 
 ```bash
 $ docker-compose down
