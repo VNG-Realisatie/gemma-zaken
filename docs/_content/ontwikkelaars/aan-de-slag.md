@@ -126,6 +126,49 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
      * ZTC: `http://192.168.99.100:8002`
      * BRC: `http://192.168.99.100:8003`
 
+5. Admin aanmaken voor elk referentie component
+
+   Elk referentie componenent heeft een beheer interface. Om deze beheer 
+   interface te benaderen, moet een gebruiker worden aangemaakt (voorbeeld 
+   voor het ZTC):
+
+   ```bash
+   docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
+   ```
+
+   In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers benaderd
+   worden met de andere componenten: `infra_zrc_web_1`, `infra_drc_web_1`,
+   `infra_brc_web_1`, etc. Een lijst van alle componenten is te zien middels
+   `docker container ls`.
+   
+   Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om
+   testdata in te kunnen richten of gegevens te raadplegen.
+
+6. Autorisaties regelen
+
+   Login op de admin en ga naar `Jwt secrets` en klik op **Toevoegen**.
+   
+   Vul `Identifier` en `Secret` in, en klik op **Opslaan**. Dit zijn de
+   credentials om een JWT aan te maken, waarvan zowel de consumer als de
+   provider het secret kennen. Dit moet typisch op elk component gebeuren.
+   
+7. JWT aanmaken
+
+   Navigeer naar: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
+   
+   Vul de `Identifier` en `Secret` in van de vorige stap, de relevante 
+   **scopes** en **zaaktypes**, en klik op **Bevestig**.
+   
+   Er wordt nu een JWT gegenereerd die gebruikt kan worden in de `Authorization`
+   header. Om het JWT te inspecteren kan je deze (zonder `Bearer`) plakken op
+   [jwt.io](jwt.io). Overigens kunnen de `zaakypes` vervangen worden met de
+   array `["*"]` voor alle zaaktypes.
+   
+   _Het aanmaken van een JWT registreert het secret **niet** bij de 
+   gehoste referentie componenten. Zie de [API guides](../guides). hoe dit wel
+   werkt._
+
+
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
 
 
@@ -141,23 +184,6 @@ $ docker-compose down
 ```
 
 
-### Beheer interface
-
-Elk referentie componenent heeft een beheer interface. Om deze beheer interface
-te benaderen, moet een gebruiker worden aangemaakt (voorbeeld voor het ZTC):
-
-```bash
-docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
-```
-
-In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers benaderd
-worden met de andere componenten: `infra_zrc_web_1`, `infra_drc_web_1`,
-`infra_brc_web_1`, etc. Een lijst van alle componenten is te zien middels
-`docker container ls`.
-
-Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om
-testdata in te kunnen richten of gegevens te raadplegen.
-
 ### APIs benaderen
 
 De API's en API documentatie zijn beschikbaar op de volgende URLs:
@@ -170,6 +196,7 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
 Er zijn verschillende [API guides](guides) beschikbaar met
 veelvoorkomende consumer handelingen.
+
 
 ### Poorten wijzigen
 
