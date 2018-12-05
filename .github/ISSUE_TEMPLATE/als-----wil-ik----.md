@@ -10,7 +10,7 @@ about: Beschrijving van een feature/user story
 - [ ] Iedereen in het team begrijpt de user story
 - [ ] de gewenste (aanvulling op de) functionaliteit van de API's duidelijk en beschreven is.
 - [ ] Is klein genoeg (maximaal 1/5 van sprint)
-- [ ] Product Owner akkoord en voorzien van prioriteit (mag alleen afgevinkt worden door Eelco)
+- [ ] Product Owner akkoord en voorzien van prioriteit (mag alleen afgevinkt worden door PO)
 - [ ] Idee hebben van hoe deze user story kan worden gedemonstreerd.
 - [ ] _**Userstory is ingevuld op template architectuurschets**_
 - [ ] **_Userstory is voorzien van veldmapping naar RGBZ2_** (mag alleen afgevinkt worden door Arjan)
