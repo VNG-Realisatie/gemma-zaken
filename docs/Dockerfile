@@ -3,13 +3,17 @@ FROM alpine:latest AS build
 # Install build tools.
 RUN apk add build-base ruby-dev ruby-full zlib-dev
 
-COPY . /app
 WORKDIR /app
+
+COPY _config.yml Gemfile Gemfile.lock ./
 
 RUN gem install jekyll bundler && \
     bundler install && \
-    rm -rf public && \
-    bundle exec jekyll build
+    rm -rf public
+
+COPY . /app
+
+RUN bundle exec jekyll build
 
 # Copy static docs to alpine-based nginx container.
 FROM nginx:stable-alpine
