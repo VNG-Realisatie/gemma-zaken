@@ -13,8 +13,7 @@ if [[ -d "infra" ]]; then
     # test if all the services can be brought up
     cd infra
 
-    # no port-binding
-    rm docker-compose.override.yml
+    rm -f docker-compose.override.yml
 
     docker-compose pull
     docker-compose up -d

@@ -173,9 +173,44 @@ veelvoorkomende consumer handelingen.
 
 ### Poorten wijzigen
 
-De docker-compose setup gebruikt de `host` network mode. Dit zorgt ervoor
-dat containers met elkaar kunnen verbinden, ook als URLs naar `localhost`
-verwijzen (zie [#537](https://github.com/VNG-Realisatie/gemma-zaken/issues/537)).
+#### Bridge network
+
+De default `docker-compose` setup gebruikt de `bridge` network mode. Een groot
+nadeel hiervan is dat URLs in requests/responses met `localhost:800x` binnen
+containers niet kunnen geresolved worden, wat leidt tot (obscure) validatiefouten.
+
+Indien je `Docker for Windows` gebruikt, kan je hier omheen werken door de
+componenten niet via `localhost` te benaderen, maar via een IP-adres.
+
+Open een shell, en voer uit:
+
+```bash
+> ipconfig
+```
+
+Ga op zoek naar het `DockerNAT` netwerk - daar staat een gateway (`10.x.y.1`)
+normaal. De componenten zouden moeten bereikbaar zijn op:
+
+- `10.x.y.2:8000`
+- `10.x.y.2:8001`
+- `10.x.y.2:8002`
+- `10.x.y.2:8003`
+
+#### Host network
+
+Er is een alternatieve setup die gebruik maakt van de `host` network mode. Dit
+zorgt ervoor dat containers met elkaar kunnen verbinden, ook als URLs naar
+`localhost` verwijzen (zie
+[#537](https://github.com/VNG-Realisatie/gemma-zaken/issues/537)).
+
+Gebruik:
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose.hostnetwork.yml up -d
+```
+
+De `-f` optie specifieert welke config files voor `docker-compose` gebruikt
+moeten worden.
 
 Het nadeel hiervan is dat de database en webservices poorten in gebruik nemen
 op je lokale machine. Concreet gaat het om:
