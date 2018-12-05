@@ -45,7 +45,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
     is)
   * [MacOS][docker-mac] (Docker for Mac)
   * [Linux][docker-linux] (Docker for Linux)
-* Docker Compose (inbegrepen bij Docker Toolbox en Docker for Mac)
+* Docker Compose (alleen niet inbegrepen bij Docker for Linux)
   * [Linux][docker-compose-linux]
 
 **Optioneel**
@@ -365,21 +365,16 @@ $ docker-compose up -d
 ### Foutmelding: Error starting userland proxy / driver failed
 
 Soortgelijke foutmeldingen gebeuren af en toe bij het starten van de Docker
-containers. Oorzaak is last te achterhalen. Er zijn 2 acties om te proberen:
+containers. Een mogelijke oplossing:
 
 ```bash
-$ docker-compose -f docker-compose.desktop.yml down
-$ docker-compose -f docker-compose.desktop.yml up -d
-```
-
-Als dat niet werkt:
-
-```bash
-$ docker-compose -f docker-compose.desktop.yml down
+$ docker-compose down
 ```
 
 En herstart Docker. Het kan soms voorkomen dat het herstarten alleen een 
 oplossing biedt als er verbonden is met een netwerk zodat een publiek IP 
-gebruikt kan worden.
+gebruikt kan worden. Nadat docker opnieuw is opgestart
 
-
+```bash
+$ docker-compose up -d
+```
