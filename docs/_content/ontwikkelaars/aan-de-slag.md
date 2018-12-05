@@ -68,6 +68,9 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
+   
+   Of, gebruik `git clone https://github.com/VNG-Realisatie/gemma-zaken.git`
+   als authenticatie een issue is.
 
    Of, [download][gemma-zaken-download] de repository handmatig en pak deze uit
    in de `gemma-zaken` folder.
@@ -98,16 +101,31 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    $ docker-compose up -d
    ```
 
-4. Bevraag de APIs via de browser.
+4. Vind en gebruik het juiste IP:
 
-   * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
+   * Voor **MacOS en Linux**:
 
-     Navigeer in de browser naar:
+     Alle containers zijn bereikbaar op `localhost` of `127.0.0.1`.
 
-     * ZRC: `http://localhost:8000`
-     * DRC: `http://localhost:8001`
-     * ZTC: `http://localhost:8002`
-     * BRC: `http://localhost:8003`
+   * Voor **Windows (met Docker for Windows)**:
+   
+     Het beste is om het NAT IP te gebruiken in plaats van `localhost`. Deze
+     laatste kan soms problemen geven als een proces vanuit een Docker 
+     container met een andere Docker container wil communiceren.
+     
+     In een shell, voer `ipconfig` uit en zoek naar `DockerNAT`:
+     
+     ```bash
+     $ ipconfig
+     ...
+     Ethernet adapter vEthernet (DockerNAT):
+        Connection-specific DNS Suffix  . :
+        IPv4 Address. . . . . . . . . . . : 10.0.75.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . :
+     ```
+   
+     Alle containers zijn bereikbaar op `10.0.75.1`.
 
    * Voor **Windows (met Docker Toolbox)**:
 
@@ -117,14 +135,22 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
      ```bash
      $ docker-machine ip
+     192.168.99.100
      ```
+    
+    Alle containers zijn bereikbaar op `192.168.99.100`.
 
-     Typisch is dit: `192.168.99.100`. Navigeer de browser dan naar:
+5. Bevraag de APIs via de browser.
 
-     * ZRC: `http://192.168.99.100:8000`
-     * DRC: `http://192.168.99.100:8001`
-     * ZTC: `http://192.168.99.100:8002`
-     * BRC: `http://192.168.99.100:8003`
+   De componenten zijn bereikbaar op verschillende poorten op het IP uit de
+   vorige stap.
+   
+   Navigeer in de browser naar:
+
+   * ZRC: `http://<ip>:8000`
+   * DRC: `http://<ip>:8001`
+   * ZTC: `http://<ip>:8002`
+   * BRC: `http://<ip>:8003`
 
 5. Admin aanmaken voor elk referentie component
 
@@ -133,31 +159,64 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    voor het ZTC):
 
    ```bash
-   docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
+   $ docker container ls
+   CONTAINER ID    ...      PORTS                    NAMES
+   2bea81c01aea    ...      0.0.0.0:8000->8000/tcp   infra_zrc_web_1
+   e1638c2da098    ...      0.0.0.0:8003->8000/tcp   infra_brc_web_1
+   ...
+   $ docker exec -it infra_ztc_web_1 /app/src/manage.py createsuperuser
+   ...
    ```
 
-   In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers benaderd
-   worden met de andere componenten: `infra_zrc_web_1`, `infra_drc_web_1`,
-   `infra_brc_web_1`, etc. Een lijst van alle componenten is te zien middels
-   `docker container ls`.
+   In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers 
+   benaderd worden door de bewuste naam onder `NAMES` te gebruiken.
    
-   Vervolgens kan je daarmee inloggen op `http://localhost:800x/admin/` om
+   Vervolgens kan je daarmee inloggen op `http://<ip>:800x/admin/` om
    testdata in te kunnen richten of gegevens te raadplegen.
 
-6. Autorisaties regelen
+6. Autorisaties regelen voor consumers
+
+   _Een consumer moet rechten hebben om bepaalde data op te vragen. Hiertoe
+   dienen zowel de provider en als de consumer een gedeeld **secret** te
+   hebben._
 
    Login op de admin en ga naar `Jwt secrets` en klik op **Toevoegen**.
    
-   Vul `Identifier` en `Secret` in, en klik op **Opslaan**. Dit zijn de
-   credentials om een JWT aan te maken, waarvan zowel de consumer als de
-   provider het secret kennen. Dit moet typisch op elk component gebeuren.
+   Vul alle gegevens in en klik op **Opslaan**:
    
-7. JWT aanmaken
+   * `Identifier`: Een willeurige string, bijvoorbeeld `demo`.
+   * `Secret`: Een willekeurige string, bijvoorbeeld `demo`.
+   
+   Dit zijn de credentials om straks een JWT aan te maken, waarvan zowel de 
+   consumer als de provider het secret kennen. Dit moet typisch op elk 
+   component gebeuren. Het maakt niet uit wat wordt ingevuld maar het 
+   eenvoudigst is als in alle componenten hetzelfde wordt ingevuld.
+   
+7. Autorisaties regelen tussen componenten
+
+   _Het ZRC moet typisch een Zaaktype valideren in het ZTC. Hiervoor moet het 
+   ZRC wel toestemming hebben om het ZTC te bevragen._
+
+   Login op de admin en ga naar `API credentials` en klik op **Toevoegen**.
+   
+   Vul alle gegevens in en klik op **Opslaan**:
+   
+   * `Api root`: Vul hier de URL in van de API root van het betreffende "andere"
+     component. Bijvoorbeeld: `http://<ip>:800x/api/v1/`
+   * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 6 voor het
+     betreffende component wat bereikbaar is op `Api root`.
+   * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 6 voor het
+     betreffende component wat bereikbaar is op `Api root`.
+
+   De componenten maken zo onderling gebruik van dezelfde secrets als een 
+   consumer maar dat is niet erg voor test doeleinden.
+   
+8. JWT aanmaken
 
    Navigeer naar: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
    
-   Vul de `Identifier` en `Secret` in van de vorige stap, de relevante 
-   **scopes** en **zaaktypes**, en klik op **Bevestig**.
+   Vul de `Identifier` en `Secret` in van stap 6, de relevante **scopes** en 
+   **zaaktypes**, en klik op **Bevestig**.
    
    Er wordt nu een JWT gegenereerd die gebruikt kan worden in de `Authorization`
    header. Om het JWT te inspecteren kan je deze (zonder `Bearer`) plakken op
@@ -165,7 +224,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    array `["*"]` voor alle zaaktypes.
    
    _Het aanmaken van een JWT registreert het secret **niet** bij de 
-   gehoste referentie componenten. Zie de [API guides](../guides). hoe dit wel
+   gehoste referentie componenten. Zie de [API guides](../guides) hoe dit wel
    werkt._
 
 
@@ -274,6 +333,13 @@ wordt op de defaults teruggevallen.
 
 ## Eerste hulp
 
+### De componenten kunnen elkaar niet bereiken
+
+Helaas een bekend probleem onder Windows. Achterliggende oorzaak is dat als
+een component via Docker bereikbaar is op `localhost`
+
+### Niet alle componenten zijn bereikbaar
+
 Bekijk de status van de Docker containers:
 
 ```bash
@@ -286,15 +352,34 @@ niet goed.
 In dit stadium van de referentie componenten kan het voorkomen dat er niet goed
 gemigreerd wordt van een oude naar een nieuwe versie, of dat er ergens iets
 stuk is gegaan. Wat mogelijk helpt is alle oude data te verwijderen en de
-referentie componenten opnieuw installeren:
+referentie componenten opnieuw te installeren:
 
 ```bash
 $ docker-compose down
-$ docker system prune  # Verwijdert alle data!
+$ docker system prune  # Verwijdert alles behalve data!
 $ git pull
 $ docker-compose pull
 $ docker-compose up -d
 ```
 
+### Foutmelding: Error starting userland proxy / driver failed
+
+Soortgelijke foutmeldingen gebeuren af en toe bij het starten van de Docker
+containers. Oorzaak is last te achterhalen. Er zijn 2 acties om te proberen:
+
+```bash
+$ docker-compose -f docker-compose.desktop.yml down
+$ docker-compose -f docker-compose.desktop.yml up -d
+```
+
+Als dat niet werkt:
+
+```bash
+$ docker-compose -f docker-compose.desktop.yml down
+```
+
+En herstart Docker. Het kan soms voorkomen dat het herstarten alleen een 
+oplossing biedt als er verbonden is met een netwerk zodat een publiek IP 
+gebruikt kan worden.
 
 

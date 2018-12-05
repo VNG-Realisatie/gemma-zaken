@@ -75,6 +75,9 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
+   
+   Of, gebruik `git clone https://github.com/VNG-Realisatie/gemma-zaken.git`
+   als authenticatie een issue is.
 
    Of, [download][gemma-zaken-demo-download] de repository handmatig en pak 
    deze uit in de `gemma-zaken-demo` folder.
@@ -106,9 +109,29 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
 3. Navigeer in de browser naar de demo applicatie.
 
-   * Voor **MacOS, Linux en Windows (met Docker for Windows)**:
+   * Voor **MacOS en Linux**
 
      Navigeer in de browser naar: `http://localhost:8080`
+
+   * Voor **Windows (met Docker for Windows)**:
+   
+     Het beste is om het NAT IP te gebruiken in plaats van `localhost`. Deze
+     laatste kan soms problemen geven als een proces vanuit een Docker 
+     container met een andere Docker container wil communiceren.
+     
+     In een shell, voer `ipconfig` uit en zoek naar `DockerNAT`:
+     
+     ```bash
+     $ ipconfig
+     ...
+     Ethernet adapter vEthernet (DockerNAT):
+        Connection-specific DNS Suffix  . :
+        IPv4 Address. . . . . . . . . . . : 10.0.75.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . :
+     ```
+   
+     Navigeer in de browser naar: `http://10.0.75.1:8080`
 
    * Voor **Windows (met Docker Toolbox)**:
 
@@ -151,18 +174,8 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
 ### Demo applicatie stoppen
 
-De referentie applicatie draait op de achtergrond. Om geen onnodige resources
-te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
-
-```bash
-$ docker-compose down
-```
-
-
-### Demo applicatie stoppen
-
-De referentie applicatie draait op de achtergrond. Om geen onnodige resources
-te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
+De demo applicatie draait op de achtergrond. Om geen onnodige resources te 
+gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 
 ```bash
 $ docker-compose down
