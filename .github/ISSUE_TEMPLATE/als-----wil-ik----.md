@@ -1,10 +1,18 @@
 ---
-name: Als ... wil ik ...
+name: User Story
 about: Beschrijving van een feature/user story
 
 ---
 
 ...zodat [vul aan].
+
+**Bepaling prioriteit door PO**
+
+- [ ] verbreding of verdieping API's
+- [ ] stimuleert gebruik door gemeenten
+- [ ] stimuleert gebruik door leveranciers
+
+... eventueel nog toelichting door PO
 
 **Definition of ready**
 - [ ] Iedereen in het team begrijpt de user story
@@ -12,9 +20,7 @@ about: Beschrijving van een feature/user story
 - [ ] Is klein genoeg (maximaal 1/5 van sprint)
 - [ ] Product Owner akkoord en voorzien van prioriteit (mag alleen afgevinkt worden door PO)
 - [ ] Idee hebben van hoe deze user story kan worden gedemonstreerd.
-- [ ] _**Userstory is ingevuld op template architectuurschets**_
-- [ ] **_Userstory is voorzien van veldmapping naar RGBZ2_** (mag alleen afgevinkt worden door Arjan)
-- [ ] **_Userstory past op wenselijk gebruik ZGW volgens GEMMA 2_** (mag alleen afgevinkt worden door Jeffrey)
+- [ ] _**Userstory is voorzien van een analyse (met daarin architectuur, IM, technische beslissingen afgestemd met team)**_
 - [ ] Vastgelegd in Github en geplaatst in kolom ready
 
 **Definition of done**
@@ -27,7 +33,6 @@ about: Beschrijving van een feature/user story
 - [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
 - [ ] Eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
 - [ ] Er zijn geen bekende GEMMA tegenstrijdigheden of afwijkingen zijn vastgelegd.
-- [ ] Er zijn geen bekende RGBZ tegenstrijdigheden of afwijkingen zijn vastgelegd
 
 **Taken**
 - [ ] Implementeren in referentie-implementatie [_verantwoordelijke_]
