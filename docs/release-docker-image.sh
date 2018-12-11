@@ -35,7 +35,7 @@ push_image() {
 
         # check if commit is contained in $BRANCH_TO_PUSH
         while read -r line; do
-            if [[ $line = $BRANCH_TO_PUSH ]]; then
+            if [[ $line = $BRANCH_TO_PUSH ]] || [[ $line = "* $BRANCH_TO_PUSH" ]]; then
                 docker push ${CONTAINER_REPO}:${release_tag}
                 break
             fi
