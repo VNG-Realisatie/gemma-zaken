@@ -41,16 +41,21 @@ Zie de relevante links in dit [overzicht](docs/_content/ontwikkelaars/apis/).
 
 **Referentie-implementaties van componenten**
 
-* [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
-* [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
-* [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
-* [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
+* [![Build Status][zrc-build-status]][zrc-stable]
+  [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
+* [![Build Status][drc-build-status]][drc-stable]
+  [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
+* [![Build Status][ztc-build-status]][ztc-stable]
+  [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
+* [![Build Status][brc-build-status]][brc-stable]
+  [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
 
 **Ondersteunende tooling**
 
 * [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
 * [Overige registratiescomponent](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
-* [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
+* [![Build Status][zit-build-status]][zit-stable]
+  [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
 * [ZDS Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 
@@ -58,3 +63,14 @@ Zie de relevante links in dit [overzicht](docs/_content/ontwikkelaars/apis/).
 Copyright © VNG Realisatie 2018
 
 [Licensed under the EUPL](LICENCE.md)
+
+[zrc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaakregistratiecomponent-stable
+[zrc-stable]: http://jenkins.nlx.io/job/gemma-zaakregistratiecomponent-stable
+[drc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-documentregistratiecomponent-stable
+[drc-stable]: http://jenkins.nlx.io/job/gemma-documentregistratiecomponent-stable
+[ztc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
+[ztc-stable]: http://jenkins.nlx.io/job/gemma-zaaktypecatalogus-stable
+[brc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
+[brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
+[zit-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaken-test-integratie-master
+[zit-stable]: http://jenkins.nlx.io/job/gemma-zaken-test-integratie-master
