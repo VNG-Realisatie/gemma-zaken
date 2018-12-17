@@ -7,26 +7,80 @@ date: '18-11-2018'
 
 ## 1.1 Inleiding
 
-Zaakgericht werken is een concept dat veel wordt gebruikt in gemeenten. Het kent ook vele vormen en implementatievarianten. In de GEMMA is hier de laatste jaren meer richting aan gegeven met het katern Zaakgericht Werken, Zaakgericht Werken in de praktijk (https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken) en recentelijk de vertaling van Zaakgericht Werken in de GEMMA (informatiearchitectuur) (https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2). Met de beweging “Common Ground” (https://wwww.commonground.pleio.nl) beogen gemeenten de realisatie van een radicaal nieuw informatie- en applicatielandschap, een “Gegevenslandschap”. Hierin worden gegevens gescheiden van businesslogica en eindgebruikersfunctionaliteit en dus uit de traditionele procesapplicaties gehaald en zijn in plaats daarvan via gestandaardiseerde API’s beschikbaar bij de bron.
+Zaakgericht werken is een concept dat veel wordt gebruikt in gemeenten. Het kent
+ook vele vormen en implementatievarianten. In de GEMMA is hier de laatste jaren
+meer richting aan gegeven met het katern Zaakgericht Werken,
+[Zaakgericht Werken in de praktijk](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken)
+en recentelijk de vertaling van [Zaakgericht Werken in de GEMMA
+(informatiearchitectuur)](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
+Met de beweging “Common Ground” (https://wwww.commonground.pleio.nl) beogen
+gemeenten de realisatie van een radicaal nieuw informatie- en
+applicatielandschap, een “Gegevenslandschap”. Hierin worden gegevens gescheiden
+van businesslogica en eindgebruikersfunctionaliteit en dus uit de traditionele
+procesapplicaties gehaald en zijn in plaats daarvan via gestandaardiseerde API’s
+beschikbaar bij de bron.
 
-In GEMMA 2 en met name de uitwerking van het ZGW-deel is al voor een deel rekening gehouden met de beweging naar een “Gegevenslandschap”. Zaakregistratiecomponent (ZRC) en Zaakafhandelcomponent (ZAC), Documentregistratiecomponent (DRC) en Documentbeheerocmponent (DBC) (zie https://www.gemmaonline.nl/index.php/ZG1_Functies_en_Referentiecomponenten voor uitgebreide beschrijvingen van de componenten en een toelichting hierop) zijn afzonderlijke referentiecomponenten voor registratie respectievelijk proces/interactie.
+In GEMMA 2 en met name de uitwerking van het ZGW-deel is al voor een deel
+rekening gehouden met de beweging naar een “Gegevenslandschap”.
+Zaakregistratiecomponent (ZRC) en Zaakafhandelcomponent (ZAC),
+Documentregistratiecomponent (DRC) en Documentbeheerocmponent (DBC) (zie
+[functies en referentiecomponenten](https://www.gemmaonline.nl/index.php/ZG1_Functies_en_Referentiecomponenten)
+voor uitgebreide beschrijvingen van de componenten en een toelichting hierop)
+zijn afzonderlijke referentiecomponenten voor registratie respectievelijk
+proces/interactie.
 
-Toch vraagt de architectuur van het Gegevenslandschap om een aanpassing van hoe we tegen de informatiearchitectuur ten dienste van het ZGW aan kijken. Het is ook niet uit te sluiten dat het concept Zaakgericht Werken zelf enige bijstelling behoeft als gevolg van de transitie naar een Gegevenslandschap.
+Toch vraagt de architectuur van het Gegevenslandschap om een aanpassing van hoe
+we tegen de informatiearchitectuur ten dienste van het ZGW aan kijken. Het is
+ook niet uit te sluiten dat het concept Zaakgericht Werken zelf enige bijstelling
+behoeft als gevolg van de transitie naar een Gegevenslandschap.
 
-Dit stuk onderzoekt deze aanpassingen en schetst enkele oplossingsrichtingen. Het is urgent om op een aantal van deze punten minstens op korte termijn de richting bepaald te hebben. Op dit moment worden immers de nieuwe zaakgerichte standaarden (ZDS 2.0 API’s) ontwikkeld. Omdat de architectuur van het Gegevenslandschap/Common Ground door de Taskforce Samen Organiseren als uitgangspunt voor de toekomstige (collectieve) informatievoorziening van gemeenten is benoemd, is het belangrijk dat deze API’s in een gegevenslandschap het ZGW kunnen ondersteunen.
+Dit stuk onderzoekt deze aanpassingen en schetst enkele oplossingsrichtingen.
+Het is urgent om op een aantal van deze punten minstens op korte termijn de richting
+bepaald te hebben. Op dit moment worden immers de nieuwe zaakgerichte standaarden
+(ZDS 2.0 API’s) ontwikkeld. Omdat de architectuur van het Gegevenslandschap/Common
+Ground door de Taskforce Samen Organiseren als uitgangspunt voor de toekomstige
+(collectieve) informatievoorziening van gemeenten is benoemd, is het belangrijk
+dat deze API’s in een gegevenslandschap het ZGW kunnen ondersteunen.
 
-Uitgangspunt voor de zaakgerichte standaarden (ZDS 2.0) is GEMMA 2 en daar waar GEMMA 2 nog niet Gegevenslandschap proof is, gaan we uit van Gegevenslandschap. Openstaande vraag is backwards compatibility: lukt het om de Zaakgerichte API’s zo te ontwikkelen dat deze zowel binnen een GEMMA 2 landschap (huidige systemen/leveranciers) als een Gegevenslandschap gebruikt kan worden? Ook om deze vraag te kunnen beantwoorden is er eerst meer inzicht nodig in hoe (de informatiearchitectuur voor) ZGW in een Gegevenslandschap vorm krijgt.
+Uitgangspunt voor de zaakgerichte standaarden (ZDS 2.0) is GEMMA 2 en daar waar
+GEMMA 2 nog niet Gegevenslandschap proof is, gaan we uit van Gegevenslandschap.
+Openstaande vraag is backwards compatibility: lukt het om de Zaakgerichte API’s
+zo te ontwikkelen dat deze zowel binnen een GEMMA 2 landschap (huidige
+systemen/leveranciers) als een Gegevenslandschap gebruikt kan worden? Ook om deze
+vraag te kunnen beantwoorden is er eerst meer inzicht nodig in hoe (de
+informatiearchitectuur voor) ZGW in een Gegevenslandschap vorm krijgt.
 
 ### 1.2 Veranderingen agv het Gegevenslandschap
 
-In GEMMA 2 worden processen zaakgericht uitgevoerd, ondersteund door informatiesystemen die invulling geven aan de generieke of specifieke Zaakafhandelcomponenten. De primaire verandering agv het gegevenslandschap zit in deze componenten. We signaleren drie grote veranderingen:
+In GEMMA 2 worden processen zaakgericht uitgevoerd, ondersteund door informatiesystemen
+die invulling geven aan de generieke of specifieke Zaakafhandelcomponenten. De
+primaire verandering agv het gegevenslandschap zit in deze componenten. We
+signaleren drie grote veranderingen:
 1. scheiding van gegevens en proceslogica;
 2. (eenmalige) opslag en (meervoudige) bevraging van gegevens bij (of door) de bron en
-3. (mede daardoor) zeer beperkte informatie-uitwisseling (geen gegevensdistributie of ‘rondpompen’, alleen nog notificaties) tussen procesapplicaties. We gaan hierop hieronder in.
+3. (mede daardoor) zeer beperkte informatie-uitwisseling (geen gegevensdistributie of
+   ‘rondpompen’, alleen nog notificaties) tussen procesapplicaties. We gaan hierop
+   hieronder in.
 
 ### 1.2.1. Opknippen Procesapplicaties
 
-In GEMMA 2 en bijgevolg in ZGW in GEMMA 2 zijn de taakspecifieke processystemen als “Specifieke Zaakafhandelcomponenten” (https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Functies_en_Referentiecomponenten_tbv_ZGW_in_GEMMAneergezet). Processen die zaakgericht worden uitgevoerd, worden afgehandeld met een Zaakafhandelcomponent (ZAC, generiek of specifiek). De generieke ZAC slaat haar gegevens op in de Zaakregistratiecomponent (ZRC). Daarentegen slaat de specifieke ZAC alle gegevens zelf op: over de zaak en het proces, het verloop daarvan en veelal ook de registratie van de objecten waarop dat proces betrekking heeft. Vanuit deze component wordt een zaak geregistreerd (gekopieerd) in de ZRC en wordt deze zaak bij wijzigingen (ook) daarin bijgewerkt. Volgens het Gegevenslandschap moeten deze gegevens gescheiden worden van de procesapplicatie en in een of meerdere registraties worden ondergebracht en via gestandaardiseerde API’s ontsloten. Voor de Generieke Zaakafhandelcomponent is hierin al voorzien: deze gebruikt enkel generieke zaakgegevens. Deze gegevensset beperkt zich dus tot de gegevensset zoals wordt bijgehouden in de Zaakregistratiecomponent (ZRC). Voor een specifieke ZAC waarin veel domein- of processpecifieke gegevens worden bijgehouden heeft dit (vergaande) consequenties.
+In GEMMA 2 en bijgevolg in ZGW in GEMMA 2 zijn de taakspecifieke processystemen
+als [“Specifieke Zaakafhandelcomponenten”](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Functies_en_Referentiecomponenten_tbv_ZGW_in_GEMMA)
+neergezet.
+Processen die zaakgericht worden uitgevoerd, worden afgehandeld met een Zaakafhandelcomponent
+(ZAC, generiek of specifiek). De generieke ZAC slaat haar gegevens op in de
+Zaakregistratiecomponent (ZRC). Daarentegen slaat de specifieke ZAC alle gegevens
+zelf op: over de zaak en het proces, het verloop daarvan en veelal ook de
+registratie van de objecten waarop dat proces betrekking heeft. Vanuit deze component
+wordt een zaak geregistreerd (gekopieerd) in de ZRC en wordt deze zaak bij wijzigingen
+(ook) daarin bijgewerkt. Volgens het Gegevenslandschap moeten deze gegevens
+gescheiden worden van de procesapplicatie en in een of meerdere registraties
+worden ondergebracht en via gestandaardiseerde API’s ontsloten. Voor de
+Generieke Zaakafhandelcomponent is hierin al voorzien: deze gebruikt enkel
+generieke zaakgegevens. Deze gegevensset beperkt zich dus tot de gegevensset
+zoals wordt bijgehouden in de Zaakregistratiecomponent (ZRC). Voor een
+specifieke ZAC waarin veel domein- of processpecifieke gegevens worden
+bijgehouden heeft dit (vergaande) consequenties.
 
 ### 1.2.2. Eenmalige opslag vanuit de bron
 
@@ -104,7 +158,8 @@ NU het verzoek is geregistreerd, moet het in behandeling worden genomen. Dit geb
 Als het verzoek in behandeling wordt genomen, wordt vanuit de desbetreffende taakapplicatie via de Zaakregistratiecomponent een Zaak aangemaakt. Het Verzoek wordt gerelateerd aan deze zaak (relatie nog in informatiemodel te formaliseren). Objecten die aan Verzoek waren gerelateerd (groen gekleurd in
 figuur 4: Klant, Bijlagen, Meldingspecifieke gegevens), worden ook rechtstreeks aan Zaak gerelateerd.
 Tijdens de behandeling in de Zaakafhandelcomponent ontstaat bijkomende informatie in de Documentenregistratie en de Meldingenregistratie.
-De relatie tussen Verzoek en Zaak wordt nog verder uitgewerkt. Zie het issue: https://github.com/VNG-Realisatie/gemma-zaken/issues/390
+De relatie tussen Verzoek en Zaak wordt nog verder uitgewerkt. Zie
+[#390](https://github.com/VNG-Realisatie/gemma-zaken/issues/390)
 
 ### 1.4.2. Waar slaan we procesinformatie op?
 
@@ -118,12 +173,12 @@ Conclusie: proces- en procesdefinitiegegevens blijven in de afhandelapplicaties.
 ### 1.4.3. Relatie proces – zaak
 
 In de figuur staat ook een stippellijn getekend tussen Zaak en Procesgegevens. Proces staat niet gedefinieerd in het informatiemodel RGBZ, en dus ligt de relatie zaak – proces ook niet eenduidig vast. In GFO zaken was dit min of meer wel het geval met “stap”. Hieruit, en vooral uit de prominente rol van ‘status’ in het RGBZ, blijkt al dat het moeilijk is om alle soorten processen op een eenduidige manier te registreren. Uiteindelijk kom je dan bij een informatiemodel met de rijkheid van BPMN uit (en voor de meer adaptieve processen iets dat lijkt op CMMN). Wat uiteraard niet de bedoeling is. Maar indachtig de vorige vraag: “waar registreren we procesinformatie”, is het noodzakelijk dat de relatie zaak-proces goed is gedefinieerd, zodat we als we nadere procesinformatie willen weten van een zaak, deze bij een zaaknummer kunnen opvragen (indien beschikbaar).
-Issue om deze vraag te beantwoorden: https://github.com/VNG-Realisatie/gemma-zaken/issues/392
+[Er is een issue om deze vraag te beantwoorden](https://github.com/VNG-Realisatie/gemma-zaken/issues/392).
 
 ### 1.4.4. Hoe objecten relateren aan een zaak?
 Objecten worden in het RGBZ aan een zaak gerelateerd dmv. “Zaakobject”: “een Object waarop de zaak betrekking heeft”. In theorie kun je hier veel kanten mee op. In de praktijk is het gebruik hiervan beperkt tot voornamelijk basisregistratieobjecten. In een gegevenslandschap moeten veel meer soorten objecten aan een zaak gerelateerd kunnen worden. De zaak vormt immers de sleutel om deze bij elkaar te kunnen houden. Denk bijvoorbeeld aan verleende subsidies, uitgegeven marktplaatsen, grafrechten, etc. Vroeger werden deze objectenregistraties bijgehouden in het processysteem en lag daar impliciet de relatie tussen de zaak en deze objecten. Het Gegevenslandschap vraagt om een andere, meer integrale benadering. Het is daarom de vraag of de relatie zaak – object zoals gedefinieerd in het RGBZ (zaak heeft betrekking op object) hiervoor voldoende is genoeg is.
 Zeker omdat de domeingegevens voor de complexere processen uit meerdere objecten zullen bestaan. Relateer je dan al die objecten aan een zaak?
-Discussie en verdere verdieping op dit issue: https://github.com/VNG-Realisatie/gemma-zaken/issues/394
+[Discussie en verdere verdieping op dit issue](https://github.com/VNG-Realisatie/gemma-zaken/issues/394).
 
 ### 1.4.5. Welke bakjes onderkennen we?
 
@@ -154,5 +209,16 @@ Je krijgt hiermee twee niveaus: domeinspecifiek en domeinoverstijgend. Daar waar
 
 ### 1.4.7. Notificeren over zaken
 
-In een gegevenslandschap willen we geen zaken (of andere informatie) meer “rondsturen”. Vraag is wel hoe een behandelaar met een taakapplicatie te weten komt dat er een melding voor hem beschikbaar is die behandeld moet worden. Er zijn nog andere scenario’s te bedenken, waarin het nuttig is dat een partij actief wordt genotificeerd over een zaak(status). Bijvoorbeeld bij meerdere behandelaars die met meerdere systemen werken (of moeten we dat niet willen?), of wanneer er een nieuw document aan een zaak is toegevoegd door een KCC-medewerker. Het is nuttig om enkele van deze scenario’s uit te werken binnen de context van een gegevenslandschap en hiervoor een generieke oplossing voor te stellen. Een verdere uitwerking van https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Notificeren_over_Zaken binnen een gegevenslandschap.
-Nog verder uit te werken in issue: https://github.com/VNG-Realisatie/gemma-zaken/issues/397
+In een gegevenslandschap willen we geen zaken (of andere informatie) meer
+“rondsturen”. Vraag is wel hoe een behandelaar met een taakapplicatie te weten
+komt dat er een melding voor hem beschikbaar is die behandeld moet worden. Er
+zijn nog andere scenario’s te bedenken, waarin het nuttig is dat een partij
+actief wordt genotificeerd over een zaak(status). Bijvoorbeeld bij meerdere
+behandelaars die met meerdere systemen werken (of moeten we dat niet willen?),
+of wanneer er een nieuw document aan een zaak is toegevoegd door een
+KCC-medewerker. Het is nuttig om enkele van deze scenario’s uit te werken
+binnen de context van een gegevenslandschap en hiervoor een generieke oplossing
+voor te stellen. Een verdere uitwerking van
+[notificeren over zaken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Notificeren_over_Zaken)
+binnen een gegevenslandschap. Nog verder uit te werken in
+[issue #397](https://github.com/VNG-Realisatie/gemma-zaken/issues/397)
