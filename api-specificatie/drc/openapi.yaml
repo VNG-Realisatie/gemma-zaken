@@ -1159,8 +1159,48 @@ components:
       scheme: bearer
       type: http
   schemas:
+    Integriteit:
+      title: integriteit
+      description: Uitdrukking van mate van volledigheid en onbeschadigd zijn van
+        digitaal bestand
+      required:
+      - algoritme
+      - waarde
+      - datum
+      type: object
+      properties:
+        algoritme:
+          title: algoritme
+          description: Aanduiding van algoritme, gebruikt om de checksum te maken.
+          type: string
+          enum:
+          - CRC-16
+          - CRC-32
+          - CRC-64
+          - fletcher-4
+          - fletcher-8
+          - fletcher-16
+          - fletcher-32
+          - HMAC
+          - MD5
+          - SHA-1
+          - SHA-256
+          - SHA-512
+          - SHA-3
+        waarde:
+          title: waarde
+          description: De waarde van de checksum.
+          type: string
+          maxLength: 128
+          minLength: 1
+        datum:
+          title: datum
+          description: Datum waarop de checksum is gemaakt.
+          type: string
+          format: date
     EnkelvoudigInformatieObject:
       required:
+      - bronorganisatie
       - creatiedatum
       - titel
       - auteur
@@ -1187,6 +1227,7 @@ components:
             \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
+          minLength: 1
         creatiedatum:
           title: Creatiedatum
           description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
@@ -1716,11 +1757,22 @@ components:
           - ypk
           - znd
           - him
+        bestandsnaam:
+          title: Bestandsnaam
+          description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
+          type: string
+          maxLength: 255
         inhoud:
           title: Inhoud
           type: string
           format: uri
           readOnly: true
+        bestandsomvang:
+          title: Bestandsomvang
+          type: integer
+          readOnly: true
+          minimum: 0
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -1733,6 +1785,8 @@ components:
           description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
           type: string
           maxLength: 1000
+        integriteit:
+          $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
           title: Informatieobjecttype
           description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
@@ -1780,6 +1834,7 @@ components:
           minLength: 1
     EnkelvoudigInformatieObjectData:
       required:
+      - bronorganisatie
       - creatiedatum
       - titel
       - auteur
@@ -1807,6 +1862,7 @@ components:
             \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
+          minLength: 1
         creatiedatum:
           title: Creatiedatum
           description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
@@ -2336,10 +2392,21 @@ components:
           - ypk
           - znd
           - him
+        bestandsnaam:
+          title: Bestandsnaam
+          description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
+          type: string
+          maxLength: 255
         inhoud:
           title: Inhoud
           type: string
           format: bytes
+        bestandsomvang:
+          title: Bestandsomvang
+          type: integer
+          readOnly: true
+          minimum: 0
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -2352,6 +2419,8 @@ components:
           description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
           type: string
           maxLength: 1000
+        integriteit:
+          $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
           title: Informatieobjecttype
           description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
