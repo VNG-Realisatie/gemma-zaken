@@ -1,6 +1,9 @@
 - name: Introductie
   link: /introductie/
   weight: 10
+- name: Standaard
+  link: /standaard/
+  weight: 15
 - name: Architectuur
   link: /architectuur/
   weight: 20

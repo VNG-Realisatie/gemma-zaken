@@ -17,8 +17,8 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 ## Inhoudsopgave
 
-- [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Definities](#definities)
+- [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
 - [Filter parameters](#filter-parameters)
