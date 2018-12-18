@@ -4,15 +4,6 @@ date: '14-11-2018'
 weight: 100
 ---
 
-* Snel een API-request doen tegen de door VNG gehoste referentie
-  implementaties? Ga naar de [API guides](guides).
-* Zelf een implementatie bouwen op basis van de specificaties? Ga naar de
-  [API specificaties](apis/index).
-* Zelf de componenten draaien voor eigen gebruik? Lees verder!
-
-
-# Zelf de componenten draaien
-
 De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een
 ontbrekend component in de eigen software te simuleren.
@@ -47,6 +38,9 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
   * [Linux][docker-linux] (Docker for Linux)
 * Docker Compose (alleen niet inbegrepen bij Docker for Linux)
   * [Linux][docker-compose-linux]
+
+*Docker for Windows werkt alleen op Windows 10 Professional*
+
 
 **Optioneel**
 
