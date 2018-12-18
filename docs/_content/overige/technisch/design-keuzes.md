@@ -59,9 +59,9 @@ resources mogelijk. Concrete voorbeelden hiervan zijn:
 In essentie is dit een vorm van polymorfisme.
 
 Door het uitgangspunt van Common Ground om data-bij-de-bron-opslaan te hanteren,
-werken we in de ZGW API specificaties met _linked data_, wat in deze context 
+werken we in de ZGW API specificaties met _linked data_, wat in deze context
 betekent dat de relaties een referentie-url geven naar de gerelateerde resource.
-Een client/consumer weet op voorhand niet naar welke vorm van gerelateerde 
+Een client/consumer weet op voorhand niet naar welke vorm van gerelateerde
 resource er verwezen wordt.
 
 Daarom is ervoor gekozen om op de relatie bij te houden om welk type resource
@@ -381,8 +381,8 @@ volgende velden:
 * zaak (hyperlink naar de gerelateerde zaak),
 * informatieobject (hyperlink naar het gerelateerde informatieobject).
 
-In geval van de ZGW API's is de relatie tussen zaken en informatieobjecten 
-gedistribueerd over meerdere ZRC- en DRC-instanties en daarmee een speciaal 
+In geval van de ZGW API's is de relatie tussen zaken en informatieobjecten
+gedistribueerd over meerdere ZRC- en DRC-instanties en daarmee een speciaal
 geval. Zie [Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
 voor de designkeuzes hierbij.
 
@@ -521,7 +521,7 @@ HTTP 200
 
 **Rationale**
 
-In de ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over hoe een 
+In de ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over hoe een
 zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
 Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste
 `volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de
@@ -600,10 +600,10 @@ Enumeraties zijn in essentie lijstjes met mogelijke waarden. Deze waarden zijn
 semi-technisch van aard en geven niet altijd de volledige intentie aan van de
 waarde. Deze waarden staan op dit moment niet in het RGBZ.
 
-We kiezen er voor waarden in zo compact mogelijke tekstuele representatie van 
-op te nemen in de OAS. Daarnaast mag voor elk attribuut dat een enumeratie 
-betreft, een weergave-attribuut worden toegevoegd als `string`, die de 
-volledige tekstuele waarde als alleen-lezen teruggeeft. Zo'n attribuut eindigt 
+We kiezen er voor waarden in zo compact mogelijke tekstuele representatie van
+op te nemen in de OAS. Daarnaast mag voor elk attribuut dat een enumeratie
+betreft, een weergave-attribuut worden toegevoegd als `string`, die de
+volledige tekstuele waarde als alleen-lezen teruggeeft. Zo'n attribuut eindigt
 altijd op `Weergave`.
 
 In de omschrijving van het enumeratie-attribuut, staat de mapping omschreven
@@ -634,3 +634,24 @@ taalWeergave:
   type: string
   description: De volledige naam van de taal
 ```
+
+## Bestandsnamen
+
+In RGBZ worden bestandsnamen als gegevensgroep `bestandsnaam` + `extensie`
+gespecifieerd. We kiezen ervoor om in de API deze te combineren in 1 veld
+`bestandsnaam`. Dit is in lijn met bestaande APIs in de industrie en ook
+besturingssystemen slaan de twee als 1 entiteit op.
+
+## Fysieke integriteit (TMLO)
+
+In het RGBZ zijn attributen i.v.m. archiveren opgenomen, afkomstig uit TMLO.
+Deze zijn te vaag gespecifieerd om er echt (geautomatiseerd) iets mee te kunnen
+doen. Daarom is een initiële lijst van gangbare checksum-algoritmes opgenomen
+als enum. Als er een landelijke referentielijst komt, dan zal de enum in een
+latere versie daarnaar verwijzen.
+
+De kwestie is gedetailleerd beschreven in de landelijke
+[KP-Api](https://github.com/Geonovum/KP-APIs/issues/20) repository.
+
+Een statische lijst is makkelijk aan versionering te koppelen, wat het voor
+partijen heel duidelijk maakt welke algoritmes ze moeten ondersteunen.
