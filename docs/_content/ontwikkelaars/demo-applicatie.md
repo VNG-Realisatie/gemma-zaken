@@ -55,6 +55,9 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
   * [Linux][docker-linux] (Docker for Linux)
 * Docker Compose (alleen niet inbegrepen bij Docker for Linux)
   * [Linux][docker-compose-linux]
+  
+*Docker for Windows werkt alleen op Windows 10 Professional*
+
 
 **Optioneel**
 

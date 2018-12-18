@@ -3,8 +3,6 @@ title: "Ontwerpkeuzes informatiemodellen"
 date: '28-8-2018'
 ---
 
-# Ontwerpkeuzes informatiemodellen
-
 Bij het ontwikkelen van de API's aan de hand van userstories kan
 voortschrijdend inzicht er toe leiden dat in de API resources afgeweken wordt
 van het desbetreffende informatiemodel (RGBZ of ImZTC). Het desbetreffende

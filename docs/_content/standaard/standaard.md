@@ -1,5 +1,5 @@
 ---
-title: "Zaakdocumentservices 2.0 Standaard"
+title: "ZGW API Standaard documentatie"
 date: '14-11-2018'
 weight: 100
 ---
