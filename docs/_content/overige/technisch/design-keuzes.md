@@ -454,7 +454,7 @@ Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
 is het `STATUSTYPE` met het hoogste `volgnummer`.
 
 Het toekennen van dit `STATUSTYPE` aan een `ZAAK` bepaalt ook een logisch af te
-leiden `ZAAK.einddatum`; dit is namelijk de datum en tijd waarop de eindstatus
+leiden `ZAAK.einddatum`; dit is namelijk de datum waarop de eindstatus
 is toegekend. Om die reden is `ZAAK.einddatum` een alleen-lezen attribuut van
 `ZAAK`.
 

@@ -212,14 +212,25 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### Afsluiten van zaken
+#### Afsluiten zaak
 
-Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Het
-ZRC MOET bij het zetten van de eindstatus het datumfragment van
-`datumStatusGezet` gebruiken als `ZAAK.einddatum`.
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Elk
+`ZAAKTYPE` MOET minimaal één `STATUSTYPE` kennen. De eindstatus binnen een
+`ZAAKTYPE` is het `STATUSTYPE` met het hoogste `volgnummer`.
+
+De `ZAAK.einddatum` MOET logisch afgeleid worden uit het toekennen van de
+eindstatus via de `Status.datumStatusGezet`.
+
+Als een `ZAAK` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
+van de zaak niet meer aangepast worden (behalve om redenen van correctie).
 
 Indien een status anders dan de eindstatus gezet wordt, dan MOET het ZRC voor
 het attribuut `ZAAK.einddatum` de waarde `null` bevatten.
+
+Bij het afsluiten van een `ZAAK` MOET het ZRC `INFORMATIEOBJECT.indicatieGebruiksrecht`
+controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
+maar MOET `true` of `false` zijn. Indien dit niet het geval is, dan dient het
+ZRC een validatiefout te genereren met code `indicatiegebruiksrecht-unset`.
 
 ## Documentregistratiecomponent
 
