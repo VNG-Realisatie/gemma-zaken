@@ -43,6 +43,7 @@ services:
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
       - SECRET_KEY=h1kluf9r2yhcfr_i!fqb!srx=!u@!^b_gdl54=h0n15j34*+#=
       - DB_HOST=drc_db
+      - IS_HTTPS=0
     volumes:
       - drc_media:/app/media
     depends_on:
