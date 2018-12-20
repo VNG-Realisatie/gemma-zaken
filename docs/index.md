@@ -24,6 +24,6 @@ een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
 Meer hierover in de [introductie](introductie/index) en de 
 [architectuur](architectuur/index).
 
-Ontwikkelaars kunnen [direct aan de slag](ontwikkelaars/aan-de-slag) met de
-beschikbare [APIs](ontwikkelaars/apis/index) en de implementaties van de 
-referentie componenten.
+De standaard staat [hier](/standaard/standaard) beschreven. Ontwikkelaars
+kunnen [direct aan de slag](ontwikkelaars/aan-de-slag) met de beschikbare 
+[APIs](standaard/apis/index) en de implementaties van de referentie componenten.
