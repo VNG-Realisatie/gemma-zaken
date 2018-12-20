@@ -12,7 +12,7 @@ Rotterdam, 22 november 2018
 
 ## Slides:
 
-* [Demo Spint 6.pdf](../bestanden/demo_sprint_6.pdf)
+* [Demo Spint 6.pdf](../bestanden/zds2-demo-sprint-6.pdf)
 
 ## Feedback en vragen
 
