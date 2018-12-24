@@ -1681,7 +1681,10 @@ paths:
   /zaken:
     get:
       operationId: zaak_list
-      description: Geef een lijst van ZAAKen.
+      description: 'Geef een lijst van ZAAKen.
+
+
+        Optioneel kan je de queryparameters gebruiken om zaken te filteren.'
       parameters:
       - name: identificatie
         in: query
@@ -1693,7 +1696,8 @@ paths:
       - name: bronorganisatie
         in: query
         description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
-          die de zaak heeft gecreeerd.
+          die de zaak heeft gecreeerd. Dit moet een geldig RSIN zijn van 9 nummers
+          en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
         required: false
         schema:
           type: string
@@ -1868,7 +1872,7 @@ paths:
 
         Indien geen identificatie gegeven is, dan wordt deze automatisch
 
-        gegenereerd.
+        gegenereerd. De identificatie moet uniek zijn binnen de bronorganisatie.
 
 
         De URL naar het zaaktype wordt gevalideerd op geldigheid.'
@@ -2359,7 +2363,12 @@ paths:
         - zds.scopes.zaken.lezen
     put:
       operationId: zaak_update
-      description: Opvragen en bewerken van ZAAKen.
+      description: 'Werk een zaak bij.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid URL naar zaaktype'
       parameters:
       - name: Accept-Crs
         in: header
@@ -2529,7 +2538,12 @@ paths:
         $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
-      description: Opvragen en bewerken van ZAAKen.
+      description: 'Werk een zaak bij.
+
+
+        Er wordt gevalideerd op:
+
+        - geldigheid URL naar zaaktype'
       parameters:
       - name: Accept-Crs
         in: header
@@ -2824,10 +2838,7 @@ paths:
       - zaken
     post:
       operationId: zaakinformatieobject_create
-      description: "Registreer welk(e) INFORMATIEOBJECT(en) een ZAAK kent.\n\nEr wordt\
-        \ gevalideerd op:\n- geldigheid informatieobject URL\n- uniek zijn van relatie\
-        \ ZAAK-INFORMATIEOBJECT\n- bestaan van relatie ZAAK-INFORMATIEOBJECT in het\
-        \ DRC waar het\n  informatieobject leeft"
+      description: ''
       responses:
         '201':
           description: ''
@@ -3646,6 +3657,20 @@ components:
           - VerblijfsObject
           - MeldingOpenbareRuimte
           - InzageVerzoek
+    ZaakProductOfDienst:
+      description: De producten en/of diensten die door de zaak worden voortgebracht.
+        De producten/diensten moeten bij het zaaktype vermeld zijn.
+      required:
+      - productOfDienst
+      type: object
+      properties:
+        productOfDienst:
+          title: Product of dienst
+          description: Het product of de dienst die door de zaak wordt voortgebracht.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
     Geometry:
       title: Geometry
       description: GeoJSON geometry
@@ -3842,7 +3867,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
-            die de zaak heeft gecreeerd.
+            die de zaak heeft gecreeerd. Dit moet een geldig RSIN zijn van 9 nummers
+            en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
           type: string
           maxLength: 9
           minLength: 1
@@ -3867,8 +3893,9 @@ components:
           format: date
         verantwoordelijkeOrganisatie:
           title: Verantwoordelijke organisatie
-          description: URL naar de Niet-natuurlijk persoon zijnde de organisatie die
-            eindverantwoordelijk is voor de behandeling van de zaak.
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die eindverantwoordelijk is voor de behandeling van de zaak. Dit moet
+            een geldig RSIN zijn van 9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
           type: string
           maxLength: 9
           minLength: 1
@@ -3895,6 +3922,17 @@ components:
             afgerond dient te zijn.
           type: string
           format: date
+        publicatiedatum:
+          title: Publicatiedatum
+          description: Datum waarop (het starten van) de zaak gepubliceerd is of wordt.
+          type: string
+          format: date
+        productenEnDiensten:
+          description: De producten en/of diensten die door de zaak worden voortgebracht.
+            De producten/diensten moeten bij het zaaktype vermeld zijn.
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakProductOfDienst'
         toelichting:
           title: Toelichting
           description: Een toelichting op de zaak.
@@ -3935,7 +3973,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
-            die de zaak heeft gecreeerd.
+            die de zaak heeft gecreeerd. Dit moet een geldig RSIN zijn van 9 nummers
+            en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
           type: string
           minLength: 1
         zaaktype:
