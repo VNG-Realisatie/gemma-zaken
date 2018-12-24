@@ -348,6 +348,15 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
+#### Statuswijzigingen van informatieobjecten
+
+Wanneer `InformatieObject.verzenddatum` een waarde heeft, dan zijn de waarden
+`in bewerking` en `ter vaststelling` voor `InformatieObject.status` NIET
+TOELATEN. Indien een dergelijke status gezet is _voor_ de verzenddatum opgegeven
+wordt, dan moet de API een HTTP 400 foutbericht geven met `status` als veld in
+de `invalid-params`. De client MOET dan `verzenddatum` leeg laten of eerst de
+status wijzingen.
+
 ## Besluitregistratiecomponent
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:

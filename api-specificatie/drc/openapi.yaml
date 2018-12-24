@@ -1446,10 +1446,34 @@ components:
       scheme: bearer
       type: http
   schemas:
+    Ondertekening:
+      title: ondertekening
+      description: Aanduiding van de rechtskracht van een informatieobject. Mag niet
+        van een waarde zijn voorzien als de `status` de waarde 'in bewerking' of 'ter
+        vaststelling' heeft.
+      required:
+      - soort
+      - datum
+      type: object
+      properties:
+        soort:
+          title: soort
+          description: Aanduiding van de wijze van ondertekening van het INFORMATIEOBJECT
+          type: string
+          enum:
+          - analoog
+          - digitaal
+          - pki
+        datum:
+          title: datum
+          description: De datum waarop de ondertekening van het INFORMATIEOBJECT heeft
+            plaatsgevonden.
+          type: string
+          format: date
     Integriteit:
       title: integriteit
       description: Uitdrukking van mate van volledigheid en onbeschadigd zijn van
-        digitaal bestand
+        digitaal bestand.
       required:
       - algoritme
       - waarde
@@ -1547,6 +1571,19 @@ components:
           type: string
           maxLength: 200
           minLength: 1
+        status:
+          title: Status
+          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
+            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
+            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
+            niet-wijzigbaar Formaat dient te hebben.
+          type: string
+          enum:
+          - in bewerking
+          - ter vaststelling
+          - definitief
+          - gearchiveerd
         formaat:
           title: Formaat
           description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
@@ -2076,7 +2113,21 @@ components:
           title: Ontvangstdatum
           description: De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn.
+            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
+            aan documenten die van of naar andere personen ontvangen of verzonden
+            zijn waarbij die personen niet deel uit maken van de behandeling van de
+            zaak waarin het document een rol speelt.
+          type: string
+          format: date
+        verzenddatum:
+          title: Verzenddatum
+          description: De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
+            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
+            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
+            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
+            documenten die van of naar andere personen ontvangen of verzonden zijn
+            waarbij die personen niet deel uit maken van de behandeling van de zaak
+            waarin het document een rol speelt.
           type: string
           format: date
         indicatieGebruiksrecht:
@@ -2084,6 +2135,8 @@ components:
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
             het informatieobject anders dan raadpleging.
           type: boolean
+        ondertekening:
+          $ref: '#/components/schemas/Ondertekening'
         integriteit:
           $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
@@ -2194,6 +2247,19 @@ components:
           type: string
           maxLength: 200
           minLength: 1
+        status:
+          title: Status
+          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
+            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
+            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
+            niet-wijzigbaar Formaat dient te hebben.
+          type: string
+          enum:
+          - in bewerking
+          - ter vaststelling
+          - definitief
+          - gearchiveerd
         formaat:
           title: Formaat
           description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
@@ -2722,7 +2788,21 @@ components:
           title: Ontvangstdatum
           description: De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn.
+            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
+            aan documenten die van of naar andere personen ontvangen of verzonden
+            zijn waarbij die personen niet deel uit maken van de behandeling van de
+            zaak waarin het document een rol speelt.
+          type: string
+          format: date
+        verzenddatum:
+          title: Verzenddatum
+          description: De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
+            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
+            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
+            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
+            documenten die van of naar andere personen ontvangen of verzonden zijn
+            waarbij die personen niet deel uit maken van de behandeling van de zaak
+            waarin het document een rol speelt.
           type: string
           format: date
         indicatie_gebruiksrecht:
@@ -2730,6 +2810,8 @@ components:
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
             het informatieobject anders dan raadpleging.
           type: boolean
+        ondertekening:
+          $ref: '#/components/schemas/Ondertekening'
         integriteit:
           $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
