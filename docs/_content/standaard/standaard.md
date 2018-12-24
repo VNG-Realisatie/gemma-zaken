@@ -357,6 +357,21 @@ wordt, dan moet de API een HTTP 400 foutbericht geven met `status` als veld in
 de `invalid-params`. De client MOET dan `verzenddatum` leeg laten of eerst de
 status wijzingen.
 
+#### Gebruiksrechten op informatieobjecten
+
+Indien er geen gebruiksrechtenvoorwaarden van toepassing zijn op een
+informatieobject, dan moet `InformatieObject.indicatieGebruiksrechten` op de
+waarde `false` gezet worden. Indien de voorwaarden (nog) niet bekend zijn,
+dan moet de indicatie op `null` gezet worden.
+
+Om de indicatie op `true` te zetten, MOET je de resource `Gebruiksrechten`
+aanmaken in de API. Providers MOETEN bij het aanmaken van gebruiksrechten
+voor een informatieobject de `inidcatieGebruiksrechten` van dat informatieobject
+op `true` zetten.
+
+Indien de laatste gebruiksrechten op een informatieobject verwijderd worden,
+dan MOET de indicatie weer op `null` gezet worden.
+
 ## Besluitregistratiecomponent
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
