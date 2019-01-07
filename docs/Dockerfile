@@ -1,13 +1,13 @@
-FROM alpine:latest AS build
+FROM ruby:2.6-alpine AS build
 
 # Install build tools.
-RUN apk add build-base ruby-dev ruby-full zlib-dev
+RUN apk add build-base zlib-dev
 
 WORKDIR /app
 
 COPY _config.yml Gemfile Gemfile.lock ./
 
-RUN gem install jekyll bundler && \
+RUN gem install jekyll && \
     bundler install && \
     rm -rf public
 
