@@ -212,6 +212,15 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
+#### Afsluiten van zaken
+
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Het
+ZRC MOET bij het zetten van de eindstatus het datumfragment van
+`datumStatusGezet` gebruiken als `ZAAK.einddatum`.
+
+Indien een status anders dan de eindstatus gezet wordt, dan MOET het ZRC voor
+het attribuut `ZAAK.einddatum` de waarde `null` bevatten.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
