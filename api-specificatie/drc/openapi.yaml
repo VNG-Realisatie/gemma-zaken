@@ -2331,7 +2331,7 @@ components:
       type: object
       properties:
         soort:
-          title: soort
+          title: Ondertekeningsoort
           description: Aanduiding van de wijze van ondertekening van het INFORMATIEOBJECT
           type: string
           enum:
@@ -2339,7 +2339,7 @@ components:
           - digitaal
           - pki
         datum:
-          title: datum
+          title: Ondertekeningdatum
           description: De datum waarop de ondertekening van het INFORMATIEOBJECT heeft
             plaatsgevonden.
           type: string
@@ -2355,7 +2355,7 @@ components:
       type: object
       properties:
         algoritme:
-          title: algoritme
+          title: Algoritme
           description: Aanduiding van algoritme, gebruikt om de checksum te maken.
           type: string
           enum:
@@ -2373,13 +2373,13 @@ components:
           - SHA-512
           - SHA-3
         waarde:
-          title: waarde
+          title: Waarde
           description: De waarde van de checksum.
           type: string
           maxLength: 128
           minLength: 1
         datum:
-          title: datum
+          title: Datum
           description: Datum waarop de checksum is gemaakt.
           type: string
           format: date
