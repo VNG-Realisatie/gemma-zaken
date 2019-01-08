@@ -1710,8 +1710,19 @@ paths:
           format: uri
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -1879,8 +1890,19 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -2039,8 +2061,19 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -2208,8 +2241,19 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -2372,8 +2416,19 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -2534,6 +2589,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Zaak'
     patch:
@@ -2547,8 +2605,19 @@ paths:
       parameters:
       - name: Accept-Crs
         in: header
-        description: Het 'Coordinate Reference System' (CRS) van de verzoekdata. Volgens
-          de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
         required: true
         schema:
           type: string
@@ -2709,6 +2778,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Zaak'
     parameters:
@@ -3826,6 +3898,47 @@ components:
       - $ref: '#/components/schemas/Polygon'
       - $ref: '#/components/schemas/MultiPolygon'
       - $ref: '#/components/schemas/GeometryCollection'
+    Verlenging:
+      title: Verlenging
+      description: Gegevens omtrent het verlengen van de doorlooptijd van de behandeling
+        van de ZAAK
+      required:
+      - reden
+      - duur
+      type: object
+      properties:
+        reden:
+          title: Reden
+          description: Omschrijving van de reden voor het verlengen van de behandeling
+            van de zaak.
+          type: string
+          maxLength: 200
+          minLength: 1
+        duur:
+          title: Duur
+          description: Het aantal werkbare dagen waarmee de doorlooptijd van de behandeling
+            van de ZAAK is verlengd (of verkort) ten opzichte van de eerder gecommuniceerde
+            doorlooptijd. Specifieer de duur als 'DD 00:00'
+          type: string
+    Opschorting:
+      title: Opschorting
+      description: Gegevens omtrent het tijdelijk opschorten van de behandeling van
+        de ZAAK
+      required:
+      - indicatie
+      - reden
+      type: object
+      properties:
+        indicatie:
+          title: Indicatie
+          description: Aanduiding of de behandeling van de ZAAK tijdelijk is opgeschort.
+          type: boolean
+        reden:
+          title: Reden
+          description: Omschrijving van de reden voor het opschorten van de 306behandeling
+            van de zaak.
+          type: string
+          maxLength: 200
     ZaakKenmerk:
       description: Lijst van kenmerken
       required:
@@ -3877,6 +3990,11 @@ components:
           description: Een korte omschrijving van de zaak.
           type: string
           maxLength: 80
+        toelichting:
+          title: Toelichting
+          description: Een toelichting op de zaak.
+          type: string
+          maxLength: 1000
         zaaktype:
           title: Zaaktype
           description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
@@ -3927,19 +4045,109 @@ components:
           description: Datum waarop (het starten van) de zaak gepubliceerd is of wordt.
           type: string
           format: date
+        communicatiekanaal:
+          title: Communicatiekanaal
+          description: Het medium waarlangs de aanleiding om een zaak te starten is
+            ontvangen. URL naar een communicatiekanaal in de VNG-Referentielijst van
+            communicatiekanalen.
+          type: string
+          format: uri
+          maxLength: 200
         productenEnDiensten:
           description: De producten en/of diensten die door de zaak worden voortgebracht.
             De producten/diensten moeten bij het zaaktype vermeld zijn.
           type: array
           items:
             $ref: '#/components/schemas/ZaakProductOfDienst'
-        toelichting:
-          title: Toelichting
-          description: Een toelichting op de zaak.
+        vertrouwelijkheidaanduiding:
+          title: Vertrouwlijkheidaanduiding
+          description: Aanduiding van de mate waarin het zaakdossier van de ZAAK voor
+            de openbaarheid bestemd is. Optioneel - indien geen waarde gekozen wordt,
+            dan wordt de waarde van het ZAAKTYPE overgenomen. Dit betekent dat de
+            API _altijd_ een waarde teruggeeft.
           type: string
-          maxLength: 1000
+          enum:
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
+        resultaattoelichting:
+          title: Resultaattoelichting
+          description: Een toelichting op wat het resultaat van de zaak inhoudt.
+          type: string
+        betalingsindicatie:
+          title: Betalingsindicatie
+          description: 'Indicatie of de, met behandeling van de zaak gemoeide, kosten
+            betaald zijn door de desbetreffende betrokkene.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `nvt` - Er is geen sprake van te betalen, met de zaak gemoeide, kosten.
+
+            * `nog_niet` - De met de zaak gemoeide kosten zijn (nog) niet betaald.
+
+            * `gedeeltelijk` - De met de zaak gemoeide kosten zijn gedeeltelijk betaald.
+
+            * `geheel` - De met de zaak gemoeide kosten zijn geheel betaald.'
+          type: string
+          enum:
+          - nvt
+          - nog_niet
+          - gedeeltelijk
+          - geheel
+        betalingsindicatieWeergave:
+          title: Betalingsindicatie weergave
+          type: string
+          readOnly: true
+          minLength: 1
+        laatsteBetaaldatum:
+          title: Laatste betaaldatum
+          description: De datum waarop de meest recente betaling is verwerkt van kosten
+            die gemoeid zijn met behandeling van de zaak.
+          type: string
+          format: date-time
         zaakgeometrie:
           $ref: '#/components/schemas/GeoJSONGeometry'
+        verlenging:
+          $ref: '#/components/schemas/Verlenging'
+        opschorting:
+          $ref: '#/components/schemas/Opschorting'
+        selectielijstklasse:
+          title: Selectielijstklasse
+          description: URL-referentie naar de categorie in de gehanteerde 'Selectielijst
+            Archiefbescheiden' die, gezien het zaaktype en het resultaattype van de
+            zaak, bepalend is voor het archiefregime van de zaak.
+          type: string
+          format: uri
+          maxLength: 200
+        hoofdzaak:
+          title: Is deelzaak van
+          description: "De verwijzing naar de ZAAK, waarom verzocht is door de initiator\
+            \ daarvan, die behandeld wordt in twee of meer separate ZAAKen waarvan\
+            \ de onderhavige ZAAK er \xE9\xE9n is."
+          type: string
+          format: uri
+        deelzaken:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
+        relevanteAndereZaken:
+          type: array
+          items:
+            title: URL naar andere zaak
+            type: string
+            format: uri
+            maxLength: 255
+            minLength: 1
         status:
           title: Status
           description: Indien geen status bekend is, dan is de waarde 'null'
