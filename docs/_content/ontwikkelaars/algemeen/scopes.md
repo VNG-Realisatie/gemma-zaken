@@ -272,6 +272,17 @@ Superset van `zds.scopes.zaken.lezen.openbaar`
 * `rol_create`
 * `zaakobject_create`
 
+### Zaken bewerken (✓)
+
+**Label**
+
+`zds.scopes.zaken.bijwerken`
+
+**Omvat**
+
+* `zaak_update` (alle attributen die niet alleen-lezen zijn)
+* `zaak_partial_update` (alle attributen die niet alleen-lezen zijn)
+
 ### Zaakdocumenten registreren
 
 **Label**
