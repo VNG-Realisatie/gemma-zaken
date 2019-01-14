@@ -13,22 +13,30 @@ een rij:
    Zaaksysteem. Alle acties moeten via de ZGW APIs verlopen.
 3. De ZGW APIs kunnen alles wat ZDS ook kan.
 4. De ZGW APIs zijn opgedeeld. Er is niet meer 1 specificatie of endpoint om
-   alle operaties, zoals deze in ZDS bestonden, uit te voeren.
+   alle operaties, zoals deze in ZDS bestonden, uit te voeren of data op te
+   vragen.
 5. De ZGW APIs zullen sneller opvolgende versies krijgen. Hierbij is het niet
    ondenkbaar dat de Zaken API op versie 2 zit, terwijl de Besluiten API al op
    versie 4 zit. Het is daarom ook niet zo dat ZGW een versie nummer krijgt.
    Immers is ZGW alleen maar de verzamelnaam van alle Zaakgericht werken APIs. 
-6. De ZGW APIs worden aangetoond middels een referentie implementatie om zo 
-   leveranciers te helpen met praktische keuzes.
-7. De ZGW APIs zijn strakker gedefinieerd dan de ZDS waardoor er minder 
-   verschillen tussen implementaties zal ontstaan.
+6. De ZGW APIs worden aangetoond middels een referentie implementatie om de
+   theoretische specificaties te toetsen aan de praktijk, migratie problemen
+   te detecteren en om het vereiste gedrag te definieren daar waar de 
+   specificatie ruimte laat voor interpretaties.
+7. De ZGW APIs zijn ontwikkeld vanuit developer-first oogpunt waardoor
+   koppelingen sneller gemaakt kunnen worden.
+8. De ZGW APIs kennen alleen synchrone operaties.
+9. De ZGW APIs worden net als ZDS beheerd en onderhouden door VNG, zij het in
+   een andere vorm.
 
 
 ## Vergelijking
 
 ### Operaties
 
-ZDS 1.2 | ZGW 1.0-alpha \*
+Alle ZGW APIs zitten nu\* op versie 1.0.0-alpha.
+
+ZDS 1.2 | ZGW APIs\*
 --- | ---
 Geef Zaakstatus (`geefZaakstatus_ZakLv01`)                              | Zaken API `GET /statussen?zaak=<ID>`  
 Geef Zaakdetails (`geefZaakdetails_ZakLv01`)                            | Zaken API `GET /zaken/<ID>` 
