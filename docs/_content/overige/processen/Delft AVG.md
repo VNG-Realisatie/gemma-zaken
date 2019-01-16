@@ -107,7 +107,7 @@ In Gebruiker, GebruikerOnderzoeksdomein en Onderzoeksdomein wordt gedefinieerd w
 
 De autorisatievraagstukken:
 * Vanwege het gevoelige en bijzondere karakter van deze gegevens mag een Deskundige alleen de gegevens bekijken en wijzigen voor zijn/haar eigen domein;
-* Een deskundige mag zijn/haar gegevens alleen wijziging zolang de zaak nog niet de status ‘Onderzoek afgerond’ of hoger heeft.
+* Een deskundige mag zijn/haar gegevens alleen wijziging zolang de zaak nog niet de status ‘Advies ingewonnen’ of hoger heeft.
 
 ### De definitie
 Voordat er een Inzageverzoek kan worden ingediend moet dus gedefinieerd zijn wie de antwoorden levert. Dit is afhankelijk van de te onderzoeken domeinen (WMO, Jeugd, participatie, schuld etc.). 
