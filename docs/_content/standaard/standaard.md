@@ -149,7 +149,7 @@ Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](./api-specificatie/zrc/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/zrc/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZRC.
 
@@ -232,7 +232,7 @@ documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](./api-specificatie/drc/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/drc/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-
 implementatie van het DRC.
 
@@ -348,7 +348,7 @@ Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](./api-specificatie/brc/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het BRC.
 
