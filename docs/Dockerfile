@@ -22,3 +22,4 @@ FROM nginx:stable-alpine
 COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=build /app/_site /usr/share/nginx/html
+COPY ./api-specificatie /usr/share/nginx/html
