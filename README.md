@@ -29,8 +29,8 @@ Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.clo
 ## Rollen
 
 - Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
-- Projectleider: [@wishalg](https://github.com/wishalg)
-- Product Owner: [@ehotting](https://github.com/ehotting)
+- Delivery manager: [@wishalg](https://github.com/wishalg)
+- Product Owner: [@Hugo-ter-Doest)](https://github.com/Hugo-ter-Doest)
 - Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
 ## API spec bekijken
