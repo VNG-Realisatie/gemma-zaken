@@ -12,9 +12,11 @@ git_branch=$(git branch --contains HEAD 2>/dev/null)
 
 build_image() {
     tag=$1
+    cp -r ../api-specificatie ./api-specificatie
     docker build \
         -t ${CONTAINER_REPO}:$tag \
         -f Dockerfile .
+    rm -rf ./api-specificatie
 }
 
 get_release_tag() {
