@@ -30,7 +30,7 @@ Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.clo
 
 - Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
 - Delivery manager: [@wishalg](https://github.com/wishalg)
-- Product Owner: [@Hugo-ter-Doest)](https://github.com/Hugo-ter-Doest)
+- Product Owner: [@Hugo-ter-Doest](https://github.com/Hugo-ter-Doest)
 - Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
 ## API spec bekijken
