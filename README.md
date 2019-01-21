@@ -56,7 +56,7 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
 * [Overige registratiescomponent](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
 * [![Build Status][zit-build-status]][zit-stable]
   [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
-* [ZDS Client](https://github.com/VNG-Realisatie/gemma-zds-client)
+* [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 
 ## Licentie

@@ -38,12 +38,13 @@ juiste vorm samen worden gevonden.
 Elke gemeente levert een aantal user stories om te realiseren in de
 samenwerking.
 Op basis van een eerste analyse van de user stories wordt duidelijk welke API's
-voor de ZDS 2.0 gemaakt moeten worden. Alle user stories komen op een backlog
+voor de ZGW gemaakt moeten worden. Alle user stories komen op een backlog
 welke gezamelijk wordt geprioriteerd. Daarbij wordt rekening gehouden met het
 toevoegen van zoveel mogelijk waarde bij zoveel mogelijk deelnemende partijen.
 
 Het scrumteam bepaalt samen hoe een RESTful API er uit moet zien, wat leidt tot
-een voorstel voor de standaard ZDS 2.0, welke groeit gedurende de samenwerking.
+een voorstel voor de verschillende ZGW API's, welke groeit gedurende de 
+samenwerking.
 Een rol voor leveranciers van Zaakregistratiecomponenten (ZRC) is gewenst,
 suggesties voor een samenwerking die leidt tot draagvlak en gelijke kansen zijn
 welkom. Vanaf sprint 3 moet dit goed functioneren.

@@ -8,7 +8,7 @@ weight: 100
 
 ## Inleiding
 
-De ZDS 2.0 standaard beschrijft de eisen aan API's die gebruikt worden
+De ZGW API standaard beschrijft de eisen aan API's die gebruikt worden
 in applicaties voor zaakgericht werken. We onderscheiden een aantal
 registraties en schrijven voor hoe de API eruit ziet en functioneert.
 
@@ -53,7 +53,7 @@ tussen registraties en consumers die van de API's gebruik maken.
   entiteit vast te stellen.
 
 - Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
-  communiceert via de ZDS APIs.
+  communiceert via de ZGW API's.
 
 ## Beschikbaar stellen van API-spec
 
@@ -73,7 +73,7 @@ resources uit te voeren.
 ## Gegevensformaten
 
 Een aantal formaten zijn nog niet formeel vastgelegd in OAS of JSON-Schema,
-echter deze worden wel binnen de ZDS APIs gebruikt en opgelegd.
+echter deze worden wel binnen de ZGW API's gebruikt en opgelegd.
 
 ### Duur
 
@@ -100,7 +100,7 @@ server MOET aan de hand van de `client_identifier` key in de JWT header
 de bijhorende secret opvragen. De server MOET met het juiste shared secret
 het JWT valideren tegen tampering.
 
-De ZDS claims in de JWT-payload worden genamespaced onder `zds`.
+De ZGW claims in de JWT-payload worden genamespaced onder `zds`.
 
 De claims bevatten de scopes als lijst van strings, waarbij de `scopes` key
 gebruikt wordt.

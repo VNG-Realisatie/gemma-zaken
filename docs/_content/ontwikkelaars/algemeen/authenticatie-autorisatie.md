@@ -31,7 +31,7 @@ De gemeente heeft hier alle vrijheid - indien de gemeente intern OAUTH2 wil
 gebruiken, SAML, Active Directory..., dan kan dat - daar zeggen wij niets over.
 
 Wat essentieel is, is dat de claims binnen de gemeente vertaald worden naar
-de scopes gedefinieerd in de ZDS APIs, zodat iedereen dezelfde 'taal' spreekt.
+de scopes gedefinieerd in de ZGW API's, zodat iedereen dezelfde 'taal' spreekt.
 
 ## Autorisatie
 

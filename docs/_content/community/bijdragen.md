@@ -23,7 +23,7 @@ Op de supportpagina's van GitHub staat
 
 ## Documentatie en code
 
-Maak om bij te dragen aan de documentatie of software van ZDS 2.0 een
+Maak om bij te dragen aan de documentatie of software van de ZGW API's een
 zogenaamde Pull Request. Lees alles over hoe git (en GitHub) werkt in deze
 introductie over git flow](https://guides.github.com/introduction/flow/).
 
@@ -63,27 +63,27 @@ project gevoegd.
 
 ## Agile Scrum
 
-Het team wat aan de ZDS 2.0 standaard werkt doet dit volgens de agile scrum
-methodiek. Iedere sprint duurt vier weken. Gemeenten leveren user stories rond
-zaakgericht werken, welke vervolgens worden vertaald naar wat nodig is in de
-RESTful API specificatie.
+Het team wat aan de ZGW API's werkt doet dit volgens de agile scrum methodiek.
+Iedere sprint duurt vier weken. Gemeenten leveren user stories rond zaakgericht 
+werken, welke vervolgens worden vertaald naar wat nodig is in de RESTful API 
+specificatie.
 
 ### Scrum boards
 Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint
 te faciliteren.
 
-- [Scrum ZDS Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
+- [Scrum ZGW Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
   Nieuwe user stories en issues komen hier op de backlog. Wanneer zij worden
   geprioriteerd komen ze in de flow om ze 'ready te maken' zodat ze opgepakt
   kunnen worden in de volgende sprint.
 
-- [Scrum ZDS Realisatie Sprint x](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+- [Scrum ZGW Realisatie Sprint x](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
   Vanuit de kolom "Ready for Sprint" worden tijdens de maandelijkse sprint
   planning userstories opgepakt die uitgevoerd gaan worden. Deze komen dan in
   de eerste kolom van het scrum board gericht op realisatie van de API
   specificatie.
 
-- [Scrum ZDS Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
+- [Scrum ZGW Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
   Op dit board is terug te vinden welke user story gereed was in welke sprint.
 
 - [Organisatie & Impediments](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
@@ -93,9 +93,9 @@ te faciliteren.
 ### Review
 
 Zowel het board
-[Scrum ZDS Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
+[Scrum ZGW Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
 als
-[Scrum ZDS Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+[Scrum ZGW Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
 bevat een kolom voor review. Tijdens de voorbereiding worden user stories
 klaargemaakt om in een volgende sprint uitgevoerd te worden. Daar hoort een
 review bij: voldoet de user story aan de Definition of Ready? Na de realisatie

@@ -59,10 +59,10 @@ resources mogelijk. Concrete voorbeelden hiervan zijn:
 In essentie is dit een vorm van polymorfisme.
 
 Door het uitgangspunt van Common Ground om data-bij-de-bron-opslaan te hanteren,
-werken we in de ZDS 2.0 API specificaties met _linked data_, wat betekent
-dat de relaties een referentie-url geven naar de gerelateerde resource. Een
-client/consumer weet op voorhand niet naar welke vorm van gerelateerde resource
-er verwezen wordt.
+werken we in de ZGW API specificaties met _linked data_, wat in deze context 
+betekent dat de relaties een referentie-url geven naar de gerelateerde resource.
+Een client/consumer weet op voorhand niet naar welke vorm van gerelateerde 
+resource er verwezen wordt.
 
 Daarom is ervoor gekozen om op de relatie bij te houden om welk type resource
 het gaat. Een concreet voorbeeld van een response is dan:
@@ -240,7 +240,7 @@ Op het [forum](https://forum.pdok.nl/t/formaat-foutafhandeling-input-validatie-a
 is nagevraagd hoe er moet omgegaan worden met meerdere fouten op hetzelfde veld,
 met de conclusie dat dit beter gespecifieerd moet worden.
 
-In ZDS 2.0 kiezen we ervoor om elke fout op een veld als apart object op te
+In de ZGW API's kiezen we ervoor om elke fout op een veld als apart object op te
 nemen binnen de `"invalid-params"` sleutel. Dit laat clients toe om elke
 individuele fout te renderen zoals zij wensen.
 
@@ -381,9 +381,9 @@ volgende velden:
 * zaak (hyperlink naar de gerelateerde zaak),
 * informatieobject (hyperlink naar het gerelateerde informatieobject).
 
-In geval van ZDS is de relatie tussen zaken en informatieobjecten gedistribueerd
-over meerdere ZRC- en DRC-instanties en daarmee een speciaal geval. Zie
-[Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
+In geval van de ZGW API's is de relatie tussen zaken en informatieobjecten 
+gedistribueerd over meerdere ZRC- en DRC-instanties en daarmee een speciaal 
+geval. Zie [Many-to-many relaties verspreid over API's](#many-to-many-relaties-verspreid-over-apis)
 voor de designkeuzes hierbij.
 
 
@@ -521,8 +521,8 @@ HTTP 200
 
 **Rationale**
 
-In de huidige ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over
-hoe een zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
+In de ZDS 1.x standaard is er nog [geen eenduidig besluit genomen over hoe een 
+zaak wordt afgesloten](https://discussie.kinggemeenten.nl/discussie/gemma/koppelvlak-zs-dms/afsluiten-van-een-zaak):
 Dit kan door het toevoegen van de laatste status (`STATUSTYPE` met het hoogste
 `volgnummer`) aan de `ZAAK` of door het vullen van de `einddatum` (van de
 `ZAAK`).
