@@ -1,78 +1,131 @@
-INFORMATIEOBJECTEN  API
-==========
-**FUNCTIONELE DOCUMENTATIE**
+---
+title: "Informatieobjecten-API"
+date: '21-01-2019'
+---
 
+# INFORMATIEOBJECTEN API
 
-| **Aspect**      | **Beschrijving**                                                                                                                                                                       |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Doel            | Het opvragen van (lijsten van) enkelvoudige informatieobjecten en/of zaakinformatieobjecten |
-| Domein          | Zaakgericht werken.                                                                                             |
-| Provider        | [Documentregistratiecomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878) |
-| Consumer        | [Documentbeheercomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-25ee9ea7-be66-4bdd-b40c-191777a88b35)  |
-| Informatiemodel | RGBZ2  |
-| Specificaties   | https://ref.tst.vng.cloud/drc/api/v1/schema/ |
-| Bijzonderheden  | - |
+FUNCTIONELE BESCHRIJVING
 
-Deze API omvat (vooralsnog) de resources Enkelvoudiginformatieobject en Zaakinformatieobject.
+Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de
+werking van deze API verwijzen wij u naar de OAS-specificatie (zie
+‘link’ hieronder).
 
-Elke resource biedt de mogelijkheid om objecten toe te voegen (POST) en te raadplegen (GET), tenzij anders vermeld.
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Aspect</strong></td>
+<td><strong>Beschrijving</strong></td>
+</tr>
+<tr class="even">
+<td>Doel</td>
+<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van enkelvoudige informatieobjecten inclusief relaties naar objecten.</td>
+</tr>
+<tr class="odd">
+<td>Domein</td>
+<td>Zaakgericht werken</td>
+</tr>
+<tr class="even">
+<td>Versiedatum documentatie</td>
+<td>19 november 2018</td>
+</tr>
+<tr class="odd">
+<td>Provider</td>
+<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878"><span class="underline">Documentregistratiecomponent</span></a> (GEMMA2)</td>
+</tr>
+<tr class="even">
+<td>Consumer</td>
+<td>Componenten waarmee informatieobjecten (in de volksmond documenten) beheerd worden (Documentbeheercomponenten; DBC’s https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-25ee9ea7-be66-4bdd-b40c-191777a88b35) en (andere) componenten die informatieobjecten raadplegen.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Informatiemodel</td>
+<td><a href="https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling"><span class="underline">RGBZ, versie 2.0</span></a> (in-ontwikkeling)</td>
+</tr>
+<tr class="odd">
+<td>API-specificaties</td>
+<td><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/"><span class="underline">https://ref.tst.vng.cloud/drc/api/v1/schema/</span></a></td>
+</tr>
+<tr class="even">
+<td>Bijzonderheden</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
+Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
 
 ### Resource: Enkelvoudiginformatieobjecten
 
-
-| **Aspect**     | **Beschrijving**                                                                                                                                                                 |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil weten welke informatieobjecten bij een object horen uit of een enkelvoudiginformatieobject toevoegen aan de documentregistratiecomponent DRC.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Het enkelvoudiginformatieobject dient beschikbaar te zijn voordat dit toegevoegd kan worden aan de DRC         |
-| - gevolg       | Na het succesvol toevoegen wordt een verwijzing in de vorm van een URI naar het enkelvoudiginformatieobject teruggeven aan de comsumer.             |
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_create   | 
-| *Wijzigen*     | Nog niet beschikbaar.     |
-| - voorwaarde   | Nog te bepalen.         |
-| - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  | Nog niet beschikbaar.     |
-| - voorwaarde   | Nog te bepalen.         |
-| - gevolg       | Nog te bepalen.             |
-| *Raadplegen lijst*   |      |
-| - voorwaarde   | Geen voorwaarden.  |
-| - gevolg       | Een overzicht van in de Documentregistratiecomponent opgeslagen informatieobjecten wordt geretourneerd. Het is mogelijk te filteren op de volgende gegevens:<br/><ul><li>Object: URL naar het gerelateerde OBJECT waar alle INFORMATIEOBJECTEN aan gerelateerd zijn.</li><li>Informatieobject: URL naar het gerelateerde INFORMATIEOBJECT waar alle OBJECTEN aan gerelateerd zijn.</li></ul>|
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_list   | 
-| *Raadplegen details*   |      |
-| - voorwaarde   | Bij het opvragen van een specifiek enkelvoudiginformatieobject moet de identificatie van het informatieobject door de consumer aangeleverd worden.     |
-| - gevolg       | Een enkelvoudiginformatieobject geïdentificeerd door de aangeleverde identificatie wordt geretourneerd. |
-| Gegevens       | Objecttype ENKELVOUDIGINFORMATIEOBJECT inclusief relatie naar INFORMATIEOBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read   | 
-| Samenhang      | - |
-| Bijzonderheden | EnkelvoudigInformatieobject is een subtype van Informatieobject. Beide objecttypen zijn "platgeslagen" zodat met het opvragen van een enkelvoudiginformatieobject ook de eigenschappen van het type informatieobject geretourneerd worden.
-|
-
-
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Aspect</strong></td>
+<td><strong>Beschrijving</strong></td>
+</tr>
+<tr class="even">
+<td>Doel</td>
+<td><ul>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_list">Opvragen</a> van een overzicht van alle beschikbare enkelvoudiginformatieobjecten.</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read">Opvragen</a> van de details van een specifiek enkelvoudiginformatieobject.</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_create">Aanmaken</a> van een enkelvoudiginformatieobject.</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Gegevens</td>
+<td><p>Objecttype ENKELVOUDIGINFORMATIEOBJECT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/objecttype/enkelvoudig_informatieobject</td>
+</tr>
+<tr class="even">
+<td>OAS-specificaties</td>
+<td><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#tag/enkelvoudiginformatieobjecten">https://ref.tst.vng.cloud/drc/api/v1/schema/#tag/enkelvoudiginformatieobjecten</a></td>
+</tr>
+<tr class="odd">
+<td>Bijzonderheden</td>
+<td><ul>
+<li>Het verwijderen van Enkelvoudiginformatieobjecten wordt nog niet ondersteund.</li>
+<li>Het aanpassen van Enkelvoudiginformatieobjecten wordt nog niet ondersteund.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 
 ### Resource: Objectinformatieobjecten
 
-
-| **Aspect**     | **Beschrijving**                                                                                                                                                                 |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aanleiding     | Een consumer wil objectinformatieobjecten opvragen uit of een objectinformatieobject toevoegen aan de documentregistratiecomponent DRC.            |
-| *Toevoegen*    |      |
-| - voorwaarde   | Zowel de verwijzing (URI) waarmee het object als de verwijzing (URI) waarmee het informatieobject geïdentificeerd kunnen worden moeten aangeleverd worden door de consumer.         |
-| - gevolg       | Na het toevoegen van een objectinformatieobject is het informatieobject gekoppeld aan een ander object, zoals een zaak of een besluit.|
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_create   |
-| *Wijzigen*     | Nog niet beschikbaar.     |
-| - voorwaarde   | Nog te bepalen.         |
-| - gevolg       | Nog te bepalen.             |
-| *Verwijderen*  | Nog niet beschikbaar.     |
-| - voorwaarde   | Nog te bepalen.         |
-| - gevolg       | Nog te bepalen.             |
-| *Raadplegen lijst*   |      |
-| - voorwaarde   | Geen voorwaarden   |
-| - gevolg       | Een overzicht van in de Documentregistratiecomponent opgeslagen objectinformatieobjecten wordt geretourneerd. |
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_list   |
-| *Raadplegen detail*   |      |
-| - voorwaarde   | Bij het opvragen van een specifiek objectinformatieobject moet de identificatie van het objectinformatieobject door de consumer aangeleverd worden.         |
-| - gevolg       | Het objectinformatieobject gedentificeerd door de aangeleverde identificatie wordt geretourneerd.             |
-| Gegevens       | Objecttype OBJECTINFORMATIEOBJECT inclusief relaties naar INFORMATIEOBJECT en OBJECTTYPE.<br>Zie de volgende tabel voor de gegevens van deze resource                                 |
-| Specificaties  | https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_read   |
-| Samenhang      | Om een objectinformatieobject toe te voegen dienen zowel het object als het enkelvoudiginformatieobject te bestaan. |
-| Bijzonderheden | -  |
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Aspect</strong></td>
+<td><strong>Beschrijving</strong></td>
+</tr>
+<tr class="even">
+<td>Doel</td>
+<td><ul>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_list">Opvragen</a> van een overzicht van Objectinformatieobjecten.</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_read">Opvragen</a> van – de gegevens van - een specifiek Objectinformatieobject.</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_create">Aanmaken</a> van een Objectinformatieobject</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_update">Bijwerken</a> van een Objectinformatieobject</li>
+<li><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/objectinformatieobject_partial_update">Gedeeltelijk</a> bijwerken van een Objectinformatieobject</li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td>Gegevens</td>
+<td>Objecttype OBJECTINFORMATIEOBJECT, inclusief relatie naar OBJECT en ENKELVOUDIGINFORMATIEOBJECT.<br/>
+https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/relatieklasse/zaak-informatieobject</td>
+</tr>
+<tr class="even">
+<td>OAS-specificaties</td>
+<td><a href="https://ref.tst.vng.cloud/drc/api/v1/schema/#tag/objectinformatieobjecten">https://ref.tst.vng.cloud/drc/api/v1/schema/#tag/objectinformatieobjecten</a></td>
+</tr>
+<tr class="odd">
+<td>Bijzonderheden</td>
+<td>
+<ul>
+<li>Het verwijderen van Objectinformatieobjecten wordt nog niet ondersteund.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
