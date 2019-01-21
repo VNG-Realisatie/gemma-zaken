@@ -69,20 +69,8 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle beschikbare Catalogussen.</li>
-<li>Opvragen van de gegevens van een specifieke Catalogus.</li>
-<li>Opvragen van een overzicht van alle beschikbare Zaaktypen.</li>
-<li>Opvragen van de gegevens van een specifiek Zaaktype.</li>
-<li>Opvragen van een overzicht van alle beschikbare Besluittypen.</li>
-<li>Opvragen van de gegevens van een specifiek Besluittype.</li>
-<li>Opvragen van een overzicht van alle beschikbare Informatieobjecttypen.</li>
-<li>Opvragen van de gegevens van een specifiek Informatieobjecttype.</li>
-<li>Opvragen van een overzicht van alle beschikbare Eigenschap.</li>
-<li>Opvragen van de gegevens van een specifieke Eigenschap.</li>
-<li>Opvragen van een overzicht van alle beschikbare Roltypen.</li>
-<li>Opvragen van de gegevens van een specifiek Roltype.</li>
-<li>Opvragen van een overzicht van alle beschikbare Statustypen.</li>
-<li>Opvragen van de gegevens van een specifiek Statustype.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_list">Opvragen</a> van een overzicht van alle beschikbare Catalogussen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_read">Opvragen</a> van de gegevens van een specifieke Catalogus.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -91,7 +79,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_list</a></td>
+<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen">https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -115,8 +103,8 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van Zaaktypen in een Catalogus.</li>
-<li>Opvragen van – de gegevens van - een specifiek Zaaktype uit een Catalogus.</li>
+<li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_list">Opvragen</a> van een overzicht van alle beschikbare Zaaktypen in een Catalogus.</li>
+<li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_read">Opvragen</a> van de gegevens van een specifiek Zaaktype in een Catalogus.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -151,8 +139,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle Besluittypen met relaties naar Catalogus en Zaaktypes.</li>
-<li>Opvragen van – de gegevens van - een specifiek Besluittype.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_list">Opvragen</a> van een overzicht van alle beschikbare Besluittypen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_read">Opvragen</a> van de gegevens van een specifiek Besluittype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -185,8 +173,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle Informatieobjectypen inclusief relatie naar de Catalogus waarin het Informatieobjecttype staat beschreven</li>
-<li>Opvragen van – de gegevens van - een specifiek Informatieobjectypen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_list">Opvragen</a> van een overzicht van alle beschikbare Informatieobjecttypen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_read">Opvragen</a> van de gegevens van een specifiek Informatieobjecttype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -219,8 +207,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle Eigenschappen zoals gedefinieerd bij een Zaaktype, met de gegevens per Eigenschap.</li>
-<li>Opvragen van – de gegevens van - een specifieke Eigenschap.</li>
+        <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list">Opvragen</a> van een overzicht van alle beschikbare Eigenschappen zoals gedefinieerd bij een Zaaktype, met de gegevens per Eigenschap.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_read">Opvragen</a> van de gegevens van een specifieke Eigenschap.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -253,8 +241,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle Roltypen zoals gedefinieerd bij een Zaaktype, met de gegevens per Eigenschap.</li>
-<li>Opvragen van – de gegevens van - een specifieke Eigenschap.</li>
+     <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_list">Opvragen</a> van een overzicht van alle beschikbare Roltypen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_read">Opvragen</a> van de gegevens van een specifiek Roltype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -287,8 +275,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li>Opvragen van een overzicht van alle Statustypen zoals gedefinieerd bij een Zaaktype, met de gegevens per Statustype.</li>
-<li>Opvragen van – de gegevens van - een specifieke Statustype.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_list">Opvragen</a> van een overzicht van alle beschikbare Statustypen.</li>
+    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_read">Opvragen</a> van de gegevens van een specifiek Statustype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
