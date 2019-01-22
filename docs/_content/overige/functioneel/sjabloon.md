@@ -2,7 +2,7 @@
 ==========
 **FUNCTIONELE DOCUMENTATIE**
 
-[aanzet tot documentatie van een API van het ZDS2-koppelvlak]
+[aanzet tot documentatie van de ZGW API's]
 
 | **Aspect**      | **Beschrijving**                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

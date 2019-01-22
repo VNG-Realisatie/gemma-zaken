@@ -1,25 +1,25 @@
 ---
-title: "Productvisie ZDS 2.0"
+title: "Productvisie ZGW API's"
 date: '29-5-2018'
 weight: 100
 ---
 
 ## Introductie
 
-Om Zaakgericht Werken een stap verder te brengen worden Zaak- en
-Documentservices (ZDS) versie 2 ontwikkeld. Hierbij wordt een andere vorm van
-standaardisatie toegepast. Op basis van relevante informatiemodellen (RGBZ 2.0
-  en ImZTC 2.2) wordt met zowel publieke als private partijen in een agile
-  proces vorm gegeven aan RESTful API's die concreet invulling geven aan de
-  gewenste standaard. De standaard wordt tegelijk met een
-  referentie-implementatie ontwikkeld om de implementeerbaarheid aan te tonen,
-  en als referentie te dienen voor latere implementaties.
+Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
+Zaak- en Documentservices (ZDS) ontwikkeld, inmiddels bekend als de ZGW API's. 
+Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van 
+relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke 
+als private partijen in een agile  proces vorm gegeven aan RESTful API's die 
+concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk 
+met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te 
+tonen, en als referentie te dienen voor latere implementaties.
 
 ### Toegevoegde waarde voor gemeenten
 
 - Kortere doorlooptijd van het inrichten van nieuwe koppelingen (plug and play
   is veelgehoorde wens)
-- Lagere ontwikkelkosten van koppelingen op basis van ZDS
+- Lagere ontwikkelkosten van koppelingen op basis van de ZGW API's
 - Lagere beheerkosten door backwards compatibiliteit (wijzigingen in de
   standaard leiden meestal niet tot aanpassingen in bestaande koppelingen)
 - Voorkomen lock-in door echt uitwisselbare componenten
@@ -52,16 +52,16 @@ is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a.
 [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
 Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](samenwerking)
-aan realisatie van de "ZDS 2.0".
+aan realisatie van de ZGW API's.
 
-De naam Zaak- en Documentservices (ZDS) wordt gebruik om duidelijk te maken
-welke huidige standaard wordt gemoderniseerd. Waarschijnlijk worden
-uiteindelijk meerdere aparte API's ontwikkeld, waarna ook de naam ZDS veranderd
-zal moeten worden om verwarring te voorkomen.
+De naam Zaak- en Documentservices (ZDS) werd eerder gebruikt om duidelijk te 
+maken welke huidige standaard wordt gemoderniseerd. Inmiddels heeft de opvolger
+een meer passende naam gekregen: de Zaakgericht Werken API's (ZGW API's). Dit
+behelst een collectie van meerdere aparte API's, waaronder de Zaken API,
+Documenten API, etc. De naam "ZDS 2.0" wordt niet meer gebruikt.
 
 
-
-## Productvisie ZDS
+## Productvisie ZGW
 
 De visie op de te realiseren Zaak- en Documentservices is als volgt:
 
@@ -105,7 +105,7 @@ elkaar gezien kunnen worden:
 1. Specificeren van Zaak- Documentservices v2.0
 2. Beschikbaar maken van Open Source referentieimplementatie
 3. Realiseren van toepassingen voor burgers of gemeenten gebruikmakend van de
-ZDS 2.0 API's
+   ZGW API's
 4. Centraal aanbieden van componenten op basis van de nieuwe API's
 
 Delen 1 en 2 worden uitgevoerd door een centraal scrumteam bestaand uit
@@ -234,11 +234,11 @@ biedt voor interpretaties.
 
 Een BIG BANG overgang is onmogelijk. Er zal een geleidelijke transitie moeten
 plaatsvinden waarbij het nieuwe naast het oude bestaat. De te ontwikkelen
-ZDS 2.0 (en verder) is de toekomst, rekening moet worden gehouden met de
+ZGW API's (en verder) is de toekomst, rekening moet worden gehouden met de
 huidige werkelijkheid die daarnaast moet kunnen bestaan. Idealiter in de zelfde
 achterliggende bronnen die op meerdere manieren worden ontsloten.
 
-In het ZDS Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De
+In het ZGW Scrumteam ligt de focus op het ontwikkelen van de nieuwe wereld. De
 rol van architecten in het team bestaat o.a. uit het in de gaten houden of een
 transitie mogelijk blijft.
 
@@ -277,7 +277,9 @@ deze voor eigen gebruik wijzigen waar nodig.
 Wanneer componenten centraal worden aangeboden is een *beheerorganisatie*
 noodzakelijk met een andere opdracht dan de beheerorganisatie die nu de
 standaarden beheert. Het valt daarom buiten de scope van het traject om te
-komen tot ZDS 2.0.
+komen tot een volledige 1.0.0 release van alle APIs onder de ZGW API's. Er
+wordt gestreefd naar een 1.0.0-RC (release candidate) die in beheer kan worden
+genomen door VNG Realisatie.
 
 
 ## Gerelateerde trajecten
@@ -285,12 +287,12 @@ komen tot ZDS 2.0.
 - Binnen het
 [Digitaal Stelsel Omgevingswet](https://www.omgevingswetportaal.nl/wet-en-regelgeving/dso)
 zijn wellicht kansen om Zaakgericht Werken zoals gemeenten dat kennen te
-introduceren op basis van de ZDS 2.0 API's. Momenteel wordt samenwerking daar
+introduceren op basis van de ZGW API's. Momenteel wordt samenwerking daar
 voorzien door middel van een omgeving waar bestanden kunnen worden gedeeld.
 
 - De gemeenten Almere, Amsterdam, Haarlem, Heerenveen, Hoorn, Medemblik (en
   wellicht nog meer) zijn voornemens gezamelijk een Open Source Mijn Gemeente
-  website te produceren. Daarbij is ZDS 2.0 wellicht een interessante
+  website te produceren. Daarbij zijn de ZGW API's wellicht een interessante
   aanvulling, hier liggen kansen om samen op te trekken.
 
 - Dimpact en Atos stellen de Atos e-Suite in de context van Common Ground

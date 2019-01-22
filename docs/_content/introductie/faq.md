@@ -9,14 +9,14 @@ weight: 40
 
 #### Wie is de opdrachtgever?
 
-VNG is beheerder en eigenaar van de standaard ZDS 2.0 (nu in ontwikkeling).
+VNG is beheerder en eigenaar van de standaard ZGW API's (nu in ontwikkeling).
 Formeel opdrachtgever is [Theo Peters](https://github.com/TheoVNGPeters), Unit
 Manager Architectuur en Standaarden.
 
 
 #### Wat is de opdracht?
 
-`Het ontwikkelen van` ZDS 2.0 gebaseerd op User Stories, duidelijk herkenbare
+Het ontwikkelen van ZGW API's gebaseerd op User Stories, duidelijk herkenbare
 architectuurpatronen volgend en in lijn met de gewenste toepassing van RESTful
 APIs.
 
@@ -37,20 +37,20 @@ toegepast. _Zie: [productvisie](/introductie/productvisie)_
 
 _Volgens de [productvisie](/introductie/productvisie)_
 
-* Opstellen en realiseren van een nieuwe ZDS 2.0 API volgens Open API
+* Opstellen en realiseren van een nieuwe ZGW API's volgens Open API
 Specificatie v3 (AOS 3)
 * Realiseren van een open source referentie-implementatie van
 zaakregistratiecomponent, documentregistratiecomponent en
-zaaktypecataloguscomponent welke de ZDS 2.0 strikt implementeren
+zaaktypecataloguscomponent welke de ZGW API's strikt implementeren
 * Functionele documentatie voor het gebruik van de API.
 
 _Volgens oorspronkelijke projectdefinitie_
 
 * Een nieuwe versie van de ZDS services (gebaseerd op REST APIs, aansluitend
-  bij Common Ground) om de
-interoperabiliteit tussen leveranciers te bewerkstelligen en leveranciers te
-bewegen in de richting van Common ground
-(Silo's openen);
+  bij Common Ground) om de interoperabiliteit tussen leveranciers te 
+  bewerkstelligen en leveranciers te bewegen in de richting van Common ground
+  (Silo's openen). _De nieuwe/opvolgende versie van ZDS is ondertussen hernoemt
+  naar de ZGW API's_;
 * Een Referentie implementatie van een zaaksysteem in de app store;
 * Een multitenant toepassing van dit zaaksysteem/zakenregister en ZTC. (dit
   valt buiten scope van wat het scrumteam zal opleveren)
