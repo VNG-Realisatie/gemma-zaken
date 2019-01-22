@@ -19,7 +19,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="even">
 <td>Doel</td>
-<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van Besluiten inclusief relaties naar informatieobjectenobjecten.</td>
+<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van Besluiten inclusief relaties naar objectinformatieobjecten.</td>
 </tr>
 <tr class="odd">
 <td>Domein</td>
@@ -27,7 +27,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="even">
 <td>Versiedatum documentatie</td>
-<td>19 november 2018</td>
+<td>21 januari 2019</td>
 </tr>
 <tr class="odd">
 <td>Provider</td>
