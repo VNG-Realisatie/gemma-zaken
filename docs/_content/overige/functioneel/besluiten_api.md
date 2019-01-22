@@ -19,7 +19,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="even">
 <td>Doel</td>
-<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van Besluiten inclusief relaties naar objectinformatieobjecten.</td>
+<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van Besluiten inclusief relaties naar informatieobjecten.</td>
 </tr>
 <tr class="odd">
 <td>Domein</td>
