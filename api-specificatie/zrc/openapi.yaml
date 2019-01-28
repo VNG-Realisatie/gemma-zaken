@@ -1886,7 +1886,14 @@ paths:
         gegenereerd. De identificatie moet uniek zijn binnen de bronorganisatie.
 
 
-        De URL naar het zaaktype wordt gevalideerd op geldigheid.'
+        Er wordt gevalideerd op:
+
+        - geldigheid URL naar zaaktype
+
+        - laatsteBetaaldatum mag niet in de toekomst liggen
+
+        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie "nvt"
+        is'
       parameters:
       - name: Accept-Crs
         in: header
@@ -2412,7 +2419,12 @@ paths:
 
         Er wordt gevalideerd op:
 
-        - geldigheid URL naar zaaktype'
+        - geldigheid URL naar zaaktype
+
+        - laatsteBetaaldatum mag niet in de toekomst liggen
+
+        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie "nvt"
+        is'
       parameters:
       - name: Accept-Crs
         in: header
@@ -2601,7 +2613,12 @@ paths:
 
         Er wordt gevalideerd op:
 
-        - geldigheid URL naar zaaktype'
+        - geldigheid URL naar zaaktype
+
+        - laatsteBetaaldatum mag niet in de toekomst liggen
+
+        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie "nvt"
+        is'
       parameters:
       - name: Accept-Crs
         in: header
@@ -3739,6 +3756,8 @@ components:
         productOfDienst:
           title: Product of dienst
           description: Het product of de dienst die door de zaak wordt voortgebracht.
+            Dit is de URL naar de resource zoals die door de producten- en dienstencatalogus-API
+            wordt ontsloten.
           type: string
           format: uri
           maxLength: 200

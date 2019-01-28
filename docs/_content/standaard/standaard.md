@@ -297,6 +297,17 @@ Indien de client een zaak bewerkt en diezelfde zaak als URL-referentie meegeeft
 als `hoofdzaak`, dan moet het ZRC antwoorden met een `HTTP 400`
 foutbericht (een zaak MAG GEEN deelzaak van zichzelf zijn).
 
+#### `Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum`
+
+Indien de betalingsindicatie de waarde `"nvt"` heeft en een waarde gegevens is
+voor `laatsteBetaaldatum`, dan MOET het ZRC antwoorden met een `HTTP 400`
+foutbericht. Bij alle andere waarden van `betalingsindicatie` MAG een waarde
+opgegeven worden voor `laatsteBetaaldatum`.
+
+Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalinsindicatie
+wordt gewijzigd naar `"nvt"`, dan MOET de `laatsteBetaaldatum` op `null` gezet
+worden.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
