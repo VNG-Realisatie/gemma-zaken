@@ -10,7 +10,7 @@ de verschillende bijeenkomsten.
 In 2019 zijn de volgende bijeenkomsten gepland waarbij we kort vertellen over
 onze voortgang van de voorgaande maand:
 
-* donderdag 31 januari 2019: Den Haag
+* donderdag 31 januari 2019: [Humanity Hub; Fluwelen Burgwal 58, 2511 CJ Den Haag](https://www.google.com/maps/?q=Fluwelen%20Burgwal%2058%202511%20CJ%20Den%20Haag)
 * donderdag 28 februari 2019: Utrecht
 * donderdag 28 maart 2019
 * donderdag 25 april 2019
