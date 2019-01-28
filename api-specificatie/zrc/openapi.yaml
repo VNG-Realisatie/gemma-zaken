@@ -3940,7 +3940,8 @@ components:
           type: string
           maxLength: 200
     ZaakKenmerk:
-      description: Lijst van kenmerken
+      description: Lijst van kenmerken. Merk op dat refereren naar gerelateerde objecten
+        beter kan via `ZaakObject`.
       required:
       - kenmerk
       - bron
@@ -4155,7 +4156,8 @@ components:
           format: uri
           readOnly: true
         kenmerken:
-          description: Lijst van kenmerken
+          description: Lijst van kenmerken. Merk op dat refereren naar gerelateerde
+            objecten beter kan via `ZaakObject`.
           type: array
           items:
             $ref: '#/components/schemas/ZaakKenmerk'
