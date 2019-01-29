@@ -19,7 +19,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="even">
 <td>Doel</td>
-<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van zaken inclusief bijbehorende statussen, rollen en relaties naar betrokkenen, objecten, zaaktypen en statustypen.</td>
+<td>Het kunnen aanspreken van een voorziening voor het onderhouden en raadplegen van catalogussen, inclusief hierin opgenomen zaaktypen en hieraan gekoppelde statustypen, roltypen, besluittypen, eigenschappen en informatieobjecttypen.</td>
 </tr>
 <tr class="odd">
 <td>Domein</td>
@@ -217,8 +217,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-</tr>
 <td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list</a></td>
+</tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
 <td><ul>
@@ -247,7 +247,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td>Objecttype ROLTYPE, inclusief relatie naar ZAAKTYPE en mogelijkeBETROKKENEN. https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/roltype</td>
+<td>Objecttype ROLTYPE, inclusief relatie naar ZAAKTYPE en mogelijke BETROKKENEN. https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/roltype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
