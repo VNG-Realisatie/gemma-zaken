@@ -593,3 +593,44 @@ in te richten.
 
 De volledige architectuur is uitgewerk in
 [de documentatie](../architectuur/authenticatie-autorisatie)
+
+## Enumeraties
+
+Enumeraties zijn in essentie lijstjes met mogelijke waarden. Deze waarden zijn
+semi-technisch van aard en geven niet altijd de volledige intentie aan van de
+waarde. Deze waarden staan op dit moment niet in het RGBZ.
+
+We kiezen er voor waarden in zo compact mogelijke tekstuele representatie van 
+op te nemen in de OAS. Daarnaast mag voor elk attribuut dat een enumeratie 
+betreft, een weergave-attribuut worden toegevoegd als `string`, die de 
+volledige tekstuele waarde als alleen-lezen teruggeeft. Zo'n attribuut eindigt 
+altijd op `Weergave`.
+
+In de omschrijving van het enumeratie-attribuut, staat de mapping omschreven
+tussen de waarde en de omschrijving die wordt getoond in het weergave-attribuut.
+
+*Voorbeelden:*
+
+```yaml
+---
+taal: en
+taalWeergave: Engels
+
+```
+
+In het schema:
+```yaml
+---
+taal:
+  type: string
+  description: |-
+    De taal afkorting volgens ISO 639-2:
+    * dut - Dutch
+    * eng - English
+  enum:
+  - dut
+  - eng
+taalWeergave:
+  type: string
+  description: De volledige naam van de taal
+```
