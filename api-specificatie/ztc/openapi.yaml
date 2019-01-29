@@ -2497,7 +2497,6 @@ components:
           title: Reactietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
             waarbinnen verweer tegen een besluit van het besluittype mogelijk is.
-            Specifieer de duur als 'DD 00:00'
           type: string
         publicatieIndicatie:
           title: Publicatie indicatie
@@ -2512,8 +2511,7 @@ components:
         publicatietermijn:
           title: Publicatietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
-            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven. Specifieer
-            de duur als 'DD 00:00'
+            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.
           type: string
         toelichting:
           title: Toelichting
@@ -2707,14 +2705,13 @@ components:
         doorlooptijd:
           title: Doorlooptijd
           description: De periode waarbinnen volgens wet- en regelgeving een ZAAK
-            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen. Specifieer
-            de duur als 'DD 00:00'
+            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen.
           type: string
         servicenorm:
           title: Servicenorm
           description: De periode waarbinnen verwacht wordt dat een ZAAK van het ZAAKTYPE
             afgerond wordt conform de geldende servicenormen van de zaakbehandelende
-            organisatie(s). Specifieer de duur als 'DD 00:00'
+            organisatie(s).
           type: string
         opschortingEnAanhoudingMogelijk:
           title: Opschorting/aanhouding mogelijk
@@ -2729,8 +2726,8 @@ components:
         verlengingstermijn:
           title: Verlengingstermijn
           description: De termijn in dagen waarmee de Doorlooptijd behandeling van
-            ZAAKen van dit ZAAKTYPE kan worden verlengd. Specifieer de duur als 'DD
-            00:00'
+            ZAAKen van dit ZAAKTYPE kan worden verlengd. Mag alleen een waarde bevatten
+            als verlenging mogelijk is.
           type: string
         trefwoorden:
           description: Een trefwoord waarmee ZAAKen van het ZAAKTYPE kunnen worden
@@ -2767,7 +2764,7 @@ components:
             title: URL naar product/dienst
             type: string
             format: uri
-            maxLength: 200
+            maxLength: 1000
             minLength: 1
         selectielijstProcestype:
           title: Selectielijst procestype
