@@ -3,12 +3,16 @@ version: '3.4'
 services:
   zrc_web:
     ports:
-      - 8000:8000
+      - "${ZRC_UWSGI_PORT:-8000}:8000"
 
   drc_web:
     ports:
-      - 8001:8000
+      - "${DRC_UWSGI_PORT:-8001}:8000"
 
   ztc_web:
     ports:
-      - 8002:8000
+      - "${ZTC_UWSGI_PORT:-8002}:8000"
+
+  brc_web:
+    ports:
+      - "${BRC_UWSGI_PORT:-8003}:8000"

@@ -23,7 +23,7 @@ bestanden in deze repository.
 
 Om snel aan de slag te gaan:
 
-1. Download en installeer [Hugo](https://gohugo.io/).
+1. Download en installeer [Jekyll](https://jekyllrb.com/).
 
 2. Clone de [GEMMA Zaken](https://github.com/VNG-Realisatie/gemma-zaken)
    repository.
@@ -31,10 +31,10 @@ Om snel aan de slag te gaan:
    $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
 
-3. Ga naar de `docs` directory en start `hugo server`.
+3. Ga naar de `docs` directory en start `jekyll serve`.
    ```bash
    cd docs
-   $ hugo server
+   $ bundle exec jekyll serve
    ```
 
 ## Docker

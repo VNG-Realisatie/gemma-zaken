@@ -28,11 +28,11 @@ spec:
             value: ztc.conf.docker
           - name: SUBPATH
             value: /ztc
-          - name: DATABASE_HOST
+          - name: DB_HOST
             value: postgres-ztc
           - name: SECRET_KEY
             value: <REDACTED>
-          - name: DATABASE_PASSWORD
+          - name: DB_PASSWORD
             value: <REDACTED>
           - name: SENTRY_DSN
             value: <REDACTED>

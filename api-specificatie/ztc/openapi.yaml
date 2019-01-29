@@ -53,8 +53,7 @@ info:
     name: EUPL 1.2
   version: '1'
 security:
-- Bearer: []
-- OAuth2: []
+- JWT-Claims: []
 paths:
   /catalogussen:
     get:
@@ -63,6 +62,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -71,54 +76,105 @@ paths:
                   $ref: '#/components/schemas/Catalogus'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters: []
   /catalogussen/{catalogus_uuid}/besluittypen:
     get:
@@ -130,6 +186,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -138,54 +200,105 @@ paths:
                   $ref: '#/components/schemas/BesluitType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -201,66 +314,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BesluitType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -283,6 +459,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -291,54 +473,105 @@ paths:
                   $ref: '#/components/schemas/InformatieObjectType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -355,66 +588,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InformatieObjectType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -437,6 +733,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -445,54 +747,105 @@ paths:
                   $ref: '#/components/schemas/ZaakType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -509,66 +862,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ZaakType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -591,6 +1007,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -599,54 +1021,105 @@ paths:
                   $ref: '#/components/schemas/Eigenschap'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -672,66 +1145,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Eigenschap'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -772,67 +1308,136 @@ paths:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/RolType'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -856,66 +1461,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/RolType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -944,6 +1612,12 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
@@ -952,54 +1626,105 @@ paths:
                   $ref: '#/components/schemas/StatusType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1022,66 +1747,129 @@ paths:
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/StatusType'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1108,70 +1896,133 @@ paths:
     get:
       operationId: catalogus_read
       description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
-        \ - voor een Domein die als \xC3\xA9\xC3\xA9n geheel beheerd\nwordt."
+        \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
       responses:
         '200':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Catalogus'
         '401':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
           description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
       - catalogussen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
     parameters:
     - name: uuid
       in: path
@@ -1184,18 +2035,10 @@ servers:
 - url: /api/v1
 components:
   securitySchemes:
-    Bearer:
-      in: header
-      name: Authorization
-      type: apiKey
-    OAuth2:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: /oauth2/token/
-          scopes:
-            write: Schrijftoegang tot de catalogus en gerelateerde objecten.
-            read: Leestoegang tot de catalogus en gerelateerde objecten.
+    JWT-Claims:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
   schemas:
     Catalogus:
       required:
@@ -1251,6 +2094,13 @@ components:
           readOnly: true
           uniqueItems: true
         besluittypen:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
+        informatieobjecttypen:
           type: array
           items:
             type: string
@@ -1338,6 +2188,7 @@ components:
           title: Reactietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
             waarbinnen verweer tegen een besluit van het besluittype mogelijk is.
+            Specifieer de duur als 'DD 00:00'
           type: string
         publicatieIndicatie:
           title: Publicatie indicatie
@@ -1349,17 +2200,16 @@ components:
           description: De generieke tekst van de publicatie van BESLUITen van dit
             BESLUITTYPE
           type: string
-          maxLength: 1000
         publicatietermijn:
           title: Publicatietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
-            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.
+            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven. Specifieer
+            de duur als 'DD 00:00'
           type: string
         toelichting:
           title: Toelichting
           description: Een eventuele toelichting op dit BESLUITTYPE.
           type: string
-          maxLength: 1000
         informatieobjecttypes:
           type: array
           items:
@@ -1385,7 +2235,7 @@ components:
           maxLength: 80
           minLength: 1
         catalogus:
-          title: Catalogus
+          title: Maakt deel uit van
           description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
           type: string
           format: uri
@@ -1394,7 +2244,7 @@ components:
       - identificatie
       - omschrijving
       - doorlooptijd
-      - maaktDeelUitVan
+      - catalogus
       type: object
       properties:
         url:
@@ -1424,15 +2274,16 @@ components:
         doorlooptijd:
           title: Doorlooptijd
           description: De periode waarbinnen volgens wet- en regelgeving een ZAAK
-            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen.
+            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen. Specifieer
+            de duur als 'DD 00:00'
           type: string
         servicenorm:
           title: Servicenorm
           description: De periode waarbinnen verwacht wordt dat een ZAAK van het ZAAKTYPE
             afgerond wordt conform de geldende servicenormen van de zaakbehandelende
-            organisatie(s).
+            organisatie(s). Specifieer de duur als 'DD 00:00'
           type: string
-        maaktDeelUitVan:
+        catalogus:
           title: Maakt deel uit van
           description: De CATALOGUS waartoe dit ZAAKTYPE behoort.
           type: string
@@ -1452,6 +2303,13 @@ components:
           readOnly: true
           uniqueItems: true
         roltypen:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
+        besluittypen:
           type: array
           items:
             type: string
@@ -1609,12 +2467,77 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
         mogelijkeBetrokkenen:
           type: array
           items:
             $ref: '#/components/schemas/MogelijkeBetrokkene'
+    FieldValidationError:
+      required:
+      - name
+      - code
+      - reason
+      type: object
+      properties:
+        name:
+          title: Name
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          title: Reason
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+    ValidatieFout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      - invalid-params
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalid-params:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldValidationError'
     StatusType:
       required:
       - omschrijving
@@ -1646,8 +2569,8 @@ components:
             ZAAKTYPE.
           type: string
           maxLength: 1000
-        isVan:
-          title: Is van
+        zaaktype:
+          title: is van
           type: string
           format: uri
           readOnly: true

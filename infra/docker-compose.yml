@@ -8,19 +8,24 @@ version: '3.4'
 services:
   # databases
   zrc_db:
-    image: mdillon/postgis
+    image: mdillon/postgis:10
     volumes:
       - zrc_postgres_data:/var/lib/postgresql/data
 
   drc_db:
-    image: postgres
+    image: postgres:10
     volumes:
       - drc_postgres_data:/var/lib/postgresql/data
 
   ztc_db:
-    image: postgres
+    image: postgres:10
     volumes:
       - ztc_postgres_data:/var/lib/postgresql/data
+
+  brc_db:
+    image: postgres:10
+    volumes:
+      - brc_postgres_data:/var/lib/postgresql/data
 
   # web
   zrc_web:
@@ -28,7 +33,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=zrc.conf.docker
       - SECRET_KEY=c1zqz%y-s-$$63ca_abc8dmfjno#&pk!wy8k9f8c*4w@(whxy1n'
-      - DATABASE_HOST=zrc_db
+      - DB_HOST=zrc_db
     depends_on:
       - zrc_db
 
@@ -37,7 +42,8 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=drc.conf.docker
       - SECRET_KEY=h1kluf9r2yhcfr_i!fqb!srx=!u@!^b_gdl54=h0n15j34*+#=
-      - DATABASE_HOST=drc_db
+      - DB_HOST=drc_db
+      - IS_HTTPS=0
     volumes:
       - drc_media:/app/media
     depends_on:
@@ -48,12 +54,22 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=ztc.conf.docker
       - SECRET_KEY=)lwxn07vp1+ru=yf^n+v4l&ij24l3vhhitw9vk4=0ix14ibmfj
-      - DATABASE_HOST=ztc_db
+      - DB_HOST=ztc_db
     depends_on:
       - ztc_db
+
+  brc_web:
+    image: vngr/gemma-brc:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=brc.conf.docker
+      - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
+      - DB_HOST=brc_db
+    depends_on:
+      - brc_db
 
 volumes:
   zrc_postgres_data:
   drc_postgres_data:
   drc_media:
   ztc_postgres_data:
+  brc_postgres_data:

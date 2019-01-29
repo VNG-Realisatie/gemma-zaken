@@ -4,7 +4,7 @@ ZAKEN volgens GEMMA 2.0
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
-Je kan de work-in-progress standaard [hier](./standaard.md) lezen.
+Je kan de work-in-progress standaard [hier](docs/_content/standaard/standaard.md) lezen.
 
 ## Doel
 Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn een OpenAPI Specificatie van de nieuwe Zaak- en Documentservices (v2.0) en bijbehorende referentie-implementaties met persistente data.
@@ -15,45 +15,62 @@ Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (
 ## Documentatie
 De volgende documenten beschrijven dit project:
 
-- We werken aan realisatie van de [Productvisie](./docs/content/introduction/productvisie.md) (concept)
-- Hoe we [samenwerken](./docs/content/introduction/samenwerking.md) is apart beschreven
-- Hoe u kunt [bijdragen](./docs/content/introduction/bijdragen.md) (inclusief het reviewproces)
-- De [FAQ](./docs/content/introduction/faq.md) beantwoordt vragen over het project
-- De [dev-straat](./docs/content/developers/dev-straat.md) beschrijft de development
+- We werken aan realisatie van de [Productvisie](docs/_content/introductie/productvisie.md) (concept)
+- Hoe we [samenwerken](docs/_content/introductie/samenwerking.md) is apart beschreven
+- Hoe u kunt [bijdragen](docs/_content/community/bijdragen.md) (inclusief het reviewproces)
+- De [FAQ](docs/_content/introductie/faq.md) beantwoordt vragen over het project
+- De [dev-straat](docs/_content/overige/technisch/dev-straat.md) beschrijft de development
   inrichting en tooling
-- [Technische documentatie](./docs/content/developers/_index.md) voor developers
-- [Designkeuzes en besluiten](./docs/content/developers/design-keuzes.md) voor scrumteam, developers en stakeholders
+- [Technische documentatie](docs/_content/ontwikkelaars/aan-de-slag.md) voor developers
+- [Designkeuzes en besluiten](docs/_content/overige/technisch/design-keuzes.md) voor scrumteam, developers en stakeholders
 
 Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.cloud
 
 ## Rollen
 
 - Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
-- Projectleider: [@wishalg](https://github.com/wishalg)
-- Product Owner: [@ehotting](https://github.com/ehotting)
+- Delivery manager: [@wishalg](https://github.com/wishalg)
+- Product Owner: [@Hugo-ter-Doest](https://github.com/Hugo-ter-Doest)
 - Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy)
 
 ## API spec bekijken
 
-Zie de relevante links in dit [overzicht](./docs/content/developers/api-specificaties.md).
+Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
 
 ## Snelle links
 
-**Referentiecomponenten**
+**Referentie-implementaties van componenten**
 
-* [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
-* [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
-* [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
+* [![Build Status][zrc-build-status]][zrc-stable]
+  [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
+* [![Build Status][drc-build-status]][drc-stable]
+  [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
+* [![Build Status][ztc-build-status]][ztc-stable]
+  [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
+* [![Build Status][brc-build-status]][brc-stable]
+  [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
 
 **Ondersteunende tooling**
 
 * [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
 * [Overige registratiescomponent](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
-* [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
-* [ZDS Client](https://github.com/VNG-Realisatie/gemma-zds-client)
+* [![Build Status][zit-build-status]][zit-stable]
+  [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
+* [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 
 ## Licentie
 Copyright © VNG Realisatie 2018
 
 [Licensed under the EUPL](LICENCE.md)
+
+[zrc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaakregistratiecomponent-stable
+[zrc-stable]: http://jenkins.nlx.io/job/gemma-zaakregistratiecomponent-stable
+[drc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-documentregistratiecomponent-stable
+[drc-stable]: http://jenkins.nlx.io/job/gemma-documentregistratiecomponent-stable
+[ztc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
+[ztc-stable]: http://jenkins.nlx.io/job/gemma-zaaktypecatalogus-stable
+[brc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
+[brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
+[zit-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaken-test-integratie-master
+[zit-stable]: http://jenkins.nlx.io/job/gemma-zaken-test-integratie-master
