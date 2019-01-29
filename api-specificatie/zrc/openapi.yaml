@@ -3746,22 +3746,6 @@ components:
           - VerblijfsObject
           - MeldingOpenbareRuimte
           - InzageVerzoek
-    ZaakProductOfDienst:
-      description: De producten en/of diensten die door de zaak worden voortgebracht.
-        De producten/diensten moeten bij het zaaktype vermeld zijn.
-      required:
-      - productOfDienst
-      type: object
-      properties:
-        productOfDienst:
-          title: Product of dienst
-          description: Het product of de dienst die door de zaak wordt voortgebracht.
-            Dit is de URL naar de resource zoals die door de producten- en dienstencatalogus-API
-            wordt ontsloten.
-          type: string
-          format: uri
-          maxLength: 200
-          minLength: 1
     Geometry:
       title: Geometry
       description: GeoJSON geometry
@@ -4073,12 +4057,18 @@ components:
           type: string
           format: uri
           maxLength: 200
-        productenEnDiensten:
+        productenOfDiensten:
           description: De producten en/of diensten die door de zaak worden voortgebracht.
-            De producten/diensten moeten bij het zaaktype vermeld zijn.
+            Dit zijn URLs naar de resources zoals die door de producten- en dienstencatalogus-API
+            wordt ontsloten. De producten/diensten moeten bij het zaaktype vermeld
+            zijn.
           type: array
           items:
-            $ref: '#/components/schemas/ZaakProductOfDienst'
+            title: URL naar product/dienst
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
         vertrouwelijkheidaanduiding:
           title: Vertrouwlijkheidaanduiding
           description: Aanduiding van de mate waarin het zaakdossier van de ZAAK voor

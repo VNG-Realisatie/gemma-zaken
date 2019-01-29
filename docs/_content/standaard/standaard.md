@@ -308,6 +308,14 @@ Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalinsindicatie
 wordt gewijzigd naar `"nvt"`, dan MOET de `laatsteBetaaldatum` op `null` gezet
 worden.
 
+#### Valideren van producten en/of diensten bij een `Zaak`
+
+Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
+`zaak_partial_update`) MOET de collectie `productenOfDiensten` worden getoetst
+tegen het `Zaaktype.productenOfDiensten` van het betreffende zaaktype. De
+producten en/of diensten van de zaak MOETEN een subset van de producten en/of
+diensten op het zaaktype zijn.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
