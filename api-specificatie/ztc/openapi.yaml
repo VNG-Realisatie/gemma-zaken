@@ -2031,6 +2031,315 @@ paths:
       schema:
         type: string
         format: uuid
+  /zaaktype-informatieobjecttypen:
+    get:
+      operationId: zaakinformatieobjecttype_list
+      description: 'Een verzameling van ZAAKINFORMATIEOBJECTTYPEn.
+
+
+        Filteren van de gegevens kan middels de querystringparameters:
+
+        - zaaktype: URL van het zaaktype
+
+        - informatie_object_type: URL van het zaaktype
+
+        - richting: waarde van de richting (string)
+
+
+        Meerdere querystring-parameters tegelijk worden als een AND beschouwd.'
+      parameters:
+      - name: zaaktype
+        in: query
+        description: URL to the related resource
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: informatieObjectType
+        in: query
+        description: URL to the related resource
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: richting
+        in: query
+        description: Aanduiding van de richting van informatieobjecten van het gerelateerde
+          INFORMATIEOBJECTTYPE bij zaken van het gerelateerde ZAAKTYPE.
+        required: false
+        schema:
+          type: string
+          enum:
+          - Inkomend
+          - Intern
+          - Uitgaand
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaaktype-informatieobjecttypen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
+    parameters: []
+  /zaaktype-informatieobjecttypen/{uuid}:
+    get:
+      operationId: zaakinformatieobjecttype_read
+      description: Relatie met informatieobjecttype dat relevant is voor zaaktype.
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaaktype-informatieobjecttypen
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaaktypes.lezen
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
 servers:
 - url: /api/v1
 components:
@@ -2188,7 +2497,6 @@ components:
           title: Reactietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
             waarbinnen verweer tegen een besluit van het besluittype mogelijk is.
-            Specifieer de duur als 'DD 00:00'
           type: string
         publicatieIndicatie:
           title: Publicatie indicatie
@@ -2203,8 +2511,7 @@ components:
         publicatietermijn:
           title: Publicatietermijn
           description: Het aantal dagen, gerekend vanaf de verzend- of publicatiedatum,
-            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven. Specifieer
-            de duur als 'DD 00:00'
+            dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.
           type: string
         toelichting:
           title: Toelichting
@@ -2239,12 +2546,70 @@ components:
           description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
           type: string
           format: uri
+    ReferentieProces:
+      title: Referentieproces
+      description: Het Referentieproces dat ten grondslag ligt aan dit ZAAKTYPE.
+      required:
+      - naam
+      type: object
+      properties:
+        naam:
+          title: Referentieprocesnaam
+          description: De naam van het Referentieproces.
+          type: string
+          maxLength: 80
+          minLength: 1
+        link:
+          title: Referentieproceslink
+          description: De URL naar de beschrijving van het Referentieproces
+          type: string
+          format: uri
+          maxLength: 200
+    ZaakTypenRelatie:
+      description: De ZAAKTYPEn van zaken die relevant zijn voor zaken van dit ZAAKTYPE.
+      required:
+      - zaaktype
+      - aardRelatie
+      type: object
+      properties:
+        zaaktype:
+          title: Zaaktype
+          description: URL referentie naar het gerelateerde zaaktype, mogelijks in
+            een extern ZTC.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        aardRelatie:
+          title: Aard relatie
+          description: Omschrijving van de aard van de relatie van zaken van het ZAAKTYPE
+            tot zaken van het andere ZAAKTYPE
+          type: string
+          enum:
+          - vervolg
+          - bijdrage
+          - onderwerp
+        toelichting:
+          title: Toelichting
+          description: Een toelichting op de aard van de relatie tussen beide ZAAKTYPEN.
+          type: string
+          maxLength: 255
     ZaakType:
       required:
       - identificatie
       - omschrijving
+      - vertrouwelijkheidaanduiding
+      - doel
+      - aanleiding
+      - indicatieInternOfExtern
+      - handelingInitiator
+      - onderwerp
+      - handelingBehandelaar
       - doorlooptijd
+      - productenOfDiensten
+      - referentieproces
       - catalogus
+      - gerelateerdeZaaktypen
       type: object
       properties:
         url:
@@ -2271,18 +2636,145 @@ components:
             het ZAAKTYPE
           type: string
           maxLength: 80
+        vertrouwelijkheidaanduiding:
+          title: Vertrouwelijkheidaanduiding
+          description: Aanduiding van de mate waarin zaakdossiers van ZAAKen van dit
+            ZAAKTYPE voor de openbaarheid bestemd zijn. Indien de zaak bij het aanmaken
+            geen vertrouwelijkheidaanduiding krijgt, dan wordt deze waarde gezet.
+          type: string
+          enum:
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
+        doel:
+          title: Doel
+          description: Een omschrijving van hetgeen beoogd is te bereiken met een
+            zaak van dit zaaktype.
+          type: string
+          minLength: 1
+        aanleiding:
+          title: Aanleiding
+          description: Een omschrijving van de gebeurtenis die leidt tot het starten
+            van een ZAAK van dit ZAAKTYPE.
+          type: string
+          minLength: 1
+        toelichting:
+          title: Toelichting
+          description: Een eventuele toelichting op dit zaaktype, zoals een beschrijving
+            van het procesverloop op de hoofdlijnen.
+          type: string
+        indicatieInternOfExtern:
+          title: Indicatie intern of extern
+          description: "Een aanduiding waarmee onderscheid wordt gemaakt tussen ZAAKTYPEn\
+            \ die Intern respectievelijk Extern ge\xEFnitieerd worden. Indien van\
+            \ beide sprake kan zijn, dan prevaleert de externe initiatie."
+          type: string
+          enum:
+          - Intern
+          - Extern
+        handelingInitiator:
+          title: Handeling initiator
+          description: Werkwoord dat hoort bij de handeling die de initiator verricht
+            bij dit zaaktype. Meestal 'aanvragen', 'indienen' of 'melden'. Zie ook
+            het IOB model op https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/zaaktype.handeling_initiator
+          type: string
+          maxLength: 20
+          minLength: 1
+        onderwerp:
+          title: Onderwerp
+          description: 'Het onderwerp van ZAAKen van dit ZAAKTYPE. In veel gevallen
+            nauw gerelateerd aan de product- of dienstnaam uit de Producten- en Dienstencatalogus
+            (PDC). Bijvoorbeeld: ''Evenementenvergunning'', ''Geboorte'', ''Klacht''.
+            Zie ook het IOB model op https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/zaaktype.onderwerp'
+          type: string
+          maxLength: 80
+          minLength: 1
+        handelingBehandelaar:
+          title: Handeling behandelaar
+          description: Werkwoord dat hoort bij de handeling die de behandelaar verricht
+            bij het afdoen van ZAAKen van dit ZAAKTYPE. Meestal 'behandelen', 'uitvoeren',
+            'vaststellen' of 'onderhouden'. Zie ook het IOB model op https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/zaaktype.handeling_behandelaar
+          type: string
+          maxLength: 20
+          minLength: 1
         doorlooptijd:
           title: Doorlooptijd
           description: De periode waarbinnen volgens wet- en regelgeving een ZAAK
-            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen. Specifieer
-            de duur als 'DD 00:00'
+            van het ZAAKTYPE afgerond dient te zijn, in kalenderdagen.
           type: string
         servicenorm:
           title: Servicenorm
           description: De periode waarbinnen verwacht wordt dat een ZAAK van het ZAAKTYPE
             afgerond wordt conform de geldende servicenormen van de zaakbehandelende
-            organisatie(s). Specifieer de duur als 'DD 00:00'
+            organisatie(s).
           type: string
+        opschortingEnAanhoudingMogelijk:
+          title: Opschorting/aanhouding mogelijk
+          description: Aanduiding die aangeeft of ZAAKen van dit mogelijk ZAAKTYPE
+            kunnen worden opgeschort en/of aangehouden.
+          type: boolean
+        verlengingMogelijk:
+          title: Verlenging mogelijk
+          description: Aanduiding die aangeeft of de Doorlooptijd behandeling van
+            ZAAKen van dit ZAAKTYPE kan worden verlengd.
+          type: boolean
+        verlengingstermijn:
+          title: Verlengingstermijn
+          description: De termijn in dagen waarmee de Doorlooptijd behandeling van
+            ZAAKen van dit ZAAKTYPE kan worden verlengd. Mag alleen een waarde bevatten
+            als verlenging mogelijk is.
+          type: string
+        trefwoorden:
+          description: Een trefwoord waarmee ZAAKen van het ZAAKTYPE kunnen worden
+            gekarakteriseerd.
+          type: array
+          items:
+            title: Trefwoord
+            type: string
+            maxLength: 30
+            minLength: 1
+        publicatieIndicatie:
+          title: Publicatie indicatie
+          description: Aanduiding of (het starten van) een ZAAK dit ZAAKTYPE gepubliceerd
+            moet worden.
+          type: boolean
+        publicatietekst:
+          title: Publicatietekst
+          description: De generieke tekst van de publicatie van ZAAKen van dit ZAAKTYPE.
+          type: string
+        verantwoordingsrelatie:
+          description: "De relatie tussen ZAAKen van dit ZAAKTYPE en de beleidsmatige\
+            \ en/of financi\xEBle verantwoording."
+          type: array
+          items:
+            title: Verantwoordingsrelatie
+            type: string
+            maxLength: 40
+            minLength: 1
+        productenOfDiensten:
+          description: Het product of de dienst die door ZAAKen van dit ZAAKTYPE wordt
+            voortgebracht.
+          type: array
+          items:
+            title: URL naar product/dienst
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+        selectielijstProcestype:
+          title: Selectielijst procestype
+          description: Een vanuit archiveringsoptiek onderkende groep processen met
+            dezelfde kenmerken. URL naar de referentielijsten API.
+          type: string
+          format: uri
+          maxLength: 200
+        referentieproces:
+          $ref: '#/components/schemas/ReferentieProces'
         catalogus:
           title: Maakt deel uit van
           description: De CATALOGUS waartoe dit ZAAKTYPE behoort.
@@ -2302,6 +2794,13 @@ components:
             format: uri
           readOnly: true
           uniqueItems: true
+        informatieobjecttypen:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
         roltypen:
           type: array
           items:
@@ -2312,10 +2811,17 @@ components:
         besluittypen:
           type: array
           items:
+            title: heeft relevante besluittypen
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
+        gerelateerdeZaaktypen:
+          description: De ZAAKTYPEn van zaken die relevant zijn voor zaken van dit
+            ZAAKTYPE.
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakTypenRelatie'
     EigenschapSpecificatie:
       title: Specificatie
       required:
@@ -2586,4 +3092,46 @@ components:
           description: Geeft aan dat dit STATUSTYPE een eindstatus betreft. Dit gegeven
             is afgeleid uit alle STATUSTYPEn van dit ZAAKTYPE met het hoogste volgnummer.
           type: boolean
+          readOnly: true
+    ZaakTypeInformatieObjectType:
+      required:
+      - volgnummer
+      - richting
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaaktype:
+          title: Zaaktype
+          type: string
+          format: uri
+          readOnly: true
+        informatieObjectType:
+          title: Informatie object type
+          type: string
+          format: uri
+          readOnly: true
+        volgnummer:
+          title: Volgnummer
+          description: Uniek volgnummer van het ZAAK-INFORMATIEOBJECT-TYPE binnen
+            het ZAAKTYPE.
+          type: integer
+          maximum: 999
+          minimum: 1
+        richting:
+          title: Richting
+          description: Aanduiding van de richting van informatieobjecten van het gerelateerde
+            INFORMATIEOBJECTTYPE bij zaken van het gerelateerde ZAAKTYPE.
+          type: string
+          enum:
+          - Inkomend
+          - Intern
+          - Uitgaand
+        statusType:
+          title: Status type
+          type: string
+          format: uri
           readOnly: true

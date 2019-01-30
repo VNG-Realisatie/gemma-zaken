@@ -212,14 +212,109 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### Afsluiten van zaken
+#### Afsluiten zaak
 
-Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `ZAAK`. Het
-ZRC MOET bij het zetten van de eindstatus het datumfragment van
-`datumStatusGezet` gebruiken als `ZAAK.einddatum`.
+Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
+`ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
+`ZaakType` is het `StatusType` met het hoogste `volgnummer`.
+
+De `Zaak.einddatum` MOET logisch afgeleid worden uit het toekennen van de
+eindstatus via de `Status.datumStatusGezet`.
+
+Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
+van de zaak niet meer aangepast worden (behalve om redenen van correctie).
 
 Indien een status anders dan de eindstatus gezet wordt, dan MOET het ZRC voor
-het attribuut `ZAAK.einddatum` de waarde `null` bevatten.
+het attribuut `Zaak.einddatum` de waarde `null` bevatten.
+
+Bij het afsluiten van een `Zaak` MOET het ZRC `Informatieobject.indicatieGebruiksrecht`
+controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
+maar MOET `true` of `false` zijn. Indien dit niet het geval is, dan dient het
+ZRC een validatiefout te genereren met code `indicatiegebruiksrecht-unset`.
+
+#### Vertrouwelijkheidaanduiding van een zaak
+
+Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
+of bewerken van een zaak, dan MOET de provider deze waarde toekennen. Indien
+de client deze niet expliciet toekent, dan MOET deze afgeleid worden uit
+`Zaak.ZaakType.vertrouwelijkheidaanduiding`.
+
+Een `Zaak` response van de provider MOET altijd een geldige waarde voor
+`vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
+`vertrouwelijkheidaanduiding` meesturen.
+
+#### Valideren `communicatiekanaal` op de `Zaak` resource
+
+Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
+`zaak_partial_update`) MOET de URL-referentie naar het `communicatiekanaal`
+gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet
+(uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC
+antwoorden met een `HTTP 400` foutbericht.
+
+Het ophalen van deze resource moet een JSON-document zijn met de vorm van
+een communicatiekanaal zoals gedocumenteerd op de
+[referentielijsten-api](https://ref.tst.vng.cloud/referentielijsten/api/v1/schema/#operation/communicatiekanaal_read):
+
+```json
+{
+    "url": "http://example.com",
+    "naam": "string",
+    "omschrijving": "string"
+}
+```
+
+#### Valideren `relevanteAndereZaken` op de `Zaak`-resource
+
+De lijst `relevanteAndereZaken` bevat URL-referenties naar andere zaken. Elke
+URL-referentie MOET gevalideerd worden op het bestaan. Indien het ophalen van
+de url niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC
+antwoorden met een `HTTP 400` foutbericht.
+
+In het foutbericht MOET de naam binnen `invalid-params` dan
+`relevanteAndereZaken.<index>` zijn, waarbij index start bij 0.
+
+#### Gegevensgroepen
+
+De client MAG gegevensgroepen zoals `Zaak.verlenging` en `Zaak.opschorting`
+meesturen met een waarde `null` om aan te geven dat er geen waarde gezet is.
+Dit is equivalent aan het niet-meesturen van de key in de request body.
+Als de client een (genest) object meestuurt, dan MOET de provider hierop de
+validatie van de gegevensgroep toepassen.
+
+De provider MOET altijd de geneste structuur van de gegevensgroep antwoorden.
+
+#### Valideren `hoofdzaak` op de `Zaak`-resource
+
+Bij het aanmaken of bewerken van een `Zaak` kan de `hoofdzaak` aangegeven
+worden. Dit MOET een geldige URL-referentie naar een `Zaak` zijn, indien
+opgegeven.
+
+Indien de client een `hoofdzaak` opgeeft die zelf een deelzaak is (i.e.
+`Zaak.hoofdzaak` != `null`), dan moet het ZRC antwoorden met een `HTTP 400`
+foutbericht (deelzaken van deelzaken zijn NIET toegestaan).
+
+Indien de client een zaak bewerkt en diezelfde zaak als URL-referentie meegeeft
+als `hoofdzaak`, dan moet het ZRC antwoorden met een `HTTP 400`
+foutbericht (een zaak MAG GEEN deelzaak van zichzelf zijn).
+
+#### `Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum`
+
+Indien de betalingsindicatie de waarde `"nvt"` heeft en een waarde gegevens is
+voor `laatsteBetaaldatum`, dan MOET het ZRC antwoorden met een `HTTP 400`
+foutbericht. Bij alle andere waarden van `betalingsindicatie` MAG een waarde
+opgegeven worden voor `laatsteBetaaldatum`.
+
+Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalinsindicatie
+wordt gewijzigd naar `"nvt"`, dan MOET de `laatsteBetaaldatum` op `null` gezet
+worden.
+
+#### Valideren van producten en/of diensten bij een `Zaak`
+
+Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
+`zaak_partial_update`) MOET de collectie `productenOfDiensten` worden getoetst
+tegen het `Zaaktype.productenOfDiensten` van het betreffende zaaktype. De
+producten en/of diensten van de zaak MOETEN een subset van de producten en/of
+diensten op het zaaktype zijn.
 
 ## Documentregistratiecomponent
 
@@ -307,7 +402,7 @@ De relatieresource MAG NIET meer velden ontsluiten dan het veld
 `informatieobject`, en de waarde MOET de canonical URL zijn van de
 informatieobjectresource.
 
-Een voorbeeld met een object van het type `ZAAK`:
+Een voorbeeld met een object van het type `Zaak`:
 
 1. Een informatieobject wordt gerelateerd aan een zaak door een consumer:
 
@@ -336,6 +431,30 @@ Een voorbeeld met een object van het type `ZAAK`:
 Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+#### Statuswijzigingen van informatieobjecten
+
+Wanneer `InformatieObject.verzenddatum` een waarde heeft, dan zijn de waarden
+`in bewerking` en `ter vaststelling` voor `InformatieObject.status` NIET
+TOELATEN. Indien een dergelijke status gezet is _voor_ de verzenddatum opgegeven
+wordt, dan moet de API een HTTP 400 foutbericht geven met `status` als veld in
+de `invalid-params`. De client MOET dan `verzenddatum` leeg laten of eerst de
+status wijzingen.
+
+#### Gebruiksrechten op informatieobjecten
+
+Indien er geen gebruiksrechtenvoorwaarden van toepassing zijn op een
+informatieobject, dan moet `InformatieObject.indicatieGebruiksrechten` op de
+waarde `false` gezet worden. Indien de voorwaarden (nog) niet bekend zijn,
+dan moet de indicatie op `null` gezet worden.
+
+Om de indicatie op `true` te zetten, MOET je de resource `Gebruiksrechten`
+aanmaken in de API. Providers MOETEN bij het aanmaken van gebruiksrechten
+voor een informatieobject de `inidcatieGebruiksrechten` van dat informatieobject
+op `true` zetten.
+
+Indien de laatste gebruiksrechten op een informatieobject verwijderd worden,
+dan MOET de indicatie weer op `null` gezet worden.
 
 ## Besluitregistratiecomponent
 
