@@ -35,7 +35,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="even">
 <td>Consumer</td>
-<td>Componenten waarmee informatieobjecten (in de volksmond documenten) beheerd worden (Documentbeheercomponenten; DBC’s https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-25ee9ea7-be66-4bdd-b40c-191777a88b35) en (andere) componenten die informatieobjecten raadplegen.</td>
+<td>Componenten waarmee informatieobjecten (in de volksmond documenten) beheerd worden (Documentbeheercomponenten; [DBC’s](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-25ee9ea7-be66-4bdd-b40c-191777a88b35)) en (andere) componenten die informatieobjecten raadplegen.</td>
 </tr>
 <tr class="odd">
 <td></td>
