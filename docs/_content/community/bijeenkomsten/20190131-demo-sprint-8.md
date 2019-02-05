@@ -5,10 +5,6 @@ date: '31-01-2019'
 
 Den Haag, 31 januari 2019
 
-## Presentatie
-
-To Do
-
 ## Slides:
 
 * [Demo Spint 8.pdf](../bestanden/zds2-demo-sprint-8.pdf)
