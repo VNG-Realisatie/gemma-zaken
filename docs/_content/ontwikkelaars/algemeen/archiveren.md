@@ -26,13 +26,24 @@
 
 * `ResultaatType.Archiefactietermijn` De termijn, na het vervallen van het bedrijfsvoeringsbelang, waarna het zaakdossier (de `Zaak` met alle bijbehorende `Informatieobject`en) van een `Zaak` met een resultaat van dit `ResultaatType` vernietigd of overgebracht (naar een archiefbewaarplaats) moet worden. 
 
+* `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` Wijze van bepalen van de brondatum.
+
+  * `afgehandeld` -> `Zaak.Einddatum`
+  * `ander datumkenmerk` -> `?` *De termijn start op de datum die is vastgelegd in een ander datumveld dan de datumvelden waarop de overige waarden (van deze attribuutsoort) betrekking hebben.*
+  * `eigenschap` -> `?` *De termijn start op de datum die vermeld is in een zaaktype-specifieke eigenschap (zijnde een `datumveld`).*
+  * `gerelateerde zaak` -> `Zaak.GerelateerdeZaak.Einddatum` (welke gerelateerde zaak als er meer zijn?) of `Zaak.Einddatum` *De termijn start op de datum waarop de gerelateerde zaak is afgehandeld (ZAAK.Einddatum of ZAAK.Gerelateerde_zaak.Einddatum in het RGBZ).*
+  * `hoofdzaak` -> `Zaak.HoofdZaak.Einddatum`
+  * `ingangsdatum besluit` -> `Besluit.Ingangsdatum` 
+  * `termijn` -> `?` *De termijn start een vast aantal jaren na de datum waarop de zaak is afgehandeld (`Zaak.Einddatum` in het RGBZ).*
+  * `vervaldatum besluit` -> `Besluit.Vervaldatum`. 
+  * `zaakobject` -> `ZaakObject.Object.DatumEindeGeldigheid` (niet alle objecten hebben dat?) *De termijn start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking heeft (bijvoorbeeld de overlijdendatum van een Persoon).*
 
 TODO:
 
 * `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden. 
 * `Zaak.Procesobject`
 * `Zaak.Selectielijstklasse`
-* `ResultaatType.BrondatumArchiefprocedure`
+* `ResultaatType.BrondatumArchiefprocedure.*`
 * `ResultaatType.Procesobjectaard`
 * `ZaakType.SelectielijstProcestype`
 * `ZaakType.Archiefclassificatie`
@@ -41,11 +52,11 @@ TODO:
 
 ## Berekenen van de `Zaak.Archiefactiedatum`
 
-TODO: Eerste idee maar dit is te simplistisch, want de brondatum is 
-afhankelijk van het `ResultaatType.afleidingswijzeBrondatumArchiefprocedure`.
-Voor de leesbaarheid zetten we dit nu even op de `Zaak.Einddatum`:
+De `brondatum` is af te leiden via 
+`ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. In een aantal 
+gevallen is dit geen 1-op-1 mapping maar is additionele informatie nodig.
 
-`brondatum` = `Zaak.Einddatum`
+TODO: Additionele gegevens.
 
 `Zaak.Archiefactiedatum` = `brondatum` + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
 
