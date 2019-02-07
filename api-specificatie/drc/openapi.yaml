@@ -1,20 +1,63 @@
 openapi: 3.0.0
 info:
   title: Documentregistratiecomponent (drc) API
-  description: Een API om een documentregistratiecomponent te benaderen
+  description: 'Een API om een documentregistratiecomponent te benaderen.
+
+
+    Een informatieobject is een digitaal document voorzien van meta-gegevens.
+
+    Informatieobjecten kunnen aan andere objecten zoals zaken en besluiten worden
+
+    gerelateerd (maar dat hoeft niet) en kunnen gebruiksrechten hebben.
+
+    Gebruiksrechten leggen voorwaarden op aan het gebruik van het informatieobject
+
+    (buiten raadpleging). Deze gebruiksrechten worden niet door de API gevalideerd
+
+    of gehandhaafd.
+
+
+    De typering van informatieobjecten is in de zaaktypecatalogus (ZTC)
+
+    ondergebracht in de vorm van informatieobjecttypen.
+
+
+    **Autorisatie**
+
+
+    Deze API vereist nog geen autorisatie. Je mag wel JWT-tokens gegenereerd door
+
+    de [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken - deze worden
+
+    voor nu genegeerd.
+
+
+    **Handige links**
+
+
+    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+
+    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+
+    '
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
     email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
-  version: '1'
+  version: 1.0.0-alpha
 security:
 - JWT-Claims: []
 paths:
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
-      description: EnkelvoudigInformatieObject resource.
+      description: 'Geef een lijst van ENKELVOUDIGe INFORMATIEOBJECTen (=documenten).
+
+
+        De objecten bevatten metadata over de documenten en de downloadlink naar
+
+        de binary data.'
       responses:
         '200':
           description: ''
@@ -130,10 +173,10 @@ paths:
       - enkelvoudiginformatieobjecten
     post:
       operationId: enkelvoudiginformatieobject_create
-      description: 'Registreer een EnkelvoudigInformatieObject.
+      description: 'Registreer een ENKELVOUDIG INFORMATIEOBJECT.
 
 
-        Er wordt gevalideerd op:
+        **Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL'
       responses:
@@ -270,7 +313,12 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      description: Geef de details van een EnkelvoudigInformatieObject.
+      description: 'Geef de details van een ENKELVOUDIG INFORMATIEOBJECT.
+
+
+        Het object bevat metadata over het informatieobject en de downloadlink naar
+
+        de binary data.'
       responses:
         '200':
           description: ''
@@ -396,12 +444,20 @@ paths:
       - enkelvoudiginformatieobjecten
     put:
       operationId: enkelvoudiginformatieobject_update
-      description: 'Werk een EnkelVoudigInformatieObject bij.
+      description: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door de volledige resource
+        mee
+
+        te sturen.
 
 
-        Er wordt gevalideerd op:
+        **Er wordt gevalideerd op**
 
-        - geldigheid informatieobjecttype URL'
+        - geldigheid informatieobjecttype URL
+
+
+        *TODO*
+
+        - valideer immutable attributes'
       responses:
         '200':
           description: ''
@@ -541,7 +597,20 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
-      description: EnkelvoudigInformatieObject resource.
+      description: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door enkel de gewijzigde
+        velden
+
+        mee te sturen.
+
+
+        **Er wordt gevalideerd op**
+
+        - geldigheid informatieobjecttype URL
+
+
+        *TODO*
+
+        - valideer immutable attributes'
       responses:
         '200':
           description: ''
@@ -690,7 +759,10 @@ paths:
   /gebruiksrechten:
     get:
       operationId: gebruiksrechten_list
-      description: ''
+      description: 'Geef een lijst van gebruiksrechten horend bij informatieobjecten.
+
+
+        Er kan gefiltered worden met querystringparameters.'
       parameters:
       - name: informatieobject
         in: query
@@ -886,7 +958,9 @@ paths:
       - gebruiksrechten
     post:
       operationId: gebruiksrechten_create
-      description: ''
+      description: "Voeg gebruiksrechten toe voor een informatieobject.\n\n**Opmerkingen**\n\
+        - Het toevoegen van gebruiksrechten zorgt ervoor dat de\n  `indicatieGebruiksrecht`\
+        \ op het informatieobject op `true` gezet wordt."
       responses:
         '201':
           description: ''
@@ -1021,7 +1095,7 @@ paths:
   /gebruiksrechten/{uuid}:
     get:
       operationId: gebruiksrechten_read
-      description: ''
+      description: Haal de details op van een gebruiksrecht van een informatieobject.
       responses:
         '200':
           description: ''
@@ -1147,7 +1221,7 @@ paths:
       - gebruiksrechten
     put:
       operationId: gebruiksrechten_update
-      description: ''
+      description: Werk een gebruiksrecht van een informatieobject bij.
       responses:
         '200':
           description: ''
@@ -1287,7 +1361,7 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     patch:
       operationId: gebruiksrechten_partial_update
-      description: ''
+      description: Werk een gebruiksrecht van een informatieobject bij.
       responses:
         '200':
           description: ''
@@ -1427,7 +1501,10 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     delete:
       operationId: gebruiksrechten_delete
-      description: ''
+      description: "Verwijder een gebruiksrecht van een informatieobject.\n\n**Opmerkingen**\n\
+        - Indien het laatste gebruiksrecht van een informatieobject verwijderd wordt,\n\
+        \  dan wordt de `indicatieGebruiksrecht` van het informatieobject op `null`\n\
+        \  gezet."
       responses:
         '204':
           description: ''
@@ -1558,7 +1635,11 @@ paths:
   /objectinformatieobjecten:
     get:
       operationId: objectinformatieobject_list
-      description: Beheer relatie tussen InformatieObject en OBJECT.
+      description: 'Geef een lijst van relaties tussen INFORMATIEOBJECTen en andere
+        OBJECTen.
+
+
+        Deze lijst kan gefilterd wordt met querystringparameters.'
       parameters:
       - name: object
         in: query
@@ -1701,39 +1782,17 @@ paths:
       - objectinformatieobjecten
     post:
       operationId: objectinformatieobject_create
-      description: 'Registreer een INFORMATIEOBJECT bij een OBJECT. Er worden twee
-        types van
-
-        relaties met andere objecten gerealiseerd:
-
-
-        * INFORMATIEOBJECT behoort bij [OBJECT] en
-
-        * INFORMATIEOBJECT is vastlegging van [OBJECT].
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid informatieobject URL
-
-        - geldigheid object URL
-
-        - de combinatie informatieobject en object moet uniek zijn
-
-
-        De registratiedatum wordt door het systeem op ''NU'' gezet. De aard_relatie
-
-        wordt ook door het systeem gezet.
-
-
-        Bij het aanmaken wordt ook in de bron van het OBJECT de gespiegelde
-
-        relatie aangemaakt, echter zonder de relatie-informatie.
-
-
-        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
-
-        object van het type ZAAK gaat (aard relatie "hoort bij").'
+      description: "Registreer een INFORMATIEOBJECT bij een OBJECT. Er worden twee\
+        \ types van\nrelaties met andere objecten gerealiseerd:\n\n* INFORMATIEOBJECT\
+        \ behoort bij [OBJECT] en\n* INFORMATIEOBJECT is vastlegging van [OBJECT].\n\
+        \n**Er wordt gevalideerd op**\n- geldigheid informatieobject URL\n- geldigheid\
+        \ object URL\n- de combinatie informatieobject en object moet uniek zijn\n\
+        \n**Opmerkingen**\n- De registratiedatum wordt door het systeem op 'NU' gezet.\
+        \ De `aardRelatie`\n  wordt ook door het systeem gezet.\n- Bij het aanmaken\
+        \ wordt ook in de bron van het OBJECT de gespiegelde\n  relatie aangemaakt,\
+        \ echter zonder de relatie-informatie.\n- Titel, beschrijving en registratiedatum\
+        \ zijn enkel relevant als het om een\n  object van het type ZAAK gaat (aard\
+        \ relatie \"hoort bij\")."
       responses:
         '201':
           description: ''
@@ -1868,7 +1927,10 @@ paths:
   /objectinformatieobjecten/{uuid}:
     get:
       operationId: objectinformatieobject_read
-      description: Geef de details van een OBJECTINFORMATIEOBJECT relatie.
+      description: 'Geef de details van een relatie tussen een INFORMATIEOBJECT en
+        een ander
+
+        OBJECT.'
       responses:
         '200':
           description: ''
@@ -1999,7 +2061,7 @@ paths:
         van de relatie bewerken, en niet de relatie zelf aanpassen.
 
 
-        Er wordt gevalideerd op:
+        **Er wordt gevalideerd op**
 
         - informatieobject URL, object URL en objectType mogen niet veranderen
 
@@ -2146,7 +2208,19 @@ paths:
         $ref: '#/components/requestBodies/ObjectInformatieObject'
     patch:
       operationId: objectinformatieobject_partial_update
-      description: Beheer relatie tussen InformatieObject en OBJECT.
+      description: 'Update een INFORMATIEOBJECT bij een OBJECT. Je mag enkel de gegevens
+
+        van de relatie bewerken, en niet de relatie zelf aanpassen.
+
+
+        **Er wordt gevalideerd op**
+
+        - informatieobject URL, object URL en objectType mogen niet veranderen
+
+
+        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
+
+        object van het type ZAAK gaat (aard relatie "hoort bij").'
       responses:
         '200':
           description: ''
