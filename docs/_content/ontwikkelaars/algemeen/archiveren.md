@@ -7,13 +7,20 @@ Zie: [#751](https://github.com/VNG-Realisatie/gemma-zaken/issues/751)
 \* Term gekozen t.b.v. de leesbaarheid. Echter, het gaat met name er om dat 
 organisaties hun informatiehuishouding op orde hebben en houden.
 
-In essentie bestaat het archiveringsproces uit 2 stappen:
+In essentie bestaat het archiveringsproces uit 3 stappen:
 
-1. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en
-   staat aaangegeven op de `Zaak` (`Zaak.Archiefnominatie`).
-2. Vanaf een *bepaalde datum* (`Zaak.Archiefactiedatum`) **moet** het 
-   zaak-dossier worden *overgebracht naar een archiefbewaarplaats* of worden 
-   *vernietigd*.
+1. Proces in het kort:
+   1. een zaak wordt afgesloten met een *einddatum*,
+   2. doorloopt hierna eerst een *procestermijn*,
+   3. het einde van de procestermijn heet de *brondatum*
+   4. hierna begint de *archiefactietermijn* (ook wel *bewaartermijn*),
+   5. na de *bewaartermijn* wordt het zaak-dossier gearchiveerd (aangegeven 
+      op de `Zaak.Archiefstatus`).
+2. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en 
+   staat aangegeven op `Zaak.Archiefnominatie`.
+3. Na de *bewaartermijn*, dus vanaf de `Zaak.Archiefactiedatum` **moet** het 
+   zaak-dossier op een moment worden *overgebracht naar een 
+   archiefbewaarplaats* of worden *vernietigd*.
 
 Opmerkingen:
 
@@ -21,7 +28,7 @@ Opmerkingen:
    archiefbewaarplaats*.
 2. Het is niet altijd, vanaf het aanmaken van een zaak, duidelijk wat er mee 
    moet gebeuren of wanneer dat moet gebeuren.
-3. Het archiversproces doorloopt verschillende stadia te volgen via de
+3. Het archiveringsproces doorloopt verschillende stadia te volgen via de
    `Zaak.Archiefstatus`.
 
 ### [WIP] Definitie zaak-dossier
@@ -50,74 +57,144 @@ TODO
 
 ## Gerelateerde attributen
 
-* `Zaak.Archiefnominatie` Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde termijn vernietigd moet worden:
+* `Zaak.Archiefnominatie` (*optioneel*) Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde termijn vernietigd moet worden:
 
-    * `null`
-    * `Blijvend bewaren`
-    * `Vernietigen`
+  Naam | Definitie
+  --- | ---
+  `Blijvend bewaren` | Het zaakdossier moet bewaard blijven en op de Archiefactiedatum overgedragen worden naar een archiefbewaarplaats. 
+  `Vernietigen` | Het zaakdossier moet op of na de Archiefactiedatum vernietigd worden.
     
 * `Zaak.Archiefstatus` De fase waarin het zaakdossier zich qua archivering bevindt:
 
-    * `nog te archiveren` (standaardwaarde)
-    * `gearchiveerd`
-    * `gearchiveerd (procestermijn onbekend)`
-    * `vernietigd`
-    * `overgedragen`
-    
-  Als de `Archiefstatus` `gearchiveerd` of `gearchiveerd (procestermijn onbekend)` is, dan is het zaakdossier niet-wijzigbaar.
+  Naam | Definitie
+  --- | ---
+  `nog te archiveren` | De zaak cq. het zaakdossier is nog niet als geheel gearchiveerd (*standaard waarde*).
+  `gearchiveerd` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt.
+  `gearchiveerd (procestermijn onbekend)` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum kan nog niet bepaald worden. 
+  `vernietigd` | De zaak cq. het zaakdossier is vernietigd.
+  `overgedragen` | De zaak cq. het zaakdossier is overgebracht naar een archiefbewaarplaats.
 
 * `Zaak.Archiefactiedatum` De datum waarop het gearchiveerde zaakdossier vernietigd moet worden dan wel overgebracht moet worden naar een archiefbewaarplaats. 
 
 * `ResultaatType.Archiefnominatie` Aanduiding die aangeeft of `Zaak`en met een resultaat van dit `ResultaatType` blijvend moeten worden bewaard of (op termijn) moeten worden vernietigd . 
 
-* `ResultaatType.Procestermijn` De periode dat het zaakdossier na afronding van de zaak actief gebruikt en/of geraadpleegd wordt ter ondersteuning van de taakuitoefening van de organisatie.
+* `ResultaatType.Procestermijn` (*optioneel*) De periode dat het zaakdossier na afronding van de zaak actief gebruikt en/of geraadpleegd wordt ter ondersteuning van de taakuitoefening van de organisatie.
 
 * `ResultaatType.Archiefactietermijn` De termijn, na het vervallen van het bedrijfsvoeringsbelang, waarna het zaakdossier (de `Zaak` met alle bijbehorende `Informatieobject`en) van een `Zaak` met een resultaat van dit `ResultaatType` vernietigd of overgebracht (naar een archiefbewaarplaats) moet worden. 
 
-* `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` Wijze van bepalen van de brondatum.
+* `ResultaatType.BrondatumArchiefprocedure`
 
-  * `afgehandeld` -> `Zaak.Einddatum`
-  * `ander datumkenmerk` -> `?` *De termijn start op de datum die is vastgelegd in een ander datumveld dan de datumvelden waarop de overige waarden (van deze attribuutsoort) betrekking hebben.*
-  * `eigenschap` -> `?` *De termijn start op de datum die vermeld is in een zaaktype-specifieke eigenschap (zijnde een `datumveld`).*
-  * `gerelateerde zaak` -> `Zaak.GerelateerdeZaak.Einddatum` (welke gerelateerde zaak als er meer zijn?) of `Zaak.Einddatum` *De termijn start op de datum waarop de gerelateerde zaak is afgehandeld (ZAAK.Einddatum of ZAAK.Gerelateerde_zaak.Einddatum in het RGBZ).*
-  * `hoofdzaak` -> `Zaak.HoofdZaak.Einddatum`
-  * `ingangsdatum besluit` -> `Besluit.Ingangsdatum` 
-  * `termijn` -> `?` *De termijn start een vast aantal jaren na de datum waarop de zaak is afgehandeld (`Zaak.Einddatum` in het RGBZ).*
-  * `vervaldatum besluit` -> `Besluit.Vervaldatum`. 
-  * `zaakobject` -> `ZaakObject.Object.DatumEindeGeldigheid` (niet alle objecten hebben dat?) *De termijn start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking heeft (bijvoorbeeld de overlijdendatum van een Persoon).*
+  * `Afleidingswijze` Wijze van bepalen van de brondatum:
+
+    Naam | Definitie | Regels
+    --- | --- | ---
+    `afgehandeld` | De termijn start op de datum waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ).
+    `ander datumkenmerk` | De termijn start op de datum die is vastgelegd in een ander datumveld dan de datumvelden waarop de overige waarden (van deze attribuutsoort) betrekking hebben. | `Objecttype`, `Registratie` en `Datumkenmerk` zijn niet leeg.
+    `eigenschap` | De termijn start op de datum die vermeld is in een zaaktype-specifieke eigenschap (zijnde een ?datumveld?). | `ResultaatType.ZaakType` heeft een `Eigenschap`; `Objecttype`, en `Datumkenmerk` zijn niet leeg.
+    `gerelateerde zaak` | De termijn start op de datum waarop de gerelateerde zaak is afgehandeld (ZAAK.Einddatum of ZAAK.Gerelateerde_zaak.Einddatum in het RGBZ). | `ResultaatType.ZaakType` heeft gerelateerd `ZaakType`
+    `hoofdzaak` | De termijn start op de datum waarop de gerelateerde zaak is afgehandeld, waarvan de zaak een deelzaak is (ZAAK.Einddatum van de hoofdzaak in het RGBZ). | `ResultaatType.ZaakType` is deelzaaktype van `ZaakType`
+    `ingangsdatum besluit` | De termijn start op de datum waarop het besluit van kracht wordt (BESLUIT.Ingangsdatum in het RGBZ). | `ResultaatType.ZaakType` heeft relevant `BesluitType`
+    `termijn` | De termijn start een vast aantal jaren na de datum waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ). 
+    `vervaldatum besluit` | De termijn start op de dag na de datum waarop het besluit vervalt (BESLUIT.Vervaldatum in het RGBZ). | `ResultaatType.ZaakType` heeft relevant `BesluitType`
+    `zaakobject` | De termijn start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking heeft (bijvoorbeeld de overlijdendatum van een Persoon). | `ZaakObjectType` is relevant voor `ResultaatType.ZaakType`; `Objecttype` is niet leeg en komt overeen met de naam van het `ZaakObjectType`; `Datumkenmerk` is niet leeg en komt overeen met een attribuutnaam dat bestaat op `ZaakObjectType`.
+
+   * `Registratie` (*optioneel*) De naam van de registratie waarvan het procesobject deel uit maakt.
+   * `Objecttype` (*optioneel*) Het soort object in de registratie dat het procesobject representeert.
+   * `Datumkenmerk` (*optioneel*) Naam van de attribuutsoort van het procesobject dat bepalend is voor het einde van de procestermijn. 
+
+
 
 TODO:
 
 * `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden. 
 * `Zaak.Procesobject`
 * `Zaak.Selectielijstklasse`
-* `ResultaatType.BrondatumArchiefprocedure.*`
+* `ResultaatType.BrondatumArchiefprocedure.EinddatumBekend`
 * `ResultaatType.Procesobjectaard`
 * `ZaakType.SelectielijstProcestype`
 * `ZaakType.Archiefclassificatie`
 * `Zaak-InformatieobjectType.Archiefregime`
 * `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden. 
 
-## Berekenen van de `Zaak.Archiefactiedatum`
+### Berekenen van de `Zaak.Archiefactiedatum`
 
-De `brondatum` is af te leiden via 
-`ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. In een aantal 
-gevallen is dit geen 1-op-1 mapping maar is additionele informatie nodig.
+1. Bepaal de *brondatum* van de `Zaak`:
 
-TODO: Additionele gegevens.
+`ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` | Waarde van *brondatum*
+--- | ---
+`afgehandeld` | `Zaak.Einddatum`
+`gerelateerde zaak` | De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` *
+`hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
+`ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
+`vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
+`ander datumkenmerk` | `?` (geen idee waar dit dan gespecificeerd wordt)
+`eigenschap` | `Zaak.Eigenschappen[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]`
+`termijn` | `?` (geen idee waar dit dan gespecificeerd wordt)
+`zaakobject` | De hoogste datum van alle `Zaak.ZaakObject.Object.[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]` (typisch `DatumEindeGeldigheid`) *
 
-`Zaak.Archiefactiedatum` = `brondatum` + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
+\ * Aanscherping 
+
+2. Als de *brondatum* is bepaald:
+   `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
 
 ## API ondersteuning
 
-### Opvragen lijst van zaken die **blijvend bewaard** dienen te worden
+### Opvragen lijst van zaken die gearchiveerd dienen te worden
 
 In de Zaken API:
 
-`/api/v1/zaken/?archiefnominatie=blijvend_bewaren&archiefactiedatum__lt=<datum>`
+```http
+GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
+```
 
-### Opvragen lijst van zaken die **vernietigd** dienen te worden
+### [WIP] Archiveren van zaken
 
 In de Zaken API:
 
-`/api/v1/zaken/?archiefnominatie=vernietigen&archiefactiedatum__lt=<datum>`
+```http
+PATCH /api/v1/zaken/<uuid>
+{
+  "archiefstatus": "gearchiveerd"
+}
+```
+
+TODO: Moet dit via een PATCH of actie-resource?
+
+### [WIP] Zaak-dossier overdragen
+
+In de Zaken API:
+
+```http
+GET /api/v1/zaken/<uuid>/export?formaat=overdragen
+{
+  ...
+}
+```
+
+TODO: Moet dit via een GET-export of anders?
+
+```http
+PATCH /api/v1/zaken/<uuid>
+{
+  "archiefstatus": "overgedragen"
+}
+```
+
+TODO: Moet dit via een PATCH of actie-resource?
+TODO: Wat gebeurt er nu met het zaak-dossier? Leeg? Weg?
+TODO: Moet er nog validatie op archiefactietermijn plaatsvinden? Het mag tenslotte eerder?
+
+### [WIP] Zaak-dossier vernietigen
+
+In de Zaken API:
+
+```http
+PATCH /api/v1/zaken/<uuid>
+{
+  "archiefstatus": "vernietigd"
+}
+```
+
+TODO: Moet dit via een PATCH of DELETE of actie-resource?
+TODO: Wat gebeurt er nu met het zaak-dossier? Leeg? Weg?
+TODO: Moet er nog validatie op archiefactietermijn plaatsvinden? Denk het wel.
