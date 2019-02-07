@@ -1,5 +1,53 @@
 # Archiveren (voor dummies)
 
+## [WIP] Archiveringsproces *
+
+Zie: [#751](https://github.com/VNG-Realisatie/gemma-zaken/issues/751)
+
+\* Term gekozen t.b.v. de leesbaarheid. Echter, het gaat met name er om dat 
+organisaties hun informatiehuishouding op orde hebben en houden.
+
+In essentie bestaat het archiveringsproces uit 2 stappen:
+
+1. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en
+   staat aaangegeven op de `Zaak` (`Zaak.Archiefnominatie`).
+2. Vanaf een *bepaalde datum* (`Zaak.Archiefactiedatum`) **moet** het 
+   zaak-dossier worden *overgebracht naar een archiefbewaarplaats* of worden 
+   *vernietigd*.
+
+Opmerkingen:
+
+1. Een zaak-dossier **mag** eerder worden *overgebracht naar een 
+   archiefbewaarplaats*.
+2. Het is niet altijd, vanaf het aanmaken van een zaak, duidelijk wat er mee 
+   moet gebeuren of wanneer dat moet gebeuren.
+3. Het archiversproces doorloopt verschillende stadia te volgen via de
+   `Zaak.Archiefstatus`.
+
+### [WIP] Definitie zaak-dossier
+
+Zie: [#750](https://github.com/VNG-Realisatie/gemma-zaken/issues/750)
+
+Een zaakdossier is het geheel van zaak-metadata, bijbehorende 
+informatieobjecten incl. metadata, statussen, resultaten en besluiten, en 
+gerelateerde entiteiten:
+
+* Deelzaken (of hoofdzaak)
+* Vervolgzaken (of is zelf vervolgzaak)
+* Gerelateerde zaken (via zakenrelatie)
+* Zaakobjecten: objecten uit het RGBZ of RSGB waarop de zaak betrekking heeft
+* Andere zaakobjecten: objecten waarop de zaak betrekking heeft maar die geen 
+  onderdeel uitmaken van RGBZ of RSGB. Dit kunnen business objecten zoals 
+  melding of aanvraag zijn.
+
+### Wat gebeurt er als een zaak-dossier *blijvend bewaard* wordt?
+
+TODO
+
+### Wat gebeurt er als een zaak-dossier *vernietigd* wordt?
+
+TODO
+
 ## Gerelateerde attributen
 
 * `Zaak.Archiefnominatie` Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde termijn vernietigd moet worden:
@@ -60,21 +108,15 @@ TODO: Additionele gegevens.
 
 `Zaak.Archiefactiedatum` = `brondatum` + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
 
-## Archiveringsproces
+## API ondersteuning
 
-Eigenlijk is het hele archiveringsproces te volgen via de `Zaak.Archiefstatus`.
-
-TODO: Wat er precies wel en niet blijft bestaan is nog onduidelijk
-
-## Bevragen
-
-### Opvragen van een lijst met te **archiveren** zaken
+### Opvragen lijst van zaken die **blijvend bewaard** dienen te worden
 
 In de Zaken API:
 
 `/api/v1/zaken/?archiefnominatie=blijvend_bewaren&archiefactiedatum__lt=<datum>`
 
-### Opvragen van een lijst met te **vernietigen** zaken
+### Opvragen lijst van zaken die **vernietigd** dienen te worden
 
 In de Zaken API:
 
