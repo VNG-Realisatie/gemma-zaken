@@ -132,7 +132,7 @@ TODO:
 `termijn` | `?` (geen idee waar dit dan gespecificeerd wordt)
 `zaakobject` | De hoogste datum van alle `Zaak.ZaakObject.Object.[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]` (typisch `DatumEindeGeldigheid`) *
 
-\ * Aanscherping 
+\* Aanscherping op RGBZ 2.0.2 beschrijving.
 
 2. Als de *brondatum* is bepaald:
    `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
