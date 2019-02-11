@@ -16,7 +16,7 @@ gebruikt worden.
 De hierboven genoemde REST API wordt een "standaard". Welke onderliggende
 technologie echt gebruikt wordt maakt niet zo veel uit.
 
-** Topics
+**Topics**
 
 Topics zijn kanalen waar berichten op binnenkomen. Voorlopig definieren we voor
 elke API een eigen topic. Alles wat gebeurt in de Zaken API, komt op Topic `Zaken`, dus ook
@@ -50,6 +50,7 @@ Resource-URL | De URL van de daadwerkelijk resource (optioneel)
 Voor elk topic (kanaal) kan een specifieke inhoud worden gedefinieerd.
 
 **Zaken**
+
 Attribuut | Omschrijving
 --- | ---
 ZaakType | Voor de `Zaken` API
