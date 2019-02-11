@@ -1,5 +1,7 @@
 # Notificaties (voor dummies)
 
+Een component moet een bericht kunnen sturen die andere componenten kunnen ontvangen zodat zij hierop kunnen acteren indien dit een interesant bericht is voor het betreffende ontvangende component.
+
 ## Uitgangspunten
 
 **Notificatie als REST API component**
