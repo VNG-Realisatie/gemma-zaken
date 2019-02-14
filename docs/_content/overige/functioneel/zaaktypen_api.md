@@ -56,9 +56,15 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tbody>
 </table>
 
+Hieronder wordt een diagram getoond van de Zaaktypen-API op hoofdlijnen. Boven het diagram kunt u op het betreffende object (resource) klikken voor nadere informatie.
+
+[Besluittype](#resource-besluittype), [Catalogussen](#resource-catalogussen), [Eigenschappen](#resource-eigenschappen), [Informatieobjectype](#resource-informatieobjecttype) [Roltypen](#resource-roltypen), [Statustypen](#resource-statustypen), [Zaaktype](#resource-zaaktype)
+![Datamodel_Zaaktypen_API_Overview.png](./assets/Datamodel_Zaaktypen_API_Overview.png?raw=true)
+
+
 Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
 
-### Resource: Catalogussen
+## Resource: Catalogussen
 
 <table>
 <tbody>
@@ -92,7 +98,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tbody>
 </table>
 
-### Resource: Zaaktype
+## Resource: Zaaktype
 
 <table>
 <tbody>
@@ -128,7 +134,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tbody>
 </table>
 
-### Besluittype
+## Resource: Besluittype
 
 <table>
 <tbody>
@@ -162,7 +168,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tbody>
 </table>
 
-### Resource: Informatieobjectype
+## Resource: Informatieobjecttype
 
 <table>
 <tbody>
