@@ -61,6 +61,22 @@ Hieronder wordt een diagram getoond van de Zaaktypen-API op hoofdlijnen. Boven h
 [Besluittype](#resource-besluittype), [Catalogussen](#resource-catalogussen), [Eigenschappen](#resource-eigenschappen), [Informatieobjectype](#resource-informatieobjecttype) [Roltypen](#resource-roltypen), [Statustypen](#resource-statustypen), [Zaaktype](#resource-zaaktype)
 ![Datamodel_Zaaktypen_API_Overview.png](./assets/Datamodel_Zaaktypen_API_Overview.png?raw=true)
 
+Een andere manier om dit te tonen is:
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Objecten</strong></td>
+<td><strong>Diagram</strong></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/_content/overige/functioneel/besluiten_api.md#resource-besluitinformatieobjecten">Besluitinformatieobjecten</a></li>
+</ul></td>
+<td><img src="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" " /></td>
+</tr>
+</tbody>
+</table>
 
 Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
 
