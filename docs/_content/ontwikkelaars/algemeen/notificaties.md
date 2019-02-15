@@ -24,6 +24,10 @@ Topics zijn kanalen waar berichten op binnenkomen. Voorlopig definieren we voor
 elke API een eigen topic. Alles wat gebeurt in de Zaken API, komt op Topic `Zaken`, dus ook
 `ZaakDocument` en `Status` wijzigingen.
 
+**Relevantie van een notificatie bepalen**
+
+De last van het bepalen of een notificatie, bijvoorbeeld van een Zaak wijziging of het aanmaken van een Zaak,
+relevant is, ligt bij de consumer. De consumer dient op basis van de notificatie te bepalen of het initieel relevant is (bijvoorbeeld het Zaaktype), de details op te halen en vervolgens daadwerkelijk te bepalen of deze notificatie tot een actie leidt.
 
 ## Notificatie
 
@@ -62,6 +66,16 @@ ZaakType | Voor de `Zaken` API
 ### Demo applicatie
 
 De demo applicatie zal gebruikt worden om notificaties te tonen zonder hier op te acteren.
+
+Voorbeeld:
+
+1. Burger B wil een bericht ontvangen van elke MOR-melding in mijn buurt (geografisch gebied).
+2. `Zaak` van `ZaakType` *MOR* krijgt een nieuwe `Status`.
+3. Er komt een notificatie op topic `Zaken` met o.a. het `ZaakType` (MOR) als extra informatie.
+4. De MOR-applicatie (consumer) is subscribed op topic `Zaken` en ziet dat het `ZaakType` *MOR* relevant is.
+5. De MOR-applicatie haalt de details van de `Zaak` en `Status` op.
+6. De MOR-applicatie ziet in de details van de `Zaak` dat het geografische gebied van belang is voor burger B.
+7. De MOR-applicatie stuurt een bericht naar burger B dat de `Zaak` in zijn geografische gebied een nieuwe `Status` heeft.
 
 ## Notificaties bij andere standaarden
 Zowel bij Regie- en Zaakservices als bij DigiLevering wordt notificaties opgelost met een publish/subscribe mechanisme. Een centrale notificatiecomponent ontvangt gebeurtenissen en distribueert deze naar abonnees. Abonnees hebben de mogelijkheid zich te abonneren op bepaalde gebeurtenissen. Bij DigiLevering zijn gebeurtenissen gedefinieerd in termen van objecttypen en attributen en kunnen bovendien filters worden gedefinieerd op attributen van de objecten.
