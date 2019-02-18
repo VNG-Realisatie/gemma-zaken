@@ -31,14 +31,14 @@ relevant is, ligt bij de consumer. De consumer dient op basis van de notificatie
 
 ## Notificatie
 
+Alle attributen en attribuutnamen onder voorbehoud.
+
 ### Meta gegevens
 
 Attribuut | Omschrijving
 --- | ---
-UUID | Een unieke identificatie van de notificatie
+ID | Een unieke identificatie van de notificatie (formaat afhankelijk van onderliggende techniek).
 Topic | Het kanaal waar berichten behorend bij dit topic op gepubliceerd worden, en waar subscribers op kunnen subscriben.
-
-Voorlopige inhoud
 
 ### Generiek deel
 
@@ -50,8 +50,9 @@ URL | De URL van de resource behorend bij het Topic (bijv. `Zaak`) (van de actue
 Methode | De HTTP methode die is gebruikt voor het wijzigen (`PUT`, `POST`)
 Resource | Naam van de daadwerkelijk resource die is gewijzigd (bijv. `Status`)
 Resource-URL | De URL van de daadwerkelijk resource (optioneel)
+Tijdstempel | Datum en tijd van gebeurtenis
 
-**LET OP: Vooruitlopend op tijdreizen - De URL moet een `?tijdstempel=<tijd en datum>` meekrijgen zodat niet de actuele versie van de `Zaak` geeft maar de versie die echt hoort bij het bericht.**
+**LET OP: Vooruitlopend op tijdreizen - De URL moet een `?tijdstempel=<tijd en datum>` meekrijgen zodat niet de actuele versie van de `Zaak` geeft maar de versie die echt hoort bij het bericht. Verder is er de wens om het "verschil" van voor en na de wijziging mee te geven in de notificatie of op te vragen.**
 
 ### Specifiek deel
 
