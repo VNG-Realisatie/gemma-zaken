@@ -31,7 +31,7 @@ Opmerkingen:
 3. Het archiveringsproces doorloopt verschillende stadia te volgen via de
    `Zaak.Archiefstatus`.
 
-### [WIP] Definitie zaak-dossier
+### Definitie zaak-dossier
 
 Zie: [#750](https://github.com/VNG-Realisatie/gemma-zaken/issues/750)
 
@@ -53,7 +53,7 @@ TODO
 
 ### Wat gebeurt er als een zaak-dossier *vernietigd* wordt?
 
-TODO
+Het vernietigen is het definitief verwijderen van data volgens de NEN.
 
 ## Gerelateerde attributen
 
@@ -71,7 +71,7 @@ TODO
   `nog te archiveren` | De zaak cq. het zaakdossier is nog niet als geheel gearchiveerd (*standaard waarde*).
   `gearchiveerd` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt.
   `gearchiveerd (procestermijn onbekend)` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum kan nog niet bepaald worden. 
-  `vernietigd` | De zaak cq. het zaakdossier is vernietigd.
+  `vernietigd` | De zaak cq. het zaakdossier is vernietigd. *Niet geïmplementeerd omdat vernietigde zaken echt weg zijn.*
   `overgedragen` | De zaak cq. het zaakdossier is overgebracht naar een archiefbewaarplaats.
 
 * `Zaak.Archiefactiedatum` De datum waarop het gearchiveerde zaakdossier vernietigd moet worden dan wel overgebracht moet worden naar een archiefbewaarplaats. 
@@ -127,9 +127,9 @@ TODO:
 `hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
 `ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
 `vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
-`ander datumkenmerk` | `?` (geen idee waar dit dan gespecificeerd wordt)
+`ander datumkenmerk` | *Deze kan worden geimplementeerd door een schrijfbaar brondatum attribuut op te nemen*
 `eigenschap` | `Zaak.Eigenschappen[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]`
-`termijn` | `?` (geen idee waar dit dan gespecificeerd wordt)
+`termijn` | *Door onduidelijkheid en suggesties van Ben de Jong en het team wordt deze niet geïmplementeerd.*
 `zaakobject` | De hoogste datum van alle `Zaak.ZaakObject.Object.[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]` (typisch `DatumEindeGeldigheid`) *
 
 \* Aanscherping op RGBZ 2.0.2 beschrijving.
@@ -147,7 +147,7 @@ In de Zaken API:
 GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
 ```
 
-### [WIP] Archiveren van zaken
+### Archiveren van zaken
 
 In de Zaken API:
 
@@ -158,55 +158,20 @@ PATCH /api/v1/zaken/<uuid>
 }
 ```
 
-TODO: Moet dit via een PATCH of actie-resource?
+Hierna is de Zaak niet meer wijzigbaar (zelfde situatie als afgesloten zaak).
 
-### [WIP] Zaak-dossier overdragen
+### Zaak-dossier overdragen
 
-In de Zaken API:
+In de verschillende APIs zijn dit GET operaties die voor alle relevante Zaak-dossier resources moeten werken.
+Na overdragen moet de `Zaak.Archiefstatus` gezet worden op `overgedragen`. Hierna kan het zaak-dossier worden vernietigd.
 
-```http
-GET /api/v1/zaken/<uuid>/export?formaat=overdragen
-{
-  ...
-}
-```
+### Zaak-dossier vernietigen
 
-TODO: Moet dit via een GET-export of anders?
+In de verschillende APIs zijn dit DELETE operaties die voor alle relevante Zaak-dossier resources moeten werken.
+Er vind **geen** validatie plaats op de archiefactietermijn, wel moet er een aparte scope komen die DELETE toe staat.
 
-```http
-PATCH /api/v1/zaken/<uuid>
-{
-  "archiefstatus": "overgedragen"
-}
-```
+# TODO
 
-TODO: Moet dit via een PATCH of actie-resource?
-TODO: Wat gebeurt er nu met het zaak-dossier? Leeg? Weg?
-TODO: Moet er nog validatie op archiefactietermijn plaatsvinden? Het mag tenslotte eerder?
-
-### [WIP] Zaak-dossier vernietigen
-
-In de Zaken API:
-
-```http
-PATCH /api/v1/zaken/<uuid>
-{
-  "archiefstatus": "vernietigd"
-}
-```
-
-TODO: Moet dit via een PATCH of DELETE of actie-resource?
-TODO: Wat gebeurt er nu met het zaak-dossier? Leeg? Weg?
-TODO: Moet er nog validatie op archiefactietermijn plaatsvinden? Denk het wel.
-
-
-# Te verwerken informatie uit overleg:
-
-* Vernietigen betekent volgens NEN8210 dat het ook echt weg is.
-* Brondatum wordt attribuut ergens die scrhijfbaar is bij Afleidingswijze "ander datumkenmerk".
-* Afleidingswijze "termijn" slaan we over als het niet helder wordt waar de termijn vandaan moet komen.
-* Voor overdragen komt geen aparte actie of resource. De client moet GETs doen op relevante resources.
-* Er komt geen validatie op archiefactiedatum bij verwijderen.
-* Overgedragen Archiefstatus blijft er in, geen gevolgen.
-* Vernietigd Archiefstatus gaat er uit
-
+* Overige attributen uit TODO verwerken
+* Schrijfbaar brondatum attribuut definieren
+* Ergens opschrijven dat we niet alles automatisch gaan doen, aangezien sommige velden tekstueel beschrijven hoe de brondatum bepaald moet worden.
