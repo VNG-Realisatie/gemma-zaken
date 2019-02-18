@@ -198,3 +198,15 @@ PATCH /api/v1/zaken/<uuid>
 TODO: Moet dit via een PATCH of DELETE of actie-resource?
 TODO: Wat gebeurt er nu met het zaak-dossier? Leeg? Weg?
 TODO: Moet er nog validatie op archiefactietermijn plaatsvinden? Denk het wel.
+
+
+# Te verwerken informatie uit overleg:
+
+* Vernietigen betekent volgens NEN8210 dat het ook echt weg is.
+* Brondatum wordt attribuut ergens die scrhijfbaar is bij Afleidingswijze "ander datumkenmerk".
+* Afleidingswijze "termijn" slaan we over als het niet helder wordt waar de termijn vandaan moet komen.
+* Voor overdragen komt geen aparte actie of resource. De client moet GETs doen op relevante resources.
+* Er komt geen validatie op archiefactiedatum bij verwijderen.
+* Overgedragen Archiefstatus blijft er in, geen gevolgen.
+* Vernietigd Archiefstatus gaat er uit
+
