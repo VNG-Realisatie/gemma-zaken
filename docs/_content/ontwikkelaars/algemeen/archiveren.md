@@ -49,11 +49,13 @@ gerelateerde entiteiten:
 
 ### Wat gebeurt er als een zaak-dossier *blijvend bewaard* wordt?
 
-TODO
+Het zaak-dossier is overgedragen naar een bewaarplaats.
 
 ### Wat gebeurt er als een zaak-dossier *vernietigd* wordt?
 
-Het vernietigen is het definitief verwijderen van data volgens de NEN.
+Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 80):
+
+> Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze niet meer op enigerlei wijze kunnen worden gereproduceerd.
 
 ## Gerelateerde attributen
 
