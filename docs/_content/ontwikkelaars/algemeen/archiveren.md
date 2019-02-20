@@ -118,6 +118,12 @@ TODO:
 * `Zaak-InformatieobjectType.Archiefregime`
 * `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden. 
 
+### Bepalen van de aan archivering gerelateerde attributen voor `ResultaatType`
+
+Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
+
+TODO: Er is een soort van mapping te maken van attributen in de selectielijst naar `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. Een procestermijn in de selectielijst van `Nihil` is bijvoorbeeld `afgehandeld` in de `...Afleidingswijze`
+
 ### Berekenen van de `Zaak.Archiefactiedatum`
 
 1. Bepaal de *brondatum* van de `Zaak`:
@@ -137,7 +143,8 @@ TODO:
 \* Aanscherping op RGBZ 2.0.2 beschrijving.
 
 2. Als de *brondatum* is bepaald:
-   `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Procestermijn` + `Zaak.ResultaatType.Archiefactietermijn`
+
+   `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Archiefactietermijn`
 
 ## API ondersteuning
 
