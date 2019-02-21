@@ -131,20 +131,22 @@ TODO: Er is een soort van mapping te maken van attributen in de selectielijst na
 `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` | Waarde van *brondatum*
 --- | ---
 `afgehandeld` | `Zaak.Einddatum`
-`gerelateerde zaak` | De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` *
+`gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum`
 `hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
 `ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
 `vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
-`ander datumkenmerk` | *Deze kan worden geimplementeerd door een schrijfbaar brondatum attribuut op te nemen*
-`eigenschap` | `Zaak.Eigenschappen[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]`
-`termijn` | *Door onduidelijkheid en suggesties van Ben de Jong en het team wordt deze niet geïmplementeerd.*
-`zaakobject` | De hoogste datum van alle `Zaak.ZaakObject.Object.[<ResultaatType.BrondatumArchiefprocedure.Datumkenmerk>]` (typisch `DatumEindeGeldigheid`) *
-
-\* Aanscherping op RGBZ 2.0.2 beschrijving.
+`ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
+`eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
+`termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
+`zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
 
 2. Als de *brondatum* is bepaald:
 
    `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Archiefactietermijn`
+
+#### Wanneer wordt de `Zaak.Archiefactiedatum` berekend?
+
+De `Zaak.Archiefactiedatum` wordt berekend zodra er een `Resultaat` voor de `Zaak` wordt aangemaakt of wordt gewijzigd.
 
 ## API ondersteuning
 
@@ -167,7 +169,7 @@ PATCH /api/v1/zaken/<uuid>
 }
 ```
 
-Hierna is de Zaak niet meer wijzigbaar (zelfde situatie als afgesloten zaak).
+Hierna is de Zaak in principe niet meer wijzigbaar (zelfde situatie als afgesloten zaak). Dit is geen harde API-validatie maar de Client dient hier goed mee om te te gaan.
 
 ### Zaak-dossier overdragen
 
