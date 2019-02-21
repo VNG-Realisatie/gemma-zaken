@@ -11,9 +11,9 @@ In essentie bestaat het archiveringsproces uit 3 stappen:
 
 1. Proces in het kort:
    1. een zaak wordt afgesloten met een *einddatum*,
-   2. doorloopt hierna eerst een *procestermijn*,
+   2. doorloopt hierna eerst een *procestermijn*; dit is de periode waarin de zaak nog gebruikt wordt voor de taakuitoefening; bijv. een zaak waarin een bouwvergunning is verleend, blijft in de procestermijn ten behoeve van toezicht.
    3. het einde van de procestermijn heet de *brondatum*
-   4. hierna begint de *archiefactietermijn* (ook wel *bewaartermijn*),
+   4. hierna begint de *archiefactietermijn* (ook wel *bewaartermijn*); in feite is dit de termijn waarna de archiefactie moet worden uitgevoerd, hetzij (permanent) bewaren hetzij vernietigen
    5. na de *bewaartermijn* wordt het zaak-dossier gearchiveerd (aangegeven 
       op de `Zaak.Archiefstatus`).
 2. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en 
@@ -39,8 +39,8 @@ Een zaakdossier is het geheel van zaak-metadata, bijbehorende
 informatieobjecten incl. metadata, statussen, resultaten en besluiten, en 
 gerelateerde entiteiten:
 
-* Deelzaken (of hoofdzaak)
-* Vervolgzaken (of is zelf vervolgzaak)
+* De relatie met deelzaken (of hoofdzaak)
+* De relatie met vervolgzaken (of is zelf vervolgzaak)
 * Gerelateerde zaken (via zakenrelatie)
 * Zaakobjecten: objecten uit het RGBZ of RSGB waarop de zaak betrekking heeft
 * Andere zaakobjecten: objecten waarop de zaak betrekking heeft maar die geen 
@@ -49,7 +49,7 @@ gerelateerde entiteiten:
 
 ### Wat gebeurt er als een zaak-dossier *blijvend bewaard* wordt?
 
-Het zaak-dossier is overgedragen naar een bewaarplaats.
+Het zaak-dossier wordt overgedragen naar een bewaarplaats.
 
 ### Wat gebeurt er als een zaak-dossier *vernietigd* wordt?
 
@@ -108,7 +108,7 @@ Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 8
 
 TODO:
 
-* `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden. 
+* `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden.
 * `Zaak.Procesobject`
 * `Zaak.Selectielijstklasse`
 * `ResultaatType.BrondatumArchiefprocedure.EinddatumBekend`
