@@ -57,7 +57,81 @@ Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 8
 
 > Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze niet meer op enigerlei wijze kunnen worden gereproduceerd.
 
-## Gerelateerde attributen
+### Bepalen van de aan archivering gerelateerde attributen voor `ResultaatType`
+
+Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
+
+TODO: Er is een soort van mapping te maken van attributen in de selectielijst naar `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. Een procestermijn in de selectielijst van `Nihil` is bijvoorbeeld `afgehandeld` in de `...Afleidingswijze`
+
+### Berekenen van de `Zaak.Archiefactiedatum`
+
+1. Bepaal de *brondatum* van de `Zaak` door de `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` te raadplegen:
+
+Afleidingswijze | Waarde van *brondatum*
+`afgehandeld` | `Zaak.Einddatum`
+`gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` |
+`hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
+`ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
+`vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
+`ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
+`eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
+`termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
+`zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
+
+2. Als de *brondatum* is bepaald:
+
+   `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.Resultaat.ResultaatType.Archiefactietermijn`
+
+#### Foutsituaties bij het berekenen van *brondatum*
+
+In sommige situaties kan de *brondatum* niet worden bepaald. Dit is niet altijd een foutsitatie. In het algemeen moet een fout optreden als de configuratie in het ZTC niet overeenkomt met de inrichting van de `Zaak` of gerelateerde gegevens, of als er ongeldige waardes zijn.
+
+**Voorbeeld**
+
+Als de afleidingswijze een `eigenschap` betreft en de `Zaak` heeft zo'n `eigenschap` niet, dan treed een fout op. Ook als de `eigenschap` wel bestaat maar de waarde is geen geldige datum, dan treed een fout op. Echter, als de `eigenschap` bestaat en de waarde is leeg, dan kan de *brondatum* niet worden bepaald en blijft de `Zaak.archiefactiedatum` leeg
+
+### Wanneer wordt de `Zaak.Archiefactiedatum` berekend?
+
+De `Zaak.Archiefactiedatum` wordt berekend als aan de volgende voorwaarden wordt voldaan:
+
+1) Er wordt een `Resultaat` voor de `Zaak` aangemaakt of gewijzigd,
+2) De *brondatum* kan worden berekend,
+3) De `ResultaatType.archiefactietermijn` van het `Zaak.Resultaat` is valide.
+
+## API ondersteuning
+
+### Opvragen lijst van zaken die gearchiveerd dienen te worden
+
+In de Zaken API:
+
+```http
+GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
+```
+
+### Archiveren van zaken
+
+In de Zaken API:
+
+```http
+PATCH /api/v1/zaken/<uuid>
+{
+  "archiefstatus": "gearchiveerd"
+}
+```
+
+Hierna is de Zaak in principe niet meer wijzigbaar (zelfde situatie als afgesloten zaak). Dit is geen harde API-validatie maar de Client dient hier goed mee om te te gaan.
+
+### Zaak-dossier overdragen
+
+In de verschillende APIs zijn dit `GET` operaties die voor alle relevante Zaak-dossier resources moeten werken.
+Na overdragen moet de `Zaak.archiefstatus` gezet worden op `overgedragen`. Hierna kan het zaak-dossier worden vernietigd.
+
+### Zaak-dossier vernietigen
+
+In de verschillende APIs zijn dit `DELETE` operaties die voor alle relevante Zaak-dossier resources moeten werken.
+Er vind **geen** validatie plaats op de `Zaak.archiefactietermijn`, wel moet er een aparte scope komen die `DELETE` toe staat.
+
+# Relevante attributen uit het informatiemodel
 
 * `Zaak.Archiefnominatie` (*optioneel*) Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde termijn vernietigd moet worden:
 
@@ -104,8 +178,6 @@ Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 8
    * `Objecttype` (*optioneel*) Het soort object in de registratie dat het procesobject representeert.
    * `Datumkenmerk` (*optioneel*) Naam van de attribuutsoort van het procesobject dat bepalend is voor het einde van de procestermijn. 
 
-
-
 TODO:
 
 * `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden.
@@ -117,69 +189,6 @@ TODO:
 * `ZaakType.Archiefclassificatie`
 * `Zaak-InformatieobjectType.Archiefregime`
 * `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden. 
-
-### Bepalen van de aan archivering gerelateerde attributen voor `ResultaatType`
-
-Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
-
-TODO: Er is een soort van mapping te maken van attributen in de selectielijst naar `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. Een procestermijn in de selectielijst van `Nihil` is bijvoorbeeld `afgehandeld` in de `...Afleidingswijze`
-
-### Berekenen van de `Zaak.Archiefactiedatum`
-
-1. Bepaal de *brondatum* van de `Zaak`:
-
-`ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` | Waarde van *brondatum*
---- | ---
-`afgehandeld` | `Zaak.Einddatum`
-`gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum`
-`hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
-`ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
-`vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
-`ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
-`eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
-`termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
-`zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
-
-2. Als de *brondatum* is bepaald:
-
-   `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.ResultaatType.Archiefactietermijn`
-
-#### Wanneer wordt de `Zaak.Archiefactiedatum` berekend?
-
-De `Zaak.Archiefactiedatum` wordt berekend zodra er een `Resultaat` voor de `Zaak` wordt aangemaakt of wordt gewijzigd.
-
-## API ondersteuning
-
-### Opvragen lijst van zaken die gearchiveerd dienen te worden
-
-In de Zaken API:
-
-```http
-GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
-```
-
-### Archiveren van zaken
-
-In de Zaken API:
-
-```http
-PATCH /api/v1/zaken/<uuid>
-{
-  "archiefstatus": "gearchiveerd"
-}
-```
-
-Hierna is de Zaak in principe niet meer wijzigbaar (zelfde situatie als afgesloten zaak). Dit is geen harde API-validatie maar de Client dient hier goed mee om te te gaan.
-
-### Zaak-dossier overdragen
-
-In de verschillende APIs zijn dit GET operaties die voor alle relevante Zaak-dossier resources moeten werken.
-Na overdragen moet de `Zaak.Archiefstatus` gezet worden op `overgedragen`. Hierna kan het zaak-dossier worden vernietigd.
-
-### Zaak-dossier vernietigen
-
-In de verschillende APIs zijn dit DELETE operaties die voor alle relevante Zaak-dossier resources moeten werken.
-Er vind **geen** validatie plaats op de archiefactietermijn, wel moet er een aparte scope komen die DELETE toe staat.
 
 # TODO
 
