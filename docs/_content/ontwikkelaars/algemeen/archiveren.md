@@ -61,32 +61,39 @@ Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 8
 
 Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
 
-TODO: Er is een soort van mapping te maken van attributen in de selectielijst naar `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze`. Een procestermijn in de selectielijst van `Nihil` is bijvoorbeeld `afgehandeld` in de `...Afleidingswijze`
+Het ZTC dient ingericht te worden volgens de selectielijst. Het ZTC dient validaties uit te voeren om te zorgen dat inrichting correct is.
+
+*Voorbeeld*
+
+Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld op `eigenschap` moet het ZTC valideren dat het betreffende `ZaakType` een `Eigenschap` heeft met als `naam`, de waarde die staat in `ResultaatType.BrondatumArchiefprocedure.datumkenmerk`.
 
 ### Berekenen van de `Zaak.Archiefactiedatum`
 
 1. Bepaal de *brondatum* van de `Zaak` door de `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` te raadplegen:
 
-Afleidingswijze | Waarde van *brondatum*
-`afgehandeld` | `Zaak.Einddatum`
-`gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` |
-`hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
-`ingangsdatum besluit` | `Zaak.Besluit.Ingangsdatum` 
-`vervaldatum besluit` | `Zaak.Besluit.Vervaldatum`
-`ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
-`eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
-`termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
-`zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
+   Afleidingswijze | Waarde van *brondatum*
+   --- | ---
+   `afgehandeld` | `Zaak.Einddatum`
+   `gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` (#776)
+   `hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
+   `ingangsdatum besluit` | *TODO* `Zaak.Besluit.Ingangsdatum` (#775)
+   `vervaldatum besluit` | *TODO* `Zaak.Besluit.Vervaldatum` (#775)
+   `ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
+   `eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
+   `termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
+   `zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
 
 2. Als de *brondatum* is bepaald:
 
    `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.Resultaat.ResultaatType.Archiefactietermijn`
 
+User Story: #345
+
 #### Foutsituaties bij het berekenen van *brondatum*
 
 In sommige situaties kan de *brondatum* niet worden bepaald. Dit is niet altijd een foutsitatie. In het algemeen moet een fout optreden als de configuratie in het ZTC niet overeenkomt met de inrichting van de `Zaak` of gerelateerde gegevens, of als er ongeldige waardes zijn.
 
-**Voorbeeld**
+*Voorbeeld*
 
 Als de afleidingswijze een `eigenschap` betreft en de `Zaak` heeft zo'n `eigenschap` niet, dan treed een fout op. Ook als de `eigenschap` wel bestaat maar de waarde is geen geldige datum, dan treed een fout op. Echter, als de `eigenschap` bestaat en de waarde is leeg, dan kan de *brondatum* niet worden bepaald en blijft de `Zaak.archiefactiedatum` leeg
 
@@ -94,7 +101,7 @@ Als de afleidingswijze een `eigenschap` betreft en de `Zaak` heeft zo'n `eigensc
 
 De `Zaak.Archiefactiedatum` wordt berekend als aan de volgende voorwaarden wordt voldaan:
 
-1) Er wordt een `Resultaat` voor de `Zaak` aangemaakt of gewijzigd,
+1) Er wordt een `Resultaat` voor de `Zaak` aangemaakt of gewijzigd; hiermee wordt het `ResultaatType` bekend,
 2) De *brondatum* kan worden berekend,
 3) De `ResultaatType.archiefactietermijn` van het `Zaak.Resultaat` is valide.
 
@@ -108,6 +115,8 @@ In de Zaken API:
 GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
 ```
 
+User Stories: #347, #348
+
 ### Archiveren van zaken
 
 In de Zaken API:
@@ -119,7 +128,7 @@ PATCH /api/v1/zaken/<uuid>
 }
 ```
 
-Hierna is de Zaak in principe niet meer wijzigbaar (zelfde situatie als afgesloten zaak). Dit is geen harde API-validatie maar de Client dient hier goed mee om te te gaan.
+Hierna is de Zaak in principe niet meer wijzigbaar (zelfde situatie als afgesloten zaak). Uit praktische overwegingen is er geen validatie aan de kant van de provider hierop maar dient de consumer hier op verantwoorde wijze mee om te gaan.
 
 ### Zaak-dossier overdragen
 
