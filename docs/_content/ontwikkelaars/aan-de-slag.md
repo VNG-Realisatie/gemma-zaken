@@ -1,6 +1,6 @@
 ---
 title: "Aan de slag"
-date: '14-11-2018'
+date: '25-02-2019'
 weight: 100
 ---
 
@@ -215,9 +215,9 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
 
    * `Api root`: Vul hier de URL in van de API root van het betreffende "andere"
      component. Bijvoorbeeld: `http://<ip>:800x/api/v1/`
-   * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 6 voor het
+   * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 1 voor het
      betreffende component wat bereikbaar is op `Api root`.
-   * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 6 voor het
+   * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 1 voor het
      betreffende component wat bereikbaar is op `Api root`.
 
    De componenten maken zo onderling gebruik van dezelfde secrets als een
@@ -227,7 +227,7 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
 
    Navigeer naar: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
 
-   Vul de `Identifier` en `Secret` in van stap 6, de relevante **scopes** en
+   Vul de `Identifier` en `Secret` in van stap 1, de relevante **scopes** en
    **zaaktypes**, en klik op **Bevestig**.
 
    Er wordt nu een JWT gegenereerd die gebruikt kan worden in de `Authorization`
