@@ -74,10 +74,10 @@ Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld op
    Afleidingswijze | Waarde van *brondatum*
    --- | ---
    `afgehandeld` | `Zaak.Einddatum`
-   `gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` (#776)
+   `gerelateerde zaak` | *TODO: Wat is dit precies?* De hoogste datum van van alle `Zaak.GerelateerdeZaak.Einddatum` of `Zaak.Einddatum` ([#776](https://github.com/VNG-Realisatie/gemma-zaken/issues/776))
    `hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
-   `ingangsdatum besluit` | *TODO* `Zaak.Besluit.Ingangsdatum` (#775)
-   `vervaldatum besluit` | *TODO* `Zaak.Besluit.Vervaldatum` (#775)
+   `ingangsdatum besluit` | *TODO* `Zaak.Besluit.Ingangsdatum` ([#775](https://github.com/VNG-Realisatie/gemma-zaken/issues/775))
+   `vervaldatum besluit` | *TODO* `Zaak.Besluit.Vervaldatum` ([#775](https://github.com/VNG-Realisatie/gemma-zaken/issues/775))
    `ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
    `eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
    `termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
@@ -87,7 +87,7 @@ Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld op
 
    `Zaak.Archiefactiedatum` = *brondatum* + `Zaak.Resultaat.ResultaatType.Archiefactietermijn`
 
-User Story: #345
+User Story: [#345](https://github.com/VNG-Realisatie/gemma-zaken/issues/345)
 
 #### Foutsituaties bij het berekenen van *brondatum*
 
@@ -115,7 +115,7 @@ In de Zaken API:
 GET /api/v1/zaken/?archiefnominatie=<archiefnominatie>&archiefactiedatum__lt=<datum>&archiefstatus=nog_te_archiveren
 ```
 
-User Stories: #347, #348
+User Stories: [#347](https://github.com/VNG-Realisatie/gemma-zaken/issues/347), [#348](https://github.com/VNG-Realisatie/gemma-zaken/issues/348)
 
 ### Archiveren van zaken
 
@@ -139,6 +139,8 @@ Na overdragen moet de `Zaak.archiefstatus` gezet worden op `overgedragen`. Hiern
 
 In de verschillende APIs zijn dit `DELETE` operaties die voor alle relevante Zaak-dossier resources moeten werken.
 Er vind **geen** validatie plaats op de `Zaak.archiefactietermijn`, wel moet er een aparte scope komen die `DELETE` toe staat.
+
+User Story: [#349](https://github.com/VNG-Realisatie/gemma-zaken/issues/349)
 
 # Relevante attributen uit het informatiemodel
 
