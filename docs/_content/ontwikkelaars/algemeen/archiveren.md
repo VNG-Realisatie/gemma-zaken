@@ -1,4 +1,8 @@
-# Archiveren (voor dummies)
+---
+title: "Archiveren"
+date: '25-02-2019'
+weight: 70
+---
 
 ## [WIP] Archiveringsproces *
 
