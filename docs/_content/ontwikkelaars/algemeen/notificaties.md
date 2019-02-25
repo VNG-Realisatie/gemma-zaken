@@ -1,4 +1,8 @@
-# Notificaties (voor dummies)
+---
+title: "Notificaties (concept)"
+date: '25-02-2019'
+weight: 70
+---
 
 Een component moet een bericht kunnen sturen die andere componenten kunnen ontvangen zodat zij hierop kunnen acteren indien dit een interesant bericht is voor het betreffende ontvangende component.
 
