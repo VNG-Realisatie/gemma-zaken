@@ -561,7 +561,8 @@ de `Procestype` resource in de selectielijst-API zijn, indien ingevuld.
 Het attribuut `Resultaattype.resultaattypeomschrijving` MOET een URL-verwijzing
 naar de `Resultaattypeomschrijving` resource in de referentielijsten-API zijn.
 Het ZTC MOET de waarde van `Resultaattypeomschrijving.omschrijving` ontsluiten
-als alleen-lezen attribuut `Resultaattype.omschrijvingGeneriek`.
+(uit de selectielijst) als alleen-lezen attribuut
+`Resultaattype.omschrijvingGeneriek`.
 
 Het attribuut `Resultaattype.selectielijstklasse` MOET een URL-verwijzing zijn
 naar de `Resultaat` resource in de selectielijst-API. Tevens MOET dit
@@ -579,8 +580,8 @@ selectielijstklasse.
 **`Resultaattype.brondatumArchiefprocedure`**
 
 Het groepattribuut `Resultaattype.brondatumArchiefprocedure` parametriseert
-het betalen van de `brondatum` voor de `archiefactietermijn` van een zaak. Deze
-parametrisering is aan validatieregels onderheving:
+het bepalen van de `brondatum` voor de `archiefactietermijn` van een zaak. Deze
+parametrisering is aan validatieregels onderhevig:
 
 * `Resultaattype.brondatumArchiefprocedure.afleidingswijze`:
     * afleidingswijze MOET `afgehandeld` zijn indien de selectielijstklasse
