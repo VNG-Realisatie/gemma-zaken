@@ -345,9 +345,9 @@ en `Zaak.archiefactiedatum` bepaald worden als volgt:
             * `termijn` -> `Zaak.einddatum` + `Resultaat.Resultaattype.brondatumArchiefprocedure.procestermijn`
             * `gerelateerde_zaak` -> TODO
             * `ingangsdatum_besluit` -> maximale `Besluit.ingangsdatum` van alle
-              gerelateerde besbluiten
+              gerelateerde besluiten
             * `vervaldatum_besluit` -> maximale `Besluit.vervaldatum` van alle
-              gerelateerde besbluiten
+              gerelateerde besluiten
     2. Zet `Zaak.archiefactiedatum` als `brondatum + Resultaat.Resultaattype.archiefactietermijn`
 
 Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
