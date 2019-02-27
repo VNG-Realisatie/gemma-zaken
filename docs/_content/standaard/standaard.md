@@ -316,6 +316,76 @@ tegen het `Zaaktype.productenOfDiensten` van het betreffende zaaktype. De
 producten en/of diensten van de zaak MOETEN een subset van de producten en/of
 diensten op het zaaktype zijn.
 
+#### Archiveren
+
+**Afleiden van archiveringsparameters**
+
+Het resultaat van een zaak is bepalend voor het archiefregime. Bij het zetten
+van het resultaat van een zaak MOETEN de attributen `Zaak.archiefnominatie`
+en `Zaak.archiefactiedatum` bepaald worden als volgt:
+
+1. Indien de zaak geen `archiefnominatie` heeft, dan MOET deze overgenomen
+   worden uit `Resultaat.Resultaattype.archiefnominatie`
+2. Indien `Resultaat.Resultaattype.archiefactietermijn` gevuld is:
+    1. Bepaal de `brondatum` van de archiefprocedure
+        1. Consulteer het groepattribuut `Resultaat.Resultaattype.brondatumArchiefprocedure`
+        2. Afhankelijk van de waarde van `afleidingswijze`:
+            * `afgehandeld` -> gebruik `Zaak.einddatum`
+            * `hoofdzaak` -> gebruik `Zaak.hoofdzaak.einddatum`
+            * `eigenschap` -> gebruik de waarde van de eigenschap met als naam
+              de waarde van
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+            * `ander_datumkenmerk` -> brondatum MOET handmatig afgeleid en
+              gezet worden
+            * `zaakobject` -> zoek de gerelateerde objecten van type
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.objecttype`.
+              Lees van elk object het attribuut met de naam
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+              en gebruik de maximale waarde.
+            * `termijn` -> `Zaak.einddatum` + `Resultaat.Resultaattype.brondatumArchiefprocedure.procestermijn`
+            * `gerelateerde_zaak` -> TODO
+            * `ingangsdatum_besluit` -> maximale `Besluit.ingangsdatum` van alle
+              gerelateerde besbluiten
+            * `vervaldatum_besluit` -> maximale `Besluit.vervaldatum` van alle
+              gerelateerde besbluiten
+    2. Zet `Zaak.archiefactiedatum` als `brondatum + Resultaat.Resultaattype.archiefactietermijn`
+
+Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
+gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
+de archiefactietermijn niet beschikbaar is.
+
+**Zetten `Zaak.archiefstatus`**
+
+De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
+waarde gezet worddt, dan MOETEN alle gerelateerde informatieobjecten de status
+`gearchiveerd` hebben.
+
+De attributen `Zaak.archiefnominatie` en `Zaak.archiefactiedatum` MOETEN een
+waarde krijgen als de de archiefstatus een waarde krijgt anders dan
+`nog_te_archiveren`.
+
+Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
+foutbericht antwoorden.
+
+**Vernietigen van zaken**
+
+Bij `DELETE` requests op zaken MOETEN de zaak en gerelateerde objecten fysiek
+uit de opslag verwijderd worden. Soft-deletes zijn NIET TOEGESTAAN. Onder
+gerelateerde objecten wordt begrepen:
+
+- `zaak` - de deelzaken van de verwijderde hoofzaak
+- `status` - alle statussen van de verwijderde zaak
+- `resultaat` - het resultaat van de verwijderde zaak
+- `rol` - alle rollen bij de zaak
+- `zaakobject` - alle zaakobjecten bij de zaak
+- `zaakeigenschap` - alle eigenschappen van de zaak
+- `zaakkenmerk` - alle kenmerken van de zaak
+- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook
+  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)
+- `klantcontact` - alle klantcontacten bij een zaak
+
+Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
