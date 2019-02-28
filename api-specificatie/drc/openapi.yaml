@@ -750,8 +750,16 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
     delete:
       operationId: enkelvoudiginformatieobject_delete
-      description: Verwijdert een ENKELVOUDIG INFORMATIEOBJECT, samen met alle gerelateerde
+      description: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT, samen met alle gerelateerde
+
         resources binnen deze API.
+
+
+        **Gerelateerde resources**
+
+        - `ObjectInformatieObject` - alle relaties van het informatieobject
+
+        - `Gebruiksrechten` - alle gebruiksrechten van het informatieobject'
       responses:
         '204':
           description: ''
@@ -871,6 +879,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - scopes.documenten.verwijderen
     parameters:
     - name: uuid
       in: path
@@ -2727,8 +2738,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-            \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
-            \ als eerste in een samenwerkingsketen heeft vastgelegd."
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
           minLength: 1
@@ -2760,7 +2771,7 @@ components:
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
-            \ is voor het cre\xC3\xABren van de inhoud van het INFORMATIEOBJECT."
+            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1
@@ -3406,8 +3417,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-            \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
-            \ als eerste in een samenwerkingsketen heeft vastgelegd."
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
           minLength: 1
@@ -3439,7 +3450,7 @@ components:
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
-            \ is voor het cre\xC3\xABren van de inhoud van het INFORMATIEOBJECT."
+            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1

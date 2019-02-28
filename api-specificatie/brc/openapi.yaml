@@ -1567,8 +1567,9 @@ paths:
         $ref: '#/components/requestBodies/Besluit'
     delete:
       operationId: besluit_delete
-      description: Verwijdert een BESLUIT, samen met alle gerelateerde resources binnen
-        deze API.
+      description: "Verwijdert een BESLUIT, samen met alle gerelateerde resources\
+        \ binnen deze API.\n\n**De gerelateerde resources zijn**\n- `BesluitInformatieObject`\
+        \ - de relaties van het Besluit naar de\n  informatieobjecten"
       responses:
         '204':
           description: ''

@@ -3923,6 +3923,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.verwijderen
     parameters:
     - name: uuid
       in: path
