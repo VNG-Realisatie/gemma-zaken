@@ -293,6 +293,12 @@ controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
 maar MOET `true` of `false` zijn. Indien dit niet het geval is, dan dient het
 ZRC een validatiefout te genereren met code `indicatiegebruiksrecht-unset`.
 
+#### Heropenen zaak
+
+Bij het heropenen van een zaak MOET de client een andere status toevoegen aan de zaak dan een eindstatus. 
+Tevens MOET de client de 'Zaak.archiefactiedatum' leeg maken en het resultaat verwijderen. Het verwijderen van een resultaat MOET in de audit trail zichtbaar zijn.
+Dit betekent dat bij het weer afsluiten van een zaak, opnieuw een resultaat bij de zaak gezet moet worden en op basis daarvan de 'Zaak.archiefactiedatum' opnieuw berekend wordt.
+
 #### Vertrouwelijkheidaanduiding van een zaak
 
 Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
