@@ -28,7 +28,7 @@ about: Beschrijving van een feature/user story
 - [ ] Er is een referentieimplementatie
 - [ ] Er zijn tests aanwezig die de wijziging aantonen en waarmee de user story getest kan worden.
 - [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
-- [ ] Gebruikte informatiemodel is bijgewerkt. (RGBZ/IMZTC zijn inspiratiebron en uitgangspunt maar het door ons 'ontwikkelde' informatiemodel is in lijn met de API-standaarden)
+- [ ] Gebruikte gegevensmodel is bijgewerkt.
 
 **Acceptatiecriteria**
 - [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
@@ -41,5 +41,5 @@ about: Beschrijving van een feature/user story
 - [ ] Genereren/opstellen van OAS 3.0 [_verantwoordelijke_]
 - [ ] Human Readable publiceren Open API Specificatie (v.3.0) [_verantwoordelijke_]
 - [ ] Documentatie bijgewerkt
-- [ ] Gebruikte informatiemodel bijgwerkt en gepubliceerd
+- [ ] Gegevensmodel bijgwerkt en gepubliceerd
 
