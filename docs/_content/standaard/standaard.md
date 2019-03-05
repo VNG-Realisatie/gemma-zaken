@@ -529,6 +529,18 @@ op `true` zetten.
 Indien de laatste gebruiksrechten op een informatieobject verwijderd worden,
 dan MOET de indicatie weer op `null` gezet worden.
 
+#### Vertrouwelijkheidaanduiding van een informatieobject
+
+Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
+of bewerken van een informatieobject, dan MOET de provider deze waarde
+toekennen. Indien de client deze niet expliciet toekent, dan MOET deze afgeleid
+worden uit `InformatieOject.InformatieObjectType.vertrouwelijkheidaanduiding`.
+
+Een `InformatieOject` response van de provider MOET altijd een geldige waarde
+voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
+`vertrouwelijkheidaanduiding` meesturen.
+
+
 ## Besluitregistratiecomponent
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:

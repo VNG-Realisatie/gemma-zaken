@@ -2831,8 +2831,9 @@ components:
           uniqueItems: true
     InformatieObjectType:
       required:
-      - omschrijving
       - catalogus
+      - omschrijving
+      - vertrouwelijkheidaanduiding
       type: object
       properties:
         url:
@@ -2840,17 +2841,31 @@ components:
           type: string
           format: uri
           readOnly: true
+        catalogus:
+          title: Maakt deel uit van
+          description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
+          type: string
+          format: uri
         omschrijving:
           title: Omschrijving
           description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
           type: string
           maxLength: 80
           minLength: 1
-        catalogus:
-          title: Maakt deel uit van
-          description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
+        vertrouwelijkheidaanduiding:
+          title: Vertrouwelijkheidaanduiding
+          description: Aanduiding van de mate waarin informatieobjecten van dit INFORMATIEOBJECTTYPE
+            voor de openbaarheid bestemd zijn.
           type: string
-          format: uri
+          enum:
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
     ReferentieProces:
       title: Referentieproces
       description: Het Referentieproces dat ten grondslag ligt aan dit ZAAKTYPE.
