@@ -51,6 +51,7 @@ info:
     email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
+    url: https://opensource.org/licenses/EUPL-1.2
   version: '1'
 security:
 - JWT-Claims: []
