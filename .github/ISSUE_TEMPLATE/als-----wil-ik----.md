@@ -41,5 +41,5 @@ about: Beschrijving van een feature/user story
 - [ ] Genereren/opstellen van OAS 3.0 [_verantwoordelijke_]
 - [ ] Human Readable publiceren Open API Specificatie (v.3.0) [_verantwoordelijke_]
 - [ ] Documentatie bijgewerkt
-- [ ] Gegevensmodel bijgwerkt en gepubliceerd
+- [ ] Gegevensmodel bijgewerkt en gepubliceerd
 
