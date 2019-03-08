@@ -2578,9 +2578,10 @@ paths:
   /zaken:
     get:
       operationId: zaak_list
-      description: "Geef een lijst van ZAAKen.\n\nOptioneel kan je de queryparameters\
-        \ gebruiken om zaken te filteren.\n\n**Opmerkingen**\n- je krijgt enkel zaken\
-        \ terug van de zaaktypes die in het autorisatie-JWT\n  vervat zitten."
+      description: "Geef een lijst van ZAAKen.\n\nDeze lijst wordt standaard gepagineerd\
+        \ met 100 zaken per pagina.\n\nOptioneel kan je de queryparameters gebruiken\
+        \ om zaken te filteren.\n\n**Opmerkingen**\n- je krijgt enkel zaken terug\
+        \ van de zaaktypes die in het autorisatie-JWT\n  vervat zitten."
       parameters:
       - name: identificatie
         in: query
@@ -2665,6 +2666,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
       - name: Accept-Crs
         in: header
         description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
@@ -2705,9 +2712,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Zaak'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                  previous:
+                    type: string
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Zaak'
         '400':
           description: ''
           headers:
@@ -3023,6 +3044,12 @@ paths:
 
         niet geschikt voor geo-zoekopdrachten.'
       parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
       - name: Accept-Crs
         in: header
         description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
@@ -3063,9 +3090,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Zaak'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                  previous:
+                    type: string
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Zaak'
         '400':
           description: ''
           headers:
