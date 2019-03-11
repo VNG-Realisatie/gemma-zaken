@@ -39,5 +39,5 @@ about: Beschrijving van een feature/user story
 - [ ] Schrijven (unit) test voor referentie-implementatie [_verantwoordelijke_]
 - [ ] Genereren/opstellen van OAS 3.0 [_verantwoordelijke_]
 - [ ] Human Readable publiceren Open API Specificatie (v.3.0) [_verantwoordelijke_]
-- [ ] Documentatie bijgwerken
+- [ ] Documentatie bijwerken
 - [ ] Gegevensmodel bijwerken
