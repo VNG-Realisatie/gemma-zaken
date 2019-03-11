@@ -453,7 +453,7 @@ paths:
           format: uri
       - name: resultaatType
         in: query
-        description: ''
+        description: URL naar het resultaattype uit het ZTC.
         required: false
         schema:
           type: string
@@ -1759,7 +1759,7 @@ paths:
           format: uri
       - name: statusType
         in: query
-        description: ''
+        description: URL naar het statustype uit het ZTC.
         required: false
         schema:
           type: string
@@ -4814,10 +4814,11 @@ components:
           type: string
           format: uri
         resultaatType:
-          title: Resultaat type
+          title: Resultaattype
+          description: URL naar het resultaattype uit het ZTC.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         toelichting:
           title: Toelichting
@@ -4847,7 +4848,7 @@ components:
           description: Een betrokkene gerelateerd aan een zaak
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         betrokkeneType:
           title: Betrokkene type
@@ -4894,10 +4895,11 @@ components:
           type: string
           format: uri
         statusType:
-          title: Status type
+          title: Statustype
+          description: URL naar het statustype uit het ZTC.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         datumStatusGezet:
           title: Datum status gezet
@@ -4931,7 +4933,7 @@ components:
           description: URL naar de resource die het OBJECT beschrijft.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         relatieomschrijving:
           title: Relatieomschrijving
@@ -5205,7 +5207,7 @@ components:
           description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         registratiedatum:
           title: Registratiedatum
@@ -5257,7 +5259,7 @@ components:
             communicatiekanalen.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
         productenOfDiensten:
           description: De producten en/of diensten die door de zaak worden voortgebracht.
             Dit zijn URLs naar de resources zoals die door de producten- en dienstencatalogus-API
@@ -5332,7 +5334,7 @@ components:
             zaak, bepalend is voor het archiefregime van de zaak.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
         hoofdzaak:
           title: Is deelzaak van
           description: "De verwijzing naar de ZAAK, waarom verzocht is door de initiator\
@@ -5487,7 +5489,7 @@ components:
             de relatieinformatie opgevraagd kan worden.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
     ZaakEigenschap:
       required:
@@ -5510,7 +5512,7 @@ components:
           description: URL naar de eigenschap in het ZTC
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         naam:
           title: Naam
