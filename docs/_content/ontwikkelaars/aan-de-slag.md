@@ -236,7 +236,7 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
    array `["*"]` voor alle zaaktypes.
 
    _Het aanmaken van een JWT registreert het secret **niet** bij de
-   gehoste referentie componenten. Zie de [API guides](https://ref.tst.vng.cloud/ontwikkelaars/guides) hoe dit wel
+   gehoste referentie componenten. Zie de [API guides](./guides) hoe dit wel
    werkt._
 
 
