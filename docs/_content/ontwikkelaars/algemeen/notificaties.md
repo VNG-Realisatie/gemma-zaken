@@ -325,5 +325,5 @@ worden meteen doorgezet.
 Een uitzondering hierop is het bewaren van berichten om ze opnieuw te kunnen
 versturen indien aflevering niet gelukt is - deze moeten opnieuw gescheduled
 worden voor aflevering. Hierbij moet het mogelijk zijn om te configureren
-hoe vaak een bericht moet/mag geretried worden, en hoe de retry back-off
-eruit ziet.
+hoevaak gepoogd moet worden een bericht af te leveren en hoe lang je moet
+wachten om opnieuw te proberen.
