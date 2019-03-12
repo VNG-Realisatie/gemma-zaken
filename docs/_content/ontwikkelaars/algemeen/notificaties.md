@@ -146,10 +146,19 @@ Content-Type: application/json
 {
     "callbackUrl": "https://ref.tst.vng.cloud/zrc/api/v1/callbacks",
     "auth": "Bearer aef34gh...",
-    "kanalen": [
-        "zaken",
-        "informatieobjecten"
-    ]
+    "kanalen": [{
+        "kanaal": "zaken",
+        "filters": [
+            {"bron": "082096752011"},
+            {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
+            {"vertrouwelijkeidaanduiding": "*"}
+        ]
+    }, {
+        "kanaal": "informatieobjecten",
+        "filters": [
+            {"bron": "082096752011"}
+        ]
+    }]
 }
 ```
 
@@ -158,7 +167,20 @@ Het `DELETE`n, `PATCH` en `PUT` op individuele subscribers moet mogelijk zijn.
 Details moeten ook opgevraagd kunnen worden, met uitzondering van de `auth`
 gegevens.
 
-Filter parameter(s) op `kanelen` zijn handig.
+Filter parameter(s) op `kanalen` zijn handig.
+
+Alle `kenmerken` die een component definieert MOETEN aanwezig zijn in een
+filter maar de waardes mogen naar wens worden ingevuld zodat er alleen berichten
+binnenkomen die voldoen aan de filterkenmerken. De waarde `*` betekent dat er
+niet gefilterd wordt op het element.
+
+Onder de motorkap worden de kenmerken vertaald naar een RabbitMQ-"topic". Elke
+waarde wordt base64-encoded en gescheiden door punten. Het voorbeeld wordt dus
+`MDgyMDk2NzUyMDEx`.`aHR0cHM6Ly9leGFtcGxlLmNvbS9hcGkvdjEvemFha3R5cGVuLzVhYTVj`.`b3BlbmJhYXI=`,
+ofwel als we elk element weer decoden:
+`082096752011`.`https://example.com/api/v1/zaaktypen/5aa5c`.`openbaar`.
+
+Dit is een intern implementatiedetail.
 
 ### Kanalen beheren
 
@@ -174,7 +196,8 @@ Authorization: Bearer abcdef1234
 Content-Type: application/json
 
 {
-    "naam": "zaken"
+    "naam": "zaken",
+    "filters": ["bron", "zaaktype", "vertrouwelijkheidaanduiding"]
 }
 ```
 
@@ -182,6 +205,11 @@ Een kanaal mag slechts eenmalig aangemaakt worden.
 
 Daarnaast moet het ophalen van kanalen mogelijk zijn, zodat consumers kunnen
 zien waarop ze zich kunnen abonneren.
+
+De `filters` geven aan welke kenmerken zullen opgenomen worden in berichten
+op dit kanaal, en tonen waarop consumers kunnen filteren. Bij het abonneren
+moeten de filters getoetst worden tegen deze filters. Ook hier is volgorde
+belangrijk.
 
 ### Notificaties insturen
 
