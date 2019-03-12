@@ -56,9 +56,38 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tbody>
 </table>
 
+Hieronder wordt een diagram getoond van de Zaaktypen-API op hoofdlijnen. Boven het diagram kunt u op het betreffende object (resource) klikken voor nadere informatie.
+
+[Besluittype](#resource-besluittype), [Catalogussen](#resource-catalogussen), [Eigenschappen](#resource-eigenschappen), [Informatieobjectype](#resource-informatieobjecttype) [Roltypen](#resource-roltypen), [Statustypen](#resource-statustypen), [Zaaktype](#resource-zaaktype)
+![Datamodel_Zaaktypen_API_Overview.png](./assets/Datamodel_Zaaktypen_API_Overview.png?raw=true)
+
+Een andere manier om dit te tonen is:
+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Objecten</strong></td>
+<td><strong>Diagram</strong></td>
+</tr>
+<tr class="even">
+<td><ul>
+<li><a href="#resource-besluitinformatieobjecten">Besluitinformatieobjecten</a></li>
+<li><a href="#resource-besluittype">Besluittype</a></li>
+<li><a href="#resource-catalogussen">Catalogussen</a></li>
+<li><a href="#resource-eigenschappen">Eigenschappen</a></li>
+<li><a href="#resource-informatieobjecttype">Informatieobjectype</a></li>
+<li><a href="#resource-roltypen">Roltypen</a></li>
+<li><a href="#resource-statustypen">Statustypen</a></li>
+<li><a href="#resource-zaaktype">Zaaktype</a></li>
+</ul></td>
+<td><img src="./assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" " /></td>
+</tr>
+</tbody>
+</table>
+
 Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
 
-### Resource: Catalogussen
+## Resource: Catalogussen
 
 <table>
 <tbody>
@@ -92,7 +121,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tbody>
 </table>
 
-### Resource: Zaaktype
+## Resource: Zaaktype
 
 <table>
 <tbody>
@@ -128,7 +157,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tbody>
 </table>
 
-### Resource: Besluittype
+## Resource: Besluittype
 
 <table>
 <tbody>
@@ -162,7 +191,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tbody>
 </table>
 
-### Resource: Informatieobjectype
+## Resource: Informatieobjecttype
 
 <table>
 <tbody>
