@@ -71,16 +71,16 @@ Een andere manier om dit te tonen is:
 </tr>
 <tr class="even">
 <td><ul>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/_content/overige/functioneel/besluiten_api.md#resource-besluitinformatieobjecten">Besluitinformatieobjecten</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-besluittype">Besluittype</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-catalogussen">Catalogussen</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-eigenschappen">Eigenschappen</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-informatieobjecttype">Informatieobjectype</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-roltypen">Roltypen</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-statustypen">Statustypen</a></li>
-<li><a href="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/zaaktypen_api.md#resource-zaaktype">Zaaktype</a></li>
+<li><a href="#resource-besluitinformatieobjecten">Besluitinformatieobjecten</a></li>
+<li><a href="#resource-besluittype">Besluittype</a></li>
+<li><a href="#resource-catalogussen">Catalogussen</a></li>
+<li><a href="#resource-eigenschappen">Eigenschappen</a></li>
+<li><a href="#resource-informatieobjecttype">Informatieobjectype</a></li>
+<li><a href="#resource-roltypen">Roltypen</a></li>
+<li><a href="#resource-statustypen">Statustypen</a></li>
+<li><a href="#resource-zaaktype">Zaaktype</a></li>
 </ul></td>
-<td><img src="https://github.com/VNG-Realisatie/gemma-zaken/blob/Remkodehaas-patch-2/docs/_content/overige/functioneel/assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" " /></td>
+<td><img src="./assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" " /></td>
 </tr>
 </tbody>
 </table>
