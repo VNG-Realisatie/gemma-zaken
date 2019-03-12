@@ -287,3 +287,14 @@ re-senden.
 Door de aard van de berichten (enkel kennisgeving _dat_ er een event is, niet
 _wat_ de inhoud is), informeert dit ook de client om data te re-fetchen, en
 is het risico op kwalijke gevolgen van vertraagde berichten beperkt.
+
+## Bijhouden van berichten
+
+Berichten worden in principe niet bewaard in de NC. Ontvangen notifications
+worden meteen doorgezet.
+
+Een uitzondering hierop is het bewaren van berichten om ze opnieuw te kunnen
+versturen indien aflevering niet gelukt is - deze moeten opnieuw gescheduled
+worden voor aflevering. Hierbij moet het mogelijk zijn om te configureren
+hoe vaak een bericht moet/mag geretried worden, en hoe de retry back-off
+eruit ziet.
