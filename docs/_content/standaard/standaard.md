@@ -31,6 +31,9 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Besluitregistratiecomponent](#besluitregistratiecomponent)
   - [OpenAPI specificatie](#openapi-specificatie-2)
   - [Run-time gedrag](#run-time-gedrag-2)
+- [Zaaktypecatalogus](#zaaktypecatalogus)
+    - [OpenAPI specificatie](#openapi-specificatie-3)
+    - [Run-time gedrag](#run-time-gedrag-3)
 
 ## Definities
 
@@ -316,6 +319,76 @@ tegen het `Zaaktype.productenOfDiensten` van het betreffende zaaktype. De
 producten en/of diensten van de zaak MOETEN een subset van de producten en/of
 diensten op het zaaktype zijn.
 
+#### Archiveren
+
+**Afleiden van archiveringsparameters**
+
+Het resultaat van een zaak is bepalend voor het archiefregime. Bij het zetten
+van het resultaat van een zaak MOETEN de attributen `Zaak.archiefnominatie`
+en `Zaak.archiefactiedatum` bepaald worden als volgt:
+
+1. Indien de zaak geen `archiefnominatie` heeft, dan MOET deze overgenomen
+   worden uit `Resultaat.Resultaattype.archiefnominatie`
+2. Indien `Resultaat.Resultaattype.archiefactietermijn` gevuld is:
+    1. Bepaal de `brondatum` van de archiefprocedure
+        1. Consulteer het groepattribuut `Resultaat.Resultaattype.brondatumArchiefprocedure`
+        2. Afhankelijk van de waarde van `afleidingswijze`:
+            * `afgehandeld` -> gebruik `Zaak.einddatum`
+            * `hoofdzaak` -> gebruik `Zaak.hoofdzaak.einddatum`
+            * `eigenschap` -> gebruik de waarde van de eigenschap met als naam
+              de waarde van
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+            * `ander_datumkenmerk` -> brondatum MOET handmatig afgeleid en
+              gezet worden
+            * `zaakobject` -> zoek de gerelateerde objecten van type
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.objecttype`.
+              Lees van elk object het attribuut met de naam
+              `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+              en gebruik de maximale waarde.
+            * `termijn` -> `Zaak.einddatum` + `Resultaat.Resultaattype.brondatumArchiefprocedure.procestermijn`
+            * `gerelateerde_zaak` -> TODO
+            * `ingangsdatum_besluit` -> maximale `Besluit.ingangsdatum` van alle
+              gerelateerde besluiten
+            * `vervaldatum_besluit` -> maximale `Besluit.vervaldatum` van alle
+              gerelateerde besluiten
+    2. Zet `Zaak.archiefactiedatum` als `brondatum + Resultaat.Resultaattype.archiefactietermijn`
+
+Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
+gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
+de archiefactietermijn niet beschikbaar is.
+
+**Zetten `Zaak.archiefstatus`**
+
+De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
+waarde gezet worddt, dan MOETEN alle gerelateerde informatieobjecten de status
+`gearchiveerd` hebben.
+
+De attributen `Zaak.archiefnominatie` en `Zaak.archiefactiedatum` MOETEN een
+waarde krijgen als de de archiefstatus een waarde krijgt anders dan
+`nog_te_archiveren`.
+
+Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
+foutbericht antwoorden.
+
+**Vernietigen van zaken**
+
+Bij `DELETE` requests op zaken MOETEN de zaak en gerelateerde objecten fysiek
+uit de opslag verwijderd worden. Soft-deletes zijn NIET TOEGESTAAN. Onder
+gerelateerde objecten wordt begrepen:
+
+- `zaak` - de deelzaken van de verwijderde hoofzaak
+- `status` - alle statussen van de verwijderde zaak
+- `resultaat` - het resultaat van de verwijderde zaak
+- `rol` - alle rollen bij de zaak
+- `zaakobject` - alle zaakobjecten bij de zaak
+- `zaakeigenschap` - alle eigenschappen van de zaak
+- `zaakkenmerk` - alle kenmerken van de zaak
+- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook
+  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)
+- `klantcontact` - alle klantcontacten bij een zaak
+
+Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
+
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
@@ -515,3 +588,96 @@ status code, MOET het BRC antwoorden met een `HTTP 400` foutbericht.
 Er MOET gevalideerd worden dat de combinatie `besluit` en `informatieobject`
 niet eerder voorkomt. Indien deze al bestaat, dan MOET het BRC antwoorden met
 een `HTTP 400` foutbericht.
+
+## Zaaktypecatalogus
+
+Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
+
+* de ZTC `openapi.yaml` MOET volledig geïmplementeerd zijn
+
+* het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
+  zijn.
+
+Het ZTC haalt informatie uit selectielijsten en de Gemeentelijke Selectielijst
+2017. Deze gegevens worden ontsloten in de
+[VNG-referentielijsten-API](https://ref.tst.vng.cloud/referentielijsten/). Op
+korte termijn zal deze API gesplitst worden in een referentielijsten-API en de
+selectielijst-API (waar deze nu nog 1 API is)
+[#3 on Github](https://github.com/VNG-Realisatie/VNG-referentielijsten/issues/3).
+
+### OpenAPI specificatie
+
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/openapi.yaml)
+MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
+referentie-implementatie van het ZTC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven
+staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook
+toe te voegen.
+
+### Run-time gedrag
+
+Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
+businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
+zoals beschreven geïmplementeerd worden.
+
+#### Valideren van `Zaaktype`
+
+Het attribuut `Zaaktype.selectielijstProcestype` MOET een URL-verwijzing naar
+de `Procestype` resource in de selectielijst-API zijn, indien ingevuld.
+
+#### Valideren van `Resultaattype`
+
+Het attribuut `Resultaattype.resultaattypeomschrijving` MOET een URL-verwijzing
+naar de `Resultaattypeomschrijving` resource in de referentielijsten-API zijn.
+Het ZTC MOET de waarde van `Resultaattypeomschrijving.omschrijving` ontsluiten
+(uit de selectielijst) als alleen-lezen attribuut
+`Resultaattype.omschrijvingGeneriek`.
+
+Het attribuut `Resultaattype.selectielijstklasse` MOET een URL-verwijzing zijn
+naar de `Resultaat` resource in de selectielijst-API. Tevens MOET dit
+`resultaat` horen bij het `procestype` geconfigureerd op
+`Resultaattype.zaaktype.selectielijstProcestype`.
+
+Indien `Resultaattype.archiefnominatie` niet expliciet opgegeven wordt, dan
+MOET het ZTC deze afleiden uit `Resultaat.waardering` van de
+selectielijstklasse.
+
+Indien `Resultaattype.archiefactietermijn` niet expliciet opgegeven wordt, dan
+MOET het ZTC deze afleiding uit `Resultaat.bewaartermijn` van de
+selectielijstklasse.
+
+**`Resultaattype.brondatumArchiefprocedure`**
+
+Het groepattribuut `Resultaattype.brondatumArchiefprocedure` parametriseert
+het bepalen van de `brondatum` voor de `archiefactietermijn` van een zaak. Deze
+parametrisering is aan validatieregels onderhevig:
+
+* `Resultaattype.brondatumArchiefprocedure.afleidingswijze`:
+    * afleidingswijze MOET `afgehandeld` zijn indien de selectielijstklasse
+      als procestermijn `nihil` heeft en vice versa
+    * afleidingswijze MOET `termijn` zijn indien de selectielijstklasse
+      als procestermijn `ingeschatte_bestaansduur_procesobject` heeft en vice
+      versa
+
+* `Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+    * MOET een waarde hebben als de afleidingswijze `eigenschap`, `zaakobject`
+      of `ander_datumkenmerk` is
+    * MAG GEEN waarde hebben in de andere gevallen
+
+* `Resultaattype.brondatumArchiefprocedure.einddatumBekend`
+    * MAG GEEN waarde hebben indien de afleidingswijze `afgehandeld` of
+      `termijn` is
+
+* `Resultaattype.brondatumArchiefprocedure.objecttype`
+    * MOET een waarde hebben als de afleidingswijze `zaakobject`
+      of `ander_datumkenmerk` is
+    * MAG GEEN waarde hebben in de andere gevallen
+
+* `Resultaattype.brondatumArchiefprocedure.registratie`
+    * MOET een waarde hebben indien de afleidingswijze `ander_datumkenmerk` is
+    * MAG GEEN waarde hebben in de andere gevallen
+
+* `Resultaattype.brondatumArchiefprocedure.procestermijn`
+    * MOET een waarde hebben indien de afleidingswijze `termijn` is
+    * MAG GEEN waarde hebben in de andere gevallen

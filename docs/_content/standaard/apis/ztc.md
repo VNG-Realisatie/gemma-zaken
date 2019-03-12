@@ -39,4 +39,4 @@ Deze gebruiker heeft geen rechten om objecten te verwijderen, zodat referenties
 van andere mensen niet stuk gaan.
 
 [jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
-[ztcadmin]: https://ref.tst.vng.cloud/ztc/api/
+[ztcadmin]: https://ref.tst.vng.cloud/ztc/admin

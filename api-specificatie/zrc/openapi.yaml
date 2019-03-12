@@ -34,6 +34,7 @@ info:
     email: support@maykinmedia.nl
   license:
     name: EUPL 1.2
+    url: https://opensource.org/licenses/EUPL-1.2
   version: 1.0.0-alpha
 security:
 - JWT-Claims: []
@@ -425,6 +426,865 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - klantcontacten
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /resultaten:
+    get:
+      operationId: resultaat_list
+      description: 'Geef een lijst van RESULTAATen van ZAAKen.
+
+
+        Optioneel kan je de queryparameters gebruiken om de resultaten te
+
+        filteren.'
+      parameters:
+      - name: zaak
+        in: query
+        description: URL to the related resource
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: resultaatType
+        in: query
+        description: URL naar het resultaattype uit het ZTC.
+        required: false
+        schema:
+          type: string
+          format: uri
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Resultaat'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
+    post:
+      operationId: resultaat_create
+      description: 'Voeg een RESULTAAT voor een ZAAK toe.
+
+
+        **Er wordt gevalideerd op**
+
+        - geldigheid URL naar de ZAAK
+
+        - geldigheid URL naar het RESULTAATTYPE'
+      responses:
+        '201':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Location:
+              schema:
+                type: string
+                format: uri
+              description: URL waar de resource leeft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaat'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
+    parameters: []
+  /resultaten/{uuid}:
+    get:
+      operationId: resultaat_read
+      description: Haal de details van het RESULTAAT op.
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaat'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.lezen
+    put:
+      operationId: resultaat_update
+      description: 'Wijzig het RESULTAAT van een ZAAK.
+
+
+        **Er wordt gevalideerd op**
+
+        - geldigheid URL naar de ZAAK
+
+        - geldigheid URL naar het RESULTAATTYPE'
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaat'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
+    patch:
+      operationId: resultaat_partial_update
+      description: 'Wijzig het RESULTAAT van een ZAAK.
+
+
+        **Er wordt gevalideerd op**
+
+        - geldigheid URL naar de ZAAK
+
+        - geldigheid URL naar het RESULTAATTYPE'
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Resultaat'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
+    delete:
+      operationId: resultaat_delete
+      description: Verwijder het RESULTAAT van een ZAAK.
+      responses:
+        '204':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - resultaten
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.bijwerken
     parameters:
     - name: uuid
       in: path
@@ -899,7 +1759,7 @@ paths:
           format: uri
       - name: statusType
         in: query
-        description: ''
+        description: URL naar het statustype uit het ZTC.
         required: false
         schema:
           type: string
@@ -1035,7 +1895,7 @@ paths:
     post:
       operationId: status_create
       description: "Voeg een nieuwe STATUS voor een ZAAK toe.\n\n**Er wordt gevalideerd\
-        \ op**\n- geldigheid URL naar de zaak\n- geldigheid URL naar het STATUSTYPE\n\
+        \ op**\n- geldigheid URL naar de ZAAK\n- geldigheid URL naar het STATUSTYPE\n\
         - indien het de eindstatus betreft, dan moet het attribuut\n  `indicatieGebruiksrecht`\
         \ gezet zijn op alle informatieobjecten die aan\n  de zaak gerelateerd zijn\n\
         \n**Opmerkingen**\n- Indien het statustype de eindstatus is (volgens het ZTC),\
@@ -1718,9 +2578,10 @@ paths:
   /zaken:
     get:
       operationId: zaak_list
-      description: "Geef een lijst van ZAAKen.\n\nOptioneel kan je de queryparameters\
-        \ gebruiken om zaken te filteren.\n\n**Opmerkingen**\n- je krijgt enkel zaken\
-        \ terug van de zaaktypes die in het\n  autorisatie-JWT vervat zitten."
+      description: "Geef een lijst van ZAAKen.\n\nDeze lijst wordt standaard gepagineerd\
+        \ met 100 zaken per pagina.\n\nOptioneel kan je de queryparameters gebruiken\
+        \ om zaken te filteren.\n\n**Opmerkingen**\n- je krijgt enkel zaken terug\
+        \ van de zaaktypes die in het autorisatie-JWT\n  vervat zitten."
       parameters:
       - name: identificatie
         in: query
@@ -1744,6 +2605,73 @@ paths:
         schema:
           type: string
           format: uri
+      - name: archiefnominatie
+        in: query
+        description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          termijn vernietigd moet worden.
+        required: false
+        schema:
+          type: string
+          enum:
+          - blijvend_bewaren
+          - vernietigen
+      - name: archiefnominatie__in
+        in: query
+        description: Multiple values may be separated by commas.
+        required: false
+        schema:
+          type: string
+      - name: archiefactiedatum
+        in: query
+        description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+          worden dan wel overgebracht moet worden naar een archiefbewaarplaats. Wordt
+          automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT aan
+          deze ZAAK indien nog leeg.
+        required: false
+        schema:
+          type: string
+      - name: archiefactiedatum__lt
+        in: query
+        description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+          worden dan wel overgebracht moet worden naar een archiefbewaarplaats. Wordt
+          automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT aan
+          deze ZAAK indien nog leeg.
+        required: false
+        schema:
+          type: string
+      - name: archiefactiedatum__gt
+        in: query
+        description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+          worden dan wel overgebracht moet worden naar een archiefbewaarplaats. Wordt
+          automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT aan
+          deze ZAAK indien nog leeg.
+        required: false
+        schema:
+          type: string
+      - name: archiefstatus
+        in: query
+        description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          termijn vernietigd moet worden.
+        required: false
+        schema:
+          type: string
+          enum:
+          - nog_te_archiveren
+          - gearchiveerd
+          - gearchiveerd_procestermijn_onbekend
+          - overgedragen
+      - name: archiefstatus__in
+        in: query
+        description: Multiple values may be separated by commas.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
       - name: Accept-Crs
         in: header
         description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
@@ -1784,9 +2712,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Zaak'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                  previous:
+                    type: string
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Zaak'
         '400':
           description: ''
           headers:
@@ -1914,22 +2856,17 @@ paths:
         - zds.scopes.zaken.lezen
     post:
       operationId: zaak_create
-      description: 'Maak een ZAAK aan.
-
-
-        Indien geen identificatie gegeven is, dan wordt deze automatisch
-
-        gegenereerd. De identificatie moet uniek zijn binnen de bronorganisatie.
-
-
-        Er wordt gevalideerd op:
-
-        - geldigheid URL naar zaaktype
-
-        - laatsteBetaaldatum mag niet in de toekomst liggen
-
-        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie "nvt"
-        is'
+      description: "Maak een ZAAK aan.\n\nIndien geen identificatie gegeven is, dan\
+        \ wordt deze automatisch\ngegenereerd. De identificatie moet uniek zijn binnen\
+        \ de bronorganisatie.\n\n**Er wordt gevalideerd op**:\n- `zaaktype` moet een\
+        \ geldige URL zijn.\n- `laatsteBetaaldatum` mag niet in de toekomst liggen.\n\
+        - `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n \
+        \ \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
+        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
+        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
+        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
+        \  `status` de waarde \"gearchiveerd\" heeft."
       parameters:
       - name: Accept-Crs
         in: header
@@ -2107,6 +3044,12 @@ paths:
 
         niet geschikt voor geo-zoekopdrachten.'
       parameters:
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
       - name: Accept-Crs
         in: header
         description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
@@ -2147,9 +3090,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Zaak'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                  previous:
+                    type: string
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Zaak'
         '400':
           description: ''
           headers:
@@ -2455,14 +3412,19 @@ paths:
         - zds.scopes.zaken.lezen
     put:
       operationId: zaak_update
-      description: "Werk een zaak bij.\n\n**Er wordt gevalideerd op**\n- geldigheid\
-        \ URL naar zaaktype\n- laatsteBetaaldatum mag niet in de toekomst liggen\n\
-        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie \"nvt\"\
-        \ is\n\n**Opmerkingen**\n- je krijgt enkel zaken terug van de zaaktypes die\
-        \ in het autorisatie-JWT\n  vervat zitten\n- zaaktype zal in de toekomst niet-wijzigbaar\
-        \ gemaakt worden.\n- indien een zaak heropend moet worden, doe dit dan door\
-        \ een nieuwe status\n  toe te voegen die NIET de eindstatus is. Zie de `Status`\
-        \ resource."
+      description: "Werk een zaak bij.\n\n**Er wordt gevalideerd op**\n- `zaaktype`\
+        \ moet een geldige URL zijn.\n- `laatsteBetaaldatum` mag niet in de toekomst\
+        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
+        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
+        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
+        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
+        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
+        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- je krijgt\
+        \ enkel zaken terug van de zaaktypes die in het autorisatie-JWT\n  vervat\
+        \ zitten.\n- zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n\
+        - indien een zaak heropend moet worden, doe dit dan door een nieuwe status\n\
+        \  toe te voegen die NIET de eindstatus is.\n  Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -2646,14 +3608,19 @@ paths:
         $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
-      description: "Werk een zaak bij.\n\n**Er wordt gevalideerd op**\n- geldigheid\
-        \ URL naar zaaktype\n- laatsteBetaaldatum mag niet in de toekomst liggen\n\
-        - laatsteBetaaldatum nag niet gezet worden als de betalingsindicatie \"nvt\"\
-        \ is\n\n**Opmerkingen**\n- je krijgt enkel zaken terug van de zaaktypes die\
-        \ in het autorisatie-JWT\n  vervat zitten\n- zaaktype zal in de toekomst niet-wijzigbaar\
-        \ gemaakt worden.\n- indien een zaak heropend moet worden, doe dit dan door\
-        \ een nieuwe status\n  toe te voegen die NIET de eindstatus is. Zie de `Status`\
-        \ resource."
+      description: "Werk een zaak bij.\n\n**Er wordt gevalideerd op**\n- `zaaktype`\
+        \ moet een geldige URL zijn.\n- `laatsteBetaaldatum` mag niet in de toekomst\
+        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
+        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
+        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
+        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
+        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
+        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- je krijgt\
+        \ enkel zaken terug van de zaaktypes die in het autorisatie-JWT\n  vervat\
+        \ zitten.\n- zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n\
+        - indien een zaak heropend moet worden, doe dit dan door een nieuwe status\n\
+        \  toe te voegen die NIET de eindstatus is. Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -2835,6 +3802,172 @@ paths:
         - zds.scopes.zaken.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Zaak'
+    delete:
+      operationId: zaak_delete
+      description: "Verwijdert een zaak, samen met alle gerelateerde resources binnen\
+        \ deze API.\n\n**De gerelateerde resources zijn hierbij**\n- `zaak` - de deelzaken\
+        \ van de verwijderde hoofzaak\n- `status` - alle statussen van de verwijderde\
+        \ zaak\n- `resultaat` - het resultaat van de verwijderde zaak\n- `rol` - alle\
+        \ rollen bij de zaak\n- `zaakobject` - alle zaakobjecten bij de zaak\n- `zaakeigenschap`\
+        \ - alle eigenschappen van de zaak\n- `zaakkenmerk` - alle kenmerken van de\
+        \ zaak\n- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook\n\
+        \  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)\n- `klantcontact`\
+        \ - alle klantcontacten bij een zaak"
+      parameters:
+      - name: Accept-Crs
+        in: header
+        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
+          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
+          (EPSG:4326 is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      - name: Content-Crs
+        in: header
+        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
+          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
+          is hetzelfde als WGS84).
+        required: true
+        schema:
+          type: string
+          enum:
+          - EPSG:4326
+      responses:
+        '204':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '412':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaken
+      security:
+      - JWT-Claims:
+        - zds.scopes.zaken.verwijderen
     parameters:
     - name: uuid
       in: path
@@ -3513,6 +4646,12 @@ servers:
 - url: /api/v1
 components:
   requestBodies:
+    Resultaat:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Resultaat'
+      required: true
     Zaak:
       content:
         application/json:
@@ -3659,6 +4798,33 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'
+    Resultaat:
+      required:
+      - zaak
+      - resultaatType
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        zaak:
+          title: Zaak
+          type: string
+          format: uri
+        resultaatType:
+          title: Resultaattype
+          description: URL naar het resultaattype uit het ZTC.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        toelichting:
+          title: Toelichting
+          description: Een toelichting op wat het resultaat van de zaak inhoudt.
+          type: string
+          maxLength: 1000
     Rol:
       required:
       - zaak
@@ -3682,7 +4848,7 @@ components:
           description: Een betrokkene gerelateerd aan een zaak
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         betrokkeneType:
           title: Betrokkene type
@@ -3729,10 +4895,11 @@ components:
           type: string
           format: uri
         statusType:
-          title: Status type
+          title: Statustype
+          description: URL naar het statustype uit het ZTC.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         datumStatusGezet:
           title: Datum status gezet
@@ -3766,7 +4933,7 @@ components:
           description: URL naar de resource die het OBJECT beschrijft.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         relatieomschrijving:
           title: Relatieomschrijving
@@ -3958,6 +5125,7 @@ components:
             van de ZAAK is verlengd (of verkort) ten opzichte van de eerder gecommuniceerde
             doorlooptijd.
           type: string
+          format: duration
     Opschorting:
       title: Opschorting
       description: Gegevens omtrent het tijdelijk opschorten van de behandeling van
@@ -3973,7 +5141,7 @@ components:
           type: boolean
         reden:
           title: Reden
-          description: Omschrijving van de reden voor het opschorten van de 306behandeling
+          description: Omschrijving van de reden voor het opschorten van de behandeling
             van de zaak.
           type: string
           maxLength: 200
@@ -4039,7 +5207,7 @@ components:
           description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         registratiedatum:
           title: Registratiedatum
@@ -4091,7 +5259,7 @@ components:
             communicatiekanalen.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
         productenOfDiensten:
           description: De producten en/of diensten die door de zaak worden voortgebracht.
             Dit zijn URLs naar de resources zoals die door de producten- en dienstencatalogus-API
@@ -4120,10 +5288,6 @@ components:
           - confidentieel
           - geheim
           - zeer geheim
-        resultaattoelichting:
-          title: Resultaattoelichting
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          type: string
         betalingsindicatie:
           title: Betalingsindicatie
           description: 'Indicatie of de, met behandeling van de zaak gemoeide, kosten
@@ -4170,7 +5334,7 @@ components:
             zaak, bepalend is voor het archiefregime van de zaak.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
         hoofdzaak:
           title: Is deelzaak van
           description: "De verwijzing naar de ZAAK, waarom verzocht is door de initiator\
@@ -4205,6 +5369,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZaakKenmerk'
+        archiefnominatie:
+          title: Archiefnominatie
+          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+            termijn vernietigd moet worden.
+          type: string
+          enum:
+          - blijvend_bewaren
+          - vernietigen
+        archiefstatus:
+          title: Archiefstatus
+          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+            termijn vernietigd moet worden.
+          type: string
+          enum:
+          - nog_te_archiveren
+          - gearchiveerd
+          - gearchiveerd_procestermijn_onbekend
+          - overgedragen
+        archiefactiedatum:
+          title: Archiefactiedatum
+          description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+            worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+            Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+            aan deze ZAAK indien nog leeg.
+          type: string
+          format: date
+        resultaat:
+          title: Resultaat
+          description: Indien geen resultaat bekend is, dan is de waarde 'null'
+          type: string
+          format: uri
+          readOnly: true
     GeoWithin:
       title: Zaakgeometrie
       type: object
@@ -4236,6 +5432,52 @@ components:
           description: URL naar het zaaktype in de CATALOGUS waar deze voorkomt
           type: string
           minLength: 1
+        archiefnominatie:
+          title: Archiefnominatie
+          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+            termijn vernietigd moet worden.
+          type: string
+          minLength: 1
+        archiefnominatie__in:
+          title: Archiefnominatie  in
+          description: Multiple values may be separated by commas.
+          type: string
+          minLength: 1
+        archiefactiedatum:
+          title: Archiefactiedatum
+          description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+            worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+            Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+            aan deze ZAAK indien nog leeg.
+          type: string
+          minLength: 1
+        archiefactiedatum__lt:
+          title: Archiefactiedatum  lt
+          description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+            worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+            Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+            aan deze ZAAK indien nog leeg.
+          type: string
+          minLength: 1
+        archiefactiedatum__gt:
+          title: Archiefactiedatum  gt
+          description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+            worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+            Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+            aan deze ZAAK indien nog leeg.
+          type: string
+          minLength: 1
+        archiefstatus:
+          title: Archiefstatus
+          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+            termijn vernietigd moet worden.
+          type: string
+          minLength: 1
+        archiefstatus__in:
+          title: Archiefstatus  in
+          description: Multiple values may be separated by commas.
+          type: string
+          minLength: 1
     ZaakInformatieObject:
       required:
       - informatieobject
@@ -4247,7 +5489,7 @@ components:
             de relatieinformatie opgevraagd kan worden.
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
     ZaakEigenschap:
       required:
@@ -4270,7 +5512,13 @@ components:
           description: URL naar de eigenschap in het ZTC
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
+          minLength: 1
+        naam:
+          title: Naam
+          description: De naam van de EIGENSCHAP (overgenomen uit ZTC).
+          type: string
+          readOnly: true
           minLength: 1
         waarde:
           title: Waarde
