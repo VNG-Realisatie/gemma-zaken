@@ -138,7 +138,7 @@ Een consumer abonneert zich op notificaties door de volgende request naar de
 NC te sturen:
 
 ```http
-POST /api/v1/subscribers
+POST /api/v1/abonnementen
 
 Authorization: Bearer abcdef1234
 Content-Type: application/json
@@ -180,7 +180,7 @@ Content-Type: application/json
 
 Een kanaal mag slechts eenmalig aangemaakt worden.
 
-Daarnaast moet het oplijsten van kanalen mogelijk zijn, zodat consumers kunnen
+Daarnaast moet het ophalen van kanalen mogelijk zijn, zodat consumers kunnen
 zien waarop ze zich kunnen abonneren.
 
 ### Notificaties insturen
@@ -194,6 +194,7 @@ Authorization: Bearer abcdef1234
 Content-Type: application/json
 
 {
+    "kanaal": "zaken",
     "bronUrl": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
     "resource": "status",
     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
@@ -258,9 +259,9 @@ In het scenario dat er bijvoorbeeld twee snelle statusupdates zijn van:
 
 1. Aangemaakt naar
 2. In behandeling naar
-3. Afgerond,
+3. Afgerond
 
-Dan kan het zijn dat door de intrinsieke aard van TCP/HTTP statusupdate 3
+Als je geen AMQP gebruikt, kan het zijn dat door de intrinsieke aard van TCP/HTTP statusupdate 3
 voor 2 afgeleverd wordt op de webhook, door latency op de eerste call
 bijvoorbeeld.
 
@@ -279,7 +280,7 @@ AMQP voorziet ook in de garantie dat messages bezorgd worden als een node
 tijdens deployments bijvoorbeeld, of een onverwachte outage.
 
 Met webhooks kan de HTTP statuscode bij het afleveren gecontroleerd worden.
-Indien de consumer niet antwoord met een HTTP 200 status, dan kan het bericht
+Indien de consumer niet antwoordt met een HTTP 200 status, dan kan het bericht
 gemarkeerd worden als 'niet-afgeleverd', en kan er opnieuw geprobeerd worden
 (met exponential backoff). Ook kan de NC een interface bieden om events te
 re-senden.
