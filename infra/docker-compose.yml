@@ -27,6 +27,11 @@ services:
     volumes:
       - brc_postgres_data:/var/lib/postgresql/data
 
+  nc_db:
+    image: postgres:10
+    volumes:
+      - nc_postgres_data:/var/lib/postgresql/data
+
   # web
   zrc_web:
     image: vngr/gemma-zrc:latest
@@ -67,9 +72,19 @@ services:
     depends_on:
       - brc_db
 
+  nc_web:
+    image: vngr/gemma-nc:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=nc.conf.docker
+      - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
+      - DB_HOST=nc_db
+    depends_on:
+      - nc_db
+
 volumes:
   zrc_postgres_data:
   drc_postgres_data:
   drc_media:
   ztc_postgres_data:
   brc_postgres_data:
+  nc_postgres_data:
