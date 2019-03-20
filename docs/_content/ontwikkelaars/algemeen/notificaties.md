@@ -216,7 +216,7 @@ Content-Type: application/json
 
 {
     "naam": "zaken",
-    "documentatieLink": "http://
+    "documentatieLink": "http://example.com",
     "filters": ["bronorganisatie", "zaaktype", "vertrouwelijkheidaanduiding"]
 }
 ```
