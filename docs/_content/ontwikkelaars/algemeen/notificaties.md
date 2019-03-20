@@ -5,16 +5,17 @@ weight: 70
 ---
 
 Een component moet een bericht kunnen sturen die andere componenten kunnen
-ontvangen zodat zij hierop kunnen acteren indien dit een interesant bericht is
+ontvangen zodat zij hierop kunnen acteren indien dit een interessant bericht is
 voor het betreffende ontvangende component.
 
 ## Uitgangspunten
 
 **Notificatie als REST API component**
 
-Er wordt een notificatiecomponent ontwikkeld met de functionaliteiten:
+Er wordt een notificatiecomponent (NC) ontwikkeld met de functionaliteiten:
 
-1. registreren van abonnees (=componenten die berichten willen ontvangen)
+1. registreren van abonnees (=componenten of applicaties die berichten willen 
+   ontvangen)
 2. ontvangen van berichten die gerouteerd moeten worden
 3. distribueren van berichten naar de abonnees
 
@@ -27,49 +28,60 @@ De derde taak wordt via webhooks ingevuld, waarbij we als webhook begrijpen:
 > Van de webhook wordt verwacht dat het bericht correct ontvangen is als die
 > met een HTTP 200 status antwoordt.
 
-We onderkennen dat voor taak 3 een meer gespecialiseerd protocol als AMQP
-ook geschikt kan zijn. Als MVP kiezen we echter voor webhooks.
+We onderkennen dat voor voor deze taken een meer gespecialiseerd protocol als 
+AMQP wellicht beter geschikt is maar wel met zijn eigen uitdagingen komt (zie
+ook onderaan).
 
 **Technologie onafhankelijk**
 
 De hierboven genoemde REST API wordt een "standaard". Welke onderliggende
 technologie echt gebruikt wordt maakt niet zo veel uit.
 
-Wij gebruiken waarschijnlijk de Pub/Sub-functionaliteit in
-[RabbitMQ](https://www.rabbitmq.com/).
+Wij gebruiken (waarschijnlijk) onderliggend de Pub/Sub-functionaliteit in
+[RabbitMQ](https://www.rabbitmq.com/) met behulp van Topics.
 
-**Topics**
+**Kanalen**
 
-Topics zijn kanalen waar berichten op binnenkomen en consumers zich kunnen op
-abonneren. Voorlopig definieren we voor elke API een eigen topic. Alles wat
-gebeurt in de Zaken API, komt op topic `zaken`, dus ook `zaakdocument` en
-`status` wijzigingen.
+Berichten worden verstuurd via bepaalde kanalen (Exchange in AMQP). Consumers
+kunnen zich op zo'n kanaal abonneren, aangevuld met bepaalde filters (Topics in
+AMQP). Elk component krijgt zijn eigen kanaal.
 
-Componenten produceren berichten op een bepaald topic - deze producers worden
-door Squad Architectuur "bronnen" genoemd. Een ZRC, DRC, BRC zijn de voor de
+Ter illustratie: De Zaken API publiceert alles op het kanaal `zaken`. Een zaak 
+of status wijziging wordt hierop gepubliceerd. Ook als een document wordt 
+toegevoegd wordt het aanmaken van de relatie tusen de zaak en het document 
+gepubliceerd op dit kanaal.
+
+Componenten produceren dus berichten op een bepaald kanaal - deze producers 
+worden door [Squad Architectuur] ook wel "bronnen" genoemd. Een ZRC, DRC, BRC zijn de voor de
 hand liggende bronnen binnen zaakgericht werken.
+
+[Squad Architectuur]: https://www.gemmaonline.nl/index.php/Squad_Architectuur_Samen_Organiseren
 
 **Relevantie van een notificatie bepalen**
 
-De last van het bepalen of een notificatie, bijvoorbeeld van een zaakwijziging
-of het aanmaken van een zaak, relevant is, ligt bij de consumer. De consumer
-dient op basis van de notificatie te bepalen of het initieel relevant is
-(bijvoorbeeld het Zaaktype), de details op te halen en vervolgens daadwerkelijk
-te bepalen of deze notificatie tot een actie leidt.
+Een abonnement op een kanaal kan gepaard gaan met bepaalde filters. Deze 
+filters zorgen er voor dat de consumer bepaalde notificaties niet doorgegeven 
+krijgt omdat ze niet voldoen aan het opgegeven filter. Hiermee kan een overdaad 
+aan irrelevante berichten worden voorkomen.
 
-We houden in gedachten dat bij het registreren van de webhook later mogelijk
-een feature komt om alvast 'filters' op te geven zodat irrelevante berichten
-niet eens afgeleverd worden.
+De vervolg-last van het bepalen of een notificatie, bijvoorbeeld van een 
+zaakwijziging of het aanmaken van een zaak, relevant is, ligt bij de consumer. 
+De consumer dient op basis van de notificatie te bepalen of het initieel 
+relevant is (bijvoorbeeld het Zaaktype), de details op te halen en vervolgens 
+daadwerkelijk te bepalen of deze notificatie tot een actie leidt.
 
 **Er komt een generieke API voor het ontvangen van notificaties**
 
+Om berichten te kunnen ontvangen, zal elke consumer een beperkte API 
+specificatie moeten implementeren, beschikbaar op de webhook-url.
+
 Het ontvangen van berichten op de webhook-url zal generiek geimplementeerd
-worden in onze componenten. De vorm van het bericht zal gestandaardiseerd zijn.
+worden in de ZGW componenten. Ook de vorm van het bericht zal gestandaardiseerd
+zijn. Bij het aanmaken van een abonnement dient de webhook-url (`callbackUrl`
+genaamd in de API specificatie) opgegeven te worden waardoor de precieze URL
+niet verder gestandardiseerd wordt.
 
-De precieze urls/endpoints zijn niet relevant, aangezien de consumer deze
-expliciet zelf registreert.
-
-## Notificatie
+## Notificatie bericht specificatie
 
 Naast alle API-specificaties voor het beheren van abonnementen en bronnen is
 de kern van het verhaal de notificatie zelf. Alle attributen en attribuutnamen
@@ -77,15 +89,13 @@ onder voorbehoud.
 
 Attribuut | Omschrijving
 --- | ---
-id | Unieke identificatie van het bericht
-bron.rsin | Het RSIN van de versturende organisatie.
-bron.naam | De naam van de bron.
-bericht.bronUrl | De URL van de resource behorend bij de bron (bijv. `Zaak`) van de actuele resource (omdat we nog geen historie hebben)
-bericht.resource | Naam van de daadwerkelijk resource die is gewijzigd (bijv. `Status`)
-bericht.resourceUrl | De URL van de daadwerkelijk resource (optioneel)
-bericht.actie | Typisch OAS-variant van de HTTP methode die is gebruikt voor het wijzigen (`update`, `delete`, `create`) maar dit kan ook een ander soort actie zijn. De acties worden per API-component vastgelegd in de standaard.
-bericht.aanmaakDatum | Datum en tijd van gebeurtenis
-bericht.kenmerken | Een object waar arbitraire gegevens toegoevoegd kunnen worden. Deze gegevens worden echter vastgelegd per component in de standaard.
+kanaal | De naam van het kanaal (Exchange in AMQP) behorend bij de bron. (bijv. `zaken`, `documenten`, `besluiten`, etc.)
+hoofdObject | De URL van de resource behorend bij het kanaal (bijv. `Zaak`) van de actuele resource (omdat we nog geen historie hebben)
+resource | Naam van de daadwerkelijk resource die is gewijzigd (bijv. `Status`)
+resourceUrl | De URL van de daadwerkelijk resource (optioneel)
+actie | De actie die de gebeurtenis op abstract niveau omschrijft. Dit is een vaste lijst bestaande uit `gewijzigd`, `verwijderd`, `aangemaakt` eventueel aangevuld met additionele waarden, die per bron zijn vastgelegd in de standaard.
+aanmaakdatum | Datum en tijd van gebeurtenis
+kenmerken | Een lijst van objecten die de kenmerken van het bericht vormen. De mogelijke kenmerken worden vastgelegd per bron in de standaard.
 
 **LET OP: Vooruitlopend op tijdreizen - De URL moet een
 `?tijdstempel=<tijd en datum>` meekrijgen zodat niet de actuele versie van de
@@ -93,44 +103,51 @@ bericht.kenmerken | Een object waar arbitraire gegevens toegoevoegd kunnen worde
 wens om het "verschil" van voor en na de wijziging mee te geven in de
 notificatie of op te vragen.**
 
-### Kenmerken
+### Bronnen
+
+In het geval van de ZGW API's wordt elk component gezien als bron en heeft dus 
+zijn eigen kanaal, met eigen kenmerken en eventueel additionele acties.
 
 Elk component kan `kenmerken` definieren die helpen bij het filteren van
 relevante informatie.
 
-**Zaken**
+#### Zaken API
+
+* Kanaal: `zaken`
+* Additionele acties: -
 
 Kenmerk | Omschrijving
 --- | ---
-zaaktype | Voor de `Zaken` API, de betreffende ZaakType URL.
+bronorganisatie | Overeenkomstig veld in ZAAK
+zaaktype | Overeenkomstig veld in ZAAK
+vertrouwelijkheidaanduiding | Overeenkomstig veld in ZAAK
 
-## Demo applicatie
+#### Documenten API
 
-De demo applicatie zal gebruikt worden om notificaties te tonen zonder hier op
-te acteren.
+* Kanaal: `documenten`
+* Additionele acties: -
 
-[Voorbeeld sequence diagram (high-level)](http://sequencediagram.org/index.html#initialData=C4S2BsFMAIDkHtQDMQGNICdIDsBQuBDVYeDaAIQFcMBzTXABwI1FRCe2GgFkB5AJQC0BBg0bNW7Apx4DBAIyIBrHABNxLNFM40M8Sg2gBicCBoALYLsg5oAKjsAtAOIB1aAGdU8BpAcbJDi4EYBRUAlAYAGF4AFsGeGwcYACtIOhHfijcNWhcPiFFVBVsVUEAPhCwiJBouISkzgAuaABlSnkvDBB5GB9oEgY0DIIS-ABecYBJbDAQAlMPGpgAN2l7OwKFZTUHaAIkOj1SyfwqWkwKrZEGJucbJGgEj2BvVT6xa9EruSKS1SaAAV4C83qt1ucjhNxgBBaTYAixGB0VQEdaorgOSGYPYALxAACtsE8Qa94O9oOYHlwfHQ6CscKdcJkohUqmhltAYvFEskWo40UpoNhECBqpEWq1gBFKB5oAYMZBcOzwpEufVeZwfoUdqV+YLhaLxbVJdLgLL5QxFfgRcA+gyyFs-mp9aMACoAT180BAcoKAH58r9dWVyiyWgAJNHgEajaDvaUgcBynzMrKCbXbYou2NChMEJMeG2Ie2YWQ67N63M+4l0eC6A6+1DmaB0eS1VQAHWwa2JzzJFPk1COgadIYq4egUYWbTNFtTLIz5THlYBs5lcvzheLdug8Ad5az-1NG8tiu7IE4mEgHiWMhW8FIFGHmFHwdXmZuLXImDQlj3B4CnGl7dvKADuJKguSyKQO2kDqEAA).
+Kenmerk | Omschrijving
+--- | ---
+bronorganisatie | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
+informatieobjecttype | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
+vertrouwelijkaanduiding | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
 
-## Notificaties bij andere standaarden
-Zowel bij Regie- en Zaakservices als bij DigiLevering wordt notificaties opgelost met een publish/subscribe mechanisme. Een centrale notificatiecomponent ontvangt gebeurtenissen en distribueert deze naar abonnees. Abonnees hebben de mogelijkheid zich te abonneren op bepaalde gebeurtenissen. Bij DigiLevering zijn gebeurtenissen gedefinieerd in termen van objecttypen en attributen en kunnen bovendien filters worden gedefinieerd op attributen van de objecten.
+#### Besluiten API
 
-Bij Regie- en Zaakservices kunnen alleen notificaties op zaakniveau worden gestuurd, d.w.z. als een zaak wordt gecreeerd of gewijzigd. De volgende gegevens moeten worden opgenomen in het notificatie-bericht :
+* Kanaal: `besluiten`
+* Additionele acties: -
 
-* Zaakidentificatie
-* Zaaktype
-* Zaakstatus (optioneel)
+Kenmerk | Omschrijving
+--- | ---
+verantwoordelijkeOrganisatie | Overeenkomstig veld in BESLUIT
+besluittype | Overeenkomstig veld in BESLUIT
 
-Ideeen en attributen die andere standaarden gebruiken worden bekeken!
+#### Zaaktypen API
 
-Bronnen:
+Op dit moment nog niet gespecificeerd.
 
-* [Digilevering koppelvlakspecificatie](https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiLevering/Koppelvlakspecificatie.pdf)
-* [Digilevering documentatie](https://www.logius.nl/diensten/digilevering/documentatie)
-* [Regie- en Zaakservices specificaties](https://www.gemmaonline.nl/images/gemmaonline/c/cd/Koppelvlakspecificatie_Regie-zaak_services_v1.0.pdf)
-
-# API specificatie (concept)
-
-[Voorbeeld sequence diagram (in-depth)](http://sequencediagram.org/index.html#initialData=C4S2BsFMAIDkHtQDMQGNICdIDsBQuAHAQw1FRGO2GgC0AlAYUJLIqKrkRBVSNBgbwAtgXjYcwZqTRsOdIgCMFYALIBFKa0rUAIo3z0GAWgB8CZGj4gBw0eKoAuaAAUA8gGUAKtAD0RAiA+AG4AjD4KGGL2ADrYPj4ADADMAEwhRgBeRADWOPG45tyW-NCCImISpvJKqmpODFh8MMDwAaix8clpmTl5PgVcPFY25fbAADxGRtXKwOpOAJI6TiEpSbiGk0aFQyVldhJOABKens7QKQkhHT4AQpHY0ADmmJBPIADOwFiYACbQQkg1CWKzW+VwAF4IQtsGAQERwJ9htAguxoAAqdGGTHQIhIF4PX5Q-B6YxmQbFaylWwVRwuDzePwBYJhRRRSCAqg4G5ddJZXJxfo7SkjA5UKqKWbzaDuACuCg+qAwIAUMFJ0BaGtaaB5qT5vUFAwsvD2NLGWxmtScrgA0rhSVthSaqftacBjqdzpdroKAIIKdmc6hEdgvIQh7LAcFQmFwhFIkqox6Y0k4vEEsREiEGRimJ3I11jJxuLy+fyBULhB72HyrJI+bAU52QD43W6YNAAC0k+dNo0qJktczqLkiv1l6ABLY+RBeWugIOgdaNRWb1P7VAtkqt0FtG0YjqbBbNh2gJzOFwSCRuADV4OAWvAQL98kP1KYTKTiwyy8zK43jWGD4fDEYAkxebA2w7VBu3yIA)
+## API specificatie
 
 ### Abonneren
 
@@ -147,16 +164,18 @@ Content-Type: application/json
     "callbackUrl": "https://ref.tst.vng.cloud/zrc/api/v1/callbacks",
     "auth": "Bearer aef34gh...",
     "kanalen": [{
-        "kanaal": "zaken",
+        "naam": "zaken",
         "filters": [
-            {"bron": "082096752011"},
+            {"bronorganisatie": "082096752011"},
             {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
-            {"vertrouwelijkeidaanduiding": "*"}
+            {"vertrouwelijkheidaanduiding": "*"}
         ]
     }, {
-        "kanaal": "informatieobjecten",
+        "naam": "documenten",
         "filters": [
-            {"bron": "082096752011"}
+            {"bronorganisatie": "082096752011"},
+            {"informatieobjecttype": "https://example.com/api/v1/informatieobjecttype/b8c11"},
+            {"vertrouwelijkaanduiding": "openbaar"}
         ]
     }]
 }
@@ -197,7 +216,8 @@ Content-Type: application/json
 
 {
     "naam": "zaken",
-    "filters": ["bron", "zaaktype", "vertrouwelijkheidaanduiding"]
+    "documentatieLink": "http://
+    "filters": ["bronorganisatie", "zaaktype", "vertrouwelijkheidaanduiding"]
 }
 ```
 
@@ -211,7 +231,7 @@ op dit kanaal, en tonen waarop consumers kunnen filteren. Bij het abonneren
 moeten de filters getoetst worden tegen deze filters. Ook hier is volgorde
 belangrijk.
 
-### Notificaties insturen
+### Notificaties insturen (publiceren)
 
 De NC moet notificaties kunnen ontvangen:
 
@@ -223,11 +243,11 @@ Content-Type: application/json
 
 {
     "kanaal": "zaken",
-    "bronUrl": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
+    "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
     "resource": "status",
     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
     "actie": "create",
-    "aanmaakDatum": "2018-01-01T17:00:00Z",
+    "aanmaakdatum": "2018-01-01T17:00:00Z",
     "kenmerken": [
         {"bron": "082096752011"},
         {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
@@ -244,36 +264,33 @@ Merk op dat de kenmerken als `Array` opgebouwd worden. Dit is omdat _Object keys
 in JSON geen inherente volgorde hebben, en de volgorde wel belangrijk is
 voor interne doeleinden.
 
-
 ### Notificaties ophalen
 
 In eerste instantie zetten we enkel in op push via webhooks. Later laten we toe
 om ook notificaties te pullen.
 
 ```http
-GET /api/v1/subscribers/ae54ef/notificaties
+GET /api/v1/abonnementen/ae54ef/notificaties
 
 Authorization: Bearer abcdef1234
 Accept: application/json
 
 [{
     "kanaal": "zaken",
-    "bericht": {
-        "bronUrl": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
-        "resource": "status",
-        "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
-        "actie": "create",
-        "aanmaakDatum": "2018-01-01T17:00:00Z",
-        "kenmerken": [
-            {"bron": "082096752011"},
-            {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
-            {"vertrouwelijkeidaanduiding": "openbaar"}
-        ]
-    }
+    "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
+    "resource": "status",
+    "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
+    "actie": "create",
+    "aanmaakdatum": "2018-01-01T17:00:00Z",
+    "kenmerken": [
+        {"bron": "082096752011"},
+        {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
+        {"vertrouwelijkeidaanduiding": "openbaar"}
+    ]
 }]
 ```
 
-Dit zal enkel de ongelezen notificaties teruggeven.
+Dit zal enkel de niet bezorgde notificaties teruggeven.
 
 # Uitdagingen en oplossingen
 
@@ -289,9 +306,9 @@ In het scenario dat er bijvoorbeeld twee snelle statusupdates zijn van:
 2. In behandeling naar
 3. Afgerond
 
-Als je geen AMQP gebruikt, kan het zijn dat door de intrinsieke aard van TCP/HTTP statusupdate 3
-voor 2 afgeleverd wordt op de webhook, door latency op de eerste call
-bijvoorbeeld.
+Als je geen AMQP gebruikt, kan het zijn dat door de intrinsieke aard van 
+TCP/HTTP statusupdate 3 voor 2 afgeleverd wordt op de webhook, door latency op 
+de eerste call bijvoorbeeld.
 
 Dit zou kunnen leiden tot een incorrecte statusupdate via push bij clients.
 
@@ -317,6 +334,10 @@ Door de aard van de berichten (enkel kennisgeving _dat_ er een event is, niet
 _wat_ de inhoud is), informeert dit ook de client om data te re-fetchen, en
 is het risico op kwalijke gevolgen van vertraagde berichten beperkt.
 
+## AMQP en NLx
+
+NLx ondersteund geen AMQP.
+
 ## Bijhouden van berichten
 
 Berichten worden in principe niet bewaard in de NC. Ontvangen notifications
@@ -327,3 +348,27 @@ versturen indien aflevering niet gelukt is - deze moeten opnieuw gescheduled
 worden voor aflevering. Hierbij moet het mogelijk zijn om te configureren
 hoevaak gepoogd moet worden een bericht af te leveren en hoe lang je moet
 wachten om opnieuw te proberen.
+
+## Notificaties bij andere standaarden
+
+Zowel bij Regie- en Zaakservices als bij DigiLevering wordt notificaties opgelost met een publish/subscribe mechanisme. Een centrale notificatiecomponent ontvangt gebeurtenissen en distribueert deze naar abonnees. Abonnees hebben de mogelijkheid zich te abonneren op bepaalde gebeurtenissen. Bij DigiLevering zijn gebeurtenissen gedefinieerd in termen van objecttypen en attributen en kunnen bovendien filters worden gedefinieerd op attributen van de objecten.
+
+Bij Regie- en Zaakservices kunnen alleen notificaties op zaakniveau worden gestuurd, d.w.z. als een zaak wordt gecreeerd of gewijzigd. De volgende gegevens moeten worden opgenomen in het notificatie-bericht :
+
+* Zaakidentificatie
+* Zaaktype
+* Zaakstatus (optioneel)
+
+Ideeen en attributen die andere standaarden gebruiken worden bekeken!
+
+Bronnen:
+
+* [Digilevering koppelvlakspecificatie](https://www.logius.nl/sites/default/files/public/bestanden/diensten/DigiLevering/Koppelvlakspecificatie.pdf)
+* [Digilevering documentatie](https://www.logius.nl/diensten/digilevering/documentatie)
+* [Regie- en Zaakservices specificaties](https://www.gemmaonline.nl/images/gemmaonline/c/cd/Koppelvlakspecificatie_Regie-zaak_services_v1.0.pdf)
+
+# Oude schetsen
+
+[Voorbeeld sequence diagram (in-depth)](http://sequencediagram.org/index.html#initialData=C4S2BsFMAIDkHtQDMQGNICdIDsBQuAHAQw1FRGO2GgC0AlAYUJLIqKrkRBVSNBgbwAtgXjYcwZqTRsOdIgCMFYALIBFKa0rUAIo3z0GAWgB8CZGj4gBw0eKoAuaAAUA8gGUAKtAD0RAiA+AG4AjD4KGGL2ADrYPj4ADADMAEwhRgBeRADWOPG45tyW-NCCImISpvJKqmpODFh8MMDwAaix8clpmTl5PgVcPFY25fbAADxGRtXKwOpOAJI6TiEpSbiGk0aFQyVldhJOABKens7QKQkhHT4AQpHY0ADmmJBPIADOwFiYACbQQkg1CWKzW+VwAF4IQtsGAQERwJ9htAguxoAAqdGGTHQIhIF4PX5Q-B6YxmQbFaylWwVRwuDzePwBYJhRRRSCAqg4G5ddJZXJxfo7SkjA5UKqKWbzaDuACuCg+qAwIAUMFJ0BaGtaaB5qT5vUFAwsvD2NLGWxmtScrgA0rhSVthSaqftacBjqdzpdroKAIIKdmc6hEdgvIQh7LAcFQmFwhFIkqox6Y0k4vEEsREiEGRimJ3I11jJxuLy+fyBULhB72HyrJI+bAU52QD43W6YNAAC0k+dNo0qJktczqLkiv1l6ABLY+RBeWugIOgdaNRWb1P7VAtkqt0FtG0YjqbBbNh2gJzOFwSCRuADV4OAWvAQL98kP1KYTKTiwyy8zK43jWGD4fDEYAkxebA2w7VBu3yIA)
+
+[Voorbeeld sequence diagram (high-level)](http://sequencediagram.org/index.html#initialData=C4S2BsFMAIDkHtQDMQGNICdIDsBQuBDVYeDaAIQFcMBzTXABwI1FRCe2GgFkB5AJQC0BBg0bNW7Apx4DBAIyIBrHABNxLNFM40M8Sg2gBicCBoALYLsg5oAKjsAtAOIB1aAGdU8BpAcbJDi4EYBRUAlAYAGF4AFsGeGwcYACtIOhHfijcNWhcPiFFVBVsVUEAPhCwiJBouISkzgAuaABlSnkvDBB5GB9oEgY0DIIS-ABecYBJbDAQAlMPGpgAN2l7OwKFZTUHaAIkOj1SyfwqWkwKrZEGJucbJGgEj2BvVT6xa9EruSKS1SaAAV4C83qt1ucjhNxgBBaTYAixGB0VQEdaorgOSGYPYALxAACtsE8Qa94O9oOYHlwfHQ6CscKdcJkohUqmhltAYvFEskWo40UpoNhECBqpEWq1gBFKB5oAYMZBcOzwpEufVeZwfoUdqV+YLhaLxbVJdLgLL5QxFfgRcA+gyyFs-mp9aMACoAT180BAcoKAH58r9dWVyiyWgAJNHgEajaDvaUgcBynzMrKCbXbYou2NChMEJMeG2Ie2YWQ67N63M+4l0eC6A6+1DmaB0eS1VQAHWwa2JzzJFPk1COgadIYq4egUYWbTNFtTLIz5THlYBs5lcvzheLdug8Ad5az-1NG8tiu7IE4mEgHiWMhW8FIFGHmFHwdXmZuLXImDQlj3B4CnGl7dvKADuJKguSyKQO2kDqEAA).
