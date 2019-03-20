@@ -592,7 +592,7 @@ token-uitgifte. Organisaties hebben alle vrijheid om dit naar eigen wensen
 in te richten.
 
 De volledige architectuur is uitgewerk in
-[de documentatie](../architectuur/authenticatie-autorisatie)
+[de documentatie](../../ontwikkelaars/algemeen/authenticatie-autorisatie)
 
 ## Enumeraties
 
