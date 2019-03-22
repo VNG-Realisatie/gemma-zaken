@@ -5,25 +5,25 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: postgres-drc
+  name: postgres-nc
   namespace: gemma
   labels:
-    k8s-app: postgres-drc
+    k8s-app: postgres-nc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: postgres-drc
+      k8s-app: postgres-nc
   template:
     metadata:
-      name: postgres-drc
+      name: postgres-nc
       labels:
-        k8s-app: postgres-drc
+        k8s-app: postgres-nc
     spec:
       volumes:
       - name: data
         hostPath:
-          path: "/storage/gemma-postgres-drc"
+          path: "/storage/gemma-postgres-nc"
           type: ''
       containers:
       - name: postgres
@@ -42,13 +42,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: postgres-drc
+  name: postgres-nc
   namespace: gemma
   labels:
-    k8s-app: postgres-drc
+    k8s-app: postgres-nc
 spec:
   selector:
-    k8s-app: postgres-drc
+    k8s-app: postgres-nc
   ports:
   - protocol: TCP
     port: 5432

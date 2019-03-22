@@ -27,7 +27,7 @@ spec:
           type: ''
       containers:
       - name: postgres
-        image: mdillon/postgis
+        image: postgres:11
         env:
           - name: POSTGRES_PASSWORD
             value: <REDACTED>

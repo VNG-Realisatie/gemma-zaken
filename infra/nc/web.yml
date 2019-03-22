@@ -1,0 +1,59 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: nc
+  namespace: gemma
+  labels:
+    k8s-app: nc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: nc
+  template:
+    metadata:
+      name: nc
+      labels:
+        k8s-app: nc
+    spec:
+      containers:
+      - name: nc
+        image: vngr/gemma-notifications:0.1.0
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: notifications.conf.docker
+          - name: SUBPATH
+            value: /nc
+          - name: DB_HOST
+            value: postgres-nc
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DB_PASSWORD
+            value: <REDACTED>
+          - name: PUBLISH_BROKER_URL
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nc:5672/%2F
+          - name: SENTRY_DSN
+            value: <REDACTED>
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nc
+  namespace: gemma
+  labels:
+    k8s-app: nc
+spec:
+  selector:
+    k8s-app: nc
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

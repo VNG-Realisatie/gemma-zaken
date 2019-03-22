@@ -17,6 +17,13 @@ services:
     network_mode: host
     command: postgres -p ${BRC_DB_PORT:-5439}
 
+  nc_db:
+    network_mode: host
+    command: postgres -p ${NC_DB_PORT:-5440}
+
+  nc_rabbitmq:
+    network_mode: host
+
   zrc_web:
     network_mode: host
     environment:
@@ -52,3 +59,12 @@ services:
       - UWSGI_PORT=${BRC_UWSGI_PORT:-8003}
     expose:
       - "${BRC_UWSGI_PORT:-8003}"
+
+  nc_web:
+    network_mode: host
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT=${NC_DB_PORT:-5440}
+      - UWSGI_PORT=${NC_UWSGI_PORT:-8004}
+    expose:
+      - "${NC_UWSGI_PORT:-8004}"
