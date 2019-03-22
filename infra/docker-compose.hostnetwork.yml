@@ -21,6 +21,9 @@ services:
     network_mode: host
     command: postgres -p ${NC_DB_PORT:-5440}
 
+  nc_rabbitmq:
+    network_mode: host
+
   zrc_web:
     network_mode: host
     environment:

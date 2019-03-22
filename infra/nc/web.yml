@@ -22,10 +22,10 @@ spec:
     spec:
       containers:
       - name: nc
-        image: vngr/gemma-nc:0.1.0
+        image: vngr/gemma-notifications:0.1.0
         env:
           - name: DJANGO_SETTINGS_MODULE
-            value: nc.conf.docker
+            value: notifications.conf.docker
           - name: SUBPATH
             value: /nc
           - name: DB_HOST
@@ -34,6 +34,8 @@ spec:
             value: <REDACTED>
           - name: DB_PASSWORD
             value: <REDACTED>
+          - name: PUBLISH_BROKER_URL
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nc:5672/%2F
           - name: SENTRY_DSN
             value: <REDACTED>
 

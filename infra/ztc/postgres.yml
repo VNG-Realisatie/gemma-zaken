@@ -27,7 +27,7 @@ spec:
           type: ''
       containers:
       - name: postgres
-        image: postgres
+        image: postgres:11
         env:
           - name: POSTGRES_PASSWORD
             value: <REDACTED>
