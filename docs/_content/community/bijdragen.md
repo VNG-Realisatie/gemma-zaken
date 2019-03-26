@@ -5,7 +5,9 @@ date: '13-7-2018'
 
 Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn
 blij met feedback en verwelkomen verbeteringen in dit project. Brede
-samenwerking leidt tot de beste standaarden.
+samenwerking leidt tot de beste standaarden. 
+
+Dit project moet door demo's/API-lab's etc. leiden tot een breed gedragen standaard en vervangt de reguliere werkwijze. We hanteren geen "big-bang- besluitvorming" aan het einde van het project door middel van één openbare consulatie. Alle uitingen en events zijn vanaf nu onderdeel van de openbare consultatie. 
 
 'Issues' en 'Pull Requests' zijn meer dan welkom.
 
