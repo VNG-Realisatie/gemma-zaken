@@ -20,22 +20,24 @@ about: Beschrijving van een feature/user story
 - [ ] Is klein genoeg (maximaal 1/5 van sprint)
 - [ ] Product Owner akkoord en voorzien van prioriteit (mag alleen afgevinkt worden door PO)
 - [ ] Idee hebben van hoe deze user story kan worden gedemonstreerd.
-- [ ] _**Userstory is voorzien van een analyse (met daarin architectuur, IM, technische beslissingen afgestemd met team)**_
+- [ ] _Globale_ oplossingsrichting bekend
 - [ ] Vastgelegd in Github en geplaatst in kolom ready
 
 **Definition of done**
 - [ ] Er is een OAS 3.0 specificatie
 - [ ] Er is een referentieimplementatie
-- [ ] Er zijn tests aanwezig die de wijziging aantonen
+- [ ] Er zijn tests aanwezig die de wijziging aantonen en waarmee de user story getest kan worden.
 - [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
+- [ ] Gebruikte gegevensmodel is na **iedere iedere sprint** bijgewerkt.
 
 **Acceptatiecriteria**
 - [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze
-- [ ] Eventueel gemaakte ontwerp keuzes zijn gedocumenteerd
-- [ ] Er zijn geen bekende GEMMA tegenstrijdigheden of afwijkingen zijn vastgelegd.
+- [ ] Er zijn geen bekende GEMMA tegenstrijdigheden **of** afwijkingen zijn vastgelegd.
 
 **Taken**
 - [ ] Implementeren in referentie-implementatie [_verantwoordelijke_]
 - [ ] Schrijven (unit) test voor referentie-implementatie [_verantwoordelijke_]
 - [ ] Genereren/opstellen van OAS 3.0 [_verantwoordelijke_]
 - [ ] Human Readable publiceren Open API Specificatie (v.3.0) [_verantwoordelijke_]
+- [ ] Documentatie bijwerken
+- [ ] Gegevensmodel bijwerken
