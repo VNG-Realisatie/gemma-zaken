@@ -1,6 +1,6 @@
 ---
 title: "Bijdragen"
-date: '13-7-2018'
+date: '26-3-2019'
 ---
 
 Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn
