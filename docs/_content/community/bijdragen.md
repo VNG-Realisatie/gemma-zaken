@@ -7,9 +7,17 @@ Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn
 blij met feedback en verwelkomen verbeteringen in dit project. Brede
 samenwerking leidt tot de beste standaarden. 
 
-Dit project moet door demo's/API-lab's etc. leiden tot een breed gedragen standaard en vervangt de reguliere werkwijze. We hanteren geen "big-bang- besluitvorming" aan het einde van het project door middel van één openbare consulatie. Alle uitingen en events zijn vanaf nu onderdeel van de openbare consultatie. 
+Voorheen werd er toegewerkt naar één openbare consultatie waarmee een standaard eenmalig werd getoetst bij stakeholders. Bij de nieuwe werkwijze is er sprake van een voortdurende afstemming met partijen waarbij meerdere instrumenten worden ingezet, t.w.:
 
-'Issues' en 'Pull Requests' zijn meer dan welkom.
+- Repositories op Github: te allen tijde kunnen partijen de stand van zaken raadplegen en de planning raadplegen. Ook kunnen zij bugs inschieten en wensen aanmelden in de vorm van user stories.
+- Referentiecomponenten en API testvoorziening in de cloud waartegen getest kan worden.
+- Elke vier weken wordt er een publieke Sprint-demo georganiseerd waar de gerealiseerde user stories worden gedemonstreerd. Bezoekers kunnen vragen stellen en direct feedback geven op de resultaten.
+- API-labs, eveneens openbaar, geven developers van gemeenten en leveranciers de kans om met ondersteuning van het ZGW team te experimenteren met de API's. Ook hier kunnen uiteraard bugs en nieuwe wensen gemeld worden.
+- Presentaties op de Leveranciersdag van VNG-Realisatie
+
+Deze instrumenten tesamen zullen de openbare consultatie vormen/vervangen. Er zal dus sprake zijn van een voortdurende consultatie van de stakeholders, waarmee ook de kans ontstaat om de standaard voortdurend te verbeteren op aangeven van de gebruikers.
+
+'Issues' en 'Pull Requests' zijn dus meer dan welkom.
 
 
 ## Problemen, suggesties en vragen
