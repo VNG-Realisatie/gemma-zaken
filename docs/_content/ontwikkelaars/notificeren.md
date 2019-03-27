@@ -43,7 +43,12 @@ JWT te genereren.
 
     {
       "naam": "zaken",
-      "documentatieLink": "https://ref.tst.vng.cloud/zrc/ref/kanalen/#zaken"
+      "documentatieLink": "https://ref.tst.vng.cloud/zrc/ref/kanalen/#zaken",
+      "filters": [
+        "bronorganisatie",
+        "zaaktype",
+        "vertrouwelijkheidaanduiding"
+      ]
     }
     ```
 
