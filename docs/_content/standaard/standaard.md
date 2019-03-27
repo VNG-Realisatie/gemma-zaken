@@ -167,8 +167,8 @@ Optioneel MAG een abonnement filters bevatten op basis van berichtkenmerken.
 ### Berichten en kenmerken
 
 Bronnen MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
-bij de abonnementen afleveren, conform de filters van het abonnement op basis
-van de kenmerken.
+bij de endpoints van abonnementen afleveren, conform de filters van het
+abonnement op basis van de kenmerken.
 
 Berichten MOETEN informatie-arm zijn, in het kader van privacy-by-design. Het
 formaat van berichten is beschreven in de NC OAS.
@@ -177,21 +177,12 @@ In de documentatie van elke bron MOET beschreven zijn welke kanalen en
 kenmerken geldig zijn. Tevens MOET beschreven zijn welke gebeurtenissen tot
 een notificatie leiden.
 
-### Pollen
+### Toekomstige ontwikkelingen
 
-TODO
-
-### Berichten bewaren
-
-TODO
-
-### (Gemiste) berichten opvragen
-
-TODO
-
-### Abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
-
-TODO
+* pollen
+* berichten bewaren (retentie)
+* (gemiste) berichten opvragen
+* abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
 
 ## Zaakregistratiecomponent
 
