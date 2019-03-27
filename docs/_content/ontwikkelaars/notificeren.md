@@ -27,7 +27,7 @@ JWT te genereren.
    query te doen:
 
    ```http
-   GET https://ref.tst.vng.cloud/nc/api/v1/kanaal?naam=zaken
+   GET https://ref.tst.vng.cloud/nc/api/v1/kanaal?naam=zaken HTTP/1.0
    ```
 
    Indien een lege lijst terugkomt, dan bestaat het kanaal nog niet. Indien het
@@ -36,8 +36,7 @@ JWT te genereren.
 3. Registreer het kanaal (indien het nog niet bestaat)
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/kanaal
-
+    POST https://ref.tst.vng.cloud/nc/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -59,8 +58,7 @@ JWT te genereren.
 4. Verstuur een bericht
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/notificaties
-
+    POST https://ref.tst.vng.cloud/nc/api/v1/notificaties HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -93,16 +91,14 @@ JWT te genereren.
 2. Vraag op welke kanalen beschikbaar zijn:
 
     ```http
-    GET https://ref.tst.vng.cloud/nc/api/v1/kanaal
-
+    GET https://ref.tst.vng.cloud/nc/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     ````
 
 3. Registreer je abonnement bij het NC:
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/abonnement
-
+    POST https://ref.tst.vng.cloud/nc/api/v1/abonnement HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -137,8 +133,7 @@ JWT te genereren.
 4. Berichten worden nu naar je eigen endpoint gestuurd met een POST request
 
     ```http
-    POST https://my-consumer.nl/api/callbacks
-
+    POST https://my-consumer.nl/api/callbacks HTTP/1.0
     Content-Type: application/json
     Authorization: Token abcde12345
 
