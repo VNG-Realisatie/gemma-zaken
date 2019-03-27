@@ -150,9 +150,9 @@ Componenten dienen events te publiceren naar (een) notificatiecomponent(en)
 
 ### Kanalen
 
-Een producer van events, zoals ZRC, DRC, BRC, ZTC MOETEN hun kanaal registreren
-bij de NC indien dit nog niet bestaat. De volgende kanalen worden op dit moment
-onderkend:
+Elke bron, wat bij de ZGW API's één-op-éen overeen komt met een component
+zoals het ZRC, DRC, BRC, etc., MOETEN hun kanaal registreren bij de NC indien
+dit nog niet bestaat. De volgende kanalen worden op dit moment onderkend:
 
 * ZRC: `zaken`
 * DRC: -
@@ -170,28 +170,32 @@ Optioneel MAG een abonnement filters bevatten op basis van berichtkenmerken.
 
 ### Berichten en kenmerken
 
-Producers MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
+Bronnen MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
 bij de abonnementen afleveren, conform de filters van het abonnement op basis
 van de kenmerken.
 
 Berichten MOETEN informatie-arm zijn, in het kader van privacy-by-design. Het
 formaat van berichten is beschreven in de NC OAS.
 
-**Onderkende events per resource**
+In de documentatie van elke bron MOET beschreven zijn welke kanalen en
+kenmerken geldig zijn. Tevens MOET beschreven zijn welke gebeurtenissen tot
+een notificatie leiden.
 
-* ZRC:
-    * `zaak`: `create`, `update`, `partial_update`, `destroy`
-    * `status`: `create`
-    * `zaakobject`: `create`
-    * `zaakinformatieobject`: `create`
-    * `zaakeigenschap`: `create`
-    * `klantcontact`: `create`
-    * `rol`: `create`
-    * `resultaat`: `create`, `update`, `partial_update`, `destroy`
+### Pollen
 
-**Onderkende kenmerken**
+TODO
 
-* ZRC: `bronorganisatie`, `zaaktype` en `vertrouwelijkheidaanduiding`
+### Berichten bewaren
+
+TODO
+
+### (Gemiste) berichten opvragen
+
+TODO
+
+### Abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
+
+TODO
 
 ## Zaakregistratiecomponent
 
