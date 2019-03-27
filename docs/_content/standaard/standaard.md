@@ -22,6 +22,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
 - [Filter parameters](#filter-parameters)
+- [Notificaties](#notificaties)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -140,6 +141,57 @@ foutbericht, waarbij de `invalid-params` key meer informatie bevat over de fout.
 
 Indien een parameter wordt toegepast die niet in de OAS van de betreffende API
 staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
+
+## Notificaties
+
+Componenten dienen events te publiceren naar (een) notificatiecomponent(en)
+(NC). De NC MOET volledig de
+[`openapi.yaml`](../../../api-specificatie/nc/openapi.yaml) implementeren.
+
+### Kanalen
+
+Een producer van events, zoals ZRC, DRC, BRC, ZTC MOETEN hun kanaal registreren
+bij de NC indien dit nog niet bestaat. De volgende kanalen worden op dit moment
+onderkend:
+
+* ZRC: `zaken`
+* DRC: -
+* BRC: -
+* ZTC: -
+
+### Abonneren
+
+Consumers MOGEN zich abonneren op kanalen. Een consumer MOET hiervoor een
+endpoint registreren, beveiligd met een `Authorization` header. Bij het
+registeren geeft de consumer een geldige header waarde mee zodat het NC de
+berichten kan afleveren.
+
+Optioneel MAG een abonnement filters bevatten op basis van berichtkenmerken.
+
+### Berichten en kenmerken
+
+Producers MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
+bij de abonnementen afleveren, conform de filters van het abonnement op basis
+van de kenmerken.
+
+Berichten MOETEN informatie-arm zijn, in het kader van privacy-by-design. Het
+formaat van berichten is beschreven in de NC OAS.
+
+**Onderkende events per resource**
+
+* ZRC:
+    * `zaak`: `create`, `update`, `partial_update`, `destroy`
+    * `status`: `create`
+    * `zaakobject`: `create`
+    * `zaakinformatieobject`: `create`
+    * `zaakeigenschap`: `create`
+    * `klantcontact`: `create`
+    * `rol`: `create`
+    * `resultaat`: `create`, `update`, `partial_update`, `destroy`
+
+**Onderkende kenmerken**
+
+* ZRC: `bronorganisatie`, `zaaktype` en `vertrouwelijkheidaanduiding`
 
 ## Zaakregistratiecomponent
 
