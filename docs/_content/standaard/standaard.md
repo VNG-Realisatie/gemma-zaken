@@ -152,12 +152,8 @@ Componenten dienen events te publiceren naar (een) notificatiecomponent(en)
 
 Elke bron, wat bij de ZGW API's één-op-éen overeen komt met een component
 zoals het ZRC, DRC, BRC, etc., MOETEN hun kanaal registreren bij de NC indien
-dit nog niet bestaat. De volgende kanalen worden op dit moment onderkend:
-
-* ZRC: `zaken`
-* DRC: -
-* BRC: -
-* ZTC: -
+dit nog niet bestaat. Elke bron MOET tevens documenteren op welke kanalen die
+publiceert.
 
 ### Abonneren
 
