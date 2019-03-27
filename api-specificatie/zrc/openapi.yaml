@@ -21,6 +21,12 @@ info:
     genereren.
 
 
+    **Notificaties**
+
+
+    Deze component publiceert notificaties op het kanaal `zaken`.
+
+
     **Handige links**
 
 
@@ -3813,27 +3819,6 @@ paths:
         \ zaak\n- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook\n\
         \  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)\n- `klantcontact`\
         \ - alle klantcontacten bij een zaak"
-      parameters:
-      - name: Accept-Crs
-        in: header
-        description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
-          in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
-          (EPSG:4326 is hetzelfde als WGS84).
-        required: true
-        schema:
-          type: string
-          enum:
-          - EPSG:4326
-      - name: Content-Crs
-        in: header
-        description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
-          vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
-          is hetzelfde als WGS84).
-        required: true
-        schema:
-          type: string
-          enum:
-          - EPSG:4326
       responses:
         '204':
           description: ''

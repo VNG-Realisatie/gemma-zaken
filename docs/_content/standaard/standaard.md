@@ -22,6 +22,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
 - [Filter parameters](#filter-parameters)
+- [Notificaties](#notificaties)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -140,6 +141,48 @@ foutbericht, waarbij de `invalid-params` key meer informatie bevat over de fout.
 
 Indien een parameter wordt toegepast die niet in de OAS van de betreffende API
 staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
+
+## Notificaties
+
+Componenten dienen events te publiceren naar (een) notificatiecomponent(en)
+(NC). De NC MOET volledig de
+[`openapi.yaml`](../../../api-specificatie/nc/openapi.yaml) implementeren.
+
+### Kanalen
+
+Elke bron, wat bij de ZGW API's één-op-éen overeen komt met een component
+zoals het ZRC, DRC, BRC, etc., MOETEN hun kanaal registreren bij de NC indien
+dit nog niet bestaat. Elke bron MOET tevens documenteren op welke kanalen die
+publiceert.
+
+### Abonneren
+
+Consumers MOGEN zich abonneren op kanalen. Een consumer MOET hiervoor een
+endpoint registreren, beveiligd met een `Authorization` header. Bij het
+registeren geeft de consumer een geldige header waarde mee zodat het NC de
+berichten kan afleveren.
+
+Optioneel MAG een abonnement filters bevatten op basis van berichtkenmerken.
+
+### Berichten en kenmerken
+
+Bronnen MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
+bij de endpoints van abonnementen afleveren, conform de filters van het
+abonnement op basis van de kenmerken.
+
+Berichten MOETEN informatie-arm zijn, in het kader van privacy-by-design. Het
+formaat van berichten is beschreven in de NC OAS.
+
+In de documentatie van elke bron MOET beschreven zijn welke kanalen en
+kenmerken geldig zijn. Tevens MOET beschreven zijn welke gebeurtenissen tot
+een notificatie leiden.
+
+### Toekomstige ontwikkelingen
+
+* pollen
+* berichten bewaren (retentie)
+* (gemiste) berichten opvragen
+* abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
 
 ## Zaakregistratiecomponent
 
