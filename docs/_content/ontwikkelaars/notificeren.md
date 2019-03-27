@@ -134,9 +134,14 @@ JWT te genereren.
     * `filters` zijn optioneel. Indien je een filter weglaat, dan geldt dit als
       wildcard.
 
-4. Berichten worden nu naar je eigen endpoint gestuurd, voorbeeld:
+4. Berichten worden nu naar je eigen endpoint gestuurd met een POST request
 
-    ```json
+    ```http
+    POST https://my-consumer.nl/api/callbacks
+
+    Content-Type: application/json
+    Authorization: Token abcde12345
+
     {
       "kanaal": "zaken",
       "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
