@@ -49,6 +49,9 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
   [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
 * [![Build Status][brc-build-status]][brc-stable]
   [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
+* [![Build Status][nc-build-status]][nc-stable]
+  [Notificatiecomponent](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
+
 
 **Ondersteunende tooling**
 
@@ -74,3 +77,5 @@ Copyright © VNG Realisatie 2018
 [brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
 [zit-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaken-test-integratie-master
 [zit-stable]: http://jenkins.nlx.io/job/gemma-zaken-test-integratie-master
+[nc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
+[nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
