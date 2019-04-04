@@ -166,15 +166,13 @@ Maak een bestand aan met de naam `zaak_aanmaken.json`, met de volgende inhoud:
   "bronorganisatie": "291073475",
   "omschrijving": "string",
   "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/f7afd156-c8f5-4666-b8b5-28a4a9b5dfc7/zaaktypen/0119dd4e-7be9-477e-bccf-75023b1453c1",
-  "verantwoordelijkeOrganisatie": "https://www.example.com/api/v1/organisaties/12345",
+  "verantwoordelijkeOrganisatie": "291073475",
   "startdatum": "2018-11-27",
   "uiterlijkeEinddatumAfdoening": "2018-11-27"
 }
 ```
 
-Het `zaaktype` moet daadwerkelijk bestaan. Dat wil zeggen dat de URL 
-daadwerkelijk moet werken. Dit geldt (nog) niet voor 
-`verantwoordelijkeOrganisatie`.
+Het `zaaktype` moet daadwerkelijk bestaan. 
 
 #### Stap 2: Gegevens versturen
 
@@ -185,6 +183,7 @@ plaats van een `GET`-verzoek:
 $ curl \
     -H "Authorization: Bearer <JWT>" \
     -H "Accept-Crs: EPSG:4326" \
+    -H "Content-Crs: EPSG:4326" \
     -H "Content-Type: application/json" \
     --data @zaak_aanmaken.json \
     https://ref.tst.vng.cloud/zrc/api/v1/zaken
