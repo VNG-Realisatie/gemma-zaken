@@ -5,6 +5,7 @@ VNG | ZGW 2.0 | Eddy Timmer | Scrum Master
 VNG | ZGW 2.0 | Wishal Gokoel | Project manager / Contactpersoon
 VNG / Maykin Media | ZGW 2.0 | Sergei Maertens | Ontwikkelaar
 VNG / Maykin Media | ZGW 2.0 | Joeri Bekker | Ontwikkelaar
+VNG | ZGW 2.0 | Henri Korver | Architect/Product Owner API-testvoorziening
 VNG | ZGW 2.0 | Ivo Hendriks | Architect
 VNG | ZGW 2.0 | Remko de Haas | Informatie-Architect
 Gemeente Haarlem | ZGW 2.0 | Bas de Boer | Stakeholder
