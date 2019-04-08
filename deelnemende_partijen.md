@@ -8,8 +8,9 @@ VNG / Maykin Media | ZGW 2.0 | Joeri Bekker | Ontwikkelaar
 VNG | ZGW 2.0 | Henri Korver | Architect/Product Owner API-testvoorziening
 VNG | ZGW 2.0 | Ivo Hendriks | Architect
 VNG | ZGW 2.0 | Remko de Haas | Informatie-Architect
+Gemeente Delft | ZGW 2.0 | Edwin Koster | Stakeholder
 Gemeente Haarlem | ZGW 2.0 | Bas de Boer | Stakeholder
 Gemeente Delft | ZGW 2.0 | Rita Berghuis | Stakeholder
 Gemeente Utrecht | ZGW 2.0 | Constantijn Masselink | Stakeholder
-Gemeente Amsterdam | ZGW 2.0 | Marcel Moermans | Stakeholder
+Gemeente Amsterdam | ZGW 2.0 | Marcel Moerman | Stakeholder
 Gemeente Rotterdam | ZGW 2.0 | Ruub van der Klip | Stakeholder
