@@ -96,16 +96,15 @@ te faciliteren.
 - [Scrum ZGW Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
   Op dit board is terug te vinden welke user story gereed was in welke sprint.
 
-- [Organisatie & Impediments](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
-  Op dit board bewaakt het team de voortgang van niet-inhoudelijke actiepunten
-  en blokkades.
-
+- [Out of scope](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
+  Op dit bord komen alle user stories die buiten scope zijn voor ZGW API's en die functionaliteit beschrijven voor gebruik van de ZGW API's buiten zaakgericht werken. Voor elke API die buiten ZGW kan worden gebruikt is er een kolom. Op dit moment zijn dat Documenten API en Besluiten API.
+  
 ### Review
 
 Zowel het board
 [Scrum ZGW Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
 als
-[Scrum ZGW Realisatie](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+[Scrum ZGW Realisatie Sprint x](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
 bevat een kolom voor review. Tijdens de voorbereiding worden user stories
 klaargemaakt om in een volgende sprint uitgevoerd te worden. Daar hoort een
 review bij: voldoet de user story aan de Definition of Ready? Na de realisatie
