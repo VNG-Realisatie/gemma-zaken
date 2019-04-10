@@ -5,20 +5,20 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: rabbitmq-nc
+  name: rabbitmq-nrc
   namespace: gemma
   labels:
-    k8s-app: rabbitmq-nc
+    k8s-app: rabbitmq-nrc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: rabbitmq-nc
+      k8s-app: rabbitmq-nrc
   template:
     metadata:
-      name: rabbitmq-nc
+      name: rabbitmq-nrc
       labels:
-        k8s-app: rabbitmq-nc
+        k8s-app: rabbitmq-nrc
     spec:
       containers:
       - name: rabbitmq
@@ -36,13 +36,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: rabbitmq-nc
+  name: rabbitmq-nrc
   namespace: gemma
   labels:
-    k8s-app: rabbitmq-nc
+    k8s-app: rabbitmq-nrc
 spec:
   selector:
-    k8s-app: rabbitmq-nc
+    k8s-app: rabbitmq-nrc
   ports:
   - protocol: TCP
     port: 5672

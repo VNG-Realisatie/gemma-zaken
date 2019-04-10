@@ -144,9 +144,9 @@ staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 
 ## Notificaties
 
-Componenten dienen events te publiceren naar (een) notificatiecomponent(en)
-(NC). De NC MOET volledig de
-[`openapi.yaml`](../../../api-specificatie/nc/openapi.yaml) implementeren.
+Componenten dienen events te publiceren naar (een)
+notificatierouteringcomponent(en) (NRC). De NRC MOET volledig de
+[`openapi.yaml`](../../../api-specificatie/nrc/openapi.yaml) implementeren.
 
 ### Kanalen
 

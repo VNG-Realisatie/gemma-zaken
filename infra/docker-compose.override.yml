@@ -17,6 +17,6 @@ services:
     ports:
       - "${BRC_UWSGI_PORT:-8003}:8000"
 
-  nc_web:
+  nrc_web:
     ports:
-      - "${NC_UWSGI_PORT:-8004}:8000"
+      - "${NRC_UWSGI_PORT:-8004}:8000"
