@@ -36,6 +36,10 @@ spec:
             value: <REDACTED>
           - name: PUBLISH_BROKER_URL
             value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672/%2F
+          - name: CELERY_BROKER_URL
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
+          - name: CELERY_RESULT_BACKEND
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
           - name: SENTRY_DSN
             value: <REDACTED>
 
