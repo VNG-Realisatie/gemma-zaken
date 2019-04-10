@@ -26,5 +26,5 @@ Meer hierover in de [introductie](introductie/index) en de
 
 De standaard staat [hier](/standaard/standaard) beschreven. Ontwikkelaars
 kunnen [direct aan de slag](ontwikkelaars/aan-de-slag) met de beschikbare 
-[APIs](standaard/apis/index) en de implementaties van de referentie componenten. 
+[API's](standaard/apis/index) en de implementaties van de referentie componenten. 
 Hoe we samen komen tot API-standaarden, kunt [hier](community/bijdragen) lezen.
