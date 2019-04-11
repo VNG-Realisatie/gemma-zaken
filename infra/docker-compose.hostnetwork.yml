@@ -66,5 +66,15 @@ services:
       - DB_HOST=localhost
       - DB_PORT=${NRC_DB_PORT:-5440}
       - UWSGI_PORT=${NRC_UWSGI_PORT:-8004}
+      - PUBLISH_BROKER_URL=amqp://guest:guest@localhost:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@localhost:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@localhost:5672//
     expose:
       - "${NRC_UWSGI_PORT:-8004}"
+
+  nrc_celery:
+    network_mode: host
+    environment:
+      - PUBLISH_BROKER_URL=amqp://guest:guest@localhost:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@localhost:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@localhost:5672//
