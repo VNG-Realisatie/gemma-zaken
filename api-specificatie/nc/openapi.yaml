@@ -1348,31 +1348,16 @@ components:
       scheme: bearer
       type: http
   schemas:
-    Filter:
-      required:
-      - key
-      - value
-      type: object
-      properties:
-        key:
-          title: Sleutel
-          type: string
-          maxLength: 100
-          minLength: 1
-        value:
-          title: Waarde
-          type: string
-          maxLength: 1000
-          minLength: 1
     FilterGroup:
       required:
       - naam
       type: object
       properties:
         filters:
-          type: array
-          items:
-            $ref: '#/components/schemas/Filter'
+          title: Filters
+          type: object
+          additionalProperties:
+            type: string
         naam:
           title: Naam
           type: string
@@ -1584,10 +1569,9 @@ components:
           type: string
           format: date-time
         kenmerken:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              type: string
-              maxLength: 1000
-              minLength: 1
+          title: Kenmerken
+          type: object
+          additionalProperties:
+            type: string
+            maxLength: 1000
+            minLength: 1
