@@ -17,11 +17,11 @@ services:
     network_mode: host
     command: postgres -p ${BRC_DB_PORT:-5439}
 
-  nc_db:
+  nrc_db:
     network_mode: host
-    command: postgres -p ${NC_DB_PORT:-5440}
+    command: postgres -p ${NRC_DB_PORT:-5440}
 
-  nc_rabbitmq:
+  nrc_rabbitmq:
     network_mode: host
 
   zrc_web:
@@ -60,11 +60,21 @@ services:
     expose:
       - "${BRC_UWSGI_PORT:-8003}"
 
-  nc_web:
+  nrc_web:
     network_mode: host
     environment:
       - DB_HOST=localhost
-      - DB_PORT=${NC_DB_PORT:-5440}
-      - UWSGI_PORT=${NC_UWSGI_PORT:-8004}
+      - DB_PORT=${NRC_DB_PORT:-5440}
+      - UWSGI_PORT=${NRC_UWSGI_PORT:-8004}
+      - PUBLISH_BROKER_URL=amqp://guest:guest@localhost:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@localhost:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@localhost:5672//
     expose:
-      - "${NC_UWSGI_PORT:-8004}"
+      - "${NRC_UWSGI_PORT:-8004}"
+
+  nrc_celery:
+    network_mode: host
+    environment:
+      - PUBLISH_BROKER_URL=amqp://guest:guest@localhost:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@localhost:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@localhost:5672//

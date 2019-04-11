@@ -1,0 +1,46 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: nrc-celery
+  namespace: gemma
+  labels:
+    k8s-app: nrc-celery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: nrc-celery
+  template:
+    metadata:
+      name: nrc-celery
+      labels:
+        k8s-app: nrc-celery
+    spec:
+      containers:
+      - name: nrc-celery
+        image: vngr/gemma-notifications:0.4.0
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: notifications.conf.docker
+          - name: SUBPATH
+            value: /nrc
+          - name: DB_HOST
+            value: postgres-nrc
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DB_PASSWORD
+            value: <REDACTED>
+          - name: SENTRY_DSN
+            value: <REDACTED>
+          - name: PUBLISH_BROKER_URL
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672/%2F
+          - name: CELERY_BROKER_URL
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
+          - name: CELERY_RESULT_BACKEND
+            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
+        command: ["celery"]
+        args: ["worker", "--app", "notifications", "-l", "info", "--workdir", "src"]

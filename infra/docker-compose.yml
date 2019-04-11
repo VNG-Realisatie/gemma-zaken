@@ -27,13 +27,13 @@ services:
     volumes:
       - brc_postgres_data:/var/lib/postgresql/data
 
-  nc_db:
+  nrc_db:
     image: postgres:10
     volumes:
-      - nc_postgres_data:/var/lib/postgresql/data
+      - nrc_postgres_data:/var/lib/postgresql/data
 
   # brokers
-  nc_rabbitmq:
+  nrc_rabbitmq:
     image: rabbitmq:3.7-alpine
 
   # web
@@ -76,16 +76,32 @@ services:
     depends_on:
       - brc_db
 
-  nc_web:
+  nrc_web:
     image: vngr/gemma-notifications:latest
     environment:
       - DJANGO_SETTINGS_MODULE=notifications.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
-      - DB_HOST=nc_db
-      - PUBLISH_BROKER_URL=amqp://guest:guest@nc_rabbitmq:5672/%2F
+      - DB_HOST=nrc_db
+      - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
     depends_on:
-      - nc_db
-      - nc_rabbitmq
+      - nrc_db
+      - nrc_rabbitmq
+
+  nrc_celery:
+    image: vngr/gemma-notifications:latest
+    environment:
+      - DJANGO_SETTINGS_MODULE=notifications.conf.docker
+      - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
+      - DB_HOST=nrc_db
+      - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
+      - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
+      - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
+    command: celery worker --app=notifications -l info --workdir=src
+    depends_on:
+      - nrc_db
+      - nrc_rabbitmq
 
 volumes:
   zrc_postgres_data:
@@ -93,4 +109,4 @@ volumes:
   drc_media:
   ztc_postgres_data:
   brc_postgres_data:
-  nc_postgres_data:
+  nrc_postgres_data:

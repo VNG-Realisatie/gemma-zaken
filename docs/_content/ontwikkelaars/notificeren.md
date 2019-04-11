@@ -4,10 +4,10 @@ date: '27-03-2019'
 weight: 110
 ---
 
-Als component moet je events publiceren naar een notificatiecomponent (NC), of
-je wil kunnen acteren op events. Deze guide helpt je op weg.
+Als component moet je events publiceren naar een notificatierouteringcomponent
+(NRC), of je wil kunnen acteren op events. Deze guide helpt je op weg.
 
-Als uitgangspunt wordt de [gehoste notificatiecomponent](https://ref.tst.vng.cloud/nc/)
+Als uitgangspunt wordt de [gehoste notificatiecomponent](https://ref.tst.vng.cloud/nrc/)
 gebruikt.
 
 Er zijn twee perspectieven:
@@ -27,7 +27,7 @@ JWT te genereren.
    query te doen:
 
    ```http
-   GET https://ref.tst.vng.cloud/nc/api/v1/kanaal?naam=zaken HTTP/1.0
+   GET https://ref.tst.vng.cloud/nrc/api/v1/kanaal?naam=zaken HTTP/1.0
    Authorization: Bearer abcd1234
    ```
 
@@ -37,7 +37,7 @@ JWT te genereren.
 3. Registreer het kanaal (indien het nog niet bestaat)
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/kanaal HTTP/1.0
+    POST https://ref.tst.vng.cloud/nrc/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -59,7 +59,7 @@ JWT te genereren.
 4. Verstuur een bericht
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/notificaties HTTP/1.0
+    POST https://ref.tst.vng.cloud/nrc/api/v1/notificaties HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -96,14 +96,14 @@ JWT te genereren.
 2. Vraag op welke kanalen beschikbaar zijn:
 
     ```http
-    GET https://ref.tst.vng.cloud/nc/api/v1/kanaal HTTP/1.0
+    GET https://ref.tst.vng.cloud/nrc/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     ````
 
 3. Registreer je abonnement bij het NC:
 
     ```http
-    POST https://ref.tst.vng.cloud/nc/api/v1/abonnement HTTP/1.0
+    POST https://ref.tst.vng.cloud/nrc/api/v1/abonnement HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 

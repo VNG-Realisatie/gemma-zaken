@@ -1,5 +1,5 @@
 ---
-title: "Notificaties API | Notificatiecomponent (NC)"
+title: "Notificaties API | Notificatierouteringcomponent (NRC)"
 date: '27-03-2019'
 weight: 110
 ---
@@ -19,7 +19,7 @@ Het ondersteunt:
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/nc/api/v1/schema/)
+* [API-specificatie](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
