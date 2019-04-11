@@ -28,6 +28,7 @@ JWT te genereren.
 
    ```http
    GET https://ref.tst.vng.cloud/nc/api/v1/kanaal?naam=zaken HTTP/1.0
+   Authorization: Bearer abcd1234
    ```
 
    Indien een lege lijst terugkomt, dan bestaat het kanaal nog niet. Indien het
@@ -69,11 +70,11 @@ JWT te genereren.
       "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
       "actie": "create",
       "aanmaakdatum": "2019-03-27T10:59:13Z",
-      "kenmerken": [
-        {"bronorganisatie": "224557609"},
-        {"zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164"},
-        {"vertrouwelijkheidaanduiding": "openbaar"}
-      ]
+      "kenmerken": {
+        "bronorganisatie": "224557609",
+        "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+        "vertrouwelijkheidaanduiding": "openbaar"
+      }
     }
     ```
 
@@ -87,6 +88,10 @@ JWT te genereren.
    staat in de API spec en in stap 4 van
    [Notificaties publiceren](#ik-wil-als-bron-notificaties-publiceren). Voor
    het vervolg nemen we aan dat dit beschikbaar is op `https://my-consumer.nl/api/callbacks`
+
+   Indien je geen publiek endpoint kan bouwen, kun je overwegen om de
+   [webhook-site][webhook-site] te gebruiken waar notificaties naartoe gestuurd
+   worden.
 
 2. Vraag op welke kanalen beschikbaar zijn:
 
@@ -108,9 +113,9 @@ JWT te genereren.
       "kanalen": [
         {
           "naam": "zaken",
-          "filters": [
-            {"bronorganisatie": "224557609"}
-          ]
+          "filters": {
+            "bronorganisatie": "224557609"
+          }
         }
       ]
     }
@@ -144,12 +149,13 @@ JWT te genereren.
       "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
       "actie": "create",
       "aanmaakdatum": "2019-03-27T10:59:13Z",
-      "kenmerken": [
-        {"bronorganisatie": "224557609"},
-        {"zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164"},
-        {"vertrouwelijkheidaanduiding": "openbaar"}
-      ]
+      "kenmerken": {
+        "bronorganisatie": "224557609",
+        "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+        "vertrouwelijkheidaanduiding": "openbaar"
+      }
     }
     ```
 
 [token-generator]: https://ref.tst.vng.cloud/tokens/
+[webhook-site]: https://webhook.site
