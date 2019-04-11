@@ -89,6 +89,10 @@ JWT te genereren.
    [Notificaties publiceren](#ik-wil-als-bron-notificaties-publiceren). Voor
    het vervolg nemen we aan dat dit beschikbaar is op `https://my-consumer.nl/api/callbacks`
 
+   Indien je geen publiek endpoint kan bouwen, kun je overwegen om de
+   [webhook-site][webhook-site] te gebruiken waar notificaties naartoe gestuurd
+   worden.
+
 2. Vraag op welke kanalen beschikbaar zijn:
 
     ```http
@@ -154,3 +158,4 @@ JWT te genereren.
     ```
 
 [token-generator]: https://ref.tst.vng.cloud/tokens/
+[webhook-site]: https://webhook.site
