@@ -103,7 +103,7 @@ We definieren 1 zaaktype dat is gebaseerd op een procestype uit de
    * **Omschrijving**: Melding Openbare Ruimte
    * **Doorlooptijd behandeling**: 30 00:00:00
    * **Versiedatum**: 01-01-2019
-   * **Maakt deel uit van**: *<de catalogus uit de stap hierboven>*
+   * **Maakt deel uit van**: `<de catalogus uit de stap hierboven>`
    * **Datum begin geldigheid**: 01-01-2019
    * **Selectielijst procestype**: https://ref.tst.vng.cloud/referentielijsten/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20
  
@@ -132,7 +132,7 @@ We definieren 1 zaaktype dat is gebaseerd op een procestype uit de
 2. Vul alle verplichte velden in maar hanteer voor onderstaande velden de
    volgende waarden:
 
-   * **Is relevant voor**: *<het zaaktype uit de stap hierboven>*
+   * **Is relevant voor**: `<het zaaktype uit de stap hierboven>`
    * **Omschrijving**: Afgewezen
    * **Resultaattypeomschrijving**: https://ref.tst.vng.cloud/referentielijsten/api/v1/resultaattypeomschrijvingen/e6a0c939-3404-45b0-88e3-76c94fb80ea7
    * **Selectielijstklasse**: https://ref.tst.vng.cloud/referentielijsten/api/v1/resultaten/65559080-1d2b-4ddf-8966-b620e4ec224e
@@ -180,7 +180,7 @@ af te sluiten (afgerond).
    volgende waarden:
 
    * **Omschrijving**: Nieuw
-   * **Is van**: *<het zaaktype uit de stap hierboven>*
+   * **Is van**: `<het zaaktype uit de stap hierboven>`
    * **Datum begin geldigheid**: 01-01-2019
  
 3. Klik op **Opslaan en nieuwe toevoegen**.
@@ -189,7 +189,7 @@ af te sluiten (afgerond).
    volgende waarden:
 
    * **Omschrijving**: Afgerond
-   * **Is van**: *<het zaaktype uit de stap hierboven>*
+   * **Is van**: `<het zaaktype uit de stap hierboven>`
    * **Datum begin geldigheid**: 01-01-2019
 
 5. Klik op **Opslaan**.
