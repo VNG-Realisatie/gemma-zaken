@@ -40,14 +40,14 @@ uitgebreide variant staat bij [notificeren](notificeren).
    
 2. Maak in de webinterface van het ZRC een "API Credential" aan voor het ZTC:
 
-   * **API root**: http://<ztc ip>:8002/api/v1
+   * **API root**: `http://<ztc ip>:8002/api/v1`
    * **Client ID**: demo
    * **Secret**: foobar
 
 3. Maak in de webinterface van het ZRC een "Notificatiescomponentconfiguratie"
    aan:
 
-   * **API root**: http://<nrc ip>:8004/api/v1
+   * **API root**: `http://<nrc ip>:8004/api/v1`
    * **Client ID**: demo
    * **Secret**: foobar
 
