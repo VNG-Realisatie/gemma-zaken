@@ -59,10 +59,10 @@ uitgebreide variant staat bij [notificeren](notificeren).
    # Registered kanaal 'zaken' with http://<ip>:8004/api/v1
    ```
 
-5. Gebruik onderstaand JWT token als `Bearer header`:
+5. Gebruik onderstaand JWT token als `Authorization header`:
    
    ```
-   eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZGVtbyJ9.eyJpc3MiOiJkZW1vIiwiaWF0IjoxNTQ0NTMxNDAxLCJ6ZHMiOnsic2NvcGVzIjpbInpkcy5zY29wZXMuc3RhdHVzc2VuLnRvZXZvZWdlbiIsInpkcy5zY29wZXMuemFha3R5cGVzLmxlemVuIiwiemRzLnNjb3Blcy56YWtlbi5hYW5tYWtlbiIsInpkcy5zY29wZXMuemFrZW4uYmlqd2Vya2VuIiwiemRzLnNjb3Blcy56YWtlbi5sZXplbiJdLCJ6YWFrdHlwZXMiOlsiKiJdfX0.KClYEmg_WVVH53MQ6EL0WPie5xiYLAaeq_yG-LrY_Vs
+   Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZGVtbyJ9.eyJpc3MiOiJkZW1vIiwiaWF0IjoxNTQ0NTMxNDAxLCJ6ZHMiOnsic2NvcGVzIjpbInpkcy5zY29wZXMuc3RhdHVzc2VuLnRvZXZvZWdlbiIsInpkcy5zY29wZXMuemFha3R5cGVzLmxlemVuIiwiemRzLnNjb3Blcy56YWtlbi5hYW5tYWtlbiIsInpkcy5zY29wZXMuemFrZW4uYmlqd2Vya2VuIiwiemRzLnNjb3Blcy56YWtlbi5sZXplbiJdLCJ6YWFrdHlwZXMiOlsiKiJdfX0.KClYEmg_WVVH53MQ6EL0WPie5xiYLAaeq_yG-LrY_Vs
    ```
    
 ## Aan de slag
@@ -73,11 +73,11 @@ Het IP-adres uit de ['aan de slag'](../aan-de-slag) voorbereiding is hier
 nodig om de componenten via de browser aan te spreken.
 
 Open in je browser `http://<ztc ip>:8002/admin/` en log in met je 
-gebruikersnaam en wachtwoord uit de vorige stap.
+gebruikersnaam en wachtwoord.
 
 #### Catalogus aanmaken
 
-Een catalogus fungeert als een verzamenling voor alle Zaaktypen bij een 
+Een catalogus fungeert als een verzameling voor alle Zaaktypen bij een 
 gemeente.
 
 1. Navigeer naar **Catalogussen** en klik op **Toevoegen**.
@@ -297,10 +297,8 @@ fungeren als de unieke identificatie van verschillende typen.
 2. Zet de initiele Status van de Zaak:
 
    ```http
-   POST http://<zrc ip>:8000/api/v1/zaken HTTP/1.0
+   POST http://<zrc ip>:8000/api/v1/statussen HTTP/1.0
    Authorization: Bearer abcd1234
-   Accept-Crs: EPSG:4326
-   Content-Crs: EPSG:4326
    Content-Type: application/json
 
    {
@@ -319,6 +317,7 @@ fungeren als de unieke identificatie van verschillende typen.
    ```http
    GET <zaak_url> HTTP/1.0
    Authorization: Bearer abcd1234
+   Accept-Crs: EPSG:4326
    ```
    
    *Voorbeeld (deel van) antwoord*
@@ -354,10 +353,8 @@ fungeren als de unieke identificatie van verschillende typen.
    bij het afsluiten van de zaak worden toegepast.
    
    ```http
-   POST http://<zrc ip>:8000/api/v1/zaken HTTP/1.0
+   POST http://<zrc ip>:8000/api/v1/resultaten HTTP/1.0
    Authorization: Bearer abcd1234
-   Accept-Crs: EPSG:4326
-   Content-Crs: EPSG:4326
    Content-Type: application/json
 
    {
@@ -370,10 +367,8 @@ fungeren als de unieke identificatie van verschillende typen.
 3. Zet de laatste Status van de Zaak, waarmee de Zaak wordt gesloten:
 
    ```http
-   POST http://<zrc ip>:8000/api/v1/zaken HTTP/1.0
+   POST http://<zrc ip>:8000/api/v1/statussen HTTP/1.0
    Authorization: Bearer abcd1234
-   Accept-Crs: EPSG:4326
-   Content-Crs: EPSG:4326
    Content-Type: application/json
 
    {
@@ -393,6 +388,7 @@ fungeren als de unieke identificatie van verschillende typen.
    ```http
    GET <zaak_url> HTTP/1.0
    Authorization: Bearer abcd1234
+   Accept-Crs: EPSG:4326
    ```
    
    *Voorbeeld (deel van) antwoord*
