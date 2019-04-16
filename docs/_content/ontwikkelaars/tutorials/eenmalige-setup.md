@@ -74,12 +74,12 @@ nodig om de componenten via de browser aan te spreken.
 
 ### ZRC
 
-1. Open in je browser `http://<ip>:8000/admin/` en log in met je gebruikersnaam
-   en wachtwoord uit de vorige stap.
+1. Open in je browser `http://<zrc-ip>:8000/admin/` en log in met je 
+   gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
 
-3. Wijzig 'Domeinnaam' naar `<ip>:8000` en wijzig 'Weergavenaam' naar `ZRC`
+3. Wijzig 'Domeinnaam' naar `<zrc-ip>:8000` en wijzig 'Weergavenaam' naar `ZRC`
 
 4. Sla de wijzigingen op
 
@@ -101,7 +101,7 @@ nodig om de componenten via de browser aan te spreken.
 
 9. Configureer credentials voor het NRC:
 
-    * Vul bij **Api root** het adres van het NRC in: `http://<ip>:8004/api/v1`
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -109,7 +109,7 @@ nodig om de componenten via de browser aan te spreken.
 
 10. Configureer credentials voor het DRC:
 
-    * Vul bij **Api root** het adres van het DRC in: `http://<ip>:8001/api/v1`
+    * Vul bij **Api root** het adres van het DRC in: `http://<drc-ip>:8001/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -117,7 +117,7 @@ nodig om de componenten via de browser aan te spreken.
 
 11. Configureer credentials voor het ZTC:
 
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ip>:8002/api/v1`
+    * Vul bij **Api root** het adres van het ZTC in: `http://<ztc-ip>:8002/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -127,17 +127,17 @@ nodig om de componenten via de browser aan te spreken.
 
 13. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
 
-14. Wijzig de **Api root** naar `http://<ip>:8004/api/v1` - dit is je eigen,
+14. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
     lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
 
 ### DRC
 
-1. Open in je browser `http://<ip>:8001/admin/` en log in met je gebruikersnaam
-   en wachtwoord uit de vorige stap.
+1. Open in je browser `http://<drc-ip>:8001/admin/` en log in met je 
+   gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
 
-3. Wijzig 'Domeinnaam' naar `<ip>:8001` en wijzig 'Weergavenaam' naar `DRC`
+3. Wijzig 'Domeinnaam' naar `<drc-ip>:8001` en wijzig 'Weergavenaam' naar `DRC`
 
 4. Sla de wijzigingen op
 
@@ -159,7 +159,7 @@ nodig om de componenten via de browser aan te spreken.
 
 9. Configureer credentials voor het NRC:
 
-    * Vul bij **Api root** het adres van het NRC in: `http://<ip>:8004/api/v1`
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -167,7 +167,7 @@ nodig om de componenten via de browser aan te spreken.
 
 10. Configureer credentials voor het ZRC:
 
-    * Vul bij **Api root** het adres van het ZRC in: `http://<ip>:8000/api/v1`
+    * Vul bij **Api root** het adres van het ZRC in: `http://<zrc-ip>:8000/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -175,7 +175,7 @@ nodig om de componenten via de browser aan te spreken.
 
 11. Configureer credentials voor het ZTC:
 
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ip>:8002/api/v1`
+    * Vul bij **Api root** het adres van het ZTC in: `http://<ztc-ip>:8002/api/v1`
     * Vul bij **Client id** het _Client ID_ in
     * Vul bij **Secret** het _Secret_ in
 
@@ -185,17 +185,17 @@ nodig om de componenten via de browser aan te spreken.
 
 13. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
 
-14. Wijzig de **Api root** naar `http://<ip>:8004/api/v1` - dit is je eigen,
+14. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
     lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
 
 ### ZTC
 
-1. Open in je browser `http://<ip>:8002/admin/` en log in met je gebruikersnaam
-   en wachtwoord uit de vorige stap.
+1. Open in je browser `http://<ztc-ip>:8002/admin/` en log in met je 
+   gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **MISCELLANEOUS** > **Sites** en klik `example.com` aan.
 
-3. Wijzig 'Domeinnaam' naar `<ip>:8002` en wijzig 'Weergavenaam' naar `ZTC`
+3. Wijzig 'Domeinnaam' naar `<ztc-ip>:8002` en wijzig 'Weergavenaam' naar `ZTC`
 
 4. Sla de wijzigingen op
 
@@ -211,8 +211,8 @@ nodig om de componenten via de browser aan te spreken.
 
 ### NRC
 
-1. Open in je browser `http://<ip>:8004/admin/` en log in met je gebruikersnaam
-   en wachtwoord uit de vorige stap.
+1. Open in je browser `http://<nrc-ip>:8004/admin/` en log in met je 
+   gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
    op **JWT Secret toevoegen**
@@ -229,12 +229,12 @@ command prompt:
 
 ```bash
 docker-compose exec zrc_web src/manage.py register_kanaal
-# Registered kanaal 'zaken' with http://<ip>:8004/api/v1
+# Registered kanaal 'zaken' with http://<nrc-ip>:8004/api/v1
 ```
 
 ```bash
 docker-compose exec drc_web src/manage.py register_kanaal
-# Registered kanaal 'documenten' with http://<ip>:8004/api/v1
+# Registered kanaal 'documenten' with http://<nrc-ip>:8004/api/v1
 ```
 
 

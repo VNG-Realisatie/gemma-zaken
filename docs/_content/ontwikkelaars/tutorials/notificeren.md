@@ -31,13 +31,15 @@ De volgende componenten zijn meest relevant:
 
 * Familiariteit met webhooks is een plus
 
+## Aan de slag
+
 ### Ontvangen en versturen van notificaties
 
 Het ZRC en DRC versturen notificaties naar het NRC. Het NRC distribueert deze
 vervolgens naar de abonnees.
 
 De notificaties zijn inzichtelijk gemaakt op het NRC - ga naar
-`http://<ip>:8004` en klik op de homepage op de 'Logviewer'.
+`http://<nrc-ip>:8004` en klik op de homepage op de 'Logviewer'.
 
 Er zijn twee perspectieven:
 
@@ -69,14 +71,14 @@ JWT te genereren.
 2. Vraag op welke kanalen beschikbaar zijn:
 
    ```http
-   GET http://<ip>:8004/api/v1/kanaal HTTP/1.0
+   GET http://<nrc-ip>:8004/api/v1/kanaal HTTP/1.0
    Authorization: Bearer abcd1234
     ````
 
-3. Registreer je abonnement bij het NC:
+3. Registreer je abonnement bij het NRC:
 
    ```http
-   POST http://<ip>:8004/api/v1/abonnement HTTP/1.0
+   POST http://<nrc-ip>:8004/api/v1/abonnement HTTP/1.0
    Authorization: Bearer abcd1234
    Content-Type: application/json
 
@@ -98,7 +100,7 @@ JWT te genereren.
       notificaties wenst op te ontvangen
 
     * `auth` is de waarde van de `Authorization` header om je _eigen_ endpoint
-      te kunnen benaderen. Deze waarde wordt gebruikt door het NC om berichten
+      te kunnen benaderen. Deze waarde wordt gebruikt door het NRC om berichten
       af te leveren. Voor `webhook.site` kan een dummy waarde gebruikt worden.
 
     * `kanalen` is een lijst van kanalen waarop je wenst te abonneren, met de

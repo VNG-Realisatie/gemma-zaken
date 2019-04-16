@@ -26,45 +26,9 @@ De volgende componenten zijn meest relevant:
   extra commando's in een tweede prompt ernaast uit te voeren. Zorg dat beide
   prompts zich in de juiste directory bevinden: `/pad/naar/gemma-zaken/infra`.
 
+* De [eenmalige setup](../eenmalige-setup) is uitgevoerd.
+
 * Toegang tot de publieke [VNG Referentielijsten API].
-
-## Eenmalige setup na het opstarten van de containers
-
-Hieronder staat kort de configuratie die we gebruiken voor deze tutorial. De
-uitgebreide variant staat bij [notificeren](notificeren).
-
-1. Maak een "JWT Secret" aan in de webinterface van het ZRC, ZTC en NRC,
-   bijvoorbeeld overal dezelfde:
-
-   * **Identifier**: demo
-   * **Secret**: foobar
-
-2. Maak in de webinterface van het ZRC een "API Credential" aan voor het ZTC:
-
-   * **API root**: `http://<ztc-ip>:8002/api/v1`
-   * **Client ID**: demo
-   * **Secret**: foobar
-
-3. Maak in de webinterface van het ZRC een "Notificatiescomponentconfiguratie"
-   aan:
-
-   * **API root**: `http://<nrc ip>:8004/api/v1`
-   * **Client ID**: demo
-   * **Secret**: foobar
-
-4. Het ZRC moet zijn notificatiekanaal registeren. Dit kan in de command
-   prompt:
-
-   ```bash
-   docker-compose exec zrc_web src/manage.py register_kanaal
-   # Registered kanaal 'zaken' with http://<ip>:8004/api/v1
-   ```
-
-5. Gebruik onderstaand JWT token als `Authorization header`:
-
-   ```
-   Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZGVtbyJ9.eyJpc3MiOiJkZW1vIiwiaWF0IjoxNTQ0NTMxNDAxLCJ6ZHMiOnsic2NvcGVzIjpbInpkcy5zY29wZXMuc3RhdHVzc2VuLnRvZXZvZWdlbiIsInpkcy5zY29wZXMuemFha3R5cGVzLmxlemVuIiwiemRzLnNjb3Blcy56YWtlbi5hYW5tYWtlbiIsInpkcy5zY29wZXMuemFrZW4uYmlqd2Vya2VuIiwiemRzLnNjb3Blcy56YWtlbi5sZXplbiJdLCJ6YWFrdHlwZXMiOlsiKiJdfX0.KClYEmg_WVVH53MQ6EL0WPie5xiYLAaeq_yG-LrY_Vs
-   ```
 
 ## Aan de slag
 
@@ -256,8 +220,8 @@ fungeren als de unieke identificatie van verschillende typen.
            "<statustype afgerond url>"
        ],
        "resultaattypen": [
-           "<resultaattype url>",
-       ],
+           "<resultaattype url>"
+       ]
     }
     ```
 
@@ -341,7 +305,7 @@ fungeren als de unieke identificatie van verschillende typen.
        "archiefnominatie": null,
        "archiefstatus": "nog_te_archiveren",
        "archiefactiedatum": null,
-       "resultaat": null,
+       "resultaat": null
     }
     ```
 
