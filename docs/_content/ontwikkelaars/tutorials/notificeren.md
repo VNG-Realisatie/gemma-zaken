@@ -146,5 +146,5 @@ JWT te genereren.
 De [technische notificaties achtergrond](../algemeen/notificaties) bevat de
 design-standpunten en onderkent de limitaties en risico's van deze aanpak.
 
-[Hier](./notificeren.pptx) zijn de slides te vinden die gegeven is op het
+[Hier](./notificeren.pptx) is de presentatie te vinden die gegeven is op het
 API-lab.

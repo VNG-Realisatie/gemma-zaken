@@ -446,6 +446,9 @@ Hierna hebben we een Zaak afgehandeld:
 De [technische achtergrond](../algemeen/archiveren) bevat meer informatie
 omtrent alle andere scenario's bedoeld om de `archiefactiedatum` te bepalen.
 
+[Hier](./archiveren.pptx) is de presentatie te vinden die gegeven is op het
+API-lab.
+
 
 [Selectielijst gemeenten]: https://vng.nl/selectielijst
 [VNG Referentielijsten API]: https://ref.tst.vng.cloud/referentielijsten/api/v1/
