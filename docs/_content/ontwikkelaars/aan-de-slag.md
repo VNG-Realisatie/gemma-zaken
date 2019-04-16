@@ -18,7 +18,7 @@ start te gaan. Ga anders naar de **Voorbereiding**.
 $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
 $ cd gemma-zaken/infra
 $ docker-compose pull
-$ docker-compose up -d
+$ docker-compose up
 ```
 
 
@@ -92,7 +92,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
    ```bash
    $ docker-compose pull  # update naar nieuwste versie
-   $ docker-compose up -d
+   $ docker-compose up
    ```
 
 4. Vind en gebruik het juiste IP:
@@ -145,6 +145,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    * DRC: `http://<ip>:8001`
    * ZTC: `http://<ip>:8002`
    * BRC: `http://<ip>:8003`
+   * NRC: `http://<ip>:8004`
 
 5. Admin aanmaken voor elk referentie component
 
@@ -293,6 +294,7 @@ normaal. De componenten zouden moeten bereikbaar zijn op:
 - `10.x.y.2:8001`
 - `10.x.y.2:8002`
 - `10.x.y.2:8003`
+- `10.x.y.2:8004`
 
 #### Host network
 
@@ -304,7 +306,7 @@ zorgt ervoor dat containers met elkaar kunnen verbinden, ook als URLs naar
 Gebruik:
 
 ```bash
-$ docker-compose -f docker-compose.yml -f docker-compose.hostnetwork.yml up -d
+$ docker-compose -f docker-compose.yml -f docker-compose.hostnetwork.yml up
 ```
 
 De `-f` optie specifieert welke config files voor `docker-compose` gebruikt
@@ -317,6 +319,7 @@ op je lokale machine. Concreet gaat het om:
 * 5437, 8001 voor het DRC
 * 5438, 8002 voor het ZTC
 * 5439, 8003 voor het BRC
+* 5440, 8004 voor het NRC
 
 Je kan deze poorten aanpassen, indien gewenst. Dit doe je door een bestand
 `.env` aan te maken in de map `infra` (=zelfde locatie waar je `docker-compose up`
@@ -336,6 +339,9 @@ ZTC_UWSGI_PORT=8002
 
 BRC_DB_PORT=5439
 BRC_UWSGI_PORT=8003
+
+NRC_DB_PORT=5440
+NRC_UWSGI_PORT=8004
 ```
 
 Je kan zelf de vrije poortnummers invullen die je wenst te gebruiken. Je hoeft
@@ -371,7 +377,7 @@ $ docker-compose down
 $ docker system prune  # Verwijdert alles behalve data!
 $ git pull
 $ docker-compose pull
-$ docker-compose up -d
+$ docker-compose up
 ```
 
 ### Foutmelding: Error starting userland proxy / driver failed
@@ -388,5 +394,5 @@ oplossing biedt als er verbonden is met een netwerk zodat een publiek IP
 gebruikt kan worden. Nadat docker opnieuw is opgestart
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up
 ```

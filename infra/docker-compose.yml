@@ -43,6 +43,7 @@ services:
       - DJANGO_SETTINGS_MODULE=zrc.conf.docker
       - SECRET_KEY=c1zqz%y-s-$$63ca_abc8dmfjno#&pk!wy8k9f8c*4w@(whxy1n'
       - DB_HOST=zrc_db
+      - IS_HTTPS=0
     depends_on:
       - zrc_db
 
@@ -64,6 +65,7 @@ services:
       - DJANGO_SETTINGS_MODULE=ztc.conf.docker
       - SECRET_KEY=)lwxn07vp1+ru=yf^n+v4l&ij24l3vhhitw9vk4=0ix14ibmfj
       - DB_HOST=ztc_db
+      - IS_HTTPS=0
     depends_on:
       - ztc_db
 
@@ -73,6 +75,7 @@ services:
       - DJANGO_SETTINGS_MODULE=brc.conf.docker
       - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
       - DB_HOST=brc_db
+      - IS_HTTPS=0
     depends_on:
       - brc_db
 
@@ -82,6 +85,7 @@ services:
       - DJANGO_SETTINGS_MODULE=notifications.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
       - DB_HOST=nrc_db
+      - IS_HTTPS=0
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
@@ -95,6 +99,7 @@ services:
       - DJANGO_SETTINGS_MODULE=notifications.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
       - DB_HOST=nrc_db
+      - IS_HTTPS=0
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
