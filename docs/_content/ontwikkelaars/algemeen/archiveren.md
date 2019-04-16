@@ -103,7 +103,7 @@ User Story: [#345](https://github.com/VNG-Realisatie/gemma-zaken/issues/345)
 
 #### Foutsituaties bij het berekenen van *brondatum*
 
-In sommige situaties kan de *brondatum* niet worden bepaald. Dit is niet altijd een foutsitatie. In het algemeen moet een fout optreden als de configuratie in het ZTC niet overeenkomt met de inrichting van de `Zaak` of gerelateerde gegevens, of als er ongeldige waardes zijn.
+In sommige situaties kan de *brondatum* niet worden bepaald. Dit is niet altijd een foutsituatie. In het algemeen moet een fout optreden als de configuratie in het ZTC niet overeenkomt met de inrichting van de `Zaak` of gerelateerde gegevens, of als er ongeldige waardes zijn.
 
 *Voorbeeld*
 
