@@ -272,6 +272,9 @@ Eenvoudigweg operaties uitvoeren op de ZRC en/of DRC API zal ervoor zorgen
 dat notificaties gepubliceerd worden. Je kan bijvoorbeeld via de API een zaak
 aanmaken, wijzigen of statussen toevoegen op een zaak om dit in actie te zien.
 
+Als je wilt zien wat een component precies doet, verwijzen we naar naar de
+[volledige uitleg](../notificeren).
+
 #### Ik wil als consumer notificaties ontvangen
 
 Je dient de scope `notificaties.scopes.consumeren` in het JWT te hebben
@@ -327,6 +330,9 @@ JWT te genereren.
 
 4. Berichten worden nu naar je eigen endpoint gestuurd met een POST request
 
+    Hieronder staat een verzoek zoals dat gedaan wordt door het NRC. Je kan dit
+    verzoek uiteraard ook zelf sturen voor test doeleinden:
+
     ```http
     POST https://webhook.site/ea216914-fc38-462e-a24c-7dc7e969d873 HTTP/1.0
     Content-Type: application/json
@@ -346,6 +352,11 @@ JWT te genereren.
       }
     }
     ```
+
+    Merk op dat de `Authorization` header hier verschilt van de `Authorization`
+    naar het NRC. De notificatie wordt naar jouw eigen endpoint verstuurd,
+    en bij het abonneren heb je aangegeven wat de `Authorization` header
+    hiervoor moet zijn.
 
 [token-generator]: https://ref.tst.vng.cloud/tokens/
 
