@@ -1,6 +1,6 @@
 ---
 title: Eenmalige setup na het opstarten van de containers
-weight: 10
+weight: 90
 ---
 
 Deze tutorial beschrijft de eenmalige configuratie van de referentie-

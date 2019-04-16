@@ -23,4 +23,4 @@ werken, zijn door VNG referentie implementaties gerealiseerd van elke API
   [aan de slag](aan-de-slag).
 * Voorbeeld applicaties gebruiken tegen de eigen of gehoste APIs? Ga naar de
   [demo applicatie](demo-applicatie).
-* Bekijk de [tutorials](../tutorials/index) voor de API Labs
+* Bekijk de [tutorials](./tutorials/index) voor de API Labs
