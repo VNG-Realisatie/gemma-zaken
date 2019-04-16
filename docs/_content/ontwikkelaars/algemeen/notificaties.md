@@ -1,5 +1,5 @@
 ---
-title: "Notificaties (concept)"
+title: "Notificaties"
 date: '11-03-2019'
 weight: 70
 ---
@@ -131,7 +131,7 @@ Kenmerk | Omschrijving
 --- | ---
 bronorganisatie | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
 informatieobjecttype | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
-vertrouwelijkaanduiding | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
+vertrouwelijkheidaanduiding | Overeenkomstig veld in ENKELVOUDIG INFORMATIEOBJECT
 
 #### Besluiten API
 
@@ -165,18 +165,18 @@ Content-Type: application/json
     "auth": "Bearer aef34gh...",
     "kanalen": [{
         "naam": "zaken",
-        "filters": [
-            {"bronorganisatie": "082096752011"},
-            {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
-            {"vertrouwelijkheidaanduiding": "*"}
-        ]
+        "filters": {
+            "bronorganisatie": "082096752011",
+            "zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c",
+            "vertrouwelijkheidaanduiding": "*"
+        }
     }, {
         "naam": "documenten",
-        "filters": [
-            {"bronorganisatie": "082096752011"},
-            {"informatieobjecttype": "https://example.com/api/v1/informatieobjecttype/b8c11"},
-            {"vertrouwelijkaanduiding": "openbaar"}
-        ]
+        "filters": {
+            "bronorganisatie": "082096752011",
+            "informatieobjecttype": "https://example.com/api/v1/informatieobjecttype/b8c11",
+            "vertrouwelijkaanduiding": "openbaar"
+        }
     }]
 }
 ```
@@ -248,11 +248,11 @@ Content-Type: application/json
     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
     "actie": "create",
     "aanmaakdatum": "2018-01-01T17:00:00Z",
-    "kenmerken": [
-        {"bron": "082096752011"},
-        {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
-        {"vertrouwelijkeidaanduiding": "openbaar"}
-    ]
+    "kenmerken": {
+        "bron": "082096752011",
+        "zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c",
+        "vertrouwelijkeidaanduiding": "openbaar"
+    }
 }
 
 ```
@@ -264,7 +264,7 @@ Merk op dat de kenmerken als `Array` opgebouwd worden. Dit is omdat _Object keys
 in JSON geen inherente volgorde hebben, en de volgorde wel belangrijk is
 voor interne doeleinden.
 
-### Notificaties ophalen
+### Notificaties ophalen (CONCEPT)
 
 In eerste instantie zetten we enkel in op push via webhooks. Later laten we toe
 om ook notificaties te pullen.
@@ -282,11 +282,11 @@ Accept: application/json
     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
     "actie": "create",
     "aanmaakdatum": "2018-01-01T17:00:00Z",
-    "kenmerken": [
-        {"bron": "082096752011"},
-        {"zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c"},
-        {"vertrouwelijkeidaanduiding": "openbaar"}
-    ]
+    "kenmerken": {
+        "bron": "082096752011",
+        "zaaktype": "https://example.com/api/v1/zaaktypen/5aa5c",
+        "vertrouwelijkeidaanduiding": "openbaar"
+    }
 }]
 ```
 
