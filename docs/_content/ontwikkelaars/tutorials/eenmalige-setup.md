@@ -4,7 +4,8 @@ weight: 90
 ---
 
 Deze tutorial beschrijft de eenmalige configuratie van de referentie-
-implementaties.
+implementaties. De [autorisatieslides](./autorisatie.pptx) zoals gegeven op het
+API-lab zijn ook beschikbaar.
 
 Let op: deze setup hoef je slechts 1 keer uit te voeren, typisch als je voor
 het eerst de containers opstart. Indien je dit toch een tweede keer uitvoert,
