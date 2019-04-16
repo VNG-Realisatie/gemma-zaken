@@ -1,6 +1,6 @@
 ---
 title: Tutorial notificeren
-weight: 40
+weight: 30
 ---
 
 In deze tutorial configureren we de referentieimplementaties van de ZGW
@@ -68,31 +68,31 @@ JWT te genereren.
 
 2. Vraag op welke kanalen beschikbaar zijn:
 
-    ```http
-    GET http://<ip>:8004/api/v1/kanaal HTTP/1.0
-    Authorization: Bearer abcd1234
+   ```http
+   GET http://<ip>:8004/api/v1/kanaal HTTP/1.0
+   Authorization: Bearer abcd1234
     ````
 
 3. Registreer je abonnement bij het NC:
 
-    ```http
-    POST http://<ip>:8004/api/v1/abonnement HTTP/1.0
-    Authorization: Bearer abcd1234
-    Content-Type: application/json
+   ```http
+   POST http://<ip>:8004/api/v1/abonnement HTTP/1.0
+   Authorization: Bearer abcd1234
+   Content-Type: application/json
 
-    {
-      "callbackUrl": "https://webhook.site/ea216914-fc38-462e-a24c-7dc7e969d873",
-      "auth": "dummy",
-      "kanalen": [
-        {
-          "naam": "zaken",
-          "filters": {
-            "bronorganisatie": "224557609"
-          }
-        }
-      ]
-    }
-    ```
+   {
+     "callbackUrl": "https://webhook.site/ea216914-fc38-462e-a24c-7dc7e969d873",
+     "auth": "dummy",
+     "kanalen": [
+       {
+         "naam": "zaken",
+         "filters": {
+           "bronorganisatie": "224557609"
+         }
+       }
+     ]
+   }
+   ```
 
     * `callbackUrl` is de volledige URL naar je _eigen_ endpoint waar je
       notificaties wenst op te ontvangen
@@ -113,25 +113,25 @@ JWT te genereren.
     Hieronder staat een verzoek zoals dat gedaan wordt door het NRC. Je kan dit
     verzoek uiteraard ook zelf sturen voor test doeleinden:
 
-    ```http
-    POST https://webhook.site/ea216914-fc38-462e-a24c-7dc7e969d873 HTTP/1.0
-    Content-Type: application/json
-    Authorization: Token abcde12345
+   ```http
+   POST https://webhook.site/ea216914-fc38-462e-a24c-7dc7e969d873 HTTP/1.0
+   Content-Type: application/json
+   Authorization: Token abcde12345
 
-    {
-      "kanaal": "zaken",
-      "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
-      "resource": "status",
-      "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
-      "actie": "create",
-      "aanmaakdatum": "2019-03-27T10:59:13Z",
-      "kenmerken": {
-        "bronorganisatie": "224557609",
-        "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
-        "vertrouwelijkheidaanduiding": "openbaar"
-      }
-    }
-    ```
+   {
+     "kanaal": "zaken",
+     "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
+     "resource": "status",
+     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
+     "actie": "create",
+     "aanmaakdatum": "2019-03-27T10:59:13Z",
+     "kenmerken": {
+       "bronorganisatie": "224557609",
+       "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+       "vertrouwelijkheidaanduiding": "openbaar"
+     }
+   }
+   ```
 
     Merk op dat de `Authorization` header hier verschilt van de `Authorization`
     naar het NRC. De notificatie wordt naar jouw eigen endpoint verstuurd,
