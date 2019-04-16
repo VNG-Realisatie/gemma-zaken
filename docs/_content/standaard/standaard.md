@@ -151,7 +151,7 @@ notificatierouteringcomponent(en) (NRC). De NRC MOET volledig de
 ### Kanalen
 
 Elke bron, wat bij de ZGW API's één-op-éen overeen komt met een component
-zoals het ZRC, DRC, BRC, etc., MOETEN hun kanaal registreren bij de NC indien
+zoals het ZRC, DRC, BRC, etc., MOETEN hun kanaal registreren bij de NRC indien
 dit nog niet bestaat. Elke bron MOET tevens documenteren op welke kanalen die
 publiceert.
 
@@ -159,19 +159,19 @@ publiceert.
 
 Consumers MOGEN zich abonneren op kanalen. Een consumer MOET hiervoor een
 endpoint registreren, beveiligd met een `Authorization` header. Bij het
-registeren geeft de consumer een geldige header waarde mee zodat het NC de
+registeren geeft de consumer een geldige header waarde mee zodat het NRC de
 berichten kan afleveren.
 
 Optioneel MAG een abonnement filters bevatten op basis van berichtkenmerken.
 
 ### Berichten en kenmerken
 
-Bronnen MOETEN events versturen naar het NC. Het NC MOET deze vervolgens
+Bronnen MOETEN events versturen naar het NRC. Het NRC MOET deze vervolgens
 bij de endpoints van abonnementen afleveren, conform de filters van het
 abonnement op basis van de kenmerken.
 
 Berichten MOETEN informatie-arm zijn, in het kader van privacy-by-design. Het
-formaat van berichten is beschreven in de NC OAS.
+formaat van berichten is beschreven in de NRC OAS.
 
 In de documentatie van elke bron MOET beschreven zijn welke kanalen en
 kenmerken geldig zijn. Tevens MOET beschreven zijn welke gebeurtenissen tot

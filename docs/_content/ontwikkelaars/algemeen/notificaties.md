@@ -14,7 +14,7 @@ voor het betreffende ontvangende component.
 
 Er wordt een notificatiecomponent (NC) ontwikkeld met de functionaliteiten:
 
-1. registreren van abonnees (=componenten of applicaties die berichten willen 
+1. registreren van abonnees (=componenten of applicaties die berichten willen
    ontvangen)
 2. ontvangen van berichten die gerouteerd moeten worden
 3. distribueren van berichten naar de abonnees
@@ -28,7 +28,7 @@ De derde taak wordt via webhooks ingevuld, waarbij we als webhook begrijpen:
 > Van de webhook wordt verwacht dat het bericht correct ontvangen is als die
 > met een HTTP 200 status antwoordt.
 
-We onderkennen dat voor voor deze taken een meer gespecialiseerd protocol als 
+We onderkennen dat voor voor deze taken een meer gespecialiseerd protocol als
 AMQP wellicht beter geschikt is maar wel met zijn eigen uitdagingen komt (zie
 ook onderaan).
 
@@ -46,12 +46,12 @@ Berichten worden verstuurd via bepaalde kanalen (Exchange in AMQP). Consumers
 kunnen zich op zo'n kanaal abonneren, aangevuld met bepaalde filters (Topics in
 AMQP). Elk component krijgt zijn eigen kanaal.
 
-Ter illustratie: De Zaken API publiceert alles op het kanaal `zaken`. Een zaak 
-of status wijziging wordt hierop gepubliceerd. Ook als een document wordt 
-toegevoegd wordt het aanmaken van de relatie tusen de zaak en het document 
+Ter illustratie: De Zaken API publiceert alles op het kanaal `zaken`. Een zaak
+of status wijziging wordt hierop gepubliceerd. Ook als een document wordt
+toegevoegd wordt het aanmaken van de relatie tusen de zaak en het document
 gepubliceerd op dit kanaal.
 
-Componenten produceren dus berichten op een bepaald kanaal - deze producers 
+Componenten produceren dus berichten op een bepaald kanaal - deze producers
 worden door [Squad Architectuur] ook wel "bronnen" genoemd. Een ZRC, DRC, BRC zijn de voor de
 hand liggende bronnen binnen zaakgericht werken.
 
@@ -59,20 +59,20 @@ hand liggende bronnen binnen zaakgericht werken.
 
 **Relevantie van een notificatie bepalen**
 
-Een abonnement op een kanaal kan gepaard gaan met bepaalde filters. Deze 
-filters zorgen er voor dat de consumer bepaalde notificaties niet doorgegeven 
-krijgt omdat ze niet voldoen aan het opgegeven filter. Hiermee kan een overdaad 
+Een abonnement op een kanaal kan gepaard gaan met bepaalde filters. Deze
+filters zorgen er voor dat de consumer bepaalde notificaties niet doorgegeven
+krijgt omdat ze niet voldoen aan het opgegeven filter. Hiermee kan een overdaad
 aan irrelevante berichten worden voorkomen.
 
-De vervolg-last van het bepalen of een notificatie, bijvoorbeeld van een 
-zaakwijziging of het aanmaken van een zaak, relevant is, ligt bij de consumer. 
-De consumer dient op basis van de notificatie te bepalen of het initieel 
-relevant is (bijvoorbeeld het Zaaktype), de details op te halen en vervolgens 
+De vervolg-last van het bepalen of een notificatie, bijvoorbeeld van een
+zaakwijziging of het aanmaken van een zaak, relevant is, ligt bij de consumer.
+De consumer dient op basis van de notificatie te bepalen of het initieel
+relevant is (bijvoorbeeld het Zaaktype), de details op te halen en vervolgens
 daadwerkelijk te bepalen of deze notificatie tot een actie leidt.
 
 **Er komt een generieke API voor het ontvangen van notificaties**
 
-Om berichten te kunnen ontvangen, zal elke consumer een beperkte API 
+Om berichten te kunnen ontvangen, zal elke consumer een beperkte API
 specificatie moeten implementeren, beschikbaar op de webhook-url.
 
 Het ontvangen van berichten op de webhook-url zal generiek geimplementeerd
@@ -105,7 +105,7 @@ notificatie of op te vragen.**
 
 ### Bronnen
 
-In het geval van de ZGW API's wordt elk component gezien als bron en heeft dus 
+In het geval van de ZGW API's wordt elk component gezien als bron en heeft dus
 zijn eigen kanaal, met eigen kenmerken en eventueel additionele acties.
 
 Elk component kan `kenmerken` definieren die helpen bij het filteren van
@@ -155,7 +155,7 @@ Een consumer abonneert zich op notificaties door de volgende request naar de
 NC te sturen:
 
 ```http
-POST /api/v1/abonnementen
+POST /api/v1/abonnementen HTTP/1.0
 
 Authorization: Bearer abcdef1234
 Content-Type: application/json
@@ -209,7 +209,7 @@ Kanalen worden aangemaakt door producers (bronnen), en zijn gekarakteriseerd
 door een unieke naam.
 
 ```http
-POST /api/v1/kanalen
+POST /api/v1/kanalen HTTP/1.0
 
 Authorization: Bearer abcdef1234
 Content-Type: application/json
@@ -217,7 +217,11 @@ Content-Type: application/json
 {
     "naam": "zaken",
     "documentatieLink": "http://example.com",
-    "filters": ["bronorganisatie", "zaaktype", "vertrouwelijkheidaanduiding"]
+    "filters": [
+        "bronorganisatie",
+        "zaaktype",
+        "vertrouwelijkheidaanduiding"
+    ]
 }
 ```
 
@@ -236,7 +240,7 @@ belangrijk.
 De NC moet notificaties kunnen ontvangen:
 
 ```http
-POST /api/v1/notificaties
+POST /api/v1/notificaties HTTP/1.0
 
 Authorization: Bearer abcdef1234
 Content-Type: application/json
@@ -270,7 +274,7 @@ In eerste instantie zetten we enkel in op push via webhooks. Later laten we toe
 om ook notificaties te pullen.
 
 ```http
-GET /api/v1/abonnementen/ae54ef/notificaties
+GET /api/v1/abonnementen/ae54ef/notificaties HTTP/1.0
 
 Authorization: Bearer abcdef1234
 Accept: application/json
@@ -306,8 +310,8 @@ In het scenario dat er bijvoorbeeld twee snelle statusupdates zijn van:
 2. In behandeling naar
 3. Afgerond
 
-Als je geen AMQP gebruikt, kan het zijn dat door de intrinsieke aard van 
-TCP/HTTP statusupdate 3 voor 2 afgeleverd wordt op de webhook, door latency op 
+Als je geen AMQP gebruikt, kan het zijn dat door de intrinsieke aard van
+TCP/HTTP statusupdate 3 voor 2 afgeleverd wordt op de webhook, door latency op
 de eerste call bijvoorbeeld.
 
 Dit zou kunnen leiden tot een incorrecte statusupdate via push bij clients.
