@@ -1,10 +1,8 @@
 ---
-title: "Archiveren"
+title: "Archiveringsproces *"
 date: '25-02-2019'
 weight: 70
 ---
-
-## [WIP] Archiveringsproces *
 
 Zie: [#751](https://github.com/VNG-Realisatie/gemma-zaken/issues/751)
 
@@ -14,12 +12,15 @@ organisaties hun informatiehuishouding op orde hebben en houden.
 In essentie bestaat het archiveringsproces uit 3 stappen:
 
 1. Proces in het kort:
-   1. een zaak wordt afgesloten met een *einddatum*,
-   2. doorloopt hierna eerst een *procestermijn*; dit is de periode waarin de zaak nog gebruikt wordt voor de taakuitoefening; bijv. een zaak waarin een bouwvergunning is verleend, blijft in de procestermijn ten behoeve van toezicht.
-   3. het einde van de procestermijn heet de *brondatum*
-   4. hierna begint de *archiefactietermijn* (ook wel *bewaartermijn*); in feite is dit de termijn waarna de archiefactie moet worden uitgevoerd, hetzij (permanent) bewaren hetzij vernietigen
-   5. na de *bewaartermijn* wordt het zaak-dossier gearchiveerd (aangegeven 
-      op de `Zaak.Archiefstatus`).
+   1. een zaak wordt afgesloten met een *einddatum*;
+   2. doorloopt hierna eerst een *procestermijn* (dit is de periode waarin de 
+      zaak nog gebruikt wordt voor de taakuitoefening; bijv. een zaak waarin 
+      een bouwvergunning is verleend, blijft in de procestermijn ten behoeve 
+      van toezicht);
+   3. het einde van de procestermijn heet de *brondatum*;
+   4. hierna begint de *archiefactietermijn* ook wel *bewaartermijn* genoemd;
+   5. na de *bewaartermijn* moet de archiefactie worden uitgevoerd, hetzij 
+      (permanent) bewaren hetzij vernietigen;
 2. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en 
    staat aangegeven op `Zaak.Archiefnominatie`.
 3. Na de *bewaartermijn*, dus vanaf de `Zaak.Archiefactiedatum` **moet** het 
@@ -35,6 +36,8 @@ Opmerkingen:
 3. Het archiveringsproces doorloopt verschillende stadia te volgen via de
    `Zaak.Archiefstatus`.
 
+## Algemeen
+
 ### Definitie zaak-dossier
 
 Zie: [#750](https://github.com/VNG-Realisatie/gemma-zaken/issues/750)
@@ -43,7 +46,7 @@ Een zaakdossier is het geheel van zaak-metadata, bijbehorende
 informatieobjecten incl. metadata, statussen, resultaten en besluiten, en 
 gerelateerde entiteiten:
 
-* De relatie met deelzaken (of hoofdzaak)
+* De deelzaken (of hoofdzaak)
 * De relatie met vervolgzaken (of is zelf vervolgzaak)
 * Gerelateerde zaken (via zakenrelatie)
 * Zaakobjecten: objecten uit het RGBZ of RSGB waarop de zaak betrekking heeft
@@ -59,17 +62,22 @@ Het zaak-dossier wordt overgedragen naar een bewaarplaats.
 
 Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 80):
 
-> Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze niet meer op enigerlei wijze kunnen worden gereproduceerd.
+> Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze 
+> niet meer op enigerlei wijze kunnen worden gereproduceerd.
 
 ### Bepalen van de aan archivering gerelateerde attributen voor `ResultaatType`
 
 Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
 
-Het ZTC dient ingericht te worden volgens de selectielijst. Het ZTC dient validaties uit te voeren om te zorgen dat inrichting correct is.
+Het ZTC dient ingericht te worden volgens de selectielijst. Het ZTC dient 
+validaties uit te voeren om te zorgen dat inrichting correct is.
 
 *Voorbeeld*
 
-Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld op `eigenschap` moet het ZTC valideren dat het betreffende `ZaakType` een `Eigenschap` heeft met als `naam`, de waarde die staat in `ResultaatType.BrondatumArchiefprocedure.datumkenmerk`.
+Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld 
+op `eigenschap` moet het ZTC valideren dat het betreffende `ZaakType` een 
+`Eigenschap` heeft met als `naam`, de waarde die staat in 
+`ResultaatType.BrondatumArchiefprocedure.datumkenmerk`.
 
 ### Berekenen van de `Zaak.Archiefactiedatum`
 
@@ -82,7 +90,7 @@ Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld op
    `hoofdzaak` | `Zaak.HoofdZaak.Einddatum`
    `ingangsdatum besluit` | *TODO* `Zaak.Besluit.Ingangsdatum` ([#775](https://github.com/VNG-Realisatie/gemma-zaken/issues/775))
    `vervaldatum besluit` | *TODO* `Zaak.Besluit.Vervaldatum` ([#775](https://github.com/VNG-Realisatie/gemma-zaken/issues/775))
-   `ander datumkenmerk` | *TODO: Dubbelcheck* Niet te bepalen.
+   `ander datumkenmerk` | Handmatig bepalen.
    `eigenschap` | De waarde van de `Zaak.Eigenschap` met de `naam` die overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
    `termijn` | `Zaak.Einddatum` + `ResultaatType.BrondatumArchiefprocedure.Procestermijn`
    `zaakobject` | De waarde van het attribuut op `Zaak.ZaakObject.Object`, van type `ResultaatType.BrondatumArchiefprocedure.Objecttype`, waarvan de `naam` van het attribuut overeenkomt met de waarde uit `ResultaatType.BrondatumArchiefprocedure.Datumkenmerk`
@@ -99,15 +107,16 @@ In sommige situaties kan de *brondatum* niet worden bepaald. Dit is niet altijd 
 
 *Voorbeeld*
 
-Als de afleidingswijze een `eigenschap` betreft en de `Zaak` heeft zo'n `eigenschap` niet, dan treed een fout op. Ook als de `eigenschap` wel bestaat maar de waarde is geen geldige datum, dan treed een fout op. Echter, als de `eigenschap` bestaat en de waarde is leeg, dan kan de *brondatum* niet worden bepaald en blijft de `Zaak.archiefactiedatum` leeg
+Als de afleidingswijze een `eigenschap` betreft en de `Zaak` heeft zo'n `eigenschap` niet (zelfs als de `Zaak` de `eigenschap` volgens het `Zaaktype` wel zou moeten hebben), dan treed een fout op. Ook als de `eigenschap` wel bestaat maar de waarde is geen geldige datum, dan treed een fout op. Echter, als de `eigenschap` bestaat en de waarde is leeg, dan kan de *brondatum* niet worden bepaald en blijft de `Zaak.archiefactiedatum` leeg
 
 ### Wanneer wordt de `Zaak.Archiefactiedatum` berekend?
 
 De `Zaak.Archiefactiedatum` wordt berekend als aan de volgende voorwaarden wordt voldaan:
 
 1) Er wordt een `Resultaat` voor de `Zaak` aangemaakt of gewijzigd; hiermee wordt het `ResultaatType` bekend,
-2) De *brondatum* kan worden berekend,
-3) De `ResultaatType.archiefactietermijn` van het `Zaak.Resultaat` is valide.
+2) De eind `Status` wordt gezet (eind `StatusType` wordt gekoppeld) waardoor de einddatum bekend wordt,
+3) De *brondatum* kan worden berekend,
+4) De `ResultaatType.archiefactietermijn` van het `Zaak.Resultaat` is valide.
 
 ## API ondersteuning
 
@@ -193,7 +202,10 @@ User Story: [#349](https://github.com/VNG-Realisatie/gemma-zaken/issues/349)
    * `Objecttype` (*optioneel*) Het soort object in de registratie dat het procesobject representeert.
    * `Datumkenmerk` (*optioneel*) Naam van de attribuutsoort van het procesobject dat bepalend is voor het einde van de procestermijn. 
 
-TODO:
+## Overige
+
+Onderstaande attributen uit RGBZ 2.0.2 zijn geidentificeert als relevant maar 
+hebben nog geen plek gekregen in het verhaal.
 
 * `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden.
 * `Zaak.Procesobject`
@@ -205,7 +217,7 @@ TODO:
 * `Zaak-InformatieobjectType.Archiefregime`
 * `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden. 
 
-# TODO
+### TODO
 
 * Overige attributen uit TODO verwerken
 * Schrijfbaar brondatum attribuut definieren
