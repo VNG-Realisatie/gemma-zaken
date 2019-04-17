@@ -77,10 +77,23 @@ Een `Applicatie` resource karakteriseert zich met de volgende attributen:
   welke applicatie binnen de organisatie het gaat. Bijvoorbeeld:
   "Melding Openbare Ruimte (burger)"
 
-* `autorisaties`: een lijst van autorisaties per zaaktype. Het zaaktype wordt
-  gerefereerd via de URL uit het ZTC, en er wordt aangegeven welke scopes
-  van toepassing zijn en welke vertrouwelijkheidaanduiding maximaal toegelaten
-  is (inclusief).
+* `autorisaties`: een lijst van autorisaties. Een autorisatie karakteriseert
+  zich met de verplichte eigenschappen `component` en `scopes`. De resterende
+  eigenschappen worden bepaald door de waarde van `component`. Bijvoorbeeld:
+
+  ```json
+  {
+    "component": "ZRC",
+    "scopes": ["zds.scopes.zaken.lezen"],
+    "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/123/zaaktypen/abc",
+    "maxVetrouwelijkheidaanduiding": "geheim"
+  }
+  ```
+  Het zaaktype wordt gerefereerd via de URL uit het ZTC, en er wordt aangegeven
+  welke scopes van toepassing zijn en welke vertrouwelijkheidaanduiding
+  maximaal toegelaten is (inclusief). De ZRC component definieert hierbij dan
+  dat ook `zaaktype` en `maxVetrouwelijkheidaanduiding` gedefinieerd moeten
+  worden.
 
 We voorzien in een minimale-beheerslastoptie om een applicatie alle
 autorisaties te geven.
