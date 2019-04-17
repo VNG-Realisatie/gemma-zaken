@@ -150,6 +150,30 @@ Dit mechanisme zet zich door tot aan de zaaktypecatalogus.
 
 ![sequence](./_assets/authenticatie-autorisatie.png?raw=true)
 
+## Getraptheid autorisaties
+
+![piramide](./_assets/autorisaties.png?raw=true)
+
+Het totale autorisatieverhaal is een gelaagde oplossing.
+
+In de Common Ground visie staat NLX in de basis, waarbij organisaties
+geautoriseerd zijn om met andere organisaties te verbinden via out- en inways.
+Dit is een gefederaliseerd systeem - eenmaal je met een organisatie mag
+verbinden, kan je in principe bij alle APIs die de inway ontsluit.
+
+Op de tweede laag staat de API-autorisatie. In een ZGW-context kan het niet zo
+zijn dat eender welke applicatie van een organisatie alle data kan opvragen
+uit een ZRC (of andere componenten). Op deze laag wordt bepaald welke
+_applicaties_ geautoriseerd zijn op welke gegevens, bijvoorbeeld welke operaties
+toegelaten zijn voor een subset van zaaktypes. Dit document gaat over deze
+laag.
+
+De bovenste laag houdt zich bezig met individuele gebruikers, en wordt ingevuld
+door de taakapplicaties en/of de gemeente. Deze leggen vast wat de permissies
+zijn van een gebruiker, welke acties deze in een applicatie mag uitvoeren. De
+applicatie dient zelf een autorisatiemodel te implementeren die voorkomt dat
+de applicatie API calls maakt die eigenlijk niet mogen voor deze gebruiker.
+
 ## Wijzigingen ten opzichte van de vorige vorm
 
 In een eerdere sprint werden de scope/zaaktypes claims opgenomen in het JWT
