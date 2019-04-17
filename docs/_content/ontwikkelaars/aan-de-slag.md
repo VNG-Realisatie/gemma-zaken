@@ -207,7 +207,7 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
    _Het ZRC moet typisch een Zaaktype valideren in het ZTC. Hiervoor moet het
    ZRC wel toestemming hebben om het ZTC te bevragen._
 
-   Login op de admin en ga naar `API credentials` en klik op **Toevoegen**.
+   Login op de ZRC admin en ga naar `API credentials` en klik op **Toevoegen**.
 
    Hier wordt geconfigureerd welke credentials bij welke URLs/URL-prefixes
    horen.
@@ -233,8 +233,9 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
 
    Er wordt nu een JWT gegenereerd die gebruikt kan worden in de `Authorization`
    header. Om het JWT te inspecteren kan je deze (zonder `Bearer`) plakken op
-   [jwt.io](jwt.io). Overigens kunnen de `zaakypes` vervangen worden met de
-   array `["*"]` voor alle zaaktypes.
+   [jwt.io](https://jwt.io). Overigens kunnen de `zaakypes` vervangen worden 
+   met de array `["*"]` voor alle zaaktypes. Vergeet niet om je eigen secret
+   (onderin rechts) in te vullen i.p.v. `your-256-bit-secret`!
 
    _Het aanmaken van een JWT registreert het secret **niet** bij de
    gehoste referentie componenten. Zie de [API guides](./guides) hoe dit wel
