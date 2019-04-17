@@ -134,7 +134,7 @@ is. In een latere fase komen er stabiele omgevingen.
 ## Swagger
 
 (Voorlopig) worden de gepubliceerde OAS 3.0 specificaties voor de services
-inzichtelijk gemaakt op Swagger.io. Zie de [spec documentatie](/developers/api-specificaties).
+inzichtelijk gemaakt op Swagger.io. Zie de [spec documentatie](/standaard/index).
 
 ## NLX Directory
 
@@ -146,4 +146,4 @@ actie.
 ## Docker-compose
 
 Er is een `docker-compose` file beschikbaar om de volledige
-referentie-implementatie stack op te brengen. Zie de [developer documentatie](/developers/aan-de-slag).
+referentie-implementatie stack op te brengen. Zie de [developer documentatie](/ontwikkelaars/aan-de-slag).
