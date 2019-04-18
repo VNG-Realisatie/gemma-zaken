@@ -1536,36 +1536,35 @@ components:
       - resourceUrl
       - actie
       - aanmaakdatum
-      - kenmerken
       type: object
       properties:
         kanaal:
-          title: Kanaal
+          title: kanaal
           type: string
           maxLength: 50
           minLength: 1
         hoofdObject:
-          title: Hoofdobject
+          title: URL naar het hoofdobject
           type: string
           format: uri
           minLength: 1
         resource:
-          title: Resource
+          title: resource
           type: string
           maxLength: 100
           minLength: 1
         resourceUrl:
-          title: Resourceurl
+          title: URL naar de resource waarover de notificatie gaat
           type: string
           format: uri
           minLength: 1
         actie:
-          title: Actie
+          title: actie
           type: string
           maxLength: 100
           minLength: 1
         aanmaakdatum:
-          title: Aanmaakdatum
+          title: aanmaakdatum
           type: string
           format: date-time
         kenmerken:
