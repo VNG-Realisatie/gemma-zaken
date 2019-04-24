@@ -51,6 +51,8 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
   [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
 * [![Build Status][nc-build-status]][nc-stable]
   [Notificatiecomponent](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
+* [![Build Status][ac-build-status]][ac-stable]
+  [Autorisatiecomponent](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
 
 
 **Ondersteunende tooling**
@@ -79,3 +81,5 @@ Copyright © VNG Realisatie 2018
 [zit-stable]: http://jenkins.nlx.io/job/gemma-zaken-test-integratie-master
 [nc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
 [nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
+[ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
+[ac-stable]: http://jenkins.nlx.io/job/gemma-autorisatiecomponent-stable
