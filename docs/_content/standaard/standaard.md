@@ -266,7 +266,7 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### Afsluiten en heropenen zaak
+#### Afsluiten zaak
 
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
 `ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
@@ -281,23 +281,24 @@ Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
 van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
 MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`.
 
-Indien een status anders dan de eindstatus gezet wordt (heropenen zaak), dan
-MOET het ZRC voor de volgende attributen de waarde `null` bevatten:
-
-* `Zaak.einddatum`
-* `Zaak.archiefnominatie`
-* `Zaak.archiefactiedatum`
-
-Bij het afsluiten van een `Zaak` MOET het ZRC `Informatieobject.indicatieGebruiksrecht`
-controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
-maar MOET `true` of `false` zijn. Indien dit niet het geval is, dan dient het
-ZRC een validatiefout te genereren met code `indicatiegebruiksrecht-unset`.
+Bij het afsluiten van een `Zaak` MOET het ZRC 
+`Informatieobject.indicatieGebruiksrecht` controleren van alle gerelateerde 
+informatieobjecten. Deze MAG NIET `null` zijn, maar MOET `true` of `false` 
+zijn. Indien dit niet het geval is, dan dient het ZRC een validatiefout te 
+genereren met code `indicatiegebruiksrecht-unset`.
 
 #### Heropenen zaak
 
-Bij het heropenen van een zaak MOET de client een andere status toevoegen aan de zaak dan een eindstatus. 
-Tevens MOET de client de 'Zaak.archiefactiedatum' leeg maken en het resultaat verwijderen. Het verwijderen van een resultaat MOET in de audit trail zichtbaar zijn.
-Dit betekent dat bij het weer afsluiten van een zaak, opnieuw een resultaat bij de zaak gezet moet worden en op basis daarvan de 'Zaak.archiefactiedatum' opnieuw berekend wordt.
+Bij het heropenen van een `Zaak` MOET de client een andere status toevoegen aan 
+de zaak dan een eindstatus. Hiervoor MOET de client de scope 
+`zds.scopes.zaken.heropenen` hebben.
+
+Tevens MOET de provider de volgende velden op `null` zetten zodra een 
+eindstatus wordt gewijzigd in een andere status:
+
+* `Zaak.einddatum`
+* `Zaak.archiefactiedatum`
+* `Zaak.archiefnominatie`
 
 #### Vertrouwelijkheidaanduiding van een zaak
 
