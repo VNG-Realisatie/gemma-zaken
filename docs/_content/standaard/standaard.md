@@ -266,20 +266,27 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### Afsluiten zaak
+#### Afsluiten en heropenen zaak
 
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
 `ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
 `ZaakType` is het `StatusType` met het hoogste `volgnummer`.
 
+Een `Zaak` MOET een `Resultaat` hebben voor deze afgesloten kan worden.
+
 De `Zaak.einddatum` MOET logisch afgeleid worden uit het toekennen van de
 eindstatus via de `Status.datumStatusGezet`.
 
 Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
-van de zaak niet meer aangepast worden (behalve om redenen van correctie).
+van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
+MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`.
 
-Indien een status anders dan de eindstatus gezet wordt, dan MOET het ZRC voor
-het attribuut `Zaak.einddatum` de waarde `null` bevatten.
+Indien een status anders dan de eindstatus gezet wordt (heropenen zaak), dan
+MOET het ZRC voor de volgende attributen de waarde `null` bevatten:
+
+* `Zaak.einddatum`
+* `Zaak.archiefnominatie`
+* `Zaak.archiefactiedatum`
 
 Bij het afsluiten van een `Zaak` MOET het ZRC `Informatieobject.indicatieGebruiksrecht`
 controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
@@ -374,9 +381,9 @@ diensten op het zaaktype zijn.
 
 **Afleiden van archiveringsparameters**
 
-Het resultaat van een zaak is bepalend voor het archiefregime. Bij het zetten
-van het resultaat van een zaak MOETEN de attributen `Zaak.archiefnominatie`
-en `Zaak.archiefactiedatum` bepaald worden als volgt:
+Het resultaat van een zaak is bepalend voor het archiefregime. Bij het
+afsluiten van een zaak MOETEN de attributen `Zaak.archiefnominatie`
+en `Zaak.archiefactiedatum` bepaald worden uit het `Zaak.Resultaat` als volgt:
 
 1. Indien de zaak geen `archiefnominatie` heeft, dan MOET deze overgenomen
    worden uit `Resultaat.Resultaattype.archiefnominatie`
