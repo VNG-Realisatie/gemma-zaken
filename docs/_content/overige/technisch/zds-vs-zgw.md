@@ -54,7 +54,7 @@ Genereer Documentidentificatie (`genereerDocumentIdentificatie_Di02`)   | *niet 
 Cancel CheckOut (`cancelCheckout_Di02`)                                 | *niet geïmplementeerd, komt binnenkort* <sup>2</sup>
 CMIS-integratieservice (*geen operatie*)                                | *n.v.t.*
 Koppel Zaakdocument aan Zaak (*bestaat niet*)                           | Documenten API `POST /objectinformatieobjecten`
-Ontkoppel Zaakdocument (`ontkoppelZaakdocument_Di02`)                   | *niet geïmplementeerd, komt binnenkort* <sup>4</sup>
+Ontkoppel Zaakdocument (`ontkoppelZaakdocument_Di02`)                   | Documenten API `DELETE /objectinformatieobjecten`
 Voeg besluit toe (`voegBesluitToe_Di01`)                                | Besluiten API `POST /besluiten`
 Update Besluit (`updateBesluit_BslLk01`)                                | Besluiten API `PUT /besluiten`
 Genereer Besluit Identificatie (`genereerBesluitIdentificatie_Di02`)    | *niet geïmplementeerd, in overweging* <sup>1</sup>
@@ -72,9 +72,6 @@ Overdragen te behandelen Zaak (`overdragenZaak_Di01`)                   | *n.v.t
    functionaliteit wordt nog toegevoegd.
 3. De noodzaak van deze operatie is twijfelachtig. Indien er wel vraag blijkt
    te zijn naar het aanmaken van placeholder documenten, wordt deze toegevoegd.
-4. Het verwijderen van een relatie tussen een Document en een Zaak wordt nog
-   toegevoegd.
-
 
 ### Attributen
 
