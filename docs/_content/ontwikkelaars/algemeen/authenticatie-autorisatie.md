@@ -4,16 +4,79 @@ date: '22-10-2018'
 weight: 70
 ---
 
+De APIs moeten beveiligd zijn tegen ongeautoriseerde toegang, om te voorkomen
+dat (gevoelige) gegevens op straat komen te liggen. In dit document wordt het
+ontwerp van het autorisatiemechanisme toegelicht.
+
+## Aanvalsvectoren
+
+Om te beginnen schetsen we de mogelijke aanvallen waartegen we beschermen en
+wat we buiten scope laten.
+
+### Een gebruiker van buitenaf probeert de APIs te benaderen
+
+1. Hiertegen kan je in eerste instantie beschermen door de API niet publiek
+   (over internet) beschikbaar te maken, zoals in een afgeschermd, intern
+   netwerk binnen de organisatie.
+
+2. NLX voorziet in een oplossing om over organisaties heen via een federatief
+   systeem gegevens te ontsluiten. De gebruiker dient hiervoor een outway op
+   te starten en bekend te zijn in het NLX netwerk.
+
+   NLX is echter optioneel, de gekozen oplossing laat ook toe om over
+   organisaties heen over (publiek) internet op een veilige manier gegevens
+   uit te wisselen. Dit is relevant voor SAAS oplossingen, bijvoorbeeld.
+
+### Een medewerker binnen de organisatie probeert de APIs te benaderen
+
+Indien de APIs beschikbaar gesteld worden binnen een afgesloten netwerk, dan
+kan je zonder autorisatieoplossing alle gegevens via de APIs ontsluiten. Dit is
+de meest reële vector waartegen we beschermen.
+
+### Een applicatie leest meer uit dan nodig
+
+Een applicatie kan geautoriseerd zijn op de APIs voor een subset van alle
+gegevens. Veiligheidslekken/programmeerfouten in de applicatie zouden dan
+kunnen leiden tot het ontsluiten van meer gegevens dan nodig. De
+autorisatieoplossing biedt hier ook oplossingen om dit te voorkomen door te
+limiteren tot welke subset van gegevens een applicatie toegang heeft.
+
+## Authenticatie en autorisatie
+
 Authenticatie en autorisatie binnen de APIs zijn van elkaar losgekoppeld. De
 APIs hebben geen kennis van de feitelijke eindgebruiker die een taakapplicatie
-gebruikt. Echter, binnen organisaties (gemeentes) worden feitelijke
-eindgebruikers in bepaalde rollen onderverdeeld die aan permissies gekoppeld
-zijn.
+gebruikt. Echter, binnen organisaties (gemeentes) kunnen feitelijke
+eindgebruikers in bepaalde rollen onderverdeeld worden die aan permissies
+gekoppeld zijn.
 
 De APIs kennen **scopes** - dit zijn sets van permissies die gegroepeerd worden,
 in een generieke vorm. Deze worden afgestemd volgens typisch gebruik. De
 taakapplicaties van organisaties communiceren met de APIs op basis van deze
 scopes.
+
+### Gelaagdheid authenticatie en autorisaties
+
+![piramide](./_assets/autorisaties.png?raw=true)
+
+Het totale autorisatieverhaal is een gelaagde oplossing.
+
+In de Common Ground visie staat NLX in de basis, waarbij organisaties
+geautoriseerd zijn om met andere organisaties te verbinden via out- en inways.
+Dit is een gefederaliseerd systeem - als je met een organisatie mag
+verbinden, kan je in principe bij alle APIs die de inway ontsluit.
+
+Op de tweede laag staat de API-autorisatie. In een ZGW-context kan het niet zo
+zijn dat eender welke applicatie van een organisatie alle data kan opvragen
+uit een ZRC (of andere componenten). Op deze laag wordt bepaald welke
+_applicaties_ geautoriseerd zijn op welke gegevens, bijvoorbeeld welke operaties
+toegelaten zijn voor een subset van zaaktypes. Dit document gaat over deze
+laag.
+
+De bovenste laag houdt zich bezig met individuele gebruikers, en wordt ingevuld
+door de taakapplicaties en/of de gemeente. Deze leggen vast wat de permissies
+zijn van een gebruiker, welke acties deze in een applicatie mag uitvoeren. De
+applicatie dient zelf een autorisatiemodel te implementeren die voorkomt dat
+de applicatie API calls maakt die eigenlijk niet mogen voor deze gebruiker.
 
 Onderaan dit document is een sequence-diagram van de request-response cycle
 van eindgebruiker tot de API, inclusief NLX-interactie.
@@ -39,8 +102,8 @@ dat de integriteit van het token in orde is, en past daarna de claims in de
 payload toe.
 
 JWT bestaat uit drie stukken - een header, payload en signature. De APIs moeten
-de shared secret kennen om de signature te kunnen controleren. Naar veiligheid
-toe is het verstandig om per organisatie (of zelfs applicatie binnen een
+de shared secret kennen om de signature te kunnen controleren. Om redenen van
+beveiliging is het verstandig om per organisatie (of zelfs applicatie binnen een
 organisatie) een secret in te stellen. Dit brengt wat beheer-overhead met zich
 mee.
 
@@ -63,7 +126,7 @@ component die centraal (per omgeving zoals testing, acceptatie en productie)
 binnen de gemeente ingericht is. De component ontsluit zelf een API waarmee
 de autorisaties van consumers ingericht worden.
 
-Een `Applicatie` resource karakteriseert zich met de volgende attributen:
+Een `Applicatie` resource heeft de volgende attributen:
 
 * `client_ids`: een lijst van client IDs. Dezelfde applicatie zal typisch
   tegen meerdere componenten praten (ZRC & ZTC bijvoorbeeld). Om lekken te
@@ -149,30 +212,6 @@ is tussen de API en de auth service van de organisatie.
 Dit mechanisme zet zich door tot aan de zaaktypecatalogus.
 
 ![sequence](./_assets/authenticatie-autorisatie.png?raw=true)
-
-## Getraptheid autorisaties
-
-![piramide](./_assets/autorisaties.png?raw=true)
-
-Het totale autorisatieverhaal is een gelaagde oplossing.
-
-In de Common Ground visie staat NLX in de basis, waarbij organisaties
-geautoriseerd zijn om met andere organisaties te verbinden via out- en inways.
-Dit is een gefederaliseerd systeem - eenmaal je met een organisatie mag
-verbinden, kan je in principe bij alle APIs die de inway ontsluit.
-
-Op de tweede laag staat de API-autorisatie. In een ZGW-context kan het niet zo
-zijn dat eender welke applicatie van een organisatie alle data kan opvragen
-uit een ZRC (of andere componenten). Op deze laag wordt bepaald welke
-_applicaties_ geautoriseerd zijn op welke gegevens, bijvoorbeeld welke operaties
-toegelaten zijn voor een subset van zaaktypes. Dit document gaat over deze
-laag.
-
-De bovenste laag houdt zich bezig met individuele gebruikers, en wordt ingevuld
-door de taakapplicaties en/of de gemeente. Deze leggen vast wat de permissies
-zijn van een gebruiker, welke acties deze in een applicatie mag uitvoeren. De
-applicatie dient zelf een autorisatiemodel te implementeren die voorkomt dat
-de applicatie API calls maakt die eigenlijk niet mogen voor deze gebruiker.
 
 ## Wijzigingen ten opzichte van de vorige vorm
 
