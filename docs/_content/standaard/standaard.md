@@ -209,7 +209,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
 businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
 zoals beschreven geïmplementeerd worden.
 
-#### Valideren `zaaktype` op de `Zaak`-resource
+#### **<a name="zrc-001">Valideren `zaaktype` op de `Zaak`-resource ([zrc-001](#zrc-001))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
 `zaak_partial_update`) MOET de URL-referentie naar het `zaaktype` gevalideerd
@@ -220,10 +220,10 @@ resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een
 (TODO: valideren dat het inderdaad om een zaaktype resource gaat -> validatie
 aanscherpen)
 
-#### Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource
+#### **<a name="zrc-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource ([zrc-002](#zrc-002))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
-`zaak_partial_update`) MOET gevalideerd worden dat de combiantie `identificatie`
+`zaak_partial_update`) MOET gevalideerd worden dat de combinatie `identificatie`
 en `bronorganisatie` uniek is, indien de `identificatie` door de consumer
 meegestuurd wordt.
 
@@ -231,7 +231,7 @@ Indien de identificatie niet door de consumer gestuurd wordt, dan MOET het ZRC
 de identificatie genereren op een manier die garandeert dat de identificatie
 uniek is binnen de bronorganisatie.
 
-#### Valideren `informatieobject` op de `ZaakInformatieObject`-resource
+#### **<a name="zrc-003">Valideren `informatieobject` op de `ZaakInformatieObject`-resource ([zrc-003](#zrc-003))</a>**
 
 Bij het aanmaken (`zaakinformatieobject_create`) MOET de URL-referentie naar
 het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
@@ -247,7 +247,7 @@ zaak al bestaat in het DRC. De bron van het informatieobject is bekend door
 de eerdere validaties op deze URL. De API-spec van het DRC voorziet in query-
 parameters om het bestaan te kunnen valideren.
 
-#### Limiteren zaakgegevens op basis van `zaaktypes` claim
+#### **<a name="zrc-004">Limiteren zaakgegevens op basis van `zaaktypes` claim ([zrc-004](#zrc-004))</a>**
 
 De `zaaktypes` claim is een lijst van URLs van zaaktypes waar de eindgebruiker
 rechten op heeft.
@@ -258,8 +258,7 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### Afsluiten zaak
-
+#### **<a name="zrc-005">Afsluiten zaak ([zrc-005](#zrc-005))</a>**
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
 `ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
 `ZaakType` is het `StatusType` met het hoogste `volgnummer`.
@@ -278,7 +277,7 @@ controleren van alle gerelateerde informatieobjecten. Deze MAG NIET `null` zijn,
 maar MOET `true` of `false` zijn. Indien dit niet het geval is, dan dient het
 ZRC een validatiefout te genereren met code `indicatiegebruiksrecht-unset`.
 
-#### Vertrouwelijkheidaanduiding van een zaak
+#### **<a name="zrc-006">Vertrouwelijkheidaanduiding van een zaak ([zrc-006](#zrc-006))</a>**
 
 Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
 of bewerken van een zaak, dan MOET de provider deze waarde toekennen. Indien
@@ -289,7 +288,7 @@ Een `Zaak` response van de provider MOET altijd een geldige waarde voor
 `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 `vertrouwelijkheidaanduiding` meesturen.
 
-#### Valideren `communicatiekanaal` op de `Zaak` resource
+#### **<a name="zrc-007">Valideren `communicatiekanaal` op de `Zaak` resource ([zrc-007](#zrc-007))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
 `zaak_partial_update`) MOET de URL-referentie naar het `communicatiekanaal`
@@ -309,7 +308,7 @@ een communicatiekanaal zoals gedocumenteerd op de
 }
 ```
 
-#### Valideren `relevanteAndereZaken` op de `Zaak`-resource
+#### **<a name="zrc-008">Valideren `relevanteAndereZaken` op de `Zaak`-resource ([zrc-008](#zrc-008))</a>**
 
 De lijst `relevanteAndereZaken` bevat URL-referenties naar andere zaken. Elke
 URL-referentie MOET gevalideerd worden op het bestaan. Indien het ophalen van
@@ -319,7 +318,7 @@ antwoorden met een `HTTP 400` foutbericht.
 In het foutbericht MOET de naam binnen `invalid-params` dan
 `relevanteAndereZaken.<index>` zijn, waarbij index start bij 0.
 
-#### Gegevensgroepen
+#### **<a name="zrc-009">Gegevensgroepen ([zrc-009](#zrc-009))</a>**
 
 De client MAG gegevensgroepen zoals `Zaak.verlenging` en `Zaak.opschorting`
 meesturen met een waarde `null` om aan te geven dat er geen waarde gezet is.
@@ -329,7 +328,7 @@ validatie van de gegevensgroep toepassen.
 
 De provider MOET altijd de geneste structuur van de gegevensgroep antwoorden.
 
-#### Valideren `hoofdzaak` op de `Zaak`-resource
+#### **<a name="zrc-010">Valideren `hoofdzaak` op de `Zaak`-resource ([zrc-010](#zrc-010))</a>**
 
 Bij het aanmaken of bewerken van een `Zaak` kan de `hoofdzaak` aangegeven
 worden. Dit MOET een geldige URL-referentie naar een `Zaak` zijn, indien
@@ -343,18 +342,18 @@ Indien de client een zaak bewerkt en diezelfde zaak als URL-referentie meegeeft
 als `hoofdzaak`, dan moet het ZRC antwoorden met een `HTTP 400`
 foutbericht (een zaak MAG GEEN deelzaak van zichzelf zijn).
 
-#### `Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum`
+#### **<a name="zrc-011">`Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum` ([zrc-011](#zrc-011))</a>**
 
-Indien de betalingsindicatie de waarde `"nvt"` heeft en een waarde gegevens is
+Indien de betalingsindicatie de waarde `"nvt"` heeft en een waarde gegeven is
 voor `laatsteBetaaldatum`, dan MOET het ZRC antwoorden met een `HTTP 400`
 foutbericht. Bij alle andere waarden van `betalingsindicatie` MAG een waarde
 opgegeven worden voor `laatsteBetaaldatum`.
 
-Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalinsindicatie
+Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalingsindicatie
 wordt gewijzigd naar `"nvt"`, dan MOET de `laatsteBetaaldatum` op `null` gezet
 worden.
 
-#### Valideren van producten en/of diensten bij een `Zaak`
+#### **<a name="zrc-012">Valideren van producten en/of diensten bij een `Zaak` ([zrc-012](#zrc-012))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
 `zaak_partial_update`) MOET de collectie `productenOfDiensten` worden getoetst
@@ -364,7 +363,7 @@ diensten op het zaaktype zijn.
 
 #### Archiveren
 
-**Afleiden van archiveringsparameters**
+**<a name="zrc-013">Afleiden van archiveringsparameters ([zrc-013](#zrc-013))</a>**
 
 Het resultaat van een zaak is bepalend voor het archiefregime. Bij het zetten
 van het resultaat van een zaak MOETEN de attributen `Zaak.archiefnominatie`
@@ -400,10 +399,10 @@ Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
 gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
 de archiefactietermijn niet beschikbaar is.
 
-**Zetten `Zaak.archiefstatus`**
+**<a name="zrc-014">Zetten `Zaak.archiefstatus` ([zrc-014](#zrc-014))</a>**
 
 De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
-waarde gezet worddt, dan MOETEN alle gerelateerde informatieobjecten de status
+waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status
 `gearchiveerd` hebben.
 
 De attributen `Zaak.archiefnominatie` en `Zaak.archiefactiedatum` MOETEN een
@@ -413,7 +412,7 @@ waarde krijgen als de de archiefstatus een waarde krijgt anders dan
 Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
 foutbericht antwoorden.
 
-**Vernietigen van zaken**
+**<a name="zrc-015">Vernietigen van zaken ([zrc-015](#zrc-015))</a>**
 
 Bij `DELETE` requests op zaken MOETEN de zaak en gerelateerde objecten fysiek
 uit de opslag verwijderd worden. Soft-deletes zijn NIET TOEGESTAAN. Onder
