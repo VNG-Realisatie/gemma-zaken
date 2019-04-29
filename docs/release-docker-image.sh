@@ -4,10 +4,10 @@ set -e # exit on error
 set -x # echo commands
 
 CONTAINER_REPO=vngr/gemma-zaken-docs
-BRANCH_TO_PUSH=master
 
 git_tag=$(git tag --points-at HEAD) &>/dev/null
-git_branch=$(git branch --contains HEAD 2>/dev/null)
+
+push=${1:-false}
 
 
 build_image() {
@@ -36,13 +36,9 @@ push_image() {
     if [[ -n "$JOB_NAME" ]]; then
 
         # check if commit is contained in $BRANCH_TO_PUSH
-        while read -r line; do
-            if [[ $line = $BRANCH_TO_PUSH ]] || [[ $line = "* $BRANCH_TO_PUSH" ]]; then
-                docker push ${CONTAINER_REPO}:${release_tag}
-                break
-            fi
-        done <<< "$git_branch"
-
+        if [[ $push = true ]]; then
+            docker push ${CONTAINER_REPO}:${release_tag}
+        fi
     else
         echo "Not pushing image, set the JOB_NAME envvar to push after building and ensure you're on the master branch"
     fi
