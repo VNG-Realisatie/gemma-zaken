@@ -456,7 +456,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
 businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
 zoals beschreven geïmplementeerd worden.
 
-#### Valideren `informatieobjecttype` op de `EnkelvoudigInformatieObject`-resource
+#### **<a name="drc-001">Valideren `informatieobjecttype` op de `EnkelvoudigInformatieObject`-resource ([drc-001](#drc-001))</a>**
 
 Bij het aanmaken (`enkelvoudiginformatieobject_create`) MOET de URL-referentie
 naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het
@@ -466,7 +466,7 @@ ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een
 (TODO: valideren dat het inderdaad om een informatieobjecttype resource gaat
 -> validatie aanscherpen)
 
-#### Valideren `object` op de `ObjectInformatieObject`-resource
+#### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
 
 Bij het aanmaken (`objectinformatieobject_create`) MOET de URL-referentie
 naar het `object` gevalideerd worden op het bestaan. Indien het ophalen van het
@@ -479,7 +479,7 @@ een `HTTP 400` foutbericht.
 
 (TODO: valideren dat het van het type `object_type` is -> validatie aanscherpen)
 
-#### Valideren relatieinformatie op `ObjectInformatieObject`-resource
+#### **<a name="drc-003">Valideren relatieinformatie op `ObjectInformatieObject`-resource ([drc-003](#drc-003))</a>**
 
 Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
 RGBZ. Dit betekent:
@@ -502,7 +502,7 @@ Bij het updaten (`objectinformatieobject_update` en
 te wijzingen. Bij andere waardes voor de attributen `object`, `objectType` en
 `informatieobject` MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
-#### Synchroniseren relaties met informatieobjecten
+#### **<a name="drc-004">Synchroniseren relaties met informatieobjecten ([drc-004](#drc-004))</a>**
 
 Wanneer een relatie tussen een `INFORMATIEOBJECT` en een ander `OBJECT` gemaakt
 of bijgewerkt wordt, dan MOET het DRC in de bron van `OBJECT` ook deze relatie
@@ -547,16 +547,16 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
-#### Statuswijzigingen van informatieobjecten
+#### **<a name="drc-005">Statuswijzigingen van informatieobjecten ([drc-005](#drc-005))</a>**
 
 Wanneer `InformatieObject.verzenddatum` een waarde heeft, dan zijn de waarden
 `in bewerking` en `ter vaststelling` voor `InformatieObject.status` NIET
-TOELATEN. Indien een dergelijke status gezet is _voor_ de verzenddatum opgegeven
+TOEGELATEN. Indien een dergelijke status gezet is _voor_ de verzenddatum opgegeven
 wordt, dan moet de API een HTTP 400 foutbericht geven met `status` als veld in
 de `invalid-params`. De client MOET dan `verzenddatum` leeg laten of eerst de
 status wijzingen.
 
-#### Gebruiksrechten op informatieobjecten
+#### **<a name="drc-006">Gebruiksrechten op informatieobjecten ([drc-006](#drc-006))</a>**
 
 Indien er geen gebruiksrechtenvoorwaarden van toepassing zijn op een
 informatieobject, dan moet `InformatieObject.indicatieGebruiksrechten` op de
@@ -571,7 +571,7 @@ op `true` zetten.
 Indien de laatste gebruiksrechten op een informatieobject verwijderd worden,
 dan MOET de indicatie weer op `null` gezet worden.
 
-#### Vertrouwelijkheidaanduiding van een informatieobject
+#### **<a name="drc-007">Vertrouwelijkheidaanduiding van een informatieobject ([drc-007](#drc-007))</a>**
 
 Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
 of bewerken van een informatieobject, dan MOET de provider deze waarde
