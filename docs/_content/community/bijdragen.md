@@ -82,22 +82,22 @@ specificatie.
 Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint
 te faciliteren.
 
-- [Scrum ZGW Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
+- [2. Scrum ZGW Voorbereiding](https://github.com/VNG-Realisatie/gemma-zaken/projects/1)
   Nieuwe user stories en issues komen hier op de backlog. Wanneer zij worden
   geprioriteerd komen ze in de flow om ze 'ready te maken' zodat ze opgepakt
   kunnen worden in de volgende sprint.
 
-- [Scrum ZGW Realisatie Sprint x](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
+- [1. Scrum ZGW Realisatie Huidige Sprint](https://github.com/VNG-Realisatie/gemma-zaken/projects/3)
   Vanuit de kolom "Ready for Sprint" worden tijdens de maandelijkse sprint
   planning userstories opgepakt die uitgevoerd gaan worden. Deze komen dan in
   de eerste kolom van het scrum board gericht op realisatie van de API
   specificatie.
 
-- [Scrum ZGW Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
+- [3. Scrum ZGW Gereed Archief](https://github.com/VNG-Realisatie/gemma-zaken/projects/4)
   Op dit board is terug te vinden welke user story gereed was in welke sprint.
 
-- [Out of scope](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
-  Op dit bord komen alle user stories die buiten scope zijn voor ZGW API's en die functionaliteit beschrijven voor gebruik van de ZGW API's buiten zaakgericht werken. Voor elke API die buiten ZGW kan worden gebruikt is er een kolom. Op dit moment zijn dat Documenten API en Besluiten API.
+- [4. Out of scope](https://github.com/VNG-Realisatie/gemma-zaken/projects/2)
+  Op dit bord komen alle user stories die buiten scope zijn voor ZGW API's en die functionaliteit beschrijven voor gebruik van de ZGW API's buiten zaakgericht werken. 
   
 ### Review
 
