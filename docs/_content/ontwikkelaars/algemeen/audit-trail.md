@@ -31,8 +31,10 @@ buiten beschouwing. Hier zijn andere oplossingen voor in de maak, zoals
 ### Endpoint
 
 De API wordt gerealiseerd als alleen-lezen endpoint binnen de API van het 
-component, waarbij de resource "audittrail" wordt ontsloten op het gelijknamige
-endpoint. Voor het ZRC zal dit dus zijn: `/api/v1/audittrail`.
+component, waarbij de resource "audittrail" wordt ontsloten als sub-resource
+van het hoofdobject van de bron.
+
+Voor het ZRC zal dit dus zijn: `/api/v1/zaken/<uuid>/audittrail`.
 
 De autit trail resource *kan* ingeladen worden in de OAS van het component 
 middels een referentie maar mag ook inline worden opgenomen in de OAS van het 
@@ -96,7 +98,6 @@ Vriendelijke naam van de applicatie. Deze kan worden afgeleid uit het `label`
 attribuut van de `Applicatie` resource in het Atorisatie Component (AC).
 
 `gebruikersId` (verplicht) 
-12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
 Unieke identificatie van de gebruiker die binnen de organisatie herleid kan
 worden naar een persoon. Dit mag bijvoorbeeld het ID zijn van de gebruiker
