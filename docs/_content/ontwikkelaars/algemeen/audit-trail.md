@@ -40,32 +40,37 @@ component zelf.
 
 **Rationale**
 
-De audit trail API...
+De audit trail API kan worden gerealiseerd op verschillende manieren, t.w.:
 
-1. ...wordt beschikbaar in een zelfstandig component worden waar alle andere 
-   componenten hun audit regels naar toe sturen.
-2. ...wordt onderdeel van de component API.
+1. Als zelfstandig component waar alle andere componenten hun audit regels
+   naar toe sturen.
+2. Als onderdeel van de component API.
 
 We realiseren geen apart component voor de audit trail waar alle componenten
 hun logging heen sturen. Dit zou een synchrone afhankelijkheid creëeren en er
 gaat potentieel veel informatie over het netwerk wat veel overhead veroorzaakt,
-zelfs als niemand deze audit trail ooit raad pleegt. Ten slotte staat deze 
-opzet een eventueel centraal logging component niet in de weg.
+zelfs als niemand deze audit trail ooit raadpleegt. Ten slotte staat deze opzet
+een eventueel centraal logging component niet in de weg.
 
-De audit trail API wordt dus onderdeel van elk component. Er zijn 2 keuzes, de 
-audit trail API...
+De audit trail API wordt dus onderdeel van elk component. Er zijn hierin 3 
+keuzes te maken, t.w.:
 
-1. ...krijgt een zelfstandige API naast de component API 
-   (`example.com/zrc/api/v1` en `example.com/zrc/audittrail/api/v1`).
-2. ...wordt onderdeel van de component API 
+1. Endpoint buiten de component OAS, en dus een zelfstandige API naast het 
+   component (`example.com/zrc/api/v1` en `example.com/zrc/audittrail/api/v1`).
+2. Endpoint als onderdeel van de OAS van het component, op root niveau
    (`example.com/zrc/api/v1/audittrail`).
+3. Endpoint als sub-resource van zaak.
+   (`example.com/zrc/api/v1/zaken/<uuid>/audittrail`).
 
 Bij het NRC is voor het ontvangen van notificaties door componenten gekozen 
-voor een zelfstandige API. Dit voorkomt dat een wijziging voor de audit trail 
-API alle API's van componenten raakt. Echter, bij het NRC geeft de consumer 
-zelf aan waar deze API te vinden is. Bij de audit trail is hiervan geen sprake
-en dus moet de API consistent en snel te vinden zijn, en het is in essentie ook
-echt een onderdeel van het component.
+voor een zelfstandige OAS (optie 1). Dit voorkomt dat een wijziging voor de 
+audit trail API alle API's van componenten raakt. Echter, bij het NRC geeft de 
+consumer zelf aan waar deze API te vinden is. Bij de audit trail is hiervan geen 
+sprake en dus moet de API consistent en snel te vinden zijn. Tevens is de 
+audit trail ook echt een onderdeel van het component (optie 2 en 3).
+
+We kiezen voor optie 3 omdat een audit trail typisch wordt opgevraagd van een
+bepaalde zaak. Dit laat optie 2 overigens mogelijk voor de toekomst.
 
 ### Attributen
 
@@ -91,9 +96,15 @@ Vriendelijke naam van de applicatie. Deze kan worden afgeleid uit het `label`
 attribuut van de `Applicatie` resource in het Atorisatie Component (AC).
 
 `gebruikersId` (verplicht) 
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
 
-Unieke identificatie van de gebruiker, binnen de organisatie. Deze moet uit de 
-JWT worden gehaald.
+Unieke identificatie van de gebruiker die binnen de organisatie herleid kan
+worden naar een persoon. Dit mag bijvoorbeeld het ID zijn van de gebruiker
+zoals deze bekend is in Active Directory, of het ID van de gebruiker zoals deze
+alleen binnen de applicatie bekend is. In het laatste geval kan de persoon met 
+behulp van het `applicatieId` ook tot een persoon herleid worden.
+
+De `gebruikersId` moet uit de JWT worden gehaald.
 
 *TODO: Moet nog worden toegevoegd aan het JWT en relevante documentatie*
 
@@ -149,17 +160,27 @@ archiveringstermijn of een correctie buiten het reguliere proces om.
 
 De datum waarom de handeling is gedaan.
 
+`wijzigingen` (verplicht)
+
+Een object met 2 attributen:
+
+* `oud` - Volledige JSON body van het object zoals dat bestond voordat de actie
+  heeft plaatsgevonden. De waarde `null` wordt gebruikt als er geen oude versie
+  is (bijvoorbeeld in het geval van het aanmaken van een object).
+* `nieuw` - Volledige JSON body van het object na de actie. De waarde `null` 
+  wordt gebruikt als er geen nieuwe versie is (bijvoorbeeld in het geval dat
+  het object wordt verwijderd).
+
 #### TODO: Extra attributen
 
 In overweging om op te nemen:
 
-* `verschillen` -- Een lijst met de wijzigingen.
 * `weergave` -- De audit trail regel op vriendelijke wijze samengesteld.
 
 #### Voorbeeld
 
 ```http
-GET /api/v1/zrc/audittrail/
+GET /api/v1/zaken/<uuid>/audittrail
 [
   {
     "uuid": "311cf2",
@@ -177,6 +198,9 @@ GET /api/v1/zrc/audittrail/
     "resourceWeergave": "Ingediend",
     "toelichting": "",
     "aanmaakdatum": "2019-05-05T11:53:18.090384Z",
+    "wijzigingen": {
+      "oud": null,
+      "nieuw": { ... },
   }
 ]
 ```
@@ -194,6 +218,8 @@ Dat als instantie vertaald kan worden naar:
 ```
 
 ### Query parameters
+
+*TODO: Voorlopig buiten scope gezien de realisatie binnen een endpoint.*
 
 Er kan worden gefilterd op:
 
