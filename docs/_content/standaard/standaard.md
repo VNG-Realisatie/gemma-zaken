@@ -100,35 +100,34 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaW
 
 Client en server maken gebruik van `shared secret` om het JWT te signen, met
 het HMAC SHA-256 algoritme. Iedere client MAG een eigen secret hebben. De
-server MOET aan de hand van de `client_identifier` key in de JWT header
+server MOET aan de hand van de `client_id` key in de JWT payload
 de bijhorende secret opvragen. De server MOET met het juiste shared secret
 het JWT valideren tegen tampering.
-
-De ZGW claims in de JWT-payload worden genamespaced onder `zds`.
-
-De claims bevatten de scopes als lijst van strings, waarbij de `scopes` key
-gebruikt wordt.
-
-De `zaaktypes` claim MOET gebruikt worden om zaakgegevens te limiteren. Indien
-deze claim ontbreekt, `null` is of een lege lijst, dan is het VERBODEN om
-zaakgegevens te ontsluiten. Een speciale waarde van `['*']` drukt uit dat alle
-zaaktypes toegestaan zijn.
 
 Voorbeeld van een payload:
 
 ```json
 {
-    "zds": {
-        "scopes": [
-            "zds.scopes.zaken.aanmaken"
-        ],
-        "zaaktypes": [
-            "https://haarlem.ztc.nl/api/v1/zaaktypen/123",
-            "https://haarlem.ztc.nl/api/v1/zaaktypen/124",
-        ]
-    }
+    "iss": "voorbeeld-consumers",
+    "iat": 1556898201,
+    "client_id": "dsh5thqAzL6I9SC5IPgR"
 }
 ```
+
+Na succesvolle validatie van het JWT is nu zeker dat de consumer is wie die
+beweert te zijn.
+
+Providers MOETEN voor elke aanroep door de client na te gaan of de client
+geautoriseerd is om deze aanroep uit te voeren.
+
+Providers MOETEN een geconfigureerde autorisatiecomponent bevragen met het
+`client_id` als query-parameter om de autorisaties van deze client op te
+vragen, conform de API-specificatie van het AC.
+
+Providers MOGEN deze gegevens cachen om performance-redenen. Indien
+er van caching gebruik gemaakt wordt, dan MOETEN providers een mechanisme
+inbouwen om wijzingen in het AC meteen door te voeren in de cache. Het is
+AANGERADEN om hiervoor te abonneren op notificaties verstuurd door het AC.
 
 ## Filter parameters
 
@@ -281,19 +280,19 @@ Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
 van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
 MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`.
 
-Bij het afsluiten van een `Zaak` MOET het ZRC 
-`Informatieobject.indicatieGebruiksrecht` controleren van alle gerelateerde 
-informatieobjecten. Deze MAG NIET `null` zijn, maar MOET `true` of `false` 
-zijn. Indien dit niet het geval is, dan dient het ZRC een validatiefout te 
+Bij het afsluiten van een `Zaak` MOET het ZRC
+`Informatieobject.indicatieGebruiksrecht` controleren van alle gerelateerde
+informatieobjecten. Deze MAG NIET `null` zijn, maar MOET `true` of `false`
+zijn. Indien dit niet het geval is, dan dient het ZRC een validatiefout te
 genereren met code `indicatiegebruiksrecht-unset`.
 
 #### Heropenen zaak
 
-Bij het heropenen van een `Zaak` MOET de client een andere status toevoegen aan 
-de zaak dan een eindstatus. Hiervoor MOET de client de scope 
+Bij het heropenen van een `Zaak` MOET de client een andere status toevoegen aan
+de zaak dan een eindstatus. Hiervoor MOET de client de scope
 `zds.scopes.zaken.heropenen` hebben.
 
-Tevens MOET de provider de volgende velden op `null` zetten zodra een 
+Tevens MOET de provider de volgende velden op `null` zetten zodra een
 eindstatus wordt gewijzigd in een andere status:
 
 * `Zaak.einddatum`
@@ -453,6 +452,30 @@ gerelateerde objecten wordt begrepen:
 - `klantcontact` - alle klantcontacten bij een zaak
 
 Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
+
+#### Data filteren bij de bron
+
+Het autorisatiecomponent (AC) legt op het niveau van `zaaktype` vast welke
+operaties mogelijk en wat de maximale vertrouwelijkheidaanduiding is voor een
+consumer.
+
+Het ZRC MAG ENKEL zaken ontsluiten waarvan:
+
+* het zaaktype voorkomt in de autorisaties van de consumer
+* de vertrouwelijkheidaanduiding lager of gelijk aan de maximale
+  vertrouwelijkheidaanduiding is voor het betreffende zaaktype
+
+De API-specificatie legt vast welke scopes nodig zijn voor welke operaties.
+Een provider MOET operaties blokkeren op zaken waarvan de nodige scopes niet
+toegekend zijn voor het zaaktype van de betreffende zaak.
+
+Indien een operatie niet toegelaten is, dan MOET de provider met een
+`HTTP 403` foutbericht antwoorden.
+
+Een consumer is verbonden aan het concept `Applicatie`, waarop `autorisaties`
+gedefinieerd worden. Het is mogelijk om op het niveau van `Applicatie` de vlag
+`heeftAlleAutorisaties` te zetten. Indien deze gezet is, dan MOET de provider
+alle operaties voor deze consumer toelaten, op alle zaken.
 
 ## Documentregistratiecomponent
 
