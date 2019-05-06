@@ -21,6 +21,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
+    - [Autorisatiecomponent](#autorisatiecomponent)
 - [Filter parameters](#filter-parameters)
 - [Notificaties](#notificaties)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
@@ -128,6 +129,34 @@ Providers MOGEN deze gegevens cachen om performance-redenen. Indien
 er van caching gebruik gemaakt wordt, dan MOETEN providers een mechanisme
 inbouwen om wijzingen in het AC meteen door te voeren in de cache. Het is
 AANGERADEN om hiervoor te abonneren op notificaties verstuurd door het AC.
+
+### Autorisatiecomponent
+
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ac/openapi.yaml)
+MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
+referentie-implementatie van het AC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven
+staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook
+toe te voegen.
+
+#### Run-time gedrag
+
+##### Uniciteit van `client_ids`
+
+Een applicatie MAG zich met meerdere `client_id`s identificeren, waarbij er
+een `client_id` per provider gebruikt wordt. Eenmaal een `client_id` aan een
+applicatie toegekend is, dan MAG dit `client_id` NIET opnieuw gebruikt worden.
+Een `client_id` identifieert uniek 1 en slechts 1 applicatie.
+
+##### Autorisatiesspecificatie
+
+Autorisaties MOETEN gespecifieerd worden op 1 van de volgende manieren:
+
+* opvoeren van `Autorisatie`-objecten bij een `Applicatie`, waarbij de vlag
+  `heeftAlleAutorisaties` `false` is
+* het zetten van de vlag `heeftAlleAutorisaties` op `true`, waarbij er GEEN
+  `Autorisatie`-objecten mogen opgevoerd worden
 
 ## Filter parameters
 
