@@ -241,6 +241,8 @@ hebben. Aan de hand van de **Identifier** is bekend welke consumer het betreft._
    gehoste referentie componenten. Zie de [API guides](./guides) hoe dit wel
    werkt._
 
+Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)
+
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
 
