@@ -59,6 +59,8 @@ tussen registraties en consumers die van de API's gebruik maken.
 - Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
   communiceert via de ZGW API's.
 
+- De codes bij business logica (zoals `zrc-001`) verwijzen naar de [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
+
 ## Beschikbaar stellen van API-spec
 
 Iedere component MOET het OAS schema serveren, onder
