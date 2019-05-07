@@ -565,7 +565,7 @@ dan moet de indicatie op `null` gezet worden.
 
 Om de indicatie op `true` te zetten, MOET je de resource `Gebruiksrechten`
 aanmaken in de API. Providers MOETEN bij het aanmaken van gebruiksrechten
-voor een informatieobject de `inidcatieGebruiksrechten` van dat informatieobject
+voor een informatieobject de `indicatieGebruiksrechten` van dat informatieobject
 op `true` zetten.
 
 Indien de laatste gebruiksrechten op een informatieobject verwijderd worden,
@@ -608,7 +608,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
 businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
 zoals beschreven geïmplementeerd worden.
 
-#### Valideren `besluittype` op de `Besluit`-resource
+#### **<a name="brc-001">Valideren `besluittype` op de `Besluit`-resource ([brc-001](#brc-001))</a>**
 
 Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
 `besluit_partial_update`) MOET de URL-referentie naar het `besluittype` gevalideerd
@@ -619,7 +619,7 @@ resulteert in een `HTTP 200` status code, MOET het BRC antwoorden met een
 (TODO: valideren dat het inderdaad om een besluittype resource gaat -> validatie
 aanscherpen)
 
-#### Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource
+#### **<a name="brc-002">Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource ([brc-002](#brc-002))</a>**
 
 Bij het aanmaken (`besluit_create`) MOET gevalideerd worden dat de combinatie
 `identificatie` en `verantwoordelijke_organisatie` uniek is, indien de
@@ -632,7 +632,7 @@ uniek is binnen de verantwoordelijke_organisatie.
 Bij het bijwerken (`besluit_update` en `besluit_partial_update`) is het NIET
 TOEGESTAAN om `identificatie` en `verantwoordelijke_organisatie` te wijzingen.
 
-#### Valideren `informatieobject` op de `BesluitInformatieObject`-resource
+#### **<a name="brc-003">Valideren `informatieobject` op de `BesluitInformatieObject`-resource ([brc-003](#brc-003))</a>**
 
 Bij het aanmaken (`besluitinformatieobject_create`) MOET de URL-referentie naar
 het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
@@ -675,12 +675,12 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
 businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
 zoals beschreven geïmplementeerd worden.
 
-#### Valideren van `Zaaktype`
+#### **<a name="ztc-001">Valideren van `Zaaktype` ([ztc-001](#ztc-001))</a>**
 
 Het attribuut `Zaaktype.selectielijstProcestype` MOET een URL-verwijzing naar
 de `Procestype` resource in de selectielijst-API zijn, indien ingevuld.
 
-#### Valideren van `Resultaattype`
+#### **<a name="ztc-002">Valideren van `Resultaattype` ([ztc-002](#ztc-002))</a>**
 
 Het attribuut `Resultaattype.resultaattypeomschrijving` MOET een URL-verwijzing
 naar de `Resultaattypeomschrijving` resource in de referentielijsten-API zijn.
