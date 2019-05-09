@@ -118,7 +118,7 @@ Voorbeeld van een payload:
 Na succesvolle validatie van het JWT is nu zeker dat de consumer is wie die
 beweert te zijn.
 
-Providers MOETEN voor elke aanroep door de client na te gaan of de client
+Providers MOETEN voor elke aanroep door de client controleren of de client
 geautoriseerd is om deze aanroep uit te voeren.
 
 Providers MOETEN een geconfigureerde autorisatiecomponent bevragen met het
@@ -142,10 +142,14 @@ toe te voegen.
 
 #### Run-time gedrag
 
+De AC MAG bij de registratie van autorisaties die een of meer zaaktypen
+bevatten controleren of de zaaktypen bestaan. Merk op dat hiervoor het AC
+zelf geautoriseerd moet zijn om het ZTC te bevragen.
+
 ##### Uniciteit van `client_ids`
 
 Een applicatie MAG zich met meerdere `client_id`s identificeren, waarbij er
-een `client_id` per provider gebruikt wordt. Eenmaal een `client_id` aan een
+een `client_id` per provider gebruikt wordt. Als eenmaal een `client_id` aan een
 applicatie toegekend is, dan MAG dit `client_id` NIET opnieuw gebruikt worden.
 Een `client_id` identifieert uniek 1 en slechts 1 applicatie.
 
