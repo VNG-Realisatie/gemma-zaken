@@ -63,6 +63,7 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
   [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
 * [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
+* [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
 
 ## Licentie
 Copyright © VNG Realisatie 2018
