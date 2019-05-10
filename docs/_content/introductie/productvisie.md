@@ -1,6 +1,6 @@
 ---
 title: "Productvisie ZGW API's"
-date: '29-5-2018'
+date: '02-05-2019'
 weight: 100
 ---
 
@@ -102,14 +102,14 @@ uniform is. Hiermee worden (onbedoelde) vendor lockins bestreden.
 Realisatie van de productvisie valt uiteen in vier delen die niet los van
 elkaar gezien kunnen worden:
 
-1. Specificeren van Zaak- Documentservices v2.0
+1. Specificeren van ZGW API's v2.0
 2. Beschikbaar maken van Open Source referentieimplementatie
 3. Realiseren van toepassingen voor burgers of gemeenten gebruikmakend van de
    ZGW API's
 4. Centraal aanbieden van componenten op basis van de nieuwe API's
 
-Delen 1 en 2 worden uitgevoerd door een centraal scrumteam bestaand uit
-samenwerkende gemeenten.
+Delen 1 en 2 worden uitgevoerd door een centraal scrumteam bestaande uit
+samenwerkende gemeenten en VNG-medewerkers.
 
 Deel 3 wordt uitgevoerd door planning af te stemmen tussen dit scrumteam en
 projecten die tegelijkertijd in gemeenten worden uitgevoerd. Bij deel 3 zorgt
@@ -121,7 +121,7 @@ nader uitgewerkt en op een later moment uitgevoerd.
 
 
 
-##	Uitgangspunten
+## Uitgangspunten
 
 Bij de start van dit traject hanteren we de volgende uitgangspunten:
 
@@ -197,10 +197,10 @@ is al
 ## Realisatie
 
 De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet
-worden. Door user-stories zo goed mogelijk in te vullen en vanuit oogpunt
-architectuur in de gaten te houden dat designchoices worden gemaakt die ruimte
-openlaten voor verdere ontwikkeling in de richting van de visie, komt de nieuwe
-standaard stukje bij beetje tot stand.
+worden. Door user stories zo goed mogelijk in te vullen komt de nieuwe
+standaard stukje bij beetje tot stand. Vanuit het oogpunt van
+architectuur wordt in de gaten gehouden dat goede designchoices worden gemaakt. Ruimte
+wordt opengelaten voor verdere ontwikkeling in de richting van de visie.
 
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen
 waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
