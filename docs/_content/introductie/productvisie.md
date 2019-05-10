@@ -200,7 +200,7 @@ De realisatie gaat van start zonder complete blauwdruk van wat gebouwd moet
 worden. Door user stories zo goed mogelijk in te vullen komt de nieuwe
 standaard stukje bij beetje tot stand. Vanuit het oogpunt van
 architectuur wordt in de gaten gehouden dat goede designchoices worden gemaakt. Ruimte
-wordt opengelaten voor verdere ontwikkeling in de richting van de visie, 
+wordt opengelaten voor verdere ontwikkeling in de richting van de visie.
 
 Om een snelle start te maken wordt gestart met alle gemeenten en partijen
 waarvan de interesse bekend is. Aanhakers zijn nadrukkelijk welkom.
