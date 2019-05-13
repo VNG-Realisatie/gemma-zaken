@@ -5,9 +5,12 @@ set -x
 
 BRANCH_TO_DEPLOY=master
 
+SAVEIFS=$IFS
+IFS=$'\n'
 git_branches=($(git branch --contains HEAD | cut -c 3-)) 2>/dev/null
+IFS=$SAVEIFS
 
-if [[ " ${git_branches[@]} " =~ " ${BRANCH_TO_PUSH} " ]]; then
+if [[ " ${git_branches[@]} " =~ " ${BRANCH_TO_DEPLOY} " ]]; then
     deploy=true
 else
     deploy=false
