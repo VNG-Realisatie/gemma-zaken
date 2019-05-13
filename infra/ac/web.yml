@@ -1,0 +1,57 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: ac
+  namespace: gemma
+  labels:
+    k8s-app: ac
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: ac
+  template:
+    metadata:
+      name: ac
+      labels:
+        k8s-app: ac
+    spec:
+      containers:
+      - name: ac
+        image: vngr/gemma-autorisatiecomponent:0.1.0
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: ac.conf.docker
+          - name: SUBPATH
+            value: /ac
+          - name: DB_HOST
+            value: postgres-ac
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DB_PASSWORD
+            value: <REDACTED>
+          - name: SENTRY_DSN
+            value: <REDACTED>
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: ac
+  namespace: gemma
+  labels:
+    k8s-app: ac
+spec:
+  selector:
+    k8s-app: ac
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
