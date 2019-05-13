@@ -15,7 +15,7 @@ Voorheen werd er toegewerkt naar één openbare consultatie waarmee een standaar
 - API-labs, eveneens openbaar, geven developers van gemeenten en leveranciers de kans om met ondersteuning van het ZGW team te experimenteren met de API's. Ook hier kunnen uiteraard bugs en nieuwe wensen gemeld worden.
 - Presentaties op de Leveranciersdag van VNG-Realisatie
 
-Deze instrumenten tesamen zullen de openbare consultatie vormen/vervangen. Er zal dus sprake zijn van een voortdurende consultatie van de stakeholders, waarmee ook de kans ontstaat om de standaard voortdurend te verbeteren op aangeven van de gebruikers.
+Deze instrumenten zijn onderdeel van de openbare consultatie. Er zal dus sprake zijn van een voortdurende consultatie van de stakeholders, waarmee ook de kans ontstaat om de standaard voortdurend te verbeteren op aangeven van de gebruikers.
 
 'Issues' en 'Pull Requests' zijn dus meer dan welkom.
 
