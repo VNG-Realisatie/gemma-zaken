@@ -1,4 +1,4 @@
-ZAKEN volgens GEMMA 2.0
+API's voor Zaakgericht Werken
 =====
 [![Build Status](https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic)](https://jenkins.nlx.io/) ![Repo Status](https://img.shields.io/badge/status-concept-lightgrey.svg?style=plastic)
 
