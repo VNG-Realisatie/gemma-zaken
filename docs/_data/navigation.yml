@@ -1,5 +1,5 @@
-- name: Introductie
-  link: /introductie/
+- name: Product Visie
+  link: productvisie.md
   weight: 10
 - name: Standaard
   link: /standaard/
