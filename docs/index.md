@@ -1,5 +1,5 @@
 ---
-title: "ZAKEN volgens GEMMA 2.0"
+title: "API's voor Zaakgericht Werken"
 header-img: /img/sample-image.jpg
 date: 12-7-2018
 ---
