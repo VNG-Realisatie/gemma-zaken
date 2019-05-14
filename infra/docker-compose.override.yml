@@ -20,3 +20,7 @@ services:
   nrc_web:
     ports:
       - "${NRC_UWSGI_PORT:-8004}:8000"
+
+  ac_web:
+    ports:
+      - "${AC_UWSGI_PORT:-8005}:8000"

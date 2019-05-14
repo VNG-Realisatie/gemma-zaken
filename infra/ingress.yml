@@ -41,6 +41,10 @@ spec:
         backend:
           serviceName: nrc
           servicePort: 8000
+      - path: "/ac/"
+        backend:
+          serviceName: ac
+          servicePort: 8000
       - path: "/"
         backend:
           serviceName: zaken-docs
