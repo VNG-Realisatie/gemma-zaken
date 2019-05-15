@@ -171,6 +171,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.lezen
     post:
       operationId: besluit_create
       description: 'Registreer een besluit.
@@ -320,6 +323,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.aanmaken
       requestBody:
         $ref: '#/components/requestBodies/Besluit'
     parameters: []
@@ -440,6 +446,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.lezen
     post:
       operationId: besluitinformatieobject_create
       description: "Registreer in welk(e) INFORMATIEOBJECT(en) een BESLUIT vastgelegd\
@@ -574,6 +583,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.aanmaken
       requestBody:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     parameters:
@@ -711,6 +723,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.lezen
     put:
       operationId: besluitinformatieobject_update
       description: "Werk de relatie tussen een BESLUIT en INFORMATIEOBJECT bij.\n\n\
@@ -852,6 +867,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     patch:
@@ -995,6 +1013,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     delete:
@@ -1119,6 +1140,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.verwijderen
     parameters:
     - name: besluit_uuid
       in: path
@@ -1260,6 +1284,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.lezen
     put:
       operationId: besluit_update
       description: 'Werk een BESLUIT bij.
@@ -1411,6 +1438,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Besluit'
     patch:
@@ -1564,6 +1594,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Besluit'
     delete:
@@ -1690,6 +1723,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - besluiten.verwijderen
     parameters:
     - name: uuid
       in: path
@@ -1892,7 +1928,7 @@ components:
       - status
       - detail
       - instance
-      - invalid-params
+      - invalidParams
       type: object
       properties:
         type:
@@ -1924,7 +1960,7 @@ components:
             Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
-        invalid-params:
+        invalidParams:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'

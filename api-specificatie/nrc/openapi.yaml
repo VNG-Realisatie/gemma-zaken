@@ -197,7 +197,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - (notificaties.scopes.consumeren | notificaties.scopes.publiceren)
+        - (notificaties.consumeren | notificaties.publiceren)
     post:
       operationId: abonnement_create
       description: ''
@@ -331,7 +331,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - notificaties.scopes.consumeren
+        - notificaties.consumeren
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
     parameters: []
@@ -464,7 +464,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - (notificaties.scopes.consumeren | notificaties.scopes.publiceren)
+        - (notificaties.consumeren | notificaties.publiceren)
     put:
       operationId: abonnement_update
       description: ''
@@ -605,7 +605,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - notificaties.scopes.consumeren
+        - notificaties.consumeren
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
     patch:
@@ -748,7 +748,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - notificaties.scopes.consumeren
+        - notificaties.consumeren
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
     delete:
@@ -875,7 +875,7 @@ paths:
       - abonnement
       security:
       - JWT-Claims:
-        - notificaties.scopes.consumeren
+        - notificaties.consumeren
     parameters:
     - name: uuid
       in: path
@@ -1023,7 +1023,7 @@ paths:
       - kanaal
       security:
       - JWT-Claims:
-        - (notificaties.scopes.publiceren | notificaties.scopes.consumeren)
+        - (notificaties.publiceren | notificaties.consumeren)
     post:
       operationId: kanaal_create
       description: ''
@@ -1157,7 +1157,7 @@ paths:
       - kanaal
       security:
       - JWT-Claims:
-        - notificaties.scopes.publiceren
+        - notificaties.publiceren
       requestBody:
         content:
           application/json:
@@ -1294,7 +1294,7 @@ paths:
       - kanaal
       security:
       - JWT-Claims:
-        - (notificaties.scopes.publiceren | notificaties.scopes.consumeren)
+        - (notificaties.publiceren | notificaties.consumeren)
     parameters:
     - name: uuid
       in: path
@@ -1324,7 +1324,7 @@ paths:
       - notificaties
       security:
       - JWT-Claims:
-        - notificaties.scopes.publiceren
+        - notificaties.publiceren
       requestBody:
         content:
           application/json:
@@ -1461,7 +1461,7 @@ components:
       - status
       - detail
       - instance
-      - invalid-params
+      - invalidParams
       type: object
       properties:
         type:
@@ -1493,7 +1493,7 @@ components:
             Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
-        invalid-params:
+        invalidParams:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'
