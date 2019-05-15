@@ -23,8 +23,7 @@ We hanteren voor het opstellen van een audit trail, de volgende definitie:
 Bron: [NORA](https://www.noraonline.nl/wiki/Inhoud_audit_trail)
 
 We laten de relatie met logging (in het algemeen) en doelbinding volgens de AVG
-buiten beschouwing. Hier zijn andere oplossingen voor in de maak, zoals 
-[NLx](https://nlx.io).
+buiten beschouwing. Hier zijn andere oplossingen voor in de maak, zoals [NLX].
 
 ## API implementatie
 
@@ -36,9 +35,8 @@ van het hoofdobject van de bron.
 
 Voor het ZRC zal dit dus zijn: `/api/v1/zaken/<uuid>/audittrail`.
 
-De autit trail resource *kan* ingeladen worden in de OAS van het component 
-middels een referentie maar mag ook inline worden opgenomen in de OAS van het 
-component zelf.
+De audit trail bevat dus alle wijzigingen op de zaak, waaronder status
+wijzigingen, het koppelen of ontkoppelen van documenten, etc.
 
 **Rationale**
 
@@ -89,13 +87,17 @@ context, dan blijft het formaat voor consumers gelijk.
 
 `applicatieId` (verplicht)
 
-Unieke identificatie van de applicatie, binnen de organisatie. Deze komt 
-overeen met het `client_id` attribuut uit de JWT.
+Unieke identificatie van de applicatie, binnen de organisatie.
+
+Deze moet worden gehaald uit het payload attribuut `client_id` van het JWT 
+token. Indien er geen gebruik wordt gemaakt van JWT of het attribuut 
+`client_id` is niet aanwezig dan kan terugvallen worden op de [NLX] header 
+`X-NLX-Request-Application-Id`.
 
 `applicatieWeergave` (optioneel)
 
 Vriendelijke naam van de applicatie. Deze kan worden afgeleid uit het `label` 
-attribuut van de `Applicatie` resource in het Atorisatie Component (AC).
+attribuut van de `Applicatie` resource in het Autorisatie Component (AC).
 
 `gebruikersId` (verplicht) 
 
@@ -105,15 +107,17 @@ zoals deze bekend is in Active Directory, of het ID van de gebruiker zoals deze
 alleen binnen de applicatie bekend is. In het laatste geval kan de persoon met 
 behulp van het `applicatieId` ook tot een persoon herleid worden.
 
-De `gebruikersId` moet uit de JWT worden gehaald.
-
-*TODO: Moet nog worden toegevoegd aan het JWT en relevante documentatie*
+Deze moet worden gehaald uit het payload attribuut `user_id` van het JWT token.
+Indien er geen gebruik wordt gemaakt van JWT of het attribuut `user_id` is 
+niet aanwezig dan kan terugvallen worden op de [NLX] header 
+`X-NLX-Request-User-Id`.
 
 `gebruikersWeergave` (optioneel)
 
-Vriendelijke naam van de gebruiker. Deze moet uit de JWT worden gehaald.
+Vriendelijke naam van de gebruiker.
 
-*TODO: Moet nog worden toegevoegd aan het JWT en relevante documentatie*
+Deze moet worden gehaald uit het payload attribuut `user_representation` van 
+het JWT token indien aanwezig.
 
 `actie` (verplicht)
 
@@ -144,18 +148,21 @@ De resource naam *zoals bij notificaties*.
 
 `resourceUrl` (verplicht)
 
-De URL naar het object *zoals bij notificaties*.
+De URL naar het object *zoals bij notificaties*. Dit is bijvoorbeeld de URL
+naar een status, een rol, etc.
 
 `resourceWeergave` (optioneel)
 
 Vriendelijke identificatie van het object. Bijvoorbeeld de zaak identificatie 
-of de omschrijving van een status.
+of de omschrijving van een status. Deze weergave kan bijvoorbeeld gebaseerd zijn
+op de semantische unieke identificatie zoals deze in het RGBZ staat.
 
 `toelichting` (optioneel)
 
 Toelichting waarom de handeling is uitgevoerd. Dit kan handig zijn voor sommige
 handelingen waarbij additionele context gewenst is, zoals het ophogen van een
-archiveringstermijn of een correctie buiten het reguliere proces om.
+archiveringstermijn of een correctie buiten het reguliere proces om. Deze kan
+voor elk verzoek meegegeven als `X-Audit-Toelichting` header.
 
 `aanmaakdatum` (automatisch)
 
@@ -172,13 +179,9 @@ Een object met 2 attributen:
   wordt gebruikt als er geen nieuwe versie is (bijvoorbeeld in het geval dat
   het object wordt verwijderd).
 
-#### TODO: Extra attributen
-
-In overweging om op te nemen:
-
-* `weergave` -- De audit trail regel op vriendelijke wijze samengesteld.
-
 #### Voorbeeld
+
+In het ZRC wordt de audit trail als volgt ontsloten:
 
 ```http
 GET /api/v1/zaken/<uuid>/audittrail
@@ -218,45 +221,6 @@ Dat als instantie vertaald kan worden naar:
 5 mei 2019 11:53 Status "Ingediend" is succesvol aangemaakt in ZRC door Joeri Bekker (14) via Demo Applicatie (demo-app).
 ```
 
-### Query parameters
-
-*TODO: Voorlopig buiten scope gezien de realisatie binnen een endpoint.*
-
-Er kan worden gefilterd op:
-
-* `applicatieId` (`exact` en `in`)
-* `gebruikersId` (`exact` en `in`)
-* `actie` (`exact` en `in`)
-* `resultaat` (`exact`, `in`, `lte` en `gte`)
-* `hoofdObject`
-* `resource` (`exact` en `in`)
-* `resourceUrl`
-* `aanmaakdatum` (`exact`, `lte` en `gte`)
-
-En gesorteerd worden op:
-
-* `aanmaakdatum` (`asc` en `desc`)
-
-#### Voorbeelden
-
-Zo kan bijvoorbeeld een audit trail worden opgevraagd van een bepaalde zaak:
-
-```http
-GET /api/v1/zrc/audittrail?
-  hoofdObject = https://www.example.com/api/v1/zaken/5ab6e2
-```
-
-Of, om alle foutmeldingen in een bepaalde periode, door een bepaald persoon 
-weer te geven:
-
-```http
-GET /api/v1/zrc/audittrail?
-  resultaat__gte = 300 &
-  gebruikersId = 14 &
-  aanmaakdatum__gte = 2019-01-01 &
-  aanmaakdatum__lte = 2019-01-31
-```
-
 ### Samenstellen van volledige audit trail
 
 Tot nu toe hebben we alleen een audit trail besproken van een enkel component.
@@ -273,3 +237,10 @@ component nodig zijn om de volledige audit trail te verkrijgen.
 Overigens wordt dit niet persé eenvoudiger als alles in 1 audit trail component
 zou zitten. Immers moeten nog steeds alle URLs van de hoofdObjecten bekend zijn 
 en worden opgevraagd.
+
+### Verwijderen van een object
+
+Als een object wordt verwijderd in het kader van archievering, dan moet ook de
+audit trail verwijderd worden.
+
+[NLX]: https://docs.nlx.io/
