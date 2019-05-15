@@ -5,6 +5,8 @@ set -x
 
 BRANCH_TO_DEPLOY=master
 
+git fetch origin $BRANCH_TO_DEPLOY:$BRANCH_TO_DEPLOY
+
 SAVEIFS=$IFS
 IFS=$'\n'
 git_branches=($(git branch --contains HEAD | cut -c 3-)) 2>/dev/null
