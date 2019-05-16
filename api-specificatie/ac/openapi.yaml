@@ -983,9 +983,9 @@ components:
       required: true
   securitySchemes:
     JWT-Claims:
-      bearerFormat: JWT
-      scheme: bearer
       type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     AutorisatieBase:
       required:
@@ -1026,7 +1026,8 @@ components:
           readOnly: true
           minLength: 1
         scopes:
-          description: Komma-gescheiden lijst van scope labels.
+          description: Lijst van scope labels. Elke scope geeft toegang tot een set
+            van acties/operaties, zoals gedocumenteerd bij de betreffende component.
           type: array
           items:
             title: Scopes
@@ -1118,7 +1119,7 @@ components:
           format: uri
           readOnly: true
         clientIds:
-          description: Komma-gescheiden lijst van consumer identifiers (hun client_id).
+          description: Lijst van consumer identifiers (hun 'client_id')
           type: array
           items:
             title: Client ids
