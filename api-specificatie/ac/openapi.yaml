@@ -987,7 +987,7 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    Autorisatie:
+    AutorisatieBase:
       required:
       - component
       - scopes
@@ -1026,13 +1026,19 @@ components:
           readOnly: true
           minLength: 1
         scopes:
-          description: Komma-gescheiden lijst van scope labels.
+          description: Lijst van scope labels. Elke scope geeft toegang tot een set
+            van acties/operaties, zoals gedocumenteerd bij de betreffende component.
           type: array
           items:
             title: Scopes
             type: string
             maxLength: 100
             minLength: 1
+      discriminator:
+        propertyName: component
+    ZRCAutorisatie:
+      type: object
+      properties:
         zaaktype:
           title: Zaaktype
           description: URL naar het zaaktype waarop de autorisatie van toepassing
@@ -1053,6 +1059,54 @@ components:
           - confidentieel
           - geheim
           - zeer geheim
+    ZRC:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/ZRCAutorisatie'
+    DRCAutorisatie:
+      type: object
+      properties:
+        informatieobjecttype:
+          title: Informatieobjecttype
+          description: URL naar het informatieobjecttype waarop de autorisatie van
+            toepassing is.
+          type: string
+          format: uri
+          maxLength: 1000
+        maxVertrouwelijkheidaanduiding:
+          title: Max vertrouwelijkheidaanduiding
+          description: Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).
+          type: string
+          enum:
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
+    DRC:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/DRCAutorisatie'
+    BRCAutorisatie:
+      type: object
+      properties:
+        besluittype:
+          title: Besluittype
+          description: URL naar het besluittype waarop de autorisatie van toepassing
+            is.
+          type: string
+          format: uri
+          maxLength: 1000
+    BRC:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/BRCAutorisatie'
     Applicatie:
       required:
       - clientIds
@@ -1065,7 +1119,7 @@ components:
           format: uri
           readOnly: true
         clientIds:
-          description: Komma-gescheiden lijst van consumer identifiers (hun client_id).
+          description: Lijst van consumer identifiers (hun 'client_id')
           type: array
           items:
             title: Client ids
@@ -1087,7 +1141,7 @@ components:
         autorisaties:
           type: array
           items:
-            $ref: '#/components/schemas/Autorisatie'
+            $ref: '#/components/schemas/AutorisatieBase'
     Fout:
       required:
       - code
@@ -1155,7 +1209,7 @@ components:
       - status
       - detail
       - instance
-      - invalid-params
+      - invalidParams
       type: object
       properties:
         type:
@@ -1187,7 +1241,7 @@ components:
             Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
-        invalid-params:
+        invalidParams:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'
