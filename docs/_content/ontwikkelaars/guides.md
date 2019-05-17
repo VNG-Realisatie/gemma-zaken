@@ -29,7 +29,7 @@ componenten.
 
 2. Vul het **Clientlabel** in (_bijv. `mijn-consumer`_) en klik op **Bevestig**.
 
-3. Bewaar de gegevens op de volgende pagina:
+3. Bewaar de gegevens voor op het volgende tabblad "Genereer een ZGW JWT"
    
    * Client ID (_bijv. `mijn-consumer-RuAJiUr4sUQp`_)
    * Secret (_bijv. `qy7gBX1zZj06epGQeyX9KrBNTMUu6eefSecretqy7gBX1zZj06epGQeyX9KrBNTMUu6eef`_)

@@ -3,8 +3,6 @@ title: "Demo Sprint 2"
 date: '3-8-2018'
 ---
 
-# Demo Sprint 2
-
 Delft, 2 augustus 2018
 
 ## Presentatie

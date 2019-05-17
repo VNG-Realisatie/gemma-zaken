@@ -6,6 +6,8 @@ about: Beschrijving van een feature/user story
 
 ...zodat [vul aan].
 
+Onderstaande "vink-lijst" is voor het team zelf om in te vullen en hoeft niet door de indiender te worden ingevuld.
+
 **Bepaling prioriteit door PO**
 
 - [ ] verbreding of verdieping API's
@@ -26,7 +28,7 @@ about: Beschrijving van een feature/user story
 **Definition of done**
 - [ ] Er is een OAS 3.0 specificatie
 - [ ] Er is een referentieimplementatie
-- [ ] Er zijn tests aanwezig die de wijziging aantonen en waarmee de user story getest kan worden.
+- [ ] Er zijn tests(cases) aanwezig die de wijziging aantonen en waarmee de user story getest kan worden.
 - [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
 - [ ] Gebruikte gegevensmodel is na **iedere iedere sprint** bijgewerkt.
 
