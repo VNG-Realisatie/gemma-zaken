@@ -1,5 +1,5 @@
 - name: Product Visie
-  link: productvisie.md
+  link: /productvisie/
   weight: 10
 - name: Standaard
   link: /standaard/

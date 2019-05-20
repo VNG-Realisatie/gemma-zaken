@@ -25,7 +25,7 @@ verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
 Wil je hier meer over weten, kijk dan bij [architectuur](architectuur/index).
 
-Lees meer over de api's in de [product visie](./_content/introductie/productvisie.md)  
+Lees meer over de api's in de [product visie](./_content/productvisie/index.md)  
 
 De standaard staat [hier](/standaard/standaard) beschreven. Ontwikkelaars kunnen [direct aan de slag](ontwikkelaars/aan-de-slag) met de beschikbare 
 [API's](standaard/apis/index) en de implementaties van de referentie componenten. Hoe we samen komen tot API-standaarden, kan je [hier](community/bijdragen) lezen.
