@@ -116,7 +116,7 @@ services:
   ac_web:
     image: vngr/gemma-autorisatiecomponent:latest
     environment:
-      - DJANGO_SETTINGS_MODULE=ac_web.conf.docker
+      - DJANGO_SETTINGS_MODULE=ac.conf.docker
       - SECRET_KEY=%a$$ac3x=au_h_7q1--3hsu6crina5u)@a=i7l!!62h9vlo%#!c
       - DB_HOST=ac_db
       - IS_HTTPS=1
