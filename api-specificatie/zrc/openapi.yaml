@@ -4220,7 +4220,7 @@ paths:
     parameters:
     - name: uuid
       in: path
-      description: Unieke resource identifier (UUID4)
+      description: Unieke identificatie van de audit regel
       required: true
       schema:
         type: string
@@ -6027,6 +6027,19 @@ components:
           description: Multiple values may be separated by commas.
           type: string
           minLength: 1
+    Wijzgingen:
+      title: Wijzigingen
+      type: object
+      properties:
+        oud:
+          title: Oud
+          description: Volledige JSON body van het object zoals dat bestond voordat
+            de actie heeft plaatsgevonden
+          type: object
+        nieuw:
+          title: Nieuw
+          description: Volledige JSON body van het object na de actie
+          type: object
     AuditTrail:
       required:
       - bron
@@ -6035,18 +6048,41 @@ components:
       - hoofdObject
       - resource
       - resourceUrl
+      - wijzigingen
       type: object
       properties:
         uuid:
           title: Uuid
-          description: Unieke resource identifier (UUID4)
+          description: Unieke identificatie van de audit regel
           type: string
           format: uuid
         bron:
           title: Bron
+          description: 'De naam van het component waar de wijziging in is gedaan
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `AC` - Autorisatiecomponent
+
+            * `NRC` - Notificatierouteringcomponent
+
+            * `ZRC` - Zaakregistratiecomponent
+
+            * `ZTC` - Zaaktypecatalogus
+
+            * `DRC` - Documentregistratiecomponent
+
+            * `BRC` - Besluitregistratiecomponent'
           type: string
-          maxLength: 50
-          minLength: 1
+          enum:
+          - AC
+          - NRC
+          - ZRC
+          - ZTC
+          - DRC
+          - BRC
         applicatieId:
           title: Applicatie id
           description: Unieke identificatie van de applicatie, binnen de organisatie
@@ -6057,46 +6093,86 @@ components:
           description: Vriendelijke naam van de applicatie
           type: string
           maxLength: 200
+        gebruikersId:
+          title: Gebruikers id
+          description: Unieke identificatie van de gebruiker die binnen de organisatie
+            herleid kan worden naar een persoon
+          type: string
+          maxLength: 255
+        gebruikersWeergave:
+          title: Gebruikers weergave
+          description: Vriendelijke naam van de gebruiker
+          type: string
+          maxLength: 255
         actie:
           title: Actie
+          description: 'De uitgevoerde handeling
+
+
+            De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
+            andere waardes zijn ook toegestaan
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `create` - aangemaakt
+
+            * `list` - opgehaald
+
+            * `retrieve` - opgehaald
+
+            * `destroy` - verwijderd
+
+            * `update` - bijgewerkt
+
+            * `partial_update` - deels bijgewerkt'
           type: string
           maxLength: 50
           minLength: 1
         actieWeergave:
           title: Actie weergave
+          description: Vriendelijke naam van de actie
           type: string
           maxLength: 200
         resultaat:
           title: Resultaat
+          description: HTTP status code van de API response van de uitgevoerde handeling
           type: integer
-          maximum: 2147483647
-          minimum: -2147483648
+          maximum: 599
+          minimum: 100
         hoofdObject:
           title: Hoofd object
+          description: De URL naar het hoofdobject van een component
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         resource:
           title: Resource
+          description: Het type resource waarop de actie gebeurde
           type: string
           maxLength: 50
           minLength: 1
         resourceUrl:
           title: Resource url
+          description: De URL naar het object
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
+        toelichting:
+          title: Toelichting
+          description: Toelichting waarom de handeling is uitgevoerd
+          type: string
         aanmaakdatum:
           title: Aanmaakdatum
+          description: De datum waarop de handeling is gedaan
           type: string
           format: date-time
           readOnly: true
         wijzigingen:
-          title: Wijzigingen
-          type: string
-          readOnly: true
+          $ref: '#/components/schemas/Wijzgingen'
     ZaakInformatieObject:
       required:
       - informatieobject
