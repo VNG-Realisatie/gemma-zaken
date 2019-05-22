@@ -9,84 +9,74 @@ referentie implementaties van de verschillende componenten.
 ## Voorbereidingen
 
 
-### Autorisatie
+### Authorization
 
-Om gebruik te kunnen maken van de verschillende APIs moet u beschikken over de
-juiste autorisaties. Dit gebeurt middels een JSON Web Token ([JWT][jwt]) die de 
-rechten bevat om gebruik te maken van bepaalde APIs en/of API resources. Het
-JWT dient bij elk verzoek aan de APIs te worden meegegeven.
+To access the ZGW APIs you must be authorized. This could be done through 
+a JSON Web Token ([JWT][jwt]) and the Autorisatiecomponent ([AC][ac]). 
+The JWT includes authentication part (Client ID and Secret), AC specifies
+the rights for certain APIs and / or API resources. 
 
-U kunt deze JWT eenvoudig verkrijgen door onderstaande stappen te volgen.
+The JWT must be included to every request to the APIs.
 
+#### Step 1: Create Client ID and Secret
 
-#### Stap 1: Client ID en secret aanmaken
+All components must know who you are. This process has been added for testing 
+purposes to make all components know your **Client ID** and **Secret**.
 
-Alle componenten moeten weten wie u bent. Dit proces is voor test doeleinden 
-toegevoegd om uw **Client ID** en **Secret** bekend te maken bij alle 
-componenten.
+1. Go to https://ref.tst.vng.cloud/tokens/
 
-1. Ga naar: https://ref.tst.vng.cloud/tokens/
+2. Enter the **Clientlabel** (_for example `mijn-consumer`_) and click on **Bevestig**.
 
-2. Vul het **Clientlabel** in (_bijv. `mijn-consumer`_) en klik op **Bevestig**.
-
-3. Bewaar de gegevens voor op het volgende tabblad "Genereer een ZGW JWT"
+3. Save the generated **Client ID** and **Secret**
    
-   * Client ID (_bijv. `mijn-consumer-RuAJiUr4sUQp`_)
-   * Secret (_bijv. `qy7gBX1zZj06epGQeyX9KrBNTMUu6eefSecretqy7gBX1zZj06epGQeyX9KrBNTMUu6eef`_)
+They has now been immediately added to all available components listed in the left 
+part of the page.
 
-Deze gegevens zijn nu direct bekend gemaakt bij alle beschikbare componenten.
+#### Step 2: Generate JWT
 
+In the step below, the actual JWT is generated based on the **Client ID** and 
+the **Secret** that both you and the components are aware of.
 
-#### Stap 2: JWT genereren
+1. Click on **Genereer een JWT** button below **Client ID** and **Secret** generated 
+   in step 1.
 
-In onderstaande stap wordt het daadwerkelijk JWT gegenereerd op basis van het
-**Client ID** en een **Secret** waar zowel u als de componenten van op de
-hoogte zijn.
-
-1. Klik op **Genereer een JWT**.
-
-   Als het goed is zijn het **Client ID** en **Secret** al vooringevuld.
+   If everything goes well, the Client ID and Secret are already pre-filled and JWT 
+   is generated. If you have other credentials fill them in the relevant fields and 
+   click on **Bevestig** button.
          
-2. Op de volgende pagina kent u de juiste autorisaties toe in de vorm van 
-   *scopes* en *zaaktypes*:
+2. Save the value of **Authorization** field. This is the generated JWT.
 
-   a. Vink de **scopes** aan die van toepassing zijn. Voor test doeleinden kan
-      alles aangevinkt worden om alle rechten te verkrijgen.
-      
-   b. Vink de verschillende **zaaktypes** aan die van toepassing zijn. Voor
-      test doeleinden kan weer alles aangevinkt worden.
+You can generate a different JWT with different authorizations at any time. In 
+production environments, the authorizations must be as minimal as possible.
 
-3.  Klik op **Bevestig**.
+#### Step 3: Configure authorization
 
-4. Bewaar de waarde die staat achter **Authorization**. Dit is het gegenereerde
-   JWT.
+After the basic authentication is set up you need to specify your access for API's  
+resources. This is made via adding rights to Autorisatiecomponent (AC).
 
-U kunt op elk moment een ander JWT genereren met andere autorisaties. In
-productie omgevingen dienen de autorisaties zo minimaal mogelijk te zijn.
+1. Navigate to **Configure auth** section.
+   **Client ID** should be already pre-filled. Fill in the rest authorization properties:
+   
+   a. Choose **Component**, which you want to request. 
+   
+   b. Tick the **Scopes** that apply. For testing purposes, all scopes can be checked.
+   
+   c. Specify **Zaaktype** to access for **ZRC** component.
+   
+   d. Specify **Informatieobjecttype** to access for **DRC** component.
+   
+   e. Specify **Besluittype** to access for **DRC** component.
+   
+   f. Choose **Maximale vertrouwelijkheidaanduiding** for **ZRC** and **DRC** components.
+   
+2. Click on **Add authorization**.
 
+Repeat this step to create authorization for all components you want to have an access. 
 
-#### Stap 3 (optioneel): Een ander JWT genereren
+#### Step 4: Use the JWT
 
-U kunt altijd een nieuw JWT genereren met andere autorisaties.
-
-1. Ga naar: https://ref.tst.vng.cloud/tokens/generate-jwt/
-
-2. Indien u recent stap 1 heeft gevolgd zijn de **Client ID** en **Secret**
-   reeds voor ingevuld. Zo niet, dan moet u deze zelf invullen met de gegevens
-   uit stap 1.
-
-3. Vink de **scopes** en/of **zaaktypes** aan die van toepassing zijn.
-
-4. Klik op **Bevestig**.
-
-5. Bewaar de waarde die staat achter **Authorization**. Dit is het gegenereerde
-   JWT.
-
-
-#### Stap 4: Gebruik het JWT
-
-Het gegenereerde JWT moet worden meegegeven aan elk API-verzoek in de 
-`Authorization` header: `Authorization: Bearer <JWT>`. Ter illustratie:
+The generated JWT should be given to each API request in the `Authorization` header:  
+`Authorization: Bearer <JWT>`. For a example:
 
 ```bash
 $ curl \
@@ -95,11 +85,10 @@ $ curl \
     https://ref.tst.vng.cloud/zrc/api/v1/zaken
 ```
 
-   
-Benieuwd hoe het JWT er ongecodeerd uit ziet? Plak de waarde eens op
-[jwt.io][jwt].
+Curious as to what the decoded JWT looks like? Paste its value at [jwt.io][jwt].
 
 [jwt]: https://jwt.io/
+[ac]: https://ref.tst.vng.cloud/ac/api/v1/schema/
 
 
 ## Gebruik maken van de APIs
