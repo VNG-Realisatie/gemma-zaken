@@ -27,7 +27,6 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [Informatiemodel ImZTC](https://www.gemmaonline.nl/images/gemmaonline/1/1d/EgIM_20180621_-_ag_4_-_GEMMA_ImZTC_2.2_-_CONCEPT_20180613.zip) (v2.02.01 - concept, ZIP-bestand)
 - [Klantcontacten en het RGBZ](https://www.gemmaonline.nl/index.php/Klantcontacten_en_het_RGBZ)
 
-- [Dekking RGBZ/ImZTC door de ZGW API's](https://docs.google.com/drawings/d/1vtdp3qMEetb8-kYNM7fp3et6jz1IDf7_yQahraRAGng/)
 
 ## Informatiebeheer
 - [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
