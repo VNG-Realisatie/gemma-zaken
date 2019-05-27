@@ -47,9 +47,6 @@ the **Secret** that both you and the components are aware of.
          
 2. Save the value of **Authorization** field. This is the generated JWT.
 
-You can generate a different JWT with different authorizations at any time. In 
-production environments, the authorizations must be as minimal as possible.
-
 #### Step 3: Configure authorization
 
 After the basic authentication is set up you need to specify your access for API
