@@ -168,6 +168,25 @@ paths:
       description: 'Indien geen identificatie gegeven is, dan wordt deze automatisch
 
         gegenereerd.'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -449,7 +468,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde zaak
         required: false
         schema:
           type: string
@@ -597,6 +616,25 @@ paths:
         - geldigheid URL naar de ZAAK
 
         - geldigheid URL naar het RESULTAATTYPE'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -869,6 +907,25 @@ paths:
         - geldigheid URL naar de ZAAK
 
         - geldigheid URL naar het RESULTAATTYPE'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1017,6 +1074,25 @@ paths:
         - geldigheid URL naar de ZAAK
 
         - geldigheid URL naar het RESULTAATTYPE'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1160,6 +1236,25 @@ paths:
     delete:
       operationId: resultaat_delete
       description: Verwijder het RESULTAAT van een ZAAK.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -1297,7 +1392,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde zaak
         required: false
         schema:
           type: string
@@ -1467,6 +1562,25 @@ paths:
     post:
       operationId: rol_create
       description: Koppel een BETROKKENE aan een ZAAK.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -1754,7 +1868,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde zaak
         required: false
         schema:
           type: string
@@ -1903,6 +2017,25 @@ paths:
         \ die aan\n  de zaak gerelateerd zijn\n\n**Opmerkingen**\n- Indien het statustype\
         \ de eindstatus is (volgens het ZTC), dan wordt de\n  zaak afgesloten door\
         \ de einddatum te zetten."
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -2302,6 +2435,25 @@ paths:
     post:
       operationId: zaakobject_create
       description: Registreer een ZAAKOBJECT relatie.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -2672,7 +2824,7 @@ paths:
           type: string
       - name: page
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         required: false
         schema:
           type: integer
@@ -2895,6 +3047,24 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -3051,7 +3221,7 @@ paths:
       parameters:
       - name: page
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         required: false
         schema:
           type: integer
@@ -3454,6 +3624,24 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -3651,6 +3839,24 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -3823,6 +4029,25 @@ paths:
         \ zaak\n- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook\n\
         \  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)\n- `klantcontact`\
         \ - alle klantcontacten bij een zaak"
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -4082,6 +4307,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: zaak_uuid
       in: path
@@ -4217,6 +4445,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - zaken
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: uuid
       in: path
@@ -4355,6 +4586,25 @@ paths:
     post:
       operationId: zaakinformatieobject_create
       description: ''
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -4634,6 +4884,25 @@ paths:
     delete:
       operationId: zaakinformatieobject_delete
       description: Verwijder een relatie tussen een zaak en een informatieobject
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -4894,6 +5163,25 @@ paths:
     post:
       operationId: zaakeigenschap_create
       description: Registreer een eigenschap van een ZAAK.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Application that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identifier of the user that performs request
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Explanation why the request is done
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''

@@ -2039,14 +2039,14 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde zaaktype
         required: false
         schema:
           type: string
           format: uri
       - name: pagina
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         required: false
         schema:
           type: integer
@@ -2353,14 +2353,14 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde zaaktype
         required: false
         schema:
           type: string
           format: uri
       - name: informatieObjectType
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde informatie_object_type
         required: false
         schema:
           type: string
