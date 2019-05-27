@@ -4,8 +4,6 @@ header-img: /img/sample-image.jpg
 date: 12-7-2018
 ---
 
-## API's voor zaakgericht werken
-
 Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
 Zaak- en Documentservices (ZDS) ontwikkeld, inmiddels bekend als de ZGW API's. 
 Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van 
