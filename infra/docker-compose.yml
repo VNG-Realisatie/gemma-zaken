@@ -80,7 +80,7 @@ services:
       - DJANGO_SETTINGS_MODULE=brc.conf.docker
       - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
       - DB_HOST=brc_db
-      - IS_HTTPS=1
+      - IS_HTTPS=0
     depends_on:
       - brc_db
 
@@ -116,10 +116,10 @@ services:
   ac_web:
     image: vngr/gemma-autorisatiecomponent:latest
     environment:
-      - DJANGO_SETTINGS_MODULE=ac_web.conf.docker
+      - DJANGO_SETTINGS_MODULE=ac.conf.docker
       - SECRET_KEY=%a$$ac3x=au_h_7q1--3hsu6crina5u)@a=i7l!!62h9vlo%#!c
       - DB_HOST=ac_db
-      - IS_HTTPS=1
+      - IS_HTTPS=0
     depends_on:
       - ac_db
 
