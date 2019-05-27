@@ -13,7 +13,8 @@ referentie implementaties van de verschillende componenten.
 
 To access the ZGW APIs you must be authorized. This could be done through 
 a JSON Web Token ([JWT][jwt]) and the Autorisatiecomponent ([AC][ac]). 
-The JWT includes authentication part (Client ID and Secret), AC specifies
+The JWT proves that an application is who it claims to be, while the AC
+specifies which authorizations are given for certain APIs and/or API resources.
 the rights for certain APIs and / or API resources. 
 
 The JWT must be included to every request to the APIs.
@@ -21,7 +22,7 @@ The JWT must be included to every request to the APIs.
 #### Step 1: Create Client ID and Secret
 
 All components must know who you are. This process has been added for testing 
-purposes to make all components know your **Client ID** and **Secret**.
+purposes to make all components aware of your **Client ID** and **Secret**.
 
 1. Go to https://ref.tst.vng.cloud/tokens/
 
@@ -29,7 +30,7 @@ purposes to make all components know your **Client ID** and **Secret**.
 
 3. Save the generated **Client ID** and **Secret**
    
-They has now been immediately added to all available components listed in the left 
+They has now been immediately added to all available components listed in the right 
 part of the page.
 
 #### Step 2: Generate JWT
@@ -40,7 +41,7 @@ the **Secret** that both you and the components are aware of.
 1. Click on **Genereer een JWT** button below **Client ID** and **Secret** generated 
    in step 1.
 
-   If everything goes well, the Client ID and Secret are already pre-filled and JWT 
+   If everything goes well, the Client ID and Secret are already pre-filled and the JWT 
    is generated. If you have other credentials fill them in the relevant fields and 
    click on **Bevestig** button.
          
@@ -51,32 +52,34 @@ production environments, the authorizations must be as minimal as possible.
 
 #### Step 3: Configure authorization
 
-After the basic authentication is set up you need to specify your access for API's  
-resources. This is made via adding rights to Autorisatiecomponent (AC).
+After the basic authentication is set up you need to specify your access for API
+resources. This is done by configuring authorizations in the Autorisatiecomponent (AC).
+The token tool has an interface to the AC.
 
 1. Navigate to **Configure auth** section.
-   **Client ID** should be already pre-filled. Fill in the rest authorization properties:
+   **Client ID** should be already pre-filled. Fill in the remaining authorization properties:
    
-   a. Choose **Component**, which you want to request. 
+   a. Choose **Component** - this is the type of component you want to send requests to. 
    
    b. Tick the **Scopes** that apply. For testing purposes, all scopes can be checked.
    
-   c. Specify **Zaaktype** to access for **ZRC** component.
+   c. Specify the **Zaaktype** that you want to access, if you selected **ZRC** component.
    
-   d. Specify **Informatieobjecttype** to access for **DRC** component.
+   d. Specify the **Informatieobjecttype** that you want to access, if you selected **DRC** component.
    
-   e. Specify **Besluittype** to access for **DRC** component.
+   e. Specify the **Besluittype** that you want to access, if you selected **BRC** component.
    
    f. Choose **Maximale vertrouwelijkheidaanduiding** for **ZRC** and **DRC** components.
    
 2. Click on **Add authorization**.
 
-Repeat this step to create authorization for all components you want to have an access. 
+Repeat this step to create authorization for all components you want to have an access,
+and for each `Zaaktype`/`Informatieobjecttype`/`Besluittype` that you need to access.
 
 #### Step 4: Use the JWT
 
 The generated JWT should be given to each API request in the `Authorization` header:  
-`Authorization: Bearer <JWT>`. For a example:
+`Authorization: Bearer <JWT>`. For example:
 
 ```bash
 $ curl \
