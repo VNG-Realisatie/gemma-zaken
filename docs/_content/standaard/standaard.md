@@ -275,21 +275,61 @@ uniek is binnen de bronorganisatie.
 
 #### **<a name="zrc-003">Valideren `informatieobject` op de `ZaakInformatieObject`-resource ([zrc-003](#zrc-003))</a>**
 
-Bij het aanmaken (`zaakinformatieobject_create`) MOET de URL-referentie naar
-het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
-van het informatieobject niet (uiteindelijk) resulteert in een `HTTP 200`
-status code, MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
+Bij het aanmaken (`objectinformatieobject_create`) MOET de URL-referentie
+naar het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen van het object niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het
+ZRC antwoorden met een `HTTP 400` foutbericht.
 
-Er MOET gevalideerd worden dat de combinatie `zaak` en `informatieobject`
-niet eerder voorkomt. Indien deze al bestaat, dan MOET het ZRC antwoorden met
-een `HTTP 400` foutbericht.
+#### **<a name="zrc-004">Valideren relatieinformatie op `ZaakInformatieObject`-resource ([zrc-004](#zrc-004))</a>**
 
-Er MOET gevalideerd worden dat de relatie tussen het informatieobject en de
-zaak al bestaat in het DRC. De bron van het informatieobject is bekend door
-de eerdere validaties op deze URL. De API-spec van het DRC voorziet in query-
-parameters om het bestaan te kunnen valideren.
+Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
+RGBZ. Omdat het `objectType` `zaak` is, moet `aardRelatie` gelijk zijn aan `"hoort_bij"`.
 
-#### **<a name="zrc-004">Limiteren zaakgegevens op basis van `zaaktypes` claim ([zrc-004](#zrc-004))</a>**
+De `registratiedatum` MOET door het systeem gezet worden op het moment van
+aanmaken.
+
+Bij het updaten (`zaakinformatieobject_update` en
+`zaakinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
+te wijzingen. Bij andere waardes voor de attributen `zaak`, en
+`informatieobject` MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
+
+#### **<a name="zrc-005">Synchroniseren relaties met informatieobjecten ([zrc-005](#zrc-005))</a>**
+
+Wanneer een relatie tussen een `INFORMATIEOBJECT` en een `ZAAK` gemaakt
+of bijgewerkt wordt, dan MOET het ZRC in het DRC ook deze relatie
+aanmaken/bijwerken.
+
+Een voorbeeld:
+
+1. Een informatieobject wordt gerelateerd aan een zaak door een consumer:
+
+    ```http
+    POST https://zrc.nl/api/v1/zaakinformatieobjecten
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "zaak": "https://zrc.nl/api/v1/zaken/456789",
+        "titel": "",
+        "beschrijving": ""
+    }
+    ```
+
+2. Het ZRC MOET de relatie spiegelen in het DRC:
+
+    ```http
+    POST https://drc.nl/api/v1/objectinformatieobjecten/
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "object": "https://zrc.nl/api/v1/zaken/456789",
+        "objectType": "zaak"
+    }
+    ```
+
+Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
+via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
+stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+#### **<a name="zrc-006">Limiteren zaakgegevens op basis van `zaaktypes` claim ([zrc-006](#zrc-006))</a>**
 
 De `zaaktypes` claim is een lijst van URLs van zaaktypes waar de eindgebruiker
 rechten op heeft.
@@ -300,7 +340,7 @@ limiteren tot de zaaktypes in de zaaktypesclaim.
 De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
 een ander zaaktype dan deze in de claim (`zaak_retrieve`).
 
-#### **<a name="zrc-005">Afsluiten zaak ([zrc-005](#zrc-005))</a>**
+#### **<a name="zrc-007">Afsluiten zaak ([zrc-007](#zrc-007))</a>**
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
 `ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
 `ZaakType` is het `StatusType` met het hoogste `volgnummer`.
@@ -333,7 +373,7 @@ eindstatus wordt gewijzigd in een andere status:
 * `Zaak.archiefactiedatum`
 * `Zaak.archiefnominatie`
 
-#### **<a name="zrc-006">Vertrouwelijkheidaanduiding van een zaak ([zrc-006](#zrc-006))</a>**
+#### **<a name="zrc-008">Vertrouwelijkheidaanduiding van een zaak ([zrc-008](#zrc-008))</a>**
 
 Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken
 of bewerken van een zaak, dan MOET de provider deze waarde toekennen. Indien
@@ -344,7 +384,7 @@ Een `Zaak` response van de provider MOET altijd een geldige waarde voor
 `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 `vertrouwelijkheidaanduiding` meesturen.
 
-#### **<a name="zrc-007">Valideren `communicatiekanaal` op de `Zaak` resource ([zrc-007](#zrc-007))</a>**
+#### **<a name="zrc-009">Valideren `communicatiekanaal` op de `Zaak` resource ([zrc-009](#zrc-009))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
 `zaak_partial_update`) MOET de URL-referentie naar het `communicatiekanaal`
@@ -364,7 +404,7 @@ een communicatiekanaal zoals gedocumenteerd op de
 }
 ```
 
-#### **<a name="zrc-008">Valideren `relevanteAndereZaken` op de `Zaak`-resource ([zrc-008](#zrc-008))</a>**
+#### **<a name="zrc-010">Valideren `relevanteAndereZaken` op de `Zaak`-resource ([zrc-010](#zrc-010))</a>**
 
 De lijst `relevanteAndereZaken` bevat URL-referenties naar andere zaken. Elke
 URL-referentie MOET gevalideerd worden op het bestaan. Indien het ophalen van
@@ -374,7 +414,7 @@ antwoorden met een `HTTP 400` foutbericht.
 In het foutbericht MOET de naam binnen `invalid-params` dan
 `relevanteAndereZaken.<index>` zijn, waarbij index start bij 0.
 
-#### **<a name="zrc-009">Gegevensgroepen ([zrc-009](#zrc-009))</a>**
+#### **<a name="zrc-011">Gegevensgroepen ([zrc-011](#zrc-011))</a>**
 
 De client MAG gegevensgroepen zoals `Zaak.verlenging` en `Zaak.opschorting`
 meesturen met een waarde `null` om aan te geven dat er geen waarde gezet is.
@@ -384,7 +424,7 @@ validatie van de gegevensgroep toepassen.
 
 De provider MOET altijd de geneste structuur van de gegevensgroep antwoorden.
 
-#### **<a name="zrc-010">Valideren `hoofdzaak` op de `Zaak`-resource ([zrc-010](#zrc-010))</a>**
+#### **<a name="zrc-012">Valideren `hoofdzaak` op de `Zaak`-resource ([zrc-012](#zrc-012))</a>**
 
 Bij het aanmaken of bewerken van een `Zaak` kan de `hoofdzaak` aangegeven
 worden. Dit MOET een geldige URL-referentie naar een `Zaak` zijn, indien
@@ -398,7 +438,7 @@ Indien de client een zaak bewerkt en diezelfde zaak als URL-referentie meegeeft
 als `hoofdzaak`, dan moet het ZRC antwoorden met een `HTTP 400`
 foutbericht (een zaak MAG GEEN deelzaak van zichzelf zijn).
 
-#### **<a name="zrc-011">`Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum` ([zrc-011](#zrc-011))</a>**
+#### **<a name="zrc-013">`Zaak.betalingsindicatie` en `Zaak.laatsteBetaaldatum` ([zrc-013](#zrc-013))</a>**
 
 Indien de betalingsindicatie de waarde `"nvt"` heeft en een waarde gegeven is
 voor `laatsteBetaaldatum`, dan MOET het ZRC antwoorden met een `HTTP 400`
@@ -409,7 +449,7 @@ Indien een waarde ingevuld is voor `laatsteBetaaldatum` en de betalingsindicatie
 wordt gewijzigd naar `"nvt"`, dan MOET de `laatsteBetaaldatum` op `null` gezet
 worden.
 
-#### **<a name="zrc-012">Valideren van producten en/of diensten bij een `Zaak` ([zrc-012](#zrc-012))</a>**
+#### **<a name="zrc-014">Valideren van producten en/of diensten bij een `Zaak` ([zrc-014](#zrc-014))</a>**
 
 Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
 `zaak_partial_update`) MOET de collectie `productenOfDiensten` worden getoetst
@@ -419,7 +459,7 @@ diensten op het zaaktype zijn.
 
 #### Archiveren
 
-**<a name="zrc-013">Afleiden van archiveringsparameters ([zrc-013](#zrc-013))</a>**
+**<a name="zrc-015">Afleiden van archiveringsparameters ([zrc-015](#zrc-015))</a>**
 
 Het resultaat van een zaak is bepalend voor het archiefregime. Bij het
 afsluiten van een zaak MOETEN de attributen `Zaak.archiefnominatie`
@@ -455,7 +495,7 @@ Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
 gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
 de archiefactietermijn niet beschikbaar is.
 
-**<a name="zrc-014">Zetten `Zaak.archiefstatus` ([zrc-014](#zrc-014))</a>**
+**<a name="zrc-016">Zetten `Zaak.archiefstatus` ([zrc-016](#zrc-016))</a>**
 
 De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
 waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status
@@ -468,7 +508,7 @@ waarde krijgen als de de archiefstatus een waarde krijgt anders dan
 Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
 foutbericht antwoorden.
 
-**<a name="zrc-015">Vernietigen van zaken ([zrc-015](#zrc-015))</a>**
+**<a name="zrc-017">Vernietigen van zaken ([zrc-017](#zrc-017))</a>**
 
 Bij `DELETE` requests op zaken MOETEN de zaak en gerelateerde objecten fysiek
 uit de opslag verwijderd worden. Soft-deletes zijn NIET TOEGESTAAN. Onder
@@ -553,79 +593,17 @@ naar het `object` gevalideerd worden op het bestaan. Indien het ophalen van het
 object niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het
 DRC antwoorden met een `HTTP 400` foutbericht.
 
+(TODO: valideren dat het van het type `object_type` is -> validatie aanscherpen)
+
+#### **<a name="drc-003">Valideren uniciteit combinatie `object` en `informatieobject` op de `ObjectInformatieObject`-resource ([drc-003](#drc-003))</a>**
+
 Er MOET gevalideerd worden dat de combinatie `object` en `informatieobject`
 niet eerder voorkomt. Indien deze al bestaat, dan MOET het DRC antwoorden met
 een `HTTP 400` foutbericht.
 
-(TODO: valideren dat het van het type `object_type` is -> validatie aanscherpen)
+#### **<a name="drc-004">Valideren bestaan relatie tussen `object` en `informatieobject` in de bron ([drc-004](#drc-004))</a>**
 
-#### **<a name="drc-003">Valideren relatieinformatie op `ObjectInformatieObject`-resource ([drc-003](#drc-003))</a>**
-
-Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
-RGBZ. Dit betekent:
-
-* `aardRelatie` is `"hoort_bij"`, indien `objectType`:
-    * `zaak`
-
-* `aardRelatie` is `"legt_vast"`, indien `objectType`:
-    * `besluit`
-
-De resource bevat de velden `titel`, `beschrijving` en `registratiedatum`. Deze
-velden zijn enkel van toepassing op `aardRelatie` `"hoort_bij"` en MOETEN
-genegeerd worden bij `aardRelatie` `"legt_vast"`.
-
-De `registratiedatum` MOET door het systeem gezet worden op het moment van
-aanmaken.
-
-Bij het updaten (`objectinformatieobject_update` en
-`objectinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
-te wijzingen. Bij andere waardes voor de attributen `object`, `objectType` en
-`informatieobject` MOET het DRC antwoorden met een `HTTP 400` foutbericht.
-
-#### **<a name="drc-004">Synchroniseren relaties met informatieobjecten ([drc-004](#drc-004))</a>**
-
-Wanneer een relatie tussen een `INFORMATIEOBJECT` en een ander `OBJECT` gemaakt
-of bijgewerkt wordt, dan MOET het DRC in de bron van `OBJECT` ook deze relatie
-aanmaken/bijwerken.
-
-`OBJECT` is van `OBJECTTYPE`. `OBJECTTYPE` bepaalt de naam van de
-relatieresource in de bron van `OBJECT`, zijnde `{objecttype}informatieobject`.
-De resource is volledig in kleine letters. De relatieresource moet als geneste
-resource ontsloten worden van `OBJECT`.
-
-De relatieresource MAG NIET meer velden ontsluiten dan het veld
-`informatieobject`, en de waarde MOET de canonical URL zijn van de
-informatieobjectresource.
-
-Een voorbeeld met een object van het type `Zaak`:
-
-1. Een informatieobject wordt gerelateerd aan een zaak door een consumer:
-
-    ```http
-    POST https://drc.nl/api/v1/objectinformatieobjecten
-
-    {
-        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
-        "object": "https://zrc.nl/api/v1/zaken/456789",
-        "objectType": "zaak",
-        "titel": "",
-        "beschrijving": ""
-    }
-    ```
-
-2. Het DRC MOET de relatie spiegelen in het ZRC:
-
-    ```http
-    POST https://zrc.nl/api/v1/zaken/456789/zaakinformatieobjecten
-
-    {
-       "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
-    }
-    ```
-
-Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
-via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
-stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+Er MOET gevalideerd worden dat de relatie tussen het `object` en het `informatieobject` al bestaat in het de bron van het `object`. De bron van het informatieobject is bekend door de eerdere validaties op deze URL. De API-spec van het ZRC/BRC voorziet in queryparameters om het bestaan te kunnen valideren.
 
 #### **<a name="drc-005">Statuswijzigingen van informatieobjecten ([drc-005](#drc-005))</a>**
 
@@ -719,9 +697,51 @@ het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
 van het informatieobject niet (uiteindelijk) resulteert in een `HTTP 200`
 status code, MOET het BRC antwoorden met een `HTTP 400` foutbericht.
 
-Er MOET gevalideerd worden dat de combinatie `besluit` en `informatieobject`
-niet eerder voorkomt. Indien deze al bestaat, dan MOET het BRC antwoorden met
-een `HTTP 400` foutbericht.
+#### **<a name="brc-004">Valideren relatieinformatie op `BesluitInformatieObject`-resource ([brc-004](#brc-004))</a>**
+
+Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
+RGBZ. Omdat het `objectType` `besluit` is, moet `aardRelatie` gelijk zijn aan `"legt_vast"`.
+
+Bij het updaten (`besluitinformatieobject_update` en
+`besluitinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
+te wijzingen. Bij andere waardes voor de attributen `besluit`, en
+`informatieobject` MOET het BRC antwoorden met een `HTTP 400` foutbericht.
+
+#### **<a name="brc-005">Synchroniseren relaties met informatieobjecten ([brc-005](#brc-005))</a>**
+
+Wanneer een relatie tussen een `INFORMATIEOBJECT` en een `BESLUIT` gemaakt
+of bijgewerkt wordt, dan MOET het BRC in het DRC ook deze relatie
+aanmaken/bijwerken.
+
+Een voorbeeld:
+
+1. Een informatieobject wordt gerelateerd aan een besluit door een consumer:
+
+    ```http
+    POST https://brc.nl/api/v1/besluitinformatieobjecten
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "besluit": "https://brc.nl/api/v1/besluiten/456789"
+    }
+    ```
+
+2. Het BRC MOET de relatie spiegelen in het DRC:
+
+    ```http
+    POST https://drc.nl/api/v1/objectinformatieobjecten/
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "object": "https://brc.nl/api/v1/besluiten/456789",
+        "objectType": "besluit",
+
+    }
+    ```
+
+Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
+via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
+stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 ## Zaaktypecatalogus
 
