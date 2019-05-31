@@ -275,7 +275,7 @@ uniek is binnen de bronorganisatie.
 
 #### **<a name="zrc-003">Valideren `informatieobject` op de `ZaakInformatieObject`-resource ([zrc-003](#zrc-003))</a>**
 
-Bij het aanmaken (`objectinformatieobject_create`) MOET de URL-referentie
+Bij het aanmaken (`zaakinformatieobject_create`) MOET de URL-referentie
 naar het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen van het object niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het
 ZRC antwoorden met een `HTTP 400` foutbericht.
 
@@ -603,7 +603,7 @@ een `HTTP 400` foutbericht.
 
 #### **<a name="drc-004">Valideren bestaan relatie tussen `object` en `informatieobject` in de bron ([drc-004](#drc-004))</a>**
 
-Er MOET gevalideerd worden dat de relatie tussen het `object` en het `informatieobject` al bestaat in het de bron van het `object`. De bron van het informatieobject is bekend door de eerdere validaties op deze URL. De API-spec van het ZRC/BRC voorziet in queryparameters om het bestaan te kunnen valideren.
+Er MOET gevalideerd worden dat de relatie tussen het `object` en het `informatieobject` al bestaat in de bron van het `object`. De bron van het informatieobject is bekend door de eerdere validaties op deze URL. De API-spec van het ZRC/BRC voorziet in query-parameters om het bestaan te kunnen valideren.
 
 #### **<a name="drc-005">Statuswijzigingen van informatieobjecten ([drc-005](#drc-005))</a>**
 
