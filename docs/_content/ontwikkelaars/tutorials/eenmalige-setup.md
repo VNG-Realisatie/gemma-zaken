@@ -62,6 +62,10 @@ docker-compose exec brc_web src/manage.py createsuperuser
 docker-compose exec nrc_web src/manage.py createsuperuser
 ```
 
+```bash
+docker-compose exec ac_web src/manage.py createsuperuser
+```
+
 ## API-credentials genereren
 
 Gebruik de [tokentool](https://ref.tst.vng.cloud/tokens/) om een _Client ID_
@@ -124,12 +128,25 @@ nodig om de componenten via de browser aan te spreken.
 
     Klik vervolgens op **Opslaan**
 
-12. Ga terug naar de **Voorpagina**
+12. Configureer credentials voor het AC:
 
-13. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
+    * Vul bij **Client id** het _Client ID_ in
+    * Vul bij **Secret** het _Secret_ in
 
-14. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
+    Klik vervolgens op **Opslaan**
+
+13. Ga terug naar de **Voorpagina**
+
+14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+
+15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
     lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
+    
+16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
+
+17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
+    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
 
 ### DRC
 
@@ -181,13 +198,26 @@ nodig om de componenten via de browser aan te spreken.
     * Vul bij **Secret** het _Secret_ in
 
     Klik vervolgens op **Opslaan**
+    
+12. Configureer credentials voor het AC:
 
-12. Ga terug naar de **Voorpagina**
+    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
+    * Vul bij **Client id** het _Client ID_ in
+    * Vul bij **Secret** het _Secret_ in
 
-13. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+    Klik vervolgens op **Opslaan**
 
-14. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
+13. Ga terug naar de **Voorpagina**
+
+14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+
+15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
     lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
+    
+16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
+
+17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
+    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
 
 ### ZTC
 
@@ -209,6 +239,25 @@ nodig om de componenten via de browser aan te spreken.
    Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
 
    Deze credentials laten toe om met de API van het ZTC te communiceren.
+   
+8. Ga een stap terug naar **MISCELLANEOUS** en navigeer naar
+   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+
+   Deze credentials worden gebruikt als het ZTC met een _andere_ API moet
+   communiceren (zoals een AC).
+   
+9. Configureer credentials voor het AC:
+
+    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
+    * Vul bij **Client id** het _Client ID_ in
+    * Vul bij **Secret** het _Secret_ in
+
+    Klik vervolgens op **Opslaan**
+  
+10. Navigeer naar **MISCELLANEOUS** > **Autorisatiecomponentconfiguratie**
+
+11. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
+    lokale AC. Vul opnieuw je **Client id** en **Secret** in.   
 
 ### NRC
 
@@ -223,9 +272,69 @@ nodig om de componenten via de browser aan te spreken.
 
    Deze credentials laten toe om met de API van het NRC te communiceren.
 
+### AC
+
+1. Open in je browser `http://<ac-ip>:8005/admin/` en log in met je 
+   gebruikersnaam en wachtwoord uit de vorige stap.
+
+2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
+
+3. Wijzig 'Domeinnaam' naar `<ac-ip>:8005` en wijzig 'Weergavenaam' naar `AC`
+
+4. Sla de wijzigingen op
+
+5. Navigeer terug naar de **Voorpagina**
+
+6. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
+   op **JWT Secret toevoegen**
+
+7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
+   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+
+   Deze credentials laten toe om met de API van het AC te communiceren.
+
+8. Ga een stap terug naar **VNG_API_COMMON** en navigeer naar
+   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+
+   Deze credentials worden gebruikt als het AC met een _andere_ API moet
+   communiceren (zoals een NRC).
+
+9. Configureer credentials voor het NRC:
+
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
+    * Vul bij **Client id** het _Client ID_ in
+    * Vul bij **Secret** het _Secret_ in
+
+    Klik vervolgens op **Opslaan en nieuwe toevoegen**
+
+13. Ga terug naar de **Voorpagina**
+
+14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+
+15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
+    lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
+    
+16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
+
+17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
+    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
+    
+18. Ga terug naar de **Voorpagina**
+
+19. Navigate to **AUTHORIZATIONS** > **Applicaties** 
+    Configure access of all consumers to all providers. For testing purposes
+    a superuser creation is allowed:
+    
+    * Fill in **Client ids** with a comma separated list of client identifiers. 
+    * Fill in **Label** with the name of the consumer
+    * Tick **Heeft alle autorisaties** flag which grants superuser rights.  
+    
+    If you don't want to have a superuser access choose specific rights in the 
+    section **Autorisaties**.     
+
 ## Registratie van de kanalen
 
-Het ZRC en DRC moeten hun notificatiekanaal registeren. Dit doe je op de
+Het ZRC, DRC en AC moeten hun notificatiekanaal registeren. Dit doe je op de
 command prompt:
 
 ```bash
@@ -236,6 +345,11 @@ docker-compose exec zrc_web src/manage.py register_kanaal
 ```bash
 docker-compose exec drc_web src/manage.py register_kanaal
 # Registered kanaal 'documenten' with http://<nrc-ip>:8004/api/v1
+```
+
+```bash
+docker-compose exec ac_web src/manage.py register_kanaal
+# Registered kanaal 'autorisaties' with http://<nrc-ip>:8004/api/v1
 ```
 
 
