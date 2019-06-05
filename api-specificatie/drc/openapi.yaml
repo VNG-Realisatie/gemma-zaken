@@ -53,10 +53,9 @@ paths:
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
-      description: 'Geef een lijst van ENKELVOUDIGe INFORMATIEOBJECTen (=documenten).
-
-
-        De objecten bevatten metadata over de documenten en de downloadlink naar
+      summary: Geef een lijst van ENKELVOUDIGe INFORMATIEOBJECTen (=documenten).
+      description: 'De objecten bevatten metadata over de documenten en de downloadlink
+        naar
 
         de binary data.'
       parameters:
@@ -205,12 +204,31 @@ paths:
         - documenten.lezen
     post:
       operationId: enkelvoudiginformatieobject_create
-      description: 'Registreer een ENKELVOUDIG INFORMATIEOBJECT.
-
-
-        **Er wordt gevalideerd op**
+      summary: Registreer een ENKELVOUDIG INFORMATIEOBJECT.
+      description: '**Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -462,6 +480,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: enkelvoudiginformatieobject_uuid
       in: path
@@ -597,6 +618,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: enkelvoudiginformatieobject_uuid
       in: path
@@ -615,10 +639,9 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      description: 'Geef de details van een ENKELVOUDIG INFORMATIEOBJECT.
-
-
-        Het object bevat metadata over het informatieobject en de downloadlink naar
+      summary: Geef de details van een ENKELVOUDIG INFORMATIEOBJECT.
+      description: 'Het object bevat metadata over het informatieobject en de downloadlink
+        naar
 
         de binary data.'
       responses:
@@ -749,13 +772,11 @@ paths:
         - documenten.lezen
     put:
       operationId: enkelvoudiginformatieobject_update
-      description: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door de volledige resource
+      summary: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door de volledige resource
         mee
 
-        te sturen.
-
-
-        **Er wordt gevalideerd op**
+        te sturen.'
+      description: '**Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
 
@@ -763,6 +784,27 @@ paths:
         *TODO*
 
         - valideer immutable attributes'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -905,13 +947,11 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
-      description: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door enkel de gewijzigde
+      summary: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door enkel de gewijzigde
         velden
 
-        mee te sturen.
-
-
-        **Er wordt gevalideerd op**
+        mee te sturen.'
+      description: '**Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
 
@@ -919,6 +959,27 @@ paths:
         *TODO*
 
         - valideer immutable attributes'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1061,16 +1122,35 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
     delete:
       operationId: enkelvoudiginformatieobject_delete
-      description: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT, samen met alle gerelateerde
+      summary: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT, samen met alle gerelateerde
 
-        resources binnen deze API.
-
-
-        **Gerelateerde resources**
+        resources binnen deze API.'
+      description: '**Gerelateerde resources**
 
         - `ObjectInformatieObject` - alle relaties van het informatieobject
 
         - `Gebruiksrechten` - alle gebruiksrechten van het informatieobject'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -1201,17 +1281,426 @@ paths:
       schema:
         type: string
         format: uuid
+  /enkelvoudiginformatieobjecten/{uuid}/download:
+    get:
+      operationId: enkelvoudiginformatieobject_download
+      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      responses:
+        '200':
+          description: De binaire bestandsinhoud
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Throttled
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - documenten.lezen
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /enkelvoudiginformatieobjecten/{uuid}/lock:
+    post:
+      operationId: enkelvoudiginformatieobject_lock
+      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      responses:
+        '200':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockEnkelvoudigInformatieObject'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Throttled
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - documenten.lock
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LockEnkelvoudigInformatieObject'
+        required: true
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
+  /enkelvoudiginformatieobjecten/{uuid}/unlock:
+    post:
+      operationId: enkelvoudiginformatieobject_unlock
+      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      responses:
+        '204':
+          description: No content
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Throttled
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - enkelvoudiginformatieobjecten
+      security:
+      - JWT-Claims:
+        - (documenten.lock | documenten.geforceerd-unlock)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnlockEnkelvoudigInformatieObject'
+        required: true
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
   /gebruiksrechten:
     get:
       operationId: gebruiksrechten_list
-      description: 'Geef een lijst van gebruiksrechten horend bij informatieobjecten.
-
-
-        Er kan gefiltered worden met querystringparameters.'
+      summary: Geef een lijst van gebruiksrechten horend bij informatieobjecten.
+      description: Er kan gefiltered worden met querystringparameters.
       parameters:
       - name: informatieobject
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde informatieobject
         required: false
         schema:
           type: string
@@ -1406,9 +1895,31 @@ paths:
         - documenten.lezen
     post:
       operationId: gebruiksrechten_create
-      description: "Voeg gebruiksrechten toe voor een informatieobject.\n\n**Opmerkingen**\n\
-        - Het toevoegen van gebruiksrechten zorgt ervoor dat de\n  `indicatieGebruiksrecht`\
-        \ op het informatieobject op `true` gezet wordt."
+      summary: Voeg gebruiksrechten toe voor een informatieobject.
+      description: "**Opmerkingen**\n- Het toevoegen van gebruiksrechten zorgt ervoor\
+        \ dat de\n  `indicatieGebruiksrecht` op het informatieobject op `true` gezet\
+        \ wordt."
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -1676,6 +2187,27 @@ paths:
     put:
       operationId: gebruiksrechten_update
       description: Werk een gebruiksrecht van een informatieobject bij.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1819,6 +2351,27 @@ paths:
     patch:
       operationId: gebruiksrechten_partial_update
       description: Werk een gebruiksrecht van een informatieobject bij.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1961,10 +2514,31 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     delete:
       operationId: gebruiksrechten_delete
-      description: "Verwijder een gebruiksrecht van een informatieobject.\n\n**Opmerkingen**\n\
-        - Indien het laatste gebruiksrecht van een informatieobject verwijderd wordt,\n\
-        \  dan wordt de `indicatieGebruiksrecht` van het informatieobject op `null`\n\
-        \  gezet."
+      summary: Verwijder een gebruiksrecht van een informatieobject.
+      description: "**Opmerkingen**\n- Indien het laatste gebruiksrecht van een informatieobject\
+        \ verwijderd wordt,\n  dan wordt de `indicatieGebruiksrecht` van het informatieobject\
+        \ op `null`\n  gezet."
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -2098,11 +2672,7 @@ paths:
   /objectinformatieobjecten:
     get:
       operationId: objectinformatieobject_list
-      description: 'Geef een lijst van relaties tussen INFORMATIEOBJECTen en andere
-        OBJECTen.
-
-
-        Deze lijst kan gefilterd wordt met querystringparameters.'
+      description: Geef een lijst van relaties tussen OBJECTen en INFORMATIEOBJECTen.
       parameters:
       - name: object
         in: query
@@ -2113,7 +2683,7 @@ paths:
           format: uri
       - name: informatieobject
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde informatieobject
         required: false
         schema:
           type: string
@@ -2248,17 +2818,28 @@ paths:
         - documenten.lezen
     post:
       operationId: objectinformatieobject_create
-      description: "Registreer een INFORMATIEOBJECT bij een OBJECT. Er worden twee\
-        \ types van\nrelaties met andere objecten gerealiseerd:\n\n* INFORMATIEOBJECT\
-        \ behoort bij [OBJECT] en\n* INFORMATIEOBJECT is vastlegging van [OBJECT].\n\
-        \n**Er wordt gevalideerd op**\n- geldigheid informatieobject URL\n- geldigheid\
-        \ object URL\n- de combinatie informatieobject en object moet uniek zijn\n\
-        \n**Opmerkingen**\n- De registratiedatum wordt door het systeem op 'NU' gezet.\
-        \ De `aardRelatie`\n  wordt ook door het systeem gezet.\n- Bij het aanmaken\
-        \ wordt ook in de bron van het OBJECT de gespiegelde\n  relatie aangemaakt,\
-        \ echter zonder de relatie-informatie.\n- Titel, beschrijving en registratiedatum\
-        \ zijn enkel relevant als het om een\n  object van het type ZAAK gaat (aard\
-        \ relatie \"hoort bij\")."
+      description: ''
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -2391,15 +2972,17 @@ paths:
       - JWT-Claims:
         - documenten.aanmaken
       requestBody:
-        $ref: '#/components/requestBodies/ObjectInformatieObject'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectInformatieObject'
+        required: true
     parameters: []
   /objectinformatieobjecten/{uuid}:
     get:
       operationId: objectinformatieobject_read
-      description: 'Geef de details van een relatie tussen een INFORMATIEOBJECT en
-        een ander
-
-        OBJECT.'
+      description: Geef een informatieobject terug wat gekoppeld is aan het huidige
+        object
       responses:
         '200':
           description: ''
@@ -2526,319 +3109,30 @@ paths:
       security:
       - JWT-Claims:
         - documenten.lezen
-    put:
-      operationId: objectinformatieobject_update
-      description: 'Update een INFORMATIEOBJECT bij een OBJECT. Je mag enkel de gegevens
-
-        van de relatie bewerken, en niet de relatie zelf aanpassen.
-
-
-        **Er wordt gevalideerd op**
-
-        - informatieobject URL, object URL en objectType mogen niet veranderen
-
-
-        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
-
-        object van het type ZAAK gaat (aard relatie "hoort bij").'
-      responses:
-        '200':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectInformatieObject'
-        '400':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-      tags:
-      - objectinformatieobjecten
-      security:
-      - JWT-Claims:
-        - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/ObjectInformatieObject'
-    patch:
-      operationId: objectinformatieobject_partial_update
-      description: 'Update een INFORMATIEOBJECT bij een OBJECT. Je mag enkel de gegevens
-
-        van de relatie bewerken, en niet de relatie zelf aanpassen.
-
-
-        **Er wordt gevalideerd op**
-
-        - informatieobject URL, object URL en objectType mogen niet veranderen
-
-
-        Titel, beschrijving en registratiedatum zijn enkel relevant als het om een
-
-        object van het type ZAAK gaat (aard relatie "hoort bij").'
-      responses:
-        '200':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectInformatieObject'
-        '400':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
-          description: ''
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-      tags:
-      - objectinformatieobjecten
-      security:
-      - JWT-Claims:
-        - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/ObjectInformatieObject'
     delete:
       operationId: objectinformatieobject_delete
-      description: Verwijdert de relatie tussen OBJECT en INFORMATIEOBJECT.
+      description: Verwijder een relatie tussen een object en een informatieobject.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -2973,12 +3267,6 @@ servers:
 - url: /api/v1
 components:
   requestBodies:
-    ObjectInformatieObject:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ObjectInformatieObject'
-      required: true
     EnkelvoudigInformatieObjectData:
       content:
         application/json:
@@ -3670,6 +3958,7 @@ components:
             zaak waarin het document een rol speelt.
           type: string
           format: date
+          nullable: true
         verzenddatum:
           title: Verzenddatum
           description: De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
@@ -3681,6 +3970,7 @@ components:
             waarin het document een rol speelt.
           type: string
           format: date
+          nullable: true
         indicatieGebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
@@ -3689,6 +3979,7 @@ components:
             gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
             via de `Gebruiksrechten` resource.
           type: boolean
+          nullable: true
         ondertekening:
           $ref: '#/components/schemas/Ondertekening'
         integriteit:
@@ -3700,6 +3991,13 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
+        lock:
+          title: Lock
+          description: Tijdens het updaten van een document (PATCH, PUT) moet het
+            `lock` veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
+            hebben.
+          type: string
+          maxLength: 100
     Fout:
       required:
       - code
@@ -4413,6 +4711,7 @@ components:
             zaak waarin het document een rol speelt.
           type: string
           format: date
+          nullable: true
         verzenddatum:
           title: Verzenddatum
           description: De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
@@ -4424,6 +4723,7 @@ components:
             waarin het document een rol speelt.
           type: string
           format: date
+          nullable: true
         indicatie_gebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
@@ -4432,6 +4732,7 @@ components:
             gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
             via de `Gebruiksrechten` resource.
           type: boolean
+          nullable: true
         ondertekening:
           $ref: '#/components/schemas/Ondertekening'
         integriteit:
@@ -4443,6 +4744,13 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
+        lock:
+          title: Lock
+          description: Tijdens het updaten van een document (PATCH, PUT) moet het
+            `lock` veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
+            hebben.
+          type: string
+          maxLength: 100
     Wijzgingen:
       title: Wijzigingen
       type: object
@@ -4589,6 +4897,23 @@ components:
           readOnly: true
         wijzigingen:
           $ref: '#/components/schemas/Wijzgingen'
+    LockEnkelvoudigInformatieObject:
+      type: object
+      properties:
+        lock:
+          title: Lock
+          description: Hash string, wordt gebruikt als ID voor de lock
+          type: string
+          readOnly: true
+          minLength: 1
+    UnlockEnkelvoudigInformatieObject:
+      type: object
+      properties:
+        lock:
+          title: Lock
+          description: Hash string, wordt gebruikt als ID voor de lock
+          type: string
+          maxLength: 100
     Gebruiksrechten:
       required:
       - informatieobject
@@ -4618,6 +4943,7 @@ components:
             van toepassing zijn.
           type: string
           format: date-time
+          nullable: true
         omschrijvingVoorwaarden:
           title: Omschrijving voorwaarden
           description: Omschrijving van de van toepassing zijnde voorwaarden aan het
@@ -4653,29 +4979,3 @@ components:
           enum:
           - besluit
           - zaak
-        aardRelatieWeergave:
-          title: Aard relatie weergave
-          type: string
-          enum:
-          - 'Hoort bij, omgekeerd: kent'
-          - 'Legt vast, omgekeerd: kan vastgelegd zijn als'
-          readOnly: true
-        titel:
-          title: Titel
-          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
-            is.
-          type: string
-          maxLength: 200
-        beschrijving:
-          title: Beschrijving
-          description: Een op het object gerichte beschrijving van de inhoud vanhet
-            INFORMATIEOBJECT.
-          type: string
-        registratiedatum:
-          title: Registratiedatum
-          description: De datum waarop de behandelende organisatie het INFORMATIEOBJECT
-            heeft geregistreerd bij het OBJECT. Geldige waardes zijn datumtijden gelegen
-            op of voor de huidige datum en tijd.
-          type: string
-          format: date-time
-          readOnly: true
