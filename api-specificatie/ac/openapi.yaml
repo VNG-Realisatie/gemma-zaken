@@ -83,7 +83,7 @@ paths:
           type: string
       - name: page
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         required: false
         schema:
           type: integer
