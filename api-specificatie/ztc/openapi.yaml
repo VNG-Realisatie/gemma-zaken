@@ -2930,6 +2930,7 @@ components:
       - referentieproces
       - catalogus
       - gerelateerdeZaaktypen
+      - beginGeldigheid
       type: object
       properties:
         url:
@@ -3152,6 +3153,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZaakTypenRelatie'
+        beginGeldigheid:
+          title: Begin geldigheid
+          description: De datum waarop het is ontstaan.
+          type: string
+          format: date
+        eindeGeldigheid:
+          title: Einde geldigheid
+          description: De datum waarop het is opgeheven.
+          type: string
+          format: date
     EigenschapSpecificatie:
       title: Specificatie
       required:
