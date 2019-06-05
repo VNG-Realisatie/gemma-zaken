@@ -268,6 +268,8 @@ Autorisatiecomponent (AC)
    _Creating a JWT does not register the secret with the hosted reference components. 
    See the [API guides](./guides) how this works._
 
+Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)
+
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
 

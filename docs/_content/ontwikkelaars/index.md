@@ -17,6 +17,7 @@ werken, zijn door VNG referentie implementaties gerealiseerd van elke API
 
 * Snel een API-request doen tegen de door VNG gehoste referentie
   implementaties? Ga naar de [API guides](guides).
+* Een overzicht van de beschikbare API's: [APIs](../standaard/apis/index)
 * Zelf een implementatie bouwen op basis van de specificaties? Ga naar de
   [API standaard](../standaard/index).
 * Zelf de componenten draaien voor eigen gebruik? Ga
