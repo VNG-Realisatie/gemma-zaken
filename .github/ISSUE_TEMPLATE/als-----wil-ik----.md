@@ -30,7 +30,7 @@ Onderstaande "vink-lijst" is voor het team zelf om in te vullen en hoeft niet do
 - [ ] Er is een referentieimplementatie
 - [ ] Er zijn tests(cases) aanwezig die de wijziging aantonen en waarmee de user story getest kan worden.
 - [ ] De technische specificatie (standaard.md) is gepubliceerd leesbaar
-- [ ] Gebruikte gegevensmodel is na **iedere iedere sprint** bijgewerkt.
+- [ ] Gebruikte gegevensmodel is na **iedere sprint** bijgewerkt.
 
 **Acceptatiecriteria**
 - [ ] De DSO URI- en API-strategie worden gevolgd of afwijkingen zijn vastgelegd als ontwerp keuze

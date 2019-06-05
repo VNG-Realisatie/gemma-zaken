@@ -7,27 +7,22 @@ De Zaak- en Documentservices (ZDS) wijken af van de Zaakgericht werken (ZGW)
 APIs, maar er is ook overlap. De belangrijkste verschillen en overeenkomsten op
 een rij:
 
-1. De ZGW APIs zijn in REST/JSON terwijl ZDS volgens SOAP/XML werken.
-2. De ZGW APIs zijn veel flexibeler dan ZDS. Dit is nodig omdat er geen directe
-   acties meer op de database mag worden gedaan door bijvoorbeeld een 
-   Zaaksysteem. Alle acties moeten via de ZGW APIs verlopen.
-3. De ZGW APIs kunnen alles wat ZDS ook kan.
-4. De ZGW APIs zijn opgedeeld. Er is niet meer 1 specificatie of endpoint om
-   alle operaties, zoals deze in ZDS bestonden, uit te voeren of data op te
-   vragen.
-5. De ZGW APIs zullen sneller opvolgende versies krijgen. Hierbij is het niet
-   ondenkbaar dat de Zaken API op versie 2 zit, terwijl de Besluiten API al op
-   versie 4 zit. Het is daarom ook niet zo dat ZGW een versie nummer krijgt.
-   Immers is ZGW alleen maar de verzamelnaam van alle Zaakgericht werken APIs. 
-6. De ZGW APIs worden aangetoond middels een referentie implementatie om de
-   theoretische specificaties te toetsen aan de praktijk, migratie problemen
-   te detecteren en om het vereiste gedrag te definieren daar waar de 
-   specificatie ruimte laat voor interpretaties.
-7. De ZGW APIs zijn ontwikkeld vanuit developer-first oogpunt waardoor
-   koppelingen sneller gemaakt kunnen worden.
-8. De ZGW APIs kennen alleen synchrone operaties.
-9. De ZGW APIs worden net als ZDS beheerd en onderhouden door VNG, zij het in
-   een andere vorm.
+[Zaak-Documentservices](https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices) | [ZGW APIs](https://ref.tst.vng.cloud/standaard/index)\*
+--- | ---
+SOAP/XML gebaseerd	                                                                        | REST/JSON gebaseerd
+Gebaseerd op het informatiemodel RGBZ1	                                                    | Gebaseerd op informatiemodel RGBZ2 waar van toepassing
+Verdere invulling/uitwerking van de basisberichten uit StUF ZKN	                            | Aparte calls voor aparte resources
+Uitwisselen van informatie inclusief gerelateerde gegevens, gestructureerd volgens het informatiemodel [RGBZ 1](https://www.gemmaonline.nl/index.php/Informatiemodel_Zaken_(RGBZ))	| Uitwisselen van informatie op basis van atomische resources, waarbij er gerefereerd wordt naar een resource in een component in plaats van deze te embedden.
+Ondersteunen van de functies van een zaaksysteem zoals beschreven in [GEMMA 1](https://www.gemmaonline.nl/index.php/Overzicht_GEMMA_1_referentiecomponenten)	            | Ondersteunen van functies van de referentiecomponenten zoals beschreven in [GEMMA 2](https://www.gemmaonline.nl/index.php/Overzicht_generieke_referentiecomponenten_GEMMA_2)
+Kent alleen de functionele acties die uitgewerkt zijn in de standaard.	                    | Alle functionele acties die mogelijk zijn met de CRUD functionaliteit zijn mogelijk. De ZGW API's zijn microservices die gecombineerd kunnen worden om een functionele behoefte in te vullen.
+Betrokkenen en/of gerelateerde objecten kunnen geheel of gedeeltelijk, in ieder geval met matchinggegevens doorgegeven worden. Deze worden veelal in het zaaksysteem opgeslagen.	                                                             | Een relatie naar een andere resource is een verwijzing naar die resource. Die resource wordt opgeslagen in de betreffende registratie. Dat kan een zaakregistratie (ZRC) zijn maar ook een andere (met een eigen API). 
+Bestaan voornamelijk uit a-synchrone services	                                            | Bestaan uit alleen maar synchrone services
+Een [GEMMA 1](https://www.gemmaonline.nl/index.php/Overzicht_GEMMA_1_referentiecomponenten) Zaaksysteem bevat ook (generieke) zaakafhandelfunctionaliteit. Deze hoeft niet per se via ZDS te communiceren met het eigen zakenmagazijn  | Een [GEMMA 2](https://www.gemmaonline.nl/index.php/Overzicht_generieke_referentiecomponenten_GEMMA_2) [Zaakregistratiecomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-a97b6545-d5a7-485d-9b13-3ce22db5b9cf) registreert alleen zaken en (verwijzingen naar) gerelateerden. Afhandelen gebeurt in een [zaakafhandelcomponent](https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-f2dfbd0b-9d36-405c-bdbe-827f3296de29) (ZAC). Communicatie vindt plaats via de ZGW API's
+Zaak- Documentservices is gemaakt om taakspecifieke applicaties te koppelen aan een zaaksysteem. | ZGW API's zijn gemaakt om zaakgericht werken te ondersteunen
+Zaak- Documentservices beschrijven alleen hoe zaken, documenten en besluiten in een zaaksysteem vastgelegd kunnen worden. Er wordt niet beschreven hoe een ZTC bevraagd moet worden etc.                                                           | ZGW API's ondersteunen alle onderdelen van het zaakgericht werken, ook het bevragen van een ZTC etc.
+De Zaak- Documentservices standaard bestaat uit een specificatiedocument, xsd schema's en documentatie van de onderliggende StUF en CMIS standaarden.                                                                                | ZGW API standaard bestaat per API uit een OpenAPI 3 specificatie (OAS), functionele en technische documentatie en  referentie-implementaties
+Beheer van de Zaak- Documentservices gebeurt in de werkgroep Beheer Zaak- Documentservices. Daarnaast volgt de standaard de ontwikkelingen in de StUF standaard (voor zover van toepassing).                                                      | Beheer van de ZGW API standaard zal (open source) plaatsvinden onder regie van [VNG-Realisatie](https://www.vngrealisatie.nl/). Belanghebbenden kunnen wensen, bevindingen of zelfs wijzigingsvoorstellen indienen via issues en pull requests. 
+Zaak- Documentservices kent extraElementen, label-value combinaties voor gegevens die niet in het RGBZ 1 opgenomen zijn.  | ZGW API's werken op resources. Wanneer een attribuut of zelfs een resource niet bekend is moet deze toegevoegd worden aan de API die bij de juiste registratie hoort.
 
 
 ## Vergelijking

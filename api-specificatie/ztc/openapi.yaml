@@ -175,7 +175,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters: []
   /catalogussen/{catalogus_uuid}/besluittypen:
     get:
@@ -299,7 +299,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -437,7 +437,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -572,7 +572,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -711,7 +711,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -846,7 +846,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -985,7 +985,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1120,7 +1120,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1268,7 +1268,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1438,7 +1438,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1584,7 +1584,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1725,7 +1725,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -1870,7 +1870,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: catalogus_uuid
       in: path
@@ -2023,7 +2023,7 @@ paths:
       - catalogussen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: uuid
       in: path
@@ -2191,7 +2191,7 @@ paths:
       - resultaattypen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters: []
   /resultaattypen/{uuid}:
     get:
@@ -2325,7 +2325,7 @@ paths:
       - resultaattypen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: uuid
       in: path
@@ -2503,7 +2503,7 @@ paths:
       - zaaktype-informatieobjecttypen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters: []
   /zaaktype-informatieobjecttypen/{uuid}:
     get:
@@ -2634,7 +2634,7 @@ paths:
       - zaaktype-informatieobjecttypen
       security:
       - JWT-Claims:
-        - zds.scopes.zaaktypes.lezen
+        - zaaktypes.lezen
     parameters:
     - name: uuid
       in: path
@@ -3338,7 +3338,7 @@ components:
       - status
       - detail
       - instance
-      - invalid-params
+      - invalidParams
       type: object
       properties:
         type:
@@ -3370,7 +3370,7 @@ components:
             Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
-        invalid-params:
+        invalidParams:
           type: array
           items:
             $ref: '#/components/schemas/FieldValidationError'
