@@ -24,6 +24,7 @@ tussen registraties en consumers die van de API's gebruik maken.
     - [Autorisatiecomponent](#autorisatiecomponent)
 - [Filter parameters](#filter-parameters)
 - [Notificaties](#notificaties)
+- [Audittrail](#audittrail)
 - [Zaakregistratiecomponent](#zaakregistratiecomponent)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
@@ -110,7 +111,7 @@ API. Dit token MOET in de `Authorization` HTTP header opgenomen worden, met
 als type `Bearer`. Voorbeeld:
 
 ```
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZHVtbXkifQ.eyJpc3MiOiJkdW1teSIsImlhdCI6MTU1OTgyMjY3OSwiY2xpZW50X2lkIjoiZHVtbXkifQ.0KxzVfLlZVJO13rjRdZke7r01EOEszgZr86J2Neaxz4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkdW1teSIsImlhdCI6MTU1Njg5ODIwMSwiY2xpZW50X2lkIjoiZHVtbXkiLCJ1c2VyX2lkIjoiMTIzIiwidXNlcl9yZXByZXNlbnRhdGlvbiI6IldpbGx5IERlIEtvb25pbmcifQ.41xuzR2jB13B7mbbZsenVyDCaosuJ3mapwX7Arr3wVA
 ```
 
 Client en server maken gebruik van `shared secret` om het JWT te signen, met
@@ -151,22 +152,22 @@ AANGERADEN om hiervoor te abonneren op notificaties verstuurd door het AC.
 Zoals in het voorbeeld beschreven, MOETEN een set standaardclaims in het JWT
 opgenomen worden:
 
-* `iss`: de issuer, welke partij het JWT uitgegeven/gegenereerd heeft. Typisch
+* `iss`: *(string)* de issuer, welke partij het JWT uitgegeven/gegenereerd heeft. Typisch
   het client ID van de applicatie.
-* `iat`: issued-at, moment van genereren van het JWT. Dit kan later gebruikt
-  worden om een maximale leeftijd van een JWT toe te laten.
-* `client_id`: het client ID van de applicatie, MOET worden gebruikt om het
-  bijhorende `secret` op te halen en het JWT te valideren
+* `iat`: *(integer)* issued-at, moment van genereren van het JWT als UNIX
+  timestamp. Dit kan later gebruikt
+* `client_id`: *(string)* het client ID van de applicatie, MOET worden gebruikt
+  om het bijhorende `secret` op te halen en het JWT te valideren
 
-Daarnast ZOUDEN de volgende claims aanwezig MOETEN zijn:
+Daarnaast ZOUDEN de volgende claims aanwezig MOETEN zijn:
 
-* `user_id`: de unieke identificatie van de eindgebruiker in de applicatie. In
-  combinatie met `client_id` MOET hieruit de persoon te herleiden zijn die
-  verantwoordelijk is voor de API-aanroep. Dit MAG eender welk formaat zijn.
-  Indien deze claim niet aanwezig is, wordt de `X-NLX-Request-User-Id`
-  uitgelezen.
-* `user_representation`: de vriendelijke weergave van de eindgebruiker die
-  verantwoordelijk is voor de API-aanroep.
+* `user_id`: *(string)* de unieke identificatie van de eindgebruiker in de
+  applicatie. In combinatie met `client_id` MOET hieruit de persoon te
+  herleiden zijn die verantwoordelijk is voor de API-aanroep. Dit MAG eender
+  welk formaat zijn. Indien deze claim niet aanwezig is, wordt de
+  `X-NLX-Request-User-Id` uitgelezen.
+* `user_representation`: *(string)* de vriendelijke weergave van de
+  eindgebruiker die verantwoordelijk is voor de API-aanroep.
 
 ### Autorisatiecomponent
 
@@ -262,6 +263,16 @@ een notificatie leiden.
 * (gemiste) berichten opvragen
 * abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
 
+
+### Audittrail
+
+Elke component kent een hoofdobject (zie ook [notificaties](#notificaties)).
+Alle schrijfacties op het hoofdobject en gerelateerde objecten MOETEN opgenomen
+worden in de audittrail van het hoofdobject. Indien een object permanent
+verwijderd wordt, dan MOET de audittrail meeverwijderd worden.
+
+Zie de API spec voor de betekenis van de audittrailattributen.
+
 ## Zaakregistratiecomponent
 
 Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
@@ -339,7 +350,7 @@ Een voorbeeld:
 1. Een informatieobject wordt gerelateerd aan een zaak door een consumer:
 
     ```http
-    POST https://zrc.nl/api/v1/zaakinformatieobjecten
+    POST https://zrc.nl/api/v1/zaakinformatieobjecten HTTP/1.0
 
     {
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
@@ -352,7 +363,7 @@ Een voorbeeld:
 2. Het ZRC MOET de relatie spiegelen in het DRC:
 
     ```http
-    POST https://drc.nl/api/v1/objectinformatieobjecten/
+    POST https://drc.nl/api/v1/objectinformatieobjecten HTTP/1.0
 
     {
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
@@ -579,38 +590,6 @@ Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
 \* Het verwijderen van een `zaakinformatieobject` in het ZRC leidt er toe dat
 het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
-#### Audit trail
-
-In het ZRC is de `Zaak` het hoofdobject. Alle schrijfacties op zaken en
-gerelateerde objecten MOETEN opgenomen worden in de audittrail van de `Zaak`.
-
-In de audittrail MOETEN de volgende attributen vastgelegd worden:
-
-* `bron`: de bron van het object, in dit geval `ZRC`.
-* `applicatieId`: het applicatie-ID van de consumer. Dit is **niet** gelijk
-  aan het client ID. In het AC staat een applicatie bekend met een applicatie-ID,
-  en deze applicatie KAN meerdere client IDs hebben. Het applicatie ID is niet
-  muteerbaar, client IDs zijn dat wel.
-* `applicatieWeergave`: de vriendelijke weergave van de applicatie, typisch
-  het `label` attribuut van de applicatie zoals die in het AC voorkomt.
-* `actie`: de soort actie die gebeurde, zoals `create`, `update` en
-  `partial_update`. Niet-standaard acties MOGEN opgegeven worden.
-* `actieWeergave`: een mensvriendelijke weergave van de actie, zoals
-  "aangemaakt".
-* `gebruikersId`: identificatie van de eindgebruiker. Deze wordt uit de JWT
-  payload `user_id` gehaald, of er wordt teruggevallen op de NLX header
-  `X-NLX-Request-User-Id`. Deze MAG leeggelaten worden indien de waarde
-  ontbreekt in de payload en de header.
-* `gebruikersWeergave`: mensvriendelijke weergave van de eindgebruiker. Deze
-  wordt uit de JWT payload `user_representation` gehaald. Deze MAG leeggelaten
-  worden indien de waarde ontbreekt in de payload en de header.
-* `toelichting`: de reden waarom deze operatie uitgevoerd werd. MOET uit de
-  `X-Audit-Toelichting` header gehaald worden.
-* `oud`: de vorige versie van het object, in JSON
-* `nieuw`: de nieuwe versie van het object, in JSON
-
-Zie de API spec voor de overige attributen.
-
 ## Documentregistratiecomponent
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
@@ -717,7 +696,6 @@ Onder gerelateerde objecten wordt begrepen:
   `EnkelvoudigInformatieObject`.
 - `audittrail` - de geschiedenis van het object.
 
-
 ## Besluitregistratiecomponent
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
@@ -795,7 +773,7 @@ Een voorbeeld:
 1. Een informatieobject wordt gerelateerd aan een besluit door een consumer:
 
     ```http
-    POST https://brc.nl/api/v1/besluitinformatieobjecten
+    POST https://brc.nl/api/v1/besluitinformatieobjecten HTTP/1.0
 
     {
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
@@ -806,7 +784,7 @@ Een voorbeeld:
 2. Het BRC MOET de relatie spiegelen in het DRC:
 
     ```http
-    POST https://drc.nl/api/v1/objectinformatieobjecten/
+    POST https://drc.nl/api/v1/objectinformatieobjecten HTTP/1.0
 
     {
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
