@@ -1,10 +1,10 @@
 ---
 title: "ZGW API Standaard documentatie"
-date: '14-11-2018'
+date: '06-06-2019'
 weight: 100
 ---
 
-*Versie 0.1*
+*Versie 1.0.0-alpha*
 
 ## Inleiding
 
@@ -31,8 +31,8 @@ tussen registraties en consumers die van de API's gebruik maken.
     - [OpenAPI specificatie](#openapi-specificatie-1)
     - [Run-time gedrag](#run-time-gedrag-1)
 - [Besluitregistratiecomponent](#besluitregistratiecomponent)
-  - [OpenAPI specificatie](#openapi-specificatie-2)
-  - [Run-time gedrag](#run-time-gedrag-2)
+    - [OpenAPI specificatie](#openapi-specificatie-2)
+   -  [Run-time gedrag](#run-time-gedrag-2)
 - [Zaaktypecatalogus](#zaaktypecatalogus)
     - [OpenAPI specificatie](#openapi-specificatie-3)
     - [Run-time gedrag](#run-time-gedrag-3)
@@ -60,7 +60,14 @@ tussen registraties en consumers die van de API's gebruik maken.
 - Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
   communiceert via de ZGW API's.
 
-- De codes bij business logica (zoals `zrc-001`) verwijzen naar de [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
+- De codes bij business logica (zoals `zrc-001`) verwijzen naar de
+  [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
+
+- Endpoint: een pad dat ontsloten wordt in de API, al dan niet met dynamische
+  parameters. Bijvoorbeeld: `/api/v1/zaken/{uuid}`
+
+- Operatie: de combinatie van een HTTP method zoals `POST`, `GET`, `PUT`,
+  `PATCH` en `DELETE` en een endpoint.
 
 ## Beschikbaar stellen van API-spec
 
@@ -89,8 +96,13 @@ uitgedrukt worden.
 
 ## Autorisatie
 
-De API-endpoints vereisen autorisatie, in de minimale vorm met scopes. Deze
-scopes zijn opgenomen in de OAS spec.
+De API-endpoints moeten beschermd zijn met autorisatie. Er zijn scopes
+gedefinieerd die van toepassing zijn om operaties toe laten. Het kan zijn dat
+een operatie toegelaten is door een combinatie van scopes (of-of, of en-en).
+Het kan ook dat één scope meerdere operaties toelaat.
+
+De benodigde scopes voor operaties zijn opgenomen in de API-spec en de verdere
+betekenis is gedocumenteerd in de referentie-implementaties.
 
 API requests van clients MOETEN een
 [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) versturen naar de
@@ -98,7 +110,7 @@ API. Dit token MOET in de `Authorization` HTTP header opgenomen worden, met
 als type `Bearer`. Voorbeeld:
 
 ```
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZG9jcy1VNW9hSGhmMUEyVFgifQ.eyJpc3MiOiJkb2NzLVU1b2FIaGYxQTJUWCIsImlhdCI6MTU0MzI0NjkwNywiemRzIjp7InNjb3BlcyI6W10sInphYWt0eXBlcyI6W119fQ.e9Khey44Tgobqu8boB_GclDQ8Et7I3DhbPmTTrIu9U4
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiZHVtbXkifQ.eyJpc3MiOiJkdW1teSIsImlhdCI6MTU1OTgyMjY3OSwiY2xpZW50X2lkIjoiZHVtbXkifQ.0KxzVfLlZVJO13rjRdZke7r01EOEszgZr86J2Neaxz4
 ```
 
 Client en server maken gebruik van `shared secret` om het JWT te signen, met
@@ -111,9 +123,11 @@ Voorbeeld van een payload:
 
 ```json
 {
-    "iss": "voorbeeld-consumers",
+    "iss": "dummy",
     "iat": 1556898201,
-    "client_id": "dsh5thqAzL6I9SC5IPgR"
+    "client_id": "dummy",
+    "user_id": "123",
+    "user_representation": "Willy De Kooning"
 }
 ```
 
@@ -131,6 +145,28 @@ Providers MOGEN deze gegevens cachen om performance-redenen. Indien
 er van caching gebruik gemaakt wordt, dan MOETEN providers een mechanisme
 inbouwen om wijzingen in het AC meteen door te voeren in de cache. Het is
 AANGERADEN om hiervoor te abonneren op notificaties verstuurd door het AC.
+
+**Claims in het JWT**
+
+Zoals in het voorbeeld beschreven, MOETEN een set standaardclaims in het JWT
+opgenomen worden:
+
+* `iss`: de issuer, welke partij het JWT uitgegeven/gegenereerd heeft. Typisch
+  het client ID van de applicatie.
+* `iat`: issued-at, moment van genereren van het JWT. Dit kan later gebruikt
+  worden om een maximale leeftijd van een JWT toe te laten.
+* `client_id`: het client ID van de applicatie, MOET worden gebruikt om het
+  bijhorende `secret` op te halen en het JWT te valideren
+
+Daarnast ZOUDEN de volgende claims aanwezig MOETEN zijn:
+
+* `user_id`: de unieke identificatie van de eindgebruiker in de applicatie. In
+  combinatie met `client_id` MOET hieruit de persoon te herleiden zijn die
+  verantwoordelijk is voor de API-aanroep. Dit MAG eender welk formaat zijn.
+  Indien deze claim niet aanwezig is, wordt de `X-NLX-Request-User-Id`
+  uitgelezen.
+* `user_representation`: de vriendelijke weergave van de eindgebruiker die
+  verantwoordelijk is voor de API-aanroep.
 
 ### Autorisatiecomponent
 
@@ -329,16 +365,29 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
-#### **<a name="zrc-006">Limiteren zaakgegevens op basis van `zaaktypes` claim ([zrc-006](#zrc-006))</a>**
+#### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-De `zaaktypes` claim is een lijst van URLs van zaaktypes waar de eindgebruiker
-rechten op heeft.
+Het autorisatiecomponent (AC) legt op het niveau van `zaaktype` vast welke
+operaties mogelijk en wat de maximale vertrouwelijkheidaanduiding is voor een
+consumer.
 
-De server MOET resultaten van lijst-operaties (`zaak_list`, `zaak__zoek`)
-limiteren tot de zaaktypes in de zaaktypesclaim.
+Het ZRC MAG ENKEL zaken ontsluiten waarvan:
 
-De server MOET een HTTP 403 antwoord sturen bij detail-operaties op zaken van
-een ander zaaktype dan deze in de claim (`zaak_retrieve`).
+* het zaaktype voorkomt in de autorisaties van de consumer
+* de vertrouwelijkheidaanduiding lager of gelijk aan de maximale
+  vertrouwelijkheidaanduiding is voor het betreffende zaaktype
+
+De API-specificatie legt vast welke scopes nodig zijn voor welke operaties.
+Een provider MOET operaties blokkeren op zaken waarvan de nodige scopes niet
+toegekend zijn voor het zaaktype van de betreffende zaak.
+
+Indien een operatie niet toegelaten is, dan MOET de provider met een
+`HTTP 403` foutbericht antwoorden.
+
+Een consumer is verbonden aan het concept `Applicatie`, waarop `autorisaties`
+gedefinieerd worden. Het is mogelijk om op het niveau van `Applicatie` de vlag
+`heeftAlleAutorisaties` te zetten. Indien deze gezet is, dan MOET de provider
+alle operaties voor deze consumer toelaten, op alle zaken.
 
 #### **<a name="zrc-007">Afsluiten zaak ([zrc-007](#zrc-007))</a>**
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
@@ -510,8 +559,8 @@ foutbericht antwoorden.
 
 **<a name="zrc-017">Vernietigen van zaken ([zrc-017](#zrc-017))</a>**
 
-Bij het verwijderen van een `Zaak` MOETEN de zaak en gerelateerde objecten 
-daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn 
+Bij het verwijderen van een `Zaak` MOETEN de zaak en gerelateerde objecten
+daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn
 NIET TOEGESTAAN. Onder gerelateerde objecten wordt begrepen:
 
 - `zaak` - de deelzaken van de verwijderde hoofzaak
@@ -530,30 +579,37 @@ Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
 \* Het verwijderen van een `zaakinformatieobject` in het ZRC leidt er toe dat
 het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
-#### Data filteren bij de bron
+#### Audit trail
 
-Het autorisatiecomponent (AC) legt op het niveau van `zaaktype` vast welke
-operaties mogelijk en wat de maximale vertrouwelijkheidaanduiding is voor een
-consumer.
+In het ZRC is de `Zaak` het hoofdobject. Alle schrijfacties op zaken en
+gerelateerde objecten MOETEN opgenomen worden in de audittrail van de `Zaak`.
 
-Het ZRC MAG ENKEL zaken ontsluiten waarvan:
+In de audittrail MOETEN de volgende attributen vastgelegd worden:
 
-* het zaaktype voorkomt in de autorisaties van de consumer
-* de vertrouwelijkheidaanduiding lager of gelijk aan de maximale
-  vertrouwelijkheidaanduiding is voor het betreffende zaaktype
+* `bron`: de bron van het object, in dit geval `ZRC`.
+* `applicatieId`: het applicatie-ID van de consumer. Dit is **niet** gelijk
+  aan het client ID. In het AC staat een applicatie bekend met een applicatie-ID,
+  en deze applicatie KAN meerdere client IDs hebben. Het applicatie ID is niet
+  muteerbaar, client IDs zijn dat wel.
+* `applicatieWeergave`: de vriendelijke weergave van de applicatie, typisch
+  het `label` attribuut van de applicatie zoals die in het AC voorkomt.
+* `actie`: de soort actie die gebeurde, zoals `create`, `update` en
+  `partial_update`. Niet-standaard acties MOGEN opgegeven worden.
+* `actieWeergave`: een mensvriendelijke weergave van de actie, zoals
+  "aangemaakt".
+* `gebruikersId`: identificatie van de eindgebruiker. Deze wordt uit de JWT
+  payload `user_id` gehaald, of er wordt teruggevallen op de NLX header
+  `X-NLX-Request-User-Id`. Deze MAG leeggelaten worden indien de waarde
+  ontbreekt in de payload en de header.
+* `gebruikersWeergave`: mensvriendelijke weergave van de eindgebruiker. Deze
+  wordt uit de JWT payload `user_representation` gehaald. Deze MAG leeggelaten
+  worden indien de waarde ontbreekt in de payload en de header.
+* `toelichting`: de reden waarom deze operatie uitgevoerd werd. MOET uit de
+  `X-Audit-Toelichting` header gehaald worden.
+* `oud`: de vorige versie van het object, in JSON
+* `nieuw`: de nieuwe versie van het object, in JSON
 
-De API-specificatie legt vast welke scopes nodig zijn voor welke operaties.
-Een provider MOET operaties blokkeren op zaken waarvan de nodige scopes niet
-toegekend zijn voor het zaaktype van de betreffende zaak.
-
-Indien een operatie niet toegelaten is, dan MOET de provider met een
-`HTTP 403` foutbericht antwoorden.
-
-Een consumer is verbonden aan het concept `Applicatie`, waarop `autorisaties`
-gedefinieerd worden. Het is mogelijk om op het niveau van `Applicatie` de vlag
-`heeftAlleAutorisaties` te zetten. Indien deze gezet is, dan MOET de provider
-alle operaties voor deze consumer toelaten, op alle zaken.
-
+Zie de API spec voor de overige attributen.
 
 ## Documentregistratiecomponent
 
@@ -649,15 +705,15 @@ voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 **Vernietigen van informatieobjecten**
 
 Een `EnkelvoudigInformatieObject` MAG ALLEEN verwijderd worden indien er geen
-`ObjectInformatieObject`-en meer aan hangen. Indien er nog relaties zijn, dan 
+`ObjectInformatieObject`-en meer aan hangen. Indien er nog relaties zijn, dan
 MOET het DRC antwoorden met een `HTTP 400` foutbericht
 
-Bij het verwijderen van een `EnkelvoudigInformatieObject` MOETEN het 
-`EnkelvoudigInformatieObject` en gerelateerde objecten daadwerkelijk uit de 
-opslag verwijderd worden. Zogenaamde "soft-deletes" zijn NIET TOEGESTAAN. 
+Bij het verwijderen van een `EnkelvoudigInformatieObject` MOETEN het
+`EnkelvoudigInformatieObject` en gerelateerde objecten daadwerkelijk uit de
+opslag verwijderd worden. Zogenaamde "soft-deletes" zijn NIET TOEGESTAAN.
 Onder gerelateerde objecten wordt begrepen:
 
-- `gebruiksrechten` - de gebruiksrechten die horen bij het 
+- `gebruiksrechten` - de gebruiksrechten die horen bij het
   `EnkelvoudigInformatieObject`.
 - `audittrail` - de geschiedenis van het object.
 
@@ -768,15 +824,15 @@ stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 **Vernietigen van besluiten**
 
-Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde 
-objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde 
-"soft-deletes" zijn NIET TOEGESTAAN. Onder gerelateerde objecten wordt 
+Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde
+objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde
+"soft-deletes" zijn NIET TOEGESTAAN. Onder gerelateerde objecten wordt
 begrepen:
 
 - `besluitinformatieobject` - relatie naar enkelvoudige informatieobjecten \*
 - `audittrail` - de geschiedenis van het object
 
-\* Het verwijderen van een `besluitinformatieobject` in het BRC leidt er toe 
+\* Het verwijderen van een `besluitinformatieobject` in het BRC leidt er toe
 dat het `objectinformatieobject` in het DRC ook verwijdert wordt indien dit kan.
 
 
