@@ -1521,7 +1521,7 @@ components:
           format: uri
           maxLength: 200
         filters:
-          description: Comma-separated list of filters of the kanaal
+          description: Komma-gescheiden lijst van filters van het kanaal
           type: array
           items:
             title: Filters
