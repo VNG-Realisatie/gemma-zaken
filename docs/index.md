@@ -42,7 +42,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
 [github][github] of een mail sturen naar een van de [teamleden][teamleden].
 
-[![vngapicommunity](./_assets/img/slack.png?raw=true)][VNG Community]
+[![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
 
 [VNG Community]: http://vngapicommunity.slack.com
 
