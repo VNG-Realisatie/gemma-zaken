@@ -84,7 +84,7 @@ echter deze worden wel binnen de ZGW API's gebruikt en opgelegd.
 
 ### Duur
 
-Een duur (EN: duration) MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+Een duur MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 uitgedrukt worden.
 
 ## Autorisatie
@@ -510,9 +510,9 @@ foutbericht antwoorden.
 
 **<a name="zrc-017">Vernietigen van zaken ([zrc-017](#zrc-017))</a>**
 
-Bij `DELETE` requests op zaken MOETEN de zaak en gerelateerde objecten fysiek
-uit de opslag verwijderd worden. Soft-deletes zijn NIET TOEGESTAAN. Onder
-gerelateerde objecten wordt begrepen:
+Bij het verwijderen van een `Zaak` MOETEN de zaak en gerelateerde objecten 
+daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn 
+NIET TOEGESTAAN. Onder gerelateerde objecten wordt begrepen:
 
 - `zaak` - de deelzaken van de verwijderde hoofzaak
 - `status` - alle statussen van de verwijderde zaak
@@ -521,11 +521,14 @@ gerelateerde objecten wordt begrepen:
 - `zaakobject` - alle zaakobjecten bij de zaak
 - `zaakeigenschap` - alle eigenschappen van de zaak
 - `zaakkenmerk` - alle kenmerken van de zaak
-- `zaakinformatieobject` - dit moet door-cascaden naar DRCs, zie ook
-  https://github.com/VNG-Realisatie/gemma-zaken/issues/791 (TODO)
+- `zaakinformatieobject` - relatie naar enkelvoudige informatieobjecten \*
 - `klantcontact` - alle klantcontacten bij een zaak
+- `audittrail` - de geschiedenis van het object
 
 Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
+
+\* Het verwijderen van een `zaakinformatieobject` in het ZRC leidt er toe dat
+het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
 #### Data filteren bij de bron
 
@@ -550,6 +553,7 @@ Een consumer is verbonden aan het concept `Applicatie`, waarop `autorisaties`
 gedefinieerd worden. Het is mogelijk om op het niveau van `Applicatie` de vlag
 `heeftAlleAutorisaties` te zetten. Indien deze gezet is, dan MOET de provider
 alle operaties voor deze consumer toelaten, op alle zaken.
+
 
 ## Documentregistratiecomponent
 
@@ -639,6 +643,23 @@ worden uit `InformatieOject.InformatieObjectType.vertrouwelijkheidaanduiding`.
 Een `InformatieOject` response van de provider MOET altijd een geldige waarde
 voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 `vertrouwelijkheidaanduiding` meesturen.
+
+#### Archiveren
+
+**Vernietigen van informatieobjecten**
+
+Een `EnkelvoudigInformatieObject` MAG ALLEEN verwijderd worden indien er geen
+`ObjectInformatieObject`-en meer aan hangen. Indien er nog relaties zijn, dan 
+MOET het DRC antwoorden met een `HTTP 400` foutbericht
+
+Bij het verwijderen van een `EnkelvoudigInformatieObject` MOETEN het 
+`EnkelvoudigInformatieObject` en gerelateerde objecten daadwerkelijk uit de 
+opslag verwijderd worden. Zogenaamde "soft-deletes" zijn NIET TOEGESTAAN. 
+Onder gerelateerde objecten wordt begrepen:
+
+- `gebruiksrechten` - de gebruiksrechten die horen bij het 
+  `EnkelvoudigInformatieObject`.
+- `audittrail` - de geschiedenis van het object.
 
 
 ## Besluitregistratiecomponent
@@ -742,6 +763,22 @@ Een voorbeeld:
 Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+#### Archiveren
+
+**Vernietigen van besluiten**
+
+Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde 
+objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde 
+"soft-deletes" zijn NIET TOEGESTAAN. Onder gerelateerde objecten wordt 
+begrepen:
+
+- `besluitinformatieobject` - relatie naar enkelvoudige informatieobjecten \*
+- `audittrail` - de geschiedenis van het object
+
+\* Het verwijderen van een `besluitinformatieobject` in het BRC leidt er toe 
+dat het `objectinformatieobject` in het DRC ook verwijdert wordt indien dit kan.
+
 
 ## Zaaktypecatalogus
 
