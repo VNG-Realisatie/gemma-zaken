@@ -49,4 +49,4 @@ Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
 [Getting started with slack]: https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members
 
 [github]: https://github.com/VNG-Realisatie/gemma-zaken
-[teamleden]: https://ref.tst.vng.cloud/introductie/samenwerking
+[teamleden]: https://ref.tst.vng.cloud/overige/samenwerking
