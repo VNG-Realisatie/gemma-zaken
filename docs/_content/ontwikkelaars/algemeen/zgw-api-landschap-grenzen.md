@@ -166,4 +166,4 @@ meerdere type objecten waarvan nog geen bron is gestandaardiseerd.
 [matching-vs-kern-gegevens]: https://discussie.kinggemeenten.nl/discussie/gemma/stuf-301/wijzig-de-term-kerngegevens-matchinggegevens
 [RSGB]: https://www.gemmaonline.nl/index.php/Sectormodel_Basisgegevens:_StUF-BG
 [RGBZ]: https://www.gemmaonline.nl/index.php/Documentatie_Zaak-_en_Documentservices
-[polymorphism]: https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/
+[polymorfisme]: https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/
