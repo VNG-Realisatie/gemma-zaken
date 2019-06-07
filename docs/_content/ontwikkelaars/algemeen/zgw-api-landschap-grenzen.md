@@ -5,10 +5,10 @@ weight: 50
 ---
 
 In het Common Ground API-landschap worden straks alle bronnen netjes ontsloten 
-middels een API. Er is een API die een gemeentelijk bomenregister ontsluit, een
+middels een API. Er is een API het Kadaster ontsluit, een
 API voor Zaken, Documenten, Personen, Medewerkers, etc.
 
-Op dit moment zijn wordt er hard gewerkt aan een set API's die bij elkaar de
+Op dit moment wordt er hard gewerkt aan een set API's die bij elkaar de
 kern vormen voor Zaakgericht werken, de ZGW API's. Deze bestaan op het moment
 van schrijven uit de Zaken API, Documenten API, Zaaktypen API en Besluiten API.
 Deze maken op hun beurt weer gebruik van de Autorisaties API en de Notificaties 
@@ -17,7 +17,7 @@ API.
 ## Probleemomschrijving
 
 Aangezien dit de eerste set API's is die beschikbaar komt als VNG standaard, is
-het API-landschap nog erg beperkt. Een `Zaak` kent bijvoorbeeld typisch een of 
+het API-landschap nog beperkt. Een `Zaak` kent bijvoorbeeld typisch een of 
 meer `Betrokkenen` zoals een `Natuurlijk Persoon` of `Vestiging`. Ook gaat een
 `Zaak` meestal over een of meer `ZaakObjecten` zoals een `Buurt`, 
 `Kunstwerkdeel`, `Ligplaats` of `Wijk`. Allemaal objecten.
