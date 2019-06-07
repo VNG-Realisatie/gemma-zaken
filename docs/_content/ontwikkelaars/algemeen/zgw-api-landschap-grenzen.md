@@ -5,8 +5,8 @@ weight: 50
 ---
 
 In het Common Ground API-landschap worden straks alle bronnen netjes ontsloten 
-middels een API. Er is een API het Kadaster ontsluit, een
-API voor Zaken, Documenten, Personen, Medewerkers, etc.
+middels een API. Er is een API die Kadastergegevens ontsluit, een API voor 
+Zaken, Documenten, Personen, Medewerkers, etc.
 
 Op dit moment wordt er hard gewerkt aan een set API's die bij elkaar de
 kern vormen voor Zaakgericht werken, de ZGW API's. Deze bestaan op het moment
