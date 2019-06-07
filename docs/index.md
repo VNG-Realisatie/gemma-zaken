@@ -23,7 +23,7 @@ verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
 Wil je hier meer over weten, kijk dan bij [architectuur](architectuur/index).
 
-Lees meer over de api's in de [product visie](./_content/productvisie/index.md)
+Lees meer over de api's in de [productvisie](/productvisie/)
 
 De standaard staat [hier](standaard/standaard) beschreven. Ontwikkelaars kunnen
 [direct aan de slag](ontwikkelaars/aan-de-slag) met de beschikbare
@@ -40,7 +40,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 [Getting started with slack] snel aan de slag.
 
 Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
-[github][github] of een mail sturen naar een van de [teamleden][teamleden].
+[github][github] of een mail sturen naar een van de [teamleden](/community/scrumteam)
 
 [![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
 
