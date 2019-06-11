@@ -16,15 +16,19 @@ API.
 
 ## Probleemomschrijving
 
-Aangezien dit de eerste set API's is die beschikbaar komt als VNG standaard, is
-het API-landschap nog beperkt. Een `Zaak` kent bijvoorbeeld typisch een of 
-meer `Betrokkenen` zoals een `Natuurlijk Persoon` of `Vestiging`. Ook gaat een
-`Zaak` meestal over een of meer `ZaakObjecten` zoals een `Buurt`, 
-`Kunstwerkdeel`, `Ligplaats` of `Wijk`. Allemaal objecten.
+Een `Zaak` kent typisch een of meer `Betrokkenen` zoals een 
+`Natuurlijk Persoon` of `Vestiging`. Ook gaat een `Zaak` meestal over een of 
+meer `ZaakObjecten` zoals een `Buurt`, `Kunstwerkdeel`, `Ligplaats` of `Wijk`. 
+Allemaal objecten.
 
-Deze objecten achter de Zaak-relaties `Betrokkenen` en `Zaakobjecten` worden 
-nog niet ontsloten middels een API. Er kan dus niet een URL opgegeven worden 
-die verwijst naar zo'n object, zoals hieronder is weergegeven:
+Deze objecten "leven" in eigen registraties die middels API's benaderd moeten 
+worden. Aangezien de ZGW API's de eerste set API's is die beschikbaar komt als 
+VNG API standaard, is het API-landschap nog erg beperkt.
+
+De objecten achter de Zaak-relaties `Betrokkenen` en `Zaakobjecten` kunnen 
+daarom niet worden ontsloten middels een API. Er kan dus niet een URL opgegeven
+worden die verwijst naar zo'n object, zoals bijvoorbeeld hieronder is 
+weergegeven:
 
 ```http
 GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
@@ -76,7 +80,7 @@ GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
 Het `object` attribuut is nu leeg, want er is geen API beschikbaar die `Wijken`
 ontsluiten. Zowel `object` als `objectIdentificatie` mogen gevuld zijn om
 compatibiliteitsredenen en met het oog op het ontstaan van toekomstige API's.
-Beide attributen mogen echter niet leeg zijn.
+Beide attributen mogen echter niet tegelijk leeg zijn.
 
 Het `type` attribuut omschrijft, in het geval van `Zaakobjecten`, het type 
 object waar naar verwezen wordt en beïnvloed tevens welke attributen zich 
