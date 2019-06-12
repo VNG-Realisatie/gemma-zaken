@@ -18,4 +18,6 @@ Hieronder de directe links naar alle Open API specificaties (OAS):
 * [Autorisaties API specificatie](https://ref.tst.vng.cloud/ac/api/v1/schema/)
 * [Notificaties API specificatie](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
   * [Notificaties API specificatie voor consumers](https://rebilly.github.io/ReDoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
+  
+ ![overzicht API's](apis.png)
 
