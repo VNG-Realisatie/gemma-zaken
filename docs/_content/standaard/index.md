@@ -5,7 +5,7 @@ layout: subjects
 
 De ZGW API Standaard bestaat uit 2 delen:
 
-* [Standaard ("in ontwikkeling")](standaard) als startpunt om de APIs te 
+* [Standaard ("in ontwikkeling")][standaard] als startpunt om de APIs te 
   implementeren of te gebruiken.
 * [API specificaties](apis/index) met alle beschikbare resources en attributen.
 
@@ -19,3 +19,4 @@ Hieronder de directe links naar alle Open API specificaties (OAS):
 * [Notificaties API specificatie](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
   * [Notificaties API specificatie voor consumers](https://rebilly.github.io/ReDoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
 
+[standaard]: ./standaard.md
