@@ -93,5 +93,4 @@ De Opdrachtgever, [VNG Realisatie](https://github.com/VNG-Realisatie/)
 
 Dat is niet het doel en wordt niet aanbevolen. Echter, er worden  kleine Open
 Source componenten gerealiseerd waar leveranciers wellicht geen uitbreidingen
-op hoeven te doen om ze in de praktijk te gebruiken. Hierdoor kunnen de
-gerealiseerde componenten mogelijk wel direct gebruikt worden.
+op hoeven te doen om ze in de praktijk te gebruiken. 
