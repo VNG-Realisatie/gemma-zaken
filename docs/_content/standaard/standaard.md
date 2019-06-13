@@ -696,6 +696,19 @@ Onder gerelateerde objecten wordt begrepen:
   `EnkelvoudigInformatieObject`.
 - `audittrail` - de geschiedenis van het object.
 
+#### Locken en unlocken van documenten
+
+Bij het bijwerken van `InformatieObject` (`enkelvoudiginformatieobject_update`,
+`enkelvoudiginformatieobject_partial_update`) MOET eerst een `lock` verkregen
+worden. De consumer voert de `enkelvoudiginformatieobject_lock` operatie uit,
+waarbij het DRC MOET antwoorden met een niet-te-raden `lockId`. Het DRC MOET
+vervolgens alle schrijf-operaties blokkeren tenzij het correcte `lockId`
+meegegeven is.
+
+Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn
+applicaties die de scope `documenten.geforceerd-unlock` hebben. Deze consumers
+MOETEN het `lockId` weglaten indien ze geforceerd unlocken.
+
 ## Besluitregistratiecomponent
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
