@@ -4,13 +4,13 @@ date: '07-06-2019'
 weight: 50
 ---
 
-In het Common Ground API-landschap worden straks alle bronnen netjes ontsloten 
+In het Common Ground API-landschap worden straks alle gegevens netjes ontsloten 
 middels een API. Er is een API die Kadastergegevens ontsluit, een API voor 
 Zaken, Documenten, Personen, Medewerkers, etc.
 
 Op dit moment wordt er hard gewerkt aan een set API's die bij elkaar de
-kern vormen voor Zaakgericht werken, de ZGW API's. Deze bestaan op het moment
-van schrijven uit de Zaken API, Documenten API, Zaaktypen API en Besluiten API.
+kern vormen voor de API's voor Zaakgericht werken. Deze bestaan op het moment
+van schrijven uit de Zaken API, Documenten API, Catalogi API en Besluiten API.
 Deze maken op hun beurt weer gebruik van de Autorisaties API en de Notificaties 
 API.
 
@@ -22,11 +22,11 @@ meer `ZaakObjecten` zoals een `Buurt`, `Kunstwerkdeel`, `Ligplaats` of `Wijk`.
 Allemaal objecten.
 
 Deze objecten "leven" in eigen registraties die middels API's benaderd moeten 
-worden. Aangezien de ZGW API's de eerste set API's is die beschikbaar komt als 
-VNG API standaard, is het API-landschap nog erg beperkt.
+worden. Aangezien de API's voor Zaakgericht werken de eerste set API's is die 
+beschikbaar komt als VNG API standaard, is het API-landschap nog beperkt.
 
 De objecten achter de Zaak-relaties `Betrokkenen` en `Zaakobjecten` kunnen 
-daarom niet worden ontsloten middels een API. Er kan dus niet een URL opgegeven
+daarom niet worden ontsloten middels een API. Er kan dus niet een URI opgegeven
 worden die verwijst naar zo'n object, zoals bijvoorbeeld hieronder is 
 weergegeven:
 
@@ -52,9 +52,10 @@ dat nog niet ontsloten wordt middels een API.**
 ## Oplossing
 
 Het RSGB definieert zogenaamde "matchinggegevens" van alle objecten. Een set 
-aan gegevens die nodig zijn om een object te identificeren en op te zoeken. 
-Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a. [RGBZ] en
-[RSGB], onder de ([onhandige][matching-vs-kern-gegevens]) naam "kerngegevens".
+aan gegevens die nodig zijn om een object uniek te identificeren en op te 
+zoeken. Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a. 
+[RGBZ] en [RSGB], onder de ([onhandige][matching-vs-kern-gegevens]) naam 
+"kerngegevens".
 
 In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens" `wijkCode`, 
 `wijkNaam` en `gem.gemeenteCode`. Deze zijn opgenomen in het bericht, in het 
@@ -94,9 +95,9 @@ Het voorbeeld van `Wijk` is eenvoudig generiek te trekken naar alle grenzen van
 het API-landschap.
 
 *Indien in een resource een relatie wordt gelegd naar een andere bron die nog 
-niet is gestandaardiseerd, dan moeten identificerende gegevens worden opgenomen
-in deze resource die deze relatie mogelijk maakt zonder URL-verwijzing, als 
-volgt:*
+niet is gestandaardiseerd in het nieuwe gegevenslandschap op basis van API's, 
+dan moeten identificerende gegevens worden opgenomen in deze resource die deze
+relatie mogelijk maakt zonder URL-verwijzing, als volgt:*
 
 ```
 {
@@ -115,6 +116,8 @@ volgt:*
 
 De resource `rollen` kent een attribuut `betrokkene`. Deze kan verwijzen naar 
 meerdere type objecten waarvan nog geen bron is gestandaardiseerd.
+
+Hieronder volgt een overzicht van matchinggegevens per objecttype.
 
 * Natuurlijk persoon
     
@@ -163,6 +166,8 @@ meerdere type objecten waarvan nog geen bron is gestandaardiseerd.
 
 De resource `zaakobjecten` kent een attribuut `object`. Deze kan verwijzen naar 
 meerdere type objecten waarvan nog geen bron is gestandaardiseerd.
+
+Hieronder volgt een overzicht van matchinggegevens per objecttype.
 
 *TODO*
 
