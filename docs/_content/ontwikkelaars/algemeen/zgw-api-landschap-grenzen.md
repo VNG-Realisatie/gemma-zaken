@@ -57,6 +57,9 @@ zoeken. Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a.
 [RGBZ] en [RSGB], onder de ([onhandige][matching-vs-kern-gegevens]) naam 
 "kerngegevens".
 
+De beoogde oplossing is nu om de "matchinggegevens" op te nemen in het bericht 
+als er niet met een URI kan worden verwezen naar het object
+
 In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens" `wijkCode`, 
 `wijkNaam` en `gem.gemeenteCode`. Deze zijn opgenomen in het bericht, in het 
 attribuut `objectIdentificatie`:
