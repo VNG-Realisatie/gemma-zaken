@@ -53,7 +53,7 @@ Dit document beantwoordt de volgende vragen:
 
 **Voorbeelden**
 
-* [Petstore ReDoc documentatie](https://rebilly.github.io/ReDoc/)
+* [Petstore ReDoc documentatie](https://redocly.github.io/redoc/)
 * [Petstore Swagger documentatie](http://petstore.swagger.io/)
 * [GMail API documentatie](https://developers.google.com/gmail/api/v1/reference/?hl=nl)
 
