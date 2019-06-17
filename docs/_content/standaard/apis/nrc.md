@@ -20,7 +20,7 @@ Het ondersteunt:
 ![Jenkins][jenkins]
 
 * [API-specificatie (provider)](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
-* [API-specificatie (consumer)](https://rebilly.github.io/ReDoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
+* [API-specificatie (consumer)](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
