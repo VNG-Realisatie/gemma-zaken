@@ -38,7 +38,7 @@ spec:
             value: <REDACTED>
         volumeMounts:
           - name: media
-            mountPath: "/app/media"
+            mountPath: "/app/private-media"
 
 ---
 

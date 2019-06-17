@@ -60,7 +60,7 @@ services:
       - DB_HOST=drc_db
       - IS_HTTPS=0
     volumes:
-      - drc_media:/app/media
+      - drc_media:/app/private-media
     depends_on:
       - drc_db
 
