@@ -53,7 +53,9 @@ paths:
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
-      summary: Geef een lijst van ENKELVOUDIGe INFORMATIEOBJECTen (=documenten).
+      summary: 'Geef een lijst van de laatste versies van ENKELVOUDIGe INFORMATIEOBJECTen
+
+        (=documenten).'
       description: 'De objecten bevatten metadata over de documenten en de downloadlink
         naar
 
@@ -361,7 +363,11 @@ paths:
       - JWT-Claims:
         - documenten.aanmaken
       requestBody:
-        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
+        required: true
     parameters: []
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail:
     get:
@@ -639,11 +645,27 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      summary: Geef de details van een ENKELVOUDIG INFORMATIEOBJECT.
+      summary: Geef de details van de laatste versie ENKELVOUDIG INFORMATIEOBJECT.
       description: 'Het object bevat metadata over het informatieobject en de downloadlink
         naar
 
-        de binary data.'
+        de binary data.
+
+
+        Er kan gefiltered worden met querystringparameters.'
+      parameters:
+      - name: versie
+        in: query
+        description: Het versienummer van het `EnkelvoudigInformatieObject` dat opgehaald
+          moet worden
+        schema:
+          type: integer
+      - name: registratieOp
+        in: query
+        description: Een datumtijd in ISO8601 formaat, de `EnkelvoudigInformatieObject`
+          versie die qua begin_registratie het kortst hiervoor zit wordt opgehaald
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -772,10 +794,10 @@ paths:
         - documenten.lezen
     put:
       operationId: enkelvoudiginformatieobject_update
-      summary: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door de volledige resource
-        mee
+      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
+        de
 
-        te sturen.'
+        volledige resource mee te sturen.'
       description: '**Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
@@ -817,7 +839,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObjectWithLockData'
         '400':
           description: ''
           headers:
@@ -944,13 +966,13 @@ paths:
       - JWT-Claims:
         - documenten.bijwerken
       requestBody:
-        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
+        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
-      summary: 'Werk een ENKELVOUDIG INFORMATIEOBJECT bij door enkel de gewijzigde
-        velden
+      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
+        enkel
 
-        mee te sturen.'
+        de gewijzigde velden mee te sturen.'
       description: '**Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
@@ -992,7 +1014,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObjectWithLockData'
         '400':
           description: ''
           headers:
@@ -1119,13 +1141,16 @@ paths:
       - JWT-Claims:
         - documenten.bijwerken
       requestBody:
-        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectData'
+        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     delete:
       operationId: enkelvoudiginformatieobject_delete
-      summary: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT, samen met alle gerelateerde
+      description: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT en alle bijbehorende
+        versies,
 
-        resources binnen deze API.'
-      description: '**Gerelateerde resources**
+        samen met alle gerelateerde resources binnen deze API.
+
+
+        **Gerelateerde resources**
 
         - `ObjectInformatieObject` - alle relaties van het informatieobject
 
@@ -1285,6 +1310,19 @@ paths:
     get:
       operationId: enkelvoudiginformatieobject_download
       description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      parameters:
+      - name: versie
+        in: query
+        description: Het versienummer van het `EnkelvoudigInformatieObject` dat opgehaald
+          moet worden
+        schema:
+          type: integer
+      - name: registratieOp
+        in: query
+        description: Een datumtijd in ISO8601 formaat, de `EnkelvoudigInformatieObject`
+          versie die qua begin_registratie het kortst hiervoor zit wordt opgehaald
+        schema:
+          type: string
       responses:
         '200':
           description: De binaire bestandsinhoud
@@ -3267,11 +3305,11 @@ servers:
 - url: /api/v1
 components:
   requestBodies:
-    EnkelvoudigInformatieObjectData:
+    EnkelvoudigInformatieObjectWithLockData:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
+            $ref: '#/components/schemas/EnkelvoudigInformatieObjectWithLockData'
       required: true
     Gebruiksrechten:
       content:
@@ -3991,13 +4029,6 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
-        lock:
-          title: Lock
-          description: Tijdens het updaten van een document (PATCH, PUT) moet het
-            `lock` veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
-            hebben.
-          type: string
-          maxLength: 100
     Fout:
       required:
       - code
@@ -4744,13 +4775,6 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
-        lock:
-          title: Lock
-          description: Tijdens het updaten van een document (PATCH, PUT) moet het
-            `lock` veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
-            hebben.
-          type: string
-          maxLength: 100
     Wijzgingen:
       title: Wijzigingen
       type: object
@@ -4772,6 +4796,7 @@ components:
       - hoofdObject
       - resource
       - resourceUrl
+      - resourceWeergave
       - wijzigingen
       type: object
       properties:
@@ -4889,6 +4914,12 @@ components:
           title: Toelichting
           description: Toelichting waarom de handeling is uitgevoerd
           type: string
+        resourceWeergave:
+          title: Resource weergave
+          description: Vriendelijke identificatie van het object
+          type: string
+          maxLength: 200
+          minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
           description: De datum waarop de handeling is gedaan
@@ -4897,6 +4928,657 @@ components:
           readOnly: true
         wijzigingen:
           $ref: '#/components/schemas/Wijzgingen'
+    EnkelvoudigInformatieObjectWithLockData:
+      required:
+      - bronorganisatie
+      - creatiedatum
+      - titel
+      - auteur
+      - taal
+      - inhoud
+      - informatieobjecttype
+      - lock
+      type: object
+      properties:
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        identificatie:
+          title: Identificatie
+          description: Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
+          type: string
+          maxLength: 40
+          minLength: 1
+        bronorganisatie:
+          title: Bronorganisatie
+          description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
+          type: string
+          maxLength: 9
+          minLength: 1
+        creatiedatum:
+          title: Creatiedatum
+          description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
+          type: string
+          format: date
+        titel:
+          title: Titel
+          description: De naam waaronder het INFORMATIEOBJECT formeel bekend is.
+          type: string
+          maxLength: 200
+          minLength: 1
+        vertrouwelijkheidaanduiding:
+          title: Vertrouwelijkheidaanduiding
+          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+            openbaarheid bestemd is.
+          type: string
+          enum:
+          - openbaar
+          - beperkt openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer geheim
+        auteur:
+          title: Auteur
+          description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
+            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
+          type: string
+          maxLength: 200
+          minLength: 1
+        status:
+          title: Status
+          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
+            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
+            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
+            niet-wijzigbaar Formaat dient te hebben.
+          type: string
+          enum:
+          - in bewerking
+          - ter vaststelling
+          - definitief
+          - gearchiveerd
+        formaat:
+          title: Formaat
+          description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
+            INFORMATIEOBJECT is vastgelegd in een computerbestand.
+          type: string
+          maxLength: 255
+        taal:
+          title: Taal
+          description: Een taal van de intellectuele inhoud van het ENKELVOUDIG INFORMATIEOBJECT.
+            De waardes komen uit ISO 639-2/B
+          type: string
+          enum:
+          - aar
+          - abk
+          - ace
+          - ach
+          - ada
+          - ady
+          - afh
+          - afr
+          - ain
+          - aka
+          - akk
+          - ale
+          - alt
+          - amh
+          - ang
+          - anp
+          - ara
+          - arc
+          - arg
+          - arn
+          - arp
+          - arw
+          - asm
+          - ast
+          - ava
+          - ave
+          - awa
+          - aym
+          - aze
+          - bak
+          - bal
+          - bam
+          - ban
+          - bas
+          - bej
+          - bel
+          - bem
+          - ben
+          - bho
+          - bik
+          - bin
+          - bis
+          - bla
+          - tib
+          - bos
+          - bra
+          - bre
+          - bua
+          - bug
+          - bul
+          - byn
+          - cad
+          - car
+          - cat
+          - ceb
+          - cze
+          - cha
+          - chb
+          - che
+          - chg
+          - chk
+          - chm
+          - chn
+          - cho
+          - chp
+          - chr
+          - chu
+          - chv
+          - chy
+          - cop
+          - cor
+          - cos
+          - cre
+          - crh
+          - csb
+          - wel
+          - dak
+          - dan
+          - dar
+          - del
+          - den
+          - ger
+          - dgr
+          - din
+          - div
+          - doi
+          - dsb
+          - dua
+          - dum
+          - dyu
+          - dzo
+          - efi
+          - egy
+          - eka
+          - gre
+          - elx
+          - eng
+          - enm
+          - epo
+          - est
+          - baq
+          - ewe
+          - ewo
+          - fan
+          - fao
+          - per
+          - fat
+          - fij
+          - fil
+          - fin
+          - fon
+          - fre
+          - frm
+          - fro
+          - frr
+          - frs
+          - fry
+          - ful
+          - fur
+          - gaa
+          - gay
+          - gba
+          - gez
+          - gil
+          - gla
+          - gle
+          - glg
+          - glv
+          - gmh
+          - goh
+          - gon
+          - gor
+          - got
+          - grb
+          - grc
+          - grn
+          - gsw
+          - guj
+          - gwi
+          - hai
+          - hat
+          - hau
+          - haw
+          - heb
+          - her
+          - hil
+          - hin
+          - hit
+          - hmn
+          - hmo
+          - hrv
+          - hsb
+          - hun
+          - hup
+          - arm
+          - iba
+          - ibo
+          - ido
+          - iii
+          - iku
+          - ile
+          - ilo
+          - ina
+          - ind
+          - inh
+          - ipk
+          - ice
+          - ita
+          - jav
+          - jbo
+          - jpn
+          - jpr
+          - jrb
+          - kaa
+          - kab
+          - kac
+          - kal
+          - kam
+          - kan
+          - kas
+          - geo
+          - kau
+          - kaw
+          - kaz
+          - kbd
+          - kha
+          - khm
+          - kho
+          - kik
+          - kin
+          - kir
+          - kmb
+          - kok
+          - kom
+          - kon
+          - kor
+          - kos
+          - kpe
+          - krc
+          - krl
+          - kru
+          - kua
+          - kum
+          - kur
+          - kut
+          - lad
+          - lah
+          - lam
+          - lao
+          - lat
+          - lav
+          - lez
+          - lim
+          - lin
+          - lit
+          - lol
+          - loz
+          - ltz
+          - lua
+          - lub
+          - lug
+          - lui
+          - lun
+          - luo
+          - lus
+          - mad
+          - mag
+          - mah
+          - mai
+          - mak
+          - mal
+          - man
+          - mar
+          - mas
+          - mdf
+          - mdr
+          - men
+          - mga
+          - mic
+          - min
+          - mis
+          - mac
+          - mlg
+          - mlt
+          - mnc
+          - mni
+          - moh
+          - mon
+          - mos
+          - mao
+          - may
+          - mul
+          - mus
+          - mwl
+          - mwr
+          - bur
+          - myv
+          - nap
+          - nau
+          - nav
+          - nbl
+          - nde
+          - ndo
+          - nds
+          - nep
+          - new
+          - nia
+          - niu
+          - dut
+          - nno
+          - nob
+          - nog
+          - non
+          - nor
+          - nqo
+          - nso
+          - nwc
+          - nya
+          - nym
+          - nyn
+          - nyo
+          - nzi
+          - oci
+          - oji
+          - ori
+          - orm
+          - osa
+          - oss
+          - ota
+          - pag
+          - pal
+          - pam
+          - pan
+          - pap
+          - pau
+          - peo
+          - phn
+          - pli
+          - pol
+          - pon
+          - por
+          - pro
+          - pus
+          - que
+          - raj
+          - rap
+          - rar
+          - roh
+          - rom
+          - rum
+          - run
+          - rup
+          - rus
+          - sad
+          - sag
+          - sah
+          - sam
+          - san
+          - sas
+          - sat
+          - scn
+          - sco
+          - sel
+          - sga
+          - shn
+          - sid
+          - sin
+          - slo
+          - slv
+          - sma
+          - sme
+          - smj
+          - smn
+          - smo
+          - sms
+          - sna
+          - snd
+          - snk
+          - sog
+          - som
+          - sot
+          - spa
+          - alb
+          - srd
+          - srn
+          - srp
+          - srr
+          - ssw
+          - suk
+          - sun
+          - sus
+          - sux
+          - swa
+          - swe
+          - syc
+          - syr
+          - tah
+          - tam
+          - tat
+          - tel
+          - tem
+          - ter
+          - tet
+          - tgk
+          - tgl
+          - tha
+          - tig
+          - tir
+          - tiv
+          - tkl
+          - tlh
+          - tli
+          - tmh
+          - tog
+          - ton
+          - tpi
+          - tsi
+          - tsn
+          - tso
+          - tuk
+          - tum
+          - tur
+          - tvl
+          - twi
+          - tyv
+          - udm
+          - uga
+          - uig
+          - ukr
+          - umb
+          - und
+          - urd
+          - uzb
+          - vai
+          - ven
+          - vie
+          - vol
+          - vot
+          - wal
+          - war
+          - was
+          - wln
+          - wol
+          - xal
+          - xho
+          - yao
+          - yap
+          - yid
+          - yor
+          - zap
+          - zbl
+          - zen
+          - zgh
+          - zha
+          - chi
+          - zul
+          - zun
+          - zxx
+          - zza
+          - afa
+          - alg
+          - apa
+          - art
+          - ath
+          - aus
+          - bad
+          - bai
+          - bat
+          - ber
+          - bih
+          - bnt
+          - btk
+          - cai
+          - cau
+          - cel
+          - cmc
+          - cpe
+          - cpf
+          - cpp
+          - crp
+          - cus
+          - day
+          - dra
+          - fiu
+          - gem
+          - ijo
+          - inc
+          - ine
+          - ira
+          - iro
+          - kar
+          - khi
+          - kro
+          - map
+          - mkh
+          - mno
+          - mun
+          - myn
+          - nah
+          - nai
+          - nic
+          - nub
+          - oto
+          - paa
+          - phi
+          - pra
+          - roa
+          - sai
+          - sal
+          - sem
+          - sgn
+          - sio
+          - sit
+          - sla
+          - smi
+          - son
+          - ssa
+          - tai
+          - tup
+          - tut
+          - wak
+          - wen
+          - ypk
+          - znd
+          - him
+        bestandsnaam:
+          title: Bestandsnaam
+          description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
+          type: string
+          maxLength: 255
+        inhoud:
+          title: Inhoud
+          type: string
+          format: bytes
+        bestandsomvang:
+          title: Bestandsomvang
+          type: integer
+          readOnly: true
+          minimum: 0
+        link:
+          title: Link
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
+            is.
+          type: string
+          format: uri
+          maxLength: 200
+        beschrijving:
+          title: Beschrijving
+          description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
+          type: string
+          maxLength: 1000
+        ontvangstdatum:
+          title: Ontvangstdatum
+          description: De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
+            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
+            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
+            aan documenten die van of naar andere personen ontvangen of verzonden
+            zijn waarbij die personen niet deel uit maken van de behandeling van de
+            zaak waarin het document een rol speelt.
+          type: string
+          format: date
+          nullable: true
+        verzenddatum:
+          title: Verzenddatum
+          description: De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
+            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
+            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
+            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
+            documenten die van of naar andere personen ontvangen of verzonden zijn
+            waarbij die personen niet deel uit maken van de behandeling van de zaak
+            waarin het document een rol speelt.
+          type: string
+          format: date
+          nullable: true
+        indicatie_gebruiksrecht:
+          title: Indicatie gebruiksrecht
+          description: Indicatie of er beperkingen gelden aangaande het gebruik van
+            het informatieobject anders dan raadpleging. Dit veld mag 'null' zijn
+            om aan te geven dat de indicatie nog niet bekend is. Als de indicatie
+            gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
+            via de `Gebruiksrechten` resource.
+          type: boolean
+          nullable: true
+        ondertekening:
+          $ref: '#/components/schemas/Ondertekening'
+        integriteit:
+          $ref: '#/components/schemas/Integriteit'
+        informatieobjecttype:
+          title: Informatieobjecttype
+          description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        lock:
+          title: Lock
+          description: Tijdens het updaten van een document (PATCH, PUT) moet het
+            `lock` veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
+            hebben.
+          type: string
+          minLength: 1
     LockEnkelvoudigInformatieObject:
       type: object
       properties:
