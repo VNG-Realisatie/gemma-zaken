@@ -58,11 +58,13 @@ zoeken. Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a.
 "kerngegevens".
 
 De beoogde oplossing is nu om de "matchinggegevens" op te nemen in het bericht 
-als er niet met een URI kan worden verwezen naar het object
+als er niet met een URI kan worden verwezen naar het object.
 
 In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens" `wijkCode`, 
 `wijkNaam` en `gem.gemeenteCode`. Deze zijn opgenomen in het bericht, in het 
-attribuut `objectIdentificatie`:
+attribuut `objectIdentificatie`. Ook is de `registratiedatum` opgenomen om
+het de opgenomen gegevens, of de URL-verwijzing, in het juiste tijdsperspectief
+te plaatsen:
 
 ```http
 GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
@@ -76,6 +78,7 @@ GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
     "wijkNaam": "Schalkwijk",
     "gem.gemeenteCode": "0392"
   },
+  "registratiedatum": "2019-06-17T17:41:22Z",
   "relatieomschrijving": "Speelt alleen in deze wijk",
   "type": "Wijk"
 }
@@ -107,7 +110,8 @@ relatie mogelijk maakt zonder URL-verwijzing, als volgt:*
   "<attribuutnaam>": "<URL-waarde naar andere bron>",
   "<attribuutnaam>Identificatie": {
     // Attributen die de relatie identificeert.
-  }
+  },
+  "registratiedatum": "<datetime>"
 }
 ```
 
