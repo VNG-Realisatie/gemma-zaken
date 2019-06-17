@@ -11,7 +11,7 @@ een enkel object van een bepaald type resource te vinden. Bijvoorbeeld een
 
 |URL|Voorbeeld|
 |---|---|
-| `https://www.example.com/zaken/{uuid}/`|`https://www.example.com/zaken/550e8400-e29b-41d4-a716-446655440000/`|
+| `https://www.example.com/zaken/{uuid}`|`https://www.example.com/zaken/550e8400-e29b-41d4-a716-446655440000`|
 
 Een [UUID (versie 4)] is in de praktijk altijd uniek, zonder dat deze centraal
 hoeft te worden bijgehouden. Deze keuze laat onverlet de mogelijkheid om op
@@ -59,7 +59,7 @@ resources mogelijk. Concrete voorbeelden hiervan zijn:
 In essentie is dit een vorm van polymorfisme.
 
 Door het uitgangspunt van Common Ground om data-bij-de-bron-opslaan te hanteren,
-werken we in de ZGW API specificaties met _linked data_, wat in deze context
+werken we in de ZGW API specificaties met _URL referenties_, wat in deze context
 betekent dat de relaties een referentie-url geven naar de gerelateerde resource.
 Een client/consumer weet op voorhand niet naar welke vorm van gerelateerde
 resource er verwezen wordt.
@@ -68,18 +68,18 @@ Daarom is ervoor gekozen om op de relatie bij te houden om welk type resource
 het gaat. Een concreet voorbeeld van een response is dan:
 
 ```http
-GET /zrc/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a
-Content-Type: application/json
+GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
 
 {
-    "url": "https://example.com/zrc/api/v1/rollen/fb1f6871-6dad-4f9b-abf8-0c46797b084a",
-    "zaak": "https://example.com/zrc/api/v1/zaken/6232ba6a-beee-4357-b054-6bde6d1ded6c",
-    "betrokkene": "https://brp.utrecht.nl/api/v1/np/ab44ed92-ff55-4c4c-87aa-c538d58e887d",
-    "betrokkene_type": "Natuurlijk persoon",
+  "url": "https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651",
+  "zaak": "https://zaken.api.haarlem.nl/v1/zaken/66a38b",
+  "object": "https://objecten.api.haarlem.nl/v1/wijken/3fa723",
+  "relatieomschrijving": "Speelt alleen in deze wijk",
+  "type": "Wijk"
 }
 ```
 
-Het gaat hier dan om het `betrokkene_type` veld.
+Het gaat hier dan om het `type` veld.
 
 De URLs in dit voorbeeld zijn uiteraard fictief.
 
