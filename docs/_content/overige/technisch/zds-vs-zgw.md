@@ -41,12 +41,12 @@ Update Zaak (`updateZaak_ZakLk01`)                                      | Zaken 
 Genereer Zaakidentificatie (`genereerZaakIdentificatie_Di02`)           | *niet geïmplementeerd, in overweging* <sup>1</sup>
 Geef lijst Zaakdocumenten (`geefLijstZaakdocumenten_ZakLv01`)           | Documenten API `GET /objectinformatieobjecten`
 Geef Zaakdocument lezen (`geefZaakdocumentLezen_EdcLv01`)               | Documenten API `GET /enkelvoudiginformatieobjecten/<ID>`
-Geef Zaakdocument bewerken (`geefZaakdocumentbewerken_Di02`)            | *niet geïmplementeerd, komt binnenkort* <sup>2</sup>
+Geef Zaakdocument bewerken (`geefZaakdocumentbewerken_Di02`)            | Documenten API `POST /enkelvoudiginformatieobjecten/<ID>/lock`
 Voeg Zaakdocument toe (`voegZaakdocumentToe_EdcLk01`)                   | Documenten API `POST /enkelvoudiginformatieobjecten`
-Maak Zaakdocument (`maakZaakdocument_EdcLk01`)                          | *niet geïmplementeerd, in overweging* <sup>3</sup>
+Maak Zaakdocument (`maakZaakdocument_EdcLk01`)                          | *niet geïmplementeerd, in overweging* <sup>2</sup>
 Update Zaakdocument (`updateZaakdocument_Di02`)                         | Documenten API `POST /enkelvoudiginformatieobjecten`    
 Genereer Documentidentificatie (`genereerDocumentIdentificatie_Di02`)   | *niet geïmplementeerd, in overweging* <sup>1</sup>
-Cancel CheckOut (`cancelCheckout_Di02`)                                 | *niet geïmplementeerd, komt binnenkort* <sup>2</sup>
+Cancel CheckOut (`cancelCheckout_Di02`)                                 | Documenten API `POST /enkelvoudiginformatieobjecten/<ID>/unlock`
 CMIS-integratieservice (*geen operatie*)                                | *n.v.t.*
 Koppel Zaakdocument aan Zaak (*bestaat niet*)                           | Documenten API `POST /objectinformatieobjecten`
 Ontkoppel Zaakdocument (`ontkoppelZaakdocument_Di02`)                   | Documenten API `DELETE /objectinformatieobjecten`
@@ -63,9 +63,7 @@ Overdragen te behandelen Zaak (`overdragenZaak_Di01`)                   | *n.v.t
    Documenten en Besluiten. De identificaties worden nu automatisch aangemaakt
    als een object *zonder identificatie* wordt aangemaakt. Indien er wel vraag
    blijkt te zijn naar zo'n generator, wordt deze resource toegevoegd.
-2. Het *locken* en *unlocken* van documenten is nog niet geïmplementeerd. Deze
-   functionaliteit wordt nog toegevoegd.
-3. De noodzaak van deze operatie is twijfelachtig. Indien er wel vraag blijkt
+2. De noodzaak van deze operatie is twijfelachtig. Indien er wel vraag blijkt
    te zijn naar het aanmaken van placeholder documenten, wordt deze toegevoegd.
 
 ### Attributen
