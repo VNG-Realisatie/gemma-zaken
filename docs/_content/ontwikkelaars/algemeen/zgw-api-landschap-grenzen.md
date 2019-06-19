@@ -60,10 +60,10 @@ zoeken. Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a.
 De beoogde oplossing is nu om de "matchinggegevens" op te nemen in het bericht 
 als er niet met een URI kan worden verwezen naar het object.
 
-In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens" `wijkCode`, 
+In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens": `wijkCode`, 
 `wijkNaam` en `gem.gemeenteCode`. Deze zijn opgenomen in het bericht, in het 
 attribuut `objectIdentificatie`. Ook is de `registratiedatum` opgenomen om
-het de opgenomen gegevens, of de URL-verwijzing, in het juiste tijdsperspectief
+de opgenomen gegevens, of de URL-verwijzing, in het juiste tijdsperspectief
 te plaatsen:
 
 ```http
