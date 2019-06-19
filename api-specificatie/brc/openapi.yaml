@@ -195,6 +195,27 @@ paths:
         - geldigheid zaak URL
 
         - datum in het verleden of nu'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -446,6 +467,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: besluit_uuid
       in: path
@@ -581,6 +605,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - besluiten
+      security:
+      - JWT-Claims:
+        - audittrails.lezen
     parameters:
     - name: besluit_uuid
       in: path
@@ -742,6 +769,27 @@ paths:
         - geldigheid zaak URL
 
         - datum in het verleden of nu'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -898,6 +946,27 @@ paths:
         - geldigheid zaak URL
 
         - datum in het verleden of nu'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1043,6 +1112,27 @@ paths:
       description: "Verwijdert een BESLUIT, samen met alle gerelateerde resources\
         \ binnen deze API.\n\n**De gerelateerde resources zijn**\n- `BesluitInformatieObject`\
         \ - de relaties van het Besluit naar de\n  informatieobjecten"
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -1182,7 +1272,7 @@ paths:
       parameters:
       - name: besluit
         in: query
-        description: URL to the related resource
+        description: URL naar de/het gerelateerde besluit
         required: false
         schema:
           type: string
@@ -1335,6 +1425,27 @@ paths:
         \n\nRegistreer welk(e) INFORMATIEOBJECT(en) een BESLUIT kent.\n\n**Er wordt\
         \ gevalideerd op**\n- geldigheid informatieobject URL\n- uniek zijn van relatie\
         \ BESLUIT-INFORMATIEOBJECT"
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '201':
           description: ''
@@ -1610,6 +1721,27 @@ paths:
         **Er wordt gevalideerd op**
 
         - informatieobject URL en besluit URL mogen niet veranderen'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1760,6 +1892,27 @@ paths:
         **Er wordt gevalideerd op**
 
         - informatieobject URL en besluit URL mogen niet veranderen'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: ''
@@ -1903,6 +2056,27 @@ paths:
     delete:
       operationId: besluitinformatieobject_delete
       description: Verwijdert de relatie tussen BESLUIT en INFORMATIEOBJECT.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
       responses:
         '204':
           description: ''
@@ -2285,6 +2459,7 @@ components:
       - hoofdObject
       - resource
       - resourceUrl
+      - resourceWeergave
       - wijzigingen
       type: object
       properties:
@@ -2402,6 +2577,12 @@ components:
           title: Toelichting
           description: Toelichting waarom de handeling is uitgevoerd
           type: string
+        resourceWeergave:
+          title: Resource weergave
+          description: Vriendelijke identificatie van het object
+          type: string
+          maxLength: 200
+          minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
           description: De datum waarop de handeling is gedaan
