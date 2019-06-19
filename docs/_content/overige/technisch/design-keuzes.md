@@ -69,6 +69,7 @@ het gaat. Een concreet voorbeeld van een response is dan:
 
 ```http
 GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
+Content-Type: application/json
 
 {
   "url": "https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651",
