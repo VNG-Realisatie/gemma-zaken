@@ -9,11 +9,11 @@ weight: 120
 Deze API laat toe om autorisaties van een (taak)applicatie te beheren en uit
 te lezen.
 
-Het ondersteunt:
+De API ondersteunt de volgende operaties:
 
-* ...
-* ...
-* ...
+* Het toevoegen of wijzigen van een applicatie met client ids en van toegestane scopes
+* Het ophalen van de toegestane scopes bij een bepaald client id
+* Het verwijderen van een applicatie
 
 ## Verwijzingen
 
