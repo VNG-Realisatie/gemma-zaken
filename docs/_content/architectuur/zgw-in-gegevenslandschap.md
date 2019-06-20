@@ -13,7 +13,7 @@ meer richting aan gegeven met het katern Zaakgericht Werken,
 [Zaakgericht Werken in de praktijk](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken)
 en recentelijk de vertaling van [Zaakgericht Werken in de GEMMA
 (informatiearchitectuur)](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
-Met de beweging “Common Ground” (https://wwww.commonground.pleio.nl) beogen
+Met de beweging “Common Ground” [Common Ground][Common Ground] beogen
 gemeenten de realisatie van een radicaal nieuw informatie- en
 applicatielandschap, een “Gegevenslandschap”. Hierin worden gegevens gescheiden
 van businesslogica en eindgebruikersfunctionaliteit en dus uit de traditionele
@@ -222,3 +222,6 @@ voor te stellen. Een verdere uitwerking van
 [notificeren over zaken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2_compleet#Notificeren_over_Zaken)
 binnen een gegevenslandschap. Nog verder uit te werken in
 [issue #397](https://github.com/VNG-Realisatie/gemma-zaken/issues/397)
+
+[Common Ground]: https://www.commonground.nl
+
