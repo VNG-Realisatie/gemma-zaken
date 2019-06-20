@@ -6678,7 +6678,6 @@ components:
     Rol:
       required:
       - zaak
-      - betrokkene
       - betrokkeneType
       - rolomschrijving
       - roltoelichting
@@ -6699,7 +6698,6 @@ components:
           type: string
           format: uri
           maxLength: 1000
-          minLength: 1
         betrokkeneType:
           title: Betrokkene type
           description: Soort betrokkene
@@ -6728,6 +6726,254 @@ components:
           type: string
           maxLength: 1000
           minLength: 1
+        registratiedatum:
+          title: Registratiedatum
+          description: De datum waarop dit object is geregistreerd.
+          type: string
+          format: date-time
+          readOnly: true
+      discriminator:
+        propertyName: betrokkeneType
+    RolNatuurlijkPersoon:
+      title: betrokkene_identificatie
+      type: object
+      properties:
+        inp.bsn:
+          title: Burgerservicenummer
+          description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
+            algemene bepalingen burgerservicenummer.
+          type: string
+          maxLength: 9
+        anp.identificatie:
+          title: Nummer ander natuurlijk persoon
+          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+            NATUURLIJK PERSOON
+          type: string
+          maxLength: 17
+        inp.a-nummer:
+          title: A nummer
+          type: string
+          pattern: ^[1-9][0-9]{9}$
+          maxLength: 10
+        geslachtsnaam:
+          title: Geslachtsnaam
+          description: De stam van de geslachtsnaam.
+          type: string
+          maxLength: 200
+        voorvoegselGeslachtsnaam:
+          title: Voorvoegsel geslachtsnaam
+          type: string
+          maxLength: 80
+        voorletters:
+          title: Voorletters
+          description: De verzameling letters die gevormd wordt door de eerste letter
+            van alle in volgorde voorkomende voornamen.
+          type: string
+          maxLength: 20
+        voornamen:
+          title: Voornamen
+          description: Voornamen bij de naam die de persoon wenst te voeren.
+          type: string
+          maxLength: 200
+        geslachtsaanduiding:
+          title: Geslachtsaanduiding
+          description: 'Een aanduiding die aangeeft of de persoon een man of een vrouw
+            is, of dat het geslacht nog onbekend is.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `M` - Man
+
+            * `V` - Vrouw
+
+            * `O` - Onbekend'
+          type: string
+          enum:
+          - M
+          - V
+          - O
+        geboortedatum:
+          title: Geboortedatum
+          type: string
+          maxLength: 18
+        verblijfsadres:
+          title: Verblijfsadres
+          description: De gegevens over het verblijf en adres van de NATUURLIJK PERSOON
+          type: string
+          maxLength: 1000
+        sub.verblijfBuitenland:
+          title: Sub verblijf buitenland
+          description: De gegevens over het verblijf in het buitenland
+          type: string
+          maxLength: 1000
+    betrokkene_identificatie_RolNatuurlijkPersoon:
+      type: object
+      properties:
+        betrokkeneIdentificatie:
+          $ref: '#/components/schemas/RolNatuurlijkPersoon'
+    RolNietNatuurlijkPersoon:
+      title: betrokkene_identificatie
+      required:
+      - ann.identificatie
+      type: object
+      properties:
+        inn.nnpId:
+          title: Rsin
+          description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+            NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 9
+        ann.identificatie:
+          title: Nummer ander nietnatuurlijk persoon
+          description: Het door de gemeente uitgegeven uniekenummer voor een ANDER
+            NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 17
+          minLength: 1
+        statutaireNaam:
+          title: Statutaire naam
+          description: Naam van de niet-natuurlijke persoon zoals deze is vastgelegd
+            in de statuten (rechtspersoon) of in de vennootschapsovereenkomst is overeengekomen
+            (Vennootschap onder firma of Commanditaire vennootschap).
+          type: string
+          maxLength: 500
+        inn.rechtsvorm:
+          title: Rechtsvorm
+          description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
+          type: string
+          enum:
+          - Besloten Vennootschap
+          - Cooperatie, Europees Economische Samenwerking
+          - Europese Cooperatieve Venootschap
+          - Europese Naamloze Vennootschap
+          - Kerkelijke Organisatie
+          - Naamloze Vennootschap
+          - Onderlinge Waarborg Maatschappij
+          - Overig privaatrechtelijke rechtspersoon
+          - Stichting
+          - Vereniging
+          - Vereniging van Eigenaars
+          - Publiekrechtelijke Rechtspersoon
+          - Vennootschap onder Firma
+          - Maatschap
+          - Rederij
+          - Commanditaire vennootschap
+          - Kapitaalvennootschap binnen EER
+          - Overige buitenlandse rechtspersoon vennootschap
+          - Kapitaalvennootschap buiten EER
+        bezoekadres:
+          title: Bezoekadres
+          description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 1000
+        sub.verblijfBuitenland:
+          title: Sub verblijf buitenland
+          description: De gegevens over het verblijf in het buitenland
+          type: string
+          maxLength: 1000
+    betrokkene_identificatie_RolNietNatuurlijkPersoon:
+      type: object
+      properties:
+        betrokkeneIdentificatie:
+          $ref: '#/components/schemas/RolNietNatuurlijkPersoon'
+    RolVestiging:
+      title: betrokkene_identificatie
+      type: object
+      properties:
+        vestigingsNummer:
+          title: Vestigings nummer
+          description: Een korte unieke aanduiding van de Vestiging.
+          type: string
+          maxLength: 24
+        handelsnaam:
+          description: De naam van de vestiging waaronder gehandeld wordt.
+          type: array
+          items:
+            title: Handelsnaam
+            type: string
+            maxLength: 625
+        verblijfsadres:
+          title: Verblijfsadres
+          description: De gegevens over het verblijf en adres van de Vestiging
+          type: string
+          maxLength: 1000
+        sub.verblijfBuitenland:
+          title: Sub verblijf buitenland
+          description: De gegevens over het verblijf in het buitenland
+          type: string
+          maxLength: 1000
+    betrokkene_identificatie_RolVestiging:
+      type: object
+      properties:
+        betrokkeneIdentificatie:
+          $ref: '#/components/schemas/RolVestiging'
+    Vestiging:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolVestiging'
+    RolOrganisatorischeEenheid:
+      title: betrokkene_identificatie
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: Een korte identificatie van de organisatorische eenheid.
+          type: string
+          maxLength: 24
+        naam:
+          title: Naam
+          description: De feitelijke naam van de organisatorische eenheid.
+          type: string
+          maxLength: 50
+        isGehuisvestIn:
+          title: Is gehuisvest in
+          type: string
+          maxLength: 24
+    betrokkene_identificatie_RolOrganisatorischeEenheid:
+      type: object
+      properties:
+        betrokkeneIdentificatie:
+          $ref: '#/components/schemas/RolOrganisatorischeEenheid'
+    RolMedewerker:
+      title: betrokkene_identificatie
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: Een korte unieke aanduiding van de MEDEWERKER.
+          type: string
+          maxLength: 24
+        achternaam:
+          title: Achternaam
+          description: De achternaam zoals de MEDEWERKER die in het dagelijkse verkeer
+            gebruikt.
+          type: string
+          maxLength: 200
+        voorletters:
+          title: Voorletters
+          description: De verzameling letters die gevormd wordt door de eerste letter
+            van alle in volgorde voorkomende voornamen.
+          type: string
+          maxLength: 20
+        voorvoegselAchternaam:
+          title: Voorvoegsel achternaam
+          description: Dat deel van de geslachtsnaam dat voorkomt in Tabel 36 (GBA),
+            voorvoegseltabel, en door een spatie van de geslachtsnaam is
+          type: string
+          maxLength: 10
+    betrokkene_identificatie_RolMedewerker:
+      type: object
+      properties:
+        betrokkeneIdentificatie:
+          $ref: '#/components/schemas/RolMedewerker'
+    Medewerker:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolMedewerker'
     Status:
       required:
       - zaak
@@ -7435,6 +7681,7 @@ components:
       - hoofdObject
       - resource
       - resourceUrl
+      - resourceWeergave
       - wijzigingen
       type: object
       properties:
@@ -7552,6 +7799,12 @@ components:
           title: Toelichting
           description: Toelichting waarom de handeling is uitgevoerd
           type: string
+        resourceWeergave:
+          title: Resource weergave
+          description: Vriendelijke identificatie van het object
+          type: string
+          maxLength: 200
+          minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
           description: De datum waarop de handeling is gedaan
@@ -7611,3 +7864,18 @@ components:
           title: Waarde
           type: string
           minLength: 1
+    Natuurlijk_persoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
+    Niet-natuurlijk_persoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
+    Organisatorische_eenheid:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
