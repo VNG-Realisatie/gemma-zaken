@@ -6,7 +6,7 @@ date: '14-6-2019'
 Organisatie | Project | Persoon | Rol 
 --- | --- | --- | ---
 VNG / Dimpact | ZGW API | Hugo ter Doest | Product Owner
-VNG | ZGW API | Eddy Timmer | Scrum Master
+VNG | ZGW API | Eddy Timmer (tot 1-7-2019) | Scrum Master
 VNG | ZGW API | Wishal Gokoel | Project manager / Contactpersoon
 VNG / Maykin Media | ZGW API | Sergei Maertens | Ontwikkelaar
 VNG / Maykin Media | ZGW API | Joeri Bekker | Ontwikkelaar
