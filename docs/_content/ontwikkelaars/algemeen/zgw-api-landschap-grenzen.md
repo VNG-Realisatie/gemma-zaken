@@ -58,7 +58,9 @@ zoeken. Deze staan het meest helder vermeld in de gepubliceerde XSDs van o.a.
 "kerngegevens".
 
 De beoogde oplossing is nu om de "matchinggegevens" op te nemen in het bericht 
-als er niet met een URI kan worden verwezen naar het object.
+als er niet met een URI kan worden verwezen naar het object. Voor alle andere
+objecten kunnen elders gedefinieerde gegevens worden opgenomen om het object
+te identificeren.
 
 In het eerder getoonde voorbeeld `Wijk` zijn de "matchinggegevens": `wijkCode`, 
 `wijkNaam` en `gem.gemeenteCode`. Deze zijn opgenomen in het bericht, in het 
@@ -76,7 +78,7 @@ GET https://zaken.api.haarlem.nl/v1/zaakobjecten/c9a651  HTTP/1.0
   "objectIdentificatie": {
     "wijkCode": "0145",
     "wijkNaam": "Schalkwijk",
-    "gem.gemeenteCode": "0392"
+    "gemGemeenteCode": "0392"
   },
   "registratiedatum": "2019-06-17T17:41:22Z",
   "relatieomschrijving": "Speelt alleen in deze wijk",
@@ -128,9 +130,9 @@ Hieronder volgt een overzicht van matchinggegevens per objecttype.
 
 * Natuurlijk persoon
     
-    * `inp.bsn`
-    * `anp.identificatie`
-    * `inp.a-nummer`
+    * `inpBsn` (=`inp.bsn`)
+    * `anpIdentificatie` (=`anp.identificatie`)
+    * `inpA_nummer` (=`inp.a-nummer`)
     * `geslachtsnaam`
     * `voorvoegselGeslachtsnaam`
     * `voorletters`
@@ -138,29 +140,30 @@ Hieronder volgt een overzicht van matchinggegevens per objecttype.
     * `geslachtsaanduiding`
     * `geboortedatum`
     * `verblijfsadres`
-    * `sub.verblijfBuitenland`
+    * `subVerblijfBuitenland` (=`sub.verblijfBuitenland`)
 
 * Niet-natuurlijk persoon
 
-    * `inn.nnpId`
-    * `ann.identificatie`
+    * `innNnpId` (=`inn.nnpId`)
+    * `annIdentificatie` (=`ann.identificatie`)
     * `statutaireNaam`
-    * `inn.rechtsvorm`
+    * `innRechtsvorm` (=`inn.rechtsvorm`)
     * `bezoekadres`
-    * `sub.verblijfBuitenland`
+    * `subVerblijfBuitenland` (=`sub.verblijfBuitenland`)
 
 * Vestiging
 
     * `vestigingsNummer`
     * `handelsnaam`
     * `verblijfsadres`
-    * `sub.verblijfBuitenland`
+    * `subVerblijfBuitenland` (=`sub.verblijfBuitenland`)
 
 * Organisatorische eenheid
 
     * `identificatie`
     * `naam`
-    * `isGehuisvestIn`
+    * `isGehuisvestIn` (genest JSON object)
+        * Zie: `vestiging`
 
 * Medewerker
 
@@ -174,9 +177,202 @@ Hieronder volgt een overzicht van matchinggegevens per objecttype.
 De resource `zaakobjecten` kent een attribuut `object`. Deze kan verwijzen naar 
 meerdere type objecten waarvan nog geen bron is gestandaardiseerd.
 
+N.B. Het attribuut `authentiek` wordt achterwege gelaten omdat geen van deze
+gegevens worden aangemerkt als authentiek.
+
 Hieronder volgt een overzicht van matchinggegevens per objecttype.
 
-*TODO*
+* adres
+
+    * `identificatie`
+    * `authentiek`
+    * `wplWoonplaatsNaam` (=`wpl.woonplaatsNaam`)
+    * `gorOpenbareRuimteNaam` (=`gor.openbareRuimteNaam`)
+    * `huisnummer`
+    * `huisletter`
+    * `huisnummertoevoeging`
+    * `postcode`
+
+* besluit
+
+    Niet van toepassing: URL-verwijzing mogelijk naar Besluiten API `besluit`
+
+* buurt
+
+    * `buurtCode`
+    * `buurtNaam`
+    * `gem.gemeenteCode`
+    * `wykWijkCode` (=`wyk.wijkCode`)
+
+* enkelvoudigDocument
+
+    Niet van toepassing: URL-verwijzing mogelijk naar Documenten API `enkelvoudiginformatieobject`
+
+* gemeente
+
+    * `gemeenteCode`
+    * `gemeenteNaam`
+
+* gemeentelijkeOpenbareRuimte
+
+    * `identificatie`
+    * `openbareRuimteNaam`
+
+* huishouden
+
+    * `nummer`
+    * `isGehuisvestIn` (genest JSON object)
+        * Zie: `terreinGebouwdObject`
+
+* inrichtingselement
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* kadastraleOnroerendeZaak
+
+    * `kadastraleIdentificatie`
+    * `kadastraleAanduiding`
+
+* kunstwerkdeel
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* maatschappelijkeActiviteit
+
+    * `kvkNummer`
+    * `handelsnaam`
+
+* medewerker
+
+    Gelijk aan `Rol.betrokkene` voor `Medewerker`.
+
+* natuurlijkPersoon
+
+    Gelijk aan `Rol.betrokkene` voor `Natuurlijk persoon`.
+
+* nietNatuurlijkPersoon
+
+    Gelijk aan `Rol.betrokkene` voor `Niet-natuurlijk persoon`.
+
+* openbareRuimte
+
+    * `identificatie`
+    * `wplWoonplaatsNaam` (=`wpl.woonplaatsNaam`)
+    * `gorOpenbareRuimteNaam` (=`gor.openbareRuimteNaam`)
+         
+* organisatorischeEenheid
+
+    Gelijk aan `Rol.betrokkene` voor `Organisatorische eenheid`.
+
+* pand
+
+    * `identificatie`
+
+* samengesteldDocument
+
+    * Niet van toepassing: Bestaat niet meer in Documenten API 1.0.
+
+* spoorbaandeel
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* status
+
+    Niet van toepassing: URL-verwijzing mogelijk naar Zaken API `status`
+
+* terreindeel
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* terreinGebouwdObject
+
+    * `identificatie`
+    * `adresAanduidingGrp` (genest JSON object)
+        * `numIdentificatie` (=`num.identificatie`)
+        * `oaoIdentificatie` (=`oao.identificatie`)
+        * `wplWoonplaatsNaam` (=`wpl.woonplaatsNaam`)
+        * `gorOpenbareRuimteNaam` (=`gor.openbareRuimteNaam`)
+        * `aoaPostcode` (=`aoa.postcode`)
+        * `aoaHuisnummer` (=`aoa.huisnummer`)
+        * `aoaHuisletter` (=`aoa.huisletter`)
+        * `aoaHuisnummertoevoeging` (=`aoa.huisnummertoevoeging`)
+        * `ogoLocatieAanduiding` (=`ogo.locatieAanduiding`)
+
+* vestiging
+
+    Gelijk aan `Rol.betrokkene` voor `Vestiging`.
+
+* waterdeel
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* wegdeel
+
+    * `type`
+    * `identificatie`
+    * `naam`
+
+* wijk
+
+    * `wijkCode`
+    * `wijkNaam`
+    * `gemGemeenteCode` (=`gem.gemeenteCode`)
+
+* woonplaats
+
+    * `identificatie`
+    * `woonplaatsNaam`
+
+* wozDeelobject
+
+    * `nummerWOZDeelObject`
+    * `isOnderdeelVan` (genest JSON object)
+         Zie: `wozObject`
+
+* wozObject
+
+    * `wozObjectNummer`
+    * `aanduidingWOZobject` (genest JSON object)
+        * `aoaIdentificatie` (=`aoa.identificatie`)
+        * `wplWoonplaatsNaam` (=`wpl.woonplaatsNaam`)
+        * `aoaPostcode` (=`aoa.postcode`)
+        * `gorOpenbareRuimteNaam` (=`gor.openbareRuimteNaam`)
+        * `aoaHuisnummer` (=`aoa.huisnummer`)
+        * `aoaHuisletter` (=`aoa.huisletter`)
+        * `aoaHuisnummertoevoeging` (=`aoa.huisnummertoevoeging`)
+        * `locatieOmschrijving`
+
+* wozWaarde
+
+    * `waardepeildatum`
+    * `isVoor` (genest JSON object)
+         Zie: `wozObject`
+
+* zakelijkRecht
+
+    * `identificatie`
+    * `avrAard` (=`avr.aard`)
+    * `heeftBetrekkingOp` (genest JSON object)
+         Zie: `kadastraleOnroerendeZaak`
+    * `heeftAlsGerechtigde` (genest JSON object)
+        * `natuurlijkPersoon` (genest JSON object)
+            * Zie: `natuurlijkPersoon`
+        * `nietNatuurlijkPersoon`  (genest JSON object)
+            * Zie: `nietNatuurlijkPersoon`
+
+* overige (*voor onbekende/niet-gestandaardiseerde objecten*)
+
+    * (vrij JSON-veld)
 
 
 [matching-vs-kern-gegevens]: https://discussie.kinggemeenten.nl/discussie/gemma/stuf-301/wijzig-de-term-kerngegevens-matchinggegevens
