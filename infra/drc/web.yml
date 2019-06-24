@@ -82,6 +82,8 @@ spec:
             value: drc.conf.docker
           - name: DB_HOST
             value: postgis
+          - name: DB_NAME
+            value: drc
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
