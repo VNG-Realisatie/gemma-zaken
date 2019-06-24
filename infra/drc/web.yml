@@ -1,12 +1,26 @@
 ---
 
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: drc-private-media
+  namespace: zgw
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+
+---
+
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: drc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: drc
 spec:
@@ -22,14 +36,14 @@ spec:
     spec:
       containers:
       - name: drc
-        image: vngr/gemma-drc:0.1.10
+        image: vngr/gemma-drc:0.14.0
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
-          - name: SUBPATH
-            value: /drc
+          # - name: SUBPATH
+          #   value: /drc
           - name: DB_HOST
-            value: postgres-drc
+            value: postgis
           - name: SECRET_KEY
             value: <REDACTED>
           - name: DB_PASSWORD
@@ -37,13 +51,13 @@ spec:
           - name: SENTRY_DSN
             value: <REDACTED>
         volumeMounts:
-          - name: drc-private-media
-            mountPath: "/app/private-media"
+          - name: private-storage
+            mountPath: /app/private-media
+            subPath: zgw/drc/private-media
       volumes:
-      - name: drc-private-media
-        hostPath:
-          path: /storage/drc-private-media
-          type: ''
+        - name: private-storage
+          persistentVolumeClaim:
+            claimName: drc-private-media
 
 ---
 
@@ -53,7 +67,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: drc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: drc
 spec:
