@@ -17,6 +17,14 @@ spec:
         backend:
           serviceName: drc
           servicePort: 8000
+  - host: autorisaties-api.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: ac
+            servicePort: 8000
   tls:
     - hosts:
         - documenten-api.vng.cloud
+        - autorisaties-api.vng.cloud
