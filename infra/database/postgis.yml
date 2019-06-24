@@ -1,0 +1,98 @@
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zgw
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: db-pvc
+  namespace: zgw
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: postgis
+  namespace: zgw
+  labels:
+    k8s-app: postgis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: postgis
+  template:
+    metadata:
+      name: postgis
+      labels:
+        k8s-app: postgis
+    spec:
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+           claimName: db-pvc
+        - name: postgis-initdb
+          configMap:
+            name: postgis-initdb-config
+
+      containers:
+        - name: postgres
+          image: mdillon/postgis:11
+          env:
+            - name: POSTGRES_PASSWORD
+              value: <REDACTED>
+          volumeMounts:
+            - name: storage
+              mountPath: "/var/lib/postgresql/data"
+              subPath: zgw/database
+            - name: postgis-initdb
+              mountPath: /docker-entrypoint-initdb.d
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgis-initdb-config
+  namespace: zgw
+data:
+  initdb.sql: |
+    CREATE DATABASE "zrc";
+    CREATE DATABASE "drc";
+    CREATE DATABASE "ztc";
+    CREATE DATABASE "brc";
+    CREATE DATABASE "nrc";
+    CREATE DATABASE "ac";
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgis
+  namespace: zgw
+  labels:
+    k8s-app: postgis
+spec:
+  selector:
+    k8s-app: postgis
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
