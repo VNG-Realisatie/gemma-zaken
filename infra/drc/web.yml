@@ -37,6 +37,24 @@ spec:
       containers:
       - name: drc
         image: vngr/gemma-drc:0.14.0
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
