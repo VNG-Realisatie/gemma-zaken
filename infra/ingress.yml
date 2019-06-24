@@ -17,6 +17,13 @@ spec:
           backend:
             serviceName: docs
             servicePort: 80
+  - host: zaken-api.vng.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: zrc
+          servicePort: 8000
   - host: documenten-api.vng.cloud
     http:
       paths:
@@ -48,6 +55,7 @@ spec:
   tls:
     - hosts:
         - zaakgerichtwerken.vng.cloud
+        - zaken-api.vng.cloud
         - documenten-api.vng.cloud
         - autorisaties-api.vng.cloud
         - besluiten-api.vng.cloud
