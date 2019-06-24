@@ -14,6 +14,21 @@ spec:
 
 ---
 
+# Runtime secrets. Values are base64 encoded
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: drc-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   SECRET_KEY: <REDACTED>
+#   DB_PASSWORD: <REDACTED>
+#   SENTRY_DSN: <REDACTED>
+
+---
+
 # Deployment
 
 kind: Deployment
@@ -65,16 +80,23 @@ spec:
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
-          # - name: SUBPATH
-          #   value: /drc
           - name: DB_HOST
             value: postgis
           - name: SECRET_KEY
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: SECRET_KEY
           - name: DB_PASSWORD
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: DB_PASSWORD
           - name: SENTRY_DSN
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: SENTRY_DSN
         volumeMounts:
           - name: private-storage
             mountPath: /app/private-media
