@@ -78,6 +78,8 @@ Iedere sprint duurt vier weken. Gemeenten leveren user stories rond zaakgericht
 werken, welke vervolgens worden vertaald naar wat nodig is in de RESTful API 
 specificatie.
 
+![scrum](scrumtcim.png)
+
 ### Scrum boards
 Er worden vier scrum boards gebruikt om de flow naar resultaat in elke sprint
 te faciliteren.
