@@ -1,16 +1,31 @@
 ---
 
+# Runtime secrets. Values are base64 encoded
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: brc-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   SECRET_KEY: <REDACTED
+#   DB_PASSWORD: <REDACTED
+#   SENTRY_DSN: <REDACTED
+
+---
+
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: brc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: brc
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: brc
@@ -22,20 +37,54 @@ spec:
     spec:
       containers:
       - name: brc
-        image: vngr/gemma-brc:0.1.0
+        image: vngr/gemma-brc:0.11.3
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: brc.conf.docker
-          - name: SUBPATH
-            value: /brc
           - name: DB_HOST
-            value: postgres-brc
+            value: postgis
+          - name: DB_NAME
+            value: brc
           - name: SECRET_KEY
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: brc-secrets
+                key: SECRET_KEY
           - name: DB_PASSWORD
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: brc-secrets
+                key: DB_PASSWORD
           - name: SENTRY_DSN
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: brc-secrets
+                key: SENTRY_DSN
 
 ---
 
@@ -45,7 +94,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: brc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: brc
 spec:

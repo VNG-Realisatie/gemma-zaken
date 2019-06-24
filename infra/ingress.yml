@@ -24,7 +24,15 @@ spec:
           backend:
             serviceName: ac
             servicePort: 8000
+  - host: besluiten-api.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: brc
+            servicePort: 8000
   tls:
     - hosts:
         - documenten-api.vng.cloud
         - autorisaties-api.vng.cloud
+        - besluiten-api.vng.cloud
