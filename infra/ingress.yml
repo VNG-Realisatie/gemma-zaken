@@ -10,6 +10,13 @@ metadata:
     app.kubernetes.io/name: zgw
 spec:
   rules:
+  - host: zaakgerichtwerken.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: docs
+            servicePort: 80
   - host: documenten-api.vng.cloud
     http:
       paths:
@@ -33,6 +40,7 @@ spec:
             servicePort: 8000
   tls:
     - hosts:
+        - zaakgerichtwerken.vng.cloud
         - documenten-api.vng.cloud
         - autorisaties-api.vng.cloud
         - besluiten-api.vng.cloud
