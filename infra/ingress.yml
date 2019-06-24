@@ -38,9 +38,17 @@ spec:
           backend:
             serviceName: brc
             servicePort: 8000
+  - host: notificaties-api.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: nrc
+            servicePort: 8000
   tls:
     - hosts:
         - zaakgerichtwerken.vng.cloud
         - documenten-api.vng.cloud
         - autorisaties-api.vng.cloud
         - besluiten-api.vng.cloud
+        - notificaties-api.vng.cloud
