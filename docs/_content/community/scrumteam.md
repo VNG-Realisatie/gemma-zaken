@@ -6,7 +6,7 @@ date: '14-6-2019'
 Organisatie | Persoon | Rol 
 --- | --- | ---
 VNG / Dimpact | Hugo ter Doest | Product Owner
-VNG | Eddy Timmer (tot 1-7-2019) | Scrum Master
+VNG | Peter de Graaf | Scrum Master
 VNG | Wishal Gokoel | Project manager/Contactpersoon
 VNG/Maykin Media | Sergei Maertens | Ontwikkelaar
 VNG/Maykin Media | Joeri Bekker | Ontwikkelaar
