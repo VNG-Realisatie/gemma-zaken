@@ -73,17 +73,17 @@ spec:
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: drc-secrets
+                name: ac-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: drc-secrets
+                name: ac-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: drc-secrets
+                name: ac-secrets
                 key: SENTRY_DSN
 
 ---
