@@ -23,4 +23,4 @@ In de figuur hieronder is een overzicht weergegeven van de API's voor Zaakgerich
 
 Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w. Notificaties API, Autorisatie API en de Referentielijsten API.
 
-![overzicht API's](apis.png)
+![overzicht API's](componenten.png)
