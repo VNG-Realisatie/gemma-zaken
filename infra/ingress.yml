@@ -3,49 +3,20 @@
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: referentie-implementatie-test
-  namespace: gemma
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: true
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      more_set_headers "X-Frame-Options: SAMEORIGIN" "X-XSS-Protection: 1" "X-Content-Type-Options: nosniff" "Referrer-Policy: same-origin" "Cache-Control: private";
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: true
+  name: ref-implementatie
+  namespace: zgw
+  labels:
+    app.kubernetes.io/instance: zgw-test
+    app.kubernetes.io/name: zgw
 spec:
-  tls:
-    - secretName: ref-tst-tls
-      hosts:
-        - ref.tst.vng.cloud
   rules:
-  - host: ref.tst.vng.cloud
+  - host: documenten-api.vng.cloud
     http:
       paths:
-      - path: "/zrc/"
-        backend:
-          serviceName: zrc
-          servicePort: 8000
-      - path: "/drc/"
+      - path: /
         backend:
           serviceName: drc
           servicePort: 8000
-      - path: "/ztc/"
-        backend:
-          serviceName: ztc
-          servicePort: 8000
-      - path: "/brc/"
-        backend:
-          serviceName: brc
-          servicePort: 8000
-      - path: "/nrc/"
-        backend:
-          serviceName: nrc
-          servicePort: 8000
-      - path: "/ac/"
-        backend:
-          serviceName: ac
-          servicePort: 8000
-      - path: "/"
-        backend:
-          serviceName: zaken-docs
-          servicePort: 80
+  tls:
+    - hosts:
+        - documenten-api.vng.cloud
