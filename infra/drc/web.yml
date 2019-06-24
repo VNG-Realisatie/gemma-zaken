@@ -37,6 +37,13 @@ spec:
       containers:
       - name: drc
         image: vngr/gemma-drc:0.14.0
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
         readinessProbe:
           httpGet:
             path: /
