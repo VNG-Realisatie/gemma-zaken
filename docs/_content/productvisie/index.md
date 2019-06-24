@@ -100,22 +100,6 @@ elkaar gezien kunnen worden:
 
 1. Specificeren van Zaak- Documentservices v2.0
 2. Beschikbaar maken van Open Source referentieimplementatie
-3. Realiseren van toepassingen voor burgers of gemeenten gebruikmakend van de
-   ZGW API's
-4. Centraal aanbieden van componenten op basis van de nieuwe API's
-
-Delen 1 en 2 worden uitgevoerd door een centraal scrumteam bestaand uit
-samenwerkende gemeenten.
-
-Deel 3 wordt uitgevoerd door planning af te stemmen tussen dit scrumteam en
-projecten die tegelijkertijd in gemeenten worden uitgevoerd. Bij deel 3 zorgt
-het centrale scrumteam voor het tijdig beschikbaar zijn van de relevante delen
-van de nieuwe API's.
-
-Deel 4 is buiten scope voor het centrale scrumteam. Dit deel van de visie wordt
-nader uitgewerkt en op een later moment uitgevoerd.
-
-
 
 ## Uitgangspunten
 
