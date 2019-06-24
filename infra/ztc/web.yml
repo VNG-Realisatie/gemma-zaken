@@ -1,16 +1,31 @@
 ---
 
+# Runtime secrets. Values are base64 encoded
+
+kind: Secret
+apiVersion: v1
+metadata:
+  name: ztc-secrets
+  namespace: zgw
+type: Opaque
+data:
+  SECRET_KEY: <REDACTED>
+  DB_PASSWORD: <REDACTED>
+  SENTRY_DSN: <REDACTED>
+
+---
+
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: ztc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: ztc
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: ztc
@@ -22,20 +37,55 @@ spec:
     spec:
       containers:
       - name: ztc
-        image: vngr/gemma-ztc:0.1.5
+        image: vngr/gemma-ztc:0.14.0
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: ztc.conf.docker
-          - name: SUBPATH
-            value: /ztc
           - name: DB_HOST
-            value: postgres-ztc
+            value: postgis
+          - name: DB_NAME
+            value: ztc
           - name: SECRET_KEY
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: ztc-secrets
+                key: SECRET_KEY
           - name: DB_PASSWORD
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: ztc-secrets
+                key: DB_PASSWORD
           - name: SENTRY_DSN
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: ztc-secrets
+                key: SENTRY_DSN
 
 ---
 
@@ -45,7 +95,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: ztc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: ztc
 spec:
