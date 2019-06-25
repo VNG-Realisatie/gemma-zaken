@@ -378,9 +378,8 @@ stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-Het AC legt op het niveau van `zaaktype` vast welke
-operaties mogelijk zijn n wat de maximale vertrouwelijkheidaanduiding is voor een
-consumer.
+Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en 
+wat de maximale vertrouwelijkheidaanduiding is voor een consumer.
 
 Het ZRC MAG ENKEL zaken ontsluiten waarvan:
 
