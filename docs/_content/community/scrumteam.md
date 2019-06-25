@@ -7,10 +7,10 @@ Organisatie | Persoon | Rol
 --- | --- | ---
 VNG / Dimpact | Hugo ter Doest | Product Owner
 VNG | Peter de Graaf | Scrum Master
-VNG | Wishal Gokoel | Project manager/Contactpersoon
-VNG/Maykin Media | Sergei Maertens | Ontwikkelaar
-VNG/Maykin Media | Joeri Bekker | Ontwikkelaar
-VNG | Henri Korver | Architect/Product Owner API-testvoorziening
+VNG | Wishal Gokoel | Project manager / Contactpersoon
+VNG / Maykin Media | Sergei Maertens | Ontwikkelaar
+VNG / Maykin Media | Joeri Bekker | Ontwikkelaar
+VNG | Henri Korver | Architect / Product Owner API-testvoorziening
 VNG | Ivo Hendriks | Architect
 VNG | Remko de Haas | 
 Gemeente Utrecht | Constantijn Masselink | Stakeholder
