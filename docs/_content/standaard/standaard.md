@@ -12,7 +12,7 @@ De ZGW API standaard beschrijft de eisen aan API's die gebruikt worden
 in applicaties voor zaakgericht werken. We onderscheiden een aantal
 registraties en schrijven voor hoe de API eruit ziet en functioneert.
 
-Deze standardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
+Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
 tussen registraties en consumers die van de API's gebruik maken.
 
 ## Inhoudsopgave
@@ -42,7 +42,7 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 - OAS schema: een API definitie die de
   [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) volgt.
-  **vng-Realisatie** publiceert de schema's waaraan implementaties moeten voldoen
+  **VNG-Realisatie** publiceert de schema's waaraan implementaties moeten voldoen
   op [github](https://github.com/VNG-Realisatie/gemma-zaken/tree/master/api-specificatie).
 
 - Consumer: een technologie die van de API's gebruik maakt. Dit kan een
@@ -53,7 +53,7 @@ tussen registraties en consumers die van de API's gebruik maken.
   toegestaan zijn, mits deze redirect-locatie resulteert in een `HTTP 200`.
 
 - Autorisatie: het mechanisme om wel of niet toegang te verlenen tot operaties
-  en/of gegevens in de APIs. Niet te verwarren met authenticatie.
+  en/of gegevens in de API's. Niet te verwarren met authenticatie.
 
 - Authenticatie: het mechanisme om de identiteit van een een persoon of andere
   entiteit vast te stellen.
@@ -140,7 +140,7 @@ geautoriseerd is om deze aanroep uit te voeren.
 
 Providers MOETEN een geconfigureerde autorisatiecomponent bevragen met het
 `client_id` als query-parameter om de autorisaties van deze client op te
-vragen, conform de API-specificatie van het AC.
+vragen, conform de API-specificatie van het Autorisatiecomponent (AC).
 
 Providers MOGEN deze gegevens cachen om performance-redenen. Indien
 er van caching gebruik gemaakt wordt, dan MOETEN providers een mechanisme
@@ -155,9 +155,9 @@ opgenomen worden:
 * `iss`: *(string)* de issuer, welke partij het JWT uitgegeven/gegenereerd heeft. Typisch
   het client ID van de applicatie.
 * `iat`: *(integer)* issued-at, moment van genereren van het JWT als UNIX
-  timestamp. Dit kan later gebruikt
+  timestamp. Dit kan later worden gebruikt.
 * `client_id`: *(string)* het client ID van de applicatie, MOET worden gebruikt
-  om het bijhorende `secret` op te halen en het JWT te valideren
+  om het bijhorende `secret` op te halen en het JWT te valideren.
 
 Daarnaast ZOUDEN de volgende claims aanwezig MOETEN zijn:
 
@@ -266,7 +266,7 @@ een notificatie leiden.
 
 ### Audittrail
 
-Elke component kent een hoofdobject (zie ook [notificaties](#notificaties)).
+Elk component kent een hoofdobject (zie ook [notificaties](#notificaties)).
 Alle schrijfacties op het hoofdobject en gerelateerde objecten MOETEN opgenomen
 worden in de audittrail van het hoofdobject. Indien een object permanent
 verwijderd wordt, dan MOET de audittrail meeverwijderd worden.
@@ -277,7 +277,7 @@ Zie de API spec voor de betekenis van de audittrailattributen.
 
 Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
 
-* de ZRC `openapi.yaml` MOET volledig geïmplementeerd zijn
+* de ZRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
   zijn.
@@ -373,20 +373,19 @@ Een voorbeeld:
     ```
 
 Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
-via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
+via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-Het autorisatiecomponent (AC) legt op het niveau van `zaaktype` vast welke
-operaties mogelijk en wat de maximale vertrouwelijkheidaanduiding is voor een
-consumer.
+Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en 
+wat de maximale vertrouwelijkheidaanduiding is voor een consumer.
 
 Het ZRC MAG ENKEL zaken ontsluiten waarvan:
 
-* het zaaktype voorkomt in de autorisaties van de consumer
+* het zaaktype voorkomt in de autorisaties van de consumer.
 * de vertrouwelijkheidaanduiding lager of gelijk aan de maximale
-  vertrouwelijkheidaanduiding is voor het betreffende zaaktype
+  vertrouwelijkheidaanduiding is voor het betreffende zaaktype.
 
 De API-specificatie legt vast welke scopes nodig zijn voor welke operaties.
 Een provider MOET operaties blokkeren op zaken waarvan de nodige scopes niet
@@ -414,7 +413,7 @@ Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
 van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
 MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`.
 
-Bij het afsluiten van een `Zaak` MOET het ZRC
+Bij het afsluiten van een `Zaak` MOET het ZRC het
 `Informatieobject.indicatieGebruiksrecht` controleren van alle gerelateerde
 informatieobjecten. Deze MAG NIET `null` zijn, maar MOET `true` of `false`
 zijn. Indien dit niet het geval is, dan dient het ZRC een validatiefout te
@@ -594,7 +593,7 @@ het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
 documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
 
-* de DRC `openapi.yaml` MOET volledig geïmplementeerd zijn
+* de DRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
   zijn.
@@ -713,7 +712,7 @@ MOETEN het `lockId` weglaten indien ze geforceerd unlocken.
 
 Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
 
-* de BRC `openapi.yaml` MOET volledig geïmplementeerd zijn
+* de BRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
   zijn.
@@ -808,7 +807,7 @@ Een voorbeeld:
     ```
 
 Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
-via de API. Indien elders (bijvoorbeeld een admininterface) een relatie tot
+via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### Archiveren
@@ -831,7 +830,7 @@ dat het `objectinformatieobject` in het DRC ook verwijdert wordt indien dit kan.
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 
-* de ZTC `openapi.yaml` MOET volledig geïmplementeerd zijn
+* de ZTC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
   zijn.
