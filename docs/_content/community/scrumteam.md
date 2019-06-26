@@ -7,14 +7,15 @@ Organisatie | Persoon | Rol
 --- | --- | ---
 VNG / Dimpact | Hugo ter Doest | Product Owner
 VNG | Peter de Graaf | Scrum Master
-VNG | Wishal Gokoel | Project manager / Contactpersoon
+VNG | Wishal Gokoel | Project manager/Contactpersoon
 VNG / Maykin Media | Sergei Maertens | Ontwikkelaar
 VNG / Maykin Media | Joeri Bekker | Ontwikkelaar
-VNG | Henri Korver | Architect / Product Owner API-testvoorziening
+VNG | Henri Korver | Architect/Product Owner API-testvoorziening
 VNG | Ivo Hendriks | Architect
-VNG | Remko de Haas | 
+VNG | Michiel Verhoef | Beheer
+VNG | Robert Melskens | Beheer
+Gemeente Delft | Edwin Koster | Informatie-Architect a.i
 Gemeente Utrecht | Constantijn Masselink | Stakeholder
-Gemeente Delft | Edwin Koster | Informatie-Architect a.i/Stakeholder
 Gemeente Haarlem | Bas de Boer | Stakeholder
 Gemeente Delft | Rita Berghuis | Stakeholder
 Gemeente Amsterdam | Marcel Moerman | Stakeholder
