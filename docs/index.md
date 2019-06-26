@@ -40,7 +40,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 [Getting started with slack] snel aan de slag.
 
 Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
-[github][github] of een mail sturen naar een van de [teamleden](/community/scrumteam)
+[github][github] of een mail sturen naar standaarden.ondersteuning@vng.nl.
 
 [![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
 
