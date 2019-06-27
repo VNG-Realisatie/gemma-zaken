@@ -1,0 +1,95 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: drc-nginx
+  namespace: gemma
+  labels:
+    k8s-app: drc-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: drc-nginx
+  template:
+    metadata:
+      name: drc-nginx
+      labels:
+        k8s-app: drc-nginx
+    spec:
+      containers:
+      - name: drc-nginx
+        image: nginx:1.15
+        volumeMounts:
+          - name: drc-nginx-private-media
+            mountPath: /private-media
+          - name: drc-nginx-config
+            mountPath: /etc/nginx/conf.d/
+      volumes:
+      - name: drc-nginx-private-media
+        hostPath:
+          path: "/storage/drc-private-media"
+          type: ''
+      - name: drc-nginx-config
+        configMap:
+          name: drc-nginx-config
+
+---
+
+# ConfigMap to override nginx conf
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drc-nginx-config
+  namespace: gemma
+data:
+  default.conf: >
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+            proxy_pass http://drc:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /private-media {
+            internal;
+            alias /private-media;
+        }
+
+        error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+    }
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: drc-nginx
+  namespace: gemma
+  labels:
+    k8s-app: drc-nginx
+spec:
+  selector:
+    k8s-app: drc-nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

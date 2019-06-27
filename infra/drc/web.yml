@@ -37,8 +37,13 @@ spec:
           - name: SENTRY_DSN
             value: <REDACTED>
         volumeMounts:
-          - name: media
+          - name: drc-private-media
             mountPath: "/app/private-media"
+      volumes:
+      - name: drc-private-media
+        hostPath:
+          path: /storage/drc-private-media
+          type: ''
 
 ---
 
