@@ -79,6 +79,7 @@ data:
     CREATE DATABASE "nrc";
     CREATE DATABASE "ac";
     CREATE DATABASE "vrl";
+    CREATE DATABASE "token-issuer";
 
 ---
 
