@@ -11,7 +11,7 @@ metadata:
   namespace: zgw
   name: deployer
 rules:
-- apiGroups: ["extensions"]
+- apiGroups: ["extensions", "apps"]
   resources: ["deployments"]
   verbs: ["get", "list", "patch"]
 
