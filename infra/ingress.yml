@@ -10,6 +10,15 @@ metadata:
     app.kubernetes.io/name: zgw
 spec:
   rules:
+  # Continuous deployment, in-cluster
+  - host: deploy-bot-zgw.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: deploy
+            servicePort: 8000
+  # Documentation
   - host: zaakgerichtwerken.vng.cloud
     http:
       paths:
@@ -17,6 +26,7 @@ spec:
           backend:
             serviceName: docs
             servicePort: 80
+  # ZRC
   - host: zaken-api.vng.cloud
     http:
       paths:
@@ -24,6 +34,7 @@ spec:
         backend:
           serviceName: zrc
           servicePort: 8000
+  # DRC
   - host: documenten-api.vng.cloud
     http:
       paths:
@@ -31,6 +42,7 @@ spec:
         backend:
           serviceName: drc
           servicePort: 8000
+  # ZTC
   - host: catalogi-api.vng.cloud
     http:
       paths:
@@ -38,6 +50,7 @@ spec:
         backend:
           serviceName: ztc
           servicePort: 8000
+  # AC
   - host: autorisaties-api.vng.cloud
     http:
       paths:
@@ -45,6 +58,7 @@ spec:
           backend:
             serviceName: ac
             servicePort: 8000
+  # BRC
   - host: besluiten-api.vng.cloud
     http:
       paths:
@@ -52,6 +66,7 @@ spec:
           backend:
             serviceName: brc
             servicePort: 8000
+  # NRC
   - host: notificaties-api.vng.cloud
     http:
       paths:
@@ -61,6 +76,7 @@ spec:
             servicePort: 8000
   tls:
     - hosts:
+        - deploy-bot-zgw.vng.cloud
         - zaakgerichtwerken.vng.cloud
         - zaken-api.vng.cloud
         - documenten-api.vng.cloud
