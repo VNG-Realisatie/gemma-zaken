@@ -4,6 +4,7 @@ python-dotenv
 pytz
 raven
 uwsgi
+kubernetes
 
 Django
 django-axes
