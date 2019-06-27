@@ -1,5 +1,6 @@
 import logging
 
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
@@ -16,6 +17,7 @@ class DeploymentViewSet(viewsets.ViewSet):
     Trigger a deployment.
     """
 
+    @swagger_auto_schema(request_body=DeploymentSerializer)
     def create(self, request, *args, **kwargs):
         serializer = DeploymentSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
