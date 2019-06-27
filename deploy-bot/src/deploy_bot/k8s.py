@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from kubernetes import client, config
 
 
@@ -17,14 +19,18 @@ def deploy(name: str, namespace: str, container_name: str, image: str) -> None:
     """
     load_config()
 
+    annotatations = {"last-deploy": timezone.now().isoformat()}
+
     apps = client.AppsV1beta1Api()
     apps.patch_namespaced_deployment(
         name,
         namespace,
         {
+            "metadata": {"annotatations": annotatations},
             "spec": {
                 "template": {
-                    "spec": {"containers": [{"name": container_name, "image": image}]}
+                    "metadata": {"annotatations": annotatations},
+                    "spec": {"containers": [{"name": container_name, "image": image}]},
                 }
             }
         },

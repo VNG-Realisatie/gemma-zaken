@@ -36,7 +36,7 @@ spec:
       serviceAccountName: deploy-bot
       containers:
       - name: deploy
-        image: vngr/deploy-bot:1.0
+        image: vngr/deploy-bot:1.0.2
         resources:
           requests:
             memory: "200Mi"
