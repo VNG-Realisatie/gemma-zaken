@@ -74,6 +74,16 @@ spec:
           backend:
             serviceName: nrc
             servicePort: 8000
+
+  # Referentielijsten/selectielijst
+  - host: referentielijsten-api.vng.cloud
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: vrl
+          servicePort: 8000
+
   tls:
     - hosts:
         - deploy-bot-zgw.vng.cloud
@@ -84,3 +94,4 @@ spec:
         - autorisaties-api.vng.cloud
         - besluiten-api.vng.cloud
         - notificaties-api.vng.cloud
+        - referentielijsten-api.vng.cloud

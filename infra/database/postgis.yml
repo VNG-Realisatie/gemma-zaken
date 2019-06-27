@@ -71,12 +71,14 @@ metadata:
   namespace: zgw
 data:
   initdb.sql: |
+    CREATE DATABASE "deploy";
     CREATE DATABASE "zrc";
     CREATE DATABASE "drc";
     CREATE DATABASE "ztc";
     CREATE DATABASE "brc";
     CREATE DATABASE "nrc";
     CREATE DATABASE "ac";
+    CREATE DATABASE "vrl";
 
 ---
 
