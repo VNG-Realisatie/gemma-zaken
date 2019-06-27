@@ -5,6 +5,7 @@ set -ex
 # Wait for the database container
 # See: https://docs.docker.com/compose/startup-order/
 db_host=${DB_HOST:-db}
+db_name=${DB_NAME:-postgres}
 db_user=${DB_USER:-postgres}
 db_password=${DB_PASSWORD}
 db_port=${DB_PORT:-5432}
@@ -19,6 +20,12 @@ until PGPORT=$db_port PGPASSWORD=$db_password psql -h "$db_host" -U "$db_user" -
 done
 
 >&2 echo "Database is up."
+
+# create the database if it doesn't exist, ignore if you can't create it
+set +e
+PGPASSWORD=$db_password PGUSER=$db_user PGHOST=$db_host PGPORT=$db_port \
+    createdb $db_name
+set -e
 
 # Apply database migrations
 >&2 echo "Apply database migrations"

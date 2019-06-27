@@ -58,7 +58,6 @@ COPY ./bin/runtests.sh /runtests.sh
 COPY --from=frontend-build /app/src/deploy_bot/static/fonts /app/src/deploy_bot/static/fonts
 COPY --from=frontend-build /app/src/deploy_bot/static/css /app/src/deploy_bot/static/css
 COPY ./src /app/src
-RUN mkdir /app/log && rm /app/src/deploy_bot/conf/test.py
 CMD ["/runtests.sh"]
 
 
