@@ -1,41 +1,22 @@
 import logging
 
-from rest_framework import viewsets
-from vng_api_common.permissions import ActionScopesRequired
+from rest_framework import status, viewsets
+from rest_framework.response import Response
 
-from .scopes import EXAMPLE_SCOPE
-from .serializers import ExampleSerializer
+from .serializers import DeploymentSerializer
 
 logger = logging.getLogger(__name__)
 
 
-class ExampleViewSet(viewsets.ModelViewSet):
+class DeploymentViewSet(viewsets.ViewSet):
     """
     Describe viewset.
 
     create:
-    Describe create operation.
-
-    list:
-    Describe list operation.
-
-    partial_update:
-    Describe partial_update operation.
-
-    destroy:
-    Describe destroy operation.
+    Trigger a deployment.
     """
 
-    queryset = ...
-    serializer_class = ExampleSerializer
-    lookup_field = "uuid"
-
-    permission_classes = (ActionScopesRequired,)
-    required_scopes = {
-        "list": EXAMPLE_SCOPE,
-        "retrieve": EXAMPLE_SCOPE,
-        "create": EXAMPLE_SCOPE,
-        "update": EXAMPLE_SCOPE,
-        "partial_update": EXAMPLE_SCOPE,
-        "destroy": EXAMPLE_SCOPE,
-    }
+    def create(self, request, *args, **kwargs):
+        serializer = DeploymentSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

@@ -4,8 +4,10 @@ from django.urls import include
 from vng_api_common import routers
 from vng_api_common.schema import SchemaView
 
+from .viewsets import DeploymentViewSet
+
 router = routers.DefaultRouter()
-# router.register('example', ExampleViewSet)
+router.register("deployments", DeploymentViewSet, base_name="deployment")
 
 
 # TODO: the EndpointEnumerator seems to choke on path and re_path

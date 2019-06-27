@@ -2,24 +2,21 @@ from django.conf import settings
 
 from drf_yasg import openapi
 
-description = """Een API om een deploy_bot te benaderen.
+description = """An API to trigger deployments.
 
-DESCRIBE API HERE
+This API is intended to be consumed by CI such as Jenkins, Travis... It is
+notified of new image builds and triggers an in-cluster patch of deployment
+objects, leading to new version being deployed.
 
-**Autorisatie**
+**Authentication**
 
-Deze API vereist autorisatie. Je kan de
-[token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
-genereren.
-
-**Handige links**
-
-* [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
-* ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+You need to be authenticated with an API token to be able to use this API.
+You can create an issue on https://github.com/VNG-Realisatie/gemma-zaken for
+us to get in touch.
 """
 
 info = openapi.Info(
-    title="deploy_bot (ABBREVIATION) API",
+    title="Deploy Bot API",
     default_version=settings.API_VERSION,
     description=description,
     contact=openapi.Contact(
