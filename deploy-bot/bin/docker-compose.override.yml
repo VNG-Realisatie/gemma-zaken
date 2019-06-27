@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  tests:
+    build:
+      context: ./
+      target: jenkins
+    volumes:
+      - ${WORKSPACE}/reports:/app/reports
+    environment:
+      - DJANGO_SETTINGS_MODULE=deploy_bot.conf.jenkins
+      - SECRET_KEY=jenkins
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=
+      - DB_HOST=db
+      - WORKSPACE=${WORKSPACE}
+    depends_on:
+      - db

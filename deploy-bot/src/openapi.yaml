@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: deploy_bot (ABBREVIATION) API
+  description: 'Een API om een deploy_bot te benaderen.
+
+
+    DESCRIBE API HERE
+
+
+    **Autorisatie**
+
+
+    Deze API vereist autorisatie. Je kan de
+
+    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+
+    genereren.
+
+
+    **Handige links**
+
+
+    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+
+    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+
+    '
+  contact:
+    url: https://github.com/VNG-Realisatie/gemma-zaken
+    email: support@maykinmedia.nl
+  license:
+    name: EUPL 1.2
+  version: 1.0.0-alpha
+security:
+- JWT-Claims: []
+paths: {}
+servers:
+- url: /
+components:
+  securitySchemes:
+    JWT-Claims:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<article class="error-detail">
+
+    <h1 class="error-detail__title"><code>{{ type }}</code> fouttype</h1>
+
+    <dl class="error-detail-properties">
+        <dt class="error-detail-properties__property">HTTP Status code</dt>
+        <dd class="error-detail-properties__value"><code>{{ status_code }}</code></dd>
+
+        <dt class="error-detail-properties__property">Default title</dt>
+        <dd class="error-detail-properties__value"><code>{{ default_detail }}</code></dd>
+
+        <dt class="error-detail-properties__property">Default code</dt>
+        <dd class="error-detail-properties__value"><code>{{ default_code }}</code></dd>
+    </dl>
+
+
+</article>
+{% endblock %}

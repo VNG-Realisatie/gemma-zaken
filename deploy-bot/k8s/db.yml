@@ -1,0 +1,55 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: postgres-deploy_bot
+  namespace: gemma
+  labels:
+    k8s-app: postgres-deploy_bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: postgres-deploy_bot
+  template:
+    metadata:
+      name: postgres-deploy_bot
+      labels:
+        k8s-app: postgres-deploy_bot
+    spec:
+      volumes:
+      - name: data
+        hostPath:
+          path: "/storage/gemma-postgres-deploy_bot"
+          type: ''
+      containers:
+      - name: postgres
+        image: postgres:11
+        env:
+          - name: POSTGRES_PASSWORD
+            value: <REDACTED>
+        volumeMounts:
+          - name: data
+            mountPath: "/var/lib/postgresql/data"
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres-deploy_bot
+  namespace: gemma
+  labels:
+    k8s-app: postgres-deploy_bot
+spec:
+  selector:
+    k8s-app: postgres-deploy_bot
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432

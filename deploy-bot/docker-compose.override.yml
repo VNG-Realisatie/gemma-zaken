@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  db:
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

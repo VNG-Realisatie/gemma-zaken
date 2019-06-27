@@ -1,0 +1,13 @@
+pip-tools
+psycopg2
+python-dotenv
+pytz
+raven
+uwsgi
+
+Django
+django-axes
+django-choices
+
+djangorestframework
+vng-api-common

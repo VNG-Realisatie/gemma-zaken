@@ -1,0 +1,36 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "deploy_bot (ABBREVIATION) API",
+        "description": "Een API om een deploy_bot te benaderen.\n\nDESCRIBE API HERE\n\n**Autorisatie**\n\nDeze API vereist autorisatie. Je kan de\n[token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te\ngenereren.\n\n**Handige links**\n\n* [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)\n* [\"Papieren\" standaard](https://ref.tst.vng.cloud/standaard/)\n",
+        "contact": {
+            "url": "https://github.com/VNG-Realisatie/gemma-zaken",
+            "email": "support@maykinmedia.nl"
+        },
+        "license": {
+            "name": "EUPL 1.2"
+        },
+        "version": "1.0.0-alpha"
+    },
+    "basePath": "/",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "JWT-Claims": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+    },
+    "security": [
+        {
+            "JWT-Claims": []
+        }
+    ],
+    "paths": {},
+    "definitions": {}
+}
