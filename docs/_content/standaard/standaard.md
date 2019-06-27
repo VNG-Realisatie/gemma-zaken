@@ -1,23 +1,13 @@
 ---
 title: "ZGW API Standaard documentatie"
-date: '06-06-2019'
+date: '27-06-2019'
 weight: 100
 ---
 
-*Versie 1.0.0-alpha*
-
-## Inleiding
-
-De ZGW API standaard beschrijft de eisen aan API's die gebruikt worden
-in applicaties voor zaakgericht werken. We onderscheiden een aantal
-registraties en schrijven voor hoe de API eruit ziet en functioneert.
-
-Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
-tussen registraties en consumers die van de API's gebruik maken.
-
 ## Inhoudsopgave
 
-- [Definities](#definities)
+- [Inleiding](#inleiding)
+  - [Definities](#definities)
 - [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
@@ -38,7 +28,28 @@ tussen registraties en consumers die van de API's gebruik maken.
     - [OpenAPI specificatie](#openapi-specificatie-3)
     - [Run-time gedrag](#run-time-gedrag-3)
 
-## Definities
+## Inleiding
+
+De API's voor Zaakgericht werken vormen de opvolger van zowel de 
+berichtenstandaard van het Sectormodel Zaken ([StUF-ZKN] 3.10) alsmede het
+koppelvlak Zaak- en Document Services ([ZDS] 1.2).
+
+In tegenstelling tot StUF-ZKN en ZDS zijn de API's voor Zaakgericht werken geen 
+gezamenlijke berichtenstandaard maar is elke API een berichtenstandaard op 
+zichzelf. Om zaakgericht werken te ondersteunen zijn echter meerdere API's 
+nodig, die in dit document worden beschreven. 
+
+Elke API bestaat uit een Open API-specificatie (OAS), technische documentatie 
+die het "run-time" gedrag beschrijft en een of meerdere gegevensmodellen. De 
+OAS is samen met de technische documentatie leidend voor de standaard.
+
+Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
+tussen registraties en consumers die van de API's gebruik maken.
+
+[StUF-ZKN]: https://www.gemmaonline.nl/index.php/Sectormodel_Zaken:_StUF-ZKN
+[ZDS]: https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices
+
+### Definities
 
 - OAS schema: een API definitie die de
   [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification) volgt.
