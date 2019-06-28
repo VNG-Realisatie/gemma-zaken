@@ -8,7 +8,9 @@ weight: 100
 
 - [Inleiding](#inleiding)
   - [Definities](#definities)
-- [Beschikbaar stellen van API-spec](#beschikbaar-stellen-van-api-spec)
+- [Algemene API-eisen](#algemene-api-eisen)
+  - [Versionering van de API](#versionering-van-de-api)
+  - [Beschikbaar stellen van de OAS](#beschikbaar-stellen-van-de-oas)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
     - [Autorisatiecomponent](#autorisatiecomponent)
@@ -81,10 +83,30 @@ tussen registraties en consumers die van de API's gebruik maken.
 - Operatie: de combinatie van een HTTP method zoals `POST`, `GET`, `PUT`,
   `PATCH` en `DELETE` en een endpoint.
 
-## Beschikbaar stellen van API-spec
+## Algemene API-eisen
+
+Er wordt zoveel mogelijk uitgegaan van de 
+[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019) 
+maar de API's zijn in eerste instantie ontwikkeld volgens de 
+[DSO API- en URI-strategie](dso-strategie). Hier en daar kan worden afgeweken
+om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
+
+[dso-strategie]: https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/
+
+### Versionering van de API
+
+In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in 
+de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
+door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
+
+Zie: Achtergrond over [API versies](../ontwikkelaars/algemeen/versies)
+
+[api-strategie]: https://docs.geostandaarden.nl/api/API-Strategie/
+
+### Beschikbaar stellen van de OAS
 
 Iedere component MOET het OAS schema serveren, onder
-`{APIROOT}/schema/openapi.yaml`.
+`{API root URL}/schema/openapi.yaml`.
 
 Voorbeelden van geldige URLs:
 
@@ -98,8 +120,11 @@ resources uit te voeren.
 
 ## Gegevensformaten
 
-Een aantal formaten zijn nog niet formeel vastgelegd in OAS of JSON-Schema,
-echter deze worden wel binnen de ZGW API's gebruikt en opgelegd.
+Een aantal formaten zijn nog niet formeel vastgelegd in OAS of 
+[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor 
+Zaakgericht werken gebruikt en opgelegd.
+
+[json-schema]: https://json-schema.org/
 
 ### Duur
 
