@@ -1,0 +1,50 @@
+---
+
+# Redis message broker
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: redis-demo
+  namespace: zgw
+  labels:
+    k8s-app: redis-demo
+spec:
+  # single replica because objects are kept in memory
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: redis-demo
+  template:
+    metadata:
+      name: redis-demo
+      labels:
+        k8s-app: redis-demo
+    spec:
+      containers:
+      - name: redis
+        image: redis:5-alpine
+        resources:
+          requests:
+            memory: "5Mi"
+            cpu: "5m"
+          limits:
+            memory: "200Mi"
+            cpu: "250m"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis-demo
+  namespace: zgw
+  labels:
+    k8s-app: redis-demo
+spec:
+  selector:
+    k8s-app: redis-demo
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379

@@ -84,12 +84,22 @@ spec:
           serviceName: vrl
           servicePort: 8000
 
+  # Token tool
   - host: zaken-auth.vng.cloud
     http:
       paths:
         - path: /
           backend:
             serviceName: token-issuer
+            servicePort: 8000
+
+  # Demo
+  - host: zgw-demo.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: demo
             servicePort: 8000
 
   tls:
@@ -104,3 +114,4 @@ spec:
         - notificaties-api.vng.cloud
         - referentielijsten-api.vng.cloud
         - zaken-auth.vng.cloud
+        - zgw-demo.vng.cloud

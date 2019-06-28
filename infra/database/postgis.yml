@@ -80,6 +80,7 @@ data:
     CREATE DATABASE "ac";
     CREATE DATABASE "vrl";
     CREATE DATABASE "token-issuer";
+    CREATE DATABASE "demo";
 
 ---
 
