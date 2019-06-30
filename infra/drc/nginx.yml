@@ -1,95 +1,126 @@
----
+# NOTE: this currently does not work on Haven v1.0 because of limited PV options
+#
+# We need ReadWriteMany on the PV(C) so that the nginx container can access the
+# DRC container private media files to make use of the sendfile machinery.
+#
+# Currently solved by letting Django serve the files directly.
 
-# Deployment
+# ---
 
-kind: Deployment
-apiVersion: extensions/v1beta1
-metadata:
-  name: drc-nginx
-  namespace: gemma
-  labels:
-    k8s-app: drc-nginx
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      k8s-app: drc-nginx
-  template:
-    metadata:
-      name: drc-nginx
-      labels:
-        k8s-app: drc-nginx
-    spec:
-      containers:
-      - name: drc-nginx
-        image: nginx:1.15
-        volumeMounts:
-          - name: drc-nginx-private-media
-            mountPath: /private-media
-          - name: drc-nginx-config
-            mountPath: /etc/nginx/conf.d/
-      volumes:
-      - name: drc-nginx-private-media
-        hostPath:
-          path: "/storage/drc-private-media"
-          type: ''
-      - name: drc-nginx-config
-        configMap:
-          name: drc-nginx-config
+# # Deployment
 
----
+# kind: Deployment
+# apiVersion: extensions/v1beta1
+# metadata:
+#   name: drc-nginx
+#   namespace: zgw
+#   labels:
+#     k8s-app: drc-nginx
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       k8s-app: drc-nginx
+#   template:
+#     metadata:
+#       name: drc-nginx
+#       labels:
+#         k8s-app: drc-nginx
+#     spec:
+#       containers:
+#       - name: drc-nginx
+#         image: nginx:1.15
+#         resources:
+#           requests:
+#             memory: "10Mi"
+#             cpu: "5m"
+#           limits:
+#             memory: "100Mi"
+#             cpu: "200m"
+#         readinessProbe:
+#           httpGet:
+#             path: /
+#             port: 80
+#             httpHeaders:
+#               - name: Host
+#                 value: localhost
+#           initialDelaySeconds: 5
+#           periodSeconds: 5
+#         livenessProbe:
+#           httpGet:
+#             path: /
+#             port: 80
+#             httpHeaders:
+#               - name: Host
+#                 value: localhost
+#           initialDelaySeconds: 5
+#           periodSeconds: 5
+#         volumeMounts:
+#           - name: private-storage-nginx
+#             mountPath: /private-media
+#           - name: drc-nginx-config
+#             mountPath: /etc/nginx/conf.d/
+#       volumes:
+#       - name: private-storage-nginx
+#         persistentVolumeClaim:
+#           claimName: drc-private-media
+#       - name: drc-nginx-config
+#         configMap:
+#           name: drc-nginx-config
 
-# ConfigMap to override nginx conf
+# ---
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: drc-nginx-config
-  namespace: gemma
-data:
-  default.conf: >
-    server {
-        listen       80;
-        server_name  localhost;
+# # ConfigMap to override nginx conf
 
-        location / {
-            proxy_pass http://drc:8000;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-        }
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: drc-nginx-config
+#   namespace: zgw
+# data:
+#   default.conf: >
+#     server {
+#         listen       80;
+#         server_name  localhost;
 
-        location /private-media {
-            internal;
-            alias /private-media;
-        }
+#         location / {
+#             proxy_pass http://drc:8000;
+#             proxy_set_header Host $host;
+#             proxy_set_header X-Real-IP $remote_addr;
+#             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#             proxy_set_header X-Forwarded-Proto $scheme;
+#         }
 
-        error_page  404              /404.html;
+#         location /private-media {
+#             internal;
+#             alias /private-media;
+#         }
 
-        # redirect server error pages to the static page /50x.html
-        #
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   /usr/share/nginx/html;
-        }
-    }
+#         error_page  404              /404.html;
 
----
+#         # redirect server error pages to the static page /50x.html
+#         #
+#         error_page   500 502 503 504  /50x.html;
+#         location = /50x.html {
+#             root   /usr/share/nginx/html;
+#         }
+#     }
 
-# Service
+# ---
 
-kind: Service
-apiVersion: v1
-metadata:
-  name: drc-nginx
-  namespace: gemma
-  labels:
-    k8s-app: drc-nginx
-spec:
-  selector:
-    k8s-app: drc-nginx
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+# # Service
+
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: drc-nginx
+#   namespace: zgw
+#   labels:
+#     k8s-app: drc-nginx
+# spec:
+#   selector:
+#     k8s-app: drc-nginx
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 80

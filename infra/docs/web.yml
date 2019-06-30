@@ -5,24 +5,41 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: zaken-docs
-  namespace: gemma
+  name: docs
+  namespace: zgw
   labels:
-    k8s-app: zaken-docs
+    k8s-app: docs
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      k8s-app: zaken-docs
+      k8s-app: docs
   template:
     metadata:
-      name: zaken-docs
+      name: docs
       labels:
-        k8s-app: zaken-docs
+        k8s-app: docs
     spec:
       containers:
-      - name: zaken-docs
+      - name: docs
         image: vngr/gemma-zaken-docs:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "5m"
+          limits:
+            memory: "100Mi"
+            cpu: "100m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+
 
 ---
 
@@ -31,13 +48,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: zaken-docs
-  namespace: gemma
+  name: docs
+  namespace: zgw
   labels:
-    k8s-app: zaken-docs
+    k8s-app: docs
 spec:
   selector:
-    k8s-app: zaken-docs
+    k8s-app: docs
   ports:
   - protocol: TCP
     port: 80

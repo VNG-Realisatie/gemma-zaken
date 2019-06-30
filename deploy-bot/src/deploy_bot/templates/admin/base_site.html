@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Administration') }}{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    {% if settings.ENVIRONMENT and settings.ENVIRONMENT != 'production' %}
+        <!-- Environment notice -->
+        <style type="text/css">
+            body:before {
+                display: block;
+                line-height: 35px;
+                text-align: center;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: white;
+                content: "{{ settings.ENVIRONMENT }}";
+                {% if settings.ENVIRONMENT == 'development' %}
+                    background-color: #ff00ff;
+                {% else %}
+                    background-color: #ff0000;
+                {% endif %}
+                position: fixed;
+                top: 0;
+                height: 35px;
+                width: 100%;
+                z-index: 100000;
+            }
+
+            body {
+                margin-top: 35px;
+            }
+
+            #header {
+                top: 35px !important;
+            }
+
+            .login #header {
+                top: 0 !important;
+            }
+
+            .breadcrumbs {
+                top: 95px !important;
+            }
+        </style>
+    {% endif %}
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

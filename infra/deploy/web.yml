@@ -1,0 +1,106 @@
+---
+
+# # Runtime secrets. Values are base64 encoded
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: deploy-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   SECRET_KEY: <REDACTED>
+#   DB_PASSWORD: <REDACTED>
+#   SENTRY_DSN: <REDACTED>
+
+---
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: deploy
+  namespace: zgw
+  labels:
+    k8s-app: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: deploy
+  template:
+    metadata:
+      name: deploy
+      labels:
+        k8s-app: deploy
+    spec:
+      serviceAccountName: deploy-bot
+      containers:
+      - name: deploy
+        image: vngr/deploy-bot:1.0.2
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "5m"
+          limits:
+            memory: "500Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: deploy_bot.conf.docker
+          - name: DB_HOST
+            value: postgis
+          - name: DB_NAME
+            value: deploy
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: deploy-secrets
+                key: SECRET_KEY
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: deploy-secrets
+                key: DB_PASSWORD
+          - name: SENTRY_DSN
+            valueFrom:
+              secretKeyRef:
+                name: deploy-secrets
+                key: SENTRY_DSN
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: deploy
+  namespace: zgw
+  labels:
+    k8s-app: deploy
+spec:
+  selector:
+    k8s-app: deploy
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

@@ -6,11 +6,11 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: nrc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: nrc
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: nrc
@@ -22,26 +22,69 @@ spec:
     spec:
       containers:
       - name: nrc
-        image: vngr/gemma-notifications:0.4.0
+        image: vngr/gemma-notifications:0.7.0
+        resources:
+          requests:
+            memory: "150Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: notifications.conf.docker
-          - name: SUBPATH
-            value: /nrc
           - name: DB_HOST
-            value: postgres-nrc
+            value: postgis
+          - name: DB_NAME
+            value: nrc
           - name: SECRET_KEY
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: SECRET_KEY
           - name: DB_PASSWORD
-            value: <REDACTED>
-          - name: PUBLISH_BROKER_URL
-            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672/%2F
-          - name: CELERY_BROKER_URL
-            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
-          - name: CELERY_RESULT_BACKEND
-            value: amqp://<REDACTED>:<REDACTED>@rabbitmq-nrc:5672//
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: DB_PASSWORD
           - name: SENTRY_DSN
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: SENTRY_DSN
+          - name: PUBLISH_BROKER_URL
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: PUBLISH_BROKER_URL
+          - name: CELERY_BROKER_URL
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: CELERY_BROKER_URL
+          - name: CELERY_RESULT_BACKEND
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: CELERY_RESULT_BACKEND
 
 ---
 
@@ -51,7 +94,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: nrc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: nrc
 spec:

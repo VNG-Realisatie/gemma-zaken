@@ -1,0 +1,105 @@
+---
+
+# Runtime secrets. Values are base64 encoded
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: token-issuer-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   SECRET_KEY: <REDACTED>
+#   DB_PASSWORD: <REDACTED>
+#   SENTRY_DSN: <REDACTED>
+
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: token-issuer
+  namespace: zgw
+  labels:
+    k8s-app: token-issuer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: token-issuer
+  template:
+    metadata:
+      name: token-issuer
+      labels:
+        k8s-app: token-issuer
+    spec:
+      containers:
+      - name: token-issuer
+        image: maykinmedia/zds-token-issuer:0.4.2
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /admin/login/
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /admin/login/
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+        env:
+          - name: DATABASE_HOST
+            value: postgis
+          - name: DATABASE_NAME
+            value: token-issuer
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: token-issuer-secrets
+                key: SECRET_KEY
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: token-issuer-secrets
+                key: DB_PASSWORD
+          - name: SENTRY_DSN
+            valueFrom:
+              secretKeyRef:
+                name: token-issuer-secrets
+                key: SENTRY_DSN
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: token-issuer
+  namespace: zgw
+  labels:
+    k8s-app: token-issuer
+spec:
+  selector:
+    k8s-app: token-issuer
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

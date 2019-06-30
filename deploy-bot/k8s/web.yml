@@ -1,0 +1,57 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: deploy_bot
+  namespace: gemma
+  labels:
+    k8s-app: deploy_bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: deploy_bot
+  template:
+    metadata:
+      name: deploy_bot
+      labels:
+        k8s-app: deploy_bot
+    spec:
+      containers:
+      - name: deploy_bot
+        image: vngr/vng-referentielijsten:0.1.0
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: deploy_bot.conf.docker
+          - name: SUBPATH
+            value: /referentielijsten
+          - name: DB_HOST
+            value: postgres-deploy_bot
+          - name: SECRET_KEY
+            value: <REDACTED>
+          - name: DB_PASSWORD
+            value: <REDACTED>
+          - name: SENTRY_DSN
+            value: <REDACTED>
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: deploy_bot
+  namespace: gemma
+  labels:
+    k8s-app: deploy_bot
+spec:
+  selector:
+    k8s-app: deploy_bot
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

@@ -6,7 +6,7 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: rabbitmq-nrc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: rabbitmq-nrc
 spec:
@@ -25,9 +25,15 @@ spec:
         image: rabbitmq:3.7-alpine
         env:
           - name: RABBITMQ_DEFAULT_USER
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: RABBITMQ_DEFAULT_USER
           - name: RABBITMQ_DEFAULT_PASS
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: nrc-secrets
+                key: RABBITMQ_DEFAULT_PASS
 
 ---
 
@@ -37,7 +43,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: rabbitmq-nrc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: rabbitmq-nrc
 spec:

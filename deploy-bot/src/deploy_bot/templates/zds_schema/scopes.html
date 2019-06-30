@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+{% load staticfiles markup_tags %}
+
+
+{% block content %}
+<article class="scopes-summary">
+
+    <h1 class="scopes-summary__title">Gebruikte scopes</h1>
+
+    {% for scope in scopes %}
+        <article class="scope" id="{{ scope.label }}">
+            <h1 class="scope__label">
+                <code>{{ scope.label }}</code>
+                <a href="#{{ scope.label }}"><i class="fa fa-link"></i></a>
+            </h1>
+            <div class="scope__description">
+                {{ scope.description|default:""|apply_markup:"markdown" }}
+            </div>
+        </article>
+    {% endfor %}
+
+</article>
+{% endblock content %}

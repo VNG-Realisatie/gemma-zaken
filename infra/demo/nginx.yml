@@ -1,0 +1,58 @@
+# ---
+
+# # Currently does not work because of limited PV solutions
+
+# # Nginx front facing reverse proxy, handles websocket + staticfiles
+
+# kind: Deployment
+# apiVersion: extensions/v1beta1
+# metadata:
+#   name: demo-nginx
+#   namespace: zgw
+#   labels:
+#     k8s-app: demo-nginx
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       k8s-app: demo-nginx
+#   template:
+#     metadata:
+#       name: demo-nginx
+#       labels:
+#         k8s-app: demo-nginx
+#     spec:
+#       containers:
+#         - name: demo-nginx
+#           image: nginx:1.15
+#           volumeMounts:
+#             - name: demo-staticfiles-nginx
+#               mountPath: /static/
+#             - name: demo-nginx-conf
+#               mountPath: /etc/nginx/conf.d/
+#       volumes:
+#         - name: demo-staticfiles-nginx
+#           persistentVolumeClaim:
+#             claimName: demo-staticfiles
+#         - name: demo-nginx-conf
+#           configMap:
+#             name: demo-nginx-conf
+
+# ---
+
+# # Nginx reverse proxy
+
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: demo-nginx
+#   namespace: zgw
+#   labels:
+#     k8s-app: demo-nginx
+# spec:
+#   selector:
+#     k8s-app: demo-nginx
+#   ports:
+#   - protocol: TCP
+#     port: 80
+#     targetPort: 80

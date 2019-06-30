@@ -1,0 +1,18 @@
+# Inspired by https://docs.docker.com/compose/django/
+version: '3.4'
+
+services:
+  db:
+    image: postgres:11-alpine
+    # environment:
+    #   - POSTGRES_USER=${PG_USER:deploy_bot}
+    #   - POSTGRES_PASSWORD=${PG_PASSWORD:deploy_bot}
+  web:
+    image: vngr/gemma-deploy_bot
+    environment:
+      - DJANGO_SETTINGS_MODULE=deploy_bot.conf.docker
+      - SECRET_KEY=${SECRET_KEY}
+    ports:
+      - 8000:8000
+    depends_on:
+      - db

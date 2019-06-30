@@ -1,12 +1,27 @@
 ---
 
+# Runtime secrets. Values are base64 encoded
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: drc-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   SECRET_KEY: <REDACTED>
+#   DB_PASSWORD: <REDACTED>
+#   SENTRY_DSN: <REDACTED>
+
+---
+
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: drc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: drc
 spec:
@@ -22,28 +37,66 @@ spec:
     spec:
       containers:
       - name: drc
-        image: vngr/gemma-drc:0.1.10
+        image: vngr/gemma-drc:0.14.0
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
-          - name: SUBPATH
-            value: /drc
           - name: DB_HOST
-            value: postgres-drc
+            value: postgis
+          - name: DB_NAME
+            value: drc
+            # see nginx.yml, this is required until a better storage solution
+            # is available
+          - name: SENDFILE_BACKEND
+            value: sendfile.backends.simple
           - name: SECRET_KEY
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: SECRET_KEY
           - name: DB_PASSWORD
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: DB_PASSWORD
           - name: SENTRY_DSN
-            value: <REDACTED>
+            valueFrom:
+              secretKeyRef:
+                name: drc-secrets
+                key: SENTRY_DSN
         volumeMounts:
-          - name: drc-private-media
-            mountPath: "/app/private-media"
+          - name: private-storage
+            mountPath: /app/private-media
+            subPath: zgw/drc/private-media
       volumes:
-      - name: drc-private-media
-        hostPath:
-          path: /storage/drc-private-media
-          type: ''
+        - name: private-storage
+          persistentVolumeClaim:
+            claimName: drc-private-media
 
 ---
 
@@ -53,7 +106,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: drc
-  namespace: gemma
+  namespace: zgw
   labels:
     k8s-app: drc
 spec:

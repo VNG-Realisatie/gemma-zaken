@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<article class="index">
+
+    <a href="{% url 'schema-redoc' version=1 %}" class="link-block">API spec</a>
+
+    <a href="{% url 'vng_api_common:scopes' %}" class="link-block">API scopes</a>
+
+    <a href="{% url 'notifications:kanalen' %}" class="link-block">Notificatie-kanalen</a>
+
+    <a href="{% url 'admin:index' %}" class="link-block">admin</a>
+
+</article>
+{% endblock %}

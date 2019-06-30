@@ -1,0 +1,114 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: redirects
+  namespace: zgw
+  labels:
+    k8s-app: redirects
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: redirects
+  template:
+    metadata:
+      name: redirects
+      labels:
+        k8s-app: redirects
+    spec:
+      containers:
+      - name: redirects
+        image: nginx:1.15
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "5m"
+          limits:
+            memory: "100Mi"
+            cpu: "200m"
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+          - name: redirects-config
+            mountPath: /etc/nginx/conf.d/
+      volumes:
+      - name: redirects-config
+        configMap:
+          name: redirects-config
+
+---
+
+# ConfigMap to override nginx conf
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redirects-config
+  namespace: zgw
+data:
+  default.conf: >
+    server {
+        listen       80;
+        server_name  localhost;
+
+        rewrite ^/zrc(.*)$ https://zaken-api.vng.cloud$1 permanent;
+        rewrite ^/drc(.*)$ https://documenten-api.vng.cloud$1 permanent;
+        rewrite ^/ztc(.*)$ https://catalogi-api.vng.cloud$1 permanent;
+        rewrite ^/brc(.*)$ https://besluiten-api.vng.cloud$1 permanent;
+        rewrite ^/nrc(.*)$ https://notificaties-api.vng.cloud$1 permanent;
+        rewrite ^/ac(.*)$ https://autorisaties-api.vng.cloud$1 permanent;
+
+        rewrite ^/referentielijsten(.*)$ https://referentielijsten-api.vng.cloud$1 permanent;
+
+
+        location /healthz {
+          return 200 "healthy\n";
+        }
+
+        # docs -> catchall
+        location / {
+          rewrite ^/(.*)$ https://zaakgerichtwerken.vng.cloud/$1 permanent;
+        }
+
+        error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+    }
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: redirects
+  namespace: zgw
+  labels:
+    k8s-app: redirects
+spec:
+  selector:
+    k8s-app: redirects
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

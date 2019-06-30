@@ -1,0 +1,369 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Deploy Bot API",
+        "description": "An API to trigger deployments.\n\nThis API is intended to be consumed by CI such as Jenkins, Travis... It is\nnotified of new image builds and triggers an in-cluster patch of deployment\nobjects, leading to new version being deployed.\n\n**Authentication**\n\nYou need to be authenticated with an API token to be able to use this API.\nYou can create an issue on https://github.com/VNG-Realisatie/gemma-zaken for\nus to get in touch.\n",
+        "contact": {
+            "url": "https://github.com/VNG-Realisatie/gemma-zaken",
+            "email": "support@maykinmedia.nl"
+        },
+        "license": {
+            "name": "EUPL 1.2"
+        },
+        "version": "1.0.0-alpha"
+    },
+    "basePath": "/api/v1",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Authtoken": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "Authorization"
+        }
+    },
+    "security": [
+        {
+            "Authtoken": []
+        }
+    ],
+    "paths": {
+        "/deployments": {
+            "post": {
+                "operationId": "deployments_create",
+                "description": "Trigger a deployment.",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Deployment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Deployment"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            },
+                            "Location": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "description": "URL waar de resource leeft."
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ValidatieFout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "406": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "415": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Fout"
+                        },
+                        "headers": {
+                            "API-version": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "description": "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1."
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "deployments"
+                ]
+            },
+            "parameters": []
+        }
+    },
+    "definitions": {
+        "Deployment": {
+            "required": [
+                "name",
+                "namespace",
+                "containerName",
+                "image"
+            ],
+            "type": "object",
+            "properties": {
+                "name": {
+                    "title": "naam",
+                    "description": "Name of the deployment",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "namespace": {
+                    "title": "namespace",
+                    "description": "Namespace where the deployment lives",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "containerName": {
+                    "title": "container name",
+                    "description": "Name of the container to update",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "image": {
+                    "title": "image",
+                    "description": "Image to deploy, including tag",
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "Fout": {
+            "required": [
+                "code",
+                "title",
+                "status",
+                "detail",
+                "instance"
+            ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Type",
+                    "description": "URI referentie naar het type fout, bedoeld voor developers",
+                    "type": "string"
+                },
+                "code": {
+                    "title": "Code",
+                    "description": "Systeemcode die het type fout aangeeft",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "title": {
+                    "title": "Title",
+                    "description": "Generieke titel voor het type fout",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "status": {
+                    "title": "Status",
+                    "description": "De HTTP status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "title": "Detail",
+                    "description": "Extra informatie bij de fout, indien beschikbaar",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "instance": {
+                    "title": "Instance",
+                    "description": "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.",
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "FieldValidationError": {
+            "required": [
+                "name",
+                "code",
+                "reason"
+            ],
+            "type": "object",
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "description": "Naam van het veld met ongeldige gegevens",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "code": {
+                    "title": "Code",
+                    "description": "Systeemcode die het type fout aangeeft",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "reason": {
+                    "title": "Reason",
+                    "description": "Uitleg wat er precies fout is met de gegevens",
+                    "type": "string",
+                    "minLength": 1
+                }
+            }
+        },
+        "ValidatieFout": {
+            "required": [
+                "code",
+                "title",
+                "status",
+                "detail",
+                "instance",
+                "invalidParams"
+            ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Type",
+                    "description": "URI referentie naar het type fout, bedoeld voor developers",
+                    "type": "string"
+                },
+                "code": {
+                    "title": "Code",
+                    "description": "Systeemcode die het type fout aangeeft",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "title": {
+                    "title": "Title",
+                    "description": "Generieke titel voor het type fout",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "status": {
+                    "title": "Status",
+                    "description": "De HTTP status code",
+                    "type": "integer"
+                },
+                "detail": {
+                    "title": "Detail",
+                    "description": "Extra informatie bij de fout, indien beschikbaar",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "instance": {
+                    "title": "Instance",
+                    "description": "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.",
+                    "type": "string",
+                    "minLength": 1
+                },
+                "invalidParams": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/FieldValidationError"
+                    }
+                }
+            }
+        }
+    }
+}

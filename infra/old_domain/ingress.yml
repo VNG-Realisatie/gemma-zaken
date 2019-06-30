@@ -1,0 +1,22 @@
+---
+
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: redirects
+  namespace: zgw
+  labels:
+    app.kubernetes.io/instance: zgw-test
+    app.kubernetes.io/name: zgw
+spec:
+  rules:
+  - host: ref.tst.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: redirects
+            servicePort: 80
+  tls:
+    - hosts:
+        - ref.tst.vng.cloud
