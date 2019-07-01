@@ -16,9 +16,9 @@ Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (
 De volgende documenten beschrijven dit project:
 
 - We werken aan realisatie van de [Productvisie](docs/_content/introductie/productvisie.md) (concept)
-- Hoe we [samenwerken](docs/_content/introductie/samenwerking.md) is apart beschreven
+- Hoe we [samenwerken](docs/_content/overige/samenwerking.md) is apart beschreven
 - Hoe u kunt [bijdragen](docs/_content/community/bijdragen.md) (inclusief het reviewproces)
-- De [FAQ](docs/_content/introductie/faq.md) beantwoordt vragen over het project
+- De [FAQ](docs/_content/overige/faq.md) beantwoordt vragen over het project
 - De [dev-straat](docs/_content/overige/technisch/dev-straat.md) beschrijft de development
   inrichting en tooling
 - [Technische documentatie](docs/_content/ontwikkelaars/aan-de-slag.md) voor developers
