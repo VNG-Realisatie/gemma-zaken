@@ -1398,7 +1398,7 @@ paths:
   /rollen:
     get:
       operationId: rol_list
-      description: Opvragen en bewerken van ROLrelatie tussen een ZAAK en een BETROKKENE.
+      description: Geef een lijst van gekoppelde ROLen aan ZAAKen.
       parameters:
       - name: zaak
         in: query
@@ -1426,6 +1426,58 @@ paths:
           - Vestiging
           - Organisatorische eenheid
           - Medewerker
+      - name: betrokkeneIdentificatie__natuurlijkPersoon__inpBsn
+        in: query
+        description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene
+          bepalingen burgerservicenummer.
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie
+        in: query
+        description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+          NATUURLIJK PERSOON
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer
+        in: query
+        description: Het administratienummer van de persoon, bedoeld in de Wet BRP
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__nietNatuurlijkPersoon__innNnpId
+        in: query
+        description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+          NIET-NATUURLIJK PERSOON
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__nietNatuurlijkPersoon__annIdentificatie
+        in: query
+        description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+          NIET-NATUURLIJK PERSOON
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__vestiging__vestigingsNummer
+        in: query
+        description: Een korte unieke aanduiding van de Vestiging.
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__vestiging__identificatie
+        in: query
+        description: Een korte identificatie van de organisatorische eenheid.
+        required: false
+        schema:
+          type: string
+      - name: betrokkeneIdentificatie__medewerker__identificatie
+        in: query
+        description: Een korte unieke aanduiding van de MEDEWERKER.
+        required: false
+        schema:
+          type: string
       - name: rolomschrijving
         in: query
         description: Algemeen gehanteerde benaming van de aard van de ROL
@@ -1723,7 +1775,7 @@ paths:
       - rollen
       security:
       - JWT-Claims:
-        - zaken.aanmaken
+        - zaken.bijwerken
       requestBody:
         content:
           application/json:
@@ -1734,7 +1786,7 @@ paths:
   /rollen/{uuid}:
     get:
       operationId: rol_read
-      description: Opvragen en bewerken van ROLrelatie tussen een ZAAK en een BETROKKENE.
+      description: Haal de details van de ROL op.
       responses:
         '200':
           description: ''
@@ -1861,6 +1913,131 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
+    delete:
+      operationId: rol_delete
+      description: Verwijder het RESULTAAT van een ZAAK.
+      responses:
+        '204':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '401':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - rollen
+      security:
+      - JWT-Claims:
+        - zaken.bijwerken
     parameters:
     - name: uuid
       in: path
@@ -6719,7 +6896,7 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xF6rdinator"
+          - "Zaakco\xC3\xB6rdinator"
           - Mede-initiator
         roltoelichting:
           title: Roltoelichting
@@ -6738,20 +6915,21 @@ components:
       title: betrokkene_identificatie
       type: object
       properties:
-        inp.bsn:
-          title: Burgerservicenummer
+        inpBsn:
+          title: Inp bsn
           description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
             algemene bepalingen burgerservicenummer.
           type: string
           maxLength: 9
-        anp.identificatie:
-          title: Nummer ander natuurlijk persoon
+        anpIdentificatie:
+          title: Anp identificatie
           description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
             NATUURLIJK PERSOON
           type: string
           maxLength: 17
-        inp.a-nummer:
-          title: A nummer
+        inpA_nummer:
+          title: Inp a nummer
+          description: Het administratienummer van de persoon, bedoeld in de Wet BRP
           type: string
           pattern: ^[1-9][0-9]{9}$
           maxLength: 10
@@ -6803,7 +6981,7 @@ components:
           description: De gegevens over het verblijf en adres van de NATUURLIJK PERSOON
           type: string
           maxLength: 1000
-        sub.verblijfBuitenland:
+        subVerblijfBuitenland:
           title: Sub verblijf buitenland
           description: De gegevens over het verblijf in het buitenland
           type: string
@@ -6815,23 +6993,20 @@ components:
           $ref: '#/components/schemas/RolNatuurlijkPersoon'
     RolNietNatuurlijkPersoon:
       title: betrokkene_identificatie
-      required:
-      - ann.identificatie
       type: object
       properties:
-        inn.nnpId:
-          title: Rsin
+        innNnpId:
+          title: Inn nnp id
           description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
             NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 9
-        ann.identificatie:
-          title: Nummer ander nietnatuurlijk persoon
-          description: Het door de gemeente uitgegeven uniekenummer voor een ANDER
+        annIdentificatie:
+          title: Ann identificatie
+          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
             NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 17
-          minLength: 1
         statutaireNaam:
           title: Statutaire naam
           description: Naam van de niet-natuurlijke persoon zoals deze is vastgelegd
@@ -6839,8 +7014,8 @@ components:
             (Vennootschap onder firma of Commanditaire vennootschap).
           type: string
           maxLength: 500
-        inn.rechtsvorm:
-          title: Rechtsvorm
+        innRechtsvorm:
+          title: Inn rechtsvorm
           description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
           type: string
           enum:
@@ -6868,7 +7043,7 @@ components:
           description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 1000
-        sub.verblijfBuitenland:
+        subVerblijfBuitenland:
           title: Sub verblijf buitenland
           description: De gegevens over het verblijf in het buitenland
           type: string
@@ -6899,7 +7074,7 @@ components:
           description: De gegevens over het verblijf en adres van de Vestiging
           type: string
           maxLength: 1000
-        sub.verblijfBuitenland:
+        subVerblijfBuitenland:
           title: Sub verblijf buitenland
           description: De gegevens over het verblijf in het buitenland
           type: string
@@ -7060,7 +7235,6 @@ components:
     ZaakObject:
       required:
       - zaak
-      - object
       - type
       type: object
       properties:
@@ -7079,7 +7253,6 @@ components:
           type: string
           format: uri
           maxLength: 1000
-          minLength: 1
         relatieomschrijving:
           title: Relatieomschrijving
           description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
@@ -7090,9 +7263,1000 @@ components:
           description: Beschrijft het type object gerelateerd aan de zaak
           type: string
           enum:
-          - VerblijfsObject
-          - MeldingOpenbareRuimte
-          - InzageVerzoek
+          - adres
+          - besluit
+          - buurt
+          - enkelvoudigDocument
+          - gemeente
+          - gemeentelijkeOpenbareRuimte
+          - huishouden
+          - inrichtingselement
+          - kadastraleOnroerendeZaak
+          - kunstwerkdeel
+          - maatschappelijkeActiviteit
+          - medewerker
+          - natuurlijkPersoon
+          - nietNatuurlijkPersoon
+          - openbareRuimte
+          - organisatorischeEenheid
+          - pand
+          - spoorbaandeel
+          - status
+          - terreindeel
+          - terreinGebouwdObject
+          - vestiging
+          - waterdeel
+          - wegdeel
+          - wijk
+          - woonplaats
+          - wozDeelobject
+          - wozObject
+          - wozWaarde
+          - zakelijkRecht
+          - overige
+      discriminator:
+        propertyName: type
+    ObjectAdres:
+      title: object_identificatie
+      required:
+      - identificatie
+      - wplWoonplaatsNaam
+      - gorOpenbareRuimteNaam
+      - huisnummer
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        wplWoonplaatsNaam:
+          title: Wpl woonplaats naam
+          type: string
+          maxLength: 80
+          minLength: 1
+        gorOpenbareRuimteNaam:
+          title: Gor openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+        huisnummer:
+          title: Huisnummer
+          type: integer
+          maximum: 99999
+          minimum: 0
+        huisletter:
+          title: Huisletter
+          type: string
+          maxLength: 1
+        huisnummertoevoeging:
+          title: Huisnummertoevoeging
+          type: string
+          maxLength: 4
+        postcode:
+          title: Postcode
+          type: string
+          maxLength: 7
+    object_identificatie_ObjectAdres:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectAdres'
+    adres:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectAdres'
+    besluit:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+    ObjectBuurt:
+      title: object_identificatie
+      required:
+      - buurtCode
+      - buurtNaam
+      - gemGemeenteCode
+      - wykWijkCode
+      type: object
+      properties:
+        buurtCode:
+          title: Buurt code
+          description: De code behorende bij de naam van de buurt
+          type: string
+          maxLength: 2
+          minLength: 1
+        buurtNaam:
+          title: Buurt naam
+          description: De naam van de buurt, zoals die door het CBS wordt gebruikt.
+          type: string
+          maxLength: 40
+          minLength: 1
+        gemGemeenteCode:
+          title: Gem gemeente code
+          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
+            wordt aangeduid
+          type: string
+          maxLength: 4
+          minLength: 1
+        wykWijkCode:
+          title: Wyk wijk code
+          description: De code behorende bij de naam van de wijk
+          type: string
+          maxLength: 2
+          minLength: 1
+    object_identificatie_ObjectBuurt:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectBuurt'
+    buurt:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectBuurt'
+    enkelvoudigDocument:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+    ObjectGemeente:
+      title: object_identificatie
+      required:
+      - gemeenteNaam
+      - gemeenteCode
+      type: object
+      properties:
+        gemeenteNaam:
+          title: Gemeente naam
+          description: "De offici\xEBle door de gemeente vastgestelde gemeentenaam."
+          type: string
+          maxLength: 80
+          minLength: 1
+        gemeenteCode:
+          title: Gemeente code
+          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
+            wordt aangeduid
+          type: string
+          maxLength: 4
+          minLength: 1
+    object_identificatie_ObjectGemeente:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectGemeente'
+    gemeente:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectGemeente'
+    ObjectGemeentelijkeOpenbareRuimte:
+      title: object_identificatie
+      required:
+      - identificatie
+      - openbareRuimteNaam
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        openbareRuimteNaam:
+          title: Openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+    object_identificatie_ObjectGemeentelijkeOpenbareRuimte:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectGemeentelijkeOpenbareRuimte'
+    gemeentelijkeOpenbareRuimte:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectGemeentelijkeOpenbareRuimte'
+    AdresAanduidingGrp:
+      title: Adres aanduiding grp
+      required:
+      - numIdentificatie
+      - oaoIdentificatie
+      - wplWoonplaatsNaam
+      - gorOpenbareRuimteNaam
+      - aoaPostcode
+      - aoaHuisnummer
+      - aoaHuisletter
+      - aoaHuisnummertoevoeging
+      - ogoLocatieAanduiding
+      type: object
+      properties:
+        numIdentificatie:
+          title: Num identificatie
+          type: string
+          maxLength: 100
+          minLength: 1
+        oaoIdentificatie:
+          title: Oao identificatie
+          type: string
+          maxLength: 100
+          minLength: 1
+        wplWoonplaatsNaam:
+          title: Wpl woonplaats naam
+          type: string
+          maxLength: 80
+          minLength: 1
+        gorOpenbareRuimteNaam:
+          title: Gor openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+        aoaPostcode:
+          title: Aoa postcode
+          type: string
+          maxLength: 7
+        aoaHuisnummer:
+          title: Aoa huisnummer
+          type: integer
+          maximum: 99999
+          minimum: 0
+        aoaHuisletter:
+          title: Aoa huisletter
+          type: string
+          maxLength: 1
+        aoaHuisnummertoevoeging:
+          title: Aoa huisnummertoevoeging
+          type: string
+          maxLength: 4
+        ogoLocatieAanduiding:
+          title: Ogo locatie aanduiding
+          type: string
+          maxLength: 100
+          minLength: 1
+    ObjectTerreinGebouwdObject:
+      title: Is gehuisvest in
+      required:
+      - identificatie
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        adresAanduidingGrp:
+          $ref: '#/components/schemas/AdresAanduidingGrp'
+    ObjectHuishouden:
+      title: object_identificatie
+      required:
+      - nummer
+      type: object
+      properties:
+        nummer:
+          title: Nummer
+          description: Uniek identificerend administratienummer van een huishouden
+            zoals toegekend door de gemeente waarin het huishouden woonachtig is.
+          type: string
+          maxLength: 12
+          minLength: 1
+        isGehuisvestIn:
+          $ref: '#/components/schemas/ObjectTerreinGebouwdObject'
+    object_identificatie_ObjectHuishouden:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectHuishouden'
+    huishouden:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectHuishouden'
+    ObjectInrichtingselement:
+      title: object_identificatie
+      required:
+      - type
+      - identificatie
+      type: object
+      properties:
+        type:
+          title: Type
+          description: 'Specificatie van de aard van het inrichtingselement.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `Bak` - Bak
+
+            * `Bord` - Bord
+
+            * `Installatie` - Installatie
+
+            * `Kast` - Kast
+
+            * `Mast` - Mast
+
+            * `Paal` - Paal
+
+            * `Sensor` - Sensor
+
+            * `Straatmeubilair` - Straatmeubilair
+
+            * `Waterinrichtingselement` - Waterinrichtingselement
+
+            * `Weginrichtingselement` - Weginrichtingselement'
+          type: string
+          enum:
+          - Bak
+          - Bord
+          - Installatie
+          - Kast
+          - Mast
+          - Paal
+          - Sensor
+          - Straatmeubilair
+          - Waterinrichtingselement
+          - Weginrichtingselement
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          description: De benaming van het OBJECT
+          type: string
+          maxLength: 500
+    object_identificatie_ObjectInrichtingselement:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectInrichtingselement'
+    inrichtingselement:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectInrichtingselement'
+    ObjectKadastraleOnroerendeZaak:
+      title: object_identificatie
+      required:
+      - kadastraleIdentificatie
+      - kadastraleAanduiding
+      type: object
+      properties:
+        kadastraleIdentificatie:
+          title: Kadastrale identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        kadastraleAanduiding:
+          title: Kadastrale aanduiding
+          description: De typering van de kadastrale aanduiding van een onroerende
+            zaak conform Kadaster
+          type: string
+          maxLength: 1000
+          minLength: 1
+    object_identificatie_ObjectKadastraleOnroerendeZaak:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectKadastraleOnroerendeZaak'
+    kadastraleOnroerendeZaak:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectKadastraleOnroerendeZaak'
+    ObjectKunstwerkdeel:
+      title: object_identificatie
+      required:
+      - type
+      - identificatie
+      - naam
+      type: object
+      properties:
+        type:
+          title: Type
+          description: 'Specificatie van het soort Kunstwerk waartoe het kunstwerkdeel
+            behoort.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            '
+          type: string
+          maxLength: 40
+          minLength: 1
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          type: string
+          maxLength: 80
+          minLength: 1
+    object_identificatie_ObjectKunstwerkdeel:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectKunstwerkdeel'
+    kunstwerkdeel:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectKunstwerkdeel'
+    ObjectMaatschappelijkeActiviteit:
+      title: object_identificatie
+      required:
+      - kvkNummer
+      - handelsnaam
+      type: object
+      properties:
+        kvkNummer:
+          title: Kvk nummer
+          description: Landelijk uniek identificerend administratienummer van een
+            MAATSCHAPPELIJKE ACTIVITEIT zoals toegewezen door de Kamer van Koophandel
+            (KvK).
+          type: string
+          maxLength: 8
+          minLength: 1
+        handelsnaam:
+          title: Handelsnaam
+          description: De naam waaronder de onderneming handelt.
+          type: string
+          maxLength: 200
+          minLength: 1
+    object_identificatie_ObjectMaatschappelijkeActiviteit:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectMaatschappelijkeActiviteit'
+    maatschappelijkeActiviteit:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectMaatschappelijkeActiviteit'
+    object_identificatie_RolMedewerker:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/RolMedewerker'
+    medewerker:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_RolMedewerker'
+    object_identificatie_RolNatuurlijkPersoon:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/RolNatuurlijkPersoon'
+    natuurlijkPersoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_RolNatuurlijkPersoon'
+    object_identificatie_RolNietNatuurlijkPersoon:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/RolNietNatuurlijkPersoon'
+    nietNatuurlijkPersoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_RolNietNatuurlijkPersoon'
+    ObjectOpenbareRuimte:
+      title: object_identificatie
+      required:
+      - identificatie
+      - wplWoonplaatsNaam
+      - gorOpenbareRuimteNaam
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        wplWoonplaatsNaam:
+          title: Wpl woonplaats naam
+          type: string
+          maxLength: 80
+          minLength: 1
+        gorOpenbareRuimteNaam:
+          title: Gor openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+    object_identificatie_ObjectOpenbareRuimte:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectOpenbareRuimte'
+    openbareRuimte:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectOpenbareRuimte'
+    object_identificatie_RolOrganisatorischeEenheid:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/RolOrganisatorischeEenheid'
+    organisatorischeEenheid:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_RolOrganisatorischeEenheid'
+    ObjectPand:
+      title: object_identificatie
+      required:
+      - identificatie
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+    object_identificatie_ObjectPand:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectPand'
+    pand:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectPand'
+    ObjectSpoorbaandeel:
+      title: object_identificatie
+      required:
+      - type
+      - identificatie
+      type: object
+      properties:
+        type:
+          title: Type
+          description: 'Specificatie van het soort Spoorbaan
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `breedspoor` - breedspoor
+
+            * `normaalspoor` - normaalspoor
+
+            * `smalspoor` - smalspoor
+
+            * `spoorbaan` - spoorbaan'
+          type: string
+          enum:
+          - breedspoor
+          - normaalspoor
+          - smalspoor
+          - spoorbaan
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          description: De benaming van het OBJECT
+          type: string
+          maxLength: 500
+    object_identificatie_ObjectSpoorbaandeel:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectSpoorbaandeel'
+    spoorbaandeel:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectSpoorbaandeel'
+    status:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+    ObjectTerreindeel:
+      title: object_identificatie
+      required:
+      - type
+      - identificatie
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+          maxLength: 40
+          minLength: 1
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          description: De benaming van het OBJECT
+          type: string
+          maxLength: 500
+    object_identificatie_ObjectTerreindeel:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectTerreindeel'
+    terreindeel:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'
+    object_identificatie_ObjectTerreinGebouwdObject:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectTerreinGebouwdObject'
+    terreinGebouwdObject:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'
+    object_identificatie_RolVestiging:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/RolVestiging'
+    vestiging:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_RolVestiging'
+    ObjectWaterdeel:
+      title: object_identificatie
+      required:
+      - typeWaterdeel
+      - identificatie
+      type: object
+      properties:
+        typeWaterdeel:
+          title: Type waterdeel
+          description: 'Specificatie van het soort water
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            '
+          type: string
+          maxLength: 50
+          minLength: 1
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          description: De benaming van het OBJECT
+          type: string
+          maxLength: 500
+    object_identificatie_ObjectWaterdeel:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWaterdeel'
+    waterdeel:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'
+    ObjectWegdeel:
+      title: object_identificatie
+      required:
+      - type
+      - identificatie
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+          maxLength: 100
+          minLength: 1
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        naam:
+          title: Naam
+          description: De benaming van het OBJECT
+          type: string
+          maxLength: 500
+    object_identificatie_ObjectWegdeel:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWegdeel'
+    wegdeel:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'
+    ObjectWijk:
+      title: object_identificatie
+      required:
+      - wijkCode
+      - wijkNaam
+      - gemGemeenteCode
+      type: object
+      properties:
+        wijkCode:
+          title: Wijk code
+          description: De code behorende bij de naam van de wijk.
+          type: string
+          maxLength: 2
+          minLength: 1
+        wijkNaam:
+          title: Wijk naam
+          description: De naam van de wijk, zoals die door het CBS wordt gebruikt.
+          type: string
+          maxLength: 40
+          minLength: 1
+        gemGemeenteCode:
+          title: Gem gemeente code
+          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
+            wordt aangeduid
+          type: string
+          maxLength: 4
+          minLength: 1
+    object_identificatie_ObjectWijk:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWijk'
+    wijk:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWijk'
+    ObjectWoonplaats:
+      title: object_identificatie
+      required:
+      - identificatie
+      - woonplaatsNaam
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        woonplaatsNaam:
+          title: Woonplaats naam
+          description: De door het bevoegde gemeentelijke orgaan aan een WOONPLAATS
+            toegekende benaming.
+          type: string
+          maxLength: 80
+          minLength: 1
+    object_identificatie_ObjectWoonplaats:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWoonplaats'
+    woonplaats:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
+    AanduidingWozObject:
+      title: Aanduiding woz object
+      required:
+      - oaoIdentificatie
+      - wplWoonplaatsNaam
+      - aoaPostcode
+      - gorOpenbareRuimteNaam
+      - aoaHuisnummer
+      - aoaHuisletter
+      - aoaHuisnummertoevoeging
+      - locatieOmschrijving
+      type: object
+      properties:
+        oaoIdentificatie:
+          title: Oao identificatie
+          type: string
+          maxLength: 100
+          minLength: 1
+        wplWoonplaatsNaam:
+          title: Wpl woonplaats naam
+          type: string
+          maxLength: 80
+          minLength: 1
+        aoaPostcode:
+          title: Aoa postcode
+          type: string
+          maxLength: 7
+        gorOpenbareRuimteNaam:
+          title: Gor openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+        aoaHuisnummer:
+          title: Aoa huisnummer
+          type: integer
+          maximum: 99999
+          minimum: 0
+        aoaHuisletter:
+          title: Aoa huisletter
+          type: string
+          maxLength: 1
+        aoaHuisnummertoevoeging:
+          title: Aoa huisnummertoevoeging
+          type: string
+          maxLength: 4
+        locatieOmschrijving:
+          title: Locatie omschrijving
+          type: string
+          maxLength: 1000
+          minLength: 1
+    ObjectWozObject:
+      title: Is onderdeel van
+      required:
+      - wozObjectNummer
+      type: object
+      properties:
+        wozObjectNummer:
+          title: Woz object nummer
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        aanduidingWozObject:
+          $ref: '#/components/schemas/AanduidingWozObject'
+    ObjectWozDeelobject:
+      title: object_identificatie
+      required:
+      - nummerWozDeelObject
+      type: object
+      properties:
+        nummerWozDeelObject:
+          title: Nummer woz deel object
+          description: Uniek identificatienummer voor het deelobject binnen een WOZ-object.
+          type: string
+          maxLength: 6
+          minLength: 1
+        isOnderdeelVan:
+          $ref: '#/components/schemas/ObjectWozObject'
+    object_identificatie_ObjectWozDeelobject:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWozDeelobject'
+    wozDeelobject:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWozDeelobject'
+    object_identificatie_ObjectWozObject:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWozObject'
+    wozObject:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'
+    ObjectWozWaarde:
+      title: object_identificatie
+      required:
+      - waardepeildatum
+      type: object
+      properties:
+        waardepeildatum:
+          title: Waardepeildatum
+          description: De datum waarnaar de waarde van het WOZ-object wordt bepaald.
+          type: string
+          maxLength: 9
+          minLength: 1
+        isVoor:
+          $ref: '#/components/schemas/ObjectWozObject'
+    object_identificatie_ObjectWozWaarde:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectWozWaarde'
+    wozWaarde:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectWozWaarde'
+    ZakelijkRechtHeeftAlsGerechtigde:
+      title: Heeft als gerechtigde
+      type: object
+      properties:
+        natuurlijkPersoon:
+          $ref: '#/components/schemas/RolNatuurlijkPersoon'
+        nietNatuurlijkPersoon:
+          $ref: '#/components/schemas/RolNietNatuurlijkPersoon'
+    ObjectZakelijkRecht:
+      title: object_identificatie
+      required:
+      - identificatie
+      - avgAard
+      type: object
+      properties:
+        identificatie:
+          title: Identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        avgAard:
+          title: Avg aard
+          description: aanduiding voor de aard van het recht
+          type: string
+          maxLength: 1000
+          minLength: 1
+        heeftBetrekkingOp:
+          $ref: '#/components/schemas/ObjectKadastraleOnroerendeZaak'
+        heeftAlsGerechtigde:
+          $ref: '#/components/schemas/ZakelijkRechtHeeftAlsGerechtigde'
+    object_identificatie_ObjectZakelijkRecht:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectZakelijkRecht'
+    zakelijkRecht:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectZakelijkRecht'
+    ObjectOverige:
+      title: object_identificatie
+      required:
+      - overigeData
+      type: object
+      properties:
+        overigeData:
+          title: Overige data
+          type: object
+    object_identificatie_ObjectOverige:
+      type: object
+      properties:
+        objectIdentificatie:
+          $ref: '#/components/schemas/ObjectOverige'
+    overige:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - $ref: '#/components/schemas/object_identificatie_ObjectOverige'
     Geometry:
       title: Geometry
       description: GeoJSON geometry
@@ -7113,8 +8277,6 @@ components:
           - Feature
           - FeatureCollection
           - GeometryCollection
-      discriminator:
-        propertyName: type
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1
     Point2D:
@@ -7240,6 +8402,8 @@ components:
     GeoJSONGeometry:
       title: GeoJSONGeometry
       type: object
+      discriminator:
+        propertyName: type
       oneOf:
       - $ref: '#/components/schemas/Point'
       - $ref: '#/components/schemas/MultiPoint'
@@ -7290,6 +8454,31 @@ components:
             van de zaak.
           type: string
           maxLength: 200
+    RelevanteZaak:
+      description: 'Een lijst van objecten met ieder twee elementen:
+
+        * `zaak` - een url naar een andere `Zaak`
+
+        * `aardRelatie` - beschrijving van de relatie tussen de twee `Zaak`en, waarbij
+        de onderstaande waardes toegestaan zijn.'
+      required:
+      - url
+      - aardRelatie
+      type: object
+      properties:
+        url:
+          title: URL naar zaak
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        aardRelatie:
+          title: Aard relatie
+          type: string
+          enum:
+          - vervolg
+          - onderwerp
+          - bijdrage
     ZaakKenmerk:
       description: Lijst van kenmerken. Merk op dat refereren naar gerelateerde objecten
         beter kan via `ZaakObject`.
@@ -7500,13 +8689,28 @@ components:
           readOnly: true
           uniqueItems: true
         relevanteAndereZaken:
+          description: 'Een lijst van objecten met ieder twee elementen:
+
+            * `zaak` - een url naar een andere `Zaak`
+
+            * `aardRelatie` - beschrijving van de relatie tussen de twee `Zaak`en,
+            waarbij de onderstaande waardes toegestaan zijn.
+
+
+            De mapping van waarden naar weergave is als volgt:
+
+
+            * `vervolg` - De andere zaak gaf aanleiding tot het starten van de onderhanden
+            zaak.
+
+            * `onderwerp` - De andere zaak is relevant voor cq. is onderwerp van de
+            onderhanden zaak.
+
+            * `bijdrage` - Aan het bereiken van de uitkomst van de andere zaak levert
+            de onderhanden zaak een bijdrage.'
           type: array
           items:
-            title: URL naar andere zaak
-            type: string
-            format: uri
-            maxLength: 255
-            minLength: 1
+            $ref: '#/components/schemas/RelevanteZaak'
         status:
           title: Status
           description: Indien geen status bekend is, dan is de waarde 'null'
