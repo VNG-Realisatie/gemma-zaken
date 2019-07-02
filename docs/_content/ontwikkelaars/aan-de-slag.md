@@ -266,7 +266,7 @@ Autorisatiecomponent (AC)
    Don't forget to enter your own secret (bottom right) instead of `your-256-bit-secret`!
    
    _Creating a JWT does not register the secret with the hosted reference components. 
-   See the [API guides](https://ref.tst.vng.cloud/ontwikkelaars/guides) how this works._
+   See the [API guides](./guides) how this works._
 
 Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)
 
@@ -296,7 +296,7 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
 ### API Guides
 
-Er zijn verschillende [API guides](https://ref.tst.vng.cloud/ontwikkelaars/guides) beschikbaar met
+Er zijn verschillende [API guides](guides) beschikbaar met
 veelvoorkomende consumer handelingen.
 
 
