@@ -52,7 +52,7 @@ beschikbaar. Hierin wordt uitvoerig beschreven hoe Zaakgericht Werken bedoeld
 is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a.
 [referentiecomponenten en Integratiepatronen Zaakgericht werken](https://www.gemmaonline.nl/index.php/ZGW_in_GEMMA_2).
 
-Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](samenwerking)
+Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](../overige/samenwerking)
 aan realisatie van de ZGW API's.
 
 De naam Zaak- en Documentservices (ZDS) werd eerder gebruikt om duidelijk te 
