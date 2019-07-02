@@ -42,9 +42,9 @@ Om snel aan de slag te gaan:
 Om de documentatie website via [Docker](https://docs.docker.com/) te draaien:
 
 1. Bouw en start de Docker container.
-   ```
+   ```bash
    $ cd docs
-   $ docker build -t vngr/gemma-zaken-docs .
+   $ ./release-docker-image.sh
    $ docker run -p 80:80 --rm --name gemma-zaken-docs vngr/gemma-zaken-docs
    ```
 
