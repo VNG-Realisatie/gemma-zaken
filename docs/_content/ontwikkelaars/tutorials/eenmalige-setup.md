@@ -72,15 +72,44 @@ Gebruik de [tokentool](https://ref.tst.vng.cloud/tokens/) om een _Client ID_
 en _Secret_ te genereren, of verzin deze zelf. Deze credentials moet je straks
 opvoeren.
 
+## Bootstrapping
+
+Je kan een basisconfiguratie genereren en inladen met docker-compose:
+
+```bash
+docker-compose run tokentool src/manage.py generate_fixtures
+# Client ID: abc123
+# Secret: letmein
+```
+
+Deze fixtures worden vervolgens ingeladen bij het herstarten van de services:
+
+```bash
+docker-compose down
+docker-compose up
+```
+
+Eenmaal alle services weer 'up' zijn, verwijder dan de gegenereerde fixtures:
+
+```bash
+docker-compose run tokentool rm /tmp/fixtures/*
+```
+
+Als je deze bestanden laat bestaan, dan worden aanpassingen in de volgende
+stappen bij de volgende herstart overschreven.
+
 ## Configuratie in de administratieve interface
 
 Het IP-adres uit de ['aan de slag'](../aan-de-slag) voorbereiding is hier
 nodig om de componenten via de browser aan te spreken.
 
+Via de homepage van elke component kan je een view-config pagina bereiken die
+de status van configuratie toont.
+
 ### ZRC
 
-1. Open in je browser `http://<zrc-ip>:8000/admin/` en log in met je 
-   gebruikersnaam en wachtwoord uit de vorige stap.
+1. Open in je browser `http://<zrc-ip>:8000/admin/` en log in met je
+   gebruikersnaam en wachtwoord uit de "Aanmaken supergebruikers" stap.
 
 2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
 
@@ -90,67 +119,38 @@ nodig om de componenten via de browser aan te spreken.
 
 5. Navigeer terug naar de **Voorpagina**
 
-6. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
-   op **JWT Secret toevoegen**
+6. Navigeer naar **VNG_API_COMMON** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
 
-7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
-   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+   De mapping van poort naar service is:
 
-   Deze credentials laten toe om met de API van het ZRC te communiceren.
+   * 8001: DRC
+   * 8002: ZTC
+   * 8003: BRC
+   * 8004: NRC
+   * 8005: AC
 
-8. Ga een stap terug naar **VNG_API_COMMON** en navigeer naar
-   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
 
-   Deze credentials worden gebruikt als het ZRC met een _andere_ API moet
-   communiceren (zoals een NRC).
-
-9. Configureer credentials voor het NRC:
-
-    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
-
-    Klik vervolgens op **Opslaan en nieuwe toevoegen**
-
-10. Configureer credentials voor het DRC:
-
-    * Vul bij **Api root** het adres van het DRC in: `http://<drc-ip>:8001/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
-
-    Klik vervolgens op **Opslaan en nieuwe toevoegen**
-
-11. Configureer credentials voor het ZTC:
-
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ztc-ip>:8002/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
 
     Klik vervolgens op **Opslaan**
 
-12. Configureer credentials voor het AC:
+8. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
 
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
 
     Klik vervolgens op **Opslaan**
-
-13. Ga terug naar de **Voorpagina**
-
-14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
-
-15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
-    lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
-    
-16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
-
-17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
-    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
 
 ### DRC
 
-1. Open in je browser `http://<drc-ip>:8001/admin/` en log in met je 
+1. Open in je browser `http://<drc-ip>:8001/admin/` en log in met je
    gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
@@ -161,67 +161,38 @@ nodig om de componenten via de browser aan te spreken.
 
 5. Navigeer terug naar de **Voorpagina**
 
-6. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
-   op **JWT Secret toevoegen**
+6. Navigeer naar **VNG_API_COMMON** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
 
-7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
-   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+   De mapping van poort naar service is:
 
-   Deze credentials laten toe om met de API van het DRC te communiceren.
+   * 8000: ZRC
+   * 8002: ZTC
+   * 8003: BRC
+   * 8004: NRC
+   * 8005: AC
 
-8. Ga een stap terug naar **VNG_API_COMMON** en navigeer naar
-   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
 
-   Deze credentials worden gebruikt als het DRC met een _andere_ API moet
-   communiceren (zoals een NRC).
-
-9. Configureer credentials voor het NRC:
-
-    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
-
-    Klik vervolgens op **Opslaan en nieuwe toevoegen**
-
-10. Configureer credentials voor het ZRC:
-
-    * Vul bij **Api root** het adres van het ZRC in: `http://<zrc-ip>:8000/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
-
-    Klik vervolgens op **Opslaan en nieuwe toevoegen**
-
-11. Configureer credentials voor het ZTC:
-
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ztc-ip>:8002/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
-
-    Klik vervolgens op **Opslaan**
-    
-12. Configureer credentials voor het AC:
-
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
 
     Klik vervolgens op **Opslaan**
 
-13. Ga terug naar de **Voorpagina**
+8. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
 
-14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
 
-15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
-    lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
-    
-16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
-
-17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
-    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
+    Klik vervolgens op **Opslaan**
 
 ### ZTC
 
-1. Open in je browser `http://<ztc-ip>:8002/admin/` en log in met je 
+1. Open in je browser `http://<ztc-ip>:8002/admin/` en log in met je
    gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **MISCELLANEOUS** > **Sites** en klik `example.com` aan.
@@ -232,49 +203,114 @@ nodig om de componenten via de browser aan te spreken.
 
 5. Navigeer terug naar de **Voorpagina**
 
-6. Navigeer naar **MISCELLANEOUS** > **JWT secrets** en klik rechtsboven
-   op **JWT Secret toevoegen**
+6. Navigeer naar **MISCELLANEOUS** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
 
-7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
-   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+   De mapping van poort naar service is:
 
-   Deze credentials laten toe om met de API van het ZTC te communiceren.
-   
-8. Ga een stap terug naar **MISCELLANEOUS** en navigeer naar
-   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+   * 8000: ZRC
+   * 8001: DRC
+   * 8003: BRC
+   * 8004: NRC
+   * 8005: AC
 
-   Deze credentials worden gebruikt als het ZTC met een _andere_ API moet
-   communiceren (zoals een AC).
-   
-9. Configureer credentials voor het AC:
+7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
 
-    * Vul bij **Api root** het adres van het ZTC in: `http://<ac-ip>:8005/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
 
     Klik vervolgens op **Opslaan**
-  
-10. Navigeer naar **MISCELLANEOUS** > **Autorisatiecomponentconfiguratie**
 
-11. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
-    lokale AC. Vul opnieuw je **Client id** en **Secret** in.   
+8. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
+
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
+
+    Klik vervolgens op **Opslaan**
+
+### BRC
+
+1. Open in je browser `http://<brc-ip>:8003/admin/` en log in met je
+   gebruikersnaam en wachtwoord uit de "Aanmaken supergebruikers" stap.
+
+2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
+
+3. Wijzig 'Domeinnaam' naar `<brc-ip>:8000` en wijzig 'Weergavenaam' naar `BRC`
+
+4. Sla de wijzigingen op
+
+5. Navigeer terug naar de **Voorpagina**
+
+6. Navigeer naar **VNG_API_COMMON** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
+
+   De mapping van poort naar service is:
+
+   * 8000: ZRC
+   * 8001: DRC
+   * 8002: ZTC
+   * 8004: NRC
+   * 8005: AC
+
+7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
+
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
+
+    Klik vervolgens op **Opslaan**
+
+8. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
+
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
+
+    Klik vervolgens op **Opslaan**
 
 ### NRC
 
-1. Open in je browser `http://<nrc-ip>:8004/admin/` en log in met je 
+1. Open in je browser `http://<nrc-ip>:8004/admin/` en log in met je
    gebruikersnaam en wachtwoord uit de vorige stap.
 
-2. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
-   op **JWT Secret toevoegen**
+2. Navigeer naar **VNG_API_COMMON** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
 
-7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
-   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+   De mapping van poort naar service is:
 
-   Deze credentials laten toe om met de API van het NRC te communiceren.
+   * 8000: ZRC
+   * 8001: DRC
+   * 8002: ZTC
+   * 8003: BRC
+   * 8005: AC
+
+3. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
+
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
+
+    Klik vervolgens op **Opslaan**
+
+4. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
+
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
+
+    Klik vervolgens op **Opslaan**
 
 ### AC
 
-1. Open in je browser `http://<ac-ip>:8005/admin/` en log in met je 
+1. Open in je browser `http://<ac-ip>:8005/admin/` en log in met je
    gebruikersnaam en wachtwoord uit de vorige stap.
 
 2. Navigeer naar **Sites** > **Sites** en klik `example.com` aan.
@@ -285,52 +321,34 @@ nodig om de componenten via de browser aan te spreken.
 
 5. Navigeer terug naar de **Voorpagina**
 
-6. Navigeer naar **VNG_API_COMMON** > **JWT secrets** en klik rechtsboven
-   op **JWT Secret toevoegen**
+6. Navigeer naar **VNG_API_COMMON** en klik door naar
+   **API credentials**. Voor elke record moet je de API root
+   wijzigen van `http://localhost:800x`, waarbij je `localhost` vervangt door
+   het IP adres van de service.
 
-7. Vul bij **Identifier** het _Client ID_ in en bij **Secret** het _Secret_.
-   Beide komen uit de stap [api-credentials genereren](#api-credentials-genereren).
+   De mapping van poort naar service is:
 
-   Deze credentials laten toe om met de API van het AC te communiceren.
+   * 8000: ZRC
+   * 8001: DRC
+   * 8002: ZTC
+   * 8003: BRC
+   * 8004: NRC
 
-8. Ga een stap terug naar **VNG_API_COMMON** en navigeer naar
-   **API credentials**. Klik rechtsboven op **API Credential toevoegen**.
+7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   juist in:
 
-   Deze credentials worden gebruikt als het AC met een _andere_ API moet
-   communiceren (zoals een NRC).
+    * **Api root**: `http://<ac-ip>:8005/api/v1/`
+    * **Component**: Zaakregistratiecomponent
 
-9. Configureer credentials voor het NRC:
+    Klik vervolgens op **Opslaan**
 
-    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1`
-    * Vul bij **Client id** het _Client ID_ in
-    * Vul bij **Secret** het _Secret_ in
+8. Configureer het NRC: navigeer terug naar de **Voorpagina**. Klik vervolgens
+   op **NOTIFICATIES** > **Notificatiescomponentconfiguratie**.
 
-    Klik vervolgens op **Opslaan en nieuwe toevoegen**
+    * Vul bij **Api root** het adres van het NRC in: `http://<nrc-ip>:8004/api/v1/`
 
-13. Ga terug naar de **Voorpagina**
-
-14. Navigeer naar **NOTIFICATIES** > **Notificatiescomponentconfiguratie**
-
-15. Wijzig de **Api root** naar `http://<nrc-ip>:8004/api/v1` - dit is je eigen,
-    lokale NRC. Vul opnieuw je **Client id** en **Secret** in.
-    
-16. Navigeer naar **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**
-
-17. Wijzig de **Api root** naar `http://<nrc-ip>:8005/api/v1` - dit is je eigen,
-    lokale AC. Vul opnieuw je **Client id** en **Secret** in.
-    
-18. Ga terug naar de **Voorpagina**
-
-19. Navigate to **AUTHORIZATIONS** > **Applicaties** 
-    Configure access of all consumers to all providers. For testing purposes
-    a superuser creation is allowed:
-    
-    * Fill in **Client ids** with a comma separated list of client identifiers. 
-    * Fill in **Label** with the name of the consumer
-    * Tick **Heeft alle autorisaties** flag which grants superuser rights.  
-    
-    If you don't want to have a superuser access choose specific rights in the 
-    section **Autorisaties**.     
+    Klik vervolgens op **Opslaan**
 
 ## Registratie van de kanalen
 

@@ -49,6 +49,8 @@ services:
       - SECRET_KEY=c1zqz%y-s-$$63ca_abc8dmfjno#&pk!wy8k9f8c*4w@(whxy1n'
       - DB_HOST=zrc_db
       - IS_HTTPS=0
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - zrc_db
 
@@ -59,7 +61,9 @@ services:
       - SECRET_KEY=h1kluf9r2yhcfr_i!fqb!srx=!u@!^b_gdl54=h0n15j34*+#=
       - DB_HOST=drc_db
       - IS_HTTPS=0
+      - SENDFILE_BACKEND=sendfile.backends.simple
     volumes:
+      - token_fixtures:/app/fixtures
       - drc_media:/app/private-media
     depends_on:
       - drc_db
@@ -71,6 +75,8 @@ services:
       - SECRET_KEY=)lwxn07vp1+ru=yf^n+v4l&ij24l3vhhitw9vk4=0ix14ibmfj
       - DB_HOST=ztc_db
       - IS_HTTPS=0
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - ztc_db
 
@@ -81,6 +87,8 @@ services:
       - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
       - DB_HOST=brc_db
       - IS_HTTPS=0
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - brc_db
 
@@ -94,6 +102,8 @@ services:
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - nrc_db
       - nrc_rabbitmq
@@ -109,6 +119,8 @@ services:
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
     command: celery worker --app=notifications -l info --workdir=src
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - nrc_db
       - nrc_rabbitmq
@@ -120,8 +132,18 @@ services:
       - SECRET_KEY=%a$$ac3x=au_h_7q1--3hsu6crina5u)@a=i7l!!62h9vlo%#!c
       - DB_HOST=ac_db
       - IS_HTTPS=0
+    volumes:
+      - token_fixtures:/app/fixtures
     depends_on:
       - ac_db
+
+  tokentool:
+    image: maykinmedia/zds-token-issuer:0.5.0
+    command: ["/bin/sh", "-c", "echo done"]
+    environment:
+      - SECRET_KEY=dummy
+    volumes:
+      - token_fixtures:/tmp/fixtures
 
 volumes:
   zrc_postgres_data:
@@ -131,3 +153,4 @@ volumes:
   brc_postgres_data:
   nrc_postgres_data:
   ac_postgres_data:
+  token_fixtures:
