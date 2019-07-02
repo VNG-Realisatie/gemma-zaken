@@ -24,7 +24,7 @@ $ docker-compose up
 
 ## Voorbereiding
 
-Alle referentie componenten zijn als [Docker][docker] containers beschikbaar.
+Alle referentie componenten zijn als [Docker][docker] images beschikbaar.
 De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 **Verplicht**
@@ -141,12 +141,12 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
    Navigeer in de browser naar:
 
-   * ZRC: `http://<ip>:8000`
-   * DRC: `http://<ip>:8001`
-   * ZTC: `http://<ip>:8002`
-   * BRC: `http://<ip>:8003`
-   * NRC: `http://<ip>:8004`
-   * AC: `http://<ip>:8005`
+   * ZRC: `http://<ip-of-localhost>:8000`
+   * DRC: `http://<ip-of-localhost>:8001`
+   * ZTC: `http://<ip-of-localhost>:8002`
+   * BRC: `http://<ip-of-localhost>:8003`
+   * NRC: `http://<ip-of-localhost>:8004`
+   * AC: `http://<ip-of-localhost>:8005`
 
 5. Admin aanmaken voor elk referentie component
 
@@ -167,12 +167,12 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    In plaats van `infra_ztc_web_1` kunnen ook de andere Docker containers
    benaderd worden door de bewuste naam onder `NAMES` te gebruiken.
 
-   Vervolgens kan je daarmee inloggen op `http://<ip>:800x/admin/` om
+   Vervolgens kan je daarmee inloggen op `http://<ip-of-localhost>:800x/admin/` om
    testdata in te kunnen richten of gegevens te raadplegen.
 
 6. Indien extra configuratie nodig is binnen een component, dan vind je deze
    in de documentatie van de component zelf. Deze staat gelinkt op
-   `http://<ip>:800x` indien die aanwezig is.
+   `http://<ip-of-localhost>:800x` indien die aanwezig is.
 
 7. De volgende stap is het inrichten van de autorisaties
 
@@ -212,7 +212,7 @@ Autorisatiecomponent (AC)
    First, configure the AC url in your API:
    Login to the API admin and go to `Autorisatiecomponentconfiguratie` and click on **Add**.
    Enter all data and click **Save**:
-   * `Api root`: A url to the AC root, for example `http://<ip>:800x/api/v1/`.
+   * `Api root`: A url to the AC root, for example `http://<ip-of-localhost>:800x/api/v1/`.
    * `Component`: The sort of component this provider is - this is used to request the correct authorizations from the AC.
    
    After this, there are two ways of creating rights in the AC - via admin page and 
@@ -246,11 +246,11 @@ Autorisatiecomponent (AC)
    Enter all data and click **Save**:
 
    * `Api root`: Enter the URL of the API root of the relevant component (here it is AC). 
-     For instance: `http://<ip>:800x/api/v1/`
+     For instance: `http://<ip-of-localhost>:800x/api/v1/`
    * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 1 voor het
-     betreffende component wat bereikbaar is op `Api root`.
+     betreffende component wat bereikbaar is op `API root`.
    * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 1 voor het
-     betreffende component wat bereikbaar is op `Api root`.
+     betreffende component wat bereikbaar is op `API root`.
 
    Repeat this step for all APIs querying other components. Please make sure that these relevant 
    components have `Client credentials` from step 1. consistent with `External API credentials`
@@ -290,8 +290,8 @@ $ docker-compose down
 
 De API's en API documentatie zijn beschikbaar op de volgende URLs:
 
-* `http://localhost:800x/api/v1/` - API root
-* `http://localhost:800x/api/v1/schema/` - API documentatie
+* `http://<ip-of-localhost>:800x/api/v1/` - API root
+* `http://<ip-of-localhost>:800x/api/v1/schema/` - API documentatie
 
 
 ### API Guides
