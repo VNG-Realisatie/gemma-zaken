@@ -13,7 +13,7 @@ data:
       [services.ac]
 
       # `endpoint-url` should be set to the address at which the API is available.
-      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1/"
+      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1"
 
       # `documentation-url` should point to the documentation for the API
       documentation-url = "https://autorisaties-api.vng.cloud/"
@@ -34,17 +34,17 @@ data:
       # this field is optional
       # tech-support-contact   = "tech@my-organization.nl"
       [services.brc]
-      endpoint-url = "https://besluiten-api.vng.cloud/api/v1/"
+      endpoint-url = "https://besluiten-api.vng.cloud/api/v1"
       documentation-url = "https://besluiten-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/"
       [services.drc]
-      endpoint-url = "https://documenten-api.vng.cloud/api/v1/"
+      endpoint-url = "https://documenten-api.vng.cloud/api/v1"
       documentation-url = "https://documenten-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/"
       [services.nrc]
-      endpoint-url = "https://notificaties-api.vng.cloud/api/v1/"
+      endpoint-url = "https://notificaties-api.vng.cloud/api/v1"
       documentation-url = "https://notificaties-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/"
@@ -54,7 +54,7 @@ data:
       authorization-model = "none"
       api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/"
       [services.ztc]
-      endpoint-url = "https://catalogi-api.vng.cloud/api/v1/"
+      endpoint-url = "https://catalogi-api.vng.cloud/api/v1"
       documentation-url = "https://catalogi-api.vng.cloud"
       authorization-model = "none"
       api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/"
