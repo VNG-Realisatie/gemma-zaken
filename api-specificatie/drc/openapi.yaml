@@ -4029,6 +4029,12 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
+        locked:
+          title: locked
+          description: Geeft aan of het document gelocked is. Alleen als een document
+            gelocked is, mogen er aanpassingen gemaakt worden.
+          type: boolean
+          readOnly: true
     Fout:
       required:
       - code
@@ -4775,6 +4781,12 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
+        locked:
+          title: locked
+          description: Geeft aan of het document gelocked is. Alleen als een document
+            gelocked is, mogen er aanpassingen gemaakt worden.
+          type: boolean
+          readOnly: true
     Wijzgingen:
       title: Wijzigingen
       type: object
@@ -5572,6 +5584,12 @@ components:
           format: uri
           maxLength: 200
           minLength: 1
+        locked:
+          title: locked
+          description: Geeft aan of het document gelocked is. Alleen als een document
+            gelocked is, mogen er aanpassingen gemaakt worden.
+          type: boolean
+          readOnly: true
         lock:
           title: Lock
           description: Tijdens het updaten van een document (PATCH, PUT) moet het
