@@ -33,7 +33,7 @@ Iedere referentieimplementatie van een component leeft in zijn eigen repository:
 * [ZRC](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
 * [DRC](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
 * [ZTC](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
-* [BRC](https://github.com/VNG-Realisatie/gemma-besluitregistratie)
+* [BRC](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent)
 
 Voor de referentieimplementaties wordt het git-flow git-branching model
 aangehouden. Dit houdt in dat de `master` branch de huidige stabiele,
