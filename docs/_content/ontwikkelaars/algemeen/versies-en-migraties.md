@@ -61,8 +61,8 @@ HTTP 200
 5. Voordat Zaken API v1.0.0 wordt stopgezet moeten alle applicaties (die
    iets doen met de Zaken API) kunnen omgaan met Zaken API v2.0.0.
 6. Als alle applicaties kunnen omgaan met Zaken API v2.0.0 kunnen alle URL's
-   naar de Catalogi API v1.0.0 worden aangepast naar de nieuwe versie
-7. Catalogi API v1.0.0 kan worden stopgezet
+   naar de Zaken API v1.0.0 worden aangepast naar de nieuwe versie
+7. Zaken API v1.0.0 kan worden stopgezet
 
 ```
 GET https://gemeente.nl/api/zaken/v2/zaken/6c821f  HTTP/1.0
@@ -153,7 +153,7 @@ HTTP 200
 ```
 GET https://gemeente.nl/api/zaken/v1/zaken/6c821f  HTTP/1.0
 
-HTTP 302
+HTTP 301
 Location: https://example.com/api/zaken/v1/zaken/6c821f
 ```
 
