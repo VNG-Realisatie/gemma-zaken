@@ -54,7 +54,10 @@ spec:
           image: mdillon/postgis:11
           env:
             - name: POSTGRES_PASSWORD
-              value: <REDACTED>
+              valueFrom:
+                secretKeyRef:
+                  name: postgis-secrets
+                  key: DB_PASSWORD
           volumeMounts:
             - name: storage
               mountPath: "/var/lib/postgresql/data"

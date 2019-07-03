@@ -12,6 +12,10 @@ deployed. This project is deployed in the `zgw` namespace.
 * access to the Haven bastion (IP-address white list), possibly through a jump host
 * private key to SSH to Haven bastion
 * kube config file for the Haven cluster
+* Ansible vault installation (see `requirements.txt`)
+* `openshift` - best to specify the python interpreter in the `hosts` file
+  to point to your virtualenv with Ansible.
+* Ansible Vault password if you're touching secrets
 
 ## Preparation
 
@@ -37,8 +41,7 @@ ssh  -J user@jump-host -i /path/to/private_key -4 -fNTL \*:6443:10.0.101.9:6443 
 export KUBECONFIG=/path/to/kube.conf
 ```
 
-
-## Kubenetes layout
+## Deploy to kubernetes cluster
 
 The layout of kubernetes applications is described in YAML format. Important
 concepts:
@@ -66,7 +69,16 @@ concepts:
 
 ### Secrets
 
-TODO
+The raw values for secrets are Ansible-vault encrypted. This means you need
+to provide the Ansible-vault password during deployment.
+
+All secrets in K8S are managed via Ansible to facilitate templating and proper
+INFOSEC practices.
+
+```bash
+cd ansible
+ansible-playbook deploy_secrets.yml --ask-vault-pass
+```
 
 ### Database
 

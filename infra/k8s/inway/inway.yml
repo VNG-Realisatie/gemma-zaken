@@ -1,16 +1,5 @@
 ---
 
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: inway-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   org.key: <REDACTED>
-
----
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -178,9 +167,9 @@ spec:
         - name: inway-service-config
           configMap:
             name: inway-service-config
-        - name: secrets
+        - name: keys
           secret:
-            name: inway-secrets
+            secretName: inway-secrets
       containers:
         - name: inway
           image: nlxio/inway:latest
@@ -227,7 +216,6 @@ spec:
             - name: keys
               mountPath: /keys
       restartPolicy: Always
-  status: {}
 
 ---
 
