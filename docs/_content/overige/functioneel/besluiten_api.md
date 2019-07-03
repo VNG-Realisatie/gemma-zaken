@@ -1,15 +1,13 @@
 ---
 title: "Besluiten-API"
-date: '21-01-2019'
+date: '03-07-2019'
 ---
 
 # BESLUITEN API
 
 FUNCTIONELE BESCHRIJVING
 
-Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de
-werking van deze API verwijzen wij u naar de OAS-specificatie (zie
-‘link’ hieronder).
+Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de werking van deze API verwijzen wij u naar de OAS-specificatie (zie ‘link’ hieronder).
 
 <table>
 <tbody>
@@ -57,19 +55,17 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </table>
 
 Onderstaand diagram toont de resources uit de Besluiten API inclusief de onderlinge relaties en de relaties resources uit andere API's voor zaakgericht werken. Met een klik op een resource springt u naar de beschrijving van deze resource in de OAS specificatie van de betreffende API. DUs met een klik op Zaken API::zaak gaat u naar de resource zaak in de Zaken API.
-![Besluiten API.png](./assets/Besluiten API.png?raw=true)
+
 <img src="./assets/Besluiten API.png" usemap="#BSL" border="0" />
-
 <MAP NAME="BSL">
-<area shape="rect" coords="10,167,112,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/audittrail_read" target="_blank">
-<area shape="rect" coords="192,12,289,78" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaakbesluit_read" target="_blank">
-<area shape="rect" coords="192,167,289,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_read" target="_blank">
-<area shape="rect" coords="195,310,289,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_read" target="_blank">
-<area shape="rect" coords="434,10,541,80" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaak_read" target="_blank">
-<area shape="rect" coords="434,167,541,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_read" target="_blank">
-<area shape="rect" coords="646,167,770,237" href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read" target="_blank">
-<area shape="rect" coords="646,310,770,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_read" target="_blank">
-
+<area shape="rect" coords="10,167,112,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/audittrail_read">
+<area shape="rect" coords="192,12,289,78" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaakbesluit_read">
+<area shape="rect" coords="192,167,289,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_read">
+<area shape="rect" coords="195,310,289,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_read">
+<area shape="rect" coords="434,10,541,80" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaak_read">
+<area shape="rect" coords="434,167,541,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_read">
+<area shape="rect" coords="646,167,770,237" href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read">
+<area shape="rect" coords="646,310,770,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_read">
 </MAP>
 
 Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
