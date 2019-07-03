@@ -12,53 +12,42 @@ data:
     # A single inway can expose multiple API's, therefore this block can be added multiple times.
     # The name of the API must be unique for each block.
       [services.ac]
-
-      # `endpoint-url` should be set to the address at which the API is available.
-      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1"
-
-      # `documentation-url` should point to the documentation for the API
+      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1/"
       documentation-url = "https://autorisaties-api.vng.cloud/"
-
-      # `authorization-model` can or whitelist
       authorization-model = "none"
-
-      # `api-specification-document-url` defines the specification document for the API
-      api-specification-document-url = "https://autorisaties-api.vng.cloud/api/v1/schema/"
-
-      # `public-support-contact` contains an email address which NLX users can contact if they need support using your API.
-      # This email address is published in the directory.
-      # this field is optional
+      api-specification-document-url = "https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml"
       # public-support-contact = "support@my-organization.nl"
-
-      # `tech-support-contact` contains an email address which we (the NLX organization) can contact if they have any questions about your API
-      # This email address will NOT be published in the directory
-      # this field is optional
       # tech-support-contact   = "tech@my-organization.nl"
-      [services.brc]
-      endpoint-url = "https://besluiten-api.vng.cloud/api/v1"
-      documentation-url = "https://besluiten-api.vng.cloud/"
-      authorization-model = "none"
-      api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/"
-      [services.drc]
-      endpoint-url = "https://documenten-api.vng.cloud/api/v1"
-      documentation-url = "https://documenten-api.vng.cloud/"
-      authorization-model = "none"
-      api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/"
-      [services.nrc]
-      endpoint-url = "https://notificaties-api.vng.cloud/api/v1"
-      documentation-url = "https://notificaties-api.vng.cloud/"
-      authorization-model = "none"
-      api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/"
-      [services.zrc]
-      endpoint-url = "https://zaken-api.vng.cloud/api/v1"
-      documentation-url = "https://zaken-api.vng.cloud/"
-      authorization-model = "none"
-      api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/"
-      [services.ztc]
-      endpoint-url = "https://catalogi-api.vng.cloud/api/v1"
-      documentation-url = "https://catalogi-api.vng.cloud"
-      authorization-model = "none"
-      api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/"
+
+      # [services.brc]
+      # endpoint-url = "https://besluiten-api.vng.cloud/api/v1/"
+      # documentation-url = "https://besluiten-api.vng.cloud/"
+      # authorization-model = "none"
+      # api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml"
+
+      # [services.drc]
+      # endpoint-url = "https://documenten-api.vng.cloud/api/v1/"
+      # documentation-url = "https://documenten-api.vng.cloud/"
+      # authorization-model = "none"
+      # api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml"
+
+      # [services.nrc]
+      # endpoint-url = "https://notificaties-api.vng.cloud/api/v1/"
+      # documentation-url = "https://notificaties-api.vng.cloud/"
+      # authorization-model = "none"
+      # api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml"
+
+      # [services.zrc]
+      # endpoint-url = "https://zaken-api.vng.cloud/api/v1/"
+      # documentation-url = "https://zaken-api.vng.cloud/"
+      # authorization-model = "none"
+      # api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml"
+
+      # [services.ztc]
+      # endpoint-url = "https://catalogi-api.vng.cloud/api/v1/"
+      # documentation-url = "https://catalogi-api.vng.cloud"
+      # authorization-model = "none"
+      # api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml"
 
 ---
 
@@ -181,14 +170,14 @@ spec:
             limits:
               memory: "350Mi"
               cpu: "250m"
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8443
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 8443
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 8443
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: 8443
           env:
             - name: LOG_TYPE
               value: local
@@ -203,9 +192,9 @@ spec:
             - name: DISABLE_LOGDB
               value: "true"
             - name: SELF_ADDRESS
-              value: https://zaakgerichtwerken-inway.vng.cloud/
+              value: zaakgerichtwerken-inway.vng.cloud:443
             - name: DIRECTORY_REGISTRATION_ADDRESS
-              value: "directory-registration-api.demo.nlx.io:443"
+              value: directory-registration-api.demo.nlx.io:443
             - name: SERVICE_CONFIG
               value: /inway-service-config/service-config.toml
           volumeMounts:
