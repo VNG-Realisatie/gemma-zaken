@@ -102,6 +102,15 @@ spec:
             serviceName: demo
             servicePort: 8000
 
+  # NLX inway
+  - host: zaakgerichtwerken-inway.vng.cloud
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: nlx-inway
+            servicePort: 8443
+
   tls:
     - hosts:
         - deploy-bot-zgw.vng.cloud
@@ -115,3 +124,4 @@ spec:
         - referentielijsten-api.vng.cloud
         - zaken-auth.vng.cloud
         - zgw-demo.vng.cloud
+        - zaakgerichtwerken-inway.vng.cloud
