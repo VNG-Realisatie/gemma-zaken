@@ -1,9 +1,21 @@
+---
+
+# kind: Secret
+# apiVersion: v1
+# metadata:
+#   name: inway-secrets
+#   namespace: zgw
+# type: Opaque
+# data:
+#   org.key: <REDACTED>
+
+---
 
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: inway-service-config
-  namespace: nlx-inway
+  namespace: zgw
 data:
   service-config.toml: |
     [services]
@@ -58,14 +70,16 @@ data:
       documentation-url = "https://catalogi-api.vng.cloud"
       authorization-model = "none"
       api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/"
+
 ---
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: inway-service-rootca
-  namespace: nlx-inway
+  name: inway-service-certs
+  namespace: zgw
 data:
-  root.crt: | 
+  root.crt: |
     -----BEGIN CERTIFICATE-----
     MIIFjjCCA3agAwIBAgIUETfEQ3CBxDQoa7TxaXlDzNHOFbowDQYJKoZIhvcNAQEN
     BQAwXzELMAkGA1UEBhMCTkwxFjAUBgNVBAgTDU5vb3JkLUhvbGxhbmQxEjAQBgNV
@@ -98,9 +112,52 @@ data:
     4rGOiVIygm2313ofR8kPSFVLEGyW73TkZdj9ZR8vQuGXjEqNVUd9GHWhft3142co
     vKZ0d7BYa5Tc7mjzUomFPYM8BQQQqClyABHXf0lMwRKn6Q==
     -----END CERTIFICATE-----
+  org.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIGEDCCA/igAwIBAgIUdYI+OlV1xdpFtJZEpouo2fquyWkwDQYJKoZIhvcNAQEN
+    BQAwXzELMAkGA1UEBhMCTkwxFjAUBgNVBAgTDU5vb3JkLUhvbGxhbmQxEjAQBgNV
+    BAcTCUFtc3RlcmRhbTEWMBQGA1UEChMNQ29tbW9uIEdyb3VuZDEMMAoGA1UECxMD
+    TkxYMB4XDTE5MDcwMjEzMDgwMFoXDTIwMDcwMTEzMDgwMFowgaMxCzAJBgNVBAYT
+    Ak5MMRYwFAYDVQQIEw1Ob29yZC1Ib2xsYW5kMRIwEAYDVQQHEwlBbXN0ZXJkYW0x
+    GjAYBgNVBAoTEXZuZy1yZWFsaXNhdGllLWJ2MSAwHgYDVQQLExdaYWFrZ2VyaWNo
+    dCB3ZXJrZW4gQVBJczEqMCgGA1UEAxMhemFha2dlcmljaHR3ZXJrZW4taW53YXku
+    dm5nLmNsb3VkMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAoV2yuH+h
+    01iZWkORft54fywrdiFjAJMT4D5DNMk9UJ26rqL4gr9gQ+fGd+qEEK5t8faYx6mk
+    FaFphl6z+30ajf9htgE83FgXo/1qFMg/Pg9xQxbYr4unfzT55eSQukQ07hMstfOM
+    Kw1NOwTXzlWMqX8g9eSC+BDUOOG8rnYCOcRi8k5Pp5yjLSMa4tSGv/zQVC/3PLTI
+    N+051nkVkZID3NGaqCq73XnRoQlM8A2EXILw5c7cR+7TvHvS1YYUQddDwSxdopMD
+    +OilJQJaDu20nlbBZ9INfG1X4ZvwLiX7wp8kZ5UPmg+Tn9Apnk3z+eawJzlgVDZp
+    LfkvT7HPhryPYiRNkYHAFunqFRsf11zchEdENnzsDrf9w3Xf7YUcKgfWHDanFVqM
+    jujDr5SRjMj+cc8OrMcIde91jtrnOL+bm/Cl5qa34dj/afzqXQKWcKfVMurxYG1t
+    CwJFNs9I2xdUslnwFGyyzmAesKyeHbz2kjHrffFX0PUZqJeL9ziyb/0BzYmjJ5+8
+    B4jOV8w52Xql+7KgRvbLQsbAICEPDH4nq30KLu3uELJlcd39OjnRTlkxJHYKxJhL
+    PnHCVv0FD9jRV//8jjR8S5kwvktc2qGd40xPs2J9eON9nJQcBmRQJRCN3uelOvPF
+    MOHAejisLkv1sRfc1TNnGb3uM3mq3qcv6yUCAwEAAaN/MH0wDgYDVR0PAQH/BAQD
+    AgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAA
+    MB0GA1UdDgQWBBT7zuNKzISohVVBoT40u+68QjXqeDAfBgNVHSMEGDAWgBRa4EFR
+    EYes2miHwADDBlzieS2J/TANBgkqhkiG9w0BAQ0FAAOCAgEAcB1YXfIqNj7mmzUN
+    2si9AUUbKSaovK0VrsuUlnJWD3yFulBkXR9uA9J/yx9f09H3ST2tgjFt8cYiJ8Wl
+    +2sq/rorNoJGP18r4xo4bYD7pfdsu57UbvmhUVrEYqpB9Wn6nfGWS7xMz6zUkksg
+    o6RqvIjA1/MlYPVrk62dPxTRx567oxgCBy+5e34Wofr3iVBkXFtrcTI91zXCjWed
+    oSY5DWHMhdKp5kvfthcMcBiP33sos2pBdBT9IQq3tpARchlFR30iABcAqQjipDiC
+    jbG1gca3CIR3Kdp36bHxHx3mbQ+d20+jgyQA7GoJHW13ZB+KxkN5tQKBC5Zg88RR
+    m5mo1TCqGiF3WdeFNy+RAg0Vh24ORdfjFa61ClKyEUKupy8lttNhz+FDkEAlHwyt
+    ufW0xa7Jk4bQrekx3V5m20fkJnrtf6V8/hWwB+dHzeRrDHwwvaaMd4OH4PE1RsCx
+    xPtDQ9MNVtMGm48oAyDIXNhI7Npt0KB+eoFSaQJZFKhavdNjBIZVLeUrFhRx0dDx
+    Gb7C/RM93uxJJL3bD17P+P1xlZ1jnKK5kKCVkKfzKCA5e87NTJn5QXUHa48XiJXs
+    tFfVmJIndAqpoX7Gm92ZZ99Go/Q2bJrIUOlMGEIT52G+HMq+KJR3rVJ0/1TDwwCE
+    c5WzdqtHMbaaAu1bnCN9yJ3DxPM=
+    -----END CERTIFICATE-----
+
 ---
+
 apiVersion: extensions/v1beta1
 kind: Deployment
+metadata:
+  name: nlx-inway
+  namespace: zgw
+  labels:
+    k8s-app: nlx-inway
 spec:
   replicas: 1
   strategy:
@@ -109,18 +166,40 @@ spec:
       maxSurge: 1
       maxUnavailable: 0
   template:
+    metadata:
+      name: nlx-inway
+      labels:
+        k8s-app: nlx-inway
     spec:
       volumes:
         - name: certs
           configMap:
-            name: inway-service-rootca
+            name: inway-service-certs
         - name: inway-service-config
           configMap:
             name: inway-service-config
+        - name: secrets
+          secret:
+            name: inway-secrets
       containers:
         - name: inway
-          image: nlxio/inway:v1.0.0
+          image: nlxio/inway:latest
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "120Mi"
+              cpu: "5m"
+            limits:
+              memory: "350Mi"
+              cpu: "250m"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8443
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8443
           env:
             - name: LOG_TYPE
               value: local
@@ -129,9 +208,9 @@ spec:
             - name: TLS_NLX_ROOT_CERT
               value: /certs/root.crt
             - name: TLS_ORG_CERT
-              value: TODO
+              value: /certs/org.crt
             - name: TLS_ORG_KEY
-              value: TODO
+              value: /keys/org.key
             - name: DISABLE_LOGDB
               value: "true"
             - name: SELF_ADDRESS
@@ -145,5 +224,26 @@ spec:
               mountPath: /certs
             - name: inway-service-config
               mountPath: /inway-service-config
+            - name: keys
+              mountPath: /keys
       restartPolicy: Always
   status: {}
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nlx-inway
+  namespace: zgw
+  labels:
+    k8s-app: nlx-inway
+spec:
+  selector:
+    k8s-app: nlx-inway
+  ports:
+  - protocol: TCP
+    port: 8443
+    targetPort: 8443
