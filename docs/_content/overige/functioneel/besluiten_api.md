@@ -56,6 +56,22 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tbody>
 </table>
 
+Onderstaand diagram toont de resources uit de Besluiten API inclusief de onderlinge relaties en de relaties resources uit andere API's voor zaakgericht werken. Met een klik op een resource springt u naar de beschrijving van deze resource in de OAS specificatie van de betreffende API. DUs met een klik op Zaken API::zaak gaat u naar de resource zaak in de Zaken API.
+![Besluiten API.png](./assets/Besluiten API.png?raw=true)
+<img src="./assets/Besluiten API.png" usemap="#BSL" border="0" />
+
+<MAP NAME="BSL">
+<area shape="rect" coords="10,167,112,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/audittrail_read" target="_blank">
+<area shape="rect" coords="192,12,289,78" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaakbesluit_read" target="_blank">
+<area shape="rect" coords="192,167,289,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_read" target="_blank">
+<area shape="rect" coords="195,310,289,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_read" target="_blank">
+<area shape="rect" coords="434,10,541,80" href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaak_read" target="_blank">
+<area shape="rect" coords="434,167,541,237" href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_read" target="_blank">
+<area shape="rect" coords="646,167,770,237" href="https://ref.tst.vng.cloud/drc/api/v1/schema/#operation/enkelvoudiginformatieobject_read" target="_blank">
+<area shape="rect" coords="646,310,770,380" href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_read" target="_blank">
+
+</MAP>
+
 Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven mogelijkheden.
 
 ### Resource: Besluiten
@@ -74,6 +90,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_create">Aanmaken</a> van een besluit.</li>
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_update">Bijwerken</a> van een besluit.</li>
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_partial_update">Gedeeltelijk bijwerken</a> van een besluit.</li>
+<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_delete">Verwijderen</a> van een besluit.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -86,9 +103,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
-<td><ul>
-<li>Het verwijderen van Besluiten wordt nog niet ondersteund.</li>
-</ul></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -109,6 +124,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_create">Aanmaken</a> van een besluitinformatieobject.</li>
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_update">Bijwerken</a> van een besluitinformatieobject.</li>
 <li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_partial_update">Gedeeltelijk bijwerken</a> van een besluitinformatieobject.</li>
+<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_delete">Verwijderen</a> van een besluitinformatieobject.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -121,9 +137,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
-<td><ul>
-<li>Het verwijderen van Besluitinformatieobjecten wordt nog niet ondersteund.</li>
-</ul></td>
+<td></td>
 </tr>
 </tbody>
 </table>
