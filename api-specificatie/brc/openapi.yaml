@@ -1,10 +1,40 @@
 openapi: 3.0.0
 info:
   title: Besluitregistratiecomponent (brc) API
-  description: Een API om een besluitregistratiecomponent te benaderen
+  description: 'Een API om een besluitregistratiecomponent te benaderen.
+  
+  Een 'BESLUIT' wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat 
+  in een INFORMATIEOBJECT meerdere besluiten vastgelegd zijn.Vandaar de N:M-relatie naar INFORMATIEOBJECT. Een besluit 
+  komt voort uit een zaak van de zaakbehandelende organisatie dan wel is een besluit van een andere organisatie dat 
+  het onderwerp (object) is van een zaak van de zaakbehandelende organisatie. BESLUIT heeft dan ook een optionele relatie 
+  met de ZAAK waarvan het een uitkomst is.
+  
+    **Autorisatie**
+    
+    
+    Deze API vereist autorisatie. Je kan de
+    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+    genereren.
+    
+    
+    **Notificaties**
+    
+    
+    Deze component publiceert notificaties op het kanaal `besluiten`.
+    
+    
+    **Handige links**
+    
+    
+    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+    
+    
+    '
+contact:  
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
