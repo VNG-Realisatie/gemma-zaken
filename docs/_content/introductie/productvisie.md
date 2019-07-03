@@ -213,9 +213,6 @@ open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 
 Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility.
 
-Voor meer informatie over de samenwerking, zie
-[samenwerking](samenwerking)
-
 Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) gemaakt.
 De referentie implementatie heeft de volgende karakteristieken:
 
