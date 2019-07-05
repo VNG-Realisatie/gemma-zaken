@@ -37,7 +37,7 @@ info:
     '
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -164,8 +164,7 @@ paths:
       - klantcontacten
     post:
       operationId: klantcontact_create
-      summary: Registreer een klantcontact bij een ZAAK.
-      description: 'Indien geen identificatie gegeven is, dan wordt deze automatisch
+      description: 'Registreer een klantcontact bij een ZAAK. Indien geen identificatie gegeven is, dan wordt deze automatisch
 
         gegenereerd.'
       parameters:
@@ -462,8 +461,8 @@ paths:
   /resultaten:
     get:
       operationId: resultaat_list
-      summary: Geef een lijst van RESULTAATen van ZAAKen.
-      description: 'Optioneel kan je de queryparameters gebruiken om de resultaten
+      description: 'Geef een lijst van RESULTAATen van ZAAKen. 
+      Optioneel kan je de queryparameters gebruiken om de resultaten
         te
 
         filteren.'
@@ -612,8 +611,8 @@ paths:
         - zaken.lezen
     post:
       operationId: resultaat_create
-      summary: Voeg een RESULTAAT voor een ZAAK toe.
-      description: '**Er wordt gevalideerd op**
+      description: 'Voeg een RESULTAAT voor een ZAAK toe.
+      **Er wordt gevalideerd op**
 
         - geldigheid URL naar de ZAAK
 
@@ -905,8 +904,8 @@ paths:
         - zaken.lezen
     put:
       operationId: resultaat_update
-      summary: Wijzig het RESULTAAT van een ZAAK.
-      description: '**Er wordt gevalideerd op**
+      description: 'Wijzig het RESULTAAT van een ZAAK. 
+      **Er wordt gevalideerd op**
 
         - geldigheid URL naar de ZAAK
 
@@ -1074,8 +1073,8 @@ paths:
         $ref: '#/components/requestBodies/Resultaat'
     patch:
       operationId: resultaat_partial_update
-      summary: Wijzig het RESULTAAT van een ZAAK.
-      description: '**Er wordt gevalideerd op**
+      description: 'Wijzig het RESULTAAT van een ZAAK. 
+      **Er wordt gevalideerd op**
 
         - geldigheid URL naar de ZAAK
 
@@ -1915,7 +1914,7 @@ paths:
         - zaken.lezen
     delete:
       operationId: rol_delete
-      description: Verwijder het RESULTAAT van een ZAAK.
+      description: Verwijder een ROL van een ZAAK.
       responses:
         '204':
           description: ''
@@ -2049,8 +2048,8 @@ paths:
   /statussen:
     get:
       operationId: status_list
-      summary: Geef een lijst van STATUSsen van ZAAKen.
-      description: 'Optioneel kan je de queryparameters gebruiken om de resultaten
+      description: 'Geef een lijst van STATUSsen van ZAAKen.
+      Optioneel kan je de queryparameters gebruiken om de resultaten
         te
 
         filteren.'
@@ -2199,8 +2198,8 @@ paths:
         - zaken.lezen
     post:
       operationId: status_create
-      summary: Voeg een nieuwe STATUS voor een ZAAK toe.
-      description: "**Er wordt gevalideerd op**\n- geldigheid URL naar de ZAAK\n-\
+      description: "Voeg een nieuwe STATUS voor een ZAAK toe.
+      **Er wordt gevalideerd op**\n- geldigheid URL naar de ZAAK\n-\
         \ geldigheid URL naar het STATUSTYPE\n- indien het de eindstatus betreft,\
         \ dan moet het attribuut\n  `indicatieGebruiksrecht` gezet zijn op alle informatieobjecten\
         \ die aan\n  de zaak gerelateerd zijn\n\n**Opmerkingen**\n- Indien het statustype\
@@ -2506,8 +2505,8 @@ paths:
   /zaakinformatieobjecten:
     get:
       operationId: zaakinformatieobject_list
-      summary: Geef een lijst van relaties tussen INFORMATIEOBJECTen en ZAAKen.
-      description: Deze lijst kan gefilterd wordt met querystringparameters.
+      description: ' Geef een lijst van relaties tussen INFORMATIEOBJECTen en ZAAKen. 
+      Deze lijst kan gefilterd wordt met querystringparameters.' 
       parameters:
       - name: zaak
         in: query
