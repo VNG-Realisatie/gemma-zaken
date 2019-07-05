@@ -36,19 +36,23 @@ info:
 
 
 
-    Waarschuwing
-
-    ------------
-
-
-    Hoewel op dit moment versie 1 van de API beschikbaar is, kunnen er breaking
-
-    changes voorkomen zolang de Zaaktypecatalogus nog niet versie 1.0.0 heeft
-
-    bereikt.'
-  contact:
+ **Autorisatie**
+    
+    Deze API vereist autorisatie. Je kan de
+    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+    genereren.
+    
+    
+    **Notificaties**
+    
+    Deze component publiceert notificaties op het kanaal `zaken`.
+    **Handige links**
+    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+    '
+    contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -59,7 +63,7 @@ paths:
   /besluittypen:
     get:
       operationId: besluittype_list
-      description: 'Alle BESLUITTYPEn van de besluiten die het resultaat kunnen zijn
+      description: 'Geeft een overzicht van alle BESLUITTYPEn van de besluiten die het resultaat kunnen zijn
         van het
 
         zaakgericht werken van de behandelende organisatie(s).'
@@ -203,7 +207,7 @@ paths:
   /besluittypen/{uuid}:
     get:
       operationId: besluittype_read
-      description: Generieke aanduiding van de aard van een besluit.
+      description: Opvragen van specifiek BESLUITTYPE.
       responses:
         '200':
           description: ''
@@ -462,7 +466,8 @@ paths:
   /catalogussen/{uuid}:
     get:
       operationId: catalogus_read
-      description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
+      description: "Opvragen van een specifieke CATALOGUS.
+      Een CATALOGUS is de verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
         \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
       responses:
         '200':
@@ -601,7 +606,7 @@ paths:
   /eigenschappen:
     get:
       operationId: eigenschap_list
-      description: Een verzameling van EIGENSCHAPpen.
+      description: Opvragen van een verzameling van EIGENSCHAPpen.
       parameters:
       - name: isVan
         in: query
@@ -742,7 +747,8 @@ paths:
   /eigenschappen/{uuid}:
     get:
       operationId: eigenschap_read
-      description: 'Een relevant inhoudelijk gegeven dat bij ZAAKen van dit ZAAKTYPE
+      description: 'Opvragen van een EIGENSCHAP. Een EIGENSCHAP is een relevant inhoudelijk gegeven dat bij ZAAKen van 
+      dit ZAAKTYPE
         geregistreerd moet kunnen worden en geen standaard
 
         kenmerk is van een zaak.'
@@ -883,7 +889,7 @@ paths:
   /informatieobjecttypen:
     get:
       operationId: informatieobjecttype_list
-      description: Een verzameling van INFORMATIEOBJECTTYPEn.
+      description: Opvragen van een verzameling van INFORMATIEOBJECTTYPEn.
       parameters:
       - name: catalogus
         in: query
@@ -1024,7 +1030,7 @@ paths:
   /informatieobjecttypen/{uuid}:
     get:
       operationId: informatieobjecttype_read
-      description: Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd
+      description: Opvragen van een INFORMATIEOBJECTTYPE. Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd
         door de zaakbehandelende organisatie.
       responses:
         '200':
@@ -1163,7 +1169,7 @@ paths:
   /resultaattypen:
     get:
       operationId: resultaattype_list
-      description: Een verzameling van RESULTAATTYPEn.
+      description: Opvragen van een verzameling van RESULTAATTYPEn.
       parameters:
       - name: zaaktype
         in: query
@@ -1324,7 +1330,7 @@ paths:
   /resultaattypen/{uuid}:
     get:
       operationId: resultaattype_read
-      description: 'Het betreft de indeling of groepering van resultaten van zaken
+      description: 'Opvragen van een RESULTAATTYPE. Een RESULTAATTYPE betreft de indeling of groepering van resultaten van zaken
         van hetzelfde
 
         ZAAKTYPE naar hun aard, zoals ''verleend'', ''geweigerd'', ''verwerkt'', etc.'
@@ -1465,7 +1471,7 @@ paths:
   /roltypen:
     get:
       operationId: roltype_list
-      description: Een verzameling van ROLTYPEn.
+      description: Opvragen van een verzameling van ROLTYPEn.
       parameters:
       - name: zaaktype
         in: query
@@ -1621,7 +1627,7 @@ paths:
   /roltypen/{uuid}:
     get:
       operationId: roltype_read
-      description: Generieke aanduiding van de aard van een ROL die een BETROKKENE
+      description: Opvragen van een ROLTYPE. Een ROLTYPE is een generieke aanduiding van de aard van een ROL die een BETROKKENE
         kan uitoefenen in ZAAKen van een ZAAKTYPE.
       responses:
         '200':
@@ -1759,7 +1765,7 @@ paths:
   /statustypen:
     get:
       operationId: statustype_list
-      description: Een verzameling van STATUSTYPEn.
+      description: Opvragen van een verzameling van STATUSTYPEn.
       parameters:
       - name: zaaktype
         in: query
@@ -1900,7 +1906,7 @@ paths:
   /statustypen/{uuid}:
     get:
       operationId: statustype_read
-      description: Generieke aanduiding van de aard van een status.
+      description: 'Opvragen van een STATUSTYPE. Een STATUSTYPE is een generieke aanduiding van de aard van een status.'
       responses:
         '200':
           description: ''
@@ -2038,7 +2044,7 @@ paths:
   /zaaktype-informatieobjecttypen:
     get:
       operationId: zaakinformatieobjecttype_list
-      description: 'Een verzameling van ZAAKINFORMATIEOBJECTTYPEn.
+      description: 'Opvragen van een verzameling van ZAAKINFORMATIEOBJECTTYPEn.
 
 
         Filteren van de gegevens kan middels de querystringparameters:
@@ -2209,7 +2215,7 @@ paths:
   /zaaktype-informatieobjecttypen/{uuid}:
     get:
       operationId: zaakinformatieobjecttype_read
-      description: Relatie met informatieobjecttype dat relevant is voor zaaktype.
+      description: Opvragen van een relatie van INFORMATIEOBJECTTYPE dat relevant is voor ZAAKTYPE.
       responses:
         '200':
           description: ''
@@ -2347,7 +2353,7 @@ paths:
   /zaaktypen:
     get:
       operationId: zaaktype_list
-      description: Een verzameling van ZAAKTYPEn.
+      description: Opvragen van een verzameling van ZAAKTYPEn.
       parameters:
       - name: catalogus
         in: query
@@ -2488,8 +2494,8 @@ paths:
   /zaaktypen/{uuid}:
     get:
       operationId: zaaktype_read
-      description: Het geheel van karakteristieke eigenschappen van zaken van eenzelfde
-        soort.
+      description: 'Opvragen van het geheel van karakteristieke eigenschappen van zaken van eenzelfde
+        soort.'
       responses:
         '200':
           description: ''
