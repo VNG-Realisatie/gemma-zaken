@@ -1,9 +1,10 @@
 openapi: 3.0.0
 info:
   title: Documentregistratiecomponent (drc) API
-  description: 'Een API om een documentregistratiecomponent te benaderen.
+  description: 'Een API om een documentregistratiecomponent (DRC) te benaderen.
 
 
+    In een documentregistratiecomponent worden informatieobjecten opgeslagen.
     Een informatieobject is een digitaal document voorzien van meta-gegevens.
 
     Informatieobjecten kunnen aan andere objecten zoals zaken en besluiten worden
@@ -24,12 +25,15 @@ info:
 
     **Autorisatie**
 
+   Deze API vereist autorisatie. Je kan de
+    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+    genereren.
+    
+    
+    **Notificaties**
 
-    Deze API vereist nog geen autorisatie. Je mag wel JWT-tokens gegenereerd door
 
-    de [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken - deze worden
-
-    voor nu genegeerd.
+    Deze component publiceert notificaties op het kanaal `documenten`.
 
 
     **Handige links**
@@ -42,7 +46,7 @@ info:
     '
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -53,10 +57,10 @@ paths:
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
-      summary: 'Geef een lijst van de laatste versies van ENKELVOUDIGe INFORMATIEOBJECTen
+      summary: ''
+      description: 'Geef een lijst van de laatste versies van ENKELVOUDIGe INFORMATIEOBJECTen
 
-        (=documenten).'
-      description: 'De objecten bevatten metadata over de documenten en de downloadlink
+        (=documenten). De objecten bevatten metadata over de documenten en de downloadlink
         naar
 
         de binary data.'
@@ -206,8 +210,9 @@ paths:
         - documenten.lezen
     post:
       operationId: enkelvoudiginformatieobject_create
-      summary: Registreer een ENKELVOUDIG INFORMATIEOBJECT.
-      description: '**Er wordt gevalideerd op**
+      summary: ''
+      description: 'Registreer een ENKELVOUDIG INFORMATIEOBJECT.
+         **Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL'
       parameters:
@@ -645,8 +650,8 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      summary: Geef de details van de laatste versie ENKELVOUDIG INFORMATIEOBJECT.
-      description: 'Het object bevat metadata over het informatieobject en de downloadlink
+      description: 'Geef de details van de laatste versie ENKELVOUDIG INFORMATIEOBJECT.
+        Het object bevat metadata over het informatieobject en de downloadlink
         naar
 
         de binary data.
@@ -794,11 +799,11 @@ paths:
         - documenten.lezen
     put:
       operationId: enkelvoudiginformatieobject_update
-      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
+      description: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
         de
 
-        volledige resource mee te sturen.'
-      description: '**Er wordt gevalideerd op**
+        volledige resource mee te sturen.
+      **Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
 
@@ -969,11 +974,11 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
-      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
+      description: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
         enkel
 
-        de gewijzigde velden mee te sturen.'
-      description: '**Er wordt gevalideerd op**
+        de gewijzigde velden mee te sturen.
+      **Er wordt gevalideerd op**
 
         - geldigheid informatieobjecttype URL
 
@@ -1733,8 +1738,8 @@ paths:
   /gebruiksrechten:
     get:
       operationId: gebruiksrechten_list
-      summary: Geef een lijst van gebruiksrechten horend bij informatieobjecten.
-      description: Er kan gefiltered worden met querystringparameters.
+      description: ' Geef een lijst van gebruiksrechten horend bij informatieobjecten.
+      Er kan gefiltered worden met querystringparameters.' 
       parameters:
       - name: informatieobject
         in: query
@@ -1933,8 +1938,8 @@ paths:
         - documenten.lezen
     post:
       operationId: gebruiksrechten_create
-      summary: Voeg gebruiksrechten toe voor een informatieobject.
-      description: "**Opmerkingen**\n- Het toevoegen van gebruiksrechten zorgt ervoor\
+      description: "Voeg gebruiksrechten toe voor een informatieobject. 
+      **Opmerkingen**\n- Het toevoegen van gebruiksrechten zorgt ervoor\
         \ dat de\n  `indicatieGebruiksrecht` op het informatieobject op `true` gezet\
         \ wordt."
       parameters:
@@ -2552,8 +2557,8 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     delete:
       operationId: gebruiksrechten_delete
-      summary: Verwijder een gebruiksrecht van een informatieobject.
-      description: "**Opmerkingen**\n- Indien het laatste gebruiksrecht van een informatieobject\
+      description: "Verwijder een gebruiksrecht van een informatieobject.
+       **Opmerkingen**\n- Indien het laatste gebruiksrecht van een informatieobject\
         \ verwijderd wordt,\n  dan wordt de `indicatieGebruiksrecht` van het informatieobject\
         \ op `null`\n  gezet."
       parameters:
@@ -2856,7 +2861,7 @@ paths:
         - documenten.lezen
     post:
       operationId: objectinformatieobject_create
-      description: ''
+      description: 'Registeren van een relatieklasse tussen een Object (bv een ZAAK of een BESLUIT) en een INFORMATIEOBJECT'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -3019,8 +3024,7 @@ paths:
   /objectinformatieobjecten/{uuid}:
     get:
       operationId: objectinformatieobject_read
-      description: Geef een informatieobject terug wat gekoppeld is aan het huidige
-        object
+      description: Geef een koppeling tussen een informatieobject en een object (ZAAK of BESLUIT) terug.
       responses:
         '200':
           description: ''
