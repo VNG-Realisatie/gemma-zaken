@@ -20,7 +20,7 @@ paths:
       - name: identificatie
         in: query
         description: Identificatie van het besluit binnen de organisatie die het besluit
-          heeft vastgesteld.
+          heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die gegenereerd.
         required: false
         schema:
           type: string
@@ -46,6 +46,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: ''
@@ -58,9 +64,23 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Besluit'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                  previous:
+                    type: string
+                    format: uri
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Besluit'
         '400':
           description: ''
           headers:
@@ -2245,10 +2265,10 @@ components:
         identificatie:
           title: Identificatie
           description: Identificatie van het besluit binnen de organisatie die het
-            besluit heeft vastgesteld.
+            besluit heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die
+            gegenereerd.
           type: string
           maxLength: 50
-          minLength: 1
         verantwoordelijkeOrganisatie:
           title: Verantwoordelijke organisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
