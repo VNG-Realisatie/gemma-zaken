@@ -3,7 +3,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: drc-private-media
+  name: {{ service.name }}-private-media
   namespace: zgw
 spec:
   accessModes:

@@ -22,3 +22,7 @@ services:
   - name: brc-test
     templates: ../k8s/brc/
     image_tag: develop
+
+  - name: drc-test
+    templates: ../k8s/drc/
+    image_tag: develop
