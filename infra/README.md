@@ -67,6 +67,8 @@ concepts:
   names and paths and point to services to direct traffic to the appropriate
   containers.
 
+Note that (most of) the YAML files are _templates_ for Ansible.
+
 ### Secrets
 
 The raw values for secrets are Ansible-vault encrypted. This means you need
@@ -75,10 +77,8 @@ to provide the Ansible-vault password during deployment.
 All secrets in K8S are managed via Ansible to facilitate templating and proper
 INFOSEC practices.
 
-```bash
-cd ansible
-ansible-playbook deploy_secrets.yml --ask-vault-pass
-```
+* `ansible/vars/secrets.yml` contains the secrets for the stable environment
+* `ansible/vars/secrets-test.yml` contains the secrets for the testing environment
 
 ### Deploying the test environments
 
@@ -91,18 +91,25 @@ Deploy using Ansible:
 ansible-playbook deploy-test.yml --ask-vault-pass
 ```
 
-Configuration of each service is defined in `vars-test.yml`.
+Configuration of each service is defined in `vars/test.yml`.
+
+### Deploying the test environments
+
+The stable environments are running the stable versions of each component,
+based off the release tags on the `master` branch.
+
+Deploy using Ansible:
+
+```bash
+ansible-playbook deploy-stable.yml --ask-vault-pass
+```
+
+Configuration of each service is defined in `vars/stable.yml`.
 
 ### Database
 
 There is a single, postgis-enabled database cluster. The layout is described
 in `k8s/database`.
-
-To deploy these, run:
-
-```bash
-kubectl -n zgw apply -f k8s/database/postgis.yml
-```
 
 Currently only one replica can run with the mounted volume, since volumes
 can only be mounted `ReadWriteOnce`.
@@ -132,37 +139,7 @@ createdb DB_NAME
 
 ### API services
 
-#### ZRC, ZTC, BRC, AC
-
-```bash
-kubectl -n zgw apply -f k8s/<lower-cased-service>/web.yml
-```
-
-e.g.:
-
-```bash
-kubectl -n zgw apply -f k8s/zrc/
-```
-
-#### DRC
-
-For the DRC you need some extra yaml files:
-
-```bash
-kubectl -n zgw apply -f k8s/drc/volumes.yml
-kubectl -n zgw apply -f k8s/drc/web.yml
-kubectl -n zgw apply -f k8s/drc/nginx.yml
-```
-
-#### NRC
-
-For the NRC you need some extra yaml files:
-
-```bash
-kubectl -n zgw apply -f k8s/nrc/celery.yml
-kubectl -n zgw apply -f k8s/nrc/rabbitmq.yml
-kubectl -n zgw apply -f k8s/nrc/web.yml
-```
+Deploy these using the Ansible playbooks (stable or test).
 
 ### Documentation
 
@@ -170,18 +147,15 @@ kubectl -n zgw apply -f k8s/nrc/web.yml
 kubectl -n zgw apply -f k8s/docs/
 ```
 
-### Referentielijsten/Gemeentelijke Selectielijst
-
-```bash
-kubectl -n zgw apply -f k8s/vrl/web.yml
-```
-
 ### Deploy bot
 
 The deploy bot is a service account running the cluster that can manage other
 deployments (such updating to newer images).
 
-Create the service account with the required roles:
+The secrets are managed with the `deploy-stable.yml` playbook.
+
+After running the stable playbook, create the service account with the required
+roles and deploy the web API:
 
 ```bash
 kubectl -n zgw apply -f k8s/deploy/rbac.yaml
@@ -190,11 +164,15 @@ kubectl -n zgw apply -f k8s/deploy/web.yml
 
 ### NLX inway
 
+The secrets are managed with the `deploy-stable.yml` playbook.
+
 ```bash
 kubectl -n zgw apply -f k8s/inway/inway.yml
 ```
 
 ### Token tool
+
+The secrets are managed with the `deploy-stable.yml` playbook.
 
 ```bash
 kubectl -n zgw apply -f k8s/tokens/web.yml
