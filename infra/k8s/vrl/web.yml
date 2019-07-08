@@ -1,43 +1,28 @@
 ---
 
-# Runtime secrets. Values are base64 encoded
-
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: token-issuer-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   SECRET_KEY: <REDACTED>
-#   DB_PASSWORD: <REDACTED>
-#   SENTRY_DSN: <REDACTED>
-
----
-
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: token-issuer
+  name: vrl
   namespace: zgw
   labels:
-    k8s-app: token-issuer
+    k8s-app: vrl
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: token-issuer
+      k8s-app: vrl
   template:
     metadata:
-      name: token-issuer
+      name: vrl
       labels:
-        k8s-app: token-issuer
+        k8s-app: vrl
     spec:
       containers:
-      - name: token-issuer
-        image: maykinmedia/zds-token-issuer:0.4.2
+      - name: vrl
+        image: vngr/vng-referentielijsten:0.5.2
         resources:
           requests:
             memory: "200Mi"
@@ -47,7 +32,7 @@ spec:
             cpu: "250m"
         readinessProbe:
           httpGet:
-            path: /admin/login/
+            path: /api/v1/
             port: 8000
             httpHeaders:
               - name: Host
@@ -56,7 +41,7 @@ spec:
           periodSeconds: 5
         livenessProbe:
           httpGet:
-            path: /admin/login/
+            path: /api/v1/
             port: 8000
             httpHeaders:
               - name: Host
@@ -65,24 +50,26 @@ spec:
           periodSeconds: 5
 
         env:
-          - name: DATABASE_HOST
+          - name: DJANGO_SETTINGS_MODULE
+            value: vrl.conf.docker
+          - name: DB_HOST
             value: postgis
-          - name: DATABASE_NAME
-            value: token-issuer
+          - name: DB_NAME
+            value: vrl
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: vrl-secrets
                 key: SECRET_KEY
-          - name: DATABASE_PASSWORD
+          - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: vrl-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: vrl-secrets
                 key: SENTRY_DSN
 
 ---
@@ -92,13 +79,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: token-issuer
+  name: vrl
   namespace: zgw
   labels:
-    k8s-app: token-issuer
+    k8s-app: vrl
 spec:
   selector:
-    k8s-app: token-issuer
+    k8s-app: vrl
   ports:
   - protocol: TCP
     port: 8000

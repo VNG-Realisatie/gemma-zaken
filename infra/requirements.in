@@ -1,0 +1,4 @@
+pip-tools
+ansible
+openshift
+kubernetes-validate

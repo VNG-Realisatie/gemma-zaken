@@ -1,46 +1,31 @@
 ---
 
-# Runtime secrets. Values are base64 encoded
-
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: ztc-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   SECRET_KEY: <REDACTED>
-#   DB_PASSWORD: <REDACTED>
-#   SENTRY_DSN: <REDACTED>
-
----
-
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: ztc
+  name: brc
   namespace: zgw
   labels:
-    k8s-app: ztc
+    k8s-app: brc
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: ztc
+      k8s-app: brc
   template:
     metadata:
-      name: ztc
+      name: brc
       labels:
-        k8s-app: ztc
+        k8s-app: brc
     spec:
       containers:
-      - name: ztc
-        image: vngr/gemma-ztc:0.14.0
+      - name: brc
+        image: vngr/gemma-brc:0.11.3
         resources:
           requests:
-            memory: "200Mi"
+            memory: "120Mi"
             cpu: "5m"
           limits:
             memory: "350Mi"
@@ -63,28 +48,27 @@ spec:
                 value: localhost
           initialDelaySeconds: 5
           periodSeconds: 5
-
         env:
           - name: DJANGO_SETTINGS_MODULE
-            value: ztc.conf.docker
+            value: brc.conf.docker
           - name: DB_HOST
             value: postgis
           - name: DB_NAME
-            value: ztc
+            value: brc
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: brc-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: brc-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: brc-secrets
                 key: SENTRY_DSN
 
 ---
@@ -94,13 +78,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: ztc
+  name: brc
   namespace: zgw
   labels:
-    k8s-app: ztc
+    k8s-app: brc
 spec:
   selector:
-    k8s-app: ztc
+    k8s-app: brc
   ports:
   - protocol: TCP
     port: 8000

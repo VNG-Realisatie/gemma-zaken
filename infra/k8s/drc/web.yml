@@ -1,43 +1,28 @@
 ---
 
-# Runtime secrets. Values are base64 encoded
-
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: ac-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   SECRET_KEY: <REDACTED>
-#   DB_PASSWORD: <REDACTED>
-#   SENTRY_DSN: <REDACTED>
-
----
-
 # Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: ac
+  name: drc
   namespace: zgw
   labels:
-    k8s-app: ac
+    k8s-app: drc
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      k8s-app: ac
+      k8s-app: drc
   template:
     metadata:
-      name: ac
+      name: drc
       labels:
-        k8s-app: ac
+        k8s-app: drc
     spec:
       containers:
-      - name: ac
-        image: vngr/gemma-autorisatiecomponent:0.3.0
+      - name: drc
+        image: vngr/gemma-drc:0.14.0
         resources:
           requests:
             memory: "120Mi"
@@ -65,26 +50,38 @@ spec:
           periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
-            value: ac.conf.docker
+            value: drc.conf.docker
           - name: DB_HOST
             value: postgis
           - name: DB_NAME
-            value: ac
+            value: drc
+            # see nginx.yml, this is required until a better storage solution
+            # is available
+          - name: SENDFILE_BACKEND
+            value: sendfile.backends.simple
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: ac-secrets
+                name: drc-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: ac-secrets
+                name: drc-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: ac-secrets
+                name: drc-secrets
                 key: SENTRY_DSN
+        volumeMounts:
+          - name: private-storage
+            mountPath: /app/private-media
+            subPath: zgw/drc/private-media
+      volumes:
+        - name: private-storage
+          persistentVolumeClaim:
+            claimName: drc-private-media
 
 ---
 
@@ -93,13 +90,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: ac
+  name: drc
   namespace: zgw
   labels:
-    k8s-app: ac
+    k8s-app: drc
 spec:
   selector:
-    k8s-app: ac
+    k8s-app: drc
   ports:
   - protocol: TCP
     port: 8000

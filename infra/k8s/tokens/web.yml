@@ -1,52 +1,38 @@
 ---
 
-# # Runtime secrets. Values are base64 encoded
-
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: deploy-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   SECRET_KEY: <REDACTED>
-#   DB_PASSWORD: <REDACTED>
-#   SENTRY_DSN: <REDACTED>
-
----
+# Deployment
 
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: deploy
+  name: token-issuer
   namespace: zgw
   labels:
-    k8s-app: deploy
+    k8s-app: token-issuer
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: deploy
+      k8s-app: token-issuer
   template:
     metadata:
-      name: deploy
+      name: token-issuer
       labels:
-        k8s-app: deploy
+        k8s-app: token-issuer
     spec:
-      serviceAccountName: deploy-bot
       containers:
-      - name: deploy
-        image: vngr/deploy-bot:1.0.2
+      - name: token-issuer
+        image: maykinmedia/zds-token-issuer:0.4.2
         resources:
           requests:
             memory: "200Mi"
             cpu: "5m"
           limits:
-            memory: "500Mi"
+            memory: "350Mi"
             cpu: "250m"
         readinessProbe:
           httpGet:
-            path: /
+            path: /admin/login/
             port: 8000
             httpHeaders:
               - name: Host
@@ -55,7 +41,7 @@ spec:
           periodSeconds: 5
         livenessProbe:
           httpGet:
-            path: /
+            path: /admin/login/
             port: 8000
             httpHeaders:
               - name: Host
@@ -64,26 +50,24 @@ spec:
           periodSeconds: 5
 
         env:
-          - name: DJANGO_SETTINGS_MODULE
-            value: deploy_bot.conf.docker
-          - name: DB_HOST
+          - name: DATABASE_HOST
             value: postgis
-          - name: DB_NAME
-            value: deploy
+          - name: DATABASE_NAME
+            value: token-issuer
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: deploy-secrets
+                name: token-issuer-secrets
                 key: SECRET_KEY
-          - name: DB_PASSWORD
+          - name: DATABASE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: deploy-secrets
+                name: token-issuer-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: deploy-secrets
+                name: token-issuer-secrets
                 key: SENTRY_DSN
 
 ---
@@ -93,13 +77,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: deploy
+  name: token-issuer
   namespace: zgw
   labels:
-    k8s-app: deploy
+    k8s-app: token-issuer
 spec:
   selector:
-    k8s-app: deploy
+    k8s-app: token-issuer
   ports:
   - protocol: TCP
     port: 8000
