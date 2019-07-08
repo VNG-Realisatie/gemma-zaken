@@ -5,60 +5,60 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: nrc-celery
+  name: {{ service.name }}-celery
   namespace: zgw
   labels:
-    k8s-app: nrc-celery
+    k8s-app: {{ service.name }}-celery
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: nrc-celery
+      k8s-app: {{ service.name }}-celery
   template:
     metadata:
-      name: nrc-celery
+      name: {{ service.name }}-celery
       labels:
-        k8s-app: nrc-celery
+        k8s-app: {{ service.name }}-celery
     spec:
       containers:
-      - name: nrc-celery
-        image: vngr/gemma-notifications:0.7.0
+      - name: {{ service.name }}-celery
+        image: vngr/gemma-notifications:{{ service.image_tag }}
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: notifications.conf.docker
           - name: DB_HOST
-            value: postgis
+            value: {{ db_host }}
           - name: DB_NAME
-            value: nrc
+            value: {{ service.name }}
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: SENTRY_DSN
           - name: PUBLISH_BROKER_URL
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: PUBLISH_BROKER_URL
           - name: CELERY_BROKER_URL
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: CELERY_BROKER_URL
           - name: CELERY_RESULT_BACKEND
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: CELERY_RESULT_BACKEND
         command: ["celery"]
         args: ["worker", "--app", "notifications", "-l", "info", "--workdir", "src"]

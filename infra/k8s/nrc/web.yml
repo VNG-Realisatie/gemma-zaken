@@ -5,24 +5,24 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: nrc
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: nrc
+    k8s-app: {{ service.name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: nrc
+      k8s-app: {{ service.name }}
   template:
     metadata:
-      name: nrc
+      name: {{ service.name }}
       labels:
-        k8s-app: nrc
+        k8s-app: {{ service.name }}
     spec:
       containers:
-      - name: nrc
-        image: vngr/gemma-notifications:0.7.0
+      - name: {{ service.name }}
+        image: vngr/gemma-notifications:{{ service.image_tag }}
         resources:
           requests:
             memory: "150Mi"
@@ -54,36 +54,36 @@ spec:
           - name: DB_HOST
             value: postgis
           - name: DB_NAME
-            value: nrc
+            value: {{ service.name }}
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: SENTRY_DSN
           - name: PUBLISH_BROKER_URL
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: PUBLISH_BROKER_URL
           - name: CELERY_BROKER_URL
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: CELERY_BROKER_URL
           - name: CELERY_RESULT_BACKEND
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: CELERY_RESULT_BACKEND
 
 ---
@@ -93,13 +93,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: nrc
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: nrc
+    k8s-app: {{ service.name }}
 spec:
   selector:
-    k8s-app: nrc
+    k8s-app: {{ service.name }}
   ports:
   - protocol: TCP
     port: 8000
