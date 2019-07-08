@@ -80,6 +80,19 @@ cd ansible
 ansible-playbook deploy_secrets.yml --ask-vault-pass
 ```
 
+### Deploying the test environments
+
+The testing environments are running the latest versions of each component,
+usually based off the `develop` branch.
+
+Deploy using Ansible:
+
+```bash
+ansible-playbook deploy-test.yml --ask-vault-pass
+```
+
+Configuration of each service is defined in `vars-test.yml`.
+
 ### Database
 
 There is a single, postgis-enabled database cluster. The layout is described

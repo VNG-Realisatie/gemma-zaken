@@ -1,0 +1,20 @@
+---
+
+db_host: postgis-test
+
+services:
+  - name: postgis-test
+    templates: ../k8s/database/
+    pvc_name: db-test
+    sub_path: database-test
+    databases:
+      - zrc-test
+      - drc-test
+      - ztc-test
+      - brc-test
+      - nrc-test
+      - ac-test
+
+  - name: ac-test
+    templates: ../k8s/ac/
+    image_tag: develop

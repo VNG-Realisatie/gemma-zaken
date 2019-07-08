@@ -10,7 +10,7 @@ metadata:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: db-pvc
+  name: {{ service.pvc_name }}-pvc
   namespace: zgw
 spec:
   accessModes:
@@ -26,28 +26,28 @@ spec:
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: postgis
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: postgis
+    k8s-app: {{ service.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: postgis
+      k8s-app: {{ service.name }}
   template:
     metadata:
-      name: postgis
+      name: {{ service.name }}
       labels:
-        k8s-app: postgis
+        k8s-app: {{ service.name }}
     spec:
       volumes:
         - name: storage
           persistentVolumeClaim:
-           claimName: db-pvc
-        - name: postgis-initdb
+           claimName: {{ service.pvc_name }}-pvc
+        - name: {{ service.name }}-initdb
           configMap:
-            name: postgis-initdb-config
+            name: {{ service.name }}-initdb-config
 
       containers:
         - name: postgres
@@ -56,13 +56,13 @@ spec:
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgis-secrets
+                  name: {{ service.name }}-secrets
                   key: DB_PASSWORD
           volumeMounts:
             - name: storage
               mountPath: "/var/lib/postgresql/data"
-              subPath: zgw/database
-            - name: postgis-initdb
+              subPath: zgw/{{ service.sub_path }}
+            - name: {{ service.name }}-initdb
               mountPath: /docker-entrypoint-initdb.d
 
 ---
@@ -70,20 +70,13 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: postgis-initdb-config
+  name: {{ service.name }}-initdb-config
   namespace: zgw
 data:
   initdb.sql: |
-    CREATE DATABASE "deploy";
-    CREATE DATABASE "zrc";
-    CREATE DATABASE "drc";
-    CREATE DATABASE "ztc";
-    CREATE DATABASE "brc";
-    CREATE DATABASE "nrc";
-    CREATE DATABASE "ac";
-    CREATE DATABASE "vrl";
-    CREATE DATABASE "token-issuer";
-    CREATE DATABASE "demo";
+    {% for db in service.databases -%}
+    CREATE DATABASE "{{ db }}";
+    {% endfor %}
 
 ---
 
@@ -92,13 +85,13 @@ data:
 kind: Service
 apiVersion: v1
 metadata:
-  name: postgis
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: postgis
+    k8s-app: {{ service.name }}
 spec:
   selector:
-    k8s-app: postgis
+    k8s-app: {{ service.name }}
   ports:
   - protocol: TCP
     port: 5432
