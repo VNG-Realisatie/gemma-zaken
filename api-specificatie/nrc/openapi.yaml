@@ -70,7 +70,7 @@ info:
     '
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -81,7 +81,7 @@ paths:
   /abonnement:
     get:
       operationId: abonnement_list
-      description: ''
+      description: 'Het opvragen van een overzicht van beschikbare abonnementen.'
       responses:
         '200':
           description: ''
@@ -200,7 +200,7 @@ paths:
         - (notificaties.consumeren | notificaties.publiceren)
     post:
       operationId: abonnement_create
-      description: ''
+      description: 'Het registreren van een nieuw abonnement op notificaties.'
       responses:
         '201':
           description: ''
@@ -338,7 +338,7 @@ paths:
   /abonnement/{uuid}:
     get:
       operationId: abonnement_read
-      description: ''
+      description: 'Het opvragen van de details van een abonnement.'
       responses:
         '200':
           description: ''
@@ -467,7 +467,7 @@ paths:
         - (notificaties.consumeren | notificaties.publiceren)
     put:
       operationId: abonnement_update
-      description: ''
+      description: 'Het bijwerken van een abonnement.'
       responses:
         '200':
           description: ''
@@ -610,7 +610,7 @@ paths:
         $ref: '#/components/requestBodies/Abonnement'
     patch:
       operationId: abonnement_partial_update
-      description: ''
+      description: 'Wijzigen van een abonnement.'
       responses:
         '200':
           description: ''
@@ -753,7 +753,7 @@ paths:
         $ref: '#/components/requestBodies/Abonnement'
     delete:
       operationId: abonnement_delete
-      description: ''
+      description: 'Verwijderen van een abonnement'
       responses:
         '204':
           description: ''
@@ -887,7 +887,7 @@ paths:
   /kanaal:
     get:
       operationId: kanaal_list
-      description: ''
+      description: 'Opvragen van een lijst van kanalen.'
       parameters:
       - name: naam
         in: query
@@ -1026,7 +1026,7 @@ paths:
         - (notificaties.publiceren | notificaties.consumeren)
     post:
       operationId: kanaal_create
-      description: ''
+      description: 'Registreren van een kanaal.'
       responses:
         '201':
           description: ''
@@ -1168,7 +1168,7 @@ paths:
   /kanaal/{uuid}:
     get:
       operationId: kanaal_read
-      description: ''
+      description: 'Opvragen van de details van een kanaal.'
       responses:
         '200':
           description: ''
@@ -1306,7 +1306,7 @@ paths:
   /notificaties:
     post:
       operationId: notificaties_create
-      description: ''
+      description: 'Registreren van notificaties.'
       responses:
         '200':
           description: ''
