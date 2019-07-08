@@ -8,12 +8,12 @@ weight: 100
 ## Introductie
 
 Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
-Zaak- en Documentservices (ZDS) ontwikkeld, inmiddels bekend als de ZGW API's. 
-Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van 
-relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke 
-als private partijen in een agile  proces vorm gegeven aan RESTful API's die 
-concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk 
-met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te 
+Zaak- en Documentservices (ZDS) ontwikkeld, inmiddels bekend als de ZGW API's.
+Hierbij wordt een andere vorm van standaardisatie toegepast. Op basis van
+relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke
+als private partijen in een agile  proces vorm gegeven aan RESTful API's die
+concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk
+met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te
 tonen, en als referentie te dienen voor latere implementaties.
 
 ### Toegevoegde waarde voor gemeenten
@@ -55,7 +55,7 @@ is. Dit is verder uitgewerkt in de GEMMA Informatiearchitectuur in o.a.
 Vanaf mei 2018 wordt met een aantal partijen [samengewerkt](../overige/samenwerking)
 aan realisatie van de ZGW API's.
 
-De naam Zaak- en Documentservices (ZDS) werd eerder gebruikt om duidelijk te 
+De naam Zaak- en Documentservices (ZDS) werd eerder gebruikt om duidelijk te
 maken welke huidige standaard wordt gemoderniseerd. Inmiddels heeft de opvolger
 een meer passende naam gekregen: de Zaakgericht Werken API's (ZGW API's). Dit
 behelst een collectie van meerdere aparte API's, waaronder de Zaken API,
@@ -200,7 +200,7 @@ open [Scrum bord](https://github.com/VNG-Realisatie/gemma-zaken/projects/1).
 Bij de ontwikkeling van de API's wordt gestreefd naar backwards compatibility.
 
 Voor meer informatie over de samenwerking, zie
-[samenwerking](samenwerking)
+[samenwerking](../overige/samenwerking)
 
 Naast de (nieuw te ontwikkelen) OpenAPI 3 specificatie wordt een [referentie implementatie](https://nl.wikipedia.org/wiki/Referentie-implementatie) gemaakt.
 De referentie implementatie heeft de volgende karakteristieken:
