@@ -34,3 +34,7 @@ services:
   - name: zrc-test
     templates: ../k8s/zrc/
     image_tag: develop
+
+  - name: ztc-test
+    templates: ../k8s/ztc/
+    image_tag: develop
