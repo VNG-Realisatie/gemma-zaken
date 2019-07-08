@@ -19,35 +19,35 @@ data:
       # public-support-contact = "support@my-organization.nl"
       # tech-support-contact   = "tech@my-organization.nl"
 
-      # [services.brc]
-      # endpoint-url = "https://besluiten-api.vng.cloud/api/v1/"
-      # documentation-url = "https://besluiten-api.vng.cloud/"
-      # authorization-model = "none"
-      # api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml"
+      [services.brc]
+      endpoint-url = "https://besluiten-api.vng.cloud/api/v1/"
+      documentation-url = "https://besluiten-api.vng.cloud/"
+      authorization-model = "none"
+      api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml"
 
-      # [services.drc]
-      # endpoint-url = "https://documenten-api.vng.cloud/api/v1/"
-      # documentation-url = "https://documenten-api.vng.cloud/"
-      # authorization-model = "none"
-      # api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml"
+      [services.drc]
+      endpoint-url = "https://documenten-api.vng.cloud/api/v1/"
+      documentation-url = "https://documenten-api.vng.cloud/"
+      authorization-model = "none"
+      api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml"
 
-      # [services.nrc]
-      # endpoint-url = "https://notificaties-api.vng.cloud/api/v1/"
-      # documentation-url = "https://notificaties-api.vng.cloud/"
-      # authorization-model = "none"
-      # api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml"
+      [services.nrc]
+      endpoint-url = "https://notificaties-api.vng.cloud/api/v1/"
+      documentation-url = "https://notificaties-api.vng.cloud/"
+      authorization-model = "none"
+      api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml"
 
-      # [services.zrc]
-      # endpoint-url = "https://zaken-api.vng.cloud/api/v1/"
-      # documentation-url = "https://zaken-api.vng.cloud/"
-      # authorization-model = "none"
-      # api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml"
+      [services.zrc]
+      endpoint-url = "https://zaken-api.vng.cloud/api/v1/"
+      documentation-url = "https://zaken-api.vng.cloud/"
+      authorization-model = "none"
+      api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml"
 
-      # [services.ztc]
-      # endpoint-url = "https://catalogi-api.vng.cloud/api/v1/"
-      # documentation-url = "https://catalogi-api.vng.cloud"
-      # authorization-model = "none"
-      # api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml"
+      [services.ztc]
+      endpoint-url = "https://catalogi-api.vng.cloud/api/v1/"
+      documentation-url = "https://catalogi-api.vng.cloud"
+      authorization-model = "none"
+      api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml"
 
 ---
 
