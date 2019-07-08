@@ -162,6 +162,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - klantcontacten
+      security:
+      - JWT-Claims:
+        - zaken.lezen
     post:
       operationId: klantcontact_create
       summary: Registreer een klantcontact bij een ZAAK.
@@ -189,6 +192,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContact'
+        required: true
       responses:
         '201':
           description: ''
@@ -317,12 +326,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - klantcontacten
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KlantContact'
-        required: true
+      security:
+      - JWT-Claims:
+        - zaken.bijwerken
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -451,6 +457,9 @@ paths:
                 $ref: '#/components/schemas/Fout'
       tags:
       - klantcontacten
+      security:
+      - JWT-Claims:
+        - zaken.lezen
     parameters:
     - name: uuid
       in: path
@@ -639,6 +648,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '201':
           description: ''
@@ -770,8 +781,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -932,6 +941,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: ''
@@ -1070,8 +1081,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     patch:
       operationId: resultaat_partial_update
       summary: Wijzig het RESULTAAT van een ZAAK.
@@ -1101,6 +1110,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: ''
@@ -1239,8 +1250,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     delete:
       operationId: resultaat_delete
       description: Verwijder het RESULTAAT van een ZAAK.
@@ -1645,6 +1654,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
       responses:
         '201':
           description: ''
@@ -1776,12 +1791,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Rol'
-        required: true
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2227,6 +2236,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Status'
+        required: true
       responses:
         '201':
           description: ''
@@ -2358,12 +2373,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.statussen.toevoegen | zaken.heropenen)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Status'
-        required: true
     parameters: []
   /statussen/{uuid}:
     get:
@@ -2687,6 +2696,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '201':
           description: ''
@@ -2818,8 +2829,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -2983,6 +2992,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: ''
@@ -3121,8 +3132,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     patch:
       operationId: zaakinformatieobject_partial_update
       description: 'Update een INFORMATIEOBJECT bij een ZAAK. Je mag enkel de gegevens
@@ -3154,6 +3163,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: ''
@@ -3292,8 +3303,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     delete:
       operationId: zaakinformatieobject_delete
       description: 'Verwijdert de relatie tussen ZAAK en INFORMATIEOBJECT. De gespiegelde
@@ -3596,6 +3605,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakObject'
+        required: true
       responses:
         '201':
           description: ''
@@ -3727,12 +3742,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakObject'
-        required: true
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -4245,6 +4254,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '201':
           description: ''
@@ -4388,8 +4399,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     parameters: []
   /zaken/_zoek:
     post:
@@ -4425,6 +4434,12 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakZoek'
+        required: true
       responses:
         '200':
           description: ''
@@ -4589,12 +4604,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakZoek'
-        required: true
     parameters: []
   /zaken/{uuid}:
     get:
@@ -4824,6 +4833,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: ''
@@ -4982,8 +4993,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
       summary: Werk een zaak bij.
@@ -5041,6 +5050,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: ''
@@ -5199,8 +5210,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     delete:
       operationId: zaak_delete
       summary: Verwijdert een zaak, samen met alle gerelateerde resources binnen deze
@@ -5793,6 +5802,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakBesluit'
+        required: true
       responses:
         '201':
           description: ''
@@ -5924,12 +5939,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakBesluit'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6373,6 +6382,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakEigenschap'
+        required: true
       responses:
         '201':
           description: ''
@@ -6504,12 +6519,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakEigenschap'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6896,7 +6905,7 @@ components:
           - Beslisser
           - Initiator
           - Klantcontacter
-          - "Zaakco\xC3\xB6rdinator"
+          - "Zaakco\xF6rdinator"
           - Mede-initiator
         roltoelichting:
           title: Roltoelichting
@@ -6911,6 +6920,87 @@ components:
           readOnly: true
       discriminator:
         propertyName: betrokkeneType
+    VerblijfsAdres:
+      title: Verblijfsadres
+      required:
+      - aoaIdentificatie
+      - wplWoonplaatsNaam
+      - gorOpenbareRuimteNaam
+      - aoaHuisnummer
+      type: object
+      properties:
+        aoaIdentificatie:
+          title: Aoa identificatie
+          description: De unieke identificatie van het OBJECT
+          type: string
+          maxLength: 100
+          minLength: 1
+        wplWoonplaatsNaam:
+          title: Wpl woonplaats naam
+          type: string
+          maxLength: 80
+          minLength: 1
+        gorOpenbareRuimteNaam:
+          title: Gor openbare ruimte naam
+          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
+            RUIMTE toegekende benaming
+          type: string
+          maxLength: 80
+          minLength: 1
+        aoaPostcode:
+          title: Aoa postcode
+          type: string
+          maxLength: 7
+        aoaHuisnummer:
+          title: Aoa huisnummer
+          type: integer
+          maximum: 99999
+          minimum: 0
+        aoaHuisletter:
+          title: Aoa huisletter
+          type: string
+          maxLength: 1
+        aoaHuisnummertoevoeging:
+          title: Aoa huisnummertoevoeging
+          type: string
+          maxLength: 4
+        inpLocatiebeschrijving:
+          title: Inp locatiebeschrijving
+          type: string
+          maxLength: 1000
+    SubVerblijfBuitenland:
+      title: Sub verblijf buitenland
+      required:
+      - lndLandcode
+      - lndLandnaam
+      type: object
+      properties:
+        lndLandcode:
+          title: Lnd landcode
+          description: De code, behorende bij de landnaam, zoals opgenomen in de Land/Gebied-tabel
+            van de BRP.
+          type: string
+          maxLength: 4
+          minLength: 1
+        lndLandnaam:
+          title: Lnd landnaam
+          description: De naam van het land, zoals opgenomen in de Land/Gebied-tabel
+            van de BRP.
+          type: string
+          maxLength: 40
+          minLength: 1
+        subAdresBuitenland_1:
+          title: Sub adres buitenland 1
+          type: string
+          maxLength: 35
+        subAdresBuitenland_2:
+          title: Sub adres buitenland 2
+          type: string
+          maxLength: 35
+        subAdresBuitenland_3:
+          title: Sub adres buitenland 3
+          type: string
+          maxLength: 35
     RolNatuurlijkPersoon:
       title: betrokkene_identificatie
       type: object
@@ -6977,15 +7067,9 @@ components:
           type: string
           maxLength: 18
         verblijfsadres:
-          title: Verblijfsadres
-          description: De gegevens over het verblijf en adres van de NATUURLIJK PERSOON
-          type: string
-          maxLength: 1000
+          $ref: '#/components/schemas/VerblijfsAdres'
         subVerblijfBuitenland:
-          title: Sub verblijf buitenland
-          description: De gegevens over het verblijf in het buitenland
-          type: string
-          maxLength: 1000
+          $ref: '#/components/schemas/SubVerblijfBuitenland'
     betrokkene_identificatie_RolNatuurlijkPersoon:
       type: object
       properties:
@@ -7044,10 +7128,7 @@ components:
           type: string
           maxLength: 1000
         subVerblijfBuitenland:
-          title: Sub verblijf buitenland
-          description: De gegevens over het verblijf in het buitenland
-          type: string
-          maxLength: 1000
+          $ref: '#/components/schemas/SubVerblijfBuitenland'
     betrokkene_identificatie_RolNietNatuurlijkPersoon:
       type: object
       properties:
@@ -7070,15 +7151,9 @@ components:
             type: string
             maxLength: 625
         verblijfsadres:
-          title: Verblijfsadres
-          description: De gegevens over het verblijf en adres van de Vestiging
-          type: string
-          maxLength: 1000
+          $ref: '#/components/schemas/VerblijfsAdres'
         subVerblijfBuitenland:
-          title: Sub verblijf buitenland
-          description: De gegevens over het verblijf in het buitenland
-          type: string
-          maxLength: 1000
+          $ref: '#/components/schemas/SubVerblijfBuitenland'
     betrokkene_identificatie_RolVestiging:
       type: object
       properties:
@@ -7462,27 +7537,22 @@ components:
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
       - $ref: '#/components/schemas/object_identificatie_ObjectGemeentelijkeOpenbareRuimte'
-    AdresAanduidingGrp:
+    TerreinGebouwdObjectAdres:
       title: Adres aanduiding grp
       required:
-      - numIdentificatie
       - oaoIdentificatie
       - wplWoonplaatsNaam
       - gorOpenbareRuimteNaam
-      - aoaPostcode
       - aoaHuisnummer
-      - aoaHuisletter
-      - aoaHuisnummertoevoeging
-      - ogoLocatieAanduiding
       type: object
       properties:
         numIdentificatie:
           title: Num identificatie
           type: string
           maxLength: 100
-          minLength: 1
         oaoIdentificatie:
           title: Oao identificatie
+          description: De unieke identificatie van het OBJECT
           type: string
           maxLength: 100
           minLength: 1
@@ -7519,7 +7589,6 @@ components:
           title: Ogo locatie aanduiding
           type: string
           maxLength: 100
-          minLength: 1
     ObjectTerreinGebouwdObject:
       title: Is gehuisvest in
       required:
@@ -7533,7 +7602,7 @@ components:
           maxLength: 100
           minLength: 1
         adresAanduidingGrp:
-          $ref: '#/components/schemas/AdresAanduidingGrp'
+          $ref: '#/components/schemas/TerreinGebouwdObjectAdres'
     ObjectHuishouden:
       title: object_identificatie
       required:
@@ -8073,21 +8142,18 @@ components:
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
       - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
-    AanduidingWozObject:
+    WozObjectAdres:
       title: Aanduiding woz object
       required:
-      - oaoIdentificatie
+      - aoaIdentificatie
       - wplWoonplaatsNaam
-      - aoaPostcode
       - gorOpenbareRuimteNaam
       - aoaHuisnummer
-      - aoaHuisletter
-      - aoaHuisnummertoevoeging
-      - locatieOmschrijving
       type: object
       properties:
-        oaoIdentificatie:
-          title: Oao identificatie
+        aoaIdentificatie:
+          title: Aoa identificatie
+          description: De unieke identificatie van het OBJECT
           type: string
           maxLength: 100
           minLength: 1
@@ -8096,10 +8162,6 @@ components:
           type: string
           maxLength: 80
           minLength: 1
-        aoaPostcode:
-          title: Aoa postcode
-          type: string
-          maxLength: 7
         gorOpenbareRuimteNaam:
           title: Gor openbare ruimte naam
           description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
@@ -8107,6 +8169,10 @@ components:
           type: string
           maxLength: 80
           minLength: 1
+        aoaPostcode:
+          title: Aoa postcode
+          type: string
+          maxLength: 7
         aoaHuisnummer:
           title: Aoa huisnummer
           type: integer
@@ -8124,7 +8190,6 @@ components:
           title: Locatie omschrijving
           type: string
           maxLength: 1000
-          minLength: 1
     ObjectWozObject:
       title: Is onderdeel van
       required:
@@ -8138,7 +8203,7 @@ components:
           maxLength: 100
           minLength: 1
         aanduidingWozObject:
-          $ref: '#/components/schemas/AanduidingWozObject'
+          $ref: '#/components/schemas/WozObjectAdres'
     ObjectWozDeelobject:
       title: object_identificatie
       required:
