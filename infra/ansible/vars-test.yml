@@ -18,3 +18,7 @@ services:
   - name: ac-test
     templates: ../k8s/ac/
     image_tag: develop
+
+  - name: brc-test
+    templates: ../k8s/brc/
+    image_tag: develop
