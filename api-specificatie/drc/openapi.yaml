@@ -3985,6 +3985,7 @@ components:
           maxLength: 255
         inhoud:
           title: Inhoud
+          description: Download URL van de binaire inhoud.
           type: string
           format: uri
           readOnly: true
@@ -4737,6 +4738,7 @@ components:
           maxLength: 255
         inhoud:
           title: Inhoud
+          description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
         bestandsomvang:
@@ -5539,6 +5541,7 @@ components:
           maxLength: 255
         inhoud:
           title: Inhoud
+          description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
         bestandsomvang:
