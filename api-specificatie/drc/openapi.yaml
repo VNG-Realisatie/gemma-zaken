@@ -76,6 +76,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: ''
@@ -88,9 +94,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EnkelvoudigInformatieObject'
         '400':
           description: ''
           headers:
@@ -1738,11 +1760,10 @@ paths:
       parameters:
       - name: informatieobject
         in: query
-        description: URL naar de/het gerelateerde informatieobject
+        description: ''
         required: false
         schema:
           type: string
-          format: uri
       - name: startdatum__lt
         in: query
         description: Begindatum van de periode waarin de gebruiksrechtvoorwaarden
@@ -2721,11 +2742,10 @@ paths:
           format: uri
       - name: informatieobject
         in: query
-        description: URL naar de/het gerelateerde informatieobject
+        description: ''
         required: false
         schema:
           type: string
-          format: uri
       responses:
         '200':
           description: ''
@@ -3407,7 +3427,6 @@ components:
             het INFORMATIEOBJECT.
           type: string
           maxLength: 40
-          minLength: 1
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
@@ -4160,7 +4179,6 @@ components:
             het INFORMATIEOBJECT.
           type: string
           maxLength: 40
-          minLength: 1
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
@@ -4963,7 +4981,6 @@ components:
             het INFORMATIEOBJECT.
           type: string
           maxLength: 40
-          minLength: 1
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
