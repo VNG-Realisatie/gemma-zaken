@@ -12,7 +12,7 @@ data:
     # A single inway can expose multiple API's, therefore this block can be added multiple times.
     # The name of the API must be unique for each block.
       [services.ac]
-      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1/"
+      endpoint-url = "https://autorisaties-api.vng.cloud/api/v1"
       documentation-url = "https://autorisaties-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml"
@@ -20,35 +20,40 @@ data:
       # tech-support-contact   = "tech@my-organization.nl"
 
       [services.brc]
-      endpoint-url = "https://besluiten-api.vng.cloud/api/v1/"
+      endpoint-url = "https://besluiten-api.vng.cloud/api/v1"
       documentation-url = "https://besluiten-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml"
 
       [services.drc]
-      endpoint-url = "https://documenten-api.vng.cloud/api/v1/"
+      endpoint-url = "https://documenten-api.vng.cloud/api/v1"
       documentation-url = "https://documenten-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml"
 
       [services.nrc]
-      endpoint-url = "https://notificaties-api.vng.cloud/api/v1/"
+      endpoint-url = "https://notificaties-api.vng.cloud/api/v1"
       documentation-url = "https://notificaties-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml"
 
       [services.zrc]
-      endpoint-url = "https://zaken-api.vng.cloud/api/v1/"
+      endpoint-url = "https://zaken-api.vng.cloud/api/v1"
       documentation-url = "https://zaken-api.vng.cloud/"
       authorization-model = "none"
       api-specification-document-url = "https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml"
 
       [services.ztc]
-      endpoint-url = "https://catalogi-api.vng.cloud/api/v1/"
+      endpoint-url = "https://catalogi-api.vng.cloud/api/v1"
       documentation-url = "https://catalogi-api.vng.cloud"
       authorization-model = "none"
       api-specification-document-url = "https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml"
 
+      [services.selectielijst]
+      endpoint-url = "https://referentielijsten-api.vng.cloud/api/v1"
+      documentation-url = "https://referentielijsten-api.vng.cloud"
+      authorization-model = "none"
+      api-specification-document-url = "https://referentielijsten-api.vng.cloud/api/v1/schema/openapi.yaml"
 ---
 
 apiVersion: v1
