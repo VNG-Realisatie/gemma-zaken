@@ -30,12 +30,12 @@ het scrumteam zijn actief betrokken bij de realisatie van Common Ground.
 
 Daar waar GEMMA 2 nog niet (helemaal) in lijn is met Common Ground, wordt
 Common Ground gevolgd. De principes volgend uit de Common Ground visie worden
-toegepast. _Zie: [productvisie](/introductie/productvisie)_
+toegepast. _Zie: [productvisie](/productvisie)_
 
 
 #### Wat gaat er concreet gemaakt worden?
 
-_Volgens de [productvisie](/introductie/productvisie)_
+_Volgens de [productvisie](/productvisie)_
 
 * Opstellen en realiseren van een nieuwe ZGW API's volgens Open API
 Specificatie v3 (AOS 3)
@@ -47,7 +47,7 @@ zaaktypecataloguscomponent welke de ZGW API's strikt implementeren
 _Volgens oorspronkelijke projectdefinitie_
 
 * Een nieuwe versie van de ZDS services (gebaseerd op REST APIs, aansluitend
-  bij Common Ground) om de interoperabiliteit tussen leveranciers te 
+  bij Common Ground) om de interoperabiliteit tussen leveranciers te
   bewerkstelligen en leveranciers te bewegen in de richting van Common ground
   (Silo's openen). _De nieuwe/opvolgende versie van ZDS is ondertussen hernoemt
   naar de ZGW API's_;
@@ -93,4 +93,4 @@ De Opdrachtgever, [VNG Realisatie](https://github.com/VNG-Realisatie/)
 
 Dat is niet het doel en wordt niet aanbevolen. Echter, er worden  kleine Open
 Source componenten gerealiseerd waar leveranciers wellicht geen uitbreidingen
-op hoeven te doen om ze in de praktijk te gebruiken. 
+op hoeven te doen om ze in de praktijk te gebruiken.
