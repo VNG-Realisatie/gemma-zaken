@@ -220,7 +220,8 @@ metadata:
 spec:
   selector:
     k8s-app: nlx-inway
+  type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8443
+    port: 443
     targetPort: 8443
