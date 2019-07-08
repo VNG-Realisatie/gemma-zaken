@@ -1,0 +1,43 @@
+---
+
+db_host: postgis
+
+services:
+  - name: postgis
+    templates: ../k8s/database/
+    pvc_name: db
+    sub_path: database
+    databases:
+      - zrc
+      - drc
+      - ztc
+      - brc
+      - nrc
+      - ac
+      - token-issuer
+      - vrl
+      - deploy
+
+  - name: ac
+    templates: ../k8s/ac/
+    image_tag: '0.3.1'
+
+  - name: brc
+    templates: ../k8s/brc/
+    image_tag: '0.11.6'
+
+  - name: drc
+    templates: ../k8s/drc/
+    image_tag: '0.15.4'
+
+  - name: nrc
+    templates: ../k8s/nrc/
+    image_tag: '0.7.1'
+
+  - name: zrc
+    templates: ../k8s/zrc/
+    image_tag: '0.19.1'
+
+  - name: ztc
+    templates: ../k8s/ztc/
+    image_tag: '0.14.2'

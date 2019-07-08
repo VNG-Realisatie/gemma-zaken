@@ -6,8 +6,8 @@
   hosts: local  # uses local kubectl
 
   vars_files:
-    - vars-test.yml
-    - secrets-test.yml
+    - vars/test.yml
+    - vars/secrets-test.yml
 
   tasks:
     - include_tasks: tasks/deploy_service.yml

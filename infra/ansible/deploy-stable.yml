@@ -2,11 +2,12 @@
 
 # This playbook is executed locally and requires the kubectl binary
 
-- name: Deploy the secrets in the k8s cluster
+- name: Deploy the stable environment in the k8s cluster
   hosts: local
 
   vars_files:
-    - vars.yml
+    - vars/secrets.yml
+    - vars/stable.yml
 
   tasks:
     - name: Install secrets
@@ -17,14 +18,12 @@
         validate:
           fail_on_error: yes
       with_items:
-        - ../k8s/database/secrets.yml
-        - ../k8s/zrc/secrets.yml
-        - ../k8s/drc/secrets.yml
-        - ../k8s/ztc/secrets.yml
-        - ../k8s/brc/secrets.yml
-        - ../k8s/nrc/secrets.yml
-        - ../k8s/ac/secrets.yml
         - ../k8s/tokens/secrets.yml
         - ../k8s/vrl/secrets.yml
         - ../k8s/deploy/secrets.yml
         - ../k8s/inway/secrets.yml
+
+    - include_tasks: tasks/deploy_service.yml
+      loop: "{{ services }}"
+      loop_control:
+        loop_var: service
