@@ -26,3 +26,11 @@ services:
   - name: drc-test
     templates: ../k8s/drc/
     image_tag: develop
+
+  - name: nrc-test
+    templates: ../k8s/nrc/
+    image_tag: develop
+
+  - name: zrc-test
+    templates: ../k8s/zrc/
+    image_tag: develop
