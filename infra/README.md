@@ -88,7 +88,7 @@ in `k8s/database`.
 To deploy these, run:
 
 ```bash
-kubectl -n zgw apply k8s/database/
+kubectl -n zgw apply -f k8s/database/postgis.yml
 ```
 
 Currently only one replica can run with the mounted volume, since volumes
@@ -119,28 +119,48 @@ createdb DB_NAME
 
 ### API services
 
-For each service (ZRC, DRC, ZTC, BRC, NRC, AC), you deploy them using:
+#### ZRC, ZTC, BRC, AC
 
 ```bash
-kubectl -n zgw apply k8s/<lower-cased-service>/
+kubectl -n zgw apply -f k8s/<lower-cased-service>/web.yml
 ```
 
 e.g.:
 
 ```bash
-kubectl -n zgw apply k8s/zrc/
+kubectl -n zgw apply -f k8s/zrc/
+```
+
+#### DRC
+
+For the DRC you need some extra yaml files:
+
+```bash
+kubectl -n zgw apply -f k8s/drc/volumes.yml
+kubectl -n zgw apply -f k8s/drc/web.yml
+kubectl -n zgw apply -f k8s/drc/nginx.yml
+```
+
+#### NRC
+
+For the NRC you need some extra yaml files:
+
+```bash
+kubectl -n zgw apply -f k8s/nrc/celery.yml
+kubectl -n zgw apply -f k8s/nrc/rabbitmq.yml
+kubectl -n zgw apply -f k8s/nrc/web.yml
 ```
 
 ### Documentation
 
 ```bash
-kubectl -n zgw apply k8s/docs/
+kubectl -n zgw apply -f k8s/docs/
 ```
 
 ### Referentielijsten/Gemeentelijke Selectielijst
 
 ```bash
-kubectl -n zgw apply k8s/vrl/
+kubectl -n zgw apply -f k8s/vrl/web.yml
 ```
 
 ### Deploy bot
@@ -151,25 +171,26 @@ deployments (such updating to newer images).
 Create the service account with the required roles:
 
 ```bash
-kubectl -n zgw apply k8s/deploy/
+kubectl -n zgw apply -f k8s/deploy/rbac.yaml
+kubectl -n zgw apply -f k8s/deploy/web.yml
 ```
 
 ### NLX inway
 
 ```bash
-kubectl -n zgw apply k8s/inway/
+kubectl -n zgw apply -f k8s/inway/inway.yml
 ```
 
 ### Token tool
 
 ```bash
-kubectl -n zgw apply k8s/tokens/
+kubectl -n zgw apply -f k8s/tokens/web.yml
 ```
 
 ### Redirects for previous domain
 
 ```bash
-kubectl -n zgw apply k8s/old_domain/
+kubectl -n zgw apply -f k8s/old_domain/
 ```
 
 ### Ingress
@@ -178,5 +199,5 @@ WARNING: do not deploy new domains in the ingress if the DNS is not properly
 set up/stable yet! This will cause issues with the LetsEncrypt certificates.
 
 ```bash
-kubectl -n zgw apply k8s/ingress.yml
+kubectl -n zgw apply -f k8s/ingress.yml
 ```
