@@ -11,13 +11,13 @@ De ZGW API Standaard bestaat uit 2 delen:
 
 Hieronder de directe links naar alle Open API specificaties (OAS):
 
-* [Zaken API specificatie](https://ref.tst.vng.cloud/zrc/api/v1/schema/)
-* [Catalogus API specificatie](https://ref.tst.vng.cloud/ztc/api/v1/schema/)
-* [Documenten API specificatie](https://ref.tst.vng.cloud/drc/api/v1/schema/)
-* [Besluiten API specificatie](https://ref.tst.vng.cloud/brc/api/v1/schema/)
-* [Autorisaties API specificatie](https://ref.tst.vng.cloud/ac/api/v1/schema/)
-* [Notificaties API specificatie](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
-* [Notificaties API specificatie voor consumers](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
+* [Zaken API specificatie](https://zaken-api.vng.cloud/api/v1/schema/)
+* [Catalogus API specificatie](https://catalogi-api.vng.cloud/api/v1/schema/)
+* [Documenten API specificatie](https://documenten-api.vng.cloud/api/v1/schema/)
+* [Besluiten API specificatie](https://besluiten-api.vng.cloud/api/v1/schema/)
+* [Autorisaties API specificatie](https://autorisaties-api.vng.cloud/api/v1/schema/)
+* [Notificaties API specificatie](https://notificaties-api.vng.cloud/api/v1/schema/)
+* [Notificaties API specificatie voor consumers](https://redocly.github.io/redoc/?url=https://zaakgerichtwerken.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
 
 In de figuur hieronder is een overzicht weergegeven van de API's voor Zaakgericht werken. De Catalogi API en Zaken API zijn puur voor zaakgericht werken bedoeld, en hebben geen functie daarbuiten. De Documenten API en Besluiten API zullen ook buiten zaakgericht werken toepassingen krijgen. Immers, niet alle documenten zijn zaakgericht en niet alle besluiten zullen in de context van een zaak worden genomen. Denk bij het laatste bijv. aan raadsbesluiten.
 

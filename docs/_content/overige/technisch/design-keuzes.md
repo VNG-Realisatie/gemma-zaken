@@ -256,7 +256,7 @@ Een voorbeeld response is dan:
 
 ```json
 {
-    "type": "URI: https://ref.tst.vng.cloud/ref/fouten/ValidationError/",
+    "type": "URI: https://zaken-api.vng.cloud/ref/fouten/ValidationError/",
     "title": "Ongeldige gegevens",
     "status": 400,
     "code": "invalid",

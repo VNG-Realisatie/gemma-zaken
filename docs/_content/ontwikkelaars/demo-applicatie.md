@@ -3,9 +3,9 @@ title: Demo applicatie
 weight: 50
 ---
 
-De demo applicatie is een combinatie van verschillende aspecten zoals die te 
-vinden zijn in zaaksystemen, suites en applicaties. De demo applicatie is 
-opgezet voor test en demonstratie doeleinden en kan geconfigureerd worden om te 
+De demo applicatie is een combinatie van verschillende aspecten zoals die te
+vinden zijn in zaaksystemen, suites en applicaties. De demo applicatie is
+opgezet voor test en demonstratie doeleinden en kan geconfigureerd worden om te
 communiceren met de verschillende ZGW APIs.
 
 _Opmerking: De demo applicatie is geen onderdeel van de standaard of referentie
@@ -17,7 +17,7 @@ De online demo applicatie is geconfigureerd om te communiceren met de gehoste
 referentie implementaties van de verschillende componenten. Deze demo
 applicatie kan **niet** anders worden geconfigureerd en is te vinden op:
 
-[https://ref.tst.vng.cloud/demo/](https://ref.tst.vng.cloud/demo/)
+[https://zgw-demo.vng.cloud](https://zgw-demo.vng.cloud)
 
 
 # Gebruik een lokale versie van de demo applicatie
@@ -41,7 +41,7 @@ $ docker-compose up -d
 
 ## Voorbereiding
 
-Ook voor de demo applicatie is een [Docker][docker] containers beschikbaar. De 
+Ook voor de demo applicatie is een [Docker][docker] containers beschikbaar. De
 volgende onderdelen zijn nodig om aan de slag te gaan:
 
 **Verplicht**
@@ -55,7 +55,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
   * [Linux][docker-linux] (Docker for Linux)
 * Docker Compose (alleen niet inbegrepen bij Docker for Linux)
   * [Linux][docker-compose-linux]
-  
+
 *Docker for Windows werkt alleen op Windows 10 Professional*
 
 
@@ -78,11 +78,11 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    git clone git@github.com:VNG-Realisatie/gemma-zaken.git
    ```
-   
+
    Of, gebruik `git clone https://github.com/VNG-Realisatie/gemma-zaken.git`
    als authenticatie een issue is.
 
-   Of, [download][gemma-zaken-demo-download] de repository handmatig en pak 
+   Of, [download][gemma-zaken-demo-download] de repository handmatig en pak
    deze uit in de `gemma-zaken-demo` folder.
 
 2. Navigeer naar de project folder.
@@ -117,13 +117,13 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
      Alle containers zijn bereikbaar op `localhost` of `127.0.0.1`.
 
    * Voor **Windows (met Docker for Windows)**:
-   
+
      Het beste is om het NAT IP te gebruiken in plaats van `localhost`. Deze
-     laatste kan soms problemen geven als een proces vanuit een Docker 
+     laatste kan soms problemen geven als een proces vanuit een Docker
      container met een andere Docker container wil communiceren.
-     
+
      In een shell, voer `ipconfig` uit en zoek naar `DockerNAT`:
-     
+
      ```bash
      $ ipconfig
      ...
@@ -133,7 +133,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
         Subnet Mask . . . . . . . . . . . : 255.255.255.0
         Default Gateway . . . . . . . . . :
      ```
-   
+
      Alle containers zijn bereikbaar op `10.0.75.1`.
 
    * Voor **Windows (met Docker Toolbox)**:
@@ -146,7 +146,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
      $ docker-machine ip
      192.168.99.100
      ```
-    
+
     Alle containers zijn bereikbaar op `192.168.99.100`.
 
 4. Navigeer in de browser naar de demo applicatie: `http://<ip>:8080/`
@@ -166,7 +166,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
    ```bash
    docker exec -it gemmazakendemo_web_1 /app/src/manage.py loaddata /app/src/zac/fixtures/refimpl-conf.json
    ```
-   
+
    _TIP: Het kan zijn dat de configuratie niet goed hergeladen wordt. In dat
    geval kan in de admin de configuratie nogmaals worden opgeslagen of de Docker
    instantie moet opnieuw gestart worden._
@@ -179,7 +179,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
 ### Demo applicatie stoppen
 
-De demo applicatie draait op de achtergrond. Om geen onnodige resources te 
+De demo applicatie draait op de achtergrond. Om geen onnodige resources te
 gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 
 ```bash

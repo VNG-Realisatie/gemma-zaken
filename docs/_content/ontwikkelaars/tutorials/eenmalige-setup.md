@@ -68,7 +68,7 @@ docker-compose exec ac_web src/manage.py createsuperuser
 
 ## API-credentials genereren
 
-Gebruik de [tokentool](https://ref.tst.vng.cloud/tokens/) om een _Client ID_
+Gebruik de [tokentool](https://zaken-auth.vng.cloud) om een _Client ID_
 en _Secret_ te genereren, of verzin deze zelf. Deze credentials moet je straks
 opvoeren.
 
@@ -371,4 +371,4 @@ docker-compose exec ac_web src/manage.py register_kanaal
 ```
 
 
-[token-generator]: https://ref.tst.vng.cloud/tokens/
+[token-generator]: https://zaken-auth.vng.cloud

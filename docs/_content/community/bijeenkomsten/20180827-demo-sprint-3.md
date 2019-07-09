@@ -72,4 +72,4 @@ deze aan te passen moeten dan ook goed gemotiveerd zijn.
 ### Waar kan ik de designkeuze vinden?
 
 Deze zijn te vinden op
-[ref.tst.vng.cloud > Ontwikkelaars > Ontwerpkeuzes](https://ref.tst.vng.cloud/developers/design-keuzes/)
+[zaakgerichtwerken.vng.cloud > Overige > Technisch > Ontwerpkeuzes](https://zaakgerichtwerken.vng.cloud/overige/technisch/design-keuzes/)

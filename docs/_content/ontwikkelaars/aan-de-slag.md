@@ -178,17 +178,17 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 ## Setting up authorizations
 
-The components use _tokens_ to exchange authorization data. A consumer talks 
-to a provider, on condition that a valid token is given. Providers, in turn, 
+The components use _tokens_ to exchange authorization data. A consumer talks
+to a provider, on condition that a valid token is given. Providers, in turn,
 can also be consumers of other providers, and they should also use valid tokens.
 
-Both forms use the same mechanism, which has two parts - basic authentication 
+Both forms use the same mechanism, which has two parts - basic authentication
 of the consumer in the API and specific authorization to API resources.
-  
+
 The provider authenticates the consumer based on its **Identifier** and a shared
- **Secret**, which are sent in JWT in the header of a request. After 
+ **Secret**, which are sent in JWT in the header of a request. After
 the consumer is recognized the provider defines its access based on the data in the
-Autorisatiecomponent (AC) 
+Autorisatiecomponent (AC)
 
 
 1. Set up authentication for the consumer
@@ -199,73 +199,73 @@ Autorisatiecomponent (AC)
 
    * `Identifier`:  A random string, for example `demo`.
    * `Secret`: A random string, for example `demo`.
-   
-   These are the credentials to create a JWT, of which both the consumer 
-   and the provider know the secret. This must typically be done on each 
-   component. It does not matter what is entered but it is easiest if the same 
+
+   These are the credentials to create a JWT, of which both the consumer
+   and the provider know the secret. This must typically be done on each
+   component. It does not matter what is entered but it is easiest if the same
    credentials are entered in all components.
-   
+
 2. Set up access to specified resource for the consumer
    Authorizations for specific resources is run by the AC. The provider will request
    this API to get data about the consumer rights.
-   
+
    First, configure the AC url in your API:
    Login to the API admin and go to `Autorisatiecomponentconfiguratie` and click on **Add**.
    Enter all data and click **Save**:
    * `Api root`: A url to the AC root, for example `http://<ip-of-localhost>:800x/api/v1/`.
    * `Component`: The sort of component this provider is - this is used to request the correct authorizations from the AC.
-   
-   After this, there are two ways of creating rights in the AC - via admin page and 
-   via POST requests to the AC API. 
-   
+
+   After this, there are two ways of creating rights in the AC - via admin page and
+   via POST requests to the AC API.
+
    The following instructions are for the way using the admin page.
-   
+
    Login to the AC admin and go to `Applicaties` and click on **Add**.
    Enter all data and click **Save**:
 
    * `Client IDs:`:  A comma separated list of identifiers. This list should include `Identifier`
      from the step 1, for example `demo, demo2`.
    * `Label`: A name of the consumer, for example `demo client`.
-   * `Heeft alle autorisaties`: A flag defining that the current consumer is superuser 
+   * `Heeft alle autorisaties`: A flag defining that the current consumer is superuser
      and have access for all the APIs and their resources. This flag is recommended to use only for
-     testing purposes. Please don't use it for production. 
-   
-   Below in the `Autorisaties` section rights for specific APIs, scopes and components of APIs 
-   can be added. They will be taken into account only if the consumer is not a superuser. 
+     testing purposes. Please don't use it for production.
+
+   Below in the `Autorisaties` section rights for specific APIs, scopes and components of APIs
+   can be added. They will be taken into account only if the consumer is not a superuser.
 
 3. Arrange authorizations between components
 
    _All APIs must have permissions to query the AC, since it's a part of authorization process.
-   Some APIs can request other APIs, for example the ZRC typically needs to validate a Zaaktype 
+   Some APIs can request other APIs, for example the ZRC typically needs to validate a Zaaktype
    in the ZTC, therefore the ZRC must have permission to query the ZTC._
-   
-   The following instruction shows how to set up permission in any API fot the AC. 
+
+   The following instruction shows how to set up permission in any API fot the AC.
 
    Login to the admin of the API and go to `External API credentials` and click on **Add**.
 
    Enter all data and click **Save**:
 
-   * `Api root`: Enter the URL of the API root of the relevant component (here it is AC). 
+   * `Api root`: Enter the URL of the API root of the relevant component (here it is AC).
      For instance: `http://<ip-of-localhost>:800x/api/v1/`
    * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 1 voor het
      betreffende component wat bereikbaar is op `API root`.
    * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 1 voor het
      betreffende component wat bereikbaar is op `API root`.
 
-   Repeat this step for all APIs querying other components. Please make sure that these relevant 
+   Repeat this step for all APIs querying other components. Please make sure that these relevant
    components have `Client credentials` from step 1. consistent with `External API credentials`
-   
+
 4. Generate JWT
 
-   Navigate: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
+   Navigate: [https://zaken-auth.vng.cloud/generate-jwt/](https://zaken-auth.vng.cloud/generate-jwt/)
 
    Enter the `Identifier` and `Secret` from step 1 and click **Bevestig**.
 
-   A generated JWT can be used in the `Authorization` header now.  To inspect 
-   the JWT you can paste the token (without `Bearer`) in [jwt.io](https://jwt.io). 
+   A generated JWT can be used in the `Authorization` header now.  To inspect
+   the JWT you can paste the token (without `Bearer`) in [jwt.io](https://jwt.io).
    Don't forget to enter your own secret (bottom right) instead of `your-256-bit-secret`!
-   
-   _Creating a JWT does not register the secret with the hosted reference components. 
+
+   _Creating a JWT does not register the secret with the hosted reference components.
    See the [API guides](./guides) how this works._
 
 Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)

@@ -32,17 +32,17 @@ weight: 100
 
 ## Inleiding
 
-De API's voor Zaakgericht werken vormen de opvolger van zowel de 
+De API's voor Zaakgericht werken vormen de opvolger van zowel de
 berichtenstandaard van het Sectormodel Zaken ([StUF-ZKN] 3.10) alsmede het
 koppelvlak Zaak- en Document Services ([ZDS] 1.2).
 
-In tegenstelling tot StUF-ZKN en ZDS zijn de API's voor Zaakgericht werken geen 
-gezamenlijke berichtenstandaard maar is elke API een berichtenstandaard op 
-zichzelf. Om zaakgericht werken te ondersteunen zijn echter meerdere API's 
-nodig, die in dit document worden beschreven. 
+In tegenstelling tot StUF-ZKN en ZDS zijn de API's voor Zaakgericht werken geen
+gezamenlijke berichtenstandaard maar is elke API een berichtenstandaard op
+zichzelf. Om zaakgericht werken te ondersteunen zijn echter meerdere API's
+nodig, die in dit document worden beschreven.
 
-Elke API bestaat uit een Open API-specificatie (OAS), technische documentatie 
-die het "run-time" gedrag beschrijft en een of meerdere gegevensmodellen. De 
+Elke API bestaat uit een Open API-specificatie (OAS), technische documentatie
+die het "run-time" gedrag beschrijft en een of meerdere gegevensmodellen. De
 OAS is samen met de technische documentatie leidend voor de standaard.
 
 Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
@@ -85,9 +85,9 @@ tussen registraties en consumers die van de API's gebruik maken.
 
 ## Algemene API-eisen
 
-Er wordt zoveel mogelijk uitgegaan van de 
-[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019) 
-maar de API's zijn in eerste instantie ontwikkeld volgens de 
+Er wordt zoveel mogelijk uitgegaan van de
+[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019)
+maar de API's zijn in eerste instantie ontwikkeld volgens de
 [DSO API- en URI-strategie](dso-strategie). Hier en daar kan worden afgeweken
 om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
@@ -95,7 +95,7 @@ om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
 ### Versionering van de API
 
-In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in 
+In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
@@ -105,14 +105,14 @@ Zie: Achtergrond over [Versies en migraties](../ontwikkelaars/algemeen/versies-e
 
 ### Migreren van de API root URL
 
-Als een wijziging van de API root URL **geen** invloed heeft op de inhoud van 
-de API, ofwel, het betreft geen versiewijziging, dan MOET de API op de oude 
-`{API root URL}` en alle onderliggende URL's, een HTTP 301 (Definitief 
-verplaatst) teruggeven. Als `Location`-header MOET de URL staan naar de 
+Als een wijziging van de API root URL **geen** invloed heeft op de inhoud van
+de API, ofwel, het betreft geen versiewijziging, dan MOET de API op de oude
+`{API root URL}` en alle onderliggende URL's, een HTTP 301 (Definitief
+verplaatst) teruggeven. Als `Location`-header MOET de URL staan naar de
 resource op de nieuwe `{API root URL}`.
 
-Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de 
-API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude 
+Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
+API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
 Zie: Achtergrond over [Versies en migraties](../ontwikkelaars/algemeen/versies-en-migraties)
@@ -124,7 +124,7 @@ Iedere component MOET het OAS schema serveren, onder
 
 Voorbeelden van geldige URLs:
 
-- `https://ref.tst.vng.cloud/zrc/api/v1/schema/openapi.yaml`
+- `https://tstF.vng.cloud/zrc/api/v1/schema/openapi.yaml`
 - `https://zrc.nl/api/v1/schema/openapi.yaml`
 - `https://api.zrc.nl/v1/schema/openapi.yaml`
 - `https://v1.api.zrc.nl/schema/openapi.yaml`
@@ -134,8 +134,8 @@ resources uit te voeren.
 
 ## Gegevensformaten
 
-Een aantal formaten zijn nog niet formeel vastgelegd in OAS of 
-[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor 
+Een aantal formaten zijn nog niet formeel vastgelegd in OAS of
+[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor
 Zaakgericht werken gebruikt en opgelegd.
 
 [json-schema]: https://json-schema.org/
@@ -428,7 +428,7 @@ stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en 
+Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en
 wat de maximale vertrouwelijkheidaanduiding is voor een consumer.
 
 Het ZRC MAG ENKEL zaken ontsluiten waarvan:
@@ -503,7 +503,7 @@ antwoorden met een `HTTP 400` foutbericht.
 
 Het ophalen van deze resource moet een JSON-document zijn met de vorm van
 een communicatiekanaal zoals gedocumenteerd op de
-[referentielijsten-api](https://ref.tst.vng.cloud/referentielijsten/api/v1/schema/#operation/communicatiekanaal_read):
+[referentielijsten-api](https://referentielijsten-api.vng.cloud/api/v1/schema/#operation/communicatiekanaal_read):
 
 ```json
 {
@@ -887,7 +887,7 @@ Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 
 Het ZTC haalt informatie uit selectielijsten en de Gemeentelijke Selectielijst
 2017. Deze gegevens worden ontsloten in de
-[VNG-referentielijsten-API](https://ref.tst.vng.cloud/referentielijsten/). Op
+[VNG-referentielijsten-API](https://referentielijsten-api.vng.cloud/). Op
 korte termijn zal deze API gesplitst worden in een referentielijsten-API en de
 selectielijst-API (waar deze nu nog 1 API is)
 [#3 on Github](https://github.com/VNG-Realisatie/VNG-referentielijsten/issues/3).

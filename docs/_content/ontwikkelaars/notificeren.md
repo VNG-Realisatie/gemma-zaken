@@ -7,7 +7,7 @@ weight: 110
 Als component moet je events publiceren naar een notificatierouteringcomponent
 (NRC), of je wil kunnen acteren op events. Deze guide helpt je op weg.
 
-Als uitgangspunt wordt de [gehoste notificatiecomponent](https://ref.tst.vng.cloud/nrc/)
+Als uitgangspunt wordt de [gehoste notificatiecomponent](https://notificaties-api.vng.cloud/)
 gebruikt.
 
 Er zijn twee perspectieven:
@@ -27,7 +27,7 @@ JWT te genereren.
    query te doen:
 
    ```http
-   GET https://ref.tst.vng.cloud/nrc/api/v1/kanaal?naam=zaken HTTP/1.0
+   GET https://notificaties-api.vng.cloud/api/v1/kanaal?naam=zaken HTTP/1.0
    Authorization: Bearer abcd1234
    ```
 
@@ -37,13 +37,13 @@ JWT te genereren.
 3. Registreer het kanaal (indien het nog niet bestaat)
 
     ```http
-    POST https://ref.tst.vng.cloud/nrc/api/v1/kanaal HTTP/1.0
+    POST https://notificaties-api.vng.cloud/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
     {
       "naam": "zaken",
-      "documentatieLink": "https://ref.tst.vng.cloud/zrc/ref/kanalen/#zaken",
+      "documentatieLink": "https://zaken-api.vng.cloud/ref/kanalen/#zaken",
       "filters": [
         "bronorganisatie",
         "zaaktype",
@@ -59,20 +59,20 @@ JWT te genereren.
 4. Verstuur een bericht
 
     ```http
-    POST https://ref.tst.vng.cloud/nrc/api/v1/notificaties HTTP/1.0
+    POST https://notificaties-api.vng.cloud/api/v1/notificaties HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
     {
       "kanaal": "zaken",
-      "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
+      "hoofdObject": "https://zaken-api.vng.cloud/api/v1/zaken/ddc6d192",
       "resource": "status",
-      "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
+      "resourceUrl": "https://zaken-api.vng.cloud/api/v1/statussen/44fdcebf",
       "actie": "create",
       "aanmaakdatum": "2019-03-27T10:59:13Z",
       "kenmerken": {
         "bronorganisatie": "224557609",
-        "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+        "zaaktype": "https://catalogi-api.vng.cloud/api/v1/zaaktypen/53c5c164",
         "vertrouwelijkheidaanduiding": "openbaar"
       }
     }
@@ -96,14 +96,14 @@ JWT te genereren.
 2. Vraag op welke kanalen beschikbaar zijn:
 
     ```http
-    GET https://ref.tst.vng.cloud/nrc/api/v1/kanaal HTTP/1.0
+    GET https://notificaties-api.vng.cloud/api/v1/kanaal HTTP/1.0
     Authorization: Bearer abcd1234
     ````
 
 3. Registreer je abonnement bij het NC:
 
     ```http
-    POST https://ref.tst.vng.cloud/nrc/api/v1/abonnement HTTP/1.0
+    POST https://notificaties-api.vng.cloud/api/v1/abonnement HTTP/1.0
     Authorization: Bearer abcd1234
     Content-Type: application/json
 
@@ -144,18 +144,18 @@ JWT te genereren.
 
     {
       "kanaal": "zaken",
-      "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
+      "hoofdObject": "https://zaken-api.vng.cloud/api/v1/zaken/ddc6d192",
       "resource": "status",
-      "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
+      "resourceUrl": "https://zaken-api.vng.cloud/api/v1/statussen/44fdcebf",
       "actie": "create",
       "aanmaakdatum": "2019-03-27T10:59:13Z",
       "kenmerken": {
         "bronorganisatie": "224557609",
-        "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+        "zaaktype": "https://catalogi-api.vng.cloud/api/v1/zaaktypen/53c5c164",
         "vertrouwelijkheidaanduiding": "openbaar"
       }
     }
     ```
 
-[token-generator]: https://ref.tst.vng.cloud/tokens/
+[token-generator]: https://zaken-auth.vng.cloud
 [webhook-site]: https://webhook.site
