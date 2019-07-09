@@ -47,7 +47,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>API-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema"><span class="underline">https://ref.tst.vng.cloud/zrc/api/v1/schema</span></a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema"><span class="underline">https://zaken-api.vng.cloud/api/v1/schema</span></a></td>
 </tr>
 <tr class="even">
 <td>Bijzonderheden</td>
@@ -87,7 +87,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/zaken">https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/zaken</a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema/#tag/zaken">https://zaken-api.vng.cloud/api/v1/schema/#tag/zaken</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -124,7 +124,7 @@ https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/relatieklasse/zaakobject</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/zaakobjecten">https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/zaakobjecten</a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema/#tag/zaakobjecten">https://zaken-api.vng.cloud/api/v1/schema/#tag/zaakobjecten</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -159,7 +159,7 @@ https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/relatieklasse/zaakobject</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/klantcontacten">https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/klantcontacten</a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema/#tag/klantcontacten">https://zaken-api.vng.cloud/api/v1/schema/#tag/klantcontacten</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -193,7 +193,7 @@ https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/relatieklasse/zaakobject</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/rollen">https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/rollen</a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema/#tag/rollen">https://zaken-api.vng.cloud/api/v1/schema/#tag/rollen</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -227,7 +227,7 @@ https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/relatieklasse/zaakobject</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/statussen">https://ref.tst.vng.cloud/zrc/api/v1/schema/#tag/statussen</a></td>
+<td><a href="https://zaken-api.vng.cloud/api/v1/schema/#tag/statussen">https://zaken-api.vng.cloud/api/v1/schema/#tag/statussen</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>

@@ -34,8 +34,10 @@ Iedere referentieimplementatie van een component leeft in zijn eigen repository:
 * [DRC](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
 * [ZTC](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
 * [BRC](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent)
+* [NRC](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
+* [AC](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
 
-Voor de referentieimplementaties wordt het git-flow git-branching model
+Voor de referentieimplementaties wordt het git-flow branching model
 aangehouden. Dit houdt in dat de `master` branch de huidige stabiele,
 'productie' versie is en de `develop` branch de volgende versie wordt.
 Wijzigingen komen via feature branches in `develop` terecht. Releases worden
@@ -49,7 +51,7 @@ implementatie, waarna deze via een pull request in gemma-zaken aangeboden
 wordt.
 
 De developer moet binnen de ontwikkelomgeving van de component
-`generate-schema` aanroepen (beschikbaar via de `gemma-zaken-common` libaries).
+`generate-schema` aanroepen (beschikbaar via de `vng-api-common` libaries).
 
 Dit is essentieel, aangezien de unit-tests van de referentieimplementaties deze
 yaml file gebruiken om de juiste endpoints af te leiden voor een operatie op
@@ -89,11 +91,13 @@ worden de volgende taken uitgevoerd:
 * voor een nieuwe pull-request:
   * voer de automatische test-suite uit
   * verifieer dat de Docker image succesvol build
+  * valideer de geldigheid van de OAS
   * rapporteer de resultaten naar Github
 
 
 * voor elke change op de develop branch:
   * voer de automatische test-suite uit
+  * bouw een nieuwe docker image
   * rapporteer het resultaat naar Github
 
 
@@ -123,27 +127,29 @@ Vanuit Jenkins worden automatisch deployment updates doorgevoerd.
 
 De referentieimplementaties zijn gehost op:
 
-* ZRC: https://ref.tst.vng.cloud/zrc/api/v1/
-* DRC: https://ref.tst.vng.cloud/drc/api/v1/
-* ZTC: https://ref.tst.vng.cloud/ztc/api/v1/
-* BRC: https://ref.tst.vng.cloud/brc/api/v1/
+* ZRC: https://zaken-api.vng.cloud/api/v1/
+* DRC: https://documenten-api.vng.cloud/api/v1/
+* ZTC: https://catalogi-api.vng.cloud/api/v1/
+* BRC: https://besluiten-api.vng.cloud/api/v1/
+* NRC: https://notificaties-api.vng.cloud/api/v1/
+* AC: https://autorisaties-api.vng.cloud/api/v1/
 
 Merk op dat dit testomgevingen zijn waar geen enkele garantie van stabiliteit
 is. In een latere fase komen er stabiele omgevingen.
 
-## Swagger
+## Deploy bot
 
-(Voorlopig) worden de gepubliceerde OAS 3.0 specificaties voor de services
-inzichtelijk gemaakt op Swagger.io. Zie de [spec documentatie](/standaard/index).
+De deploy bot leeft in de `gemma-zaken` repository en is een microservice die
+in de cluster draait. Deze accepteert API requests om updates te triggeren van
+andere services in de Kubernetes cluster.
 
 ## NLX Directory
 
 De referentie-implementaties en hun API specs zijn geïntegreerd in de
 [NLX directory](http://directory.demo.nlx.io) (vooralsnog de demo-omgeving).
-Het toevoegen hiervan gebeurt via Kubernetes en is (voor nu) een handmatige
-actie.
 
 ## Docker-compose
 
 Er is een `docker-compose` file beschikbaar om de volledige
-referentie-implementatie stack op te brengen. Zie de [developer documentatie](/ontwikkelaars/aan-de-slag).
+referentie-implementatie stack op te brengen. Zie de
+[developer documentatie](/ontwikkelaars/aan-de-slag).

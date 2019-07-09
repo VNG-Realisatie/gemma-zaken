@@ -19,7 +19,7 @@ De API ondersteunt de volgende operaties:
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/ac/api/v1/schema/)
+* [API-specificatie](https://autorisaties-api.vng.cloud/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)

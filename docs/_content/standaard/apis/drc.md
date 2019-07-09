@@ -19,7 +19,7 @@ Documentservices.
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/drc/api/v1/schema/)
+* [API-specificatie](https://documenten-api.vng.cloud/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)

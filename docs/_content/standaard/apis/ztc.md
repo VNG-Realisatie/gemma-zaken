@@ -19,7 +19,7 @@ zaken van een bepaald type de juiste gegevens(statussen, resultaattypen,
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/ztc/api/v1/schema/)
+* [API-specificatie](https://catalogi-api.vng.cloud/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
 * Test component
 * Communiceren met dit component (client)
@@ -39,4 +39,4 @@ Deze gebruiker heeft geen rechten om objecten te verwijderen, zodat referenties
 van andere mensen niet stuk gaan.
 
 [jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
-[ztcadmin]: https://ref.tst.vng.cloud/ztc/admin
+[ztcadmin]: https://catalogi-api.vng.cloud/admin

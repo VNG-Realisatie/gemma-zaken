@@ -20,7 +20,7 @@ medewerkerregistratiecomponent, etc.
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/brc/api/v1/schema/)
+* [API-specificatie](https://besluiten-api.vng.cloud/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)

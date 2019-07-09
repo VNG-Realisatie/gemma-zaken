@@ -161,7 +161,7 @@ Authorization: Bearer abcdef1234
 Content-Type: application/json
 
 {
-    "callbackUrl": "https://ref.tst.vng.cloud/zrc/api/v1/callbacks",
+    "callbackUrl": "https://zaken-api.vng.cloud/api/v1/callbacks",
     "auth": "Bearer aef34gh...",
     "kanalen": [{
         "naam": "zaken",
@@ -247,9 +247,9 @@ Content-Type: application/json
 
 {
     "kanaal": "zaken",
-    "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
+    "hoofdObject": "https://zaken-api.vng.cloud/api/v1/zaken/d7a22",
     "resource": "status",
-    "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
+    "resourceUrl": "https://zaken-api.vng.cloud/api/v1/statussen/d7a22/721c9",
     "actie": "create",
     "aanmaakdatum": "2018-01-01T17:00:00Z",
     "kenmerken": {
@@ -281,9 +281,9 @@ Accept: application/json
 
 [{
     "kanaal": "zaken",
-    "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/d7a22",
+    "hoofdObject": "https://zaken-api.vng.cloud/api/v1/zaken/d7a22",
     "resource": "status",
-    "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/d7a22/721c9",
+    "resourceUrl": "https://zaken-api.vng.cloud/api/v1/statussen/d7a22/721c9",
     "actie": "create",
     "aanmaakdatum": "2018-01-01T17:00:00Z",
     "kenmerken": {
