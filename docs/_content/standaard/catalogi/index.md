@@ -16,7 +16,7 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 ## Specificatie van de Catalogi API
 
-[Referentie-implementatie Catalogi API](https://zaakgerichtwerken.vng.cloud/ztc)
+[Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 
 [Plain text OAS3 specificatie](../../../api-specificatie/ztc/openapi.yaml)
 
