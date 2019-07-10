@@ -1,7 +1,7 @@
 ---
 title: "Catalogi API"
 date: '10-7-2019'
-weight: 90
+weight: 10
 ---
 
 API voor opslag en ontsluiting van zaaktype-catalogi, zaaktypen en onderliggende typen.
