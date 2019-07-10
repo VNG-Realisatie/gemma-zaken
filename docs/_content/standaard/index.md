@@ -18,7 +18,7 @@ Hieronder de directe links naar de documentatie van de API's:
 * [Documenten API specificatie](documenten/index)
 * [Besluiten API specificatie](https://ref.tst.vng.cloud/brc/api/v1/schema/)
 * [Autorisaties API specificatie](https://ref.tst.vng.cloud/ac/api/v1/schema/)
-* [Notificaties API specificatie](https://ref.tst.vng.cloud/nrc/api/v1/schema/)
+* [Notificaties API specificatie](notificaties/index)
 * [Notificaties API specificatie voor consumers](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
 
 
