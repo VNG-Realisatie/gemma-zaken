@@ -9,10 +9,10 @@ De ZGW API Standaard bestaat uit 2 delen:
   implementeren of te gebruiken.
 * [API specificaties](apis/index) met alle beschikbare resources en attributen.
 
-Hieronder de directe links naar alle Open API specificaties (OAS):
+Hieronder de directe links naar de specificaties van de API's:
 
 * [Zaken API specificatie](https://ref.tst.vng.cloud/zrc/api/v1/schema/)
-* [Catalogus API specificatie](https://ref.tst.vng.cloud/ztc/api/v1/schema/)
+* [Catalogi API specificatie](catalogi/index)
 * [Documenten API specificatie](https://ref.tst.vng.cloud/drc/api/v1/schema/)
 * [Besluiten API specificatie](https://ref.tst.vng.cloud/brc/api/v1/schema/)
 * [Autorisaties API specificatie](https://ref.tst.vng.cloud/ac/api/v1/schema/)

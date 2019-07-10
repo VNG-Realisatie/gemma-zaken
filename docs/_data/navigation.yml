@@ -3,16 +3,16 @@
   weight: 10
 - name: Standaard
   link: /standaard/
-  weight: 15
-- name: Architectuur
-  link: /architectuur/
   weight: 20
 - name: Ontwikkelaars
   link: /ontwikkelaars/
   weight: 30
-- name: Community
-  link: /community/
+- name: Achtergronddocumentatie
+  link: /achtergronddocumentatie/
   weight: 40
-- name: Overige
-  link: /overige/
+- name: Samenwerking
+  link: /samenwerking/
   weight: 50
+- name: Contact
+  link: /contact/
+  weight: 60
