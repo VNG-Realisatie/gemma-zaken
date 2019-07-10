@@ -6,9 +6,6 @@ weight: 10
 
 API voor opslag en ontsluiting van besluiten en daarbij behorende metadata.
 
-Dit component is losgetrokken van het ZRC om besluiten vast te leggen van Zaken
--en andere objecten.
-
 De API ondersteunt het opslaan en het naar andere applicaties ontsluiten
 van gegevens over alle gemeentelijke besluiten, van elk type. Opslag vindt plaats
 conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn

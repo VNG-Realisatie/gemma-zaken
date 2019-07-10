@@ -341,3 +341,4 @@ het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 ## Overige documentatie
 
 * [Referentiemodel Gemeentelijke Basisgegevens Zaken (RGBZ) 2.0](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling)
+* [Tutorial Archiveren](../../ontwikkelaars/tutorials/archiveren)

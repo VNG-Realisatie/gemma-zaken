@@ -18,7 +18,7 @@ De API ondersteunt:
 
 ## Gegevensmodel
 
-![Gegevensmodel Catalogi API](Notificaties API.png)
+![Gegevensmodel Catalogi API](Notificaties API.png){:width="1200px"}
 
 
 ## Specificatie van de Catalogi API
@@ -93,7 +93,7 @@ Zie de API spec voor de betekenis van de audittrailattributen.
 
 ## Overige documentatie
 
-* Notificeren in gegevenslandschap, notitie VNG-R
-* Tutorial Notificeren
+* Gegevenslandschap - Notificeren van gebeurtenissen v0.2, notitie VNG-Realisatie, concept rapport.
+* [Tutorial Notificeren](../../ontwikkelaars/tutorials/notificeren)
 
 
