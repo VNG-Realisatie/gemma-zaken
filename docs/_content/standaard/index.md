@@ -15,6 +15,8 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 
 ![overzicht API's](apis.png)
 
+Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
+
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
@@ -124,4 +126,9 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie](notificaties/index)
 * [Notificaties API specificatie voor consumers](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
 
+
+## Overige documentatie
+
+* [Achtergronddocumentatie](../achtergronddocumentatie/index)
+* [Documentatie voor ontwikkelaars (tutorials)](../ontwikkelaars/index)
 
