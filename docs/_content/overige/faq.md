@@ -49,7 +49,7 @@ _Volgens oorspronkelijke projectdefinitie_
 * Een nieuwe versie van de ZDS services (gebaseerd op REST APIs, aansluitend
   bij Common Ground) om de interoperabiliteit tussen leveranciers te
   bewerkstelligen en leveranciers te bewegen in de richting van Common ground
-  (Silo's openen). _De nieuwe/opvolgende versie van ZDS is ondertussen hernoemt
+  (Silo's openen). _De nieuwe/opvolgende versie van ZDS is ondertussen hernoemd
   naar de ZGW API's_;
 * Een Referentie implementatie van een zaaksysteem in de app store;
 * Een multitenant toepassing van dit zaaksysteem/zakenregister en ZTC. (dit
