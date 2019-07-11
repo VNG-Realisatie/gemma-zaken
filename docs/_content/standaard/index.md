@@ -1,10 +1,10 @@
 ---
-title: 'ZGW API Standaard'
+title: API's voor Zaakgericht Werken
 date: '10-7-2019'
 weight: 10
 ---
 
-De ZGW API Standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time" gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
+De API's voor Zaakgericht Werken standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time" gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
 
 Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
 tussen registraties (providers) en consumers die van de API's gebruik maken.
