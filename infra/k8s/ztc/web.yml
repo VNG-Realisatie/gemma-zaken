@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ service.name }}
         image: vngr/gemma-ztc:{{ service.image_tag }}
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "200Mi"

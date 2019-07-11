@@ -38,3 +38,23 @@ services:
   - name: ztc-test
     templates: ../k8s/ztc/
     image_tag: develop
+
+  - name: docs-test
+    templates: ../k8s/docs
+
+ingress:
+  name: ref-implementatie-test
+  instance: test
+  services:
+    - host: zaken-api.test.vng.cloud
+      name: zrc-test
+    - host: documenten-api.test.vng.cloud
+      name: drc-test
+    - host: catalogi-api.test.vng.cloud
+      name: ztc-test
+    - host: autorisaties-api.test.vng.cloud
+      name: ac-test
+    - host: besluiten-api.test.vng.cloud
+      name: brc-test
+    - host: notificaties-api.test.vng.cloud
+      name: nrc-test

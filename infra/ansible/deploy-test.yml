@@ -14,3 +14,11 @@
       loop: "{{ services }}"
       loop_control:
         loop_var: service
+
+    - name: Deploy ingress
+      k8s:
+        state: present
+        namespace: zgw
+        definition: "{{ lookup('template', '../k8s/ingress-tpl.yml') }}"
+        validate:
+          fail_on_error: yes

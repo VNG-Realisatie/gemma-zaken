@@ -6,7 +6,7 @@ metadata:
   name: ref-implementatie
   namespace: zgw
   labels:
-    app.kubernetes.io/instance: zgw-test
+    app.kubernetes.io/instance: zgw-stable
     app.kubernetes.io/name: zgw
 spec:
   rules:

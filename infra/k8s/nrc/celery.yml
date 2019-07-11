@@ -23,6 +23,7 @@ spec:
       containers:
       - name: {{ service.name }}-celery
         image: vngr/gemma-notifications:{{ service.image_tag }}
+        imagePullPolicy: Always
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: notifications.conf.docker

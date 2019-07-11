@@ -93,7 +93,7 @@ ansible-playbook deploy-test.yml --ask-vault-pass
 
 Configuration of each service is defined in `vars/test.yml`.
 
-### Deploying the test environments
+### Deploying the stable environments
 
 The stable environments are running the stable versions of each component,
 based off the release tags on the `master` branch.

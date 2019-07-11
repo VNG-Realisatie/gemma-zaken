@@ -27,3 +27,11 @@
       loop: "{{ services }}"
       loop_control:
         loop_var: service
+
+    - name: Deploy ingress
+      k8s:
+        state: present
+        namespace: zgw
+        src: ../k8s/ingress.yml
+        validate:
+          fail_on_error: yes
