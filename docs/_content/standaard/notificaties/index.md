@@ -18,10 +18,10 @@ De API ondersteunt:
 
 ## Gegevensmodel
 
-![Gegevensmodel Catalogi API](Notificaties API.png){:width="1200px"}
+![Gegevensmodel Notificaties API](Notificaties API.png){:width="1200px"}
 
 
-## Specificatie van de Catalogi API
+## Specificatie van de Notificaties API
 
 [Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
 
@@ -29,8 +29,6 @@ De API ondersteunt:
 
 
 ## Specificatie van gedrag
-
-## Notificaties
 
 Componenten dienen events te publiceren naar (een)
 notificatierouteringcomponent(en) (NRC). De NRC MOET volledig de
@@ -93,7 +91,6 @@ Zie de API spec voor de betekenis van de audittrailattributen.
 
 ## Overige documentatie
 
-* Gegevenslandschap - Notificeren van gebeurtenissen v0.2, notitie VNG-Realisatie, concept rapport.
 * [Tutorial Notificeren](../../ontwikkelaars/tutorials/notificeren)
 
 
