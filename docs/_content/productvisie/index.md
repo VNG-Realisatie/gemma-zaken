@@ -1,5 +1,5 @@
 ---
-title: "Productvisie ZGW API's"
+title: "Productvisie API's voor Zaakgericht Werken"
 date: '29-5-2018'
 weight: 100
 
