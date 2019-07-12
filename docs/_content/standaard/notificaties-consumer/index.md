@@ -8,7 +8,7 @@ Deze API maakt het mogelijk notificaties te ontvangen waarop de consumer is geab
 
 ## Gegevensmodel
 
-![Gegevensmodel Notificaties API](Notificaties API.png){:width="1200px"}
+![Gegevensmodel Notificaties API](../notificaties/Notificaties API.png){:width="1200px"}
 
 
 ## Specificatie van de Notificaties API
@@ -20,4 +20,4 @@ Deze API maakt het mogelijk notificaties te ontvangen waarop de consumer is geab
 
 ## Specificatie van gedrag
 
-Buiten de OAS-specificaties zijn er geen aanvullende eisen waaraan de consumer moet voldoen.
+Buiten de OAS-specificatie zijn er geen aanvullende eisen waaraan de consumer moet voldoen.
