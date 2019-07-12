@@ -18,7 +18,20 @@ Terzijde: In de toekomst kan de Besluiten API ook voor andere domeinen worden in
 
 ## Gegevensmodel
 
-![Gegevensmodel Besluiten API](Besluiten API.png)
+Een besluit is een na overweging of beraadslaging vastgestelde beslissing voor een individueel of concreet geval.
+
+Deze API ondersteunt het verwerken van gegevens van besluiten inclusief de relatie met de eventuele zaak en/of informatieobject.
+
+### Relatie met documenten en zaken
+
+Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één informatieobject meerdere besluiten vastgelegd zijn. 
+
+De relatie tussen besluit en informatieobject is vastgelegd in besluitinformatieobject (Besluiten API) en objectinformatieobject (Documenten API), waarbij besluitinformatieobject leidend is.
+Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de zaak waarvan het een uitkomst is. 
+
+Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is één van de betrokkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort.
+
+![Gegevensmodel Besluiten API](Besluiten API.png){:width="1200px"}
 
 
 ## Specificatie van de Besluiten API

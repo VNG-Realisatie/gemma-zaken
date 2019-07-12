@@ -18,6 +18,21 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
 
 
+## Overkoepelend gegevensmodel
+
+Dit diagram toont alle objecten uit de API's voor Zaakgericht Werken inclusief de relaties ertussen.
+
+Bij elk ObjectType is aangegeven uit welke API het afkomstig is.
+
+De API’s zijn geïnspireerd op RGBZ en imZTC waarin objecten, gegevens en de onderlinge relaties zijn beschreven.
+
+Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en imZTC wordt geschetst nog het meest. Daar waar in RGBZ resources uit verschillende bronnen en modellen samenkomen is dat in de API’s voor Zaakgericht Werken opgesplitst. Er is een Catalogus API voor de ZTC en Zaken API voor zaken een documenten API voor Document (Informatieobjecten) en een Besluiten API voor Besluiten.
+
+Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
+
+![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}
+
+
 ## Eisen en uitgangspunten die voor alle API's gelden
 
 ### Definities
