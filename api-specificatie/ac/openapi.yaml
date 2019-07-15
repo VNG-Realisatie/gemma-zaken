@@ -89,7 +89,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -119,7 +119,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/Applicatie'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -131,7 +131,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -143,7 +143,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -155,7 +155,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -167,7 +167,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -179,7 +179,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -191,7 +191,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -203,7 +203,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -215,7 +215,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -247,7 +247,7 @@ paths:
         Na het aanmaken wordt een notificatie verstuurd.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -264,7 +264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Applicatie'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -276,7 +276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -288,7 +288,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -300,7 +300,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -312,7 +312,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -324,7 +324,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -336,7 +336,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -348,7 +348,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -360,7 +360,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -378,6 +378,150 @@ paths:
         - autorisaties.bijwerken
       requestBody:
         $ref: '#/components/requestBodies/Applicatie'
+    parameters: []
+  /applicaties/consumer:
+    get:
+      operationId: applicatie_consumer
+      summary: Vraag een applicatie op, op basis van clientId
+      description: 'Gegeven een `clientId`, via de query string, zoek de bijbehorende
+        applicatie
+
+        op. Het antwoord bevat de applicatie met ingesloten autorisaties.'
+      parameters:
+      - name: clientId
+        in: query
+        description: Geef het client ID op waarvoor je de applicatie wil opvragen.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Applicatie'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not_found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - applicaties
+      security:
+      - JWT-Claims:
+        - autorisaties.lezen
     parameters: []
   /applicaties/{uuid}:
     get:
@@ -400,7 +544,7 @@ paths:
         dan `maxVertrouwelijkheidaanduiding` niet ontsloten worden.'
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -412,7 +556,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Applicatie'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -424,7 +568,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -436,7 +580,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -448,7 +592,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -460,7 +604,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -472,7 +616,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -484,7 +628,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -496,7 +640,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -508,7 +652,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -540,7 +684,7 @@ paths:
         Na het bijwerken wordt een notificatie verstuurd.'
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -552,7 +696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Applicatie'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -564,7 +708,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -576,7 +720,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -588,7 +732,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -600,7 +744,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -612,7 +756,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -624,7 +768,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -636,7 +780,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -648,7 +792,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -660,7 +804,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -699,7 +843,7 @@ paths:
         Na het bijwerken wordt een notificatie verstuurd.'
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -711,7 +855,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Applicatie'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -723,7 +867,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -735,7 +879,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -747,7 +891,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -759,7 +903,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -771,7 +915,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -783,7 +927,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -795,7 +939,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -807,7 +951,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -819,7 +963,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -843,7 +987,7 @@ paths:
       description: Na het verwijderen wordt een notificatie verstuurd.
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -851,7 +995,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -863,7 +1007,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -875,7 +1019,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -887,7 +1031,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -899,7 +1043,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -911,7 +1055,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -923,7 +1067,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -935,7 +1079,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -947,7 +1091,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -998,28 +1142,28 @@ components:
           description: 'Component waarop autorisatie van toepassing is.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `AC` - Autorisatiecomponent
+            * `ac` - Autorisatiecomponent
 
-            * `NRC` - Notificatierouteringcomponent
+            * `nrc` - Notificatierouteringcomponent
 
-            * `ZRC` - Zaakregistratiecomponent
+            * `zrc` - Zaakregistratiecomponent
 
-            * `ZTC` - Zaaktypecatalogus
+            * `ztc` - Zaaktypecatalogus
 
-            * `DRC` - Documentregistratiecomponent
+            * `drc` - Documentregistratiecomponent
 
-            * `BRC` - Besluitregistratiecomponent'
+            * `brc` - Besluitregistratiecomponent'
           type: string
           enum:
-          - AC
-          - NRC
-          - ZRC
-          - ZTC
-          - DRC
-          - BRC
+          - ac
+          - nrc
+          - zrc
+          - ztc
+          - drc
+          - brc
         componentWeergave:
           title: Component weergave
           type: string
@@ -1036,7 +1180,7 @@ components:
             minLength: 1
       discriminator:
         propertyName: component
-    ZRCAutorisatie:
+    zrcAutorisatie:
       type: object
       properties:
         zaaktype:
@@ -1052,19 +1196,19 @@ components:
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
-    ZRC:
+          - zeer_geheim
+    zrc:
       type: object
       allOf:
       - $ref: '#/components/schemas/AutorisatieBase'
-      - $ref: '#/components/schemas/ZRCAutorisatie'
-    DRCAutorisatie:
+      - $ref: '#/components/schemas/zrcAutorisatie'
+    drcAutorisatie:
       type: object
       properties:
         informatieobjecttype:
@@ -1080,19 +1224,19 @@ components:
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
-    DRC:
+          - zeer_geheim
+    drc:
       type: object
       allOf:
       - $ref: '#/components/schemas/AutorisatieBase'
-      - $ref: '#/components/schemas/DRCAutorisatie'
-    BRCAutorisatie:
+      - $ref: '#/components/schemas/drcAutorisatie'
+    brcAutorisatie:
       type: object
       properties:
         besluittype:
@@ -1102,11 +1246,11 @@ components:
           type: string
           format: uri
           maxLength: 1000
-    BRC:
+    brc:
       type: object
       allOf:
       - $ref: '#/components/schemas/AutorisatieBase'
-      - $ref: '#/components/schemas/BRCAutorisatie'
+      - $ref: '#/components/schemas/brcAutorisatie'
     Applicatie:
       required:
       - clientIds
@@ -1115,11 +1259,16 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         clientIds:
-          description: Lijst van consumer identifiers (hun 'client_id')
+          description: "Lijst van consumer identifiers (hun 'client_id'). Een `client_id`\
+            \ mag slechts bij \xE9\xE9n applicatie-object voorkomen."
           type: array
           items:
             title: Client ids
