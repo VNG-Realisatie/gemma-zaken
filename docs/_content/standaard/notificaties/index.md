@@ -91,6 +91,4 @@ Zie de API spec voor de betekenis van de audittrailattributen.
 
 ## Overige documentatie
 
-* [Tutorial Notificeren](../../ontwikkelaars/tutorials/notificeren)
-
-
+* [Tutorial Notificeren](../../ontwikkelaars/handleidingen-en-tutorials/notificeren)

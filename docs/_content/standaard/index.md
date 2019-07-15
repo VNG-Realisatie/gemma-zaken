@@ -4,7 +4,7 @@ date: '10-7-2019'
 weight: 10
 ---
 
-De API's voor Zaakgericht Werken standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time" gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
+De API's voor Zaakgericht Werken-standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
 
 Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
 tussen registraties (providers) en consumers die van de API's gebruik maken.
@@ -69,9 +69,9 @@ Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API
 
 ## API- en URI-strategie
 
-Er wordt zoveel mogelijk uitgegaan van de 
-[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019) 
-maar de API's zijn in eerste instantie ontwikkeld volgens de 
+Er wordt zoveel mogelijk uitgegaan van de
+[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019)
+maar de API's zijn in eerste instantie ontwikkeld volgens de
 [DSO API- en URI-strategie](dso-strategie). Hier en daar kan worden afgeweken
 om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
@@ -79,27 +79,27 @@ om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
 ### Versionering van de API
 
-In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in 
+In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
-Zie: Achtergrond over [Versies en migraties](../ontwikkelaars/algemeen/versies-en-migraties)
+Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)
 
 [api-strategie]: https://docs.geostandaarden.nl/api/API-Strategie/
 
 ### Migreren van de API root URL
 
-Als een wijziging van de API root URL **geen** invloed heeft op de inhoud van 
-de API, ofwel, het betreft geen versiewijziging, dan MOET de API op de oude 
-`{API root URL}` en alle onderliggende URL's, een HTTP 301 (Definitief 
-verplaatst) teruggeven. Als `Location`-header MOET de URL staan naar de 
+Als een wijziging van de API root URL **geen** invloed heeft op de inhoud van
+de API, ofwel, het betreft geen versiewijziging, dan MOET de API op de oude
+`{API root URL}` en alle onderliggende URL's, een HTTP 301 (Definitief
+verplaatst) teruggeven. Als `Location`-header MOET de URL staan naar de
 resource op de nieuwe `{API root URL}`.
 
-Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de 
-API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude 
+Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
+API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
-Zie: Achtergrond over [Versies en migraties](../ontwikkelaars/algemeen/versies-en-migraties)
+Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)
 
 ### Beschikbaar stellen van de OAS
 
@@ -118,8 +118,8 @@ resources uit te voeren.
 
 ## Gegevensformaten
 
-Een aantal formaten zijn nog niet formeel vastgelegd in OAS of 
-[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor 
+Een aantal formaten zijn nog niet formeel vastgelegd in OAS of
+[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor
 Zaakgericht werken gebruikt en opgelegd.
 
 [json-schema]: https://json-schema.org/
@@ -148,6 +148,5 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 
 ## Overige documentatie
 
-* [Achtergronddocumentatie](../achtergronddocumentatie/index)
-* [Documentatie voor ontwikkelaars (tutorials)](../ontwikkelaars/index)
-
+* [Achtergronddocumentatie](/themas/achtergronddocumentatie/index)
+* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)

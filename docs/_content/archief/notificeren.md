@@ -157,5 +157,7 @@ JWT te genereren.
     }
     ```
 
-[token-generator]: https://ref.tst.vng.cloud/tokens/
-[webhook-site]: https://webhook.site
+Meer informatie over de gekozen notificatie-oplossing is te vinden in de [achtergronddocumentatie over notificaties](/themas/achtergronddocumentatie/notificaties).
+
+[token-generator]: (https://ref.tst.vng.cloud/tokens/)
+[webhook-site]: (https://webhook.site)

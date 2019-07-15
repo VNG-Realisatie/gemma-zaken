@@ -1,18 +1,18 @@
 ---
-title: "Aan de slag"
+title: "Installatie en configuratie refentie-implementatie"
 date: '25-02-2019'
-weight: 100
+weight: 80
 ---
 
-De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
+De referentie-implementatiecomponenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een
 ontbrekend component in de eigen software te simuleren.
 
 
 ## Snelle start
 
-Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van
-start te gaan. Ga anders naar de **Voorbereiding**.
+Al bekend met alle vereisten en de opzet? Voer dan de commando's hieronder in om snel van
+start te gaan. Scroll anders naar beneden voor de uitgebreide handleiding.
 
 ```bash
 $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
@@ -21,10 +21,11 @@ $ docker-compose pull
 $ docker-compose up
 ```
 
+## Uitgebreide handleiding
 
-## Voorbereiding
+### Voorbereiding
 
-Alle referentie componenten zijn als [Docker][docker] images beschikbaar.
+Alle componenten van de referentie-implementatie zijn als [Docker][docker] images beschikbaar.
 De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 **Verplicht**
@@ -54,8 +55,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 [docker-compose-linux]: https://docs.docker.com/compose/install/
 [git-scm]: https://git-scm.com/downloads
 
-
-## Referentie componenten opstarten
+### Componenten referentie-implementatie opstarten
 
 1. Clone de `VNG-Realisatie/gemma-zaken` repository op de eigen computer:
 
@@ -148,7 +148,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    * NRC: `http://<ip-of-localhost>:8004`
    * AC: `http://<ip-of-localhost>:8005`
 
-5. Admin aanmaken voor elk referentie component
+6. Admin aanmaken voor elk referentie component
 
    Elk referentie componenent heeft een beheer interface. Om deze beheer
    interface te benaderen, moet een gebruiker worden aangemaakt (voorbeeld
@@ -170,25 +170,25 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    Vervolgens kan je daarmee inloggen op `http://<ip-of-localhost>:800x/admin/` om
    testdata in te kunnen richten of gegevens te raadplegen.
 
-6. Indien extra configuratie nodig is binnen een component, dan vind je deze
+7. Indien extra configuratie nodig is binnen een component, dan vind je deze
    in de documentatie van de component zelf. Deze staat gelinkt op
    `http://<ip-of-localhost>:800x` indien die aanwezig is.
 
-7. De volgende stap is het inrichten van de autorisaties
+8. De volgende stap is het inrichten van de autorisaties
 
-## Setting up authorizations
+### Setting up authorizations (Engels)
 
-The components use _tokens_ to exchange authorization data. A consumer talks 
-to a provider, on condition that a valid token is given. Providers, in turn, 
+The components use _tokens_ to exchange authorization data. A consumer talks
+to a provider, on condition that a valid token is given. Providers, in turn,
 can also be consumers of other providers, and they should also use valid tokens.
 
-Both forms use the same mechanism, which has two parts - basic authentication 
+Both forms use the same mechanism, which has two parts - basic authentication
 of the consumer in the API and specific authorization to API resources.
-  
+
 The provider authenticates the consumer based on its **Identifier** and a shared
- **Secret**, which are sent in JWT in the header of a request. After 
+ **Secret**, which are sent in JWT in the header of a request. After
 the consumer is recognized the provider defines its access based on the data in the
-Autorisatiecomponent (AC) 
+Autorisatiecomponent (AC)
 
 
 1. Set up authentication for the consumer
@@ -199,76 +199,76 @@ Autorisatiecomponent (AC)
 
    * `Identifier`:  A random string, for example `demo`.
    * `Secret`: A random string, for example `demo`.
-   
-   These are the credentials to create a JWT, of which both the consumer 
-   and the provider know the secret. This must typically be done on each 
-   component. It does not matter what is entered but it is easiest if the same 
+
+   These are the credentials to create a JWT, of which both the consumer
+   and the provider know the secret. This must typically be done on each
+   component. It does not matter what is entered but it is easiest if the same
    credentials are entered in all components.
-   
+
 2. Set up access to specified resource for the consumer
    Authorizations for specific resources is run by the AC. The provider will request
    this API to get data about the consumer rights.
-   
+
    First, configure the AC url in your API:
    Login to the API admin and go to `Autorisatiecomponentconfiguratie` and click on **Add**.
    Enter all data and click **Save**:
    * `Api root`: A url to the AC root, for example `http://<ip-of-localhost>:800x/api/v1/`.
    * `Component`: The sort of component this provider is - this is used to request the correct authorizations from the AC.
-   
-   After this, there are two ways of creating rights in the AC - via admin page and 
-   via POST requests to the AC API. 
-   
+
+   After this, there are two ways of creating rights in the AC - via admin page and
+   via POST requests to the AC API.
+
    The following instructions are for the way using the admin page.
-   
+
    Login to the AC admin and go to `Applicaties` and click on **Add**.
    Enter all data and click **Save**:
 
    * `Client IDs:`:  A comma separated list of identifiers. This list should include `Identifier`
      from the step 1, for example `demo, demo2`.
    * `Label`: A name of the consumer, for example `demo client`.
-   * `Heeft alle autorisaties`: A flag defining that the current consumer is superuser 
+   * `Heeft alle autorisaties`: A flag defining that the current consumer is superuser
      and have access for all the APIs and their resources. This flag is recommended to use only for
-     testing purposes. Please don't use it for production. 
-   
-   Below in the `Autorisaties` section rights for specific APIs, scopes and components of APIs 
-   can be added. They will be taken into account only if the consumer is not a superuser. 
+     testing purposes. Please don't use it for production.
+
+   Below in the `Autorisaties` section rights for specific APIs, scopes and components of APIs
+   can be added. They will be taken into account only if the consumer is not a superuser.
 
 3. Arrange authorizations between components
 
    _All APIs must have permissions to query the AC, since it's a part of authorization process.
-   Some APIs can request other APIs, for example the ZRC typically needs to validate a Zaaktype 
+   Some APIs can request other APIs, for example the ZRC typically needs to validate a Zaaktype
    in the ZTC, therefore the ZRC must have permission to query the ZTC._
-   
-   The following instruction shows how to set up permission in any API fot the AC. 
+
+   The following instruction shows how to set up permission in any API fot the AC.
 
    Login to the admin of the API and go to `External API credentials` and click on **Add**.
 
    Enter all data and click **Save**:
 
-   * `Api root`: Enter the URL of the API root of the relevant component (here it is AC). 
+   * `Api root`: Enter the URL of the API root of the relevant component (here it is AC).
      For instance: `http://<ip-of-localhost>:800x/api/v1/`
    * `Client id`: Vul hier hetzelfde in als de `Identifier` in stap 1 voor het
      betreffende component wat bereikbaar is op `API root`.
    * `Secret`: Vul hier hetzelfde in als de `Secret` in stap 1 voor het
      betreffende component wat bereikbaar is op `API root`.
 
-   Repeat this step for all APIs querying other components. Please make sure that these relevant 
+   Repeat this step for all APIs querying other components. Please make sure that these relevant
    components have `Client credentials` from step 1. consistent with `External API credentials`
-   
+
 4. Generate JWT
 
    Navigate: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
 
    Enter the `Identifier` and `Secret` from step 1 and click **Bevestig**.
 
-   A generated JWT can be used in the `Authorization` header now.  To inspect 
-   the JWT you can paste the token (without `Bearer`) in [jwt.io](https://jwt.io). 
+   A generated JWT can be used in the `Authorization` header now.  To inspect
+   the JWT you can paste the token (without `Bearer`) in [jwt.io](https://jwt.io).
    Don't forget to enter your own secret (bottom right) instead of `your-256-bit-secret`!
-   
-   _Creating a JWT does not register the secret with the hosted reference components. 
-   See the [API guides](./guides) how this works._
 
-Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)
+   _Creating a JWT does not register the secret with the hosted reference components.
+   See the [API guides](./api-guides) how this works._
+
+Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](/themas/achtergronddocumentatie/authenticatie-autorisatie)
 
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
@@ -285,7 +285,6 @@ te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 $ docker-compose down
 ```
 
-
 ### APIs benaderen
 
 De API's en API documentatie zijn beschikbaar op de volgende URLs:
@@ -293,12 +292,10 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 * `http://<ip-of-localhost>:800x/api/v1/` - API root
 * `http://<ip-of-localhost>:800x/api/v1/schema/` - API documentatie
 
-
 ### API Guides
 
-Er zijn verschillende [API guides](guides) beschikbaar met
+Er zijn verschillende [API guides](./api-guides) beschikbaar met
 veelvoorkomende consumer handelingen.
-
 
 ### Poorten wijzigen
 

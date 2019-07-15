@@ -1,10 +1,10 @@
 ---
-title: Eenmalige setup na het opstarten van de containers
-weight: 90
+title: "Tutorial eenmalige setup"
+weight: 50
 ---
 
 Deze tutorial beschrijft de eenmalige configuratie van de referentie-
-implementaties. De [autorisatieslides](./autorisatie.pptx) zoals gegeven op het
+implementaties. De [autorisatieslides](./_assets/autorisatie.pptx) zoals gegeven op het
 API-lab zijn ook beschikbaar.
 
 Let op: deze setup hoef je slechts 1 keer uit te voeren, typisch als je voor
@@ -14,7 +14,7 @@ dan zal je zien dat de gegevens al ingevuld zijn of configuratie al bestaat.
 ## Wat zijn de vereisten voor deze tutorial?
 
 * `docker` en `docker-compose` om lokaal op je (ontwikkelmachine) de
-  componenten te hosten. Zie ['aan de slag'](../aan-de-slag) voor een
+  componenten te hosten. Zie ['installatie en configuratie'](./installatie-en-configuratie) voor een
   uitgebreide beschrijving.
 
 * Het handigste is om de containers in 1 command prompt te hebben draaien, en
@@ -22,7 +22,7 @@ dan zal je zien dat de gegevens al ingevuld zijn of configuratie al bestaat.
   prompts zich in de juiste directory bevinden: `/pad/naar/gemma-zaken/infra`.
 
 We nemen aan dat nu de containers draaien na het uitvoeren van
-`docker-compose up` (of een variatie hierop).
+`docker-compose up` (of een variatie hierop). Instrcuties daarvoor zijn te vinden in de [handleiding installatie en configuratie](./installatie-en-configuratie).
 
 ## Aanmaken supergebruikers
 
@@ -100,7 +100,7 @@ stappen bij de volgende herstart overschreven.
 
 ## Configuratie in de administratieve interface
 
-Het IP-adres uit de ['aan de slag'](../aan-de-slag) voorbereiding is hier
+Het IP-adres uit ['installatie en configuratie'](./installatie-en-configuratie) voorbereiding is hier
 nodig om de componenten via de browser aan te spreken.
 
 Via de homepage van elke component kan je een view-config pagina bereiken die
@@ -369,6 +369,5 @@ docker-compose exec drc_web src/manage.py register_kanaal
 docker-compose exec ac_web src/manage.py register_kanaal
 # Registered kanaal 'autorisaties' with http://<nrc-ip>:8004/api/v1
 ```
-
 
 [token-generator]: https://ref.tst.vng.cloud/tokens/

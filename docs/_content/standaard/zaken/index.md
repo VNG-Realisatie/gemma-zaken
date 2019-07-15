@@ -29,7 +29,7 @@ Elke zaak heeft ergens betrekking op wat is vastgelegd met de relatie naar zaako
 
 ### Betrokken en rollen
 
-Ook heeft elke zaak één of meer betrokkenen, die via hun rol aan de zaak gerelateerd zijn. 
+Ook heeft elke zaak één of meer betrokkenen, die via hun rol aan de zaak gerelateerd zijn.
 De verschillende typen betrokkenen (medewerker, natuurlijk persoon, niet natuurlijk persoon en organisatieonderdeel), zijn nu opgenomen in de ZakenAPI. Aangezien nog niet kan worden aangenomen dat deze vanuit de bron beschikbaar zijn.
 
 ### Relatie met besluiten en documenten
@@ -157,7 +157,7 @@ stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en 
+Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en
 wat de maximale vertrouwelijkheidaanduiding is voor een consumer.
 
 Het ZRC MAG ENKEL zaken ontsluiten waarvan:
@@ -372,4 +372,4 @@ het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 ## Overige documentatie
 
 * [Referentiemodel Gemeentelijke Basisgegevens Zaken (RGBZ) 2.0](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling)
-* [Tutorial Archiveren](../../ontwikkelaars/tutorials/archiveren)
+* [Tutorial Archiveren](/ontwikkelaars/handleidingen-en-tutorials/archiveren)
