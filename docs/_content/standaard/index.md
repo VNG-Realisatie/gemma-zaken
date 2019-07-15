@@ -142,6 +142,10 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
 
 
+## API-compatibiliteit
+De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
+
+
 ## Overige documentatie
 
 * [Achtergronddocumentatie](../achtergronddocumentatie/index)

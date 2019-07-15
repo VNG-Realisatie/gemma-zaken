@@ -1,6 +1,6 @@
 ---
-title: 'Samenwerking'
-date: '11-7-2019'
+title: 'Doorontwikkeling'
+date: '15-7-2019'
 weight: 10
 ---
 
