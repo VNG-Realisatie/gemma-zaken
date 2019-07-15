@@ -1,21 +1,36 @@
 openapi: 3.0.0
 info:
-  title: Besluitregistratiecomponent (brc) API
-  description: Een API om een besluitregistratiecomponent te benaderen
+  title: Besluiten API
+  description: "Een API om een besluitregistratiecomponent (BRC) te benaderen.\n\n\
+    Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet\nnoodzakelijk.\
+    \ Omgekeerd kan het voorkomen dat in een INFORMATIEOBJECT meerdere\nbesluiten\
+    \ vastgelegd zijn. Vandaar de N:M-relatie naar INFORMATIEOBJECT. Een\nbesluit\
+    \ komt voort uit een zaak van de zaakbehandelende organisatie dan wel is\neen\
+    \ besluit van een andere organisatie dat het onderwerp (object) is van een\nzaak\
+    \ van de zaakbehandelende organisatie. BESLUIT heeft dan ook een optionele\nrelatie\
+    \ met de ZAAK waarvan het een uitkomst is.\n\nDe typering van BESLUITen is in\
+    \ de Catalogi API (ZTC) ondergebracht in de vorm \nvan BESLUITTYPEn.\n\n**Afhankelijkheden**\n\
+    \nDeze API is afhankelijk van:\n\n* Catalogi API\n* Notificaties API\n* Documenten\
+    \ API *(optioneel)*\n* Zaken API *(optioneel)*\n* Autorisaties API *(optioneel)*\n\
+    \n**Autorisatie**\n\nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
+    \ gebruiken om JWT-tokens te\ngenereren.\n\n**Notificaties**\n\nDeze API publiceert\
+    \ notificaties op het kanaal `besluiten`.\n\n**Handige links**\n\n* [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)\n\
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)\n"
   contact:
-    url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    url: https://zaakgerichtwerken.vng.cloud
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: '1'
+  version: 1.0.0-alpha
 security:
 - JWT-Claims: []
 paths:
   /besluiten:
     get:
       operationId: besluit_list
-      description: Geef een lijst van BESLUITen, waarin gefiltered kan worden.
+      summary: Alle BESLUITen opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: identificatie
         in: query
@@ -26,22 +41,22 @@ paths:
           type: string
       - name: verantwoordelijkeOrganisatie
         in: query
-        description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+        description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
           die het besluit heeft vastgesteld.
         required: false
         schema:
           type: string
       - name: besluittype
         in: query
-        description: Aanduiding van de aard van het BESLUIT. Referentie naar het BESLUITTYPE
-          in de zaaktypecatalogus.
+        description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
         required: false
         schema:
           type: string
           format: uri
       - name: zaak
         in: query
-        description: Referentie naar de ZAAK waarvan dit besluit uitkomst is
+        description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
+          uitkomst is.
         required: false
         schema:
           type: string
@@ -54,7 +69,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -74,15 +89,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Besluit'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -94,7 +111,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -106,7 +123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -118,7 +135,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -130,7 +147,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -142,7 +159,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -154,7 +171,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -166,7 +183,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -178,7 +195,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -196,25 +213,23 @@ paths:
         - besluiten.lezen
     post:
       operationId: besluit_create
-      description: 'Registreer een besluit.
-
-
-        Indien geen identificatie gegeven is, dan wordt deze automatisch
+      summary: Maak een BESLUIT aan.
+      description: 'Indien geen identificatie gegeven is, dan wordt deze automatisch
 
         gegenereerd.
 
 
         Er wordt gevalideerd op:
 
-        - uniciteit van verantwoorlijke organisatie + identificatie
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
 
-        - RSIN verantwoorlijke organisatie
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
 
-        - geldigheid besluittype URL
+        - geldigheid `besluittype` URL
 
-        - geldigheid zaak URL
+        - geldigheid `zaak` URL
 
-        - datum in het verleden of nu'
+        - `datum` in het verleden of nu'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -238,7 +253,7 @@ paths:
           type: string
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -255,7 +270,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Besluit'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -267,7 +282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -279,7 +294,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -291,7 +306,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -303,7 +318,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -315,7 +330,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -327,7 +342,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -339,7 +354,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -351,7 +366,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -373,10 +388,11 @@ paths:
   /besluiten/{besluit_uuid}/audittrail:
     get:
       operationId: audittrail_list
-      description: ''
+      summary: Alle audit trail regels behorend bij het BESLUIT.
+      description: Alle audit trail regels behorend bij het BESLUIT.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -390,7 +406,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/AuditTrail'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -402,7 +418,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -414,7 +430,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -426,7 +442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -438,7 +454,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -450,7 +466,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -462,7 +478,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -474,7 +490,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -501,10 +517,11 @@ paths:
   /besluiten/{besluit_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_read
-      description: ''
+      summary: Een specifieke audit trail regel opvragen.
+      description: Een specifieke audit trail regel opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -516,7 +533,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AuditTrail'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -528,7 +545,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -540,7 +557,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -552,7 +569,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -564,7 +581,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -576,7 +593,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -588,7 +605,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -600,7 +617,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -612,7 +629,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -638,7 +655,7 @@ paths:
         format: uuid
     - name: uuid
       in: path
-      description: Unieke identificatie van de audit regel
+      description: Unieke identificatie van de audit regel.
       required: true
       schema:
         type: string
@@ -646,10 +663,11 @@ paths:
   /besluiten/{uuid}:
     get:
       operationId: besluit_read
-      description: Geef de details van 1 enkel BESLUIT.
+      summary: Een specifiek BESLUIT opvragen.
+      description: Een specifiek BESLUIT opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -661,7 +679,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Besluit'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -673,7 +691,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -685,7 +703,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -697,7 +715,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -709,7 +727,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -721,7 +739,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -733,7 +751,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -745,7 +763,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -757,7 +775,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -775,20 +793,18 @@ paths:
         - besluiten.lezen
     put:
       operationId: besluit_update
-      description: 'Werk een BESLUIT bij.
+      summary: Werk een BESLUIT in zijn geheel bij.
+      description: 'Er wordt gevalideerd op:
 
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
 
-        Er wordt gevalideerd op:
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
 
-        - uniciteit van verantwoorlijke organisatie + identificatie
+        - geldigheid `besluittype` URL
 
-        - RSIN verantwoorlijke organisatie
+        - geldigheid `zaak` URL
 
-        - geldigheid besluittype URL
-
-        - geldigheid zaak URL
-
-        - datum in het verleden of nu'
+        - `datum` in het verleden of nu'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -812,7 +828,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -824,7 +840,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Besluit'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -836,7 +852,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -848,7 +864,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -860,7 +876,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -872,7 +888,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -884,7 +900,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -896,7 +912,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -908,7 +924,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -920,7 +936,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -932,7 +948,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -952,20 +968,18 @@ paths:
         $ref: '#/components/requestBodies/Besluit'
     patch:
       operationId: besluit_partial_update
-      description: 'Werk een BESLUIT bij.
+      summary: Werk een BESLUIT deels bij.
+      description: 'Er wordt gevalideerd op:
 
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
 
-        Er wordt gevalideerd op:
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
 
-        - uniciteit van verantwoorlijke organisatie + identificatie
+        - geldigheid `besluittype` URL
 
-        - RSIN verantwoorlijke organisatie
+        - geldigheid `zaak` URL
 
-        - geldigheid besluittype URL
-
-        - geldigheid zaak URL
-
-        - datum in het verleden of nu'
+        - `datum` in het verleden of nu'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -989,7 +1003,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1001,7 +1015,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Besluit'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1013,7 +1027,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1025,7 +1039,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1037,7 +1051,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1049,7 +1063,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1061,7 +1075,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1073,7 +1087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1085,7 +1099,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1097,7 +1111,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1109,7 +1123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1129,9 +1143,16 @@ paths:
         $ref: '#/components/requestBodies/Besluit'
     delete:
       operationId: besluit_delete
-      description: "Verwijdert een BESLUIT, samen met alle gerelateerde resources\
-        \ binnen deze API.\n\n**De gerelateerde resources zijn**\n- `BesluitInformatieObject`\
-        \ - de relaties van het Besluit naar de\n  informatieobjecten"
+      summary: Verwijder een BESLUIT.
+      description: 'Verwijder een BESLUIT samen met alle gerelateerde resources binnen
+        deze API.
+
+
+        **De gerelateerde resources zijn**
+
+        - `BESLUITINFORMATIEOBJECT`
+
+        - audit trail regels'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1155,7 +1176,7 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -1163,7 +1184,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1175,7 +1196,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1187,7 +1208,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1199,7 +1220,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1211,7 +1232,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1223,7 +1244,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1235,7 +1256,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1247,7 +1268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1259,7 +1280,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1285,10 +1306,8 @@ paths:
   /besluitinformatieobjecten:
     get:
       operationId: besluitinformatieobject_list
-      description: 'Geef een lijst van relaties tussen INFORMATIEOBJECTen en BESLUITen.
-
-
-        Deze lijst kan gefilterd wordt met querystringparameters.'
+      summary: Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: besluit
         in: query
@@ -1299,15 +1318,15 @@ paths:
           format: uri
       - name: informatieobject
         in: query
-        description: URL-referentie naar het informatieobject waarin (een deel van)
-          het besluit beschreven is.
+        description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten API)
+          waarin (een deel van) het besluit beschreven is.
         required: false
         schema:
           type: string
           format: uri
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1321,7 +1340,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/BesluitInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1333,7 +1352,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1345,7 +1364,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1357,7 +1376,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1369,7 +1388,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1381,7 +1400,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1393,7 +1412,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1405,7 +1424,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1417,7 +1436,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1435,16 +1454,14 @@ paths:
         - besluiten.lezen
     post:
       operationId: besluitinformatieobject_create
+      summary: Maak een BESLUIT-INFORMATIEOBJECT relatie aan.
       description: "Registreer een INFORMATIEOBJECT bij een BESLUIT. Er worden twee\
         \ types van\nrelaties met andere objecten gerealiseerd:\n\n**Er wordt gevalideerd\
-        \ op**\n- geldigheid besluit URL\n- geldigheid informatieobject URL\n- de\
-        \ combinatie informatieobject en besluit moet uniek zijn\n\n**Opmerkingen**\n\
-        - De registratiedatum wordt door het systeem op 'NU' gezet. De `aardRelatie`\n\
-        \  wordt ook door het systeem gezet.\n- Bij het aanmaken wordt ook in het\
-        \ DRC de gespiegelde relatie aangemaakt,\n  echter zonder de relatie-informatie.\n\
-        \n\nRegistreer welk(e) INFORMATIEOBJECT(en) een BESLUIT kent.\n\n**Er wordt\
-        \ gevalideerd op**\n- geldigheid informatieobject URL\n- uniek zijn van relatie\
-        \ BESLUIT-INFORMATIEOBJECT"
+        \ op**\n- geldigheid `besluit` URL\n- geldigheid `informatieobject` URL\n\
+        - de combinatie `informatieobject` en `besluit` moet uniek zijn\n\n**Opmerkingen**\n\
+        - De `registratiedatum` wordt door het systeem op 'NU' gezet. De\n  `aardRelatie`\
+        \ wordt ook door het systeem gezet.\n- Bij het aanmaken wordt ook in de Documenten\
+        \ API de gespiegelde relatie\n  aangemaakt, echter zonder de relatie-informatie."
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1468,7 +1485,7 @@ paths:
           type: string
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -1485,7 +1502,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1497,7 +1514,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1509,7 +1526,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1521,7 +1538,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1533,7 +1550,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1545,7 +1562,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1557,7 +1574,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1569,7 +1586,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1581,7 +1598,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1603,11 +1620,11 @@ paths:
   /besluitinformatieobjecten/{uuid}:
     get:
       operationId: besluitinformatieobject_read
-      description: Geef de details van een relatie tussen een INFORMATIEOBJECT en
-        een BESLUIT.
+      summary: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
+      description: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1619,7 +1636,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitInformatieObject'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1631,7 +1648,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1643,7 +1660,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1655,7 +1672,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1667,7 +1684,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1679,7 +1696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1691,7 +1708,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1703,7 +1720,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1715,7 +1732,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1733,14 +1750,16 @@ paths:
         - besluiten.lezen
     put:
       operationId: besluitinformatieobject_update
-      description: 'Update een INFORMATIEOBJECT bij een BESLUIT. Je mag enkel de gegevens
+      summary: Werk een BESLUIT-INFORMATIEOBJECT relatie in zijn geheel bij.
+      description: 'Je mag enkel de gegevens van de relatie bewerken, en niet de relatie
+        zelf
 
-        van de relatie bewerken, en niet de relatie zelf aanpassen.
+        aanpassen.
 
 
         **Er wordt gevalideerd op**
 
-        - informatieobject URL en besluit URL mogen niet veranderen'
+        - `informatieobject` URL en `besluit` URL mogen niet veranderen'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1764,7 +1783,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1776,7 +1795,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1788,7 +1807,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1800,7 +1819,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1812,7 +1831,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1824,7 +1843,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1836,7 +1855,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1848,7 +1867,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1860,7 +1879,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1872,7 +1891,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1884,7 +1903,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1904,14 +1923,16 @@ paths:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     patch:
       operationId: besluitinformatieobject_partial_update
-      description: 'Update een INFORMATIEOBJECT bij een BESLUIT. Je mag enkel de gegevens
+      summary: Werk een BESLUIT-INFORMATIEOBJECT relatie deels bij.
+      description: 'Je mag enkel de gegevens van de relatie bewerken, en niet de relatie
+        zelf
 
-        van de relatie bewerken, en niet de relatie zelf aanpassen.
+        aanpassen.
 
 
         **Er wordt gevalideerd op**
 
-        - informatieobject URL en besluit URL mogen niet veranderen'
+        - `informatieobject` URL en `besluit` URL mogen niet veranderen'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1935,7 +1956,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1947,7 +1968,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1959,7 +1980,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1971,7 +1992,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1983,7 +2004,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1995,7 +2016,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2007,7 +2028,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2019,7 +2040,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2031,7 +2052,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2043,7 +2064,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2055,7 +2076,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2075,7 +2096,8 @@ paths:
         $ref: '#/components/requestBodies/BesluitInformatieObject'
     delete:
       operationId: besluitinformatieobject_delete
-      description: Verwijdert de relatie tussen BESLUIT en INFORMATIEOBJECT.
+      summary: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
+      description: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2099,7 +2121,7 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -2107,7 +2129,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2119,7 +2141,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2131,7 +2153,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2143,7 +2165,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2155,7 +2177,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2167,7 +2189,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2179,7 +2201,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2191,7 +2213,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2203,7 +2225,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2259,9 +2281,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         identificatie:
           title: Identificatie
           description: Identificatie van het besluit binnen de organisatie die het
@@ -2271,22 +2297,22 @@ components:
           maxLength: 50
         verantwoordelijkeOrganisatie:
           title: Verantwoordelijke organisatie
-          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+          description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
             die het besluit heeft vastgesteld.
           type: string
           maxLength: 9
           minLength: 1
         besluittype:
           title: Besluittype
-          description: Aanduiding van de aard van het BESLUIT. Referentie naar het
-            BESLUITTYPE in de zaaktypecatalogus.
+          description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
           type: string
           format: uri
           maxLength: 200
           minLength: 1
         zaak:
           title: Zaak
-          description: Referentie naar de ZAAK waarvan dit besluit uitkomst is
+          description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
+            uitkomst is.
           type: string
           format: uri
           maxLength: 200
@@ -2316,13 +2342,14 @@ components:
           description: Datum waarop de werkingsperiode van het besluit eindigt.
           type: string
           format: date
+          nullable: true
         vervalreden:
           title: Vervalreden
           description: 'De omschrijving die aangeeft op grond waarvan het besluit
             is of komt te vervallen.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `tijdelijk` - Besluit met tijdelijke werking
@@ -2345,16 +2372,19 @@ components:
           description: Datum waarop het besluit gepubliceerd wordt.
           type: string
           format: date
+          nullable: true
         verzenddatum:
           title: Verzenddatum
           description: Datum waarop het besluit verzonden is.
           type: string
           format: date
+          nullable: true
         uiterlijkeReactiedatum:
           title: Uiterlijke reactiedatum
           description: De datum tot wanneer verweer tegen het besluit mogelijk is.
           type: string
           format: date
+          nullable: true
     Fout:
       required:
       - code
@@ -2465,11 +2495,11 @@ components:
         oud:
           title: Oud
           description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden
+            de actie heeft plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
-          description: Volledige JSON body van het object na de actie
+          description: Volledige JSON body van het object na de actie.
           type: object
     AuditTrail:
       required:
@@ -2485,127 +2515,127 @@ components:
       properties:
         uuid:
           title: Uuid
-          description: Unieke identificatie van de audit regel
+          description: Unieke identificatie van de audit regel.
           type: string
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan
+          description: 'De naam van het component waar de wijziging in is gedaan.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `AC` - Autorisatiecomponent
+            * `ac` - Autorisatiecomponent
 
-            * `NRC` - Notificatierouteringcomponent
+            * `nrc` - Notificatierouteringcomponent
 
-            * `ZRC` - Zaakregistratiecomponent
+            * `zrc` - Zaakregistratiecomponent
 
-            * `ZTC` - Zaaktypecatalogus
+            * `ztc` - Zaaktypecatalogus
 
-            * `DRC` - Documentregistratiecomponent
+            * `drc` - Documentregistratiecomponent
 
-            * `BRC` - Besluitregistratiecomponent'
+            * `brc` - Besluitregistratiecomponent'
           type: string
           enum:
-          - AC
-          - NRC
-          - ZRC
-          - ZTC
-          - DRC
-          - BRC
+          - ac
+          - nrc
+          - zrc
+          - ztc
+          - drc
+          - brc
         applicatieId:
           title: Applicatie id
-          description: Unieke identificatie van de applicatie, binnen de organisatie
+          description: Unieke identificatie van de applicatie, binnen de organisatie.
           type: string
           maxLength: 100
         applicatieWeergave:
           title: Applicatie weergave
-          description: Vriendelijke naam van de applicatie
+          description: Vriendelijke naam van de applicatie.
           type: string
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
           description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon
+            herleid kan worden naar een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
           title: Gebruikers weergave
-          description: Vriendelijke naam van de gebruiker
+          description: Vriendelijke naam van de gebruiker.
           type: string
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling
+          description: 'De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
             andere waardes zijn ook toegestaan
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `create` - aangemaakt
+            * `create` - Object aangemaakt
 
-            * `list` - opgehaald
+            * `list` - Lijst van objecten opgehaald
 
-            * `retrieve` - opgehaald
+            * `retrieve` - Object opgehaald
 
-            * `destroy` - verwijderd
+            * `destroy` - Object verwijderd
 
-            * `update` - bijgewerkt
+            * `update` - Object bijgewerkt
 
-            * `partial_update` - deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt'
           type: string
           maxLength: 50
           minLength: 1
         actieWeergave:
           title: Actie weergave
-          description: Vriendelijke naam van de actie
+          description: Vriendelijke naam van de actie.
           type: string
           maxLength: 200
         resultaat:
           title: Resultaat
-          description: HTTP status code van de API response van de uitgevoerde handeling
+          description: HTTP status code van de API response van de uitgevoerde handeling.
           type: integer
           maximum: 599
           minimum: 100
         hoofdObject:
           title: Hoofd object
-          description: De URL naar het hoofdobject van een component
+          description: De URL naar het hoofdobject van een component.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         resource:
           title: Resource
-          description: Het type resource waarop de actie gebeurde
+          description: Het type resource waarop de actie gebeurde.
           type: string
           maxLength: 50
           minLength: 1
         resourceUrl:
           title: Resource url
-          description: De URL naar het object
+          description: De URL naar het object.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         toelichting:
           title: Toelichting
-          description: Toelichting waarom de handeling is uitgevoerd
+          description: Toelichting waarom de handeling is uitgevoerd.
           type: string
         resourceWeergave:
           title: Resource weergave
-          description: Vriendelijke identificatie van het object
+          description: Vriendelijke identificatie van het object.
           type: string
           maxLength: 200
           minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
-          description: De datum waarop de handeling is gedaan
+          description: De datum waarop de handeling is gedaan.
           type: string
           format: date-time
           readOnly: true
@@ -2619,13 +2649,17 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         informatieobject:
           title: Informatieobject
-          description: URL-referentie naar het informatieobject waarin (een deel van)
-            het besluit beschreven is.
+          description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten
+            API) waarin (een deel van) het besluit beschreven is.
           type: string
           format: uri
           maxLength: 1000
@@ -2635,10 +2669,3 @@ components:
           description: URL-referentie naar het BESLUIT.
           type: string
           format: uri
-        aardRelatieWeergave:
-          title: Aard relatie weergave
-          type: string
-          enum:
-          - 'Hoort bij, omgekeerd: kent'
-          - 'Legt vast, omgekeerd: kan vastgelegd zijn als'
-          readOnly: true
