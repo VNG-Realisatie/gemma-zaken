@@ -1,7 +1,9 @@
 ---
 title: "Beheer"
-date: '12-7-2019'
+date: '15-7-2019'
 weight: 10
 ---
 
-Uitleg hoe beheer is georganiseerd en wat leveranciers en gemeenten kunnen verwachten.
+Hier komt uitleg hoe beheer is georganiseerd en wat leveranciers en gemeenten kunnen verwachten. 
+
+Volledige beschrijving van de werkwijze van Beheer vind je [hier](https://github.com/VNG-Realisatie/api-beheer/tree/master/Processen).
