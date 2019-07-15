@@ -26,7 +26,7 @@ spec:
         imagePullPolicy: Always
         env:
           - name: DJANGO_SETTINGS_MODULE
-            value: notifications.conf.docker
+            value: nrc.conf.docker
           - name: DB_HOST
             value: {{ db_host }}
           - name: DB_NAME
@@ -62,4 +62,4 @@ spec:
                 name: {{ service.name }}-secrets
                 key: CELERY_RESULT_BACKEND
         command: ["celery"]
-        args: ["worker", "--app", "notifications", "-l", "info", "--workdir", "src"]
+        args: ["worker", "--app", "nrc", "-l", "info", "--workdir", "src"]

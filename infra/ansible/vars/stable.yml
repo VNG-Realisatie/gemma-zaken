@@ -28,16 +28,16 @@ services:
 
   - name: drc
     templates: ../k8s/drc/
-    image_tag: '0.15.4'
+    image_tag: '0.16.0'
 
   - name: nrc
     templates: ../k8s/nrc/
-    image_tag: '0.7.1'
+    image_tag: '0.8.0'
 
   - name: zrc
     templates: ../k8s/zrc/
-    image_tag: '0.19.1'
+    image_tag: '0.20.0'
 
   - name: ztc
     templates: ../k8s/ztc/
-    image_tag: '0.14.2'
+    image_tag: '0.15.0'
