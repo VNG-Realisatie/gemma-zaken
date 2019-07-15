@@ -34,7 +34,7 @@ Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen beslu
 
 Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecten en zaakkenmerken samen vormen het zaakdossier.
 
-![Gegevensmodel Documenten API](Documenten API.png)
+[![Gegevensmodel Documenten API](Documenten API.png)](Documenten API.png "Documenten gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Documenten API

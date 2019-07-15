@@ -42,7 +42,7 @@ Een informatieobject kan tot meer dan één zaak behoren en een zaak kan meer da
 Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle kenmerken, alle daaraan gerelateerde Informatieobjecten en alle andere gerelateerde gegevens (via rol, zaakobject, etc.) vormen gezamenlijk het zaakdossier.
 
 
-![Gegevensmodel Zaken API](Zaken API.png){:width="1200px"}
+[![Gegevensmodel Zaken API](Zaken API.png){:width="1200px"}](Zaken API.png "Zaken gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Catalogi API

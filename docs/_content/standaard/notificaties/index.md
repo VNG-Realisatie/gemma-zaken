@@ -18,7 +18,7 @@ De API ondersteunt:
 
 ## Gegevensmodel
 
-![Gegevensmodel Notificaties API](Notificaties API.png){:width="1200px"}
+[![Gegevensmodel Notificaties API](Notificaties API.png){:width="1200px"}](Notificaties API.png "Notificaties gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Notificaties API

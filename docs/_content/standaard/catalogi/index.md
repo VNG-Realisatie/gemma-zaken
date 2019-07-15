@@ -11,7 +11,7 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 ## Gegevensmodel
 
-![Gegevensmodel Catalogi API](Catalogi API.png)
+[![Gegevensmodel Catalogi API](Catalogi API.png)](Catalogi API.png "Catalogi gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Catalogi API
