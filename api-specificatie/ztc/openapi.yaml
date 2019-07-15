@@ -71,6 +71,19 @@ paths:
         schema:
           type: string
           format: uri
+      - name: zaaktypes
+        in: query
+        description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE
+        required: false
+        schema:
+          type: string
+      - name: informatieobjecttypes
+        in: query
+        description: Het INFORMATIEOBJECTTYPE van informatieobjecten waarin besluiten
+          van dit BESLUITTYPE worden vastgelegd.
+        required: false
+        schema:
+          type: string
       - name: status
         in: query
         description: 'filter objects depending on their concept status:
@@ -677,6 +690,32 @@ paths:
       operationId: catalogus_list
       description: Een verzameling van CATALOGUSsen.
       parameters:
+      - name: domein
+        in: query
+        description: Een afkorting waarmee wordt aangegeven voor welk domein in een
+          CATALOGUS ZAAKTYPEn zijn uitgewerkt.
+        required: false
+        schema:
+          type: string
+      - name: domein__in
+        in: query
+        description: Multiple values may be separated by commas.
+        required: false
+        schema:
+          type: string
+      - name: rsin
+        in: query
+        description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+          NIET-NATUURLIJK PERSOON die de eigenaar is van een CATALOGUS.
+        required: false
+        schema:
+          type: string
+      - name: rsin__in
+        in: query
+        description: Multiple values may be separated by commas.
+        required: false
+        schema:
+          type: string
       - name: page
         in: query
         description: Een pagina binnen de gepagineerde set resultaten.
@@ -712,6 +751,18 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Catalogus'
+        '400':
+          description: ''
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: ''
           headers:
@@ -4660,6 +4711,18 @@ paths:
         schema:
           type: string
           format: uri
+      - name: identificatie
+        in: query
+        description: ''
+        required: false
+        schema:
+          type: number
+      - name: trefwoorden
+        in: query
+        description: Multiple values may be separated by commas.
+        required: false
+        schema:
+          type: string
       - name: status
         in: query
         description: 'filter objects depending on their concept status:
