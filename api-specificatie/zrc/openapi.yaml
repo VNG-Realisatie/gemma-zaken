@@ -192,12 +192,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KlantContact'
-        required: true
       responses:
         '201':
           description: Created
@@ -329,6 +323,12 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContact'
+        required: true
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -648,8 +648,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '201':
           description: Created
@@ -781,6 +779,8 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -941,8 +941,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1081,6 +1079,8 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
     patch:
       operationId: resultaat_partial_update
       summary: Wijzig het RESULTAAT van een ZAAK.
@@ -1110,8 +1110,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1250,6 +1248,8 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
     delete:
       operationId: resultaat_delete
       description: Verwijder het RESULTAAT van een ZAAK.
@@ -1430,11 +1430,11 @@ paths:
         schema:
           type: string
           enum:
-          - Natuurlijk persoon
-          - Niet-natuurlijk persoon
-          - Vestiging
-          - Organisatorische eenheid
-          - Medewerker
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - vestiging
+          - organisatorische_eenheid
+          - medewerker
       - name: betrokkeneIdentificatie__natuurlijkPersoon__inpBsn
         in: query
         description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene
@@ -1494,14 +1494,14 @@ paths:
         schema:
           type: string
           enum:
-          - Adviseur
-          - Behandelaar
-          - Belanghebbende
-          - Beslisser
-          - Initiator
-          - Klantcontacter
-          - "Zaakco\xF6rdinator"
-          - Mede-initiator
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
       responses:
         '200':
           description: OK
@@ -1654,12 +1654,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Rol'
-        required: true
       responses:
         '201':
           description: Created
@@ -1791,6 +1785,12 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2236,12 +2236,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Status'
-        required: true
       responses:
         '201':
           description: Created
@@ -2373,6 +2367,12 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.statussen.toevoegen | zaken.heropenen)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Status'
+        required: true
     parameters: []
   /statussen/{uuid}:
     get:
@@ -2696,8 +2696,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '201':
           description: Created
@@ -2829,6 +2827,8 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -2992,8 +2992,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3132,6 +3130,8 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
     patch:
       operationId: zaakinformatieobject_partial_update
       description: 'Update een INFORMATIEOBJECT bij een ZAAK. Je mag enkel de gegevens
@@ -3163,8 +3163,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3303,6 +3301,8 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
     delete:
       operationId: zaakinformatieobject_delete
       description: 'Verwijdert de relatie tussen ZAAK en INFORMATIEOBJECT. De gespiegelde
@@ -3490,33 +3490,33 @@ paths:
           - adres
           - besluit
           - buurt
-          - enkelvoudigDocument
+          - enkelvoudig_document
           - gemeente
-          - gemeentelijkeOpenbareRuimte
+          - gemeentelijke_openbare_ruimte
           - huishouden
           - inrichtingselement
-          - kadastraleOnroerendeZaak
+          - kadastrale_onroerende_zaak
           - kunstwerkdeel
-          - maatschappelijkeActiviteit
+          - maatschappelijke_activiteit
           - medewerker
-          - natuurlijkPersoon
-          - nietNatuurlijkPersoon
-          - openbareRuimte
-          - organisatorischeEenheid
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - openbare_ruimte
+          - organisatorische_eenheid
           - pand
           - spoorbaandeel
           - status
           - terreindeel
-          - terreinGebouwdObject
+          - terrein_gebouwd_object
           - vestiging
           - waterdeel
           - wegdeel
           - wijk
           - woonplaats
-          - wozDeelobject
-          - wozObject
-          - wozWaarde
-          - zakelijkRecht
+          - woz_deelobject
+          - woz_object
+          - woz_waarde
+          - zakelijk_recht
           - overige
       responses:
         '200':
@@ -3670,12 +3670,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakObject'
-        required: true
       responses:
         '201':
           description: Created
@@ -3807,6 +3801,12 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakObject'
+        required: true
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -4319,8 +4319,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
       responses:
         '201':
           description: Created
@@ -4464,6 +4462,8 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
     parameters: []
   /zaken/_zoek:
     post:
@@ -4499,12 +4499,6 @@ paths:
           type: string
           enum:
           - EPSG:4326
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakZoek'
-        required: true
       responses:
         '200':
           description: OK
@@ -4669,6 +4663,12 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakZoek'
+        required: true
     parameters: []
   /zaken/{uuid}:
     get:
@@ -4899,8 +4899,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5059,6 +5057,8 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
       summary: Werk een zaak bij.
@@ -5117,8 +5117,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5277,6 +5275,8 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
     delete:
       operationId: zaak_delete
       summary: Verwijdert een zaak, samen met alle gerelateerde resources binnen deze
@@ -5713,7 +5713,7 @@ paths:
     parameters:
     - name: uuid
       in: path
-      description: Unieke identificatie van de audit regel
+      description: Unieke identificatie van de audit regel.
       required: true
       schema:
         type: string
@@ -5869,12 +5869,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakBesluit'
-        required: true
       responses:
         '201':
           description: Created
@@ -6006,6 +6000,12 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakBesluit'
+        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6449,12 +6449,6 @@ paths:
         required: false
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakEigenschap'
-        required: true
       responses:
         '201':
           description: Created
@@ -6586,6 +6580,12 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakEigenschap'
+        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6968,24 +6968,24 @@ components:
           description: Soort betrokkene
           type: string
           enum:
-          - Natuurlijk persoon
-          - Niet-natuurlijk persoon
-          - Vestiging
-          - Organisatorische eenheid
-          - Medewerker
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - vestiging
+          - organisatorische_eenheid
+          - medewerker
         rolomschrijving:
           title: Rolomschrijving
           description: Algemeen gehanteerde benaming van de aard van de ROL
           type: string
           enum:
-          - Adviseur
-          - Behandelaar
-          - Belanghebbende
-          - Beslisser
-          - Initiator
-          - Klantcontacter
-          - "Zaakco\xF6rdinator"
-          - Mede-initiator
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
         roltoelichting:
           title: Roltoelichting
           type: string
@@ -7002,7 +7002,7 @@ components:
           description: 'Indicatie_machtiging
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `gemachtigde` - De betrokkene in de rol bij de zaak is door een andere
@@ -7145,7 +7145,7 @@ components:
             is, of dat het geslacht nog onbekend is.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `M` - Man
@@ -7171,6 +7171,11 @@ components:
       properties:
         betrokkeneIdentificatie:
           $ref: '#/components/schemas/RolNatuurlijkPersoon'
+    natuurlijk_persoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
     RolNietNatuurlijkPersoon:
       title: betrokkene_identificatie
       type: object
@@ -7230,6 +7235,11 @@ components:
       properties:
         betrokkeneIdentificatie:
           $ref: '#/components/schemas/RolNietNatuurlijkPersoon'
+    niet_natuurlijk_persoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
     RolVestiging:
       title: betrokkene_identificatie
       type: object
@@ -7255,7 +7265,7 @@ components:
       properties:
         betrokkeneIdentificatie:
           $ref: '#/components/schemas/RolVestiging'
-    Vestiging:
+    vestiging:
       type: object
       allOf:
       - $ref: '#/components/schemas/Rol'
@@ -7283,6 +7293,11 @@ components:
       properties:
         betrokkeneIdentificatie:
           $ref: '#/components/schemas/RolOrganisatorischeEenheid'
+    organisatorische_eenheid:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Rol'
+      - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
     RolMedewerker:
       title: betrokkene_identificatie
       type: object
@@ -7315,7 +7330,7 @@ components:
       properties:
         betrokkeneIdentificatie:
           $ref: '#/components/schemas/RolMedewerker'
-    Medewerker:
+    medewerker:
       type: object
       allOf:
       - $ref: '#/components/schemas/Rol'
@@ -7449,33 +7464,33 @@ components:
           - adres
           - besluit
           - buurt
-          - enkelvoudigDocument
+          - enkelvoudig_document
           - gemeente
-          - gemeentelijkeOpenbareRuimte
+          - gemeentelijke_openbare_ruimte
           - huishouden
           - inrichtingselement
-          - kadastraleOnroerendeZaak
+          - kadastrale_onroerende_zaak
           - kunstwerkdeel
-          - maatschappelijkeActiviteit
+          - maatschappelijke_activiteit
           - medewerker
-          - natuurlijkPersoon
-          - nietNatuurlijkPersoon
-          - openbareRuimte
-          - organisatorischeEenheid
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - openbare_ruimte
+          - organisatorische_eenheid
           - pand
           - spoorbaandeel
           - status
           - terreindeel
-          - terreinGebouwdObject
+          - terrein_gebouwd_object
           - vestiging
           - waterdeel
           - wegdeel
           - wijk
           - woonplaats
-          - wozDeelobject
-          - wozObject
-          - wozWaarde
-          - zakelijkRecht
+          - woz_deelobject
+          - woz_object
+          - woz_waarde
+          - zakelijk_recht
           - overige
       discriminator:
         propertyName: type
@@ -7581,7 +7596,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
       - $ref: '#/components/schemas/object_identificatie_ObjectBuurt'
-    enkelvoudigDocument:
+    enkelvoudig_document:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -7640,7 +7655,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectGemeentelijkeOpenbareRuimte'
-    gemeentelijkeOpenbareRuimte:
+    gemeentelijke_openbare_ruimte:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -7748,7 +7763,7 @@ components:
           description: 'Specificatie van de aard van het inrichtingselement.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `Bak` - Bak
@@ -7828,7 +7843,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectKadastraleOnroerendeZaak'
-    kadastraleOnroerendeZaak:
+    kadastrale_onroerende_zaak:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -7847,7 +7862,7 @@ components:
             behoort.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `Keermuur` - Keermuur
@@ -7946,7 +7961,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectMaatschappelijkeActiviteit'
-    maatschappelijkeActiviteit:
+    maatschappelijke_activiteit:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -7956,31 +7971,16 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/RolMedewerker'
-    medewerker:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - $ref: '#/components/schemas/object_identificatie_RolMedewerker'
     object_identificatie_RolNatuurlijkPersoon:
       type: object
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/RolNatuurlijkPersoon'
-    natuurlijkPersoon:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - $ref: '#/components/schemas/object_identificatie_RolNatuurlijkPersoon'
     object_identificatie_RolNietNatuurlijkPersoon:
       type: object
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/RolNietNatuurlijkPersoon'
-    nietNatuurlijkPersoon:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - $ref: '#/components/schemas/object_identificatie_RolNietNatuurlijkPersoon'
     ObjectOpenbareRuimte:
       title: object_identificatie
       required:
@@ -8012,7 +8012,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectOpenbareRuimte'
-    openbareRuimte:
+    openbare_ruimte:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8022,11 +8022,6 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/RolOrganisatorischeEenheid'
-    organisatorischeEenheid:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - $ref: '#/components/schemas/object_identificatie_RolOrganisatorischeEenheid'
     ObjectPand:
       title: object_identificatie
       required:
@@ -8061,7 +8056,7 @@ components:
           description: 'Specificatie van het soort Spoorbaan
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `breedspoor` - breedspoor
@@ -8140,7 +8135,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectTerreinGebouwdObject'
-    terreinGebouwdObject:
+    terrein_gebouwd_object:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8150,11 +8145,6 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/RolVestiging'
-    vestiging:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - $ref: '#/components/schemas/object_identificatie_RolVestiging'
     ObjectWaterdeel:
       title: object_identificatie
       required:
@@ -8167,7 +8157,7 @@ components:
           description: 'Specificatie van het soort water
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `Zee` - Zee
@@ -8385,7 +8375,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectWozDeelobject'
-    wozDeelobject:
+    woz_deelobject:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8395,7 +8385,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectWozObject'
-    wozObject:
+    woz_object:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8419,7 +8409,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectWozWaarde'
-    wozWaarde:
+    woz_waarde:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8460,7 +8450,7 @@ components:
       properties:
         objectIdentificatie:
           $ref: '#/components/schemas/ObjectZakelijkRecht'
-    zakelijkRecht:
+    zakelijk_recht:
       type: object
       allOf:
       - $ref: '#/components/schemas/ZaakObject'
@@ -8849,20 +8839,20 @@ components:
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         betalingsindicatie:
           title: Betalingsindicatie
           description: 'Indicatie of de, met behandeling van de zaak gemoeide, kosten
             betaald zijn door de desbetreffende betrokkene.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `nvt` - Er is geen sprake van te betalen, met de zaak gemoeide, kosten.
@@ -8928,7 +8918,7 @@ components:
             waarbij de onderstaande waardes toegestaan zijn.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `vervolg` - De andere zaak gaf aanleiding tot het starten van de onderhanden
@@ -9102,11 +9092,11 @@ components:
         oud:
           title: Oud
           description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden
+            de actie heeft plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
-          description: Volledige JSON body van het object na de actie
+          description: Volledige JSON body van het object na de actie.
           type: object
     AuditTrail:
       required:
@@ -9122,127 +9112,127 @@ components:
       properties:
         uuid:
           title: Uuid
-          description: Unieke identificatie van de audit regel
+          description: Unieke identificatie van de audit regel.
           type: string
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan
+          description: 'De naam van het component waar de wijziging in is gedaan.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `AC` - Autorisatiecomponent
+            * `ac` - Autorisatiecomponent
 
-            * `NRC` - Notificatierouteringcomponent
+            * `nrc` - Notificatierouteringcomponent
 
-            * `ZRC` - Zaakregistratiecomponent
+            * `zrc` - Zaakregistratiecomponent
 
-            * `ZTC` - Zaaktypecatalogus
+            * `ztc` - Zaaktypecatalogus
 
-            * `DRC` - Documentregistratiecomponent
+            * `drc` - Documentregistratiecomponent
 
-            * `BRC` - Besluitregistratiecomponent'
+            * `brc` - Besluitregistratiecomponent'
           type: string
           enum:
-          - AC
-          - NRC
-          - ZRC
-          - ZTC
-          - DRC
-          - BRC
+          - ac
+          - nrc
+          - zrc
+          - ztc
+          - drc
+          - brc
         applicatieId:
           title: Applicatie id
-          description: Unieke identificatie van de applicatie, binnen de organisatie
+          description: Unieke identificatie van de applicatie, binnen de organisatie.
           type: string
           maxLength: 100
         applicatieWeergave:
           title: Applicatie weergave
-          description: Vriendelijke naam van de applicatie
+          description: Vriendelijke naam van de applicatie.
           type: string
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
           description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon
+            herleid kan worden naar een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
           title: Gebruikers weergave
-          description: Vriendelijke naam van de gebruiker
+          description: Vriendelijke naam van de gebruiker.
           type: string
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling
+          description: 'De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
             andere waardes zijn ook toegestaan
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `create` - aangemaakt
+            * `create` - Object aangemaakt
 
-            * `list` - opgehaald
+            * `list` - Lijst van objecten opgehaald
 
-            * `retrieve` - opgehaald
+            * `retrieve` - Object opgehaald
 
-            * `destroy` - verwijderd
+            * `destroy` - Object verwijderd
 
-            * `update` - bijgewerkt
+            * `update` - Object bijgewerkt
 
-            * `partial_update` - deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt'
           type: string
           maxLength: 50
           minLength: 1
         actieWeergave:
           title: Actie weergave
-          description: Vriendelijke naam van de actie
+          description: Vriendelijke naam van de actie.
           type: string
           maxLength: 200
         resultaat:
           title: Resultaat
-          description: HTTP status code van de API response van de uitgevoerde handeling
+          description: HTTP status code van de API response van de uitgevoerde handeling.
           type: integer
           maximum: 599
           minimum: 100
         hoofdObject:
           title: Hoofd object
-          description: De URL naar het hoofdobject van een component
+          description: De URL naar het hoofdobject van een component.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         resource:
           title: Resource
-          description: Het type resource waarop de actie gebeurde
+          description: Het type resource waarop de actie gebeurde.
           type: string
           maxLength: 50
           minLength: 1
         resourceUrl:
           title: Resource url
-          description: De URL naar het object
+          description: De URL naar het object.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         toelichting:
           title: Toelichting
-          description: Toelichting waarom de handeling is uitgevoerd
+          description: Toelichting waarom de handeling is uitgevoerd.
           type: string
         resourceWeergave:
           title: Resource weergave
-          description: Vriendelijke identificatie van het object
+          description: Vriendelijke identificatie van het object.
           type: string
           maxLength: 200
           minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
-          description: De datum waarop de handeling is gedaan
+          description: De datum waarop de handeling is gedaan.
           type: string
           format: date-time
           readOnly: true
@@ -9299,18 +9289,3 @@ components:
           title: Waarde
           type: string
           minLength: 1
-    Natuurlijk_persoon:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Rol'
-      - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
-    Niet-natuurlijk_persoon:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Rol'
-      - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
-    Organisatorische_eenheid:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Rol'
-      - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
