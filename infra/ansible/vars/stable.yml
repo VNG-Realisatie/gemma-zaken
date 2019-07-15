@@ -20,23 +20,23 @@ services:
 
   - name: ac
     templates: ../k8s/ac/
-    image_tag: '0.3.1'
+    image_tag: '0.4.0'
 
   - name: brc
     templates: ../k8s/brc/
-    image_tag: '0.11.6'
+    image_tag: '0.12.1'
 
   - name: drc
     templates: ../k8s/drc/
-    image_tag: '0.16.0'
+    image_tag: '0.17.0'
 
   - name: nrc
     templates: ../k8s/nrc/
-    image_tag: '0.8.0'
+    image_tag: '0.8.1'
 
   - name: zrc
     templates: ../k8s/zrc/
-    image_tag: '0.20.0'
+    image_tag: '0.21.0'
 
   - name: ztc
     templates: ../k8s/ztc/
