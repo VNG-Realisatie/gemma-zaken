@@ -18,7 +18,7 @@ De API ondersteunt de volgende operaties:
 
 ## Gegevensmodel
 
-![Gegevensmodel Autorisaties API](Autorisaties API.png)
+[![Gegevensmodel Autorisaties API](Autorisaties API.png)](Autorisaties API.png "autorisatie gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Autorisaties API
