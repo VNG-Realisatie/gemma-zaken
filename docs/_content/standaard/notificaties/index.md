@@ -23,9 +23,12 @@ De API ondersteunt:
 
 ## Specificatie van de Notificaties API
 
-[Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/nrc/openapi.yaml)
+* [Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://notificaties-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [JSON](https://notificaties-api.vng.cloud/api/v1/schema/openapi.json) of
 
 
 ## Specificatie van gedrag

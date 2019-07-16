@@ -13,9 +13,10 @@ Deze API maakt het mogelijk notificaties te ontvangen waarop de consumer is geab
 
 ## Specificatie van de Notificaties API
 
-[Redoc van de Notificaties API voor consumers](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/nrc/consumer-api/openapi.yaml)
+* API specificatie (OAS3) in
+  [ReDoc](https://redocly.github.io/redoc/?url=https://zaakgerichtwerken.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml),
+  [Swagger](https://petstore.swagger.io/?url=https://zaakgerichtwerken.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml) of
+  [YAML](../../../api-specificatie/nrc/consumer-api/openapi.yaml).
 
 
 ## Specificatie van gedrag

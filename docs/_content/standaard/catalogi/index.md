@@ -16,9 +16,12 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 ## Specificatie van de Catalogi API
 
-[Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/ztc/openapi.yaml)
+* [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://catalogi-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json) of
 
 
 ## Specificatie van gedrag

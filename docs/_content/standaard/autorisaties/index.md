@@ -23,9 +23,12 @@ De API ondersteunt de volgende operaties:
 
 ## Specificatie van de Autorisaties API
 
-[Referentie-implementatie Autorisaties API](https://autorisaties-api.vng.cloud)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/ac/openapi.yaml)
+* [Referentie-implementatie Autorisaties API](https://autorisaties-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://autorisaties-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [JSON](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.json) of
 
 
 ## Specificatie van gedrag

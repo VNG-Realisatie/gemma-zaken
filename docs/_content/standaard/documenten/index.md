@@ -39,9 +39,12 @@ Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecte
 
 ## Specificatie van de Documenten API
 
-[Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/drc/openapi.yaml)
+* [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
+* API specificatie (OAS3) in
+  [ReDoc](https://documenten-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json) of
 
 
 ## Specificatie van gedrag

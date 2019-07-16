@@ -47,9 +47,12 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
 
 ## Specificatie van de Catalogi API
 
-[Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
-
-[Plain text OAS3 specificatie](../../../api-specificatie/zrc/openapi.yaml)
+* [Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
+* API specificatie (OAS3) in
+  [ReDoc](https://zaken-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [JSON](https://zaken-api.vng.cloud/api/v1/schema/openapi.json) of
 
 
 ## Specificatie van gedrag
