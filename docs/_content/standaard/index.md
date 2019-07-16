@@ -4,6 +4,20 @@ date: '10-7-2019'
 weight: 10
 ---
 
+## API-specificaties
+
+Hieronder de directe links naar de specificatie en documentatie van de API's:
+
+* [Catalogi API specificatie](catalogi/index)
+* [Zaken API specificatie](zaken/index)
+* [Documenten API specificatie](documenten/index)
+* [Besluiten API specificatie](besluiten/index)
+* [Autorisaties API specificatie](autorisaties/index)
+* [Notificaties API specificatie](notificaties/index)
+* [Notificaties API specificatie voor consumers](notificaties-consumer/index)
+
+## Algemeen
+
 De API's voor Zaakgericht Werken-standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
 
 Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
@@ -128,19 +142,6 @@ Zaakgericht werken gebruikt en opgelegd.
 
 Een duur MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 uitgedrukt worden.
-
-
-## API-specificaties
-Hieronder de directe links naar de specificatie en documentatie van de API's:
-
-* [Catalogi API specificatie](catalogi/index)
-* [Zaken API specificatie](zaken/index)
-* [Documenten API specificatie](documenten/index)
-* [Besluiten API specificatie](besluiten/index)
-* [Autorisaties API specificatie](autorisaties/index)
-* [Notificaties API specificatie](notificaties/index)
-* [Notificaties API specificatie voor consumers](notificaties-consumer/index)
-
 
 ## API-compatibiliteit
 De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
