@@ -1,6 +1,6 @@
 ---
-title: Demo applicatie
-weight: 50
+title: "Gebruik van de demo-applicatie"
+weight: 70
 ---
 
 De demo applicatie is een combinatie van verschillende aspecten zoals die te
@@ -11,7 +11,7 @@ communiceren met de verschillende ZGW APIs.
 _Opmerking: De demo applicatie is geen onderdeel van de standaard of referentie
 implementaties en kan achterlopen op de meest recente versies van de APIs._
 
-# Gebruik de online demo applicatie
+## Gebruik de online demo applicatie
 
 De online demo applicatie is geconfigureerd om te communiceren met de gehoste
 referentie implementaties van de verschillende componenten. Deze demo
@@ -20,13 +20,13 @@ applicatie kan **niet** anders worden geconfigureerd en is te vinden op:
 [https://zgw-demo.vng.cloud](https://zgw-demo.vng.cloud)
 
 
-# Gebruik een lokale versie van de demo applicatie
+## Gebruik een lokale versie van de demo applicatie
 
 Deze versie van de demo applicatie kunt u naar wens configureren op uw eigen
 omgeving.
 
 
-## Snelle start
+### Snelle start
 
 Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van
 start te gaan. Ga anders naar de **Voorbereiding**.
@@ -38,8 +38,7 @@ $ docker-compose pull
 $ docker-compose up -d
 ```
 
-
-## Voorbereiding
+### Voorbereiding
 
 Ook voor de demo applicatie is een [Docker][docker] containers beschikbaar. De
 volgende onderdelen zijn nodig om aan de slag te gaan:
@@ -71,7 +70,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 [docker-compose-linux]: https://docs.docker.com/compose/install/
 [git-scm]: https://git-scm.com/downloads
 
-## Referentie componenten opstarten
+### Referentie componenten opstarten
 
 1. Clone de `VNG-Realisatie/gemma-zaken` repository op de eigen computer:
 
@@ -169,7 +168,7 @@ volgende onderdelen zijn nodig om aan de slag te gaan:
 
    _TIP: Het kan zijn dat de configuratie niet goed hergeladen wordt. In dat
    geval kan in de admin de configuratie nogmaals worden opgeslagen of de Docker
-   instantie moet opnieuw gestart worden._
+   instantie moet opnieuw gestart worden.
 
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken-demo/archive/master.zip

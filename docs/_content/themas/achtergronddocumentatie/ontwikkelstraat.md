@@ -151,5 +151,4 @@ De referentie-implementaties en hun API specs zijn geïntegreerd in de
 ## Docker-compose
 
 Er is een `docker-compose` file beschikbaar om de volledige
-referentie-implementatie stack op te brengen. Zie de
-[developer documentatie](/ontwikkelaars/aan-de-slag).
+referentie-implementatie stack op te brengen. Zie de [documentatie voor ontwikkelaars](/ontwikkelaars/handleidingen-en-tutorials/installatie-en-configuratie).

@@ -1,6 +1,6 @@
 ---
-title: Tutorial archiveren
-weight: 60
+title: "Tutorial archiveren"
+weight: 30
 ---
 
 In deze tutorial configureren we de referentieimplementatie van de
@@ -19,14 +19,14 @@ De volgende componenten zijn meest relevant:
 ## Wat zijn de vereisten voor deze tutorial?
 
 * `docker` en `docker-compose` om lokaal op je (ontwikkelmachine) de
-  componenten te hosten. Zie ['aan de slag'](../aan-de-slag) voor een
+  componenten te hosten. Zie ['installatie en configuratie'](./installatie-en-configuratie) voor een
   uitgebreide beschrijving.
 
 * Het handigste is om de containers in 1 command prompt te hebben draaien, en
   extra commando's in een tweede prompt ernaast uit te voeren. Zorg dat beide
   prompts zich in de juiste directory bevinden: `/pad/naar/gemma-zaken/infra`.
 
-* De [eenmalige setup](../eenmalige-setup) is uitgevoerd.
+* De [eenmalige setup](./eenmalige-setup) is uitgevoerd.
 
 * Toegang tot de publieke [VNG Referentielijsten API].
 
@@ -34,7 +34,7 @@ De volgende componenten zijn meest relevant:
 
 ### Configuratie van de ZTC
 
-Het IP-adres uit de ['aan de slag'](../aan-de-slag) voorbereiding is hier
+Het IP-adres uit de ['installatie en configuratie'](./installatie-en-configuratie) voorbereiding is hier
 nodig om de componenten via de browser aan te spreken.
 
 Open in je browser `http://<ztc-ip>:8002/admin/` en log in met je
@@ -407,12 +407,10 @@ Hierna hebben we een Zaak afgehandeld:
 
 ## Achtergrondinformatie
 
-De [technische achtergrond](../algemeen/archiveren) bevat meer informatie
-omtrent alle andere scenario's bedoeld om de `archiefactiedatum` te bepalen.
+De [achtergronddocumentatie over archiveren](/themas/achtergronddocumentatie/archiveren) bevat meer informatie over andere scenario's bedoeld om de `archiefactiedatum` te bepalen.
 
-[Hier](./archiveren.pptx) is de presentatie te vinden die gegeven is op het
+[Hier](./_assets/archiveren.pptx) is de presentatie te vinden die gegeven is op het
 API-lab.
-
 
 [Selectielijst gemeenten]: https://vng.nl/selectielijst
 [VNG Referentielijsten API]: https://referentielijsten-api.vng.cloud/api/v1/

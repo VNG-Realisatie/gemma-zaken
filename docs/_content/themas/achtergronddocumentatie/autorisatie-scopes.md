@@ -4,7 +4,7 @@ description: ""
 weight: 40
 ---
 
-# Scopes
+## Scopes
 
 Een scope in deze context is een label, bijvoorbeeld `zds.scopes.zaken.lezen`
 waar een bepaalde betekenis aan toegekend is. We gebruiken scopes om

@@ -1,6 +1,7 @@
 ---
-title: "ZDS versus ZGW"
+title: "ZDS en ZGW API's"
 date: '11-01-2019'
+
 ---
 
 De Zaak- en Documentservices (ZDS) wijken af van de Zaakgericht werken (ZGW)

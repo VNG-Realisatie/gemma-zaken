@@ -1,18 +1,21 @@
 - name: Productvisie
   link: /productvisie/
   weight: 10
-- name: Standaard
+- name: API's
   link: /standaard/
-  weight: 15
-- name: Architectuur
-  link: /architectuur/
   weight: 20
 - name: Ontwikkelaars
   link: /ontwikkelaars/
   weight: 30
-- name: Community
-  link: /community/
+- name: Thema's
+  link: /themas/
   weight: 40
-- name: Overige
-  link: /overige/
+- name: Beheer
+  link: /beheer/
+  weight: 45
+- name: Doorontwikkeling
+  link: /doorontwikkeling/
   weight: 50
+- name: Contact
+  link: /contact/
+  weight: 60

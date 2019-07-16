@@ -51,11 +51,7 @@ of status wijziging wordt hierop gepubliceerd. Ook als een document wordt
 toegevoegd wordt het aanmaken van de relatie tusen de zaak en het document
 gepubliceerd op dit kanaal.
 
-Componenten produceren dus berichten op een bepaald kanaal - deze producers
-worden door [Squad Architectuur] ook wel "bronnen" genoemd. Een ZRC, DRC, BRC zijn de voor de
-hand liggende bronnen binnen zaakgericht werken.
-
-[Squad Architectuur]: https://www.gemmaonline.nl/index.php/Squad_Architectuur_Samen_Organiseren
+Componenten produceren dus berichten op een bepaald kanaal - ook wel "bronnen" genoemd. Een ZRC, DRC, BRC zijn de voor de hand liggende bronnen binnen zaakgericht werken.
 
 **Relevantie van een notificatie bepalen**
 
@@ -296,9 +292,9 @@ Accept: application/json
 
 Dit zal enkel de niet bezorgde notificaties teruggeven.
 
-# Uitdagingen en oplossingen
+## Uitdagingen en oplossingen
 
-## AMQP vs. webhooks: volgorde events
+### AMQP vs. webhooks: volgorde events
 
 Een van de grote voordelen van direct op AMQP in te haken is dat het protocol
 oplossingen voorziet om te garanderen dat berichten in de juiste volgorde
@@ -322,7 +318,7 @@ gebeurd is, en het is aan de consumer om de nieuwe state van de betrokken
 resource(s) te bevragen. Dit betekent ook dat snelle, opeenvolgende
 notificaties in principe kunnen geconsolideerd worden (orde van <1s).
 
-## AMQP vs. webhooks: garantie dat een bericht afgeleverd wordt
+### AMQP vs. webhooks: garantie dat een bericht afgeleverd wordt
 
 AMQP voorziet ook in de garantie dat messages bezorgd worden als een node
 (tijdelijk) onbereikbaar is en later weer online komt. Dit kan het geval zijn
@@ -338,11 +334,11 @@ Door de aard van de berichten (enkel kennisgeving _dat_ er een event is, niet
 _wat_ de inhoud is), informeert dit ook de client om data te re-fetchen, en
 is het risico op kwalijke gevolgen van vertraagde berichten beperkt.
 
-## AMQP en NLx
+### AMQP en NLx
 
 NLx ondersteund geen AMQP.
 
-## Bijhouden van berichten
+### Bijhouden van berichten
 
 Berichten worden in principe niet bewaard in de NC. Ontvangen notifications
 worden meteen doorgezet.
@@ -353,7 +349,7 @@ worden voor aflevering. Hierbij moet het mogelijk zijn om te configureren
 hoevaak gepoogd moet worden een bericht af te leveren en hoe lang je moet
 wachten om opnieuw te proberen.
 
-## Notificaties bij andere standaarden
+### Notificaties bij andere standaarden
 
 Zowel bij Regie- en Zaakservices als bij DigiLevering wordt notificaties opgelost met een publish/subscribe mechanisme. Een centrale notificatiecomponent ontvangt gebeurtenissen en distribueert deze naar abonnees. Abonnees hebben de mogelijkheid zich te abonneren op bepaalde gebeurtenissen. Bij DigiLevering zijn gebeurtenissen gedefinieerd in termen van objecttypen en attributen en kunnen bovendien filters worden gedefinieerd op attributen van de objecten.
 

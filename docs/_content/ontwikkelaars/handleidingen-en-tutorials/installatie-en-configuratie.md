@@ -1,18 +1,18 @@
 ---
-title: "Aan de slag"
+title: "Installatie en configuratie refentie-implementatie"
 date: '25-02-2019'
-weight: 100
+weight: 80
 ---
 
-De referentie componenten kunnen gebruikt worden door ontwikkelaars in hun
+De referentie-implementatiecomponenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een
 ontbrekend component in de eigen software te simuleren.
 
 
 ## Snelle start
 
-Al bekend met alle vereisten en de opzet? Hieronder de commando's om snel van
-start te gaan. Ga anders naar de **Voorbereiding**.
+Al bekend met alle vereisten en de opzet? Voer dan de commando's hieronder in om snel van
+start te gaan. Scroll anders naar beneden voor de uitgebreide handleiding.
 
 ```bash
 $ git clone git@github.com:VNG-Realisatie/gemma-zaken.git
@@ -21,10 +21,11 @@ $ docker-compose pull
 $ docker-compose up
 ```
 
+## Uitgebreide handleiding
 
-## Voorbereiding
+### Voorbereiding
 
-Alle referentie componenten zijn als [Docker][docker] images beschikbaar.
+Alle componenten van de referentie-implementatie zijn als [Docker][docker] images beschikbaar.
 De volgende onderdelen zijn nodig om aan de slag te gaan:
 
 **Verplicht**
@@ -54,8 +55,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
 [docker-compose-linux]: https://docs.docker.com/compose/install/
 [git-scm]: https://git-scm.com/downloads
 
-
-## Referentie componenten opstarten
+### Componenten referentie-implementatie opstarten
 
 1. Clone de `VNG-Realisatie/gemma-zaken` repository op de eigen computer:
 
@@ -148,7 +148,7 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    * NRC: `http://<ip-of-localhost>:8004`
    * AC: `http://<ip-of-localhost>:8005`
 
-5. Admin aanmaken voor elk referentie component
+6. Admin aanmaken voor elk referentie component
 
    Elk referentie componenent heeft een beheer interface. Om deze beheer
    interface te benaderen, moet een gebruiker worden aangemaakt (voorbeeld
@@ -170,13 +170,13 @@ De volgende onderdelen zijn nodig om aan de slag te gaan:
    Vervolgens kan je daarmee inloggen op `http://<ip-of-localhost>:800x/admin/` om
    testdata in te kunnen richten of gegevens te raadplegen.
 
-6. Indien extra configuratie nodig is binnen een component, dan vind je deze
+7. Indien extra configuratie nodig is binnen een component, dan vind je deze
    in de documentatie van de component zelf. Deze staat gelinkt op
    `http://<ip-of-localhost>:800x` indien die aanwezig is.
 
-7. De volgende stap is het inrichten van de autorisaties
+8. De volgende stap is het inrichten van de autorisaties
 
-## Setting up authorizations
+### Setting up authorizations (Engels)
 
 The components use _tokens_ to exchange authorization data. A consumer talks
 to a provider, on condition that a valid token is given. Providers, in turn,
@@ -266,9 +266,9 @@ Autorisatiecomponent (AC)
    Don't forget to enter your own secret (bottom right) instead of `your-256-bit-secret`!
 
    _Creating a JWT does not register the secret with the hosted reference components.
-   See the [API guides](./guides) how this works._
+   See the [API guides](./api-guides) how this works._
 
-Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](./algemeen/authenticatie-autorisatie.md)
+Voor meer achtergrond informatie over autorisaties zie: [authenticatie & autorisatie](/themas/achtergronddocumentatie/authenticatie-autorisatie)
 
 
 [gemma-zaken-download]: https://github.com/VNG-Realisatie/gemma-zaken/archive/master.zip
@@ -285,7 +285,6 @@ te gebruiken op de computer kunnen ze eenvoudig weer uitgezet worden:
 $ docker-compose down
 ```
 
-
 ### APIs benaderen
 
 De API's en API documentatie zijn beschikbaar op de volgende URLs:
@@ -293,12 +292,10 @@ De API's en API documentatie zijn beschikbaar op de volgende URLs:
 * `http://<ip-of-localhost>:800x/api/v1/` - API root
 * `http://<ip-of-localhost>:800x/api/v1/schema/` - API documentatie
 
-
 ### API Guides
 
-Er zijn verschillende [API guides](guides) beschikbaar met
+Er zijn verschillende [API guides](./api-guides) beschikbaar met
 veelvoorkomende consumer handelingen.
-
 
 ### Poorten wijzigen
 
