@@ -41,8 +41,8 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 
 Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
 [github][github] of een mail sturen naar [API-Beheer](mailto:standaarden.ondersteuning@vng.nl).
-Indien gewenst kunt u uw e-maildomein ook laten opnemen in de whitelist van deze Slack community waardoor u 
-en uw collega's zichzelf aan kunnen melden bij de community. Ook daarvoor kunt u een verzoek indienen bij 
+Indien gewenst kunt u uw e-maildomein ook laten opnemen in de whitelist van deze Slack community waardoor u
+en uw collega's zichzelf aan kunnen melden bij de community. Ook daarvoor kunt u een verzoek indienen bij
 [API-Beheer](mailto:standaarden.ondersteuning@vng.nl).
 
 [![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
@@ -52,4 +52,4 @@ en uw collega's zichzelf aan kunnen melden bij de community. Ook daarvoor kunt u
 [Getting started with slack]: https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members
 
 [github]: https://github.com/VNG-Realisatie/gemma-zaken
-[teamleden]: https://ref.tst.vng.cloud/overige/samenwerking
+[teamleden]: https://zaakgerichtwerken.vng.cloud/overige/samenwerking

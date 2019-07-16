@@ -257,7 +257,7 @@ Autorisatiecomponent (AC)
 
 4. Generate JWT
 
-   Navigate: [https://ref.tst.vng.cloud/tokens/generate-jwt/](https://ref.tst.vng.cloud/tokens/generate-jwt/)
+   Navigate: [https://zaken-auth.vng.cloud/generate-jwt/](https://zaken-auth.vng.cloud/generate-jwt/)
 
    Enter the `Identifier` and `Secret` from step 1 and click **Bevestig**.
 

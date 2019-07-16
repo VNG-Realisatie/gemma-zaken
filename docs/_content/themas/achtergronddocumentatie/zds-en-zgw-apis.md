@@ -8,7 +8,7 @@ De Zaak- en Documentservices (ZDS) wijken af van de Zaakgericht werken (ZGW)
 APIs, maar er is ook overlap. De belangrijkste verschillen en overeenkomsten op
 een rij:
 
-[Zaak-Documentservices](https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices) | [ZGW APIs](https://ref.tst.vng.cloud/standaard/index)\*
+[Zaak-Documentservices](https://www.gemmaonline.nl/index.php/Zaak-_en_Documentservices) | [ZGW APIs](https://zaakgerichtwerken.vng.cloud/standaard/)\*
 --- | ---
 SOAP/XML gebaseerd	                                                                        | REST/JSON gebaseerd
 Gebaseerd op het informatiemodel RGBZ1	                                                    | Gebaseerd op informatiemodel RGBZ2 waar van toepassing
@@ -34,7 +34,7 @@ Alle ZGW APIs zitten nu\* op versie 1.0.0-alpha.
 
 ZDS 1.2 | ZGW APIs\*
 --- | ---
-Geef Zaakstatus (`geefZaakstatus_ZakLv01`)                              | Zaken API `GET /statussen?zaak=<ID>`  
+Geef Zaakstatus (`geefZaakstatus_ZakLv01`)                              | Zaken API `GET /statussen?zaak=<ID>`
 Geef Zaakdetails (`geefZaakdetails_ZakLv01`)                            | Zaken API `GET /zaken/<ID>`
 Actualiseer Zaakstatus (`actualiseerZaakstatus_ZakLk01`)                | Zaken API `POST /statussen/`
 Creëer Zaak (`creeerZaak_ZakLk01`)                                      | Zaken API `POST /zaken`
@@ -45,7 +45,7 @@ Geef Zaakdocument lezen (`geefZaakdocumentLezen_EdcLv01`)               | Docume
 Geef Zaakdocument bewerken (`geefZaakdocumentbewerken_Di02`)            | Documenten API `POST /enkelvoudiginformatieobjecten/<ID>/lock`
 Voeg Zaakdocument toe (`voegZaakdocumentToe_EdcLk01`)                   | Documenten API `POST /enkelvoudiginformatieobjecten`
 Maak Zaakdocument (`maakZaakdocument_EdcLk01`)                          | *niet geïmplementeerd, in overweging* <sup>2</sup>
-Update Zaakdocument (`updateZaakdocument_Di02`)                         | Documenten API `POST /enkelvoudiginformatieobjecten`    
+Update Zaakdocument (`updateZaakdocument_Di02`)                         | Documenten API `POST /enkelvoudiginformatieobjecten`
 Genereer Documentidentificatie (`genereerDocumentIdentificatie_Di02`)   | *niet geïmplementeerd, in overweging* <sup>1</sup>
 Cancel CheckOut (`cancelCheckout_Di02`)                                 | Documenten API `POST /enkelvoudiginformatieobjecten/<ID>/unlock`
 CMIS-integratieservice (*geen operatie*)                                | *n.v.t.*

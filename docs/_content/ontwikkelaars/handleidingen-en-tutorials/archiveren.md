@@ -70,14 +70,14 @@ We definieren 1 zaaktype dat is gebaseerd op een procestype uit de
    * **Versiedatum**: 01-01-2019
    * **Maakt deel uit van**: `<de catalogus uit de stap hierboven>`
    * **Datum begin geldigheid**: 01-01-2019
-   * **Selectielijst procestype**: https://ref.tst.vng.cloud/referentielijsten/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20
+   * **Selectielijst procestype**: https://referentielijsten-api.vng.cloud/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20
 
    De ingevulde URL bij *Selectielijst procestype* verwijst naar het
    procestype *Verzoeken behandelen*. Deze API is overigens zonder
    autorisatie door iedereen te raadplegen:
 
    > ```http
-   > GET https://ref.tst.vng.cloud/referentielijsten/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20 HTTP/1.0
+   > GET https://referentielijsten-api.vng.cloud/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20 HTTP/1.0
    >
    > {
    >   "nummer": 6,
@@ -99,8 +99,8 @@ We definieren 1 zaaktype dat is gebaseerd op een procestype uit de
 
    * **Is relevant voor**: `<het zaaktype uit de stap hierboven>`
    * **Omschrijving**: Afgewezen
-   * **Resultaattypeomschrijving**: https://ref.tst.vng.cloud/referentielijsten/api/v1/resultaattypeomschrijvingen/e6a0c939-3404-45b0-88e3-76c94fb80ea7
-   * **Selectielijstklasse**: https://ref.tst.vng.cloud/referentielijsten/api/v1/resultaten/65559080-1d2b-4ddf-8966-b620e4ec224e
+   * **Resultaattypeomschrijving**: https://referentielijsten-api.vng.cloud/api/v1/resultaattypeomschrijvingen/e6a0c939-3404-45b0-88e3-76c94fb80ea7
+   * **Selectielijstklasse**: https://referentielijsten-api.vng.cloud/api/v1/resultaten/65559080-1d2b-4ddf-8966-b620e4ec224e
    * **Afleidingswijze brondatum**: Afgehandeld
    * **Datum begin geldigheid**: 01-01-2019
 
@@ -109,7 +109,7 @@ We definieren 1 zaaktype dat is gebaseerd op een procestype uit de
    worden, indien dit resultaat aan de betreffende zaak wordt gegeven:
 
    > ```http
-   > GET https://ref.tst.vng.cloud/referentielijsten/api/v1/resultaten/65559080-1d2b-4ddf-8966-b620e4ec224e HTTP/1.0
+   > GET https://referentielijsten-api.vng.cloud/api/v1/resultaten/65559080-1d2b-4ddf-8966-b620e4ec224e HTTP/1.0
    >
    > {
    >   "naam": "Afgewezen",
@@ -214,7 +214,7 @@ fungeren als de unieke identificatie van verschillende typen.
        "catalogus": "<catalogus url>",
        "omschrijving": "Melding Openbare Ruimte",
        "doorlooptijd": "P30D",
-       "selectielijstProcestype": "https://ref.tst.vng.cloud/referentielijsten/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20",
+       "selectielijstProcestype": "https://referentielijsten-api.vng.cloud/api/v1/procestypen/3030daa1-d516-4cd9-8276-ef0977e32b20",
        "statustypen": [
            "<statustype nieuw url>",
            "<statustype afgerond url>"
@@ -413,5 +413,5 @@ De [achtergronddocumentatie over archiveren](/themas/achtergronddocumentatie/arc
 API-lab.
 
 [Selectielijst gemeenten]: https://vng.nl/selectielijst
-[VNG Referentielijsten API]: https://ref.tst.vng.cloud/referentielijsten/api/v1/
+[VNG Referentielijsten API]: https://referentielijsten-api.vng.cloud/api/v1/
 [Postman]: https://www.getpostman.com/downloads/

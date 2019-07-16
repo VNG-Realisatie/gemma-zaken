@@ -47,7 +47,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>API-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/"><span class="underline">https://ref.tst.vng.cloud/brc/api/v1/schema/</span></a></td>
+<td><a href="https://besluiten-api.vng.cloud/api/v1/schema/"><span class="underline">https://besluiten-api.vng.cloud/api/v1/schema/</span></a></td>
 </tr>
 <tr class="even">
 <td>Bijzonderheden</td>
@@ -69,11 +69,11 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_list">Opvragen</a> van een overzicht van alle beschikbare besluiten.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_read">Opvragen</a> van de details van een specifiek besluit.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_create">Aanmaken</a> van een besluit.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_update">Bijwerken</a> van een besluit.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluit_partial_update">Gedeeltelijk bijwerken</a> van een besluit.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluit_list">Opvragen</a> van een overzicht van alle beschikbare besluiten.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluit_read">Opvragen</a> van de details van een specifiek besluit.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluit_create">Aanmaken</a> van een besluit.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluit_update">Bijwerken</a> van een besluit.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluit_partial_update">Gedeeltelijk bijwerken</a> van een besluit.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -82,7 +82,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#tag/besluiten">https://ref.tst.vng.cloud/brc/api/v1/schema/#tag/besluiten</a></td>
+<td><a href="https://besluiten-api.vng.cloud/api/v1/schema/#tag/besluiten">https://besluiten-api.vng.cloud/api/v1/schema/#tag/besluiten</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -104,11 +104,11 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_list">Opvragen</a> van een overzicht van alle beschikbare besluiteninformatieobjecten.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_read">Opvragen</a> van de details van een specifiek besluitinformatieobject.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_create">Aanmaken</a> van een besluitinformatieobject.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_update">Bijwerken</a> van een besluitinformatieobject.</li>
-<li><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#operation/besluitinformatieobject_partial_update">Gedeeltelijk bijwerken</a> van een besluitinformatieobject.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluitinformatieobject_list">Opvragen</a> van een overzicht van alle beschikbare besluiteninformatieobjecten.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluitinformatieobject_read">Opvragen</a> van de details van een specifiek besluitinformatieobject.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluitinformatieobject_create">Aanmaken</a> van een besluitinformatieobject.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluitinformatieobject_update">Bijwerken</a> van een besluitinformatieobject.</li>
+<li><a href="https://besluiten-api.vng.cloud/api/v1/schema/#operation/besluitinformatieobject_partial_update">Gedeeltelijk bijwerken</a> van een besluitinformatieobject.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -117,7 +117,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/brc/api/v1/schema/#tag/besluiten">https://ref.tst.vng.cloud/brc/api/v1/schema/#tag/besluiten</a></td>
+<td><a href="https://besluiten-api.vng.cloud/api/v1/schema/#tag/besluiten">https://besluiten-api.vng.cloud/api/v1/schema/#tag/besluiten</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>

@@ -98,9 +98,9 @@ Het ZDS 2.0 traject is het meest concreet aan het werk met een team, projectplan
 
 |Specificatie|Referentie|
 |---|---|
-|[ZRC OAS](https://ref.tst.vng.cloud/zrc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/zrc/api/v1/)|
-|[ZTC OAS](https://ref.tst.vng.cloud/ztc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/zrc/api/v1/)|
-|[DRC OAS](https://ref.tst.vng.cloud/ztc/api/v1/schema/)|[zoemende API](https://ref.tst.vng.cloud/drc/api/v1/)|
+|[ZRC OAS](https://zaken-api.vng.cloud/api/v1/schema/)|[zoemende API](https://zaken-api.vng.cloud/api/v1/)|
+|[ZTC OAS](https://documenten-api.vng.cloud/api/v1/schema/)|[zoemende API](https://documenten-api.vng.cloud/api/v1/)|
+|[DRC OAS](https://catalogi-api.vng.cloud/api/v1/schema/)|[zoemende API](https://catalogi-api.vng.cloud/api/v1/)|
 
 
 #### Referentie-implementatie van ZTC is leeg

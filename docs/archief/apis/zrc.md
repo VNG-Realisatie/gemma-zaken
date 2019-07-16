@@ -17,9 +17,9 @@ medewerkerregistratiecomponent, etc.
 
 ![Jenkins][jenkins]
 
-* [API-specificatie](https://ref.tst.vng.cloud/zrc/api/v1/schema/)
+* [API-specificatie](https://zaken-api.vng.cloud/api/v1/schema/)
 * [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent)
-* [Beschikbare scopes](https://ref.tst.vng.cloud/zrc/ref/scopes/)
+* [Beschikbare scopes](https://zaken-api.vng.cloud/ref/scopes/)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 

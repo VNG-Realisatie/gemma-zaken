@@ -148,7 +148,7 @@ Een `Applicatie` resource heeft de volgende attributen:
   {
     "component": "ZRC",
     "scopes": ["zds.scopes.zaken.lezen"],
-    "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/123/zaaktypen/abc",
+    "zaaktype": "https://catalogi-api.vng.cloud/api/v1/catalogussen/123/zaaktypen/abc",
     "maxVetrouwelijkheidaanduiding": "geheim"
   }
   ```

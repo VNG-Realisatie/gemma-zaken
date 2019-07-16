@@ -24,7 +24,7 @@ The JWT must be included to every request to the APIs.
 All components must know who you are. This process has been added for testing
 purposes to make all components aware of your **Client ID** and **Secret**.
 
-1. Go to https://ref.tst.vng.cloud/tokens/
+1. Go to https://zaken-auth.vng.cloud
 
 2. Enter the **Clientlabel** (_for example `mijn-consumer`_) and click on **Bevestig**.
 
@@ -75,20 +75,20 @@ and for each `Zaaktype`/`Informatieobjecttype`/`Besluittype` that you need to ac
 
 #### Step 4: Use the JWT
 
-The generated JWT should be given to each API request in the `Authorization` header:  
+The generated JWT should be given to each API request in the `Authorization` header:
 `Authorization: Bearer <JWT>`. For example:
 
 ```bash
 $ curl \
     -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImNsaWVudF9pZGVudGlmaWVyIjoiam9lcmktUnVBSmlVcjRzVVFwIn0.eyJpc3MiOiJtaWpuLWNvbnN1bWVyLVJ1QUppVXI0c1VRcCIsImlhdCI6MTU0MzIzNjU5NSwiemRzIjp7InNjb3BlcyI6WyJ6ZHMuc2NvcGVzLnN0YXR1c3Nlbi50b2V2b2VnZW4iLCJ6ZHMuc2NvcGVzLnpha2VuLmFhbm1ha2VuIiwiemRzLnNjb3Blcy56YWtlbi5sZXplbiJdLCJ6YWFrdHlwZXMiOlsiaHR0cHM6Ly9yZWYudHN0LnZuZy5jbG91ZC96dGMvYXBpL3YxL2NhdGFsb2d1c3Nlbi9mN2FmZDE1Ni1jOGY1LTQ2NjYtYjhiNS0yOGE0YTliNWRmYzcvemFha3R5cGVuLzAxMTlkZDRlLTdiZTktNDc3ZS1iY2NmLTc1MDIzYjE0NTNjMSJdfX0.RO_1PpH9DEvWIvwN2SyPQDBvJlgNc-EMVJaX6AHkfP8" \
     -H "Accept-Crs: EPSG:4326" \
-    https://ref.tst.vng.cloud/zrc/api/v1/zaken
+    https://zaken-api.vng.cloud/api/v1/zaken
 ```
 
 Curious as to what the decoded JWT looks like? Paste its value at [jwt.io][jwt].
 
 [jwt]: https://jwt.io/
-[ac]: https://ref.tst.vng.cloud/ac/api/v1/schema/
+[ac]: https://autorisaties-api.vng.cloud/api/v1/schema/
 
 
 ## Gebruik maken van de APIs
@@ -106,24 +106,24 @@ geven.
 
 Een `GET`-verzoek op de [catalogus_list][catalogus_list] resource van het ZTC:
 
-[catalogus_list]: https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_list
+[catalogus_list]: https://catalogi-api.vng.cloud/api/v1/schema/#operation/catalogus_list
 
 ```bash
 $ curl \
     -H "Authorization: Bearer <JWT>" \
-    https://ref.tst.vng.cloud/ztc/api/v1/catalogussen
+    https://catalogi-api.vng.cloud/api/v1/catalogussen
 ```
 
 ### Zaaktype ophalen
 
 Een `GET`-verzoek op de [zaaktype_read][zaaktype_read] resource van het ZTC:
 
-[zaaktype_read]: https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_read
+[zaaktype_read]: https://catalogi-api.vng.cloud/api/v1/schema/#operation/zaaktype_read
 
 ```bash
 $ curl
     -H "Authorization: Bearer <JWT>" \
-    https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/f7afd156-c8f5-4666-b8b5-28a4a9b5dfc7/zaaktypen/0119dd4e-7be9-477e-bccf-75023b1453c1
+    https://catalogi-api.vng.cloud/api/v1/zaaktypen/0119dd4e-7be9-477e-bccf-75023b1453c1
 ```
 
 ### Zaken ophalen
@@ -131,20 +131,20 @@ $ curl
 Een `GET`-verzoek op de [zaak_read][zaak_read] resource van het ZRC. Hiervoor
 dient de header `Accept-Crs` te worden meegegeven.
 
-[zaak_read]: https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaak_read
+[zaak_read]: https://zaken-api.vng.cloud/api/v1/schema/#operation/zaak_read
 
 ```bash
 $ curl \
     -H "Authorization: Bearer <JWT>" \
     -H "Accept-Crs: EPSG:4326" \
-    https://ref.tst.vng.cloud/zrc/api/v1/zaken
+    https://zaken-api.vng.cloud/api/v1/zaken
 ```
 
 ### Zaak aanmaken
 
 Een `POST`-verzoek op de [zaak_create][zaak_create] resource van het ZRC:
 
-[zaak_create]: https://ref.tst.vng.cloud/zrc/api/v1/schema/#operation/zaak_create
+[zaak_create]: https://zaken-api.vng.cloud/api/v1/schema/#operation/zaak_create
 
 #### Stap 1: Gegevens opstellen
 
@@ -154,7 +154,7 @@ Maak een bestand aan met de naam `zaak_aanmaken.json`, met de volgende inhoud:
 {
   "bronorganisatie": "291073475",
   "omschrijving": "string",
-  "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/f7afd156-c8f5-4666-b8b5-28a4a9b5dfc7/zaaktypen/0119dd4e-7be9-477e-bccf-75023b1453c1",
+  "zaaktype": "https://catalogi-api.vng.cloud/api/v1/zaaktypen/0119dd4e-7be9-477e-bccf-75023b1453c1",
   "verantwoordelijkeOrganisatie": "291073475",
   "startdatum": "2018-11-27",
   "uiterlijkeEinddatumAfdoening": "2018-11-27"
@@ -175,5 +175,5 @@ $ curl \
     -H "Content-Crs: EPSG:4326" \
     -H "Content-Type: application/json" \
     --data @zaak_aanmaken.json \
-    https://ref.tst.vng.cloud/zrc/api/v1/zaken
+    https://zaken-api.vng.cloud/api/v1/zaken
 ```

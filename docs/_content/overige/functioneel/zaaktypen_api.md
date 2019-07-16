@@ -47,7 +47,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>API-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/"><span class="underline">https://ref.tst.vng.cloud/ztc/api/v1/schema/</span></a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/"><span class="underline">https://catalogi-api.vng.cloud/api/v1/schema/</span></a></td>
 </tr>
 <tr class="even">
 <td>Bijzonderheden</td>
@@ -98,8 +98,8 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_list">Opvragen</a> van een overzicht van alle beschikbare Catalogussen.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/catalogus_read">Opvragen</a> van de gegevens van een specifieke Catalogus.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/catalogus_list">Opvragen</a> van een overzicht van alle beschikbare Catalogussen.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/catalogus_read">Opvragen</a> van de gegevens van een specifieke Catalogus.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -108,7 +108,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen">https://ref.tst.vng.cloud/ztc/api/v1/schema/#tag/catalogussen</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#tag/catalogussen">https://catalogi-api.vng.cloud/api/v1/schema/#tag/catalogussen</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -132,8 +132,8 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-<li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_list">Opvragen</a> van een overzicht van alle beschikbare Zaaktypen in een Catalogus.</li>
-<li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_read">Opvragen</a> van de gegevens van een specifiek Zaaktype in een Catalogus.</li>
+<li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/zaaktype_list">Opvragen</a> van een overzicht van alle beschikbare Zaaktypen in een Catalogus.</li>
+<li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/zaaktype_read">Opvragen</a> van de gegevens van een specifiek Zaaktype in een Catalogus.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -143,7 +143,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/zaaktype_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/zaaktype_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/zaaktype_list</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -168,8 +168,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_list">Opvragen</a> van een overzicht van alle beschikbare Besluittypen.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_read">Opvragen</a> van de gegevens van een specifiek Besluittype.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/besluittype_list">Opvragen</a> van een overzicht van alle beschikbare Besluittypen.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/besluittype_read">Opvragen</a> van de gegevens van een specifiek Besluittype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -178,7 +178,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/besluittype_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/besluittype_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/besluittype_list</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -202,8 +202,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_list">Opvragen</a> van een overzicht van alle beschikbare Informatieobjecttypen.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_read">Opvragen</a> van de gegevens van een specifiek Informatieobjecttype.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/informatieobjecttype_list">Opvragen</a> van een overzicht van alle beschikbare Informatieobjecttypen.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/informatieobjecttype_read">Opvragen</a> van de gegevens van een specifiek Informatieobjecttype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -212,7 +212,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/informatieobjecttype_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/informatieobjecttype_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/informatieobjecttype_list</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -236,8 +236,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-        <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list">Opvragen</a> van een overzicht van alle beschikbare Eigenschappen zoals gedefinieerd bij een Zaaktype, met de gegevens per Eigenschap.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_read">Opvragen</a> van de gegevens van een specifieke Eigenschap.</li>
+        <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/eigenschap_list">Opvragen</a> van een overzicht van alle beschikbare Eigenschappen zoals gedefinieerd bij een Zaaktype, met de gegevens per Eigenschap.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/eigenschap_read">Opvragen</a> van de gegevens van een specifieke Eigenschap.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -246,7 +246,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/eigenschap_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/eigenschap_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/eigenschap_list</a></td>
 </tr>
 <tr class="odd">
 <td>Bijzonderheden</td>
@@ -270,8 +270,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-     <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_list">Opvragen</a> van een overzicht van alle beschikbare Roltypen.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_read">Opvragen</a> van de gegevens van een specifiek Roltype.</li>
+     <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/roltype_list">Opvragen</a> van een overzicht van alle beschikbare Roltypen.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/roltype_read">Opvragen</a> van de gegevens van een specifiek Roltype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -281,7 +281,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>OAS-specificaties</td>
 </tr>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/roltype_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/roltype_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/roltype_list</a></td>
 <tr class="odd">
 <td>Bijzonderheden</td>
 <td><ul>
@@ -304,8 +304,8 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>Doel</td>
 <td><ul>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_list">Opvragen</a> van een overzicht van alle beschikbare Statustypen.</li>
-    <li><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_read">Opvragen</a> van de gegevens van een specifiek Statustype.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/statustype_list">Opvragen</a> van een overzicht van alle beschikbare Statustypen.</li>
+    <li><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/statustype_read">Opvragen</a> van de gegevens van een specifiek Statustype.</li>
 </ul></td>
 </tr>
 <tr class="odd">
@@ -315,7 +315,7 @@ https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/zaaktype</td>
 <tr class="even">
 <td>OAS-specificaties</td>
 </tr>
-<td><a href="https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_list">https://ref.tst.vng.cloud/ztc/api/v1/schema/#operation/statustype_list</a></td>
+<td><a href="https://catalogi-api.vng.cloud/api/v1/schema/#operation/statustype_list">https://catalogi-api.vng.cloud/api/v1/schema/#operation/statustype_list</a></td>
 <tr class="odd">
 <td>Bijzonderheden</td>
 <td><ul>

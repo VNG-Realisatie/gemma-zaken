@@ -180,14 +180,14 @@ JWT te genereren.
 
    {
      "kanaal": "zaken",
-     "hoofdObject": "https://ref.tst.vng.cloud/zrc/api/v1/zaken/ddc6d192",
+     "hoofdObject": "https://zaken-api.vng.cloud/api/v1/zaken/ddc6d192",
      "resource": "status",
-     "resourceUrl": "https://ref.tst.vng.cloud/zrc/api/v1/statussen/44fdcebf",
+     "resourceUrl": "https://zaken-api.vng.cloud/api/v1/statussen/44fdcebf",
      "actie": "create",
      "aanmaakdatum": "2019-03-27T10:59:13Z",
      "kenmerken": {
        "bronorganisatie": "224557609",
-       "zaaktype": "https://ref.tst.vng.cloud/ztc/api/v1/catalogussen/39732928/zaaktypen/53c5c164",
+       "zaaktype": "https://catalogi-api.vng.cloud/api/v1/zaaktypen/53c5c164",
        "vertrouwelijkheidaanduiding": "openbaar"
      }
    }
@@ -198,7 +198,7 @@ JWT te genereren.
     en bij het abonneren heb je aangegeven wat de `Authorization` header
     hiervoor moet zijn.
 
-[token-generator]: https://ref.tst.vng.cloud/tokens/
+[token-generator]: https://zaken-auth.vng.cloud
 
 
 ## Achtergrondinformatie

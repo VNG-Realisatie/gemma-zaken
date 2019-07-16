@@ -22,7 +22,7 @@ dan zal je zien dat de gegevens al ingevuld zijn of configuratie al bestaat.
   prompts zich in de juiste directory bevinden: `/pad/naar/gemma-zaken/infra`.
 
 We nemen aan dat nu de containers draaien na het uitvoeren van
-`docker-compose up` (of een variatie hierop). Instrcuties daarvoor zijn te vinden in de [handleiding installatie en configuratie](./installatie-en-configuratie).
+`docker-compose up` (of een variatie hierop). Instructies daarvoor zijn te vinden in de [handleiding installatie en configuratie](./installatie-en-configuratie).
 
 ## Aanmaken supergebruikers
 
@@ -68,7 +68,7 @@ docker-compose exec ac_web src/manage.py createsuperuser
 
 ## API-credentials genereren
 
-Gebruik de [tokentool](https://ref.tst.vng.cloud/tokens/) om een _Client ID_
+Gebruik de [tokentool](https://zaken-auth.vng.cloud) om een _Client ID_
 en _Secret_ te genereren, of verzin deze zelf. Deze credentials moet je straks
 opvoeren.
 
@@ -370,4 +370,4 @@ docker-compose exec ac_web src/manage.py register_kanaal
 # Registered kanaal 'autorisaties' with http://<nrc-ip>:8004/api/v1
 ```
 
-[token-generator]: https://ref.tst.vng.cloud/tokens/
+[token-generator]: https://zaken-auth.vng.cloud
