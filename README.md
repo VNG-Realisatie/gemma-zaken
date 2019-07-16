@@ -4,7 +4,7 @@ API's voor Zaakgericht Werken
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
-Je kan de work-in-progress standaard [hier](docs/_content/standaard/standaard.md) lezen.
+Je kan de work-in-progress standaard [hier](docs/_content/standaard/index.md) lezen.
 
 ## Doel
 Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn een OpenAPI Specificatie van de nieuwe Zaak- en Documentservices (v2.0) en bijbehorende referentie-implementaties met persistente data.
@@ -15,27 +15,26 @@ Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (
 ## Documentatie
 De volgende documenten beschrijven dit project:
 
-- We werken aan realisatie van de [Productvisie](docs/_content/introductie/productvisie.md) (concept)
-- Hoe we [samenwerken](docs/_content/overige/samenwerking.md) is apart beschreven
-- Hoe u kunt [bijdragen](docs/_content/community/bijdragen.md) (inclusief het reviewproces)
+- We werken aan realisatie van de [Productvisie](docs/_content/productvisie/index.md) (concept)
+- Hoe u kunt [bijdragen](docs/_content/doorontwikkeling/index.md) (inclusief het reviewproces)
 - De [FAQ](docs/_content/overige/faq.md) beantwoordt vragen over het project
-- De [dev-straat](docs/_content/overige/technisch/dev-straat.md) beschrijft de development
+- De [dev-straat](docs/_content/themas/achtergronddocumentatie/ontwikkelstraat.md) beschrijft de development
   inrichting en tooling
-- [Technische documentatie](docs/_content/ontwikkelaars/aan-de-slag.md) voor developers
-- [Designkeuzes en besluiten](docs/_content/overige/technisch/design-keuzes.md) voor scrumteam, developers en stakeholders
+- [Technische documentatie](docs/_content/ontwikkelaars/index.md) voor developers
+- [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/dontwerpkeuzes.md) voor scrumteam, developers en stakeholders
 
-Een gehoste versie van de documentatie is beschikbaar op https://ref.tst.vng.cloud
+Een gehoste versie van de documentatie is beschikbaar op https://zaakgerichtwerken.vng.cloud
 
 ## Rollen
 
 - Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
 - Delivery manager: [@wishalg](https://github.com/wishalg)
 - Product Owner: [@Hugo-ter-Doest](https://github.com/Hugo-ter-Doest)
-- Scrum Master:  [@TCIMEddy](https://github.com/TCIMEddy) (Tot 1 juli 2019)
+- Scrum Master:  Peter de Graaf
 
 ## API spec bekijken
 
-Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
+Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
 
 ## Snelle links
 
@@ -58,12 +57,12 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/apis/).
 **Ondersteunende tooling**
 
 * [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
-* [Overige registratiescomponent](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
 * [![Build Status][zit-build-status]][zit-stable]
   [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
 * [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 * [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
+* [Referentielijsten API](https://github.com/VNG-Realisatie/VNG-referentielijsten)
 
 ## Licentie
 Copyright © VNG Realisatie 2018
