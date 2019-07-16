@@ -1,7 +1,7 @@
 - name: Productvisie
   link: /productvisie/
   weight: 10
-- name: Standaard
+- name: API's
   link: /standaard/
   weight: 20
 - name: Ontwikkelaars
