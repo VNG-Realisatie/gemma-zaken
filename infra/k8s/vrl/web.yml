@@ -23,6 +23,7 @@ spec:
       containers:
       - name: vrl
         image: vngr/vng-referentielijsten:0.5.2
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "200Mi"

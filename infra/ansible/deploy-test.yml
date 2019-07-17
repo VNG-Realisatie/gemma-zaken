@@ -1,0 +1,24 @@
+---
+
+# This playbook is executed locally and requires the kubectl binary
+
+- name: Deploy the test environments in the k8s cluster
+  hosts: local  # uses local kubectl
+
+  vars_files:
+    - vars/test.yml
+    - vars/secrets-test.yml
+
+  tasks:
+    - include_tasks: tasks/deploy_service.yml
+      loop: "{{ services }}"
+      loop_control:
+        loop_var: service
+
+    - name: Deploy ingress
+      k8s:
+        state: present
+        namespace: zgw
+        definition: "{{ lookup('template', '../k8s/ingress-tpl.yml') }}"
+        validate:
+          fail_on_error: yes

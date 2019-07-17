@@ -1,0 +1,27 @@
+---
+
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ ingress.name }}
+  namespace: zgw
+  labels:
+    app.kubernetes.io/instance: zgw-{{ ingress.instance }}
+    app.kubernetes.io/name: zgw
+spec:
+  rules:
+    {% for service in ingress.services -%}
+    - host: {{ service.host }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ service.name }}
+              servicePort: 8000
+    {% endfor %}
+
+  tls:
+    - hosts:
+        {% for service in ingress.services -%}
+      - {{ service.host }}
+        {% endfor %}

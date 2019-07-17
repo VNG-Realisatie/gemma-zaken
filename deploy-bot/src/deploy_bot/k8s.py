@@ -19,20 +19,20 @@ def deploy(name: str, namespace: str, container_name: str, image: str) -> None:
     """
     load_config()
 
-    annotatations = {"last-deploy": timezone.now().isoformat()}
+    annotations = {"last-deploy": timezone.now().isoformat()}
 
     apps = client.AppsV1beta1Api()
     apps.patch_namespaced_deployment(
         name,
         namespace,
         {
-            "metadata": {"annotatations": annotatations},
+            "metadata": {"annotations": annotations},
             "spec": {
                 "template": {
-                    "metadata": {"annotatations": annotatations},
+                    "metadata": {"annotations": annotations},
                     "spec": {"containers": [{"name": container_name, "image": image}]},
                 }
-            }
+            },
         },
     )
 

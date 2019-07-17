@@ -5,23 +5,23 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: docs
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: docs
+    k8s-app: {{ service.name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: docs
+      k8s-app: {{ service.name }}
   template:
     metadata:
-      name: docs
+      name: {{ service.name }}
       labels:
-        k8s-app: docs
+        k8s-app: {{ service.name }}
     spec:
       containers:
-      - name: docs
+      - name: {{ service.name }}
         image: vngr/gemma-zaken-docs:latest
         imagePullPolicy: Always
         resources:
@@ -48,13 +48,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: docs
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: docs
+    k8s-app: {{ service.name }}
 spec:
   selector:
-    k8s-app: docs
+    k8s-app: {{ service.name }}
   ports:
   - protocol: TCP
     port: 80

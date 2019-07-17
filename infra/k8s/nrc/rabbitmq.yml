@@ -5,20 +5,20 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: rabbitmq-nrc
+  name: rabbitmq-{{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: rabbitmq-nrc
+    k8s-app: rabbitmq-{{ service.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: rabbitmq-nrc
+      k8s-app: rabbitmq-{{ service.name }}
   template:
     metadata:
-      name: rabbitmq-nrc
+      name: rabbitmq-{{ service.name }}
       labels:
-        k8s-app: rabbitmq-nrc
+        k8s-app: rabbitmq-{{ service.name }}
     spec:
       containers:
       - name: rabbitmq
@@ -27,12 +27,12 @@ spec:
           - name: RABBITMQ_DEFAULT_USER
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: RABBITMQ_DEFAULT_USER
           - name: RABBITMQ_DEFAULT_PASS
             valueFrom:
               secretKeyRef:
-                name: nrc-secrets
+                name: {{ service.name }}-secrets
                 key: RABBITMQ_DEFAULT_PASS
 
 ---
@@ -42,13 +42,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: rabbitmq-nrc
+  name: rabbitmq-{{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: rabbitmq-nrc
+    k8s-app: rabbitmq-{{ service.name }}
 spec:
   selector:
-    k8s-app: rabbitmq-nrc
+    k8s-app: rabbitmq-{{ service.name }}
   ports:
   - protocol: TCP
     port: 5672

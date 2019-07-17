@@ -5,24 +5,25 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: ztc
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: ztc
+    k8s-app: {{ service.name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: ztc
+      k8s-app: {{ service.name }}
   template:
     metadata:
-      name: ztc
+      name: {{ service.name }}
       labels:
-        k8s-app: ztc
+        k8s-app: {{ service.name }}
     spec:
       containers:
-      - name: ztc
-        image: vngr/gemma-ztc:0.14.0
+      - name: {{ service.name }}
+        image: vngr/gemma-ztc:{{ service.image_tag }}
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "200Mi"
@@ -53,23 +54,23 @@ spec:
           - name: DJANGO_SETTINGS_MODULE
             value: ztc.conf.docker
           - name: DB_HOST
-            value: postgis
+            value: {{ db_host }}
           - name: DB_NAME
-            value: ztc
+            value: {{ service.name }}
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: {{ service.name }}-secrets
                 key: SECRET_KEY
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: {{ service.name }}-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: ztc-secrets
+                name: {{ service.name }}-secrets
                 key: SENTRY_DSN
 
 ---
@@ -79,13 +80,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: ztc
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: ztc
+    k8s-app: {{ service.name }}
 spec:
   selector:
-    k8s-app: ztc
+    k8s-app: {{ service.name }}
   ports:
   - protocol: TCP
     port: 8000

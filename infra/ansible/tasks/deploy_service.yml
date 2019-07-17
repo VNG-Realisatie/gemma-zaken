@@ -1,0 +1,16 @@
+---
+
+- debug:
+    msg: "Deploying {{ service.name }}"
+
+- name: Deploy service
+  k8s:
+    state: present
+    namespace: zgw
+    definition: "{{ lookup('template', path) }}"
+    validate:
+      fail_on_error: yes
+  with_fileglob: "{{ service.templates }}/*.yml"
+  loop_control:
+    loop_var: path
+
