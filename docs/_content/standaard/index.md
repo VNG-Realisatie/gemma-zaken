@@ -133,7 +133,7 @@ resources uit te voeren.
 ## Gegevensformaten
 
 Een aantal formaten zijn nog niet formeel vastgelegd in OAS of
-[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor
+[JSON-Schema](https://json-schema.org/), echter deze worden wel binnen de API's voor
 Zaakgericht werken gebruikt en opgelegd.
 
 [json-schema]: https://json-schema.org/
