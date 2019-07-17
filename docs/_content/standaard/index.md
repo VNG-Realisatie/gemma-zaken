@@ -84,16 +84,16 @@ Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API
 ## API- en URI-strategie
 
 Er wordt zoveel mogelijk uitgegaan van de
-[API strategie voor de Nederlandse overheid](api-strategie) (13 februari 2019)
+[API strategie voor de Nederlandse overheid](https://docs.geostandaarden.nl/api/API-Strategie/) (15 juli 2019)
 maar de API's zijn in eerste instantie ontwikkeld volgens de
-[DSO API- en URI-strategie](dso-strategie). Hier en daar kan worden afgeweken
+[DSO API- en URI-strategie](https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/). Hier en daar kan worden afgeweken
 om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
 [dso-strategie]: https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/
 
 ### Versionering van de API
 
-In overeenstemming met [API-20](api-strategie) MOET het `MAJOR` versienummer in
+In overeenstemming met [API-20](https://docs.geostandaarden.nl/api/API-Strategie/#api-20-include-the-major-version-number-only-in-ihe-uri) MOET het `MAJOR` versienummer in
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
@@ -133,7 +133,7 @@ resources uit te voeren.
 ## Gegevensformaten
 
 Een aantal formaten zijn nog niet formeel vastgelegd in OAS of
-[JSON-Schema](json-schema), echter deze worden wel binnen de API's voor
+[JSON-Schema](https://json-schema.org/), echter deze worden wel binnen de API's voor
 Zaakgericht werken gebruikt en opgelegd.
 
 [json-schema]: https://json-schema.org/
