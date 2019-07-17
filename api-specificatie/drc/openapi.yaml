@@ -1,48 +1,24 @@
 openapi: 3.0.0
 info:
-  title: Documentregistratiecomponent (drc) API
-  description: 'Een API om een documentregistratiecomponent te benaderen.
-
-
-    Een informatieobject is een digitaal document voorzien van meta-gegevens.
-
-    Informatieobjecten kunnen aan andere objecten zoals zaken en besluiten worden
-
-    gerelateerd (maar dat hoeft niet) en kunnen gebruiksrechten hebben.
-
-    Gebruiksrechten leggen voorwaarden op aan het gebruik van het informatieobject
-
-    (buiten raadpleging). Deze gebruiksrechten worden niet door de API gevalideerd
-
-    of gehandhaafd.
-
-
-    De typering van informatieobjecten is in de zaaktypecatalogus (ZTC)
-
-    ondergebracht in de vorm van informatieobjecttypen.
-
-
-    **Autorisatie**
-
-
-    Deze API vereist nog geen autorisatie. Je mag wel JWT-tokens gegenereerd door
-
-    de [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken - deze worden
-
-    voor nu genegeerd.
-
-
-    **Handige links**
-
-
-    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
-
-    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
-
-    '
+  title: Documenten API
+  description: "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
+    In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\
+    \ \nINFORMATIEOBJECT is een digitaal document voorzien van meta-gegevens. \nINFORMATIEOBJECTen\
+    \ kunnen aan andere objecten zoals zaken en besluiten worden \ngerelateerd (maar\
+    \ dat hoeft niet) en kunnen gebruiksrechten hebben. \n\nGEBRUIKSRECHTEN leggen\
+    \ voorwaarden op aan het gebruik van het INFORMATIEOBJECT\n(buiten raadpleging).\
+    \ Deze GEBRUIKSRECHTEN worden niet door de API gevalideerd\nof gehandhaafd.\n\n\
+    De typering van INFORMATIEOBJECTen is in de Catalogi API (ZTC) ondergebracht in\n\
+    de vorm van INFORMATIEOBJECTTYPEn.\n\n**Afhankelijkheden**\n\nDeze API is afhankelijk\
+    \ van:\n\n* Catalogi API\n* Notificaties API\n* Autorisaties API *(optioneel)*\n\
+    * Zaken API *(optioneel)*\n\n**Autorisatie**\n\nDeze API vereist autorisatie.\
+    \ Je kan de\n[token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens\
+    \ te\ngenereren.\n\n**Notificaties**\n\nDeze API publiceert notificaties op het\
+    \ kanaal `documenten`.\n\n**Handige links**\n\n* [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)\n\
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)\n"
   contact:
-    url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    url: https://zaakgerichtwerken.vng.cloud
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -53,13 +29,13 @@ paths:
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
-      summary: 'Geef een lijst van de laatste versies van ENKELVOUDIGe INFORMATIEOBJECTen
+      summary: Alle (ENKELVOUDIGe) INFORMATIEOBJECTen opvragen.
+      description: 'Deze lijst kan gefilterd wordt met query-string parameters.
 
-        (=documenten).'
-      description: 'De objecten bevatten metadata over de documenten en de downloadlink
-        naar
 
-        de binary data.'
+        De objecten bevatten metadata over de documenten en de downloadlink
+
+        (`inhoud`) naar de binary data.'
       parameters:
       - name: identificatie
         in: query
@@ -84,7 +60,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -114,7 +90,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/EnkelvoudigInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -126,7 +102,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -138,7 +114,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -150,7 +126,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -162,7 +138,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -174,7 +150,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -186,7 +162,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -198,7 +174,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -210,7 +186,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -228,10 +204,10 @@ paths:
         - documenten.lezen
     post:
       operationId: enkelvoudiginformatieobject_create
-      summary: Registreer een ENKELVOUDIG INFORMATIEOBJECT.
+      summary: Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan.
       description: '**Er wordt gevalideerd op**
 
-        - geldigheid informatieobjecttype URL'
+        - geldigheid `informatieobjecttype` URL'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -255,7 +231,7 @@ paths:
           type: string
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -272,7 +248,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -284,7 +260,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -296,7 +272,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -308,7 +284,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -320,7 +296,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -332,7 +308,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -344,7 +320,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -356,7 +332,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -368,7 +344,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -394,10 +370,11 @@ paths:
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail:
     get:
       operationId: audittrail_list
-      description: Geef een lijst van AUDITTRAILS die horen bij het huidige EnkelvoudigInformatieObject.
+      summary: Alle audit trail regels behorend bij het INFORMATIEOBJECT.
+      description: Alle audit trail regels behorend bij het INFORMATIEOBJECT.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -411,7 +388,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/AuditTrail'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -423,7 +400,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -435,7 +412,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -447,7 +424,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -459,7 +436,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -471,7 +448,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -483,7 +460,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -495,7 +472,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -522,10 +499,11 @@ paths:
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_read
-      description: Haal de details van een AUDITTRAIL op.
+      summary: Een specifieke audit trail regel opvragen.
+      description: Een specifieke audit trail regel opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -537,7 +515,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/AuditTrail'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -549,7 +527,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -561,7 +539,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -573,7 +551,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -585,7 +563,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -597,7 +575,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -609,7 +587,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -621,7 +599,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -633,7 +611,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -659,7 +637,7 @@ paths:
         format: uuid
     - name: uuid
       in: path
-      description: Unieke identificatie van de audit regel
+      description: Unieke identificatie van de audit regel.
       required: true
       schema:
         type: string
@@ -667,14 +645,13 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      summary: Geef de details van de laatste versie ENKELVOUDIG INFORMATIEOBJECT.
-      description: 'Het object bevat metadata over het informatieobject en de downloadlink
-        naar
-
-        de binary data.
+      summary: Een specifiek (ENKELVOUDIGe) INFORMATIEOBJECT opvragen.
+      description: 'Een specifiek (ENKELVOUDIGe) INFORMATIEOBJECT opvragen.
 
 
-        Er kan gefiltered worden met querystringparameters.'
+        Het object bevat metadata over het document en de downloadlink (`inhoud`)
+
+        naar de binary data.'
       parameters:
       - name: versie
         in: query
@@ -690,7 +667,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -702,7 +679,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EnkelvoudigInformatieObject'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -714,7 +691,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -726,7 +703,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -738,7 +715,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -750,7 +727,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -762,7 +739,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -774,7 +751,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -786,7 +763,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -798,7 +775,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -816,13 +793,12 @@ paths:
         - documenten.lezen
     put:
       operationId: enkelvoudiginformatieobject_update
-      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
-        de
-
-        volledige resource mee te sturen.'
+      summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       description: '**Er wordt gevalideerd op**
 
-        - geldigheid informatieobjecttype URL
+        - correcte `lock` waarde
+
+        - geldigheid `informatieobjecttype` URL
 
 
         *TODO*
@@ -851,7 +827,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -863,7 +839,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EnkelvoudigInformatieObjectWithLockData'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -875,7 +851,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -887,7 +863,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -899,7 +875,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -911,7 +887,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -923,7 +899,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -935,7 +911,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -947,7 +923,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -959,7 +935,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -971,7 +947,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -991,13 +967,12 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
-      summary: 'Maak een nieuwe versie van een ENKELVOUDIG INFORMATIEOBJECT aan door
-        enkel
-
-        de gewijzigde velden mee te sturen.'
+      summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       description: '**Er wordt gevalideerd op**
 
-        - geldigheid informatieobjecttype URL
+        - correcte `lock` waarde
+
+        - geldigheid `informatieobjecttype` URL
 
 
         *TODO*
@@ -1026,7 +1001,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1038,7 +1013,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/EnkelvoudigInformatieObjectWithLockData'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1050,7 +1025,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1062,7 +1037,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1074,7 +1049,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1086,7 +1061,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1098,7 +1073,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1110,7 +1085,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1122,7 +1097,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1134,7 +1109,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1146,7 +1121,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1166,7 +1141,8 @@ paths:
         $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     delete:
       operationId: enkelvoudiginformatieobject_delete
-      description: 'Verwijdert een ENKELVOUDIG INFORMATIEOBJECT en alle bijbehorende
+      summary: Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT.
+      description: 'Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT en alle bijbehorende
         versies,
 
         samen met alle gerelateerde resources binnen deze API.
@@ -1174,9 +1150,11 @@ paths:
 
         **Gerelateerde resources**
 
-        - `ObjectInformatieObject` - alle relaties van het informatieobject
+        - OBJECT-INFORMATIEOBJECT
 
-        - `Gebruiksrechten` - alle gebruiksrechten van het informatieobject'
+        - GEBRUIKSRECHTen
+
+        - audit trail regels'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1200,7 +1178,7 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -1208,7 +1186,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1220,7 +1198,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1232,7 +1210,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1244,7 +1222,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1256,7 +1234,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1268,7 +1246,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1280,7 +1258,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1292,7 +1270,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1304,7 +1282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1331,7 +1309,8 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}/download:
     get:
       operationId: enkelvoudiginformatieobject_download
-      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      summary: Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.
+      description: Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.
       parameters:
       - name: versie
         in: query
@@ -1471,7 +1450,14 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}/lock:
     post:
       operationId: enkelvoudiginformatieobject_lock
-      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      summary: Vergrendel een (ENKELVOUDIG) INFORMATIEOBJECT.
+      description: 'Voert een "checkout" uit waardoor het (ENKELVOUDIG) INFORMATIEOBJECT
+
+        vergrendeld wordt met een `lock` waarde. Alleen met deze waarde kan het
+
+        (ENKELVOUDIG) INFORMATIEOBJECT bijgewerkt (`PUT`, `PATCH`) en weer
+
+        ontgrendeld worden.'
       responses:
         '200':
           description: ''
@@ -1615,7 +1601,10 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}/unlock:
     post:
       operationId: enkelvoudiginformatieobject_unlock
-      description: Ontsluit ENKELVOUDIG INFORMATIEOBJECTen.
+      summary: Ontgrendel een (ENKELVOUDIG) INFORMATIEOBJECT.
+      description: 'Heft de "checkout" op waardoor het (ENKELVOUDIG) INFORMATIEOBJECT
+
+        ontgrendeld wordt.'
       responses:
         '204':
           description: No content
@@ -1755,12 +1744,12 @@ paths:
   /gebruiksrechten:
     get:
       operationId: gebruiksrechten_list
-      summary: Geef een lijst van gebruiksrechten horend bij informatieobjecten.
-      description: Er kan gefiltered worden met querystringparameters.
+      summary: Alle GEBRUIKSRECHTen opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: informatieobject
         in: query
-        description: ''
+        description: URL-referentie naar het INFORMATIEOBJECT.
         required: false
         schema:
           type: string
@@ -1826,7 +1815,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1840,7 +1829,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Gebruiksrechten'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1852,7 +1841,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1864,7 +1853,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1876,7 +1865,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1888,7 +1877,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1900,7 +1889,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1912,7 +1901,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1924,7 +1913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1936,7 +1925,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1954,10 +1943,10 @@ paths:
         - documenten.lezen
     post:
       operationId: gebruiksrechten_create
-      summary: Voeg gebruiksrechten toe voor een informatieobject.
-      description: "**Opmerkingen**\n- Het toevoegen van gebruiksrechten zorgt ervoor\
-        \ dat de\n  `indicatieGebruiksrecht` op het informatieobject op `true` gezet\
-        \ wordt."
+      summary: Maak een GEBRUIKSRECHT aan.
+      description: "Voeg GEBRUIKSRECHTen toe voor een INFORMATIEOBJECT.\n\n**Opmerkingen**\n\
+        - Het toevoegen van gebruiksrechten zorgt ervoor dat de\n  `indicatieGebruiksrecht`\
+        \ op het informatieobject op `true` gezet wordt."
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1981,7 +1970,7 @@ paths:
           type: string
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -1998,7 +1987,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gebruiksrechten'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2010,7 +1999,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2022,7 +2011,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2034,7 +2023,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2046,7 +2035,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2058,7 +2047,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2070,7 +2059,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2082,7 +2071,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2094,7 +2083,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2116,10 +2105,11 @@ paths:
   /gebruiksrechten/{uuid}:
     get:
       operationId: gebruiksrechten_read
-      description: Haal de details op van een gebruiksrecht van een informatieobject.
+      summary: Een specifieke GEBRUIKSRECHT opvragen.
+      description: Een specifieke GEBRUIKSRECHT opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2131,7 +2121,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gebruiksrechten'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2143,7 +2133,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2155,7 +2145,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2167,7 +2157,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2179,7 +2169,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2191,7 +2181,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2203,7 +2193,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2215,7 +2205,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2227,7 +2217,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2245,7 +2235,8 @@ paths:
         - documenten.lezen
     put:
       operationId: gebruiksrechten_update
-      description: Werk een gebruiksrecht van een informatieobject bij.
+      summary: Werk een GEBRUIKSRECHT in zijn geheel bij.
+      description: Werk een GEBRUIKSRECHT in zijn geheel bij.
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2269,7 +2260,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2281,7 +2272,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gebruiksrechten'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2293,7 +2284,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2305,7 +2296,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2317,7 +2308,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2329,7 +2320,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2341,7 +2332,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2353,7 +2344,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2365,7 +2356,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2377,7 +2368,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2389,7 +2380,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2409,7 +2400,8 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     patch:
       operationId: gebruiksrechten_partial_update
-      description: Werk een gebruiksrecht van een informatieobject bij.
+      summary: Werk een GEBRUIKSRECHT relatie deels bij.
+      description: Werk een GEBRUIKSRECHT relatie deels bij.
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2433,7 +2425,7 @@ paths:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2445,7 +2437,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Gebruiksrechten'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2457,7 +2449,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2469,7 +2461,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2481,7 +2473,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2493,7 +2485,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2505,7 +2497,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2517,7 +2509,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2529,7 +2521,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2541,7 +2533,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2553,7 +2545,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2573,10 +2565,10 @@ paths:
         $ref: '#/components/requestBodies/Gebruiksrechten'
     delete:
       operationId: gebruiksrechten_delete
-      summary: Verwijder een gebruiksrecht van een informatieobject.
-      description: "**Opmerkingen**\n- Indien het laatste gebruiksrecht van een informatieobject\
-        \ verwijderd wordt,\n  dan wordt de `indicatieGebruiksrecht` van het informatieobject\
-        \ op `null`\n  gezet."
+      summary: Verwijder een GEBRUIKSRECHT.
+      description: "**Opmerkingen**\n- Indien het laatste GEBRUIKSRECHT van een INFORMATIEOBJECT\
+        \ verwijderd\n  wordt, dan wordt de `indicatieGebruiksrecht` van het INFORMATIEOBJECT\
+        \ op\n  `null` gezet."
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2600,7 +2592,7 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -2608,7 +2600,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2620,7 +2612,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2632,7 +2624,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2644,7 +2636,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2656,7 +2648,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2668,7 +2660,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2680,7 +2672,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2692,7 +2684,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2704,7 +2696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2731,24 +2723,26 @@ paths:
   /objectinformatieobjecten:
     get:
       operationId: objectinformatieobject_list
-      description: Geef een lijst van relaties tussen OBJECTen en INFORMATIEOBJECTen.
+      summary: Alle OBJECT-INFORMATIEOBJECT relaties opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: object
         in: query
-        description: URL naar het gerelateerde OBJECT.
+        description: URL-referentie naar het gerelateerde OBJECT (in deze of een andere
+          API).
         required: false
         schema:
           type: string
           format: uri
       - name: informatieobject
         in: query
-        description: ''
+        description: URL-referentie naar het INFORMATIEOBJECT.
         required: false
         schema:
           type: string
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2762,7 +2756,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/ObjectInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2774,7 +2768,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2786,7 +2780,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2798,7 +2792,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2810,7 +2804,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2822,7 +2816,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2834,7 +2828,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2846,7 +2840,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2858,7 +2852,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2876,7 +2870,22 @@ paths:
         - documenten.lezen
     post:
       operationId: objectinformatieobject_create
-      description: ''
+      summary: Maak een OBJECT-INFORMATIEOBJECT relatie aan.
+      description: '**LET OP: Dit endpoint hoor je als consumer niet zelf aan te spreken.**
+
+
+        Andere API''s, zoals de Zaken API en de Besluiten API, gebruiken dit
+
+        endpoint bij het synchroniseren van relaties.
+
+
+        **Er wordt gevalideerd op**
+
+        - geldigheid `informatieobject` URL
+
+        - de combinatie `informatieobject` en `object` moet uniek zijn
+
+        - bestaan van `object` URL'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2900,7 +2909,7 @@ paths:
           type: string
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -2917,7 +2926,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ObjectInformatieObject'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2929,7 +2938,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2941,7 +2950,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2953,7 +2962,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2965,7 +2974,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2977,7 +2986,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2989,7 +2998,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3001,7 +3010,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3013,7 +3022,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3039,11 +3048,11 @@ paths:
   /objectinformatieobjecten/{uuid}:
     get:
       operationId: objectinformatieobject_read
-      description: Geef een informatieobject terug wat gekoppeld is aan het huidige
-        object
+      summary: Een specifieke OBJECT-INFORMATIEOBJECT relatie opvragen.
+      description: Een specifieke OBJECT-INFORMATIEOBJECT relatie opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -3055,7 +3064,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ObjectInformatieObject'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3067,7 +3076,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3079,7 +3088,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -3091,7 +3100,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3103,7 +3112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3115,7 +3124,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3127,7 +3136,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3139,7 +3148,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3151,7 +3160,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3169,7 +3178,13 @@ paths:
         - documenten.lezen
     delete:
       operationId: objectinformatieobject_delete
-      description: Verwijder een relatie tussen een object en een informatieobject.
+      summary: Verwijder een OBJECT-INFORMATIEOBJECT relatie.
+      description: '**LET OP: Dit endpoint hoor je als consumer niet zelf aan te spreken.**
+
+
+        Andere API''s, zoals de Zaken API en de Besluiten API, gebruiken dit
+
+        endpoint bij het synchroniseren van relaties.'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -3193,7 +3208,7 @@ paths:
           type: string
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -3201,7 +3216,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3213,7 +3228,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3225,7 +3240,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -3237,7 +3252,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3249,7 +3264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3261,7 +3276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3273,7 +3288,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3285,7 +3300,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3297,7 +3312,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3355,7 +3370,17 @@ components:
       properties:
         soort:
           title: Ondertekeningsoort
-          description: Aanduiding van de wijze van ondertekening van het INFORMATIEOBJECT
+          description: 'Aanduiding van de wijze van ondertekening van het INFORMATIEOBJECT
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `analoog` - Analoog
+
+            * `digitaal` - Digitaal
+
+            * `pki` - PKI'
           type: string
           enum:
           - analoog
@@ -3379,22 +3404,52 @@ components:
       properties:
         algoritme:
           title: Algoritme
-          description: Aanduiding van algoritme, gebruikt om de checksum te maken.
+          description: 'Aanduiding van algoritme, gebruikt om de checksum te maken.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `crc_16` - CRC-16
+
+            * `crc_32` - CRC-32
+
+            * `crc_64` - CRC-64
+
+            * `fletcher_4` - Fletcher-4
+
+            * `fletcher_8` - Fletcher-8
+
+            * `fletcher_16` - Fletcher-16
+
+            * `fletcher_32` - Fletcher-32
+
+            * `hmac` - HMAC
+
+            * `md5` - MD5
+
+            * `sha_1` - SHA-1
+
+            * `sha_256` - SHA-256
+
+            * `sha_512` - SHA-512
+
+            * `sha_3` - SHA-3'
           type: string
           enum:
-          - CRC-16
-          - CRC-32
-          - CRC-64
-          - fletcher-4
-          - fletcher-8
-          - fletcher-16
-          - fletcher-32
-          - HMAC
-          - MD5
-          - SHA-1
-          - SHA-256
-          - SHA-512
-          - SHA-3
+          - crc_16
+          - crc_32
+          - crc_64
+          - fletcher_4
+          - fletcher_8
+          - fletcher_16
+          - fletcher_32
+          - hmac
+          - md5
+          - sha_1
+          - sha_256
+          - sha_512
+          - sha_3
         waarde:
           title: Waarde
           description: De waarde van de checksum.
@@ -3418,9 +3473,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         identificatie:
           title: Identificatie
           description: Een binnen een gegeven context ondubbelzinnige referentie naar
@@ -3448,18 +3507,38 @@ components:
           minLength: 1
         vertrouwelijkheidaanduiding:
           title: Vertrouwelijkheidaanduiding
-          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+          description: 'Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
             openbaarheid bestemd is.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
@@ -3469,514 +3548,46 @@ components:
           minLength: 1
         status:
           title: Status
-          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
-            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
-            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
-            niet-wijzigbaar Formaat dient te hebben.
+          description: 'Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden ''in bewerking'' en ''ter vaststelling'' komen niet voor als
+            het attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
+            de Status in ''gearchiveerd'' impliceert dat het informatieobject een
+            duurzaam, niet-wijzigbaar Formaat dient te hebben.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog gewerkt.
+
+            * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed maar
+            moet nog vastgesteld worden.
+
+            * `definitief` - (Definitief) Informatieobject door bevoegd iets of iemand
+            vastgesteld dan wel ontvangen.
+
+            * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam bewaarbaar
+            gemaakt; een gearchiveerd informatie-element.'
           type: string
           enum:
-          - in bewerking
-          - ter vaststelling
+          - in_bewerking
+          - ter_vaststelling
           - definitief
           - gearchiveerd
         formaat:
           title: Formaat
-          description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
-            INFORMATIEOBJECT is vastgelegd in een computerbestand.
+          description: 'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
           type: string
           maxLength: 255
         taal:
           title: Taal
-          description: Een taal van de intellectuele inhoud van het ENKELVOUDIG INFORMATIEOBJECT.
-            De waardes komen uit ISO 639-2/B
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
           type: string
-          enum:
-          - aar
-          - abk
-          - ace
-          - ach
-          - ada
-          - ady
-          - afh
-          - afr
-          - ain
-          - aka
-          - akk
-          - ale
-          - alt
-          - amh
-          - ang
-          - anp
-          - ara
-          - arc
-          - arg
-          - arn
-          - arp
-          - arw
-          - asm
-          - ast
-          - ava
-          - ave
-          - awa
-          - aym
-          - aze
-          - bak
-          - bal
-          - bam
-          - ban
-          - bas
-          - bej
-          - bel
-          - bem
-          - ben
-          - bho
-          - bik
-          - bin
-          - bis
-          - bla
-          - tib
-          - bos
-          - bra
-          - bre
-          - bua
-          - bug
-          - bul
-          - byn
-          - cad
-          - car
-          - cat
-          - ceb
-          - cze
-          - cha
-          - chb
-          - che
-          - chg
-          - chk
-          - chm
-          - chn
-          - cho
-          - chp
-          - chr
-          - chu
-          - chv
-          - chy
-          - cop
-          - cor
-          - cos
-          - cre
-          - crh
-          - csb
-          - wel
-          - dak
-          - dan
-          - dar
-          - del
-          - den
-          - ger
-          - dgr
-          - din
-          - div
-          - doi
-          - dsb
-          - dua
-          - dum
-          - dyu
-          - dzo
-          - efi
-          - egy
-          - eka
-          - gre
-          - elx
-          - eng
-          - enm
-          - epo
-          - est
-          - baq
-          - ewe
-          - ewo
-          - fan
-          - fao
-          - per
-          - fat
-          - fij
-          - fil
-          - fin
-          - fon
-          - fre
-          - frm
-          - fro
-          - frr
-          - frs
-          - fry
-          - ful
-          - fur
-          - gaa
-          - gay
-          - gba
-          - gez
-          - gil
-          - gla
-          - gle
-          - glg
-          - glv
-          - gmh
-          - goh
-          - gon
-          - gor
-          - got
-          - grb
-          - grc
-          - grn
-          - gsw
-          - guj
-          - gwi
-          - hai
-          - hat
-          - hau
-          - haw
-          - heb
-          - her
-          - hil
-          - hin
-          - hit
-          - hmn
-          - hmo
-          - hrv
-          - hsb
-          - hun
-          - hup
-          - arm
-          - iba
-          - ibo
-          - ido
-          - iii
-          - iku
-          - ile
-          - ilo
-          - ina
-          - ind
-          - inh
-          - ipk
-          - ice
-          - ita
-          - jav
-          - jbo
-          - jpn
-          - jpr
-          - jrb
-          - kaa
-          - kab
-          - kac
-          - kal
-          - kam
-          - kan
-          - kas
-          - geo
-          - kau
-          - kaw
-          - kaz
-          - kbd
-          - kha
-          - khm
-          - kho
-          - kik
-          - kin
-          - kir
-          - kmb
-          - kok
-          - kom
-          - kon
-          - kor
-          - kos
-          - kpe
-          - krc
-          - krl
-          - kru
-          - kua
-          - kum
-          - kur
-          - kut
-          - lad
-          - lah
-          - lam
-          - lao
-          - lat
-          - lav
-          - lez
-          - lim
-          - lin
-          - lit
-          - lol
-          - loz
-          - ltz
-          - lua
-          - lub
-          - lug
-          - lui
-          - lun
-          - luo
-          - lus
-          - mad
-          - mag
-          - mah
-          - mai
-          - mak
-          - mal
-          - man
-          - mar
-          - mas
-          - mdf
-          - mdr
-          - men
-          - mga
-          - mic
-          - min
-          - mis
-          - mac
-          - mlg
-          - mlt
-          - mnc
-          - mni
-          - moh
-          - mon
-          - mos
-          - mao
-          - may
-          - mul
-          - mus
-          - mwl
-          - mwr
-          - bur
-          - myv
-          - nap
-          - nau
-          - nav
-          - nbl
-          - nde
-          - ndo
-          - nds
-          - nep
-          - new
-          - nia
-          - niu
-          - dut
-          - nno
-          - nob
-          - nog
-          - non
-          - nor
-          - nqo
-          - nso
-          - nwc
-          - nya
-          - nym
-          - nyn
-          - nyo
-          - nzi
-          - oci
-          - oji
-          - ori
-          - orm
-          - osa
-          - oss
-          - ota
-          - pag
-          - pal
-          - pam
-          - pan
-          - pap
-          - pau
-          - peo
-          - phn
-          - pli
-          - pol
-          - pon
-          - por
-          - pro
-          - pus
-          - que
-          - raj
-          - rap
-          - rar
-          - roh
-          - rom
-          - rum
-          - run
-          - rup
-          - rus
-          - sad
-          - sag
-          - sah
-          - sam
-          - san
-          - sas
-          - sat
-          - scn
-          - sco
-          - sel
-          - sga
-          - shn
-          - sid
-          - sin
-          - slo
-          - slv
-          - sma
-          - sme
-          - smj
-          - smn
-          - smo
-          - sms
-          - sna
-          - snd
-          - snk
-          - sog
-          - som
-          - sot
-          - spa
-          - alb
-          - srd
-          - srn
-          - srp
-          - srr
-          - ssw
-          - suk
-          - sun
-          - sus
-          - sux
-          - swa
-          - swe
-          - syc
-          - syr
-          - tah
-          - tam
-          - tat
-          - tel
-          - tem
-          - ter
-          - tet
-          - tgk
-          - tgl
-          - tha
-          - tig
-          - tir
-          - tiv
-          - tkl
-          - tlh
-          - tli
-          - tmh
-          - tog
-          - ton
-          - tpi
-          - tsi
-          - tsn
-          - tso
-          - tuk
-          - tum
-          - tur
-          - tvl
-          - twi
-          - tyv
-          - udm
-          - uga
-          - uig
-          - ukr
-          - umb
-          - und
-          - urd
-          - uzb
-          - vai
-          - ven
-          - vie
-          - vol
-          - vot
-          - wal
-          - war
-          - was
-          - wln
-          - wol
-          - xal
-          - xho
-          - yao
-          - yap
-          - yid
-          - yor
-          - zap
-          - zbl
-          - zen
-          - zgh
-          - zha
-          - chi
-          - zul
-          - zun
-          - zxx
-          - zza
-          - afa
-          - alg
-          - apa
-          - art
-          - ath
-          - aus
-          - bad
-          - bai
-          - bat
-          - ber
-          - bih
-          - bnt
-          - btk
-          - cai
-          - cau
-          - cel
-          - cmc
-          - cpe
-          - cpf
-          - cpp
-          - crp
-          - cus
-          - day
-          - dra
-          - fiu
-          - gem
-          - ijo
-          - inc
-          - ine
-          - ira
-          - iro
-          - kar
-          - khi
-          - kro
-          - map
-          - mkh
-          - mno
-          - mun
-          - myn
-          - nah
-          - nai
-          - nic
-          - nub
-          - oto
-          - paa
-          - phi
-          - pra
-          - roa
-          - sai
-          - sal
-          - sem
-          - sgn
-          - sio
-          - sit
-          - sla
-          - smi
-          - son
-          - ssa
-          - tai
-          - tup
-          - tut
-          - wak
-          - wen
-          - ypk
-          - znd
-          - him
+          maxLength: 3
+          minLength: 3
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
@@ -3991,6 +3602,7 @@ components:
           readOnly: true
         bestandsomvang:
           title: Bestandsomvang
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
           readOnly: true
           minimum: 0
@@ -4032,10 +3644,10 @@ components:
         indicatieGebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
-            het informatieobject anders dan raadpleging. Dit veld mag 'null' zijn
+            het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
             om aan te geven dat de indicatie nog niet bekend is. Als de indicatie
             gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
-            via de `Gebruiksrechten` resource.
+            via de GEBRUIKSRECHTen resource.
           type: boolean
           nullable: true
         ondertekening:
@@ -4044,7 +3656,8 @@ components:
           $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
           title: Informatieobjecttype
-          description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
           type: string
           format: uri
           maxLength: 200
@@ -4171,9 +3784,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         identificatie:
           title: Identificatie
           description: Een binnen een gegeven context ondubbelzinnige referentie naar
@@ -4201,18 +3818,38 @@ components:
           minLength: 1
         vertrouwelijkheidaanduiding:
           title: Vertrouwelijkheidaanduiding
-          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+          description: 'Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
             openbaarheid bestemd is.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
@@ -4222,514 +3859,46 @@ components:
           minLength: 1
         status:
           title: Status
-          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
-            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
-            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
-            niet-wijzigbaar Formaat dient te hebben.
+          description: 'Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden ''in bewerking'' en ''ter vaststelling'' komen niet voor als
+            het attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
+            de Status in ''gearchiveerd'' impliceert dat het informatieobject een
+            duurzaam, niet-wijzigbaar Formaat dient te hebben.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog gewerkt.
+
+            * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed maar
+            moet nog vastgesteld worden.
+
+            * `definitief` - (Definitief) Informatieobject door bevoegd iets of iemand
+            vastgesteld dan wel ontvangen.
+
+            * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam bewaarbaar
+            gemaakt; een gearchiveerd informatie-element.'
           type: string
           enum:
-          - in bewerking
-          - ter vaststelling
+          - in_bewerking
+          - ter_vaststelling
           - definitief
           - gearchiveerd
         formaat:
           title: Formaat
-          description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
-            INFORMATIEOBJECT is vastgelegd in een computerbestand.
+          description: 'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
           type: string
           maxLength: 255
         taal:
           title: Taal
-          description: Een taal van de intellectuele inhoud van het ENKELVOUDIG INFORMATIEOBJECT.
-            De waardes komen uit ISO 639-2/B
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
           type: string
-          enum:
-          - aar
-          - abk
-          - ace
-          - ach
-          - ada
-          - ady
-          - afh
-          - afr
-          - ain
-          - aka
-          - akk
-          - ale
-          - alt
-          - amh
-          - ang
-          - anp
-          - ara
-          - arc
-          - arg
-          - arn
-          - arp
-          - arw
-          - asm
-          - ast
-          - ava
-          - ave
-          - awa
-          - aym
-          - aze
-          - bak
-          - bal
-          - bam
-          - ban
-          - bas
-          - bej
-          - bel
-          - bem
-          - ben
-          - bho
-          - bik
-          - bin
-          - bis
-          - bla
-          - tib
-          - bos
-          - bra
-          - bre
-          - bua
-          - bug
-          - bul
-          - byn
-          - cad
-          - car
-          - cat
-          - ceb
-          - cze
-          - cha
-          - chb
-          - che
-          - chg
-          - chk
-          - chm
-          - chn
-          - cho
-          - chp
-          - chr
-          - chu
-          - chv
-          - chy
-          - cop
-          - cor
-          - cos
-          - cre
-          - crh
-          - csb
-          - wel
-          - dak
-          - dan
-          - dar
-          - del
-          - den
-          - ger
-          - dgr
-          - din
-          - div
-          - doi
-          - dsb
-          - dua
-          - dum
-          - dyu
-          - dzo
-          - efi
-          - egy
-          - eka
-          - gre
-          - elx
-          - eng
-          - enm
-          - epo
-          - est
-          - baq
-          - ewe
-          - ewo
-          - fan
-          - fao
-          - per
-          - fat
-          - fij
-          - fil
-          - fin
-          - fon
-          - fre
-          - frm
-          - fro
-          - frr
-          - frs
-          - fry
-          - ful
-          - fur
-          - gaa
-          - gay
-          - gba
-          - gez
-          - gil
-          - gla
-          - gle
-          - glg
-          - glv
-          - gmh
-          - goh
-          - gon
-          - gor
-          - got
-          - grb
-          - grc
-          - grn
-          - gsw
-          - guj
-          - gwi
-          - hai
-          - hat
-          - hau
-          - haw
-          - heb
-          - her
-          - hil
-          - hin
-          - hit
-          - hmn
-          - hmo
-          - hrv
-          - hsb
-          - hun
-          - hup
-          - arm
-          - iba
-          - ibo
-          - ido
-          - iii
-          - iku
-          - ile
-          - ilo
-          - ina
-          - ind
-          - inh
-          - ipk
-          - ice
-          - ita
-          - jav
-          - jbo
-          - jpn
-          - jpr
-          - jrb
-          - kaa
-          - kab
-          - kac
-          - kal
-          - kam
-          - kan
-          - kas
-          - geo
-          - kau
-          - kaw
-          - kaz
-          - kbd
-          - kha
-          - khm
-          - kho
-          - kik
-          - kin
-          - kir
-          - kmb
-          - kok
-          - kom
-          - kon
-          - kor
-          - kos
-          - kpe
-          - krc
-          - krl
-          - kru
-          - kua
-          - kum
-          - kur
-          - kut
-          - lad
-          - lah
-          - lam
-          - lao
-          - lat
-          - lav
-          - lez
-          - lim
-          - lin
-          - lit
-          - lol
-          - loz
-          - ltz
-          - lua
-          - lub
-          - lug
-          - lui
-          - lun
-          - luo
-          - lus
-          - mad
-          - mag
-          - mah
-          - mai
-          - mak
-          - mal
-          - man
-          - mar
-          - mas
-          - mdf
-          - mdr
-          - men
-          - mga
-          - mic
-          - min
-          - mis
-          - mac
-          - mlg
-          - mlt
-          - mnc
-          - mni
-          - moh
-          - mon
-          - mos
-          - mao
-          - may
-          - mul
-          - mus
-          - mwl
-          - mwr
-          - bur
-          - myv
-          - nap
-          - nau
-          - nav
-          - nbl
-          - nde
-          - ndo
-          - nds
-          - nep
-          - new
-          - nia
-          - niu
-          - dut
-          - nno
-          - nob
-          - nog
-          - non
-          - nor
-          - nqo
-          - nso
-          - nwc
-          - nya
-          - nym
-          - nyn
-          - nyo
-          - nzi
-          - oci
-          - oji
-          - ori
-          - orm
-          - osa
-          - oss
-          - ota
-          - pag
-          - pal
-          - pam
-          - pan
-          - pap
-          - pau
-          - peo
-          - phn
-          - pli
-          - pol
-          - pon
-          - por
-          - pro
-          - pus
-          - que
-          - raj
-          - rap
-          - rar
-          - roh
-          - rom
-          - rum
-          - run
-          - rup
-          - rus
-          - sad
-          - sag
-          - sah
-          - sam
-          - san
-          - sas
-          - sat
-          - scn
-          - sco
-          - sel
-          - sga
-          - shn
-          - sid
-          - sin
-          - slo
-          - slv
-          - sma
-          - sme
-          - smj
-          - smn
-          - smo
-          - sms
-          - sna
-          - snd
-          - snk
-          - sog
-          - som
-          - sot
-          - spa
-          - alb
-          - srd
-          - srn
-          - srp
-          - srr
-          - ssw
-          - suk
-          - sun
-          - sus
-          - sux
-          - swa
-          - swe
-          - syc
-          - syr
-          - tah
-          - tam
-          - tat
-          - tel
-          - tem
-          - ter
-          - tet
-          - tgk
-          - tgl
-          - tha
-          - tig
-          - tir
-          - tiv
-          - tkl
-          - tlh
-          - tli
-          - tmh
-          - tog
-          - ton
-          - tpi
-          - tsi
-          - tsn
-          - tso
-          - tuk
-          - tum
-          - tur
-          - tvl
-          - twi
-          - tyv
-          - udm
-          - uga
-          - uig
-          - ukr
-          - umb
-          - und
-          - urd
-          - uzb
-          - vai
-          - ven
-          - vie
-          - vol
-          - vot
-          - wal
-          - war
-          - was
-          - wln
-          - wol
-          - xal
-          - xho
-          - yao
-          - yap
-          - yid
-          - yor
-          - zap
-          - zbl
-          - zen
-          - zgh
-          - zha
-          - chi
-          - zul
-          - zun
-          - zxx
-          - zza
-          - afa
-          - alg
-          - apa
-          - art
-          - ath
-          - aus
-          - bad
-          - bai
-          - bat
-          - ber
-          - bih
-          - bnt
-          - btk
-          - cai
-          - cau
-          - cel
-          - cmc
-          - cpe
-          - cpf
-          - cpp
-          - crp
-          - cus
-          - day
-          - dra
-          - fiu
-          - gem
-          - ijo
-          - inc
-          - ine
-          - ira
-          - iro
-          - kar
-          - khi
-          - kro
-          - map
-          - mkh
-          - mno
-          - mun
-          - myn
-          - nah
-          - nai
-          - nic
-          - nub
-          - oto
-          - paa
-          - phi
-          - pra
-          - roa
-          - sai
-          - sal
-          - sem
-          - sgn
-          - sio
-          - sit
-          - sla
-          - smi
-          - son
-          - ssa
-          - tai
-          - tup
-          - tut
-          - wak
-          - wen
-          - ypk
-          - znd
-          - him
+          maxLength: 3
+          minLength: 3
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
@@ -4743,6 +3912,7 @@ components:
           format: bytes
         bestandsomvang:
           title: Bestandsomvang
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
           readOnly: true
           minimum: 0
@@ -4784,10 +3954,10 @@ components:
         indicatie_gebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
-            het informatieobject anders dan raadpleging. Dit veld mag 'null' zijn
+            het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
             om aan te geven dat de indicatie nog niet bekend is. Als de indicatie
             gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
-            via de `Gebruiksrechten` resource.
+            via de GEBRUIKSRECHTen resource.
           type: boolean
           nullable: true
         ondertekening:
@@ -4796,7 +3966,8 @@ components:
           $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
           title: Informatieobjecttype
-          description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
           type: string
           format: uri
           maxLength: 200
@@ -4814,11 +3985,11 @@ components:
         oud:
           title: Oud
           description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden
+            de actie heeft plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
-          description: Volledige JSON body van het object na de actie
+          description: Volledige JSON body van het object na de actie.
           type: object
     AuditTrail:
       required:
@@ -4834,127 +4005,127 @@ components:
       properties:
         uuid:
           title: Uuid
-          description: Unieke identificatie van de audit regel
+          description: Unieke identificatie van de audit regel.
           type: string
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan
+          description: 'De naam van het component waar de wijziging in is gedaan.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `AC` - Autorisatiecomponent
+            * `ac` - Autorisatiecomponent
 
-            * `NRC` - Notificatierouteringcomponent
+            * `nrc` - Notificatierouteringcomponent
 
-            * `ZRC` - Zaakregistratiecomponent
+            * `zrc` - Zaakregistratiecomponent
 
-            * `ZTC` - Zaaktypecatalogus
+            * `ztc` - Zaaktypecatalogus
 
-            * `DRC` - Documentregistratiecomponent
+            * `drc` - Documentregistratiecomponent
 
-            * `BRC` - Besluitregistratiecomponent'
+            * `brc` - Besluitregistratiecomponent'
           type: string
           enum:
-          - AC
-          - NRC
-          - ZRC
-          - ZTC
-          - DRC
-          - BRC
+          - ac
+          - nrc
+          - zrc
+          - ztc
+          - drc
+          - brc
         applicatieId:
           title: Applicatie id
-          description: Unieke identificatie van de applicatie, binnen de organisatie
+          description: Unieke identificatie van de applicatie, binnen de organisatie.
           type: string
           maxLength: 100
         applicatieWeergave:
           title: Applicatie weergave
-          description: Vriendelijke naam van de applicatie
+          description: Vriendelijke naam van de applicatie.
           type: string
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
           description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon
+            herleid kan worden naar een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
           title: Gebruikers weergave
-          description: Vriendelijke naam van de gebruiker
+          description: Vriendelijke naam van de gebruiker.
           type: string
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling
+          description: 'De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
             andere waardes zijn ook toegestaan
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
-            * `create` - aangemaakt
+            * `create` - Object aangemaakt
 
-            * `list` - opgehaald
+            * `list` - Lijst van objecten opgehaald
 
-            * `retrieve` - opgehaald
+            * `retrieve` - Object opgehaald
 
-            * `destroy` - verwijderd
+            * `destroy` - Object verwijderd
 
-            * `update` - bijgewerkt
+            * `update` - Object bijgewerkt
 
-            * `partial_update` - deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt'
           type: string
           maxLength: 50
           minLength: 1
         actieWeergave:
           title: Actie weergave
-          description: Vriendelijke naam van de actie
+          description: Vriendelijke naam van de actie.
           type: string
           maxLength: 200
         resultaat:
           title: Resultaat
-          description: HTTP status code van de API response van de uitgevoerde handeling
+          description: HTTP status code van de API response van de uitgevoerde handeling.
           type: integer
           maximum: 599
           minimum: 100
         hoofdObject:
           title: Hoofd object
-          description: De URL naar het hoofdobject van een component
+          description: De URL naar het hoofdobject van een component.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         resource:
           title: Resource
-          description: Het type resource waarop de actie gebeurde
+          description: Het type resource waarop de actie gebeurde.
           type: string
           maxLength: 50
           minLength: 1
         resourceUrl:
           title: Resource url
-          description: De URL naar het object
+          description: De URL naar het object.
           type: string
           format: uri
           maxLength: 1000
           minLength: 1
         toelichting:
           title: Toelichting
-          description: Toelichting waarom de handeling is uitgevoerd
+          description: Toelichting waarom de handeling is uitgevoerd.
           type: string
         resourceWeergave:
           title: Resource weergave
-          description: Vriendelijke identificatie van het object
+          description: Vriendelijke identificatie van het object.
           type: string
           maxLength: 200
           minLength: 1
         aanmaakdatum:
           title: Aanmaakdatum
-          description: De datum waarop de handeling is gedaan
+          description: De datum waarop de handeling is gedaan.
           type: string
           format: date-time
           readOnly: true
@@ -4974,9 +4145,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         identificatie:
           title: Identificatie
           description: Een binnen een gegeven context ondubbelzinnige referentie naar
@@ -5004,18 +4179,38 @@ components:
           minLength: 1
         vertrouwelijkheidaanduiding:
           title: Vertrouwelijkheidaanduiding
-          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+          description: 'Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
             openbaarheid bestemd is.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
@@ -5025,514 +4220,46 @@ components:
           minLength: 1
         status:
           title: Status
-          description: Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
-            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van de
-            Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam,
-            niet-wijzigbaar Formaat dient te hebben.
+          description: 'Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden ''in bewerking'' en ''ter vaststelling'' komen niet voor als
+            het attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
+            de Status in ''gearchiveerd'' impliceert dat het informatieobject een
+            duurzaam, niet-wijzigbaar Formaat dient te hebben.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog gewerkt.
+
+            * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed maar
+            moet nog vastgesteld worden.
+
+            * `definitief` - (Definitief) Informatieobject door bevoegd iets of iemand
+            vastgesteld dan wel ontvangen.
+
+            * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam bewaarbaar
+            gemaakt; een gearchiveerd informatie-element.'
           type: string
           enum:
-          - in bewerking
-          - ter vaststelling
+          - in_bewerking
+          - ter_vaststelling
           - definitief
           - gearchiveerd
         formaat:
           title: Formaat
-          description: De code voor de wijze waarop de inhoud van het ENKELVOUDIG
-            INFORMATIEOBJECT is vastgelegd in een computerbestand.
+          description: 'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
           type: string
           maxLength: 255
         taal:
           title: Taal
-          description: Een taal van de intellectuele inhoud van het ENKELVOUDIG INFORMATIEOBJECT.
-            De waardes komen uit ISO 639-2/B
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
           type: string
-          enum:
-          - aar
-          - abk
-          - ace
-          - ach
-          - ada
-          - ady
-          - afh
-          - afr
-          - ain
-          - aka
-          - akk
-          - ale
-          - alt
-          - amh
-          - ang
-          - anp
-          - ara
-          - arc
-          - arg
-          - arn
-          - arp
-          - arw
-          - asm
-          - ast
-          - ava
-          - ave
-          - awa
-          - aym
-          - aze
-          - bak
-          - bal
-          - bam
-          - ban
-          - bas
-          - bej
-          - bel
-          - bem
-          - ben
-          - bho
-          - bik
-          - bin
-          - bis
-          - bla
-          - tib
-          - bos
-          - bra
-          - bre
-          - bua
-          - bug
-          - bul
-          - byn
-          - cad
-          - car
-          - cat
-          - ceb
-          - cze
-          - cha
-          - chb
-          - che
-          - chg
-          - chk
-          - chm
-          - chn
-          - cho
-          - chp
-          - chr
-          - chu
-          - chv
-          - chy
-          - cop
-          - cor
-          - cos
-          - cre
-          - crh
-          - csb
-          - wel
-          - dak
-          - dan
-          - dar
-          - del
-          - den
-          - ger
-          - dgr
-          - din
-          - div
-          - doi
-          - dsb
-          - dua
-          - dum
-          - dyu
-          - dzo
-          - efi
-          - egy
-          - eka
-          - gre
-          - elx
-          - eng
-          - enm
-          - epo
-          - est
-          - baq
-          - ewe
-          - ewo
-          - fan
-          - fao
-          - per
-          - fat
-          - fij
-          - fil
-          - fin
-          - fon
-          - fre
-          - frm
-          - fro
-          - frr
-          - frs
-          - fry
-          - ful
-          - fur
-          - gaa
-          - gay
-          - gba
-          - gez
-          - gil
-          - gla
-          - gle
-          - glg
-          - glv
-          - gmh
-          - goh
-          - gon
-          - gor
-          - got
-          - grb
-          - grc
-          - grn
-          - gsw
-          - guj
-          - gwi
-          - hai
-          - hat
-          - hau
-          - haw
-          - heb
-          - her
-          - hil
-          - hin
-          - hit
-          - hmn
-          - hmo
-          - hrv
-          - hsb
-          - hun
-          - hup
-          - arm
-          - iba
-          - ibo
-          - ido
-          - iii
-          - iku
-          - ile
-          - ilo
-          - ina
-          - ind
-          - inh
-          - ipk
-          - ice
-          - ita
-          - jav
-          - jbo
-          - jpn
-          - jpr
-          - jrb
-          - kaa
-          - kab
-          - kac
-          - kal
-          - kam
-          - kan
-          - kas
-          - geo
-          - kau
-          - kaw
-          - kaz
-          - kbd
-          - kha
-          - khm
-          - kho
-          - kik
-          - kin
-          - kir
-          - kmb
-          - kok
-          - kom
-          - kon
-          - kor
-          - kos
-          - kpe
-          - krc
-          - krl
-          - kru
-          - kua
-          - kum
-          - kur
-          - kut
-          - lad
-          - lah
-          - lam
-          - lao
-          - lat
-          - lav
-          - lez
-          - lim
-          - lin
-          - lit
-          - lol
-          - loz
-          - ltz
-          - lua
-          - lub
-          - lug
-          - lui
-          - lun
-          - luo
-          - lus
-          - mad
-          - mag
-          - mah
-          - mai
-          - mak
-          - mal
-          - man
-          - mar
-          - mas
-          - mdf
-          - mdr
-          - men
-          - mga
-          - mic
-          - min
-          - mis
-          - mac
-          - mlg
-          - mlt
-          - mnc
-          - mni
-          - moh
-          - mon
-          - mos
-          - mao
-          - may
-          - mul
-          - mus
-          - mwl
-          - mwr
-          - bur
-          - myv
-          - nap
-          - nau
-          - nav
-          - nbl
-          - nde
-          - ndo
-          - nds
-          - nep
-          - new
-          - nia
-          - niu
-          - dut
-          - nno
-          - nob
-          - nog
-          - non
-          - nor
-          - nqo
-          - nso
-          - nwc
-          - nya
-          - nym
-          - nyn
-          - nyo
-          - nzi
-          - oci
-          - oji
-          - ori
-          - orm
-          - osa
-          - oss
-          - ota
-          - pag
-          - pal
-          - pam
-          - pan
-          - pap
-          - pau
-          - peo
-          - phn
-          - pli
-          - pol
-          - pon
-          - por
-          - pro
-          - pus
-          - que
-          - raj
-          - rap
-          - rar
-          - roh
-          - rom
-          - rum
-          - run
-          - rup
-          - rus
-          - sad
-          - sag
-          - sah
-          - sam
-          - san
-          - sas
-          - sat
-          - scn
-          - sco
-          - sel
-          - sga
-          - shn
-          - sid
-          - sin
-          - slo
-          - slv
-          - sma
-          - sme
-          - smj
-          - smn
-          - smo
-          - sms
-          - sna
-          - snd
-          - snk
-          - sog
-          - som
-          - sot
-          - spa
-          - alb
-          - srd
-          - srn
-          - srp
-          - srr
-          - ssw
-          - suk
-          - sun
-          - sus
-          - sux
-          - swa
-          - swe
-          - syc
-          - syr
-          - tah
-          - tam
-          - tat
-          - tel
-          - tem
-          - ter
-          - tet
-          - tgk
-          - tgl
-          - tha
-          - tig
-          - tir
-          - tiv
-          - tkl
-          - tlh
-          - tli
-          - tmh
-          - tog
-          - ton
-          - tpi
-          - tsi
-          - tsn
-          - tso
-          - tuk
-          - tum
-          - tur
-          - tvl
-          - twi
-          - tyv
-          - udm
-          - uga
-          - uig
-          - ukr
-          - umb
-          - und
-          - urd
-          - uzb
-          - vai
-          - ven
-          - vie
-          - vol
-          - vot
-          - wal
-          - war
-          - was
-          - wln
-          - wol
-          - xal
-          - xho
-          - yao
-          - yap
-          - yid
-          - yor
-          - zap
-          - zbl
-          - zen
-          - zgh
-          - zha
-          - chi
-          - zul
-          - zun
-          - zxx
-          - zza
-          - afa
-          - alg
-          - apa
-          - art
-          - ath
-          - aus
-          - bad
-          - bai
-          - bat
-          - ber
-          - bih
-          - bnt
-          - btk
-          - cai
-          - cau
-          - cel
-          - cmc
-          - cpe
-          - cpf
-          - cpp
-          - crp
-          - cus
-          - day
-          - dra
-          - fiu
-          - gem
-          - ijo
-          - inc
-          - ine
-          - ira
-          - iro
-          - kar
-          - khi
-          - kro
-          - map
-          - mkh
-          - mno
-          - mun
-          - myn
-          - nah
-          - nai
-          - nic
-          - nub
-          - oto
-          - paa
-          - phi
-          - pra
-          - roa
-          - sai
-          - sal
-          - sem
-          - sgn
-          - sio
-          - sit
-          - sla
-          - smi
-          - son
-          - ssa
-          - tai
-          - tup
-          - tut
-          - wak
-          - wen
-          - ypk
-          - znd
-          - him
+          maxLength: 3
+          minLength: 3
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
@@ -5546,6 +4273,7 @@ components:
           format: bytes
         bestandsomvang:
           title: Bestandsomvang
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
           readOnly: true
           minimum: 0
@@ -5587,10 +4315,10 @@ components:
         indicatie_gebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
-            het informatieobject anders dan raadpleging. Dit veld mag 'null' zijn
+            het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
             om aan te geven dat de indicatie nog niet bekend is. Als de indicatie
             gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
-            via de `Gebruiksrechten` resource.
+            via de GEBRUIKSRECHTen resource.
           type: boolean
           nullable: true
         ondertekening:
@@ -5599,7 +4327,8 @@ components:
           $ref: '#/components/schemas/Integriteit'
         informatieobjecttype:
           title: Informatieobjecttype
-          description: URL naar de INFORMATIEOBJECTTYPE in het ZTC.
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
           type: string
           format: uri
           maxLength: 200
@@ -5643,11 +4372,16 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         informatieobject:
           title: Informatieobject
+          description: URL-referentie naar het INFORMATIEOBJECT.
           type: string
           format: uri
         startdatum:
@@ -5679,22 +4413,37 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         informatieobject:
           title: Informatieobject
+          description: URL-referentie naar het INFORMATIEOBJECT.
           type: string
           format: uri
         object:
           title: Object
-          description: URL naar het gerelateerde OBJECT.
+          description: URL-referentie naar het gerelateerde OBJECT (in deze of een
+            andere API).
           type: string
           format: uri
           maxLength: 200
           minLength: 1
         objectType:
           title: Objecttype
+          description: 'Het type van het gerelateerde OBJECT.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `besluit` - Besluit
+
+            * `zaak` - Zaak'
           type: string
           enum:
           - besluit
