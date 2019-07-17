@@ -1,68 +1,32 @@
 openapi: 3.0.0
 info:
-  title: Zaaktypecatalogus (ZTC) API documentatie
-  description: 'Introductie
-
-    -----------
-
-
-    De GEMMA Zaaktypecatalogus 2 (ZTC2, ofwel de 2e generatie zaaktypecatalogus)
-
-    helpt gemeenten om het proces vanuit de ''vraag van een klant'' (productaanvraag,
-
-    melding, aangifte, informatieverzoek e.d.) tot en met het leveren van een
-
-    passend antwoord daarop in te richten, inclusief de bijbehorende
-
-    informatievoorziening. Opslag van gegevens gebeurt conform het
-
-    [Informatiemodel Zaaktypen/Zaaktypecatalogus][1] (ImZTC, versie 2.1).
-
-
-    De catalogi worden middels een RESTful API ontsloten. Hierbij is zeer sterk
-
-    gekeken naar het [Digitaal Stelsel Omgevingswet][2] (DSO) voor de API- en URI
-
-    strategie, en [StUF-ZTC][3] om zo goed mogelijk aan te sluiten op de services
-
-    zoals deze zijn gedefinieerd in SOAP.
-
-
-    [1]: http://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC)
-
-    [2]: https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/documenten/documenten/api-uri-strategie/
-
-    [3]: https://www.gemmaonline.nl/index.php/Sectormodel_Zaaktypen(-catalogus):_StUF%E2%80%93ZTC
-
-
-
-    Waarschuwing
-
-    ------------
-
-
-    Hoewel op dit moment versie 1 van de API beschikbaar is, kunnen er breaking
-
-    changes voorkomen zolang de Zaaktypecatalogus nog niet versie 1.0.0 heeft
-
-    bereikt.'
+  title: Catalogi API
+  description: "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
+    \ helpt gemeenten om het proces vanuit de 'vraag van een \nklant' (productaanvraag,\
+    \ melding, aangifte, informatieverzoek e.d.) tot en met \nhet leveren van een\
+    \ passend antwoord daarop in te richten, inclusief de \nbijbehorende informatievoorziening.\n\
+    \nEen CATALOGUS bestaat uit ZAAKTYPEn, INFORMATIEOBJECTTYPEn en BESLUITTYPEn en\n\
+    wordt typisch gebruikt om een ZAAK (in de Zaken API), INFORMATIEOBJECT (in de\n\
+    Documenten API) en BESLUIT (in de Besluiten API) te voorzien van type, \nstandaardwaarden\
+    \ en processtructuur.\n\n**Afhankelijkheden**\n\nDeze API is afhankelijk van:\n\
+    \n* Gemeentelijke Selectielijst API\n* Autorisaties API *(optioneel)*\n\n**Autorisatie**\n\
+    \nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
+    \ gebruiken om JWT-tokens te\ngenereren.\n"
   contact:
-    url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    url: https://zaakgerichtwerken.vng.cloud
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: '1'
+  version: 1.0.0-alpha
 security:
 - JWT-Claims: []
 paths:
   /besluittypen:
     get:
       operationId: besluittype_list
-      description: 'Alle BESLUITTYPEn van de besluiten die het resultaat kunnen zijn
-        van het
-
-        zaakgericht werken van de behandelende organisatie(s).'
+      summary: Alle BESLUITTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: catalogus
         in: query
@@ -88,11 +52,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -106,7 +70,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -126,15 +90,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/BesluitType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -146,7 +112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -158,7 +124,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -170,7 +136,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -182,7 +148,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -194,7 +160,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -206,7 +172,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -218,7 +184,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -230,7 +196,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -248,10 +214,11 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: besluittype_create
-      description: ''
+      summary: Maak een BESLUITTYPE aan.
+      description: Maak een BESLUITTYPE aan.
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -268,7 +235,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -280,7 +247,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -292,7 +259,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -304,7 +271,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -316,7 +283,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -328,7 +295,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -340,7 +307,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -352,7 +319,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -364,7 +331,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -390,10 +357,11 @@ paths:
   /besluittypen/{uuid}:
     get:
       operationId: besluittype_read
-      description: Generieke aanduiding van de aard van een besluit.
+      summary: Een specifieke BESLUITTYPE opvragen.
+      description: Een specifieke BESLUITTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -405,7 +373,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/BesluitType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -417,7 +385,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -429,7 +397,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -441,7 +409,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -453,7 +421,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -465,7 +433,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -477,7 +445,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -489,7 +457,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -501,7 +469,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -519,10 +487,11 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: besluittype_delete
-      description: ''
+      summary: Verwijder een BESLUITTYPE.
+      description: Verwijder een BESLUITTYPE. Dit kan alleen als het een concept betreft.
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -530,7 +499,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -542,7 +511,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -554,7 +523,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -566,7 +535,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -578,7 +547,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -590,7 +559,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -602,7 +571,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -614,7 +583,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -626,7 +595,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -653,10 +622,16 @@ paths:
   /besluittypen/{uuid}/publish:
     post:
       operationId: besluittype_publish
-      description: ''
+      summary: 'Opvragen en bewerken van BESLUITTYPEn nodig voor BESLUITEN in de Besluiten
+
+        API.'
+      description: 'Alle BESLUITTYPEn van de besluiten die het resultaat kunnen zijn
+        van het
+
+        zaakgericht werken van de behandelende organisatie(s).'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -688,7 +663,8 @@ paths:
   /catalogussen:
     get:
       operationId: catalogus_list
-      description: Een verzameling van CATALOGUSsen.
+      summary: Alle CATALOGUSsen opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: domein
         in: query
@@ -724,7 +700,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -744,15 +720,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Catalogus'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -764,7 +742,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -776,7 +754,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -788,7 +766,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -800,7 +778,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -812,7 +790,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -824,7 +802,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -836,7 +814,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -848,7 +826,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -866,10 +844,11 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: catalogus_create
-      description: ''
+      summary: Maak een CATALOGUS aan.
+      description: Maak een CATALOGUS aan.
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -886,7 +865,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Catalogus'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -898,7 +877,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -910,7 +889,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -922,7 +901,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -934,7 +913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -946,7 +925,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -958,7 +937,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -970,7 +949,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -982,7 +961,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1008,11 +987,11 @@ paths:
   /catalogussen/{uuid}:
     get:
       operationId: catalogus_read
-      description: "De verzameling van ZAAKTYPEn - incl. daarvoor relevante objecttypen\
-        \ - voor een Domein die als \xE9\xE9n geheel beheerd\nwordt."
+      summary: Een specifieke CATALOGUS opvragen.
+      description: Een specifieke CATALOGUS opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1024,7 +1003,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Catalogus'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1036,7 +1015,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1048,7 +1027,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1060,7 +1039,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1072,7 +1051,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1084,7 +1063,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1096,7 +1075,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1108,7 +1087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1120,7 +1099,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1147,7 +1126,8 @@ paths:
   /eigenschappen:
     get:
       operationId: eigenschap_list
-      description: Een verzameling van EIGENSCHAPpen.
+      summary: Alle EIGENSCHAPpen opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: zaaktype
         in: query
@@ -1160,11 +1140,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -1178,7 +1158,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1198,15 +1178,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Eigenschap'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1218,7 +1200,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1230,7 +1212,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1242,7 +1224,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1254,7 +1236,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1266,7 +1248,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1278,7 +1260,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1290,7 +1272,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1302,7 +1284,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1320,10 +1302,14 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: eigenschap_create
-      description: ''
+      summary: Maak een EIGENSCHAP aan.
+      description: 'Maak een EIGENSCHAP aan. Dit kan alleen als het bijbehorende ZAAKTYPE
+        een
+
+        concept betreft.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -1340,7 +1326,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Eigenschap'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1352,7 +1338,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1364,7 +1350,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1376,7 +1362,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1388,7 +1374,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1400,7 +1386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1412,7 +1398,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1424,7 +1410,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1436,7 +1422,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1462,13 +1448,11 @@ paths:
   /eigenschappen/{uuid}:
     get:
       operationId: eigenschap_read
-      description: 'Een relevant inhoudelijk gegeven dat bij ZAAKen van dit ZAAKTYPE
-        geregistreerd moet kunnen worden en geen standaard
-
-        kenmerk is van een zaak.'
+      summary: Een specifieke EIGENSCHAP opvragen.
+      description: Een specifieke EIGENSCHAP opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1480,7 +1464,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Eigenschap'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1492,7 +1476,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1504,7 +1488,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1516,7 +1500,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1528,7 +1512,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1540,7 +1524,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1552,7 +1536,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1564,7 +1548,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1576,7 +1560,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1594,10 +1578,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: eigenschap_delete
-      description: ''
+      summary: Verwijder een EIGENSCHAP.
+      description: 'Verwijder een EIGENSCHAP. Dit kan alleen als het bijbehorende
+        ZAAKTYPE een
+
+        concept betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -1605,7 +1593,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1617,7 +1605,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1629,7 +1617,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -1641,7 +1629,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1653,7 +1641,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1665,7 +1653,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1677,7 +1665,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1689,7 +1677,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1701,7 +1689,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1728,7 +1716,8 @@ paths:
   /informatieobjecttypen:
     get:
       operationId: informatieobjecttype_list
-      description: Een verzameling van INFORMATIEOBJECTTYPEn.
+      summary: Alle INFORMATIEOBJECTTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: catalogus
         in: query
@@ -1741,11 +1730,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -1759,7 +1748,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -1779,15 +1768,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/InformatieObjectType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1799,7 +1790,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1811,7 +1802,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1823,7 +1814,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1835,7 +1826,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1847,7 +1838,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1859,7 +1850,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -1871,7 +1862,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -1883,7 +1874,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -1901,10 +1892,11 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: informatieobjecttype_create
-      description: ''
+      summary: Maak een INFORMATIEOBJECTTYPE aan.
+      description: Maak een INFORMATIEOBJECTTYPE aan.
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -1921,7 +1913,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InformatieObjectType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -1933,7 +1925,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -1945,7 +1937,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -1957,7 +1949,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -1969,7 +1961,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -1981,7 +1973,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -1993,7 +1985,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2005,7 +1997,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2017,7 +2009,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2043,11 +2035,11 @@ paths:
   /informatieobjecttypen/{uuid}:
     get:
       operationId: informatieobjecttype_read
-      description: Aanduiding van de aard van INFORMATIEOBJECTTYPEn zoals gehanteerd
-        door de zaakbehandelende organisatie.
+      summary: Een specifieke INFORMATIEOBJECTTYPE opvragen.
+      description: Een specifieke INFORMATIEOBJECTTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2059,7 +2051,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/InformatieObjectType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2071,7 +2063,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2083,7 +2075,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2095,7 +2087,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2107,7 +2099,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2119,7 +2111,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2131,7 +2123,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2143,7 +2135,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2155,7 +2147,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2173,10 +2165,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: informatieobjecttype_delete
-      description: ''
+      summary: Verwijder een INFORMATIEOBJECTTYPE.
+      description: 'Verwijder een INFORMATIEOBJECTTYPE. Dit kan alleen als het een
+        concept
+
+        betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -2184,7 +2180,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2196,7 +2192,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2208,7 +2204,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2220,7 +2216,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2232,7 +2228,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2244,7 +2240,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2256,7 +2252,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2268,7 +2264,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2280,7 +2276,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2307,10 +2303,16 @@ paths:
   /informatieobjecttypen/{uuid}/publish:
     post:
       operationId: informatieobjecttype_publish
-      description: ''
+      summary: 'Opvragen en bewerken van INFORMATIEOBJECTTYPEn nodig voor
+
+        INFORMATIEOBJECTen in de Documenten API.'
+      description: 'Een INFORMATIEOBJECTTYPE beschijft de karakteristieken van een
+        document of
+
+        ander object dat informatie bevat.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -2342,7 +2344,8 @@ paths:
   /resultaattypen:
     get:
       operationId: resultaattype_list
-      description: Een verzameling van RESULTAATTYPEn.
+      summary: Alle RESULTAATTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: zaaktype
         in: query
@@ -2355,11 +2358,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -2373,7 +2376,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2393,15 +2396,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ResultaatType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2413,7 +2418,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2425,7 +2430,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2437,7 +2442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2449,7 +2454,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2461,7 +2466,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2473,7 +2478,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2485,7 +2490,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2497,7 +2502,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2515,10 +2520,14 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: resultaattype_create
-      description: ''
+      summary: Maak een RESULTAATTYPE aan.
+      description: 'Maak een RESULTAATTYPE aan. Dit kan alleen als het bijbehorende
+        ZAAKTYPE een
+
+        concept betreft.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -2535,7 +2544,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResultaatType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -2547,7 +2556,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2559,7 +2568,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2571,7 +2580,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2583,7 +2592,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2595,7 +2604,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2607,7 +2616,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2619,7 +2628,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2631,7 +2640,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2657,13 +2666,11 @@ paths:
   /resultaattypen/{uuid}:
     get:
       operationId: resultaattype_read
-      description: 'Het betreft de indeling of groepering van resultaten van zaken
-        van hetzelfde
-
-        ZAAKTYPE naar hun aard, zoals ''verleend'', ''geweigerd'', ''verwerkt'', etc.'
+      summary: Een specifieke RESULTAATTYPE opvragen.
+      description: Een specifieke RESULTAATTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2675,7 +2682,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResultaatType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2687,7 +2694,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2699,7 +2706,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2711,7 +2718,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2723,7 +2730,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2735,7 +2742,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2747,7 +2754,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2759,7 +2766,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2771,7 +2778,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2789,10 +2796,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: resultaattype_delete
-      description: ''
+      summary: Verwijder een RESULTAATTYPE.
+      description: 'Verwijder een RESULTAATTYPE. Dit kan alleen als het bijbehorende
+        ZAAKTYPE
+
+        een concept betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -2800,7 +2811,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -2812,7 +2823,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -2824,7 +2835,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -2836,7 +2847,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -2848,7 +2859,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -2860,7 +2871,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -2872,7 +2883,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -2884,7 +2895,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -2896,7 +2907,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -2923,7 +2934,8 @@ paths:
   /roltypen:
     get:
       operationId: roltype_list
-      description: Een verzameling van ROLTYPEn.
+      summary: Alle ROLTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: zaaktype
         in: query
@@ -2939,23 +2951,23 @@ paths:
         schema:
           type: string
           enum:
-          - Adviseur
-          - Behandelaar
-          - Belanghebbende
-          - Beslisser
-          - Initiator
-          - Klantcontacter
-          - "Zaakco\xF6rdinator"
-          - Mede-initiator
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
       - name: status
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -2969,7 +2981,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -2989,15 +3001,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/RolType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -3009,7 +3023,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3021,7 +3035,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3033,7 +3047,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3045,7 +3059,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3057,7 +3071,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3069,7 +3083,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3081,7 +3095,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3093,7 +3107,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3111,10 +3125,14 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: roltype_create
-      description: ''
+      summary: Maak een ROLTYPE aan.
+      description: 'Maak een ROLTYPE aan. Dit kan alleen als het bijbehorende ZAAKTYPE
+        een
+
+        concept betreft.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -3131,7 +3149,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RolType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -3143,7 +3161,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3155,7 +3173,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3167,7 +3185,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3179,7 +3197,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3191,7 +3209,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3203,7 +3221,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3215,7 +3233,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3227,7 +3245,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3253,11 +3271,11 @@ paths:
   /roltypen/{uuid}:
     get:
       operationId: roltype_read
-      description: Generieke aanduiding van de aard van een ROL die een BETROKKENE
-        kan uitoefenen in ZAAKen van een ZAAKTYPE.
+      summary: Een specifieke ROLTYPE opvragen.
+      description: Een specifieke ROLTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -3269,7 +3287,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RolType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3281,7 +3299,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3293,7 +3311,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -3305,7 +3323,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3317,7 +3335,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3329,7 +3347,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3341,7 +3359,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3353,7 +3371,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3365,7 +3383,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3383,10 +3401,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: roltype_delete
-      description: ''
+      summary: Verwijder een ROLTYPE.
+      description: 'Verwijder een ROLTYPE. Dit kan alleen als het bijbehorende ZAAKTYPE
+        een
+
+        concept betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -3394,7 +3416,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3406,7 +3428,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3418,7 +3440,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -3430,7 +3452,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3442,7 +3464,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3454,7 +3476,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3466,7 +3488,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3478,7 +3500,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3490,7 +3512,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3516,7 +3538,8 @@ paths:
   /statustypen:
     get:
       operationId: statustype_list
-      description: Een verzameling van STATUSTYPEn.
+      summary: Alle STATUSTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: zaaktype
         in: query
@@ -3529,11 +3552,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -3547,7 +3570,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -3567,15 +3590,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/StatusType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -3587,7 +3612,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3599,7 +3624,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3611,7 +3636,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3623,7 +3648,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3635,7 +3660,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3647,7 +3672,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3659,7 +3684,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3671,7 +3696,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3689,10 +3714,14 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: statustype_create
-      description: ''
+      summary: Maak een STATUSTYPE aan.
+      description: 'Maak een STATUSTYPE aan. Dit kan alleen als het bijbehorende ZAAKTYPE
+        een
+
+        concept betreft.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -3709,7 +3738,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -3721,7 +3750,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3733,7 +3762,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3745,7 +3774,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3757,7 +3786,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3769,7 +3798,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3781,7 +3810,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3793,7 +3822,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3805,7 +3834,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3831,10 +3860,11 @@ paths:
   /statustypen/{uuid}:
     get:
       operationId: statustype_read
-      description: Generieke aanduiding van de aard van een status.
+      summary: Een specifieke STATUSTYPE opvragen.
+      description: Een specifieke STATUSTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -3846,7 +3876,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatusType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3858,7 +3888,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3870,7 +3900,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -3882,7 +3912,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -3894,7 +3924,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -3906,7 +3936,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -3918,7 +3948,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -3930,7 +3960,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -3942,7 +3972,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -3960,10 +3990,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: statustype_delete
-      description: ''
+      summary: Verwijder een STATUSTYPE.
+      description: 'Verwijder een STATUSTYPE. Dit kan alleen als het bijbehorende
+        ZAAKTYPE een
+
+        concept betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -3971,7 +4005,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -3983,7 +4017,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -3995,7 +4029,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -4007,7 +4041,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4019,7 +4053,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4031,7 +4065,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4043,7 +4077,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4055,7 +4089,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4067,7 +4101,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4094,19 +4128,8 @@ paths:
   /zaaktype-informatieobjecttypen:
     get:
       operationId: zaakinformatieobjecttype_list
-      description: 'Een verzameling van ZAAKINFORMATIEOBJECTTYPEn.
-
-
-        Filteren van de gegevens kan middels de querystringparameters:
-
-        - zaaktype: URL van het zaaktype
-
-        - informatie_object_type: URL van het zaaktype
-
-        - richting: waarde van de richting (string)
-
-
-        Meerdere querystring-parameters tegelijk worden als een AND beschouwd.'
+      summary: Alle ZAAKTYPE-INFORMATIEOBJECTTYPE relaties opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: zaaktype
         in: query
@@ -4115,9 +4138,9 @@ paths:
         schema:
           type: string
           format: uri
-      - name: informatieObjectType
+      - name: informatieobjecttype
         in: query
-        description: URL naar de/het gerelateerde informatie_object_type
+        description: URL naar de/het gerelateerde informatieobjecttype
         required: false
         schema:
           type: string
@@ -4130,18 +4153,18 @@ paths:
         schema:
           type: string
           enum:
-          - Inkomend
-          - Intern
-          - Uitgaand
+          - inkomend
+          - intern
+          - uitgaand
       - name: status
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -4155,7 +4178,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -4175,15 +4198,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -4195,7 +4220,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4207,7 +4232,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4219,7 +4244,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4231,7 +4256,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4243,7 +4268,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4255,7 +4280,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4267,7 +4292,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4279,7 +4304,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4297,10 +4322,14 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: zaakinformatieobjecttype_create
-      description: ''
+      summary: Maak een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie aan.
+      description: 'Maak een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie aan. Dit kan alleen
+        als het
+
+        bijbehorende ZAAKTYPE een concept betreft.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -4317,7 +4346,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -4329,7 +4358,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4341,7 +4370,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4353,7 +4382,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4365,7 +4394,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4377,7 +4406,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4389,7 +4418,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4401,7 +4430,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4413,7 +4442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4439,10 +4468,11 @@ paths:
   /zaaktype-informatieobjecttypen/{uuid}:
     get:
       operationId: zaakinformatieobjecttype_read
-      description: Relatie met informatieobjecttype dat relevant is voor zaaktype.
+      summary: Een specifieke ZAAKTYPE-INFORMATIEOBJECTTYPE relatie opvragen.
+      description: Een specifieke ZAAKTYPE-INFORMATIEOBJECTTYPE relatie opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -4454,7 +4484,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4466,7 +4496,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4478,7 +4508,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -4490,7 +4520,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4502,7 +4532,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4514,7 +4544,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4526,7 +4556,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4538,7 +4568,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4550,7 +4580,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4568,10 +4598,14 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: zaakinformatieobjecttype_delete
-      description: ''
+      summary: Verwijder een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie.
+      description: 'Verwijder een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie. Dit kan alleen
+        als
+
+        het bijbehorende ZAAKTYPE een concept betreft.'
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -4579,7 +4613,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4591,7 +4625,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4603,7 +4637,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -4615,7 +4649,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4627,7 +4661,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4639,7 +4673,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4651,7 +4685,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4663,7 +4697,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4675,7 +4709,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4702,7 +4736,8 @@ paths:
   /zaaktypen:
     get:
       operationId: zaaktype_list
-      description: Een verzameling van ZAAKTYPEn.
+      summary: Alle ZAAKTYPEn opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
       - name: catalogus
         in: query
@@ -4727,11 +4762,11 @@ paths:
         in: query
         description: 'filter objects depending on their concept status:
 
-          * `alles`: toon objecten waarvan het attribuut `concept` true of false is.
+          * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
-          * `concept`: toon objecten waarvan het attribuut `concept` true is.
+          * `concept`: Toon objecten waarvan het attribuut `concept` true is.
 
-          * `definitief`: toon objecten waarvan het attribuut `concept` false is (standaard).
+          * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
 
           '
         required: false
@@ -4745,7 +4780,7 @@ paths:
           type: integer
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -4765,15 +4800,17 @@ paths:
                   next:
                     type: string
                     format: uri
+                    nullable: true
                   previous:
                     type: string
                     format: uri
+                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ZaakType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -4785,7 +4822,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4797,7 +4834,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4809,7 +4846,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4821,7 +4858,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4833,7 +4870,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4845,7 +4882,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4857,7 +4894,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -4869,7 +4906,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -4887,10 +4924,11 @@ paths:
         - zaaktypes.lezen
     post:
       operationId: zaaktype_create
-      description: ''
+      summary: Maak een ZAAKTYPE aan.
+      description: Maak een ZAAKTYPE aan.
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -4907,7 +4945,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakType'
         '400':
-          description: ''
+          description: Bad request
           headers:
             API-version:
               schema:
@@ -4919,7 +4957,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -4931,7 +4969,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -4943,7 +4981,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -4955,7 +4993,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -4967,7 +5005,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -4979,7 +5017,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -4991,7 +5029,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -5003,7 +5041,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -5029,11 +5067,11 @@ paths:
   /zaaktypen/{uuid}:
     get:
       operationId: zaaktype_read
-      description: Het geheel van karakteristieke eigenschappen van zaken van eenzelfde
-        soort.
+      summary: Een specifieke ZAAKTYPE opvragen.
+      description: Een specifieke ZAAKTYPE opvragen.
       responses:
         '200':
-          description: ''
+          description: OK
           headers:
             API-version:
               schema:
@@ -5045,7 +5083,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakType'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -5057,7 +5095,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -5069,7 +5107,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -5081,7 +5119,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -5093,7 +5131,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -5105,7 +5143,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -5117,7 +5155,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -5129,7 +5167,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -5141,7 +5179,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -5159,10 +5197,11 @@ paths:
         - zaaktypes.lezen
     delete:
       operationId: zaaktype_delete
-      description: ''
+      summary: Verwijder een ZAAKTYPE.
+      description: Verwijder een ZAAKTYPE. Dit kan alleen als het een concept betreft.
       responses:
         '204':
-          description: ''
+          description: No content
           headers:
             API-version:
               schema:
@@ -5170,7 +5209,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
-          description: ''
+          description: Unauthorized
           headers:
             API-version:
               schema:
@@ -5182,7 +5221,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '403':
-          description: ''
+          description: Forbidden
           headers:
             API-version:
               schema:
@@ -5194,7 +5233,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: ''
+          description: Not_found
           headers:
             API-version:
               schema:
@@ -5206,7 +5245,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '406':
-          description: ''
+          description: Not acceptable
           headers:
             API-version:
               schema:
@@ -5218,7 +5257,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '409':
-          description: ''
+          description: Conflict
           headers:
             API-version:
               schema:
@@ -5230,7 +5269,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '410':
-          description: ''
+          description: Gone
           headers:
             API-version:
               schema:
@@ -5242,7 +5281,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '415':
-          description: ''
+          description: Unsupported media type
           headers:
             API-version:
               schema:
@@ -5254,7 +5293,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '429':
-          description: ''
+          description: Too many requests
           headers:
             API-version:
               schema:
@@ -5266,7 +5305,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '500':
-          description: ''
+          description: Internal server error
           headers:
             API-version:
               schema:
@@ -5293,10 +5332,14 @@ paths:
   /zaaktypen/{uuid}/publish:
     post:
       operationId: zaaktype_publish
-      description: ''
+      summary: Opvragen en bewerken van ZAAKTYPEn nodig voor ZAKEN in de Zaken API.
+      description: 'Een ZAAKTYPE beschrijft het geheel van karakteristieke eigenschappen
+        van
+
+        zaken van eenzelfde soort.'
       responses:
         '201':
-          description: ''
+          description: Created
           headers:
             API-version:
               schema:
@@ -5345,17 +5388,23 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         catalogus:
           title: Catalogus
-          description: De CATALOGUS waartoe dit BESLUITTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
           type: string
           format: uri
         zaaktypes:
+          description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE
           type: array
           items:
+            description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE
             type: string
             format: uri
           uniqueItems: true
@@ -5381,6 +5430,7 @@ components:
             waarbinnen verweer tegen een besluit van het besluittype mogelijk is.
           type: string
           format: duration
+          nullable: true
         publicatieIndicatie:
           title: Publicatie indicatie
           description: Aanduiding of BESLUITen van dit BESLUITTYPE gepubliceerd moeten
@@ -5397,13 +5447,18 @@ components:
             dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten blijven.
           type: string
           format: duration
+          nullable: true
         toelichting:
           title: Toelichting
           description: Een eventuele toelichting op dit BESLUITTYPE.
           type: string
         informatieobjecttypes:
+          description: URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
+            waarin besluiten van dit BESLUITTYPE worden vastgelegd.
           type: array
           items:
+            description: URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
+              waarin besluiten van dit BESLUITTYPE worden vastgelegd.
             type: string
             format: uri
           uniqueItems: true
@@ -5417,6 +5472,7 @@ components:
           description: De datum waarop het is opgeheven.
           type: string
           format: date
+          nullable: true
         concept:
           title: Concept
           description: Geeft aan of het object een concept betreft. Concepten zijn
@@ -5536,9 +5592,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         domein:
           title: Domein
           description: Een afkorting waarmee wordt aangegeven voor welk domein in
@@ -5574,22 +5634,34 @@ components:
           format: email
           maxLength: 254
         zaaktypen:
+          description: URL-referenties naar ZAAKTYPEn die in deze CATALOGUS worden
+            ontsloten.
           type: array
           items:
+            description: URL-referenties naar ZAAKTYPEn die in deze CATALOGUS worden
+              ontsloten.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         besluittypen:
+          description: URL-referenties naar BESLUITTYPEn die in deze CATALOGUS worden
+            ontsloten.
           type: array
           items:
+            description: URL-referenties naar BESLUITTYPEn die in deze CATALOGUS worden
+              ontsloten.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         informatieobjecttypen:
+          description: URL-referenties naar INFORMATIEOBJECTTYPEn die in deze CATALOGUS
+            worden ontsloten.
           type: array
           items:
+            description: URL-referenties naar INFORMATIEOBJECTTYPEn die in deze CATALOGUS
+              worden ontsloten.
             type: string
             format: uri
           readOnly: true
@@ -5610,8 +5682,20 @@ components:
           maxLength: 32
         formaat:
           title: Formaat
-          description: Het soort tekens waarmee waarden van de EIGENSCHAP kunnen worden
-            vastgelegd.
+          description: 'Het soort tekens waarmee waarden van de EIGENSCHAP kunnen
+            worden vastgelegd.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `tekst` - Tekst
+
+            * `getal` - Getal
+
+            * `datum (jjjjmmdd)` - Datum
+
+            * `datum/tijd (jjjjmmdduummss)` - Datum/tijd'
           type: string
           enum:
           - tekst
@@ -5633,15 +5717,13 @@ components:
           maxLength: 3
           minLength: 1
         waardenverzameling:
-          description: Waarden die deze EIGENSCHAP kan hebben (Gebruik een komma om
-            waarden van elkaar te onderscheiden.)
+          description: Waarden die deze EIGENSCHAP kan hebben.
           type: array
           items:
             title: Waardenverzameling
             type: string
             maxLength: 100
             minLength: 1
-      readOnly: true
     Eigenschap:
       required:
       - naam
@@ -5651,9 +5733,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         naam:
           title: Naam
           description: De naam van de EIGENSCHAP
@@ -5676,8 +5762,8 @@ components:
           maxLength: 1000
         zaaktype:
           title: Is van
-          description: Het ZAAKTYPE van de ZAAKen waarvoor deze EIGENSCHAP van belang
-            is.
+          description: URL-referentie naar het ZAAKTYPE van de ZAAKen waarvoor deze
+            EIGENSCHAP van belang is.
           type: string
           format: uri
     InformatieObjectType:
@@ -5690,12 +5776,17 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         catalogus:
           title: Maakt deel uit van
-          description: De CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE
+            behoort.
           type: string
           format: uri
         omschrijving:
@@ -5706,18 +5797,38 @@ components:
           minLength: 1
         vertrouwelijkheidaanduiding:
           title: Vertrouwelijkheidaanduiding
-          description: Aanduiding van de mate waarin informatieobjecten van dit INFORMATIEOBJECTTYPE
+          description: 'Aanduiding van de mate waarin informatieobjecten van dit INFORMATIEOBJECTTYPE
             voor de openbaarheid bestemd zijn.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         beginGeldigheid:
           title: Begin geldigheid
           description: De datum waarop het is ontstaan.
@@ -5728,6 +5839,7 @@ components:
           description: De datum waarop het is opgeheven.
           type: string
           format: date
+          nullable: true
         concept:
           title: Concept
           description: Geeft aan of het object een concept betreft. Concepten zijn
@@ -5779,33 +5891,33 @@ components:
           - adres
           - besluit
           - buurt
-          - enkelvoudigDocument
+          - enkelvoudig_document
           - gemeente
-          - gemeentelijkeOpenbareRuimte
+          - gemeentelijke_openbare_ruimte
           - huishouden
           - inrichtingselement
-          - kadastraleOnroerendeZaak
+          - kadastrale_onroerende_zaak
           - kunstwerkdeel
-          - maatschappelijkeActiviteit
+          - maatschappelijke_activiteit
           - medewerker
-          - natuurlijkPersoon
-          - nietNatuurlijkPersoon
-          - openbareRuimte
-          - organisatorischeEenheid
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - openbare_ruimte
+          - organisatorische_eenheid
           - pand
           - spoorbaandeel
           - status
           - terreindeel
-          - terreinGebouwdObject
+          - terrein_gebouwd_object
           - vestiging
           - waterdeel
           - wegdeel
           - wijk
           - woonplaats
-          - wozDeelobject
-          - wozObject
-          - wozWaarde
-          - zakelijkRecht
+          - woz_deelobject
+          - woz_object
+          - woz_waarde
+          - zakelijk_recht
           - overige
         registratie:
           title: Registratie
@@ -5831,13 +5943,17 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         zaaktype:
           title: is van
-          description: Het ZAAKTYPE van ZAAKen waarin resultaten van dit RESULTAATTYPE
-            bereikt kunnen worden.
+          description: URL-referentie naar het ZAAKTYPE van ZAAKen waarin resultaten
+            van dit RESULTAATTYPE bereikt kunnen worden.
           type: string
           format: uri
         omschrijving:
@@ -5864,10 +5980,9 @@ components:
           minLength: 1
         selectielijstklasse:
           title: Selectielijstklasse
-          description: Verwijzing naar de, voor het archiefregime bij het RESULTAATTYPE
-            relevante, categorie in de Selectielijst Archiefbescheiden van de voor
-            het ZAAKTYPE verantwoordelijke overheidsorganisatie. Dit is een URL-referentie
-            naar een resultaat uit de selectielijst API
+          description: URL-referentie naar de, voor het archiefregime bij het RESULTAATTYPE
+            relevante, categorie in de Selectielijst Archiefbescheiden (RESULTAAT
+            in de Selectielijst API) van de voor het ZAAKTYPE verantwoordelijke overheidsorganisatie.
           type: string
           format: uri
           maxLength: 1000
@@ -5885,7 +6000,7 @@ components:
             selectielijst.
 
 
-            De mapping van waarden naar weergave is als volgt:
+            Uitleg bij mogelijke waarden:
 
 
             * `blijvend_bewaren` - Het zaakdossier moet bewaard blijven en op de Archiefactiedatum
@@ -5908,6 +6023,7 @@ components:
             zaak tot overbrenging (de procestermijn is dan nihil).
           type: string
           format: duration
+          nullable: true
         brondatumArchiefprocedure:
           $ref: '#/components/schemas/BrondatumArchiefprocedure'
     MogelijkeBetrokkene:
@@ -5918,20 +6034,37 @@ components:
       properties:
         betrokkene:
           title: Betrokkene
-          description: Een betrokkene die kan gerelateerd worden aan een zaak
+          description: URL-referentie naar een specifieke BETROKKENE die kan gerelateerd
+            worden aan een ZAAK.
           type: string
           format: uri
           maxLength: 200
           minLength: 1
         betrokkeneType:
           title: Betrokkene type
+          description: 'Het type BETROKKENE waarnaar verwezen wordt in het attribuut
+            `betrokkene`.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `vestiging` - Vestiging
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `medewerker` - Medewerker'
           type: string
           enum:
-          - Natuurlijk persoon
-          - Niet-natuurlijk persoon
-          - Vestiging
-          - Organisatorische eenheid
-          - Medewerker
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - vestiging
+          - organisatorische_eenheid
+          - medewerker
     RolType:
       required:
       - zaaktype
@@ -5942,13 +6075,17 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         zaaktype:
           title: Is van
-          description: De ROLTYPEn waarin BETROKKENEn een ROL kunnen uitoefenen in
-            ZAAKen van dit ZAAKTYPE.
+          description: URL-referentie naar het ZAAKTYPE waar deze ROLTYPEn betrokken
+            kunnen zijn.
           type: string
           format: uri
         omschrijving:
@@ -5959,17 +6096,29 @@ components:
           minLength: 1
         omschrijvingGeneriek:
           title: Omschrijving generiek
-          description: Algemeen gehanteerde omschrijving van de aard van de ROL.
+          description: "Algemeen gehanteerde omschrijving van de aard van de ROL.\n\
+            \nUitleg bij mogelijke waarden:\n\n* `adviseur` - (Adviseur) Kennis in\
+            \ dienst stellen van de behandeling van (een deel van) een zaak.\n* `behandelaar`\
+            \ - (Behandelaar) De vakinhoudelijke behandeling doen van (een deel van)\
+            \ een zaak.\n* `belanghebbende` - (Belanghebbende) Vanuit eigen en objectief\
+            \ belang rechtstreeks betrokken zijn bij de behandeling en/of de uitkomst\
+            \ van een zaak.\n* `beslisser` - (Beslisser) Nemen van besluiten die voor\
+            \ de uitkomst van een zaak noodzakelijk zijn.\n* `initiator` - (Initiator)\
+            \ Aanleiding geven tot de start van een zaak ..\n* `klantcontacter` -\
+            \ (Klantcontacter) Het eerste aanspreekpunt zijn voor vragen van burgers\
+            \ en bedrijven ..\n* `zaakcoordinator` - (Zaakco\xC3\xB6rdinator) Er voor\
+            \ zorg dragen dat de behandeling van de zaak in samenhang uitgevoerd wordt\
+            \ conform de daarover gemaakte afspraken.\n* `mede_initiator` - Mede-initiator"
           type: string
           enum:
-          - Adviseur
-          - Behandelaar
-          - Belanghebbende
-          - Beslisser
-          - Initiator
-          - Klantcontacter
-          - "Zaakco\xF6rdinator"
-          - Mede-initiator
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
         mogelijkeBetrokkenen:
           type: array
           items:
@@ -5983,9 +6132,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         omschrijving:
           title: Omschrijving
           description: Een korte, voor de initiator van de zaak relevante, omschrijving
@@ -6008,8 +6161,8 @@ components:
           maxLength: 1000
         zaaktype:
           title: Is van
-          description: Het ZAAKTYPE van ZAAKen waarin STATUSsen van dit STATUSTYPE
-            bereikt kunnen worden.
+          description: URL-referentie naar het ZAAKTYPE van ZAAKen waarin STATUSsen
+            van dit STATUSTYPE bereikt kunnen worden.
           type: string
           format: uri
         volgnummer:
@@ -6025,51 +6178,72 @@ components:
             is afgeleid uit alle STATUSTYPEn van dit ZAAKTYPE met het hoogste volgnummer.
           type: boolean
           readOnly: true
+        informeren:
+          title: Informeren
+          description: "Aanduiding die aangeeft of na het zetten van een STATUS van\
+            \ dit STATUSTYPE de Initiator moet worden ge\xC3\xAFnformeerd over de\
+            \ statusovergang."
+          type: boolean
     ZaakTypeInformatieObjectType:
       required:
       - zaaktype
-      - informatieObjectType
+      - informatieobjecttype
       - volgnummer
       - richting
       type: object
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         zaaktype:
           title: Zaaktype
+          description: URL-referentie naar het ZAAKTYPE.
           type: string
           format: uri
-        informatieObjectType:
+        informatieobjecttype:
           title: Informatie object type
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE.
           type: string
           format: uri
         volgnummer:
           title: Volgnummer
-          description: Uniek volgnummer van het ZAAK-INFORMATIEOBJECT-TYPE binnen
-            het ZAAKTYPE.
+          description: Uniek volgnummer van het ZAAK-INFORMATIEOBJECTTYPE binnen het
+            ZAAKTYPE.
           type: integer
           maximum: 999
           minimum: 1
         richting:
           title: Richting
-          description: Aanduiding van de richting van informatieobjecten van het gerelateerde
-            INFORMATIEOBJECTTYPE bij zaken van het gerelateerde ZAAKTYPE.
+          description: 'Aanduiding van de richting van informatieobjecten van het
+            gerelateerde INFORMATIEOBJECTTYPE bij zaken van het gerelateerde ZAAKTYPE.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `inkomend` - Inkomend
+
+            * `intern` - Intern
+
+            * `uitgaand` - Uitgaand'
           type: string
           enum:
-          - Inkomend
-          - Intern
-          - Uitgaand
-        statusType:
+          - inkomend
+          - intern
+          - uitgaand
+        statustype:
           title: Status type
-          description: De informatieobjecten van de INFORMATIEOBJECTTYPEn van het
-            aan het STATUSTYPE gerelateerde ZAAKTYPE waarvoor geldt dat deze verplicht
-            aanwezig moeten zijn bij een zaak van het gerelateerde ZAAKTYPE voordat
-            de status van dit STATUSTYPE kan worden gezet bij die zaak.
+          description: URL-referentie naar het STATUSTYPE waarbij deze INFORMATIEOBJECTTYPEn
+            verplicht aanwezig moeten zijn.
           type: string
           format: uri
+          nullable: true
     ReferentieProces:
       title: Referentieproces
       description: Het Referentieproces dat ten grondslag ligt aan dit ZAAKTYPE.
@@ -6106,8 +6280,18 @@ components:
           minLength: 1
         aardRelatie:
           title: Aard relatie
-          description: Omschrijving van de aard van de relatie van zaken van het ZAAKTYPE
-            tot zaken van het andere ZAAKTYPE
+          description: 'Omschrijving van de aard van de relatie van zaken van het
+            ZAAKTYPE tot zaken van het andere ZAAKTYPE
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `vervolg` - Vervolg
+
+            * `bijdrage` - Bijdrage
+
+            * `onderwerp` - Onderwerp'
           type: string
           enum:
           - vervolg
@@ -6144,9 +6328,13 @@ components:
       properties:
         url:
           title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
         identificatie:
           title: Identificatie
           description: Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin
@@ -6168,19 +6356,40 @@ components:
           maxLength: 80
         vertrouwelijkheidaanduiding:
           title: Vertrouwelijkheidaanduiding
-          description: Aanduiding van de mate waarin zaakdossiers van ZAAKen van dit
-            ZAAKTYPE voor de openbaarheid bestemd zijn. Indien de zaak bij het aanmaken
-            geen vertrouwelijkheidaanduiding krijgt, dan wordt deze waarde gezet.
+          description: 'Aanduiding van de mate waarin zaakdossiers van ZAAKen van
+            dit ZAAKTYPE voor de openbaarheid bestemd zijn. Indien de zaak bij het
+            aanmaken geen vertrouwelijkheidaanduiding krijgt, dan wordt deze waarde
+            gezet.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
           type: string
           enum:
           - openbaar
-          - beperkt openbaar
+          - beperkt_openbaar
           - intern
           - zaakvertrouwelijk
           - vertrouwelijk
           - confidentieel
           - geheim
-          - zeer geheim
+          - zeer_geheim
         doel:
           title: Doel
           description: Een omschrijving van hetgeen beoogd is te bereiken met een
@@ -6201,12 +6410,14 @@ components:
         indicatieInternOfExtern:
           title: Indicatie intern of extern
           description: "Een aanduiding waarmee onderscheid wordt gemaakt tussen ZAAKTYPEn\
-            \ die Intern respectievelijk Extern ge\xEFnitieerd worden. Indien van\
-            \ beide sprake kan zijn, dan prevaleert de externe initiatie."
+            \ die Intern respectievelijk Extern ge\xC3\xAFnitieerd worden. Indien\
+            \ van beide sprake kan zijn, dan prevaleert de externe initiatie.\n\n\
+            Uitleg bij mogelijke waarden:\n\n* `inkomend` - Inkomend\n* `intern` -\
+            \ Intern\n* `uitgaand` - Uitgaand"
           type: string
           enum:
-          - Intern
-          - Extern
+          - intern
+          - extern
         handelingInitiator:
           title: Handeling initiator
           description: Werkwoord dat hoort bij de handeling die de initiator verricht
@@ -6245,6 +6456,7 @@ components:
             organisatie(s).
           type: string
           format: duration
+          nullable: true
         opschortingEnAanhoudingMogelijk:
           title: Opschorting/aanhouding mogelijk
           description: Aanduiding die aangeeft of ZAAKen van dit mogelijk ZAAKTYPE
@@ -6262,6 +6474,7 @@ components:
             als verlenging mogelijk is.
           type: string
           format: duration
+          nullable: true
         trefwoorden:
           description: Een trefwoord waarmee ZAAKen van het ZAAKTYPE kunnen worden
             gekarakteriseerd.
@@ -6282,7 +6495,7 @@ components:
           type: string
         verantwoordingsrelatie:
           description: "De relatie tussen ZAAKen van dit ZAAKTYPE en de beleidsmatige\
-            \ en/of financi\xEBle verantwoording."
+            \ en/of financi\xC3\xABle verantwoording."
           type: array
           items:
             title: Verantwoordingsrelatie
@@ -6301,8 +6514,9 @@ components:
             minLength: 1
         selectielijstProcestype:
           title: Selectielijst procestype
-          description: Een vanuit archiveringsoptiek onderkende groep processen met
-            dezelfde kenmerken. URL naar de referentielijsten API.
+          description: URL-referentie naar een vanuit archiveringsoptiek onderkende
+            groep processen met dezelfde kenmerken (PROCESTYPE in de Selectielijst
+            API).
           type: string
           format: uri
           maxLength: 200
@@ -6310,48 +6524,72 @@ components:
           $ref: '#/components/schemas/ReferentieProces'
         catalogus:
           title: Maakt deel uit van
-          description: De CATALOGUS waartoe dit ZAAKTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
           type: string
           format: uri
         statustypen:
+          description: URL-referenties naar de STATUSTYPEN die mogelijk zijn binnen
+            dit ZAAKTYPE.
           type: array
           items:
+            description: URL-referenties naar de STATUSTYPEN die mogelijk zijn binnen
+              dit ZAAKTYPE.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         resultaattypen:
+          description: URL-referenties naar de RESULTAATTYPEN die mogelijk zijn binnen
+            dit ZAAKTYPE.
           type: array
           items:
+            description: URL-referenties naar de RESULTAATTYPEN die mogelijk zijn
+              binnen dit ZAAKTYPE.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         eigenschappen:
+          description: URL-referenties naar de EIGENSCHAPPEN die aanwezig moeten zijn
+            in ZAKEN van dit ZAAKTYPE.
           type: array
           items:
+            description: URL-referenties naar de EIGENSCHAPPEN die aanwezig moeten
+              zijn in ZAKEN van dit ZAAKTYPE.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         informatieobjecttypen:
+          description: URL-referenties naar de INFORMATIEOBJECTTYPEN die mogelijk
+            zijn binnen dit ZAAKTYPE.
           type: array
           items:
+            description: URL-referenties naar de INFORMATIEOBJECTTYPEN die mogelijk
+              zijn binnen dit ZAAKTYPE.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         roltypen:
+          description: URL-referenties naar de ROLTYPEN die mogelijk zijn binnen dit
+            ZAAKTYPE.
           type: array
           items:
+            description: URL-referenties naar de ROLTYPEN die mogelijk zijn binnen
+              dit ZAAKTYPE.
             type: string
             format: uri
           readOnly: true
           uniqueItems: true
         besluittypen:
+          description: URL-referenties naar de BESLUITTYPEN die mogelijk zijn binnen
+            dit ZAAKTYPE.
           type: array
           items:
             title: heeft relevante besluittypen
+            description: URL-referenties naar de BESLUITTYPEN die mogelijk zijn binnen
+              dit ZAAKTYPE.
             type: string
             format: uri
           uniqueItems: true
@@ -6371,6 +6609,7 @@ components:
           description: De datum waarop het is opgeheven.
           type: string
           format: date
+          nullable: true
         versiedatum:
           title: Versiedatum
           description: De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
