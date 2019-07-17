@@ -397,7 +397,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -523,7 +523,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1027,7 +1027,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1488,7 +1488,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1617,7 +1617,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -2075,7 +2075,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -2204,7 +2204,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -2706,7 +2706,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -2835,7 +2835,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -3311,7 +3311,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -3440,7 +3440,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -3900,7 +3900,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -4029,7 +4029,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -4508,7 +4508,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -4637,7 +4637,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -5107,7 +5107,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -5233,7 +5233,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -6026,51 +6026,11 @@ components:
           nullable: true
         brondatumArchiefprocedure:
           $ref: '#/components/schemas/BrondatumArchiefprocedure'
-    MogelijkeBetrokkene:
-      required:
-      - betrokkene
-      - betrokkeneType
-      type: object
-      properties:
-        betrokkene:
-          title: Betrokkene
-          description: URL-referentie naar een specifieke BETROKKENE die kan gerelateerd
-            worden aan een ZAAK.
-          type: string
-          format: uri
-          maxLength: 200
-          minLength: 1
-        betrokkeneType:
-          title: Betrokkene type
-          description: 'Het type BETROKKENE waarnaar verwezen wordt in het attribuut
-            `betrokkene`.
-
-
-            Uitleg bij mogelijke waarden:
-
-
-            * `natuurlijk_persoon` - Natuurlijk persoon
-
-            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
-
-            * `vestiging` - Vestiging
-
-            * `organisatorische_eenheid` - Organisatorische eenheid
-
-            * `medewerker` - Medewerker'
-          type: string
-          enum:
-          - natuurlijk_persoon
-          - niet_natuurlijk_persoon
-          - vestiging
-          - organisatorische_eenheid
-          - medewerker
     RolType:
       required:
       - zaaktype
       - omschrijving
       - omschrijvingGeneriek
-      - mogelijkeBetrokkenen
       type: object
       properties:
         url:
@@ -6119,10 +6079,6 @@ components:
           - klantcontacter
           - zaakcoordinator
           - mede_initiator
-        mogelijkeBetrokkenen:
-          type: array
-          items:
-            $ref: '#/components/schemas/MogelijkeBetrokkene'
     StatusType:
       required:
       - omschrijving
