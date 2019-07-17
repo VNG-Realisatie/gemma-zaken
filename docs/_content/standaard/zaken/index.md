@@ -51,8 +51,8 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
 * API specificatie (OAS3) in
   [ReDoc](https://zaken-api.vng.cloud/api/v1/schema/),
   [Swagger](https://petstore.swagger.io/?url=https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml),
-  [YAML](https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml),
-  [JSON](https://zaken-api.vng.cloud/api/v1/schema/openapi.json) of
+  [YAML](https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml) of
+  [JSON](https://zaken-api.vng.cloud/api/v1/schema/openapi.json)
 
 
 ## Specificatie van gedrag
