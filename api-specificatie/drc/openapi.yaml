@@ -35,7 +35,11 @@ paths:
 
         De objecten bevatten metadata over de documenten en de downloadlink
 
-        (`inhoud`) naar de binary data.'
+        (`inhoud`) naar de binary data. Alleen de laatste versie van elk
+
+        (ENKELVOUDIG) INFORMATIEOBJECT wordt getoond. Specifieke versies kunnen
+
+        alleen'
       parameters:
       - name: identificatie
         in: query
@@ -47,8 +51,8 @@ paths:
       - name: bronorganisatie
         in: query
         description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-          \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
-          \ eerste in een samenwerkingsketen heeft vastgelegd."
+          \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
+          \ als eerste in een samenwerkingsketen heeft vastgelegd."
         required: false
         schema:
           type: string
@@ -645,24 +649,25 @@ paths:
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_read
-      summary: Een specifiek (ENKELVOUDIGe) INFORMATIEOBJECT opvragen.
-      description: 'Een specifiek (ENKELVOUDIGe) INFORMATIEOBJECT opvragen.
+      summary: Een specifiek (ENKELVOUDIG) INFORMATIEOBJECT opvragen.
+      description: 'Het object bevat metadata over het document en de downloadlink
+        (`inhoud`)
 
+        naar de binary data. Dit geeft standaard de laatste versie van het
 
-        Het object bevat metadata over het document en de downloadlink (`inhoud`)
+        (ENKELVOUDIG) INFORMATIEOBJECT. Specifieke versies kunnen middels
 
-        naar de binary data.'
+        query-string parameters worden opgevraagd.'
       parameters:
       - name: versie
         in: query
-        description: Het versienummer van het `EnkelvoudigInformatieObject` dat opgehaald
-          moet worden
+        description: Het (automatische) versienummer van het INFORMATIEOBJECT.
         schema:
           type: integer
       - name: registratieOp
         in: query
-        description: Een datumtijd in ISO8601 formaat, de `EnkelvoudigInformatieObject`
-          versie die qua begin_registratie het kortst hiervoor zit wordt opgehaald
+        description: Een datumtijd in ISO8601 formaat. De versie van het INFORMATIEOBJECT
+          die qua `begin_registratie` het kortst hiervoor zit wordt opgehaald.
         schema:
           type: string
       responses:
@@ -794,16 +799,9 @@ paths:
     put:
       operationId: enkelvoudiginformatieobject_update
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
-      description: '**Er wordt gevalideerd op**
-
-        - correcte `lock` waarde
-
-        - geldigheid `informatieobjecttype` URL
-
-
-        *TODO*
-
-        - valideer immutable attributes'
+      description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
+        \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
+        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -968,16 +966,9 @@ paths:
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
-      description: '**Er wordt gevalideerd op**
-
-        - correcte `lock` waarde
-
-        - geldigheid `informatieobjecttype` URL
-
-
-        *TODO*
-
-        - valideer immutable attributes'
+      description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
+        \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
+        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1314,14 +1305,13 @@ paths:
       parameters:
       - name: versie
         in: query
-        description: Het versienummer van het `EnkelvoudigInformatieObject` dat opgehaald
-          moet worden
+        description: Het (automatische) versienummer van het INFORMATIEOBJECT.
         schema:
           type: integer
       - name: registratieOp
         in: query
-        description: Een datumtijd in ISO8601 formaat, de `EnkelvoudigInformatieObject`
-          versie die qua begin_registratie het kortst hiervoor zit wordt opgehaald
+        description: Een datumtijd in ISO8601 formaat. De versie van het INFORMATIEOBJECT
+          die qua `begin_registratie` het kortst hiervoor zit wordt opgehaald.
         schema:
           type: string
       responses:
@@ -3588,6 +3578,19 @@ components:
           type: string
           maxLength: 3
           minLength: 3
+        versie:
+          title: Versie
+          description: Het (automatische) versienummer van het INFORMATIEOBJECT. Deze
+            begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
+          type: integer
+          readOnly: true
+        beginRegistratie:
+          title: Begin registratie
+          description: Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
+          type: string
+          format: date-time
+          readOnly: true
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
@@ -3899,6 +3902,19 @@ components:
           type: string
           maxLength: 3
           minLength: 3
+        versie:
+          title: Versie
+          description: Het (automatische) versienummer van het INFORMATIEOBJECT. Deze
+            begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
+          type: integer
+          readOnly: true
+        begin_registratie:
+          title: Begin registratie
+          description: Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
+          type: string
+          format: date-time
+          readOnly: true
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
@@ -4260,6 +4276,19 @@ components:
           type: string
           maxLength: 3
           minLength: 3
+        versie:
+          title: Versie
+          description: Het (automatische) versienummer van het INFORMATIEOBJECT. Deze
+            begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
+          type: integer
+          readOnly: true
+        begin_registratie:
+          title: Begin registratie
+          description: Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
+          type: string
+          format: date-time
+          readOnly: true
         bestandsnaam:
           title: Bestandsnaam
           description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
