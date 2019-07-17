@@ -40,8 +40,8 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
 * API specificatie (OAS3) in
   [ReDoc](https://besluiten-api.vng.cloud/api/v1/schema/),
   [Swagger](https://petstore.swagger.io/?url=https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml),
-  [YAML](https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml),
-  [JSON](https://besluiten-api.vng.cloud/api/v1/schema/openapi.json) of
+  [YAML](https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml) of
+  [JSON](https://besluiten-api.vng.cloud/api/v1/schema/openapi.json)
 
 
 ## Specificatie van gedrag
