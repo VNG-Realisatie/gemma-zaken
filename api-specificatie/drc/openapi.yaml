@@ -799,7 +799,7 @@ paths:
     put:
       operationId: enkelvoudiginformatieobject_update
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
-      description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
+      description: "Dit cre\xC3\xABert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
         - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
       parameters:
@@ -966,7 +966,7 @@ paths:
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
-      description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
+      description: "Dit cre\xC3\xABert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
         - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
       parameters:
@@ -3479,8 +3479,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
-            \ eerste in een samenwerkingsketen heeft vastgelegd."
+            \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
+            \ als eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
           minLength: 1
@@ -3532,7 +3532,7 @@ components:
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
-            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
+            \ is voor het cre\xC3\xABren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1
@@ -3803,8 +3803,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
-            \ eerste in een samenwerkingsketen heeft vastgelegd."
+            \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
+            \ als eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
           minLength: 1
@@ -3856,7 +3856,7 @@ components:
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
-            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
+            \ is voor het cre\xC3\xABren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1
@@ -3908,7 +3908,7 @@ components:
             begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
           type: integer
           readOnly: true
-        begin_registratie:
+        beginRegistratie:
           title: Begin registratie
           description: Een datumtijd in ISO8601 formaat waarop deze versie van het
             INFORMATIEOBJECT is aangemaakt of gewijzigd.
@@ -3923,7 +3923,7 @@ components:
           maxLength: 255
         inhoud:
           title: Inhoud
-          description: "Binaire inhoud, in base64 ge\xEBncodeerd."
+          description: "Binaire inhoud, in base64 ge\xC3\xABncodeerd."
           type: string
           format: bytes
         bestandsomvang:
@@ -3967,7 +3967,7 @@ components:
           type: string
           format: date
           nullable: true
-        indicatie_gebruiksrecht:
+        indicatieGebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
             het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
@@ -4177,8 +4177,8 @@ components:
         bronorganisatie:
           title: Bronorganisatie
           description: "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
-            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
-            \ eerste in een samenwerkingsketen heeft vastgelegd."
+            \ die het informatieobject heeft gecre\xC3\xABerd of heeft ontvangen en\
+            \ als eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
           maxLength: 9
           minLength: 1
@@ -4230,7 +4230,7 @@ components:
         auteur:
           title: Auteur
           description: "De persoon of organisatie die in de eerste plaats verantwoordelijk\
-            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
+            \ is voor het cre\xC3\xABren van de inhoud van het INFORMATIEOBJECT."
           type: string
           maxLength: 200
           minLength: 1
@@ -4282,7 +4282,7 @@ components:
             begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
           type: integer
           readOnly: true
-        begin_registratie:
+        beginRegistratie:
           title: Begin registratie
           description: Een datumtijd in ISO8601 formaat waarop deze versie van het
             INFORMATIEOBJECT is aangemaakt of gewijzigd.
@@ -4297,7 +4297,7 @@ components:
           maxLength: 255
         inhoud:
           title: Inhoud
-          description: "Binaire inhoud, in base64 ge\xEBncodeerd."
+          description: "Binaire inhoud, in base64 ge\xC3\xABncodeerd."
           type: string
           format: bytes
         bestandsomvang:
@@ -4341,7 +4341,7 @@ components:
           type: string
           format: date
           nullable: true
-        indicatie_gebruiksrecht:
+        indicatieGebruiksrecht:
           title: Indicatie gebruiksrecht
           description: Indicatie of er beperkingen gelden aangaande het gebruik van
             het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
