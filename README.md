@@ -21,7 +21,7 @@ De volgende documenten beschrijven dit project:
 - De [dev-straat](docs/_content/themas/achtergronddocumentatie/ontwikkelstraat.md) beschrijft de development
   inrichting en tooling
 - [Technische documentatie](docs/_content/ontwikkelaars/index.md) voor developers
-- [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/dontwerpkeuzes.md) voor scrumteam, developers en stakeholders
+- [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/ontwerpkeuzes.md) voor scrumteam, developers en stakeholders
 
 Een gehoste versie van de documentatie is beschikbaar op https://zaakgerichtwerken.vng.cloud
 
