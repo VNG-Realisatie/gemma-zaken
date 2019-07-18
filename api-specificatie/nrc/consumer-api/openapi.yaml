@@ -4,7 +4,7 @@ info:
   description: API Specification to be able to receive notifications from the NRC
   contact:
     url: https://github.com/VNG-Realisatie/gemma-zaken
-  version: '1'
+  version: 1.0.0-rc1
 paths:
   /{webhooks_path}:
     post:
