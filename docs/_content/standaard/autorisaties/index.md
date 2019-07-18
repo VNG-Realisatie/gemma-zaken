@@ -48,14 +48,14 @@ De AC MAG bij de registratie van autorisaties die een of meer zaaktypen
 bevatten controleren of de zaaktypen bestaan. Merk op dat hiervoor het AC
 zelf geautoriseerd moet zijn om het ZTC te bevragen.
 
-##### Uniciteit van `client_ids`
+##### **<a name="ac-001">Uniciteit van `client_ids` ([ac-001](#ac-001))</a>**
 
 Een applicatie MAG zich met meerdere `client_id`s identificeren, waarbij er
 een `client_id` per provider gebruikt wordt. Als eenmaal een `client_id` aan een
 applicatie toegekend is, dan MAG dit `client_id` NIET opnieuw gebruikt worden.
 Een `client_id` identifieert uniek 1 en slechts 1 applicatie.
 
-##### Autorisatiesspecificatie
+##### **<a name="ac-002">Autorisatiesspecificatie ([ac-002](#ac-002))</a>**
 
 Autorisaties MOETEN gespecifieerd worden op 1 van de volgende manieren:
 

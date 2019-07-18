@@ -16,9 +16,9 @@ informatie-objecten-gedeelte van het RGBZ.
 
 ## Gegevensmodel
 
-Een informatieobject is een generiekere term voor het veelgebruikte begrip document dat beperkter van reikwijdte is. 
+Een informatieobject is een generiekere term voor het veelgebruikte begrip document dat beperkter van reikwijdte is.
 
-Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etc. 
+Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etc.
 
 ### Enkelvoudige en samengestelde informatieobjecten
 
@@ -139,7 +139,7 @@ voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 
 #### Archiveren
 
-**Vernietigen van informatieobjecten**
+**<a name="drc-008">Vernietigen van informatieobjecten ([drc-008](#drc-008))</a**
 
 Een `EnkelvoudigInformatieObject` MAG ALLEEN verwijderd worden indien er geen
 `ObjectInformatieObject`-en meer aan hangen. Indien er nog relaties zijn, dan
@@ -154,7 +154,7 @@ Onder gerelateerde objecten wordt begrepen:
   `EnkelvoudigInformatieObject`.
 - `audittrail` - de geschiedenis van het object.
 
-#### Locken en unlocken van documenten
+#### **<a name="drc-009">Locken en unlocken van documenten ([drc-009](#drc-009))</a>**
 
 Bij het bijwerken van `InformatieObject` (`enkelvoudiginformatieobject_update`,
 `enkelvoudiginformatieobject_partial_update`) MOET eerst een `lock` verkregen
