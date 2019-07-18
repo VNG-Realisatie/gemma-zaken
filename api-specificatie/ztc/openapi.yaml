@@ -18,7 +18,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0-alpha
+  version: 1.0.0-rc1
 security:
 - JWT-Claims: []
 paths:
@@ -6066,7 +6066,7 @@ components:
             \ de uitkomst van een zaak noodzakelijk zijn.\n* `initiator` - (Initiator)\
             \ Aanleiding geven tot de start van een zaak ..\n* `klantcontacter` -\
             \ (Klantcontacter) Het eerste aanspreekpunt zijn voor vragen van burgers\
-            \ en bedrijven ..\n* `zaakcoordinator` - (Zaakco\xC3\xB6rdinator) Er voor\
+            \ en bedrijven ..\n* `zaakcoordinator` - (Zaakco\xF6rdinator) Er voor\
             \ zorg dragen dat de behandeling van de zaak in samenhang uitgevoerd wordt\
             \ conform de daarover gemaakte afspraken.\n* `mede_initiator` - Mede-initiator"
           type: string
@@ -6137,8 +6137,7 @@ components:
         informeren:
           title: Informeren
           description: "Aanduiding die aangeeft of na het zetten van een STATUS van\
-            \ dit STATUSTYPE de Initiator moet worden ge\xC3\xAFnformeerd over de\
-            \ statusovergang."
+            \ dit STATUSTYPE de Initiator moet worden ge\xEFnformeerd over de statusovergang."
           type: boolean
     ZaakTypeInformatieObjectType:
       required:
@@ -6366,10 +6365,10 @@ components:
         indicatieInternOfExtern:
           title: Indicatie intern of extern
           description: "Een aanduiding waarmee onderscheid wordt gemaakt tussen ZAAKTYPEn\
-            \ die Intern respectievelijk Extern ge\xC3\xAFnitieerd worden. Indien\
-            \ van beide sprake kan zijn, dan prevaleert de externe initiatie.\n\n\
-            Uitleg bij mogelijke waarden:\n\n* `inkomend` - Inkomend\n* `intern` -\
-            \ Intern\n* `uitgaand` - Uitgaand"
+            \ die Intern respectievelijk Extern ge\xEFnitieerd worden. Indien van\
+            \ beide sprake kan zijn, dan prevaleert de externe initiatie.\n\nUitleg\
+            \ bij mogelijke waarden:\n\n* `inkomend` - Inkomend\n* `intern` - Intern\n\
+            * `uitgaand` - Uitgaand"
           type: string
           enum:
           - intern
@@ -6451,7 +6450,7 @@ components:
           type: string
         verantwoordingsrelatie:
           description: "De relatie tussen ZAAKen van dit ZAAKTYPE en de beleidsmatige\
-            \ en/of financi\xC3\xABle verantwoording."
+            \ en/of financi\xEBle verantwoording."
           type: array
           items:
             title: Verantwoordingsrelatie
