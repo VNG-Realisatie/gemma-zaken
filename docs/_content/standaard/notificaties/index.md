@@ -91,6 +91,40 @@ verwijderd wordt, dan MOET de audittrail meeverwijderd worden.
 
 Zie de API spec voor de betekenis van de audittrailattributen.
 
+## Betrouwbaarheidsgaranties ("reliability" niveau)
+
+Het Pub/Sub karakter van de notificaties API kent een aantal faalmogelijheden:
+
+* de notificaties API kan zelf niet bereikbaar zijn
+* de ontvanger van notificaties kan (tijdelijk) niet bereikbaar zijn
+* de verzender van notificaties kan een defect hebben waardoor een operatie wel
+  doorgevoerd wordt, maar de notificatie niet verstuurd wordt
+
+In alle gevallen is er dus informatieverlies.
+
+Elke schakel in deze keten ZOU MOETEN de maximale inspanning doen om geen
+berichten verloren te laten gaan. Consumers MOETEN er tegelijkertijd ook van
+uit gaan dat een bericht kan gemist worden. Applicaties die heel hard leunen
+op notificaties zouden dan ook moeten een backup-mechanisme voorzien, zoals
+bijvoorbeeld periodiek pollen van data bij een provider.
+
+Er zijn een aantal suggesties om de reliability hoog te houden:
+
+* voer API operaties uit in een database transactie, waarbij de notificatie
+  onderdeel is van de transactie. Indien het niet lukt om de notificatie te
+  versturen, dan wordt de transactie teruggerold.
+* toepassen van een retry-mechanisme: indien een notificatie niet verstuurd of
+  afgeleverd kan worden, dan kan dit opnieuw geprobeerd worden, eventueel met
+  exponentiële back-off
+* maak gebruik van redundante structuur. De referentie-implementatie wordt
+  gehost in een kubernetes-cluster met redundantie. Als een _pod_ crasht, dan
+  zijn er nog 2 andere _pods_ die notificaties kunnen ontvangen en versturen.
+  Updates worden als _rolling release_ uitgevoerd, waardoor je heel dicht bij
+  100% availability komt
+* pas een buffer toe voor notificaties als ontvanger - indien je applicatie
+  niet beschikbaar is, dan kan je nog steeds de notificaties ontvangen en later
+  afhandelen als de applicatie weer online is
+
 
 ## Overige documentatie
 
