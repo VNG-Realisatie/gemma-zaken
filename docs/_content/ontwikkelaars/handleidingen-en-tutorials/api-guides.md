@@ -4,7 +4,7 @@ weight: 90
 ---
 
 In onderstaande voorbeelden wordt gebruik gemaakt van de door VNG gehoste
-referentie implementaties van de verschillende componenten.
+referentie implementaties van de verschillende componenten. Voor het gebruik van de gehoste referentie-implementatie gelden [deze gebruiksvoorwaarden](../../beheer/gebruiksvoorwaarden).
 
 ## Voorbereidingen
 
