@@ -94,3 +94,7 @@ De Opdrachtgever, [VNG Realisatie](https://github.com/VNG-Realisatie/)
 Dat is niet het doel en wordt niet aanbevolen. Echter, er worden  kleine Open
 Source componenten gerealiseerd waar leveranciers wellicht geen uitbreidingen
 op hoeven te doen om ze in de praktijk te gebruiken.
+
+#### Wanneer wordt een Release Candidate vastgesteld als Release?
+
+Wanneer in de release candidate geen gebreken gevonden zijn en deze daarmee voldoende stabiel is wordt deze release candidate een release. De periode voor deze stabiliteit is vastgesteld op 2 maanden, ingaande vanaf de dag waarop de release candidate uitgebracht is. Onder gebreken wordt verstaan fouten in de standaard. Eventuele verbeteringen of verduidelijkingen in documentatie waarbij geen aanpassingen in de API's noodzakelijk zijn worden niet beschouwd als reden om een nieuwe release candidate uit te brengen.
