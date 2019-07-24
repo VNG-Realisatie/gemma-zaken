@@ -72,6 +72,7 @@
 #     server {
 #         listen       80;
 #         server_name  localhost;
+#         client_max_body_size {{ service.min_upload_size }};
 
 #         location / {
 #             proxy_pass http://{{ service.name }}:8000;

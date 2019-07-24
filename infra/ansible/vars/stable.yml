@@ -29,6 +29,7 @@ services:
   - name: drc
     templates: ../k8s/drc/
     image_tag: '1.0.0-rc1'
+    min_upload_size: 4294967296
 
   - name: nrc
     templates: ../k8s/nrc/

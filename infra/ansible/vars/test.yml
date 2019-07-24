@@ -26,6 +26,7 @@ services:
   - name: drc-test
     templates: ../k8s/drc/
     image_tag: develop
+    min_upload_size: 4294967296
 
   - name: nrc-test
     templates: ../k8s/nrc/
