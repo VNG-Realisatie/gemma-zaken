@@ -62,13 +62,6 @@ een resource.
 
 De volgende repositories bevatten ondersteunende software:
 
-**Overige registratiecomponenten (ORC)**
-Het
-[ORC](https://github.com/VNG-Realisatie/gemma-mock-overigeregistratiecomponenten)
-dient ter ondersteuning van gegevens waarvan onduidelijk is waar ze leven. Het
-kan zijn dat hier later een informatiemodel voor komt en ze naar een andere
-component verhuizen.
-
 **gemma-zaken-common**
 De [gemma-zaken-common](https://github.com/VNG-Realisatie/gemma-zaken-common)
 repository bevat code en tooling die gedeeld wordt tussen componenten. Het is
