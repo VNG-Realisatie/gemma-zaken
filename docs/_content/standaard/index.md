@@ -18,10 +18,12 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 
 ## Algemeen
 
-De API's voor Zaakgericht Werken-standaard bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
+De standaard "API's voor Zaakgericht Werken" bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
 
 Deze standaardisatie zorgt vervolgens voor gegarandeerde interoperabiliteit
 tussen registraties (providers) en consumers die van de API's gebruik maken.
+
+We beschouwen de Notificaties en Autorisaties API als onderdeel van de standaard, maar verwachten een doorontwikkeling als generieke API's voor het gemeentelijk gegevenslandschap. Dat geldt ook voor de Documenten API en Besluiten API.
 
 In de figuur hieronder is een overzicht weergegeven van de API's voor Zaakgericht werken. De Catalogi API en Zaken API zijn alleen voor zaakgericht werken bedoeld, en hebben geen functie daarbuiten. De Documenten API en Besluiten API zullen ook buiten zaakgericht werken toepassingen krijgen. Immers, niet alle documenten zijn zaakgericht en niet alle besluiten zullen in de context van een zaak worden genomen. Denk bij het laatste bijv. aan raadsbesluiten.
 
@@ -30,6 +32,23 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 ![overzicht API's](apis.png)
 
 Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
+
+
+## Afhankelijkheden
+
+Het is niet verplicht alle API's te implementeren, maar er zijn wel afhankelijkheden. Als je bijv. de Zaken API implementeert, heb je de Catalogi API nodig. Als je een van Documenten, Zaken, Catalogi, Besluiten implementeert, heb je een Notificaties en Autorisaties API nodig. etc. Die afhankelijkheden betekenen niet dat je het ook zelf moet implementeren, je kunt gebruik maken van API's van anderen.
+
+De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelijk van kolom):
+
+|                                | Catalogi | Zaken     | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Gemeentelijke selectielijst API |
+|--------------------------------|:----------:|:-----------:|:------------:|:-----------:|:--------------:|:--------------:|:-----------------:|:-----------------------------:|
+| Catalogi                       |          |           |            |           |      X       |              |                 | X |
+| Zaken                          |    X     |           | optioneel  | optioneel |      X       |      X       |                 | X?  |
+| Documenten                     |    X     | optioneel |            | optioneel? |      X       |      X       |                 |   |
+| Besluiten                      |    X     |           | optioneel  | optioneel |      X       |      X       |                 |   |
+| Autorisaties                   |          |           |            |           |      X       |      X       |                 |   |
+| Notificaties                   |          |           |            |           |      X       |              |                 |   |
+| Notificaties   voor consumers  |          |           |            |           |              |              |                 |   |
 
 
 ## Overkoepelend gegevensmodel
