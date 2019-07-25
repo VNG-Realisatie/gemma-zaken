@@ -102,13 +102,13 @@ Het Pub/Sub karakter van de notificaties API kent een aantal faalmogelijheden:
 
 In alle gevallen is er dus informatieverlies.
 
-Elke schakel in deze keten ZOU MOETEN de maximale inspanning doen om geen
+Elke schakel in deze keten ZOU de maximale inspanning MOETEN doen om geen
 berichten verloren te laten gaan. Consumers MOETEN er tegelijkertijd ook van
-uit gaan dat een bericht kan gemist worden. Applicaties die heel hard leunen
-op notificaties zouden dan ook moeten een backup-mechanisme voorzien, zoals
-bijvoorbeeld periodiek pollen van data bij een provider.
+uit gaan dat een bericht verloren kan gaan. Applicaties die heel afhankelijk
+zijn van notificaties zouden dan ook moeten een backup-mechanisme voorzien,
+zoals bijvoorbeeld periodiek pollen van data bij een provider.
 
-Er zijn een aantal suggesties om de reliability hoog te houden:
+Er zijn een aantal suggesties om de reliability te verhogen:
 
 * voer API operaties uit in een database transactie, waarbij de notificatie
   onderdeel is van de transactie. Indien het niet lukt om de notificatie te
@@ -124,6 +124,8 @@ Er zijn een aantal suggesties om de reliability hoog te houden:
 * pas een buffer toe voor notificaties als ontvanger - indien je applicatie
   niet beschikbaar is, dan kan je nog steeds de notificaties ontvangen en later
   afhandelen als de applicatie weer online is
+
+We eisen deze maatregelen dus niet in de specificatie.
 
 
 ## Overige documentatie

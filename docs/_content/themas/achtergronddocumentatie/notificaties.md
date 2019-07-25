@@ -381,9 +381,5 @@ hoog voor de beschikbare resources.
 
 De hosting in een Kubernetes cluster met redundante pods beschermen voldoende
 tegen onverwachte crashes. Daarnaast worden de berichten gelogd en is het
-mogelijk om met een developer-interventie notificaties opnieuw te versturen
-die niet afgeleverd konden worden.
-
-De Autorisaties-API maakt zelf gebruik van de notificaties API om caches te
-invalidaten, dus we geloven zelf dat dit voldoende is qua reliability voor
-het aanbieden van gehoste referentieimplementaties.
+mogelijk om met een developer-interventie notificaties die niet afgeleverd
+konden worden, opnieuw te versturen.
