@@ -31,6 +31,10 @@ spec:
             value: {{ db_host }}
           - name: DB_NAME
             value: {{ service.name }}
+          - name: RABBITMQ_HOST
+            value: rabbitmq-{{ service.name }}
+          - name: CELERY_LOGLEVEL
+            value: WARNING
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
@@ -61,5 +65,4 @@ spec:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: CELERY_RESULT_BACKEND
-        command: ["celery"]
-        args: ["worker", "--app", "nrc", "-l", "info", "--workdir", "src"]
+        command: ["/celery_worker.sh"]
