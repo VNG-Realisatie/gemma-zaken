@@ -9150,6 +9150,7 @@ components:
           type: string
           format: uri
           readOnly: true
+          nullable: true
         kenmerken:
           description: Lijst van kenmerken. Merk op dat refereren naar gerelateerde
             objecten beter kan via `ZaakObject`.
@@ -9218,6 +9219,7 @@ components:
           type: string
           format: uri
           readOnly: true
+          nullable: true
     GeoWithin:
       title: Zaakgeometrie
       type: object
