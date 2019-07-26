@@ -75,6 +75,8 @@ spec:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: SENTRY_DSN
+          - name: MIN_UPLOAD_SIZE
+            value: "{{ service.min_upload_size }}"
         volumeMounts:
           - name: private-storage
             mountPath: /app/private-media
