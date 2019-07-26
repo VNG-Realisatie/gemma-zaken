@@ -1,21 +1,87 @@
 openapi: 3.0.0
 info:
   title: Documenten API
-  description: "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
-    In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\
-    \ \nINFORMATIEOBJECT is een digitaal document voorzien van meta-gegevens. \nINFORMATIEOBJECTen\
-    \ kunnen aan andere objecten zoals zaken en besluiten worden \ngerelateerd (maar\
-    \ dat hoeft niet) en kunnen gebruiksrechten hebben. \n\nGEBRUIKSRECHTEN leggen\
-    \ voorwaarden op aan het gebruik van het INFORMATIEOBJECT\n(buiten raadpleging).\
-    \ Deze GEBRUIKSRECHTEN worden niet door de API gevalideerd\nof gehandhaafd.\n\n\
-    De typering van INFORMATIEOBJECTen is in de Catalogi API (ZTC) ondergebracht in\n\
-    de vorm van INFORMATIEOBJECTTYPEn.\n\n**Afhankelijkheden**\n\nDeze API is afhankelijk\
-    \ van:\n\n* Catalogi API\n* Notificaties API\n* Autorisaties API *(optioneel)*\n\
-    * Zaken API *(optioneel)*\n\n**Autorisatie**\n\nDeze API vereist autorisatie.\
-    \ Je kan de\n[token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens\
-    \ te\ngenereren.\n\n**Notificaties**\n\nDeze API publiceert notificaties op het\
-    \ kanaal `documenten`.\n\n**Handige links**\n\n* [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)\n\
-    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)\n"
+  description: 'Een API om een documentregistratiecomponent (DRC) te benaderen.
+
+
+    In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een
+
+    INFORMATIEOBJECT is een digitaal document voorzien van meta-gegevens.
+
+    INFORMATIEOBJECTen kunnen aan andere objecten zoals zaken en besluiten worden
+
+    gerelateerd (maar dat hoeft niet) en kunnen gebruiksrechten hebben.
+
+
+    GEBRUIKSRECHTEN leggen voorwaarden op aan het gebruik van het INFORMATIEOBJECT
+
+    (buiten raadpleging). Deze GEBRUIKSRECHTEN worden niet door de API gevalideerd
+
+    of gehandhaafd.
+
+
+    De typering van INFORMATIEOBJECTen is in de Catalogi API (ZTC) ondergebracht in
+
+    de vorm van INFORMATIEOBJECTTYPEn.
+
+
+    **Uploaden van bestanden**
+
+
+    Binnen deze API bestaan een aantal endpoints die binaire data ontvangen, al
+
+    dan niet base64-encoded. Webservers moeten op deze endpoints een minimale
+
+    request body size van 4.0 GiB ondersteunen. Dit omvat de JSON van de
+
+    metadata EN de base64-encoded bestandsdata. Hou hierbij rekening met de
+
+    overhead van base64, die ongeveer 33% bedraagt in worst-case scenario''s. Dit
+
+    betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot
+
+    mag zijn.
+
+
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Catalogi API
+
+    * Notificaties API
+
+    * Autorisaties API *(optioneel)*
+
+    * Zaken API *(optioneel)*
+
+
+    **Autorisatie**
+
+
+    Deze API vereist autorisatie. Je kan de
+
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+
+    genereren.
+
+
+    **Notificaties**
+
+
+    Deze API publiceert notificaties op het kanaal `documenten`.
+
+
+    **Handige links**
+
+
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+
+    '
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl
@@ -313,6 +379,18 @@ paths:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '413':
+          description: Request entity too large
           headers:
             API-version:
               schema:
@@ -920,6 +998,18 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Fout'
+        '413':
+          description: Request entity too large
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
         '415':
           description: Unsupported media type
           headers:
@@ -1077,6 +1167,18 @@ paths:
                 $ref: '#/components/schemas/Fout'
         '410':
           description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '413':
+          description: Request entity too large
           headers:
             API-version:
               schema:
