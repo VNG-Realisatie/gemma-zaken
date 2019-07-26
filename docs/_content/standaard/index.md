@@ -43,8 +43,8 @@ De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelij
 |                                | Catalogi | Zaken     | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Gemeentelijke selectielijst API |
 |--------------------------------|:----------:|:-----------:|:------------:|:-----------:|:--------------:|:--------------:|:-----------------:|:-----------------------------:|
 | Catalogi                       |          |           |            |           |      X       |              |                 | X |
-| Zaken                          |    X     |           | optioneel  | optioneel |      X       |      X       |                 | X?  |
-| Documenten                     |    X     | optioneel |            | optioneel? |      X       |      X       |                 |   |
+| Zaken                          |    X     |           | optioneel  | optioneel |      X       |      X       |                 |   |
+| Documenten                     |    X     | optioneel |            | optioneel |      X       |      X       |                 |   |
 | Besluiten                      |    X     |           | optioneel  | optioneel |      X       |      X       |                 |   |
 | Autorisaties                   |          |           |            |           |      X       |      X       |                 |   |
 | Notificaties                   |          |           |            |           |      X       |              |                 |   |
