@@ -5,9 +5,13 @@ services:
     ports:
       - "${ZRC_UWSGI_PORT:-8000}:8000"
 
-  drc_web:
+  drc_nginx:
+    environment:
+      - DRC_UWSGI_PORT=8000
+      - DRC_NGINX_PORT=${DRC_NGINX_PORT:-80}
+      - DRC_HOST=drc_web
     ports:
-      - "${DRC_UWSGI_PORT:-8001}:8000"
+      - "${DRC_NGINX_PORT:-8001}:80"
 
   ztc_web:
     ports:
