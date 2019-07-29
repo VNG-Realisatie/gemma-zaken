@@ -4925,7 +4925,11 @@ paths:
     post:
       operationId: zaaktype_create
       summary: Maak een ZAAKTYPE aan.
-      description: Maak een ZAAKTYPE aan.
+      description: "Maak een ZAAKTYPE aan.\n\nEr wordt gevalideerd op:\n- geldigheid\
+        \ `catalogus` URL, dit moet een catalogus binnen dezelfde API zijn\n- Uniciteit\
+        \ `catalogus` en `omschrijving`. Dezelfde omeschrijving mag enkel\n  opnieuw\
+        \ gebruikt worden als het zaaktype een andere geldigheidsperiode\n  kent dan\
+        \ bestaande zaaktypen."
       responses:
         '201':
           description: Created
@@ -5693,15 +5697,15 @@ components:
 
             * `getal` - Getal
 
-            * `datum (jjjjmmdd)` - Datum
+            * `datum` - Datum
 
-            * `datum/tijd (jjjjmmdduummss)` - Datum/tijd'
+            * `datum_tijd` - Datum/tijd'
           type: string
           enum:
           - tekst
           - getal
-          - datum (jjjjmmdd)
-          - datum/tijd (jjjjmmdduummss)
+          - datum
+          - datum_tijd
         lengte:
           title: Lengte
           description: Het aantal karakters (lengte) waarmee waarden van de EIGENSCHAP
