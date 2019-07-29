@@ -7262,16 +7262,16 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `M` - Man
+            * `m` - Man
 
-            * `V` - Vrouw
+            * `v` - Vrouw
 
-            * `O` - Onbekend'
+            * `o` - Onbekend'
           type: string
           enum:
-          - M
-          - V
-          - O
+          - m
+          - v
+          - o
         geboortedatum:
           title: Geboortedatum
           type: string
@@ -7318,25 +7318,25 @@ components:
           description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
           type: string
           enum:
-          - Besloten Vennootschap
-          - Cooperatie, Europees Economische Samenwerking
-          - Europese Cooperatieve Venootschap
-          - Europese Naamloze Vennootschap
-          - Kerkelijke Organisatie
-          - Naamloze Vennootschap
-          - Onderlinge Waarborg Maatschappij
-          - Overig privaatrechtelijke rechtspersoon
-          - Stichting
-          - Vereniging
-          - Vereniging van Eigenaars
-          - Publiekrechtelijke Rechtspersoon
-          - Vennootschap onder Firma
-          - Maatschap
-          - Rederij
-          - Commanditaire vennootschap
-          - Kapitaalvennootschap binnen EER
-          - Overige buitenlandse rechtspersoon vennootschap
-          - Kapitaalvennootschap buiten EER
+          - besloten_vennootschap
+          - cooperatie_europees_economische_samenwerking
+          - europese_cooperatieve_venootschap
+          - europese_naamloze_vennootschap
+          - kerkelijke_organisatie
+          - naamloze_vennootschap
+          - onderlinge_waarborg_maatschappij
+          - overig_privaatrechtelijke_rechtspersoon
+          - stichting
+          - vereniging
+          - vereniging_van_eigenaars
+          - publiekrechtelijke_rechtspersoon
+          - vennootschap_onder_firma
+          - maatschap
+          - rederij
+          - commanditaire_vennootschap
+          - kapitaalvennootschap_binnen_eer
+          - overige_buitenlandse_rechtspersoon_vennootschap
+          - kapitaalvennootschap_buiten_eer
         bezoekadres:
           title: Bezoekadres
           description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
@@ -7975,37 +7975,37 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Bak` - Bak
+            * `bak` - Bak
 
-            * `Bord` - Bord
+            * `bord` - Bord
 
-            * `Installatie` - Installatie
+            * `installatie` - Installatie
 
-            * `Kast` - Kast
+            * `kast` - Kast
 
-            * `Mast` - Mast
+            * `mast` - Mast
 
-            * `Paal` - Paal
+            * `paal` - Paal
 
-            * `Sensor` - Sensor
+            * `sensor` - Sensor
 
-            * `Straatmeubilair` - Straatmeubilair
+            * `straatmeubilair` - Straatmeubilair
 
-            * `Waterinrichtingselement` - Waterinrichtingselement
+            * `waterinrichtingselement` - Waterinrichtingselement
 
-            * `Weginrichtingselement` - Weginrichtingselement'
+            * `weginrichtingselement` - Weginrichtingselement'
           type: string
           enum:
-          - Bak
-          - Bord
-          - Installatie
-          - Kast
-          - Mast
-          - Paal
-          - Sensor
-          - Straatmeubilair
-          - Waterinrichtingselement
-          - Weginrichtingselement
+          - bak
+          - bord
+          - installatie
+          - kast
+          - mast
+          - paal
+          - sensor
+          - straatmeubilair
+          - waterinrichtingselement
+          - weginrichtingselement
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
@@ -8074,55 +8074,55 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Keermuur` - Keermuur
+            * `keermuur` - Keermuur
 
-            * `Overkluizing` - Overkluizing
+            * `overkluizing` - Overkluizing
 
-            * `Duiker` - Duiker
+            * `duiker` - Duiker
 
-            * `Faunavoorziening` - Faunavoorziening
+            * `faunavoorziening` - Faunavoorziening
 
-            * `Vispassage` - Vispassage
+            * `vispassage` - Vispassage
 
-            * `Bodemval` - Bodemval
+            * `bodemval` - Bodemval
 
-            * `Coupure` - Coupure
+            * `coupure` - Coupure
 
-            * `Ponton` - Ponton
+            * `ponton` - Ponton
 
-            * `Voorde` - Voorde
+            * `voorde` - Voorde
 
-            * `Hoogspanningsmast` - Hoogspanningsmast
+            * `hoogspanningsmast` - Hoogspanningsmast
 
-            * `Gemaal` - Gemaal
+            * `gemaal` - Gemaal
 
-            * `Perron` - Perron
+            * `perron` - Perron
 
-            * `Sluis` - Sluis
+            * `sluis` - Sluis
 
-            * `Strekdam` - Strekdam
+            * `strekdam` - Strekdam
 
-            * `Steiger` - Steiger
+            * `steiger` - Steiger
 
-            * `Stuw` - Stuw'
+            * `stuw` - Stuw'
           type: string
           enum:
-          - Keermuur
-          - Overkluizing
-          - Duiker
-          - Faunavoorziening
-          - Vispassage
-          - Bodemval
-          - Coupure
-          - Ponton
-          - Voorde
-          - Hoogspanningsmast
-          - Gemaal
-          - Perron
-          - Sluis
-          - Strekdam
-          - Steiger
-          - Stuw
+          - keermuur
+          - overkluizing
+          - duiker
+          - faunavoorziening
+          - vispassage
+          - bodemval
+          - coupure
+          - ponton
+          - voorde
+          - hoogspanningsmast
+          - gemaal
+          - perron
+          - sluis
+          - strekdam
+          - steiger
+          - stuw
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
@@ -8369,19 +8369,19 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Zee` - Zee
+            * `zee` - Zee
 
-            * `Waterloop` - Waterloop
+            * `waterloop` - Waterloop
 
-            * `Watervlakte` - Watervlakte
+            * `watervlakte` - Watervlakte
 
-            * `Greppel, droge sloot` - Greppel, droge sloot'
+            * `greppel_droge_sloot` - Greppel, droge sloot'
           type: string
           enum:
-          - Zee
-          - Waterloop
-          - Watervlakte
-          - Greppel, droge sloot
+          - zee
+          - waterloop
+          - watervlakte
+          - greppel_droge_sloot
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
