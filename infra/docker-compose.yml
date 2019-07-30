@@ -106,7 +106,7 @@ services:
   nrc_web:
     image: vngr/gemma-notifications:latest
     environment:
-      - DJANGO_SETTINGS_MODULE=notifications.conf.docker
+      - DJANGO_SETTINGS_MODULE=nrc.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
       - DB_HOST=nrc_db
       - IS_HTTPS=0
@@ -122,14 +122,14 @@ services:
   nrc_celery:
     image: vngr/gemma-notifications:latest
     environment:
-      - DJANGO_SETTINGS_MODULE=notifications.conf.docker
+      - DJANGO_SETTINGS_MODULE=nrc.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
       - DB_HOST=nrc_db
       - IS_HTTPS=0
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
-    command: celery worker --app=notifications -l info --workdir=src
+    command: celery worker --app=nrc -l info --workdir=src
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
