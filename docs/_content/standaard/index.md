@@ -29,7 +29,7 @@ In de figuur hieronder is een overzicht weergegeven van de API's voor Zaakgerich
 
 Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w. Notificaties API, Autorisaties API en de Referentielijsten API.
 
-![overzicht API's](apis.png)
+![overzicht API's](apis.png){:width="700px"}
 
 Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
 
