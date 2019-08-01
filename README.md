@@ -56,7 +56,8 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
 
 **Ondersteunende tooling**
 
-* [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
+* [![Build Status][vng-api-common-build-status]][vng-api-common]
+  [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
 * [![Build Status][zit-build-status]][zit-stable]
   [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
 * [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
@@ -83,3 +84,6 @@ Copyright © VNG Realisatie 2018
 [nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
 [ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
 [ac-stable]: http://jenkins.nlx.io/job/gemma-autorisatiecomponent-stable
+
+[vng-api-common-build-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
+[vng-api-common]: https://travis-ci.org/VNG-Realisatie/vng-api-common
