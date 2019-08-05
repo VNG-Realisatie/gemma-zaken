@@ -1,37 +1,37 @@
 ---
-title: "Archiveringsproces *"
+title: "Archiveringsproces \*"
 date: '25-02-2019'
 weight: 70
 ---
 
 Zie: [#751](https://github.com/VNG-Realisatie/gemma-zaken/issues/751)
 
-\* Term gekozen t.b.v. de leesbaarheid. Echter, het gaat met name er om dat 
+\* Term gekozen t.b.v. de leesbaarheid. Echter, het gaat met name er om dat
 organisaties hun informatiehuishouding op orde hebben en houden.
 
 In essentie bestaat het archiveringsproces uit 3 stappen:
 
 1. Proces in het kort:
    1. een zaak wordt afgesloten met een *einddatum*;
-   2. doorloopt hierna eerst een *procestermijn* (dit is de periode waarin de 
-      zaak nog gebruikt wordt voor de taakuitoefening; bijv. een zaak waarin 
-      een bouwvergunning is verleend, blijft in de procestermijn ten behoeve 
+   2. doorloopt hierna eerst een *procestermijn* (dit is de periode waarin de
+      zaak nog gebruikt wordt voor de taakuitoefening; bijv. een zaak waarin
+      een bouwvergunning is verleend, blijft in de procestermijn ten behoeve
       van toezicht);
    3. het einde van de procestermijn heet de *brondatum*;
    4. hierna begint de *archiefactietermijn* ook wel *bewaartermijn* genoemd;
-   5. na de *bewaartermijn* moet de archiefactie worden uitgevoerd, hetzij 
+   5. na de *bewaartermijn* moet de archiefactie worden uitgevoerd, hetzij
       (permanent) bewaren hetzij vernietigen;
-2. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en 
+2. Een zaak-dossier wordt *blijvend bewaard* of kan worden *vernietigd* en
    staat aangegeven op `Zaak.Archiefnominatie`.
-3. Na de *bewaartermijn*, dus vanaf de `Zaak.Archiefactiedatum` **moet** het 
-   zaak-dossier op een moment worden *overgebracht naar een 
+3. Na de *bewaartermijn*, dus vanaf de `Zaak.Archiefactiedatum` **moet** het
+   zaak-dossier op een moment worden *overgebracht naar een
    archiefbewaarplaats* of worden *vernietigd*.
 
 Opmerkingen:
 
-1. Een zaak-dossier **mag** eerder worden *overgebracht naar een 
+1. Een zaak-dossier **mag** eerder worden *overgebracht naar een
    archiefbewaarplaats*.
-2. Het is niet altijd, vanaf het aanmaken van een zaak, duidelijk wat er mee 
+2. Het is niet altijd, vanaf het aanmaken van een zaak, duidelijk wat er mee
    moet gebeuren of wanneer dat moet gebeuren.
 3. Het archiveringsproces doorloopt verschillende stadia te volgen via de
    `Zaak.Archiefstatus`.
@@ -42,16 +42,16 @@ Opmerkingen:
 
 Zie: [#750](https://github.com/VNG-Realisatie/gemma-zaken/issues/750)
 
-Een zaakdossier is het geheel van zaak-metadata, bijbehorende 
-informatieobjecten incl. metadata, statussen, resultaten en besluiten, en 
+Een zaakdossier is het geheel van zaak-metadata, bijbehorende
+informatieobjecten incl. metadata, statussen, resultaten en besluiten, en
 gerelateerde entiteiten:
 
 * De deelzaken (of hoofdzaak)
 * De relatie met vervolgzaken (of is zelf vervolgzaak)
 * Gerelateerde zaken (via zakenrelatie)
 * Zaakobjecten: objecten uit het RGBZ of RSGB waarop de zaak betrekking heeft
-* Andere zaakobjecten: objecten waarop de zaak betrekking heeft maar die geen 
-  onderdeel uitmaken van RGBZ of RSGB. Dit kunnen business objecten zoals 
+* Andere zaakobjecten: objecten waarop de zaak betrekking heeft maar die geen
+  onderdeel uitmaken van RGBZ of RSGB. Dit kunnen business objecten zoals
   melding of aanvraag zijn.
 
 ### Wat gebeurt er als een zaak-dossier *blijvend bewaard* wordt?
@@ -62,21 +62,21 @@ Het zaak-dossier wordt overgedragen naar een bewaarplaats.
 
 Het vernietigen is het definitief verwijderen van data volgens de NEN2082 (Eis 80):
 
-> Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze 
+> Vernietigen van archiefstukken/archiefbestanddelen moet zo gebeuren dat deze
 > niet meer op enigerlei wijze kunnen worden gereproduceerd.
 
 ### Bepalen van de aan archivering gerelateerde attributen voor `ResultaatType`
 
 Zie: [Selectielijst gemeenten en intergemeentelijke organen 2017](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
 
-Het ZTC dient ingericht te worden volgens de selectielijst. Het ZTC dient 
+Het ZTC dient ingericht te worden volgens de selectielijst. Het ZTC dient
 validaties uit te voeren om te zorgen dat inrichting correct is.
 
 *Voorbeeld*
 
-Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld 
-op `eigenschap` moet het ZTC valideren dat het betreffende `ZaakType` een 
-`Eigenschap` heeft met als `naam`, de waarde die staat in 
+Als `ResultaatType.BrondatumArchiefprocedure.Afleidingswijze` wordt ingesteld
+op `eigenschap` moet het ZTC valideren dat het betreffende `ZaakType` een
+`Eigenschap` heeft met als `naam`, de waarde die staat in
 `ResultaatType.BrondatumArchiefprocedure.datumkenmerk`.
 
 ### Berekenen van de `Zaak.Archiefactiedatum`
@@ -161,26 +161,26 @@ User Story: [#349](https://github.com/VNG-Realisatie/gemma-zaken/issues/349)
 
   Naam | Definitie
   --- | ---
-  `Blijvend bewaren` | Het zaakdossier moet bewaard blijven en op de Archiefactiedatum overgedragen worden naar een archiefbewaarplaats. 
+  `Blijvend bewaren` | Het zaakdossier moet bewaard blijven en op de Archiefactiedatum overgedragen worden naar een archiefbewaarplaats.
   `Vernietigen` | Het zaakdossier moet op of na de Archiefactiedatum vernietigd worden.
-    
+
 * `Zaak.Archiefstatus` De fase waarin het zaakdossier zich qua archivering bevindt:
 
   Naam | Definitie
   --- | ---
   `nog te archiveren` | De zaak cq. het zaakdossier is nog niet als geheel gearchiveerd (*standaard waarde*).
   `gearchiveerd` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt.
-  `gearchiveerd (procestermijn onbekend)` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum kan nog niet bepaald worden. 
+  `gearchiveerd (procestermijn onbekend)` | De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum kan nog niet bepaald worden.
   `vernietigd` | De zaak cq. het zaakdossier is vernietigd. *Niet geïmplementeerd omdat vernietigde zaken echt weg zijn.*
   `overgedragen` | De zaak cq. het zaakdossier is overgebracht naar een archiefbewaarplaats.
 
-* `Zaak.Archiefactiedatum` De datum waarop het gearchiveerde zaakdossier vernietigd moet worden dan wel overgebracht moet worden naar een archiefbewaarplaats. 
+* `Zaak.Archiefactiedatum` De datum waarop het gearchiveerde zaakdossier vernietigd moet worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
 
-* `ResultaatType.Archiefnominatie` Aanduiding die aangeeft of `Zaak`en met een resultaat van dit `ResultaatType` blijvend moeten worden bewaard of (op termijn) moeten worden vernietigd . 
+* `ResultaatType.Archiefnominatie` Aanduiding die aangeeft of `Zaak`en met een resultaat van dit `ResultaatType` blijvend moeten worden bewaard of (op termijn) moeten worden vernietigd .
 
 * `ResultaatType.Procestermijn` (*optioneel*) De periode dat het zaakdossier na afronding van de zaak actief gebruikt en/of geraadpleegd wordt ter ondersteuning van de taakuitoefening van de organisatie.
 
-* `ResultaatType.Archiefactietermijn` De termijn, na het vervallen van het bedrijfsvoeringsbelang, waarna het zaakdossier (de `Zaak` met alle bijbehorende `Informatieobject`en) van een `Zaak` met een resultaat van dit `ResultaatType` vernietigd of overgebracht (naar een archiefbewaarplaats) moet worden. 
+* `ResultaatType.Archiefactietermijn` De termijn, na het vervallen van het bedrijfsvoeringsbelang, waarna het zaakdossier (de `Zaak` met alle bijbehorende `Informatieobject`en) van een `Zaak` met een resultaat van dit `ResultaatType` vernietigd of overgebracht (naar een archiefbewaarplaats) moet worden.
 
 * `ResultaatType.BrondatumArchiefprocedure`
 
@@ -194,17 +194,17 @@ User Story: [#349](https://github.com/VNG-Realisatie/gemma-zaken/issues/349)
     `gerelateerde zaak` | De termijn start op de datum waarop de gerelateerde zaak is afgehandeld (ZAAK.Einddatum of ZAAK.Gerelateerde_zaak.Einddatum in het RGBZ). | `ResultaatType.ZaakType` heeft gerelateerd `ZaakType`
     `hoofdzaak` | De termijn start op de datum waarop de gerelateerde zaak is afgehandeld, waarvan de zaak een deelzaak is (ZAAK.Einddatum van de hoofdzaak in het RGBZ). | `ResultaatType.ZaakType` is deelzaaktype van `ZaakType`
     `ingangsdatum besluit` | De termijn start op de datum waarop het besluit van kracht wordt (BESLUIT.Ingangsdatum in het RGBZ). | `ResultaatType.ZaakType` heeft relevant `BesluitType`
-    `termijn` | De termijn start een vast aantal jaren na de datum waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ). 
+    `termijn` | De termijn start een vast aantal jaren na de datum waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ).
     `vervaldatum besluit` | De termijn start op de dag na de datum waarop het besluit vervalt (BESLUIT.Vervaldatum in het RGBZ). | `ResultaatType.ZaakType` heeft relevant `BesluitType`
     `zaakobject` | De termijn start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking heeft (bijvoorbeeld de overlijdendatum van een Persoon). | `ZaakObjectType` is relevant voor `ResultaatType.ZaakType`; `Objecttype` is niet leeg en komt overeen met de naam van het `ZaakObjectType`; `Datumkenmerk` is niet leeg en komt overeen met een attribuutnaam dat bestaat op `ZaakObjectType`.
 
    * `Registratie` (*optioneel*) De naam van de registratie waarvan het procesobject deel uit maakt.
    * `Objecttype` (*optioneel*) Het soort object in de registratie dat het procesobject representeert.
-   * `Datumkenmerk` (*optioneel*) Naam van de attribuutsoort van het procesobject dat bepalend is voor het einde van de procestermijn. 
+   * `Datumkenmerk` (*optioneel*) Naam van de attribuutsoort van het procesobject dat bepalend is voor het einde van de procestermijn.
 
 ## Overige
 
-Onderstaande attributen uit RGBZ 2.0.2 zijn geidentificeert als relevant maar 
+Onderstaande attributen uit RGBZ 2.0.2 zijn geidentificeert als relevant maar
 hebben nog geen plek gekregen in het verhaal.
 
 * `Zaak.StartdatumBewaartermijn` (nieuw!) De datum die de start markeert van de termijn waarop het zaakdossier vernietigd moet worden.
@@ -215,7 +215,7 @@ hebben nog geen plek gekregen in het verhaal.
 * `ZaakType.SelectielijstProcestype`
 * `ZaakType.Archiefclassificatie`
 * `Zaak-InformatieobjectType.Archiefregime`
-* `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden. 
+* `Zaak-InformatieobjectType.Vernietigingstermijn` (relatie) De termijn waarna informatieobjecten, van het `InformatieobjectType` bij zaken van het `ZaakType` met een resultaat van het `ResultaatType`, vernietigd moeten worden.
 
 ### TODO
 
