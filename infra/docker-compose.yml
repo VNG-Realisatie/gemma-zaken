@@ -72,10 +72,12 @@ services:
     image: nginx:1.15
     volumes:
       - ./nginx/drc.conf:/etc/nginx/conf.d/mysite.template
+      - ./nginx/drc_proxy:/etc/nginx/conf.d/proxy.template
+      - ./nginx/drc_start.sh:/start.sh
       - drc_media:/private-media
     environment:
       - MIN_UPLOAD_SIZE=${MIN_UPLOAD_SIZE:-4294967296}
-    command: /bin/bash -c "envsubst '$$DRC_HOST,$$DRC_NGINX_PORT,$$DRC_UWSGI_PORT,$$MIN_UPLOAD_SIZE' < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+    command: "/start.sh"
     depends_on:
       - drc_web
 
