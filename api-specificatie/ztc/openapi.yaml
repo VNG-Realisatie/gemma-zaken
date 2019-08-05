@@ -5862,7 +5862,35 @@ components:
       properties:
         afleidingswijze:
           title: Afleidingswijze brondatum
-          description: Wijze van bepalen van de brondatum.
+          description: "Wijze van bepalen van de brondatum.\n\nUitleg bij mogelijke\
+            \ waarden:\n\n* `afgehandeld` - (Afgehandeld) De termijn start op de datum\
+            \ waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ).\n* `ander_datumkenmerk`\
+            \ - (Ander datumkenmerk) De termijn start op de datum die is vastgelegd\
+            \ in een ander datumveld dan de datumvelden waarop de overige waarden\
+            \ (van deze attribuutsoort) betrekking hebben. `Objecttype`, `Registratie`\
+            \ en `Datumkenmerk` zijn niet leeg.\n* `eigenschap` - (Eigenschap) De\
+            \ termijn start op de datum die vermeld is in een zaaktype-specifieke\
+            \ eigenschap (zijnde een `datumveld`). `ResultaatType.ZaakType` heeft\
+            \ een `Eigenschap`; `Objecttype`, en `Datumkenmerk` zijn niet leeg.\n\
+            * `gerelateerde_zaak` - (Gerelateerde zaak) De termijn start op de datum\
+            \ waarop de gerelateerde zaak is afgehandeld (`ZAAK.Einddatum` of `ZAAK.Gerelateerde_zaak.Einddatum`\
+            \ in het RGBZ). `ResultaatType.ZaakType` heeft gerelateerd `ZaakType`\n\
+            * `hoofdzaak` - (Hoofzaak) De termijn start op de datum waarop de gerelateerde\
+            \ zaak is afgehandeld, waarvan de zaak een deelzaak is (`ZAAK.Einddatum`\
+            \ van de hoofdzaak in het RGBZ). ResultaatType.ZaakType is deelzaaktype\
+            \ van ZaakType.\n* `ingangsdatum_besluit` - (Ingangsdatum besluit) De\
+            \ termijn start op de datum waarop het besluit van kracht wordt (`BESLUIT.Ingangsdatum`\
+            \ in het RGBZ).\tResultaatType.ZaakType heeft relevant BesluitType\n*\
+            \ `termijn` - (Termijn) De termijn start een vast aantal jaren na de datum\
+            \ waarop de zaak is afgehandeld (`ZAAK.Einddatum` in het RGBZ).\n* `vervaldatum_besluit`\
+            \ - (Vervaldatum besluit) De termijn start op de dag na de datum waarop\
+            \ het besluit vervalt (`BESLUIT.Vervaldatum` in het RGBZ). ResultaatType.ZaakType\
+            \ heeft relevant BesluitType\n* `zaakobject` - (Zaakobject) De termijn\
+            \ start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking\
+            \ heeft (bijvoorbeeld de overlijdendatum van een Persoon). M.b.v. de attribuutsoort\
+            \ `Objecttype` wordt vastgelegd om welke zaakobjecttype het gaat; m.b.v.\
+            \ de attribuutsoort `Datumkenmerk` wordt vastgelegd welke datum-attribuutsoort\
+            \ van het zaakobjecttype het betreft."
           type: string
           enum:
           - afgehandeld
@@ -5889,7 +5917,73 @@ components:
           type: boolean
         objecttype:
           title: Objecttype
-          description: Het soort object in de registratie dat het procesobject representeert.
+          description: 'Het soort object in de registratie dat het procesobject representeert.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `adres` - Adres
+
+            * `besluit` - Besluit
+
+            * `buurt` - Buurt
+
+            * `enkelvoudig_document` - Enkelvoudig document
+
+            * `gemeente` - Gemeente
+
+            * `gemeentelijke_openbare_ruimte` - Gemeentelijke openbare ruimte
+
+            * `huishouden` - Huishouden
+
+            * `inrichtingselement` - Inrichtingselement
+
+            * `kadastrale_onroerende_zaak` - Kadastrale onroerende zaak
+
+            * `kunstwerkdeel` - Kunstwerkdeel
+
+            * `maatschappelijke_activiteit` - Maatschappelijke activiteit
+
+            * `medewerker` - Medewerker
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `openbare_ruimte` - Openbare ruimte
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `pand` - Pand
+
+            * `spoorbaandeel` - Spoorbaandeel
+
+            * `status` - Status
+
+            * `terreindeel` - Terreindeel
+
+            * `terrein_gebouwd_object` - Terrein gebouwd object
+
+            * `vestiging` - Vestiging
+
+            * `waterdeel` - Waterdeel
+
+            * `wegdeel` - Wegdeel
+
+            * `wijk` - Wijk
+
+            * `woonplaats` - Woonplaats
+
+            * `woz_deelobject` - Woz deel object
+
+            * `woz_object` - Woz object
+
+            * `woz_waarde` - Woz waarde
+
+            * `zakelijk_recht` - Zakelijk recht
+
+            * `overige` - Overige'
           type: string
           enum:
           - adres
