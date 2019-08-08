@@ -100,7 +100,7 @@ Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API
 - Operatie: de combinatie van een HTTP method zoals `POST`, `GET`, `PUT`,
   `PATCH` en `DELETE` en een endpoint.
 
-## API- en URI-strategie
+### API- en URI-strategie
 
 Er wordt zoveel mogelijk uitgegaan van de
 [API strategie voor de Nederlandse overheid](https://docs.geostandaarden.nl/api/API-Strategie/) (15 juli 2019)
@@ -110,7 +110,7 @@ om redenen van toepasselijkheid of omdat de strategie nog in ontwikkeling is.
 
 [dso-strategie]: https://aandeslagmetdeomgevingswet.nl/digitaal-stelsel/technisch-aansluiten/standaarden/api-uri-strategie/
 
-### Versionering van de API
+#### Versionering van de API
 
 In overeenstemming met [API-20](https://docs.geostandaarden.nl/api/API-Strategie/#api-20-include-the-major-version-number-only-in-ihe-uri) MOET het `MAJOR` versienummer in
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
@@ -118,7 +118,45 @@ door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
 Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)
 
-[api-strategie]: https://docs.geostandaarden.nl/api/API-Strategie/
+#### Paginering
+
+In aanvulling op [API-42](https://docs.geostandaarden.nl/api/API-Strategie/#api-42-use-json-hal-with-media-type-application-hal-json-for-pagination) MOET er voor media-type `application/json` paginering worden 
+gebruikt.
+
+Ondersteuning voor media-type `application/json+hal` is geen onderdeel van de 
+API-specificatie maar MAG wel worden aangeboden naast media-type 
+`application/json`.
+
+Paginering voor media-type `application/json` volgt een vaste structuur die 
+wordt afgedwongen middels de API-specificatie.
+
+Het attribuut `count` MOET het totaal aantal resultaten weergeven. Het attribuut
+`next` en `previous` geven respectievelijk de URL naar de volgende en vorige 
+pagina weer. Dit MOET dezelfde URL zijn als het opvragen van de eerste pagina,
+gevolgd door een query-parameter `page` die het paginanummer bevat, of `null` 
+indien er geen volgende of vorige pagina is.
+
+De eerste pagina MOET `1` zijn (en niet `0`). De URL's 
+`http://example.com/api/v1/resource` en 
+`http://example.com/api/v1/resource?page=1` MOETEN hetzelfde resultaat geven.
+
+De objecten van deze gepagineerde resource zitten in het attribuut `results`.
+Het aantal objecten per pagina MAG varieren maar 100 is gebruikelijk.
+
+*Voorbeeld*
+
+```http
+GET /api/v1/resource  HTTP/1.0
+
+{
+  "count": 130,
+  "next": "http://example.com/api/v1/resource?page=2",
+  "previous": null,
+  "results": [
+    ...
+  ]
+}
+```
 
 ### Migreren van de API root URL
 
@@ -149,7 +187,7 @@ Voorbeelden van geldige URLs:
 De service-naar-service communicatie MOET het schema opvragen om operaties op
 resources uit te voeren.
 
-## Gegevensformaten
+### Gegevensformaten
 
 Een aantal formaten zijn nog niet formeel vastgelegd in OAS of
 [JSON-Schema](https://json-schema.org/), echter deze worden wel binnen de API's voor
@@ -157,12 +195,12 @@ Zaakgericht werken gebruikt en opgelegd.
 
 [json-schema]: https://json-schema.org/
 
-### Duur
+#### Duur
 
 Een duur MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 uitgedrukt worden.
 
-## API-compatibiliteit
+### API-compatibiliteit
 De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
 
 
