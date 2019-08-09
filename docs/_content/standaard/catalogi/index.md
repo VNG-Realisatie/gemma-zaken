@@ -89,32 +89,32 @@ Het groepattribuut `Resultaattype.brondatumArchiefprocedure` parametriseert
 het bepalen van de `brondatum` voor de `archiefactietermijn` van een zaak. Deze
 parametrisering is aan validatieregels onderhevig:
 
-* `Resultaattype.brondatumArchiefprocedure.afleidingswijze`:
+* <a name="ztc-003">`Resultaattype.brondatumArchiefprocedure.afleidingswijze` ([ztc-003](#ztc-003))</a>:
     * afleidingswijze MOET `afgehandeld` zijn indien de selectielijstklasse
       als procestermijn `nihil` heeft en vice versa
     * afleidingswijze MOET `termijn` zijn indien de selectielijstklasse
       als procestermijn `ingeschatte_bestaansduur_procesobject` heeft en vice
       versa
 
-* `Resultaattype.brondatumArchiefprocedure.datumkenmerk`
+* <a name="ztc-004">`Resultaattype.brondatumArchiefprocedure.datumkenmerk` ([ztc-004](#ztc-004))</a>
     * MOET een waarde hebben als de afleidingswijze `eigenschap`, `zaakobject`
       of `ander_datumkenmerk` is
     * MAG GEEN waarde hebben in de andere gevallen
 
-* `Resultaattype.brondatumArchiefprocedure.einddatumBekend`
+* <a name="ztc-005">`Resultaattype.brondatumArchiefprocedure.einddatumBekend` ([ztc-005](#ztc-005))</a>
     * MAG GEEN waarde hebben indien de afleidingswijze `afgehandeld` of
       `termijn` is
 
-* `Resultaattype.brondatumArchiefprocedure.objecttype`
+* <a name="ztc-006">`Resultaattype.brondatumArchiefprocedure.objecttype` ([ztc-006](#ztc-006))</a>
     * MOET een waarde hebben als de afleidingswijze `zaakobject`
       of `ander_datumkenmerk` is
     * MAG GEEN waarde hebben in de andere gevallen
 
-* `Resultaattype.brondatumArchiefprocedure.registratie`
+* <a name="ztc-007">`Resultaattype.brondatumArchiefprocedure.registratie` ([ztc-007](#ztc-007))</a>
     * MOET een waarde hebben indien de afleidingswijze `ander_datumkenmerk` is
     * MAG GEEN waarde hebben in de andere gevallen
 
-* `Resultaattype.brondatumArchiefprocedure.procestermijn`
+* <a name="ztc-008">`Resultaattype.brondatumArchiefprocedure.procestermijn` ([ztc-008](#ztc-008))</a>
     * MOET een waarde hebben indien de afleidingswijze `termijn` is
     * MAG GEEN waarde hebben in de andere gevallen
 
