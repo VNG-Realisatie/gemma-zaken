@@ -12,9 +12,6 @@ Deze uitwisseling van gegevens brengt overhead met zich mee en belast consumers,
 met een mindere gebruikservaring voor eindgebruikers tot gevolgd, omdat deze
 moeten wachten tot alles opgehaald is.
 
-Daarnaast bestaat er een risico dat gegevens concurrent bijgewerkt worden door
-verschillende consumers.
-
 [User story #1096](https://github.com/VNG-Realisatie/gemma-zaken/issues/1096)
 
 ## Caching als oplossing
@@ -54,9 +51,23 @@ gescheiden met een komma.
 **Weak validators**
 
 Er bestaat een onderscheid tussen weak en strong comparisons, waarbij weak
-comparison inhoudt dat de resources semantisch equivalent zijn. Een voorbeeld
-hiervan is dezelfde resource, maar op verschillende domeinen - de URL
-referenties in de resource verschillen dan, maar inhoudelijk zijn ze hetzelfde.
+comparison inhoudt dat de resources semantisch equivalent zijn.
+
+Een voorbeeld hiervan is dezelfde resource, maar op verschillende domeinen - de
+URL referenties in de resource verschillen dan, maar inhoudelijk zijn ze
+hetzelfde.
+
+**Strong validators**
+
+Een voorbeeld hiervan is het aanmaken van een zaak met een bepaalde
+omschrijving (situatie A). De omschrijving wordt daarna twee keer (situatie B
+en C) bijgewerkt. Bij de laatste aanpassing (situatie C) werd de waarde
+opgegeven die ook gebruikt is toen de zaak werd aangemaakt (dus gelijk aan
+situatie A). Als er verder geen attributen gewijzigd zijn, zal de hash van
+situatie A en C hetzelfde zijn. Als een consumer nooit de zaak heeft opgevraagd
+in situatie B, zal de consumer de gecachete versie van situatie A blijven
+gebruiken. Situatie A en C zijn namelijk inhoudelijk hetzelfde. Resource versie
+A en C zijn naast elkaar niet van elkaar te onderscheiden.
 
 In eerste instantie beperken we ons tot strong comparisons.
 
@@ -78,8 +89,11 @@ terug te sturen naar de provider.
 
 ## Wat met concurrency?
 
-Het probleem van concurrente updates/lost updates kan ook met `ETag`s en
-conditional updates opgelost worden, maar dat is voor een ander moment.
+Er bestaat er een risico dat gegevens concurrent bijgewerkt worden door
+verschillende consumers.
+
+Dit probleem kan ook met `ETag`s en conditional updates opgelost worden, maar
+dat is voor een ander moment.
 
 ## Bronnen
 
