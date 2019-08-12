@@ -64,7 +64,7 @@ class DSOApi50Tests(APITestCase):
                 "title": "Invalid input.",
                 "status": 400,
                 "detail": "",
-                "invalid-params": [
+                "invalid_params": [
                     {
                         "name": "foo",
                         "code": "validation-error",

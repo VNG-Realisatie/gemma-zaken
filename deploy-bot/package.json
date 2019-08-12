@@ -17,16 +17,8 @@
   "author": "VNG-Realisatie",
   "license": "EUPL-1.2",
   "homepage": "https://ref.tst.vng.cloud",
-  "dependencies": {
-    "font-awesome": "^4.7.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-css-purge": "^3.0.5",
-    "gulp-sass": "^4.0.1",
-    "require-dir": "^1.0.0",
     "swagger2openapi": "^2.11.16"
   }
 }

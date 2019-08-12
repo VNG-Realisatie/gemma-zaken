@@ -25,10 +25,3 @@ local.py
 /log/*.log*
 /log/nginx/*.log*
 .env
-
-# Static files build by gulp
-src/deploy_bot/static/css/admin/admin_overrides.css
-src/deploy_bot/static/css/screen.css
-
-src/deploy_bot/static/fonts/
-src/deploy_bot/static/js/

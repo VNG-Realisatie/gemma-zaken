@@ -2,18 +2,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import include, path
-from django.views.generic.base import TemplateView
+from django.urls import include, path, reverse_lazy
+from django.views.generic import RedirectView
 
 handler500 = "deploy_bot.utils.views.server_error"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("deploy_bot.api.urls")),
-    # Simply show the master template.
-    path("", TemplateView.as_view(template_name="index.html")),
+
+    # Simply show the API docs.
+    path("", RedirectView.as_view(url=reverse_lazy("schema-redoc", kwargs={"version": 1}))),
     path("ref/", include("vng_api_common.urls")),
-    path("ref/", include("vng_api_common.notifications.urls")),
 ]
 
 # NOTE: The staticfiles_urlpatterns also discovers static files (ie. no need to run collectstatic). Both the static
