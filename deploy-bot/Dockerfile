@@ -23,42 +23,40 @@ RUN pip install pip setuptools -U
 RUN pip install -r requirements/production.txt
 
 
-# Stage 2 - build frontend
-FROM mhart/alpine-node:10 AS frontend-build
+# # Stage 2 - build frontend
+# FROM mhart/alpine-node:10 AS frontend-build
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY ./*.json /app/
-RUN npm install
+# COPY ./*.json /app/
+# RUN npm install
 
-COPY ./Gulpfile.js /app/
-COPY ./build /app/build/
+# COPY ./Gulpfile.js /app/
+# COPY ./build /app/build/
 
-COPY src/deploy_bot/sass/ /app/src/deploy_bot/sass/
-RUN npm run build
+# COPY src/deploy_bot/sass/ /app/src/deploy_bot/sass/
+# RUN npm run build
 
 
-# Stage 3 - Prepare jenkins tests image
-FROM build AS jenkins
+# # Stage 3 - Prepare jenkins tests image
+# FROM build AS jenkins
 
-RUN apk --no-cache add \
-    postgresql-client
+# RUN apk --no-cache add \
+#     postgresql-client
 
-# Stage 3.1 - Set up the needed testing/development dependencies
-COPY --from=build /usr/local/lib/python3.6 /usr/local/lib/python3.6
-COPY --from=build /app/requirements /app/requirements
+# # Stage 3.1 - Set up the needed testing/development dependencies
+# COPY --from=build /usr/local/lib/python3.6 /usr/local/lib/python3.6
+# COPY --from=build /app/requirements /app/requirements
 
-RUN pip install -r requirements/jenkins.txt --exists-action=s
+# RUN pip install -r requirements/jenkins.txt --exists-action=s
 
-# Stage 3.2 - Set up testing config
-COPY ./setup.cfg /app/setup.cfg
-COPY ./bin/runtests.sh /runtests.sh
+# # Stage 3.2 - Set up testing config
+# COPY ./setup.cfg /app/setup.cfg
+# COPY ./bin/runtests.sh /runtests.sh
 
-# Stage 3.3 - Copy source code
-COPY --from=frontend-build /app/src/deploy_bot/static/fonts /app/src/deploy_bot/static/fonts
-COPY --from=frontend-build /app/src/deploy_bot/static/css /app/src/deploy_bot/static/css
-COPY ./src /app/src
-CMD ["/runtests.sh"]
+# # Stage 3.3 - Copy source code
+# COPY ./src /app/src
+# CMD ["/runtests.sh"]
 
 
 # Stage 4 - Build docker image suitable for execution and deployment
@@ -80,16 +78,11 @@ RUN apk --no-cache add \
 COPY --from=build /usr/local/lib/python3.6 /usr/local/lib/python3.6
 COPY --from=build /usr/local/bin/uwsgi /usr/local/bin/uwsgi
 
-# required for fonts,styles etc.
-COPY --from=frontend-build /app/node_modules/font-awesome /app/node_modules/font-awesome
-
 # Stage 4.2 - Copy source code
 WORKDIR /app
 COPY ./bin/docker_start.sh /start.sh
 RUN mkdir /app/log
 
-COPY --from=frontend-build /app/src/deploy_bot/static/fonts /app/src/deploy_bot/static/fonts
-COPY --from=frontend-build /app/src/deploy_bot/static/css /app/src/deploy_bot/static/css
 COPY ./src /app/src
 
 ENV DJANGO_SETTINGS_MODULE=deploy_bot.conf.docker
