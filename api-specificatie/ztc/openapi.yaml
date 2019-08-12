@@ -1,17 +1,129 @@
 openapi: 3.0.0
 info:
   title: Catalogi API
-  description: "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
-    \ helpt gemeenten om het proces vanuit de 'vraag van een \nklant' (productaanvraag,\
-    \ melding, aangifte, informatieverzoek e.d.) tot en met \nhet leveren van een\
-    \ passend antwoord daarop in te richten, inclusief de \nbijbehorende informatievoorziening.\n\
-    \nEen CATALOGUS bestaat uit ZAAKTYPEn, INFORMATIEOBJECTTYPEn en BESLUITTYPEn en\n\
-    wordt typisch gebruikt om een ZAAK (in de Zaken API), INFORMATIEOBJECT (in de\n\
-    Documenten API) en BESLUIT (in de Besluiten API) te voorzien van type, \nstandaardwaarden\
-    \ en processtructuur.\n\n**Afhankelijkheden**\n\nDeze API is afhankelijk van:\n\
-    \n* Gemeentelijke Selectielijst API\n* Autorisaties API *(optioneel)*\n\n**Autorisatie**\n\
-    \nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
-    \ gebruiken om JWT-tokens te\ngenereren.\n"
+  description: 'Een API om een zaaktypecatalogus (ZTC) te benaderen.
+
+
+    De zaaktypecatalogus helpt gemeenten om het proces vanuit de ''vraag van een
+
+    klant'' (productaanvraag, melding, aangifte, informatieverzoek e.d.) tot en met
+
+    het leveren van een passend antwoord daarop in te richten, inclusief de
+
+    bijbehorende informatievoorziening.
+
+
+    Een CATALOGUS bestaat uit ZAAKTYPEn, INFORMATIEOBJECTTYPEn en BESLUITTYPEn en
+
+    wordt typisch gebruikt om een ZAAK (in de Zaken API), INFORMATIEOBJECT (in de
+
+    Documenten API) en BESLUIT (in de Besluiten API) te voorzien van type,
+
+    standaardwaarden en processtructuur.
+
+
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Gemeentelijke Selectielijst API
+
+    * Autorisaties API *(optioneel)*
+
+
+    **Autorisatie**
+
+
+    Deze API vereist autorisatie. Je kan de
+
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+
+    genereren.
+
+
+    ### Notificaties
+
+
+    Deze API publiceert notificaties op het kanaal `zaaktypen`.
+
+
+    **Main resource**
+
+
+    `zaaktype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
+
+
+    **Resources en acties**
+
+    - `zaaktype`: create, destroy
+
+
+
+    Deze API publiceert notificaties op het kanaal `besluittypen`.
+
+
+    **Main resource**
+
+
+    `besluittype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
+
+
+    **Resources en acties**
+
+    - `besluittype`: create, destroy
+
+
+
+    Deze API publiceert notificaties op het kanaal `informatieobjecttypen`.
+
+
+    **Main resource**
+
+
+    `informatieobjecttype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE
+    behoort.
+
+
+    **Resources en acties**
+
+    - `informatieobjecttype`: create, destroy
+
+
+
+    **Handige links**
+
+
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+
+    '
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl

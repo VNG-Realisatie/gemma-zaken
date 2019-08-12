@@ -254,6 +254,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContact'
+        required: true
       responses:
         '201':
           description: Created
@@ -385,12 +391,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KlantContact'
-        required: true
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -708,6 +708,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '201':
           description: Created
@@ -839,8 +841,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -1002,6 +1002,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1140,8 +1142,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     patch:
       operationId: resultaat_partial_update
       summary: Werk een RESULTAAT deels bij.
@@ -1171,6 +1171,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1309,8 +1311,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     delete:
       operationId: resultaat_delete
       summary: Verwijder een RESULTAAT van een ZAAK.
@@ -1732,6 +1732,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
       responses:
         '201':
           description: Created
@@ -1863,12 +1869,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Rol'
-        required: true
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2313,6 +2313,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Status'
+        required: true
       responses:
         '201':
           description: Created
@@ -2444,12 +2450,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.statussen.toevoegen | zaken.heropenen)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Status'
-        required: true
     parameters: []
   /statussen/{uuid}:
     get:
@@ -2771,6 +2771,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '201':
           description: Created
@@ -2902,8 +2904,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -3068,6 +3068,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3206,8 +3208,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     patch:
       operationId: zaakinformatieobject_partial_update
       summary: Werk een ZAAK-INFORMATIEOBJECT relatie in deels bij.
@@ -3240,6 +3240,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3378,8 +3380,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     delete:
       operationId: zaakinformatieobject_delete
       summary: Verwijder een ZAAK-INFORMATIEOBJECT relatie.
@@ -3748,6 +3748,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakObject'
+        required: true
       responses:
         '201':
           description: Created
@@ -3879,12 +3885,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakObject'
-        required: true
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -4398,6 +4398,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '201':
           description: Created
@@ -4541,8 +4543,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     parameters: []
   /zaken/_zoek:
     post:
@@ -4578,6 +4578,12 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakZoek'
+        required: true
       responses:
         '200':
           description: OK
@@ -4742,12 +4748,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakZoek'
-        required: true
     parameters: []
   /zaken/{uuid}:
     get:
@@ -4979,6 +4979,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5137,8 +5139,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
       summary: Werk een ZAAK deels bij.
@@ -5197,6 +5197,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5355,8 +5357,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     delete:
       operationId: zaak_delete
       summary: Verwijder een ZAAK.
@@ -5962,6 +5962,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakBesluit'
+        required: true
       responses:
         '201':
           description: Created
@@ -6093,12 +6099,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakBesluit'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6551,6 +6551,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakEigenschap'
+        required: true
       responses:
         '201':
           description: Created
@@ -6682,12 +6688,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakEigenschap'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path

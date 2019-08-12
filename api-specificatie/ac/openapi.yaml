@@ -28,10 +28,29 @@ info:
     genereren.
 
 
-    **Notificaties**
+    ### Notificaties
 
 
-    Deze component publiceert notificaties op het kanaal `TODO`.
+    Deze API publiceert notificaties op het kanaal `autorisaties`.
+
+
+    **Main resource**
+
+
+    `applicatie`
+
+
+
+
+    **Kenmerken**
+
+
+
+
+    **Resources en acties**
+
+    - `applicatie`: create, update, destroy
+
 
 
     **Handige links**
@@ -245,6 +264,8 @@ paths:
 
 
         Na het aanmaken wordt een notificatie verstuurd.'
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
       responses:
         '201':
           description: Created
@@ -376,8 +397,6 @@ paths:
       security:
       - JWT-Claims:
         - autorisaties.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
     parameters: []
   /applicaties/consumer:
     get:
@@ -434,7 +453,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -580,7 +599,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -682,6 +701,8 @@ paths:
 
 
         Na het bijwerken wordt een notificatie verstuurd.'
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
       responses:
         '200':
           description: OK
@@ -732,7 +753,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -820,8 +841,6 @@ paths:
       security:
       - JWT-Claims:
         - autorisaties.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
     patch:
       operationId: applicatie_partial_update
       summary: Werk (een deel van) de applicatie bij.
@@ -841,6 +860,8 @@ paths:
 
 
         Na het bijwerken wordt een notificatie verstuurd.'
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
       responses:
         '200':
           description: OK
@@ -891,7 +912,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -979,8 +1000,6 @@ paths:
       security:
       - JWT-Claims:
         - autorisaties.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
     delete:
       operationId: applicatie_delete
       summary: Verwijder een applicatie met de bijhorende autorisaties.
@@ -1019,7 +1038,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:

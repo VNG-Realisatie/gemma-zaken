@@ -201,6 +201,8 @@ paths:
     post:
       operationId: abonnement_create
       description: ''
+      requestBody:
+        $ref: '#/components/requestBodies/Abonnement'
       responses:
         '201':
           description: Created
@@ -332,8 +334,6 @@ paths:
       security:
       - JWT-Claims:
         - notificaties.consumeren
-      requestBody:
-        $ref: '#/components/requestBodies/Abonnement'
     parameters: []
   /abonnement/{uuid}:
     get:
@@ -468,6 +468,8 @@ paths:
     put:
       operationId: abonnement_update
       description: ''
+      requestBody:
+        $ref: '#/components/requestBodies/Abonnement'
       responses:
         '200':
           description: OK
@@ -606,11 +608,11 @@ paths:
       security:
       - JWT-Claims:
         - notificaties.consumeren
-      requestBody:
-        $ref: '#/components/requestBodies/Abonnement'
     patch:
       operationId: abonnement_partial_update
       description: ''
+      requestBody:
+        $ref: '#/components/requestBodies/Abonnement'
       responses:
         '200':
           description: OK
@@ -749,8 +751,6 @@ paths:
       security:
       - JWT-Claims:
         - notificaties.consumeren
-      requestBody:
-        $ref: '#/components/requestBodies/Abonnement'
     delete:
       operationId: abonnement_delete
       description: ''
@@ -1027,6 +1027,12 @@ paths:
     post:
       operationId: kanaal_create
       description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kanaal'
+        required: true
       responses:
         '201':
           description: Created
@@ -1158,12 +1164,6 @@ paths:
       security:
       - JWT-Claims:
         - notificaties.publiceren
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Kanaal'
-        required: true
     parameters: []
   /kanaal/{uuid}:
     get:
@@ -1307,6 +1307,12 @@ paths:
     post:
       operationId: notificaties_create
       description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+        required: true
       responses:
         '200':
           description: ''
@@ -1325,12 +1331,6 @@ paths:
       security:
       - JWT-Claims:
         - notificaties.publiceren
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Message'
-        required: true
     parameters: []
 servers:
 - url: /api/v1

@@ -1,21 +1,95 @@
 openapi: 3.0.0
 info:
   title: Besluiten API
-  description: "Een API om een besluitregistratiecomponent (BRC) te benaderen.\n\n\
-    Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet\nnoodzakelijk.\
-    \ Omgekeerd kan het voorkomen dat in een INFORMATIEOBJECT meerdere\nbesluiten\
-    \ vastgelegd zijn. Vandaar de N:M-relatie naar INFORMATIEOBJECT. Een\nbesluit\
-    \ komt voort uit een zaak van de zaakbehandelende organisatie dan wel is\neen\
-    \ besluit van een andere organisatie dat het onderwerp (object) is van een\nzaak\
-    \ van de zaakbehandelende organisatie. BESLUIT heeft dan ook een optionele\nrelatie\
-    \ met de ZAAK waarvan het een uitkomst is.\n\nDe typering van BESLUITen is in\
-    \ de Catalogi API (ZTC) ondergebracht in de vorm \nvan BESLUITTYPEn.\n\n**Afhankelijkheden**\n\
-    \nDeze API is afhankelijk van:\n\n* Catalogi API\n* Notificaties API\n* Documenten\
-    \ API *(optioneel)*\n* Zaken API *(optioneel)*\n* Autorisaties API *(optioneel)*\n\
-    \n**Autorisatie**\n\nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
-    \ gebruiken om JWT-tokens te\ngenereren.\n\n**Notificaties**\n\nDeze API publiceert\
-    \ notificaties op het kanaal `besluiten`.\n\n**Handige links**\n\n* [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)\n\
-    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)\n"
+  description: 'Een API om een besluitregistratiecomponent (BRC) te benaderen.
+
+
+    Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet
+
+    noodzakelijk. Omgekeerd kan het voorkomen dat in een INFORMATIEOBJECT meerdere
+
+    besluiten vastgelegd zijn. Vandaar de N:M-relatie naar INFORMATIEOBJECT. Een
+
+    besluit komt voort uit een zaak van de zaakbehandelende organisatie dan wel is
+
+    een besluit van een andere organisatie dat het onderwerp (object) is van een
+
+    zaak van de zaakbehandelende organisatie. BESLUIT heeft dan ook een optionele
+
+    relatie met de ZAAK waarvan het een uitkomst is.
+
+
+    De typering van BESLUITen is in de Catalogi API (ZTC) ondergebracht in de vorm
+
+    van BESLUITTYPEn.
+
+
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Catalogi API
+
+    * Notificaties API
+
+    * Documenten API *(optioneel)*
+
+    * Zaken API *(optioneel)*
+
+    * Autorisaties API *(optioneel)*
+
+
+    **Autorisatie**
+
+
+    Deze API vereist autorisatie. Je kan de
+
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+
+    genereren.
+
+
+    ### Notificaties
+
+
+    Deze API publiceert notificaties op het kanaal `besluiten`.
+
+
+    **Main resource**
+
+
+    `besluit`
+
+
+
+
+    **Kenmerken**
+
+
+    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde
+    de organisatie die het besluit heeft vastgesteld.
+
+    * `besluittype`: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+
+
+    **Resources en acties**
+
+    - `besluit`: create, update, destroy
+
+    - `besluitinformatieobject`: create, update, destroy
+
+
+
+    **Handige links**
+
+
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+
+    '
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl
@@ -251,6 +325,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
       responses:
         '201':
           description: Created
@@ -382,8 +458,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/Besluit'
     parameters: []
   /besluiten/{besluit_uuid}/audittrail:
     get:
@@ -557,7 +631,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -703,7 +777,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -826,6 +900,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
       responses:
         '200':
           description: OK
@@ -876,7 +952,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -964,8 +1040,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Besluit'
     patch:
       operationId: besluit_partial_update
       summary: Werk een BESLUIT deels bij.
@@ -1001,6 +1075,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Besluit'
       responses:
         '200':
           description: OK
@@ -1051,7 +1127,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1139,8 +1215,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Besluit'
     delete:
       operationId: besluit_delete
       summary: Verwijder een BESLUIT.
@@ -1208,7 +1282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1483,6 +1557,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
       responses:
         '201':
           description: Created
@@ -1614,8 +1690,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/BesluitInformatieObject'
     parameters: []
   /besluitinformatieobjecten/{uuid}:
     get:
@@ -1660,7 +1734,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1781,6 +1855,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
       responses:
         '200':
           description: OK
@@ -1831,7 +1907,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -1919,8 +1995,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/BesluitInformatieObject'
     patch:
       operationId: besluitinformatieobject_partial_update
       summary: Werk een BESLUIT-INFORMATIEOBJECT relatie deels bij.
@@ -1954,6 +2028,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/BesluitInformatieObject'
       responses:
         '200':
           description: OK
@@ -2004,7 +2080,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:
@@ -2092,8 +2168,6 @@ paths:
       security:
       - JWT-Claims:
         - besluiten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/BesluitInformatieObject'
     delete:
       operationId: besluitinformatieobject_delete
       summary: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
@@ -2153,7 +2227,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
         '404':
-          description: Not_found
+          description: Not found
           headers:
             API-version:
               schema:

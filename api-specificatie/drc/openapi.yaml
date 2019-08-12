@@ -1,87 +1,33 @@
 openapi: 3.0.0
 info:
   title: Documenten API
-  description: 'Een API om een documentregistratiecomponent (DRC) te benaderen.
-
-
-    In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een
-
-    INFORMATIEOBJECT is een digitaal document voorzien van meta-gegevens.
-
-    INFORMATIEOBJECTen kunnen aan andere objecten zoals zaken en besluiten worden
-
-    gerelateerd (maar dat hoeft niet) en kunnen gebruiksrechten hebben.
-
-
-    GEBRUIKSRECHTEN leggen voorwaarden op aan het gebruik van het INFORMATIEOBJECT
-
-    (buiten raadpleging). Deze GEBRUIKSRECHTEN worden niet door de API gevalideerd
-
-    of gehandhaafd.
-
-
-    De typering van INFORMATIEOBJECTen is in de Catalogi API (ZTC) ondergebracht in
-
-    de vorm van INFORMATIEOBJECTTYPEn.
-
-
-    **Uploaden van bestanden**
-
-
-    Binnen deze API bestaan een aantal endpoints die binaire data ontvangen, al
-
-    dan niet base64-encoded. Webservers moeten op deze endpoints een minimale
-
-    request body size van 4.0 GiB ondersteunen. Dit omvat de JSON van de
-
-    metadata EN de base64-encoded bestandsdata. Hou hierbij rekening met de
-
-    overhead van base64, die ongeveer 33% bedraagt in worst-case scenario''s. Dit
-
-    betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot
-
-    mag zijn.
-
-
-    **Afhankelijkheden**
-
-
-    Deze API is afhankelijk van:
-
-
-    * Catalogi API
-
-    * Notificaties API
-
-    * Autorisaties API *(optioneel)*
-
-    * Zaken API *(optioneel)*
-
-
-    **Autorisatie**
-
-
-    Deze API vereist autorisatie. Je kan de
-
-    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
-
-    genereren.
-
-
-    **Notificaties**
-
-
-    Deze API publiceert notificaties op het kanaal `documenten`.
-
-
-    **Handige links**
-
-
-    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
-
-    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
-
-    '
+  description: "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
+    In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\n\
+    INFORMATIEOBJECT is een digitaal document voorzien van meta-gegevens.\nINFORMATIEOBJECTen\
+    \ kunnen aan andere objecten zoals zaken en besluiten worden\ngerelateerd (maar\
+    \ dat hoeft niet) en kunnen gebruiksrechten hebben.\n\nGEBRUIKSRECHTEN leggen\
+    \ voorwaarden op aan het gebruik van het INFORMATIEOBJECT\n(buiten raadpleging).\
+    \ Deze GEBRUIKSRECHTEN worden niet door de API gevalideerd\nof gehandhaafd.\n\n\
+    De typering van INFORMATIEOBJECTen is in de Catalogi API (ZTC) ondergebracht in\n\
+    de vorm van INFORMATIEOBJECTTYPEn.\n\n**Uploaden van bestanden**\n\nBinnen deze\
+    \ API bestaan een aantal endpoints die binaire data ontvangen, al\ndan niet base64-encoded.\
+    \ Webservers moeten op deze endpoints een minimale\nrequest body size van 4.0\
+    \ GiB ondersteunen. Dit omvat de JSON van de\nmetadata EN de base64-encoded bestandsdata.\
+    \ Hou hierbij rekening met de\noverhead van base64, die ongeveer 33% bedraagt\
+    \ in worst-case scenario's. Dit\nbetekent dat bij een limiet van 4GB het bestand\
+    \ maximaal ongeveer 3GB groot\nmag zijn.\n\n**Afhankelijkheden**\n\nDeze API is\
+    \ afhankelijk van:\n\n* Catalogi API\n* Notificaties API\n* Autorisaties API *(optioneel)*\n\
+    * Zaken API *(optioneel)*\n\n**Autorisatie**\n\nDeze API vereist autorisatie.\
+    \ Je kan de\n[token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens\
+    \ te\ngenereren.\n\n### Notificaties\n\nDeze API publiceert notificaties op het\
+    \ kanaal `documenten`.\n\n**Main resource**\n\n`enkelvoudiginformatieobject`\n\
+    \n\n\n**Kenmerken**\n\n* `bronorganisatie`: Het RSIN van de Niet-natuurlijk persoon\
+    \ zijnde de organisatie die het informatieobject heeft gecre\xEBerd of heeft ontvangen\
+    \ en als eerste in een samenwerkingsketen heeft vastgelegd.\n* `informatieobjecttype`:\
+    \ URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).\n* `vertrouwelijkheidaanduiding`:\
+    \ Aanduiding van de mate waarin het INFORMATIEOBJECT voor de openbaarheid bestemd\
+    \ is.\n\n**Resources en acties**\n\n\n**Handige links**\n\n* [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)\n\
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)\n"
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl
@@ -92,6 +38,173 @@ info:
 security:
 - JWT-Claims: []
 paths:
+  /bestandsdelen/{uuid}:
+    put:
+      operationId: bestandsdeel_update
+      description: Upload een bestandsdeel
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                inhoud:
+                  description: De (binaire) bestandsinhoud van dit specifieke bestandsdeel.
+                  type: string
+                  format: binary
+                lock:
+                  description: Hash string, which represents id of the lock of related
+                    informatieobject
+                  type: string
+                  minLength: 1
+              required:
+              - lock
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BestandsDeel'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - bestandsdelen
+      security:
+      - JWT-Claims:
+        - documenten.bijwerken
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
@@ -299,6 +412,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnkelvoudigInformatieObjectCreateLockData'
+        required: true
       responses:
         '201':
           description: Created
@@ -316,7 +435,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObjectCreateLockData'
         '400':
           description: Bad request
           headers:
@@ -442,12 +561,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.aanmaken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
-        required: true
     parameters: []
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail:
     get:
@@ -901,6 +1014,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
       responses:
         '200':
           description: OK
@@ -1051,8 +1166,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
@@ -1080,6 +1193,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
       responses:
         '200':
           description: OK
@@ -1230,8 +1345,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/EnkelvoudigInformatieObjectWithLockData'
     delete:
       operationId: enkelvoudiginformatieobject_delete
       summary: Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT.
@@ -1550,6 +1663,12 @@ paths:
         (ENKELVOUDIG) INFORMATIEOBJECT bijgewerkt (`PUT`, `PATCH`) en weer
 
         ontgrendeld worden.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LockEnkelvoudigInformatieObject'
+        required: true
       responses:
         '200':
           description: ''
@@ -1676,12 +1795,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.lock
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LockEnkelvoudigInformatieObject'
-        required: true
     parameters:
     - name: uuid
       in: path
@@ -1697,6 +1810,12 @@ paths:
       description: 'Heft de "checkout" op waardoor het (ENKELVOUDIG) INFORMATIEOBJECT
 
         ontgrendeld wordt.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnlockEnkelvoudigInformatieObject'
+        required: true
       responses:
         '204':
           description: No content
@@ -1819,12 +1938,6 @@ paths:
       security:
       - JWT-Claims:
         - (documenten.lock | documenten.geforceerd-unlock)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UnlockEnkelvoudigInformatieObject'
-        required: true
     parameters:
     - name: uuid
       in: path
@@ -2037,7 +2150,7 @@ paths:
       operationId: gebruiksrechten_create
       summary: Maak een GEBRUIKSRECHT aan.
       description: "Voeg GEBRUIKSRECHTen toe voor een INFORMATIEOBJECT.\n\n**Opmerkingen**\n\
-        - Het toevoegen van gebruiksrechten zorgt ervoor dat de\n  `indicatieGebruiksrecht`\
+        \  - Het toevoegen van gebruiksrechten zorgt ervoor dat de\n    `indicatieGebruiksrecht`\
         \ op het informatieobject op `true` gezet wordt."
       parameters:
       - name: X-NLX-Request-Application-Id
@@ -2060,6 +2173,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Gebruiksrechten'
       responses:
         '201':
           description: Created
@@ -2191,8 +2306,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/Gebruiksrechten'
     parameters: []
   /gebruiksrechten/{uuid}:
     get:
@@ -2350,6 +2463,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Gebruiksrechten'
       responses:
         '200':
           description: OK
@@ -2488,8 +2603,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Gebruiksrechten'
     patch:
       operationId: gebruiksrechten_partial_update
       summary: Werk een GEBRUIKSRECHT relatie deels bij.
@@ -2515,6 +2628,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Gebruiksrechten'
       responses:
         '200':
           description: OK
@@ -2653,14 +2768,12 @@ paths:
       security:
       - JWT-Claims:
         - documenten.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Gebruiksrechten'
     delete:
       operationId: gebruiksrechten_delete
       summary: Verwijder een GEBRUIKSRECHT.
-      description: "**Opmerkingen**\n- Indien het laatste GEBRUIKSRECHT van een INFORMATIEOBJECT\
-        \ verwijderd\n  wordt, dan wordt de `indicatieGebruiksrecht` van het INFORMATIEOBJECT\
-        \ op\n  `null` gezet."
+      description: "**Opmerkingen**\n  - Indien het laatste GEBRUIKSRECHT van een\
+        \ INFORMATIEOBJECT verwijderd\n    wordt, dan wordt de `indicatieGebruiksrecht`\
+        \ van het INFORMATIEOBJECT op\n    `null` gezet."
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -2999,6 +3112,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectInformatieObject'
+        required: true
       responses:
         '201':
           description: Created
@@ -3130,12 +3249,6 @@ paths:
       security:
       - JWT-Claims:
         - documenten.aanmaken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ObjectInformatieObject'
-        required: true
     parameters: []
   /objectinformatieobjecten/{uuid}:
     get:
@@ -3450,6 +3563,151 @@ components:
       scheme: bearer
       type: http
   schemas:
+    BestandsDeel:
+      required:
+      - lock
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        volgnummer:
+          title: Volgnummer
+          description: Een volgnummer dat de volgorde van de bestandsdelen aangeeft.
+          type: integer
+          readOnly: true
+        omvang:
+          title: Omvang
+          description: De grootte van dit specifieke bestandsdeel.
+          type: integer
+          readOnly: true
+        inhoud:
+          title: Inhoud
+          description: De (binaire) bestandsinhoud van dit specifieke bestandsdeel.
+          type: string
+          readOnly: true
+          format: uri
+        voltooid:
+          title: Voltooid
+          description: 'Indicatie of dit bestandsdeel volledig is geupload. Dat wil
+            zeggen: het aantal bytes dat staat genoemd bij grootte is daadwerkelijk
+            ontvangen.'
+          type: boolean
+          readOnly: true
+        lock:
+          title: Lock
+          description: Hash string, which represents id of the lock of related informatieobject
+          type: string
+          minLength: 1
+    Fout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+    FieldValidationError:
+      required:
+      - name
+      - code
+      - reason
+      type: object
+      properties:
+        name:
+          title: Name
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          title: Reason
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+    ValidatieFout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      - invalidParams
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalidParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldValidationError'
     Ondertekening:
       title: ondertekening
       description: Aanduiding van de rechtskracht van een informatieobject. Mag niet
@@ -3705,12 +3963,14 @@ components:
           type: string
           format: uri
           readOnly: true
+          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          readOnly: true
+          maximum: 2147483647
           minimum: 0
+          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -3773,117 +4033,18 @@ components:
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
           readOnly: true
-    Fout:
-      required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      type: object
-      properties:
-        type:
-          title: Type
-          description: URI referentie naar het type fout, bedoeld voor developers
-          type: string
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          description: Generieke titel voor het type fout
-          type: string
-          minLength: 1
-        status:
-          title: Status
-          description: De HTTP status code
-          type: integer
-        detail:
-          title: Detail
-          description: Extra informatie bij de fout, indien beschikbaar
-          type: string
-          minLength: 1
-        instance:
-          title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
-          type: string
-          minLength: 1
-    FieldValidationError:
-      required:
-      - name
-      - code
-      - reason
-      type: object
-      properties:
-        name:
-          title: Name
-          description: Naam van het veld met ongeldige gegevens
-          type: string
-          minLength: 1
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        reason:
-          title: Reason
-          description: Uitleg wat er precies fout is met de gegevens
-          type: string
-          minLength: 1
-    ValidatieFout:
-      required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      - invalidParams
-      type: object
-      properties:
-        type:
-          title: Type
-          description: URI referentie naar het type fout, bedoeld voor developers
-          type: string
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          description: Generieke titel voor het type fout
-          type: string
-          minLength: 1
-        status:
-          title: Status
-          description: De HTTP status code
-          type: integer
-        detail:
-          title: Detail
-          description: Extra informatie bij de fout, indien beschikbaar
-          type: string
-          minLength: 1
-        instance:
-          title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
-          type: string
-          minLength: 1
-        invalidParams:
+        bestandsdelen:
           type: array
           items:
-            $ref: '#/components/schemas/FieldValidationError'
-    EnkelvoudigInformatieObjectData:
+            $ref: '#/components/schemas/BestandsDeel'
+          readOnly: true
+    EnkelvoudigInformatieObjectCreateLockData:
       required:
       - bronorganisatie
       - creatiedatum
       - titel
       - auteur
       - taal
-      - inhoud
       - informatieobjecttype
       type: object
       properties:
@@ -4028,12 +4189,14 @@ components:
           description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
+          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          readOnly: true
+          maximum: 2147483647
           minimum: 0
+          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -4096,6 +4259,19 @@ components:
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
           readOnly: true
+        bestandsdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BestandsDeel'
+          readOnly: true
+        lock:
+          title: Lock
+          description: Lock id generated if the large file is created and should be
+            used while updating the document. Documents with base64 encoded files
+            are created without lock
+          type: string
+          readOnly: true
+          minLength: 1
     Wijzgingen:
       title: Wijzigingen
       type: object
@@ -4256,7 +4432,6 @@ components:
       - titel
       - auteur
       - taal
-      - inhoud
       - informatieobjecttype
       - lock
       type: object
@@ -4402,12 +4577,14 @@ components:
           description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
+          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          readOnly: true
+          maximum: 2147483647
           minimum: 0
+          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -4469,6 +4646,11 @@ components:
           description: Geeft aan of het document gelocked is. Alleen als een document
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
+          readOnly: true
+        bestandsdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
         lock:
           title: Lock
