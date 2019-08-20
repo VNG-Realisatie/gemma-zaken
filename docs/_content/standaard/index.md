@@ -85,7 +85,7 @@ Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API
 - Autorisatie: het mechanisme om wel of niet toegang te verlenen tot operaties
   en/of gegevens in de API's. Niet te verwarren met authenticatie.
 
-- Authenticatie: het mechanisme om de identiteit van een een persoon of andere
+- Authenticatie: het mechanisme om de identiteit van een persoon of andere
   entiteit vast te stellen.
 
 - Eindgebruiker: de persoon die gebruik maakt van een (taak)applicatie die
@@ -98,7 +98,7 @@ Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API
   parameters. Bijvoorbeeld: `/api/v1/zaken/{uuid}`
 
 - Operatie: de combinatie van een HTTP method zoals `POST`, `GET`, `PUT`,
-  `PATCH` en `DELETE` en een endpoint.
+  `PATCH` of `DELETE` en een endpoint.
 
 ### API- en URI-strategie
 
@@ -157,6 +157,7 @@ GET /api/v1/resource  HTTP/1.0
   ]
 }
 ```
+
 
 ### Migreren van de API root URL
 
