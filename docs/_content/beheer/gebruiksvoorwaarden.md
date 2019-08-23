@@ -8,10 +8,10 @@ Deze gebruiksvoorwaarden zijn van toepassing op de referentieimplementaties zoal
 
 ## Doel van de referentieimplementaties
 
-Een referentieimplementatie is een onderdeel van de API-standaard en heeft als doel om:
+Een referentieimplementatie is onderdeel van een API-standaard en heeft als doel:
 * Aan te tonen dat het mogelijk is om de API te realiseren
 * Het gewenste gedrag van de API te demonstreren
-* Gebruikers van de API standaard (ontwikkelaars) hun implementatie te testen
+* Gebruikers van de API standaard (ontwikkelaars) hun implementatie te laten testen
 
 ## Wat is wel toegestaan?
 
