@@ -13,7 +13,7 @@ beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden
 opgeslagen in de documentenregistratiecomponent, medewerkergegevens in de
 medewerkerregistratiecomponent, etc.
 
-Terzijde: In de toekomst kan de Besluiten API ook voor andere domeinen worden ingezet. Mogelijk moeten er dan aanpassingen of uitbreidingen op de API worden gedaan. Een goed voorbeeld is Open Raadsinformatie waarin ook een besluiten entiteit is geidentificeerd. 
+Terzijde: In de toekomst kan de Besluiten API ook voor andere domeinen worden ingezet. Mogelijk moeten er dan aanpassingen of uitbreidingen op de API worden gedaan. Een goed voorbeeld is Open Raadsinformatie waarin ook een besluiten entiteit is geidentificeerd.
 
 
 ## Gegevensmodel
@@ -24,10 +24,10 @@ Deze API ondersteunt het verwerken van gegevens van besluiten inclusief de relat
 
 ### Relatie met documenten en zaken
 
-Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één informatieobject meerdere besluiten vastgelegd zijn. 
+Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één informatieobject meerdere besluiten vastgelegd zijn.
 
 De relatie tussen besluit en informatieobject is vastgelegd in besluitinformatieobject (Besluiten API) en objectinformatieobject (Documenten API), waarbij besluitinformatieobject leidend is.
-Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de zaak waarvan het een uitkomst is. 
+Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de zaak waarvan het een uitkomst is.
 
 Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is één van de betrokkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort.
 
@@ -148,7 +148,7 @@ stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
 #### Archiveren
 
-**Vernietigen van besluiten**
+**<a name="brc-006">Vernietigen van besluiten ([brc-006](#brc-006))</a>**
 
 Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde
 objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde

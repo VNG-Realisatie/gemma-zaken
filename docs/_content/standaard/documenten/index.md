@@ -139,7 +139,7 @@ voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor
 
 #### Archiveren
 
-**<a name="drc-008">Vernietigen van informatieobjecten ([drc-008](#drc-008))</a**
+**<a name="drc-008">Vernietigen van informatieobjecten ([drc-008](#drc-008))</a>**
 
 Een `EnkelvoudigInformatieObject` MAG ALLEEN verwijderd worden indien er geen
 `ObjectInformatieObject`-en meer aan hangen. Indien er nog relaties zijn, dan
