@@ -1,0 +1,50 @@
+---
+
+# Redis cache
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ service.name }}
+  namespace: zgw
+  labels:
+    k8s-app: {{ service.name }}
+spec:
+  # single replica because objects are kept in memory
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: {{ service.name }}
+  template:
+    metadata:
+      name: {{ service.name }}
+      labels:
+        k8s-app: {{ service.name }}
+    spec:
+      containers:
+      - name: {{ service.name }}
+        image: redis:5-alpine
+        resources:
+          requests:
+            memory: "5Mi"
+            cpu: "5m"
+          limits:
+            memory: "200Mi"
+            cpu: "250m"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ service.name }}
+  namespace: zgw
+  labels:
+    k8s-app: {{ service.name }}
+spec:
+  selector:
+    k8s-app: {{ service.name }}
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379

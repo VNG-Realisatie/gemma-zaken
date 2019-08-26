@@ -1,6 +1,7 @@
 ---
 
 db_host: postgis-test
+redis_cache: redis-test
 
 services:
   - name: postgis-test
@@ -14,6 +15,9 @@ services:
       - brc-test
       - nrc-test
       - ac-test
+
+  - name: redis-test
+    templates: ../k8s/cache/
 
   - name: ac-test
     templates: ../k8s/ac/
