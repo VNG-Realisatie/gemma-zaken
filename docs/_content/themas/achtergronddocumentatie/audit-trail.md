@@ -78,6 +78,14 @@ bepaalde zaak. Dit laat optie 2 overigens mogelijk voor de toekomst.
 
 Unieke identificatie van de audit regel.
 
+`requestId` (optioneel)
+
+Unieke identificatie van het verzoek in het netwerk om over verschillende
+gateways heen te kunnen loggen.
+
+Op dit moment wordt alleen de [NLX] header `X-NLX-Request-Id` waarde 
+overgenomen in dit attribuut bij elke audit regel, indien aanwezig.
+
 `bron` (automatisch)
 
 De naam van het component waar de wijziging in is gedaan. Hoewel dit attribuut
