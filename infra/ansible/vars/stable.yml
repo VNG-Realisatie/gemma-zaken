@@ -1,6 +1,7 @@
 ---
 
 db_host: postgis
+redis_cache: redis
 
 services:
   - name: postgis
@@ -17,6 +18,9 @@ services:
       - token-issuer
       - vrl
       - deploy
+
+  - name: redis
+    templates: ../k8s/cache/
 
   - name: ac
     templates: ../k8s/ac/

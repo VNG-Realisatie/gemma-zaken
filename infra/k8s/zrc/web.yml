@@ -57,6 +57,8 @@ spec:
             value: {{ db_host }}
           - name: DB_NAME
             value: {{ service.name }}
+          - name: REDIS_CACHE
+            value: {{ redis_cache }}:6379/0
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
