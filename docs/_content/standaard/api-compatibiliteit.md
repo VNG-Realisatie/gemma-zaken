@@ -7,8 +7,9 @@ Elke API-specificatie heeft zijn eigen versie, wat voor
 compatibiliteitsproblemen kan zorgen bij het combineren van APIs.
 
 We vatten hier samen welke versies van APIs compatibel zijn met welke versies
-van andere APIs. Indien er geen range opgegeven is, dan betreft het de minimale
-versie van een API.
+van andere APIs. Indien er in een cel geen range (`x.y.z` - `u.w.v`) opgegeven is 
+maar een enkele waarde (`x.y.z`), dan betreft het de minimale versie van een API. 
+Een lege cel betekent dat de waarde gelijk is aan de daarboven gelegen cel.
 
 
 ## Autorisaties API (AC)
@@ -16,8 +17,8 @@ versie van een API.
 | Eigen versie      | NRC     | ZRC | DRC | ZTC | BRC |
 |-------------------|---------|-----|-----|-----|-----|
 | `0.2.x` - `0.3.x` | `0.5.x` | -   | -   | -   | -   |
-| `0.4.x`           | `0.8.1` | -   | -   | -   | -   |
-| `1.0.0`           | `1.0.0` | -   | -   | -   | -   |
+| `0.4.x`           | `0.8.1` |     |     |     |     |
+| `1.0.0`           | `1.0.0` |     |     |     |     |
 
 
 ## Notificaties API (NRC)
@@ -25,8 +26,8 @@ versie van een API.
 | Eigen versie      | AC      | ZRC | DRC | ZTC | BRC |
 |-------------------|---------|-----|-----|-----|-----|
 | `0.6.0` - `0.7.x` | `0.2.3` | -   | -   | -   | -   |
-| `0.8.1`           | `0.4.0` | -   | -   | -   | -   |
-| `1.0.0`           | `1.0.0` | -   | -   | -   | -   |
+| `0.8.1`           | `0.4.0` |     |     |     |     |
+| `1.0.0`           | `1.0.0` |     |     |     |     |
 
 
 ## Zaken API (ZRC)
