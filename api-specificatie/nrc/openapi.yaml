@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Notificaties (NC) API
-  description: 'Een API om een notificaties te routeren.
+  title: Notificaties API
+  description: 'Een API om een notificatierouteringscomponent te benaderen.
 
 
     Deze API voorziet in drie functionaliteiten voor notificaties:
@@ -48,12 +48,21 @@ info:
     routeert naar alle abonnees.
 
 
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Autorisaties API
+
+
     **Autorisatie**
 
 
     Deze API vereist autorisatie. Je kan de
 
-    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
 
     genereren.
 
@@ -61,16 +70,14 @@ info:
     **Handige links**
 
 
-    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
 
-    * [Aan de slag met notificeren](https://ref.tst.vng.cloud/ontwikkelaars/notificeren)
-
-    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
 
     '
   contact:
-    url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    url: https://zaakgerichtwerken.vng.cloud
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -81,7 +88,7 @@ paths:
   /abonnement:
     get:
       operationId: abonnement_list
-      description: ''
+      description: Alle ABONNEMENTen opvragen.
       responses:
         '200':
           description: OK
@@ -200,7 +207,7 @@ paths:
         - (notificaties.consumeren | notificaties.publiceren)
     post:
       operationId: abonnement_create
-      description: ''
+      description: Maak een ABONNEMENT aan.
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
       responses:
@@ -338,7 +345,7 @@ paths:
   /abonnement/{uuid}:
     get:
       operationId: abonnement_read
-      description: ''
+      description: Een specifiek ABONNEMENT opvragen.
       responses:
         '200':
           description: OK
@@ -467,7 +474,7 @@ paths:
         - (notificaties.consumeren | notificaties.publiceren)
     put:
       operationId: abonnement_update
-      description: ''
+      description: Werk een ABONNEMENT in zijn geheel bij.
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
       responses:
@@ -610,7 +617,7 @@ paths:
         - notificaties.consumeren
     patch:
       operationId: abonnement_partial_update
-      description: ''
+      description: Werk een ABONNEMENT deels bij.
       requestBody:
         $ref: '#/components/requestBodies/Abonnement'
       responses:
@@ -753,7 +760,7 @@ paths:
         - notificaties.consumeren
     delete:
       operationId: abonnement_delete
-      description: ''
+      description: Verwijder een ABONNEMENT.
       responses:
         '204':
           description: No content
@@ -887,11 +894,11 @@ paths:
   /kanaal:
     get:
       operationId: kanaal_list
-      description: ''
+      description: Alle KANAALen opvragen.
       parameters:
       - name: naam
         in: query
-        description: Naam van het kanaal (ook wel "Exchange" genoemd) dat de bron
+        description: Naam van het KANAAL (ook wel "Exchange" genoemd) dat de bron
           vertegenwoordigd.
         required: false
         schema:
@@ -1026,7 +1033,7 @@ paths:
         - (notificaties.publiceren | notificaties.consumeren)
     post:
       operationId: kanaal_create
-      description: ''
+      description: Maak een KANAAL aan.
       requestBody:
         content:
           application/json:
@@ -1168,7 +1175,7 @@ paths:
   /kanaal/{uuid}:
     get:
       operationId: kanaal_read
-      description: ''
+      description: Een specifiek KANAAL opvragen.
       responses:
         '200':
           description: OK
@@ -1306,7 +1313,7 @@ paths:
   /notificaties:
     post:
       operationId: notificaties_create
-      description: ''
+      description: Publiceer een notificatie.
       requestBody:
         content:
           application/json:
@@ -1349,17 +1356,28 @@ components:
       type: http
   schemas:
     FilterGroup:
+      title: kanalen
+      description: Een lijst van kanalen en filters waarop het ABONNEMENT wordt afgenomen.
       required:
       - naam
       type: object
       properties:
         filters:
           title: Filters
+          description: Map van kenmerken (sleutel/waarde) waarop notificaties gefilterd
+            worden. Alleen notificaties waarvan de kenmerken voldoen aan het filter
+            worden doorgestuurd naar de afnemer van het ABONNEMENT.
           type: object
           additionalProperties:
+            title: kenmerk
+            description: Een waarde behorende bij de sleutel.
             type: string
+            maxLength: 1000
+            minLength: 1
         naam:
           title: Naam
+          description: De naam van het KANAAL (`KANAAL.naam`) waarop een abonnement
+            is of wordt genomen.
           type: string
           minLength: 1
     Abonnement:
@@ -1395,6 +1413,8 @@ components:
           maxLength: 1000
           minLength: 1
         kanalen:
+          description: Een lijst van kanalen en filters waarop het ABONNEMENT wordt
+            afgenomen.
           type: array
           items:
             $ref: '#/components/schemas/FilterGroup'
@@ -1517,7 +1537,7 @@ components:
           minLength: 1
         naam:
           title: Naam
-          description: Naam van het kanaal (ook wel "Exchange" genoemd) dat de bron
+          description: Naam van het KANAAL (ook wel "Exchange" genoemd) dat de bron
             vertegenwoordigd.
           type: string
           maxLength: 50
@@ -1529,7 +1549,8 @@ components:
           format: uri
           maxLength: 200
         filters:
-          description: Komma-gescheiden lijst van filters van het kanaal
+          description: Lijst van mogelijke filter kenmerken van een KANAAL. Deze filter
+            kenmerken kunnen worden gebruikt bij het aanmaken van een ABONNEMENT.
           type: array
           items:
             title: Filters
@@ -1548,37 +1569,50 @@ components:
       properties:
         kanaal:
           title: kanaal
+          description: De naam van het kanaal (`KANAAL.naam`) waar het bericht op
+            moet worden gepubliceerd.
           type: string
           maxLength: 50
           minLength: 1
         hoofdObject:
-          title: URL naar het hoofdobject
+          title: hoofd object
+          description: URL-referentie naar het hoofd object van de publicerende API
+            die betrekking heeft op de `resource`.
           type: string
           format: uri
           minLength: 1
         resource:
           title: resource
+          description: De resourcenaam waar de notificatie over gaat.
           type: string
           maxLength: 100
           minLength: 1
         resourceUrl:
-          title: URL naar de resource waarover de notificatie gaat
+          title: resource URL
+          description: URL-referentie naar de `resource` van de publicerende API.
           type: string
           format: uri
           minLength: 1
         actie:
           title: actie
+          description: De actie die door de publicerende API is gedaan. De publicerende
+            API specificeert de toegestane acties.
           type: string
           maxLength: 100
           minLength: 1
         aanmaakdatum:
           title: aanmaakdatum
+          description: Datum en tijd waarop de actie heeft plaatsgevonden.
           type: string
           format: date-time
         kenmerken:
-          title: Kenmerken
+          title: kenmerken
+          description: Mapping van kenmerken (sleutel/waarde) van de notificatie.
+            De publicerende API specificeert de toegestane kenmerken.
           type: object
           additionalProperties:
+            title: kenmerk
+            description: Een waarde behorende bij de sleutel.
             type: string
             maxLength: 1000
             minLength: 1
