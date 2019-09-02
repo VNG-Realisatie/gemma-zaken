@@ -13,7 +13,7 @@ beschreven. Het bevat echter niet alle gegevens uit het RGBZ: documenten worden
 opgeslagen in de documentenregistratiecomponent, medewerkergegevens in de
 medewerkerregistratiecomponent, etc.
 
-Terzijde: In de toekomst kan de Besluiten API ook voor andere domeinen worden ingezet. Mogelijk moeten er dan aanpassingen of uitbreidingen op de API worden gedaan. Een goed voorbeeld is Open Raadsinformatie waarin ook een besluiten entiteit is geidentificeerd. 
+Terzijde: In de toekomst kan de Besluiten API ook voor andere domeinen worden ingezet. Mogelijk moeten er dan aanpassingen of uitbreidingen op de API worden gedaan. Een goed voorbeeld is Open Raadsinformatie waarin ook een besluiten entiteit is geidentificeerd.
 
 
 ## Gegevensmodel
@@ -24,10 +24,10 @@ Deze API ondersteunt het verwerken van gegevens van besluiten inclusief de relat
 
 ### Relatie met documenten en zaken
 
-Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één informatieobject meerdere besluiten vastgelegd zijn. 
+Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één informatieobject meerdere besluiten vastgelegd zijn.
 
 De relatie tussen besluit en informatieobject is vastgelegd in besluitinformatieobject (Besluiten API) en objectinformatieobject (Documenten API), waarbij besluitinformatieobject leidend is.
-Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de zaak waarvan het een uitkomst is. 
+Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de zaak waarvan het een uitkomst is.
 
 Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is één van de betrokkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort.
 
@@ -100,15 +100,11 @@ het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
 van het informatieobject niet (uiteindelijk) resulteert in een `HTTP 200`
 status code, MOET het BRC antwoorden met een `HTTP 400` foutbericht.
 
-#### **<a name="brc-004">Valideren relatieinformatie op `BesluitInformatieObject`-resource ([brc-004](#brc-004))</a>**
+#### **<a name="brc-004">Zetten van relatieinformatie op `BesluitInformatieObject`-resource ([brc-004](#brc-004))</a>**
 
 Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
-RGBZ. Omdat het `objectType` `besluit` is, moet `aardRelatie` gelijk zijn aan `"legt_vast"`.
-
-Bij het updaten (`besluitinformatieobject_update` en
-`besluitinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
-te wijzingen. Bij andere waardes voor de attributen `besluit`, en
-`informatieobject` MOET het BRC antwoorden met een `HTTP 400` foutbericht.
+RGBZ. Omdat het `objectType` `besluit` is, moet `aardRelatie` gelijk zijn aan
+`"legt_vast"`.
 
 #### **<a name="brc-005">Synchroniseren relaties met informatieobjecten ([brc-005](#brc-005))</a>**
 
