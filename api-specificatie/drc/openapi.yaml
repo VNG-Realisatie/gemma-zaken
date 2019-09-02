@@ -38,173 +38,6 @@ info:
 security:
 - JWT-Claims: []
 paths:
-  /bestandsdelen/{uuid}:
-    put:
-      operationId: bestandsdeel_update
-      description: Upload een bestandsdeel
-      requestBody:
-        content:
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                inhoud:
-                  description: De (binaire) bestandsinhoud van dit specifieke bestandsdeel.
-                  type: string
-                  format: binary
-                lock:
-                  description: Hash string, which represents id of the lock of related
-                    informatieobject
-                  type: string
-                  minLength: 1
-              required:
-              - lock
-      responses:
-        '200':
-          description: OK
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BestandsDeel'
-        '400':
-          description: Bad request
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
-          description: Unauthorized
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
-          description: Forbidden
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
-          description: Not found
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
-          description: Not acceptable
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
-          description: Conflict
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
-          description: Gone
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
-          description: Unsupported media type
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
-          description: Too many requests
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
-          description: Internal server error
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Fout'
-      tags:
-      - bestandsdelen
-      security:
-      - JWT-Claims:
-        - documenten.bijwerken
-    parameters:
-    - name: uuid
-      in: path
-      description: Unieke resource identifier (UUID4)
-      required: true
-      schema:
-        type: string
-        format: uuid
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
@@ -416,7 +249,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EnkelvoudigInformatieObjectCreateLockData'
+              $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
         required: true
       responses:
         '201':
@@ -435,7 +268,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectCreateLockData'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObjectData'
         '400':
           description: Bad request
           headers:
@@ -3563,151 +3396,6 @@ components:
       scheme: bearer
       type: http
   schemas:
-    BestandsDeel:
-      required:
-      - lock
-      type: object
-      properties:
-        url:
-          title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-        volgnummer:
-          title: Volgnummer
-          description: Een volgnummer dat de volgorde van de bestandsdelen aangeeft.
-          type: integer
-          readOnly: true
-        omvang:
-          title: Omvang
-          description: De grootte van dit specifieke bestandsdeel.
-          type: integer
-          readOnly: true
-        inhoud:
-          title: Inhoud
-          description: De (binaire) bestandsinhoud van dit specifieke bestandsdeel.
-          type: string
-          readOnly: true
-          format: uri
-        voltooid:
-          title: Voltooid
-          description: 'Indicatie of dit bestandsdeel volledig is geupload. Dat wil
-            zeggen: het aantal bytes dat staat genoemd bij grootte is daadwerkelijk
-            ontvangen.'
-          type: boolean
-          readOnly: true
-        lock:
-          title: Lock
-          description: Hash string, which represents id of the lock of related informatieobject
-          type: string
-          minLength: 1
-    Fout:
-      required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      type: object
-      properties:
-        type:
-          title: Type
-          description: URI referentie naar het type fout, bedoeld voor developers
-          type: string
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          description: Generieke titel voor het type fout
-          type: string
-          minLength: 1
-        status:
-          title: Status
-          description: De HTTP status code
-          type: integer
-        detail:
-          title: Detail
-          description: Extra informatie bij de fout, indien beschikbaar
-          type: string
-          minLength: 1
-        instance:
-          title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
-          type: string
-          minLength: 1
-    FieldValidationError:
-      required:
-      - name
-      - code
-      - reason
-      type: object
-      properties:
-        name:
-          title: Name
-          description: Naam van het veld met ongeldige gegevens
-          type: string
-          minLength: 1
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        reason:
-          title: Reason
-          description: Uitleg wat er precies fout is met de gegevens
-          type: string
-          minLength: 1
-    ValidatieFout:
-      required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      - invalidParams
-      type: object
-      properties:
-        type:
-          title: Type
-          description: URI referentie naar het type fout, bedoeld voor developers
-          type: string
-        code:
-          title: Code
-          description: Systeemcode die het type fout aangeeft
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          description: Generieke titel voor het type fout
-          type: string
-          minLength: 1
-        status:
-          title: Status
-          description: De HTTP status code
-          type: integer
-        detail:
-          title: Detail
-          description: Extra informatie bij de fout, indien beschikbaar
-          type: string
-          minLength: 1
-        instance:
-          title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
-          type: string
-          minLength: 1
-        invalidParams:
-          type: array
-          items:
-            $ref: '#/components/schemas/FieldValidationError'
     Ondertekening:
       title: ondertekening
       description: Aanduiding van de rechtskracht van een informatieobject. Mag niet
@@ -3963,14 +3651,12 @@ components:
           type: string
           format: uri
           readOnly: true
-          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          readOnly: true
           minimum: 0
-          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -4033,18 +3719,117 @@ components:
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
           readOnly: true
-        bestandsdelen:
+    Fout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+    FieldValidationError:
+      required:
+      - name
+      - code
+      - reason
+      type: object
+      properties:
+        name:
+          title: Name
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          title: Reason
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+    ValidatieFout:
+      required:
+      - code
+      - title
+      - status
+      - detail
+      - instance
+      - invalidParams
+      type: object
+      properties:
+        type:
+          title: Type
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          title: Code
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        status:
+          title: Status
+          description: De HTTP status code
+          type: integer
+        detail:
+          title: Detail
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          title: Instance
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalidParams:
           type: array
           items:
-            $ref: '#/components/schemas/BestandsDeel'
-          readOnly: true
-    EnkelvoudigInformatieObjectCreateLockData:
+            $ref: '#/components/schemas/FieldValidationError'
+    EnkelvoudigInformatieObjectData:
       required:
       - bronorganisatie
       - creatiedatum
       - titel
       - auteur
       - taal
+      - inhoud
       - informatieobjecttype
       type: object
       properties:
@@ -4189,14 +3974,12 @@ components:
           description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
-          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          readOnly: true
           minimum: 0
-          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -4259,19 +4042,6 @@ components:
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
           readOnly: true
-        bestandsdelen:
-          type: array
-          items:
-            $ref: '#/components/schemas/BestandsDeel'
-          readOnly: true
-        lock:
-          title: Lock
-          description: Lock id generated if the large file is created and should be
-            used while updating the document. Documents with base64 encoded files
-            are created without lock
-          type: string
-          readOnly: true
-          minLength: 1
     Wijzgingen:
       title: Wijzigingen
       type: object
@@ -4432,6 +4202,7 @@ components:
       - titel
       - auteur
       - taal
+      - inhoud
       - informatieobjecttype
       - lock
       type: object
@@ -4577,14 +4348,12 @@ components:
           description: "Binaire inhoud, in base64 ge\xEBncodeerd."
           type: string
           format: bytes
-          nullable: true
         bestandsomvang:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          readOnly: true
           minimum: 0
-          nullable: true
         link:
           title: Link
           description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
@@ -4646,11 +4415,6 @@ components:
           description: Geeft aan of het document gelocked is. Alleen als een document
             gelocked is, mogen er aanpassingen gemaakt worden.
           type: boolean
-          readOnly: true
-        bestandsdelen:
-          type: array
-          items:
-            $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
         lock:
           title: Lock
