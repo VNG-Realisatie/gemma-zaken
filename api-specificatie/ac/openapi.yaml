@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Autorisatiecomponent (AC) API
-  description: 'Een API om een autorisatiecomponent te benaderen.
+  title: Autorisaties API
+  description: 'Een API om een autorisatiecomponent (AC) te benaderen.
 
 
     De `AUTORISATIE` is het kernobject in deze API. Autorisaties worden toegekend
@@ -18,12 +18,21 @@ info:
     te lezen.
 
 
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Notificaties API
+
+
     **Autorisatie**
 
 
     Deze API vereist autorisatie. Je kan de
 
-    [token-tool](https://ref.tst.vng.cloud/tokens/) gebruiken om JWT-tokens te
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
 
     genereren.
 
@@ -56,14 +65,14 @@ info:
     **Handige links**
 
 
-    * [Aan de slag](https://ref.tst.vng.cloud/ontwikkelaars/)
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
 
-    * ["Papieren" standaard](https://ref.tst.vng.cloud/standaard/)
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
 
     '
   contact:
-    url: https://github.com/VNG-Realisatie/gemma-zaken
-    email: support@maykinmedia.nl
+    url: https://zaakgerichtwerken.vng.cloud
+    email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
@@ -1185,6 +1194,7 @@ components:
           - brc
         componentWeergave:
           title: Component weergave
+          description: Omschrijving van `component`.
           type: string
           readOnly: true
           minLength: 1
@@ -1270,6 +1280,30 @@ components:
       allOf:
       - $ref: '#/components/schemas/AutorisatieBase'
       - $ref: '#/components/schemas/brcAutorisatie'
+    nrcAutorisatie:
+      type: object
+      properties: {}
+    nrc:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/nrcAutorisatie'
+    ztcAutorisatie:
+      type: object
+      properties: {}
+    ztc:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/ztcAutorisatie'
+    acAutorisatie:
+      type: object
+      properties: {}
+    ac:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AutorisatieBase'
+      - $ref: '#/components/schemas/acAutorisatie'
     Applicatie:
       required:
       - clientIds
