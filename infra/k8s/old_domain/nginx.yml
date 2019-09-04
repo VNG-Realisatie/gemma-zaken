@@ -72,6 +72,7 @@ data:
         rewrite ^/nrc(.*)$ https://notificaties-api.vng.cloud$1 permanent;
         rewrite ^/ac(.*)$ https://autorisaties-api.vng.cloud$1 permanent;
         rewrite ^/tokens(.*)$ https://zaken-auth.vng.cloud$1 permanent;
+        rewrite ^/demo(.*)$ https://zgw-demo.vng.cloud$1 permanent;
 
         rewrite ^/referentielijsten(.*)$ https://referentielijsten-api.vng.cloud$1 permanent;
 
