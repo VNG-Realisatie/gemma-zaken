@@ -58,8 +58,6 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
 
 * [![Build Status][vng-api-common-build-status]][vng-api-common]
   [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
-* [![Build Status][zit-build-status]][zit-stable]
-  [Integratietesten](https://github.com/VNG-Realisatie/gemma-zaken-test-integratie)
 * [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 * [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
@@ -78,8 +76,6 @@ Copyright © VNG Realisatie 2018
 [ztc-stable]: http://jenkins.nlx.io/job/gemma-zaaktypecatalogus-stable
 [brc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
 [brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
-[zit-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaken-test-integratie-master
-[zit-stable]: http://jenkins.nlx.io/job/gemma-zaken-test-integratie-master
 [nc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
 [nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
 [ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
