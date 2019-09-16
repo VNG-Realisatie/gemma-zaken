@@ -207,5 +207,5 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 
 ## Overige documentatie
 
-* [Achtergronddocumentatie](/themas/achtergronddocumentatie/index)
+* [Achtergronddocumentatie](../themas/index)
 * [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)
