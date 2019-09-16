@@ -539,7 +539,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -1474,7 +1474,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -2143,7 +2143,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -2598,7 +2598,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -3544,7 +3544,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -6912,6 +6912,16 @@ components:
           description: Het communicatiekanaal waarlangs het KLANTCONTACT gevoerd wordt
           type: string
           maxLength: 20
+        onderwerp:
+          title: Onderwerp
+          description: Het onderwerp waarover contact is geweest met de klant.
+          type: string
+          maxLength: 200
+        toelichting:
+          title: Toelichting
+          description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
+          type: string
+          maxLength: 1000
     Fout:
       required:
       - code
@@ -9372,7 +9382,7 @@ components:
           description: Which field to use when ordering the results.
           type: string
           minLength: 1
-    Wijzgingen:
+    Wijzigingen:
       title: Wijzigingen
       type: object
       properties:
@@ -9524,7 +9534,7 @@ components:
           format: date-time
           readOnly: true
         wijzigingen:
-          $ref: '#/components/schemas/Wijzgingen'
+          $ref: '#/components/schemas/Wijzigingen'
     ZaakBesluit:
       required:
       - besluit
