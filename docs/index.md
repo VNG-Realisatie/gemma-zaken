@@ -11,7 +11,8 @@ relevante informatiemodellen (RGBZ 2.0 en ImZTC 2.2) wordt met zowel publieke
 als private partijen in een agile proces vormgegeven aan RESTful API's die
 concreet invulling geven aan de gewenste standaard. De standaard wordt tegelijk
 met een referentie-implementatie ontwikkeld om de implementeerbaarheid aan te
-tonen, en als referentie te dienen voor latere implementaties.
+tonen, en als referentie te dienen voor latere implementaties. Over de voorwaarden
+voor het gebruik van de referentie implementaties kunt u [hier](beheer/gebruiksvoorwaarden) lezen.
 
 Alle opgeleverde API's, oftewel componenten om in GEMMA termen te spreken, zijn noodzakelijk om zaakgericht werken mogelijk te maken.
 Echter, niet alle componenten hoeven aanwezig te zijn in elk software pakket.
@@ -29,7 +30,7 @@ De standaard staat [hier](standaard) beschreven. Ontwikkelaars kunnen
 [direct aan de slag](ontwikkelaars) met de beschikbare
 [API's](standaard) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](community/bijdragen) lezen.
+[hier](community/bijdragen) lezen. 
 
 ## Slack
 
