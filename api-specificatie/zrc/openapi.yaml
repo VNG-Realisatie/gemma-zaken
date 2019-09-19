@@ -38,10 +38,54 @@ info:
     genereren.
 
 
-    **Notificaties**
+    ### Notificaties
 
 
     Deze API publiceert notificaties op het kanaal `zaken`.
+
+
+    **Main resource**
+
+
+    `zaak`
+
+
+
+
+    **Kenmerken**
+
+
+    * `bronorganisatie`: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+    die de zaak heeft gecreeerd. Dit moet een geldig RSIN zijn van 9 nummers en voldoen
+    aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+
+    * `zaaktype`: URL-referentie naar het ZAAKTYPE (in de Catalogi API) in de CATALOGUS
+    waar deze voorkomt
+
+    * `vertrouwelijkheidaanduiding`: Aanduiding van de mate waarin het zaakdossier
+    van de ZAAK voor de openbaarheid bestemd is.
+
+
+    **Resources en acties**
+
+    - `zaak`: create, update, destroy
+
+    - `status`: create
+
+    - `zaakobject`: create
+
+    - `zaakinformatieobject`: create
+
+    - `zaakeigenschap`: create
+
+    - `klantcontact`: create
+
+    - `rol`: create
+
+    - `resultaat`: create, update, destroy
+
+    - `zaakbesluit`: create
+
 
 
     **Handige links**
@@ -67,6 +111,13 @@ paths:
       operationId: klantcontact_list
       summary: Alle KLANTCONTACTen opvragen.
       description: Alle KLANTCONTACTen opvragen.
+      parameters:
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -79,9 +130,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/KlantContact'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/KlantContact'
         '401':
           description: Unauthorized
           headers:
@@ -210,6 +277,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContact'
+        required: true
       responses:
         '201':
           description: Created
@@ -341,12 +414,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KlantContact'
-        required: true
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -495,7 +562,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -507,6 +574,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -519,9 +592,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Resultaat'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Resultaat'
         '400':
           description: Bad request
           headers:
@@ -664,6 +753,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '201':
           description: Created
@@ -795,8 +886,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -958,6 +1047,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1096,8 +1187,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     patch:
       operationId: resultaat_partial_update
       summary: Werk een RESULTAAT deels bij.
@@ -1127,6 +1216,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Resultaat'
       responses:
         '200':
           description: OK
@@ -1265,8 +1356,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        $ref: '#/components/requestBodies/Resultaat'
     delete:
       operationId: resultaat_delete
       summary: Verwijder een RESULTAAT van een ZAAK.
@@ -1430,7 +1519,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -1535,6 +1624,12 @@ paths:
           - klantcontacter
           - zaakcoordinator
           - mede_initiator
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -1547,9 +1642,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Rol'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rol'
         '400':
           description: Bad request
           headers:
@@ -1688,6 +1799,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
       responses:
         '201':
           description: Created
@@ -1819,12 +1936,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Rol'
-        required: true
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2099,7 +2210,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -2111,6 +2222,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -2123,9 +2240,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Status'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Status'
         '400':
           description: Bad request
           headers:
@@ -2269,6 +2402,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Status'
+        required: true
       responses:
         '201':
           description: Created
@@ -2400,12 +2539,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.statussen.toevoegen | zaken.heropenen)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Status'
-        required: true
     parameters: []
   /statussen/{uuid}:
     get:
@@ -2554,7 +2687,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -2727,6 +2860,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '201':
           description: Created
@@ -2858,8 +2993,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -3024,6 +3157,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3162,8 +3297,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     patch:
       operationId: zaakinformatieobject_partial_update
       summary: Werk een ZAAK-INFORMATIEOBJECT relatie in deels bij.
@@ -3196,6 +3329,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ZaakInformatieObject'
       responses:
         '200':
           description: OK
@@ -3334,13 +3469,13 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/ZaakInformatieObject'
     delete:
       operationId: zaakinformatieobject_delete
       summary: Verwijder een ZAAK-INFORMATIEOBJECT relatie.
-      description: De gespiegelde relatie in de Documenten API wordt door de Zaken
-        API verwijderd. Consumers kunnen dit niet handmatig doen..
+      description: 'De gespiegelde relatie in de Documenten API wordt door de Zaken
+        API
+
+        verwijderd. Consumers kunnen dit niet handmatig doen..'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -3500,7 +3635,7 @@ paths:
       parameters:
       - name: zaak
         in: query
-        description: URL naar de/het gerelateerde zaak
+        description: URL-referentie naar de ZAAK.
         required: false
         schema:
           type: string
@@ -3551,6 +3686,12 @@ paths:
           - woz_waarde
           - zakelijk_recht
           - overige
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -3563,9 +3704,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ZaakObject'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ZaakObject'
         '400':
           description: Bad request
           headers:
@@ -3704,6 +3861,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakObject'
+        required: true
       responses:
         '201':
           description: Created
@@ -3835,12 +3998,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.aanmaken | zaken.bijwerken)
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakObject'
-        required: true
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -4354,6 +4511,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '201':
           description: Created
@@ -4497,8 +4656,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.aanmaken
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     parameters: []
   /zaken/_zoek:
     post:
@@ -4534,6 +4691,12 @@ paths:
           type: string
           enum:
           - EPSG:4326
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakZoek'
+        required: true
       responses:
         '200':
           description: OK
@@ -4698,12 +4861,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakZoek'
-        required: true
     parameters: []
   /zaken/{uuid}:
     get:
@@ -4935,6 +5092,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5093,8 +5252,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     patch:
       operationId: zaak_partial_update
       summary: Werk een ZAAK deels bij.
@@ -5153,6 +5310,8 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Zaak'
       responses:
         '200':
           description: OK
@@ -5311,8 +5470,6 @@ paths:
       security:
       - JWT-Claims:
         - (zaken.bijwerken | zaken.geforceerd-bijwerken)
-      requestBody:
-        $ref: '#/components/requestBodies/Zaak'
     delete:
       operationId: zaak_delete
       summary: Verwijder een ZAAK.
@@ -5918,6 +6075,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakBesluit'
+        required: true
       responses:
         '201':
           description: Created
@@ -6049,12 +6212,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakBesluit'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6507,6 +6664,12 @@ paths:
         required: false
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakEigenschap'
+        required: true
       responses:
         '201':
           description: Created
@@ -6638,12 +6801,6 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakEigenschap'
-        required: true
     parameters:
     - name: zaak_uuid
       in: path
@@ -6868,6 +7025,16 @@ components:
           description: Het communicatiekanaal waarlangs het KLANTCONTACT gevoerd wordt
           type: string
           maxLength: 20
+        onderwerp:
+          title: Onderwerp
+          description: Het onderwerp waarover contact is geweest met de klant.
+          type: string
+          maxLength: 200
+        toelichting:
+          title: Toelichting
+          description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
+          type: string
+          maxLength: 1000
     Fout:
       required:
       - code
@@ -7262,16 +7429,16 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `M` - Man
+            * `m` - Man
 
-            * `V` - Vrouw
+            * `v` - Vrouw
 
-            * `O` - Onbekend'
+            * `o` - Onbekend'
           type: string
           enum:
-          - M
-          - V
-          - O
+          - m
+          - v
+          - o
         geboortedatum:
           title: Geboortedatum
           type: string
@@ -7318,25 +7485,25 @@ components:
           description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
           type: string
           enum:
-          - Besloten Vennootschap
-          - Cooperatie, Europees Economische Samenwerking
-          - Europese Cooperatieve Venootschap
-          - Europese Naamloze Vennootschap
-          - Kerkelijke Organisatie
-          - Naamloze Vennootschap
-          - Onderlinge Waarborg Maatschappij
-          - Overig privaatrechtelijke rechtspersoon
-          - Stichting
-          - Vereniging
-          - Vereniging van Eigenaars
-          - Publiekrechtelijke Rechtspersoon
-          - Vennootschap onder Firma
-          - Maatschap
-          - Rederij
-          - Commanditaire vennootschap
-          - Kapitaalvennootschap binnen EER
-          - Overige buitenlandse rechtspersoon vennootschap
-          - Kapitaalvennootschap buiten EER
+          - besloten_vennootschap
+          - cooperatie_europees_economische_samenwerking
+          - europese_cooperatieve_venootschap
+          - europese_naamloze_vennootschap
+          - kerkelijke_organisatie
+          - naamloze_vennootschap
+          - onderlinge_waarborg_maatschappij
+          - overig_privaatrechtelijke_rechtspersoon
+          - stichting
+          - vereniging
+          - vereniging_van_eigenaars
+          - publiekrechtelijke_rechtspersoon
+          - vennootschap_onder_firma
+          - maatschap
+          - rederij
+          - commanditaire_vennootschap
+          - kapitaalvennootschap_binnen_eer
+          - overige_buitenlandse_rechtspersoon_vennootschap
+          - kapitaalvennootschap_buiten_eer
         bezoekadres:
           title: Bezoekadres
           description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
@@ -7975,37 +8142,37 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Bak` - Bak
+            * `bak` - Bak
 
-            * `Bord` - Bord
+            * `bord` - Bord
 
-            * `Installatie` - Installatie
+            * `installatie` - Installatie
 
-            * `Kast` - Kast
+            * `kast` - Kast
 
-            * `Mast` - Mast
+            * `mast` - Mast
 
-            * `Paal` - Paal
+            * `paal` - Paal
 
-            * `Sensor` - Sensor
+            * `sensor` - Sensor
 
-            * `Straatmeubilair` - Straatmeubilair
+            * `straatmeubilair` - Straatmeubilair
 
-            * `Waterinrichtingselement` - Waterinrichtingselement
+            * `waterinrichtingselement` - Waterinrichtingselement
 
-            * `Weginrichtingselement` - Weginrichtingselement'
+            * `weginrichtingselement` - Weginrichtingselement'
           type: string
           enum:
-          - Bak
-          - Bord
-          - Installatie
-          - Kast
-          - Mast
-          - Paal
-          - Sensor
-          - Straatmeubilair
-          - Waterinrichtingselement
-          - Weginrichtingselement
+          - bak
+          - bord
+          - installatie
+          - kast
+          - mast
+          - paal
+          - sensor
+          - straatmeubilair
+          - waterinrichtingselement
+          - weginrichtingselement
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
@@ -8074,55 +8241,55 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Keermuur` - Keermuur
+            * `keermuur` - Keermuur
 
-            * `Overkluizing` - Overkluizing
+            * `overkluizing` - Overkluizing
 
-            * `Duiker` - Duiker
+            * `duiker` - Duiker
 
-            * `Faunavoorziening` - Faunavoorziening
+            * `faunavoorziening` - Faunavoorziening
 
-            * `Vispassage` - Vispassage
+            * `vispassage` - Vispassage
 
-            * `Bodemval` - Bodemval
+            * `bodemval` - Bodemval
 
-            * `Coupure` - Coupure
+            * `coupure` - Coupure
 
-            * `Ponton` - Ponton
+            * `ponton` - Ponton
 
-            * `Voorde` - Voorde
+            * `voorde` - Voorde
 
-            * `Hoogspanningsmast` - Hoogspanningsmast
+            * `hoogspanningsmast` - Hoogspanningsmast
 
-            * `Gemaal` - Gemaal
+            * `gemaal` - Gemaal
 
-            * `Perron` - Perron
+            * `perron` - Perron
 
-            * `Sluis` - Sluis
+            * `sluis` - Sluis
 
-            * `Strekdam` - Strekdam
+            * `strekdam` - Strekdam
 
-            * `Steiger` - Steiger
+            * `steiger` - Steiger
 
-            * `Stuw` - Stuw'
+            * `stuw` - Stuw'
           type: string
           enum:
-          - Keermuur
-          - Overkluizing
-          - Duiker
-          - Faunavoorziening
-          - Vispassage
-          - Bodemval
-          - Coupure
-          - Ponton
-          - Voorde
-          - Hoogspanningsmast
-          - Gemaal
-          - Perron
-          - Sluis
-          - Strekdam
-          - Steiger
-          - Stuw
+          - keermuur
+          - overkluizing
+          - duiker
+          - faunavoorziening
+          - vispassage
+          - bodemval
+          - coupure
+          - ponton
+          - voorde
+          - hoogspanningsmast
+          - gemaal
+          - perron
+          - sluis
+          - strekdam
+          - steiger
+          - stuw
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
@@ -8369,19 +8536,19 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `Zee` - Zee
+            * `zee` - Zee
 
-            * `Waterloop` - Waterloop
+            * `waterloop` - Waterloop
 
-            * `Watervlakte` - Watervlakte
+            * `watervlakte` - Watervlakte
 
-            * `Greppel, droge sloot` - Greppel, droge sloot'
+            * `greppel_droge_sloot` - Greppel, droge sloot'
           type: string
           enum:
-          - Zee
-          - Waterloop
-          - Watervlakte
-          - Greppel, droge sloot
+          - zee
+          - waterloop
+          - watervlakte
+          - greppel_droge_sloot
         identificatie:
           title: Identificatie
           description: De unieke identificatie van het OBJECT
@@ -9016,6 +9183,7 @@ components:
           type: string
           format: date
           readOnly: true
+          nullable: true
         einddatumGepland:
           title: Einddatum gepland
           description: De datum waarop volgens de planning verwacht wordt dat de zaak
@@ -9149,6 +9317,7 @@ components:
           type: string
           format: uri
           readOnly: true
+          nullable: true
         kenmerken:
           description: Lijst van kenmerken. Merk op dat refereren naar gerelateerde
             objecten beter kan via `ZaakObject`.
@@ -9217,6 +9386,7 @@ components:
           type: string
           format: uri
           readOnly: true
+          nullable: true
     GeoWithin:
       title: Zaakgeometrie
       type: object
@@ -9325,7 +9495,7 @@ components:
           description: Which field to use when ordering the results.
           type: string
           minLength: 1
-    Wijzgingen:
+    Wijzigingen:
       title: Wijzigingen
       type: object
       properties:
@@ -9477,7 +9647,7 @@ components:
           format: date-time
           readOnly: true
         wijzigingen:
-          $ref: '#/components/schemas/Wijzgingen'
+          $ref: '#/components/schemas/Wijzigingen'
     ZaakBesluit:
       required:
       - besluit

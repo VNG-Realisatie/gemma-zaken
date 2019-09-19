@@ -1,17 +1,129 @@
 openapi: 3.0.0
 info:
   title: Catalogi API
-  description: "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
-    \ helpt gemeenten om het proces vanuit de 'vraag van een \nklant' (productaanvraag,\
-    \ melding, aangifte, informatieverzoek e.d.) tot en met \nhet leveren van een\
-    \ passend antwoord daarop in te richten, inclusief de \nbijbehorende informatievoorziening.\n\
-    \nEen CATALOGUS bestaat uit ZAAKTYPEn, INFORMATIEOBJECTTYPEn en BESLUITTYPEn en\n\
-    wordt typisch gebruikt om een ZAAK (in de Zaken API), INFORMATIEOBJECT (in de\n\
-    Documenten API) en BESLUIT (in de Besluiten API) te voorzien van type, \nstandaardwaarden\
-    \ en processtructuur.\n\n**Afhankelijkheden**\n\nDeze API is afhankelijk van:\n\
-    \n* Gemeentelijke Selectielijst API\n* Autorisaties API *(optioneel)*\n\n**Autorisatie**\n\
-    \nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
-    \ gebruiken om JWT-tokens te\ngenereren.\n"
+  description: 'Een API om een zaaktypecatalogus (ZTC) te benaderen.
+
+
+    De zaaktypecatalogus helpt gemeenten om het proces vanuit de ''vraag van een
+
+    klant'' (productaanvraag, melding, aangifte, informatieverzoek e.d.) tot en met
+
+    het leveren van een passend antwoord daarop in te richten, inclusief de
+
+    bijbehorende informatievoorziening.
+
+
+    Een CATALOGUS bestaat uit ZAAKTYPEn, INFORMATIEOBJECTTYPEn en BESLUITTYPEn en
+
+    wordt typisch gebruikt om een ZAAK (in de Zaken API), INFORMATIEOBJECT (in de
+
+    Documenten API) en BESLUIT (in de Besluiten API) te voorzien van type,
+
+    standaardwaarden en processtructuur.
+
+
+    **Afhankelijkheden**
+
+
+    Deze API is afhankelijk van:
+
+
+    * Gemeentelijke Selectielijst API
+
+    * Autorisaties API *(optioneel)*
+
+
+    **Autorisatie**
+
+
+    Deze API vereist autorisatie. Je kan de
+
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+
+    genereren.
+
+
+    ### Notificaties
+
+
+    Deze API publiceert notificaties op het kanaal `zaaktypen`.
+
+
+    **Main resource**
+
+
+    `zaaktype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
+
+
+    **Resources en acties**
+
+    - `zaaktype`: create, destroy
+
+
+
+    Deze API publiceert notificaties op het kanaal `besluittypen`.
+
+
+    **Main resource**
+
+
+    `besluittype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
+
+
+    **Resources en acties**
+
+    - `besluittype`: create, destroy
+
+
+
+    Deze API publiceert notificaties op het kanaal `informatieobjecttypen`.
+
+
+    **Main resource**
+
+
+    `informatieobjecttype`
+
+
+
+
+    **Kenmerken**
+
+
+    * `catalogus`: URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE
+    behoort.
+
+
+    **Resources en acties**
+
+    - `informatieobjecttype`: create, destroy
+
+
+
+    **Handige links**
+
+
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+
+    '
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl
@@ -4925,7 +5037,11 @@ paths:
     post:
       operationId: zaaktype_create
       summary: Maak een ZAAKTYPE aan.
-      description: Maak een ZAAKTYPE aan.
+      description: "Maak een ZAAKTYPE aan.\n\nEr wordt gevalideerd op:\n- geldigheid\
+        \ `catalogus` URL, dit moet een catalogus binnen dezelfde API zijn\n- Uniciteit\
+        \ `catalogus` en `omschrijving`. Dezelfde omeschrijving mag enkel\n  opnieuw\
+        \ gebruikt worden als het zaaktype een andere geldigheidsperiode\n  kent dan\
+        \ bestaande zaaktypen."
       responses:
         '201':
           description: Created
@@ -5693,15 +5809,15 @@ components:
 
             * `getal` - Getal
 
-            * `datum (jjjjmmdd)` - Datum
+            * `datum` - Datum
 
-            * `datum/tijd (jjjjmmdduummss)` - Datum/tijd'
+            * `datum_tijd` - Datum/tijd'
           type: string
           enum:
           - tekst
           - getal
-          - datum (jjjjmmdd)
-          - datum/tijd (jjjjmmdduummss)
+          - datum
+          - datum_tijd
         lengte:
           title: Lengte
           description: Het aantal karakters (lengte) waarmee waarden van de EIGENSCHAP
@@ -5858,7 +5974,35 @@ components:
       properties:
         afleidingswijze:
           title: Afleidingswijze brondatum
-          description: Wijze van bepalen van de brondatum.
+          description: "Wijze van bepalen van de brondatum.\n\nUitleg bij mogelijke\
+            \ waarden:\n\n* `afgehandeld` - (Afgehandeld) De termijn start op de datum\
+            \ waarop de zaak is afgehandeld (ZAAK.Einddatum in het RGBZ).\n* `ander_datumkenmerk`\
+            \ - (Ander datumkenmerk) De termijn start op de datum die is vastgelegd\
+            \ in een ander datumveld dan de datumvelden waarop de overige waarden\
+            \ (van deze attribuutsoort) betrekking hebben. `Objecttype`, `Registratie`\
+            \ en `Datumkenmerk` zijn niet leeg.\n* `eigenschap` - (Eigenschap) De\
+            \ termijn start op de datum die vermeld is in een zaaktype-specifieke\
+            \ eigenschap (zijnde een `datumveld`). `ResultaatType.ZaakType` heeft\
+            \ een `Eigenschap`; `Objecttype`, en `Datumkenmerk` zijn niet leeg.\n\
+            * `gerelateerde_zaak` - (Gerelateerde zaak) De termijn start op de datum\
+            \ waarop de gerelateerde zaak is afgehandeld (`ZAAK.Einddatum` of `ZAAK.Gerelateerde_zaak.Einddatum`\
+            \ in het RGBZ). `ResultaatType.ZaakType` heeft gerelateerd `ZaakType`\n\
+            * `hoofdzaak` - (Hoofzaak) De termijn start op de datum waarop de gerelateerde\
+            \ zaak is afgehandeld, waarvan de zaak een deelzaak is (`ZAAK.Einddatum`\
+            \ van de hoofdzaak in het RGBZ). ResultaatType.ZaakType is deelzaaktype\
+            \ van ZaakType.\n* `ingangsdatum_besluit` - (Ingangsdatum besluit) De\
+            \ termijn start op de datum waarop het besluit van kracht wordt (`BESLUIT.Ingangsdatum`\
+            \ in het RGBZ).\tResultaatType.ZaakType heeft relevant BesluitType\n*\
+            \ `termijn` - (Termijn) De termijn start een vast aantal jaren na de datum\
+            \ waarop de zaak is afgehandeld (`ZAAK.Einddatum` in het RGBZ).\n* `vervaldatum_besluit`\
+            \ - (Vervaldatum besluit) De termijn start op de dag na de datum waarop\
+            \ het besluit vervalt (`BESLUIT.Vervaldatum` in het RGBZ). ResultaatType.ZaakType\
+            \ heeft relevant BesluitType\n* `zaakobject` - (Zaakobject) De termijn\
+            \ start op de einddatum geldigheid van het zaakobject waarop de zaak betrekking\
+            \ heeft (bijvoorbeeld de overlijdendatum van een Persoon). M.b.v. de attribuutsoort\
+            \ `Objecttype` wordt vastgelegd om welke zaakobjecttype het gaat; m.b.v.\
+            \ de attribuutsoort `Datumkenmerk` wordt vastgelegd welke datum-attribuutsoort\
+            \ van het zaakobjecttype het betreft."
           type: string
           enum:
           - afgehandeld
@@ -5885,7 +6029,73 @@ components:
           type: boolean
         objecttype:
           title: Objecttype
-          description: Het soort object in de registratie dat het procesobject representeert.
+          description: 'Het soort object in de registratie dat het procesobject representeert.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `adres` - Adres
+
+            * `besluit` - Besluit
+
+            * `buurt` - Buurt
+
+            * `enkelvoudig_document` - Enkelvoudig document
+
+            * `gemeente` - Gemeente
+
+            * `gemeentelijke_openbare_ruimte` - Gemeentelijke openbare ruimte
+
+            * `huishouden` - Huishouden
+
+            * `inrichtingselement` - Inrichtingselement
+
+            * `kadastrale_onroerende_zaak` - Kadastrale onroerende zaak
+
+            * `kunstwerkdeel` - Kunstwerkdeel
+
+            * `maatschappelijke_activiteit` - Maatschappelijke activiteit
+
+            * `medewerker` - Medewerker
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `openbare_ruimte` - Openbare ruimte
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `pand` - Pand
+
+            * `spoorbaandeel` - Spoorbaandeel
+
+            * `status` - Status
+
+            * `terreindeel` - Terreindeel
+
+            * `terrein_gebouwd_object` - Terrein gebouwd object
+
+            * `vestiging` - Vestiging
+
+            * `waterdeel` - Waterdeel
+
+            * `wegdeel` - Wegdeel
+
+            * `wijk` - Wijk
+
+            * `woonplaats` - Woonplaats
+
+            * `woz_deelobject` - Woz deel object
+
+            * `woz_object` - Woz object
+
+            * `woz_waarde` - Woz waarde
+
+            * `zakelijk_recht` - Zakelijk recht
+
+            * `overige` - Overige'
           type: string
           enum:
           - adres

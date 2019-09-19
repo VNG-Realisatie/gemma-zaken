@@ -100,15 +100,11 @@ het `informatieobject` gevalideerd worden op het bestaan. Indien het ophalen
 van het informatieobject niet (uiteindelijk) resulteert in een `HTTP 200`
 status code, MOET het BRC antwoorden met een `HTTP 400` foutbericht.
 
-#### **<a name="brc-004">Valideren relatieinformatie op `BesluitInformatieObject`-resource ([brc-004](#brc-004))</a>**
+#### **<a name="brc-004">Zetten van relatieinformatie op `BesluitInformatieObject`-resource ([brc-004](#brc-004))</a>**
 
 Op basis van het `objectType` MOET de `aardRelatie` gezet worden conform het
-RGBZ. Omdat het `objectType` `besluit` is, moet `aardRelatie` gelijk zijn aan `"legt_vast"`.
-
-Bij het updaten (`besluitinformatieobject_update` en
-`besluitinformatieobject_partial_update`) is het NIET TOEGESTAAN om de relatie
-te wijzingen. Bij andere waardes voor de attributen `besluit`, en
-`informatieobject` MOET het BRC antwoorden met een `HTTP 400` foutbericht.
+RGBZ. Omdat het `objectType` `besluit` is, moet `aardRelatie` gelijk zijn aan
+`"legt_vast"`.
 
 #### **<a name="brc-005">Synchroniseren relaties met informatieobjecten ([brc-005](#brc-005))</a>**
 
