@@ -30,7 +30,7 @@ De standaard staat [hier](standaard) beschreven. Ontwikkelaars kunnen
 [direct aan de slag](ontwikkelaars) met de beschikbare
 [API's](standaard) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](community/bijdragen) lezen. 
+[hier](community/bijdragen) lezen.
 
 ## Slack
 
