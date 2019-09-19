@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}-celery
-        image: vngr/gemma-notifications:{{ service.image_tag }}
+        image: vngr/notificaties-api:{{ service.image_tag }}
         imagePullPolicy: Always
         env:
           - name: DJANGO_SETTINGS_MODULE

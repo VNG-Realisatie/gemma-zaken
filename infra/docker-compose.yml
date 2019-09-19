@@ -106,7 +106,7 @@ services:
       - brc_db
 
   nrc_web:
-    image: vngr/gemma-notifications:latest
+    image: vngr/notificaties-api:latest
     environment:
       - DJANGO_SETTINGS_MODULE=nrc.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
@@ -122,7 +122,7 @@ services:
       - nrc_rabbitmq
 
   nrc_celery:
-    image: vngr/gemma-notifications:latest
+    image: vngr/notificaties-api:latest
     environment:
       - DJANGO_SETTINGS_MODULE=nrc.conf.docker
       - SECRET_KEY=o8q03n90*67biona0=9fcm9m5niqgihxidi4c7nginfxq73qhf
