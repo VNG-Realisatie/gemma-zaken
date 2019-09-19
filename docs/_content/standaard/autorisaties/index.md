@@ -64,6 +64,17 @@ Autorisaties MOETEN gespecifieerd worden op 1 van de volgende manieren:
 * het zetten van de vlag `heeftAlleAutorisaties` op `true`, waarbij er GEEN
   `Autorisatie`-objecten mogen opgevoerd worden
 
+##### **<a name="ac-003">Verplichte velden voor Autorisaties ([ac-003](#ac-003))</a>**
+
+Voor Autorisaties gelden regels voor verplichte velden op basis van `Autorisatie.component`:
+
+* Voor `Autorisatie.component` == `zrc`:
+    - Indien `Autorisatie.scopes` scopes bevat die betrekking hebben tot `zaken`, zijn de velden `Autorisatie.maxVertrouwelijkheidaanduiding` en `Autorisatie.zaaktype` verplicht
+* Voor `Autorisatie.component` == `drc`:
+    - Indien `Autorisatie.scopes` scopes bevat die betrekking hebben tot `documenten`, zijn de velden `Autorisatie.maxVertrouwelijkheidaanduiding` en `Autorisatie.informatieobjecttype` verplicht
+* Voor `Autorisatie.component` == `brc`:
+    - Indien `Autorisatie.scopes` scopes bevat die betrekking hebben tot `besluiten`, is het veld `Autorisatie.besluittype` verplicht
+
 ## Filter parameters
 
 Componenten ondersteunen het filteren van gegevens op basis van parameters in
