@@ -24,25 +24,25 @@ services:
 
   - name: ac
     templates: ../k8s/ac/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
 
   - name: brc
     templates: ../k8s/brc/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
 
   - name: drc
     templates: ../k8s/drc/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc
     templates: ../k8s/nrc/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
 
   - name: zrc
     templates: ../k8s/zrc/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
 
   - name: ztc
     templates: ../k8s/ztc/
-    image_tag: '1.0.0-rc1'
+    image_tag: '1.0.0-rc2'
