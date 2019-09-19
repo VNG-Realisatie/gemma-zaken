@@ -1,6 +1,6 @@
 ---
-title: 'Thema's'
-date: '11-7-2019'
+title: "Thema's"
+date: "11-7-2019"
 weight: 10
 ---
 
