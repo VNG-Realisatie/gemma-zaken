@@ -118,26 +118,26 @@ parametrisering is aan validatieregels onderhevig:
     * MOET een waarde hebben indien de afleidingswijze `termijn` is
     * MAG GEEN waarde hebben in de andere gevallen
 
-#### **<a name="ztc-009">Concepten ([ztc-009](#ztc-009))</a>**
+#### Concepten
 
 De resources `Zaaktype`, `InformatieObjecttype` en `Besluittype` bevatten het veld `concept`, indien dit veld aangemerkt is als `True`, dan betreft het een niet-definitieve versie van het object die niet buiten de Catalogi API gebruikt mag worden.
 
 Om het object te veranderen naar een definitieve versie, kan het object via de API gepubliceerd worden. Zodra een object gepubliceerd is, staat het veld `concept` op `False`.
 
 Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit object en gerelateerde objecten via de API.
-* Beperkingen voor objecten met `concept` `False`:
+* Beperkingen voor objecten met `concept` `False` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
     * Het object mag NIET:
         * geheel bijgewerkt worden (PUT)
-        * deels bijgewerkt worden (PATCH)
+        * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het veld `eindeGeldigheid`
         * verwijderd worden (DELETE)
 
-* Beperkingen voor objecten gerelateerd aan een object met `concept` `False`:
+* Beperkingen voor objecten gerelateerd aan een object met `concept` `False` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
     * Het object mag NIET:
         * geheel bijgewerkt worden (PUT)
-        * deels bijgewerkt worden (PATCH)
+        * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het veld `eindeGeldigheid`
         * verwijderd worden (DELETE)
 
-* Beperkingen die gelden voor objecten die NIET gerelateerd zijn aan een object met `concept` `False`:
+* Beperkingen die gelden voor objecten die NIET gerelateerd zijn aan een object met `concept` `False` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw object aangemaakt worden met een relatie naar een object met `concept` `False` (CREATE)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een object en een object met `concept` `False` (PUT, PATCH)
 
