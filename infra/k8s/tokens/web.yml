@@ -5,23 +5,23 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: token-issuer
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: token-issuer
+    k8s-app: {{ service.name }}
 spec:
   replicas: 3
   selector:
     matchLabels:
-      k8s-app: token-issuer
+      k8s-app: {{ service.name }}
   template:
     metadata:
-      name: token-issuer
+      name: {{ service.name }}
       labels:
-        k8s-app: token-issuer
+        k8s-app: {{ service.name }}
     spec:
       containers:
-      - name: token-issuer
+      - name: {{ service.name }}
         image: maykinmedia/zds-token-issuer:0.4.2
         resources:
           requests:
@@ -53,21 +53,21 @@ spec:
           - name: DATABASE_HOST
             value: postgis
           - name: DATABASE_NAME
-            value: token-issuer
+            value: {{ service.name }}
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: {{ service.name }}-secrets
                 key: SECRET_KEY
           - name: DATABASE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: {{ service.name }}-secrets
                 key: DB_PASSWORD
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
-                name: token-issuer-secrets
+                name: {{ service.name }}-secrets
                 key: SENTRY_DSN
 
 ---
@@ -77,13 +77,13 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: token-issuer
+  name: {{ service.name }}
   namespace: zgw
   labels:
-    k8s-app: token-issuer
+    k8s-app: {{ service.name }}
 spec:
   selector:
-    k8s-app: token-issuer
+    k8s-app: {{ service.name }}
   ports:
   - protocol: TCP
     port: 8000

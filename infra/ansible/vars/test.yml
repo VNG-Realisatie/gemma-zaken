@@ -15,6 +15,7 @@ services:
       - brc-test
       - nrc-test
       - ac-test
+      - token-issuer-test
 
   - name: redis-test
     templates: ../k8s/cache/
@@ -47,6 +48,9 @@ services:
   - name: docs-test
     templates: ../k8s/docs
 
+  - name: token-issuer-test
+    templates: ../k8s/tokens
+
 ingress:
   name: ref-implementatie-test
   instance: test
@@ -63,3 +67,5 @@ ingress:
       name: brc-test
     - host: notificaties-api.test.vng.cloud
       name: nrc-test
+    - host: zaken-auth.test.vng.cloud
+      name: token-issuer-test
