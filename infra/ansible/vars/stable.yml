@@ -46,3 +46,6 @@ services:
   - name: ztc
     templates: ../k8s/ztc/
     image_tag: '1.0.0-rc2'
+
+  - name: token-issuer
+    templates: ../k8s/tokens
