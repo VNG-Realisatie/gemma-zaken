@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}
-        image: maykinmedia/zds-token-issuer:0.4.2
+        image: maykinmedia/zds-token-issuer:0.6.0
         resources:
           requests:
             memory: "200Mi"
