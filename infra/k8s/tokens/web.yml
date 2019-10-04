@@ -51,7 +51,7 @@ spec:
 
         env:
           - name: DATABASE_HOST
-            value: postgis
+            value: {{ db_host }}
           - name: DATABASE_NAME
             value: {{ service.name }}
           - name: SECRET_KEY

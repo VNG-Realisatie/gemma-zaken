@@ -67,5 +67,5 @@ ingress:
       name: brc-test
     - host: notificaties-api.test.vng.cloud
       name: nrc-test
-    - host: zaken-auth.test.vng.cloud
-      name: token-issuer-test
+    # - host: zaken-auth.test.vng.cloud
+    #   name: token-issuer-test
