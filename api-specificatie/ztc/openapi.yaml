@@ -130,7 +130,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0-rc1
+  version: 1.0.0-rc2
 security:
 - JWT-Claims: []
 paths:
@@ -142,7 +142,7 @@ paths:
       parameters:
       - name: catalogus
         in: query
-        description: URL naar de/het gerelateerde catalogus
+        description: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
         required: false
         schema:
           type: string
@@ -328,6 +328,12 @@ paths:
       operationId: besluittype_create
       summary: Maak een BESLUITTYPE aan.
       description: Maak een BESLUITTYPE aan.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BesluitType'
+        required: true
       responses:
         '201':
           description: Created
@@ -459,12 +465,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BesluitType'
-        required: true
     parameters: []
   /besluittypen/{uuid}:
     get:
@@ -958,6 +958,12 @@ paths:
       operationId: catalogus_create
       summary: Maak een CATALOGUS aan.
       description: Maak een CATALOGUS aan.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Catalogus'
+        required: true
       responses:
         '201':
           description: Created
@@ -1089,12 +1095,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Catalogus'
-        required: true
     parameters: []
   /catalogussen/{uuid}:
     get:
@@ -1243,7 +1243,8 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL naar de/het gerelateerde zaaktype
+        description: URL-referentie naar het ZAAKTYPE van de ZAAKen waarvoor deze
+          EIGENSCHAP van belang is.
         required: false
         schema:
           type: string
@@ -1419,6 +1420,12 @@ paths:
         een
 
         concept betreft.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Eigenschap'
+        required: true
       responses:
         '201':
           description: Created
@@ -1550,12 +1557,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Eigenschap'
-        required: true
     parameters: []
   /eigenschappen/{uuid}:
     get:
@@ -1833,7 +1834,8 @@ paths:
       parameters:
       - name: catalogus
         in: query
-        description: URL naar de/het gerelateerde catalogus
+        description: URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE
+          behoort.
         required: false
         schema:
           type: string
@@ -2006,6 +2008,12 @@ paths:
       operationId: informatieobjecttype_create
       summary: Maak een INFORMATIEOBJECTTYPE aan.
       description: Maak een INFORMATIEOBJECTTYPE aan.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InformatieObjectType'
+        required: true
       responses:
         '201':
           description: Created
@@ -2137,12 +2145,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InformatieObjectType'
-        required: true
     parameters: []
   /informatieobjecttypen/{uuid}:
     get:
@@ -2461,7 +2463,8 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL naar de/het gerelateerde zaaktype
+        description: URL-referentie naar het ZAAKTYPE van ZAAKen waarin resultaten
+          van dit RESULTAATTYPE bereikt kunnen worden.
         required: false
         schema:
           type: string
@@ -2637,6 +2640,12 @@ paths:
         ZAAKTYPE een
 
         concept betreft.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultaatType'
+        required: true
       responses:
         '201':
           description: Created
@@ -2768,12 +2777,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ResultaatType'
-        required: true
     parameters: []
   /resultaattypen/{uuid}:
     get:
@@ -3051,7 +3054,8 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL naar de/het gerelateerde zaaktype
+        description: URL-referentie naar het ZAAKTYPE waar deze ROLTYPEn betrokken
+          kunnen zijn.
         required: false
         schema:
           type: string
@@ -3242,6 +3246,12 @@ paths:
         een
 
         concept betreft.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RolType'
+        required: true
       responses:
         '201':
           description: Created
@@ -3373,12 +3383,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RolType'
-        required: true
     parameters: []
   /roltypen/{uuid}:
     get:
@@ -3655,7 +3659,8 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL naar de/het gerelateerde zaaktype
+        description: URL-referentie naar het ZAAKTYPE van ZAAKen waarin STATUSsen
+          van dit STATUSTYPE bereikt kunnen worden.
         required: false
         schema:
           type: string
@@ -3831,6 +3836,12 @@ paths:
         een
 
         concept betreft.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StatusType'
+        required: true
       responses:
         '201':
           description: Created
@@ -3962,12 +3973,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/StatusType'
-        required: true
     parameters: []
   /statustypen/{uuid}:
     get:
@@ -4245,14 +4250,14 @@ paths:
       parameters:
       - name: zaaktype
         in: query
-        description: URL naar de/het gerelateerde zaaktype
+        description: URL-referentie naar het ZAAKTYPE.
         required: false
         schema:
           type: string
           format: uri
       - name: informatieobjecttype
         in: query
-        description: URL naar de/het gerelateerde informatieobjecttype
+        description: URL-referentie naar het INFORMATIEOBJECTTYPE.
         required: false
         schema:
           type: string
@@ -4439,6 +4444,12 @@ paths:
         als het
 
         bijbehorende ZAAKTYPE een concept betreft.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+        required: true
       responses:
         '201':
           description: Created
@@ -4570,12 +4581,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
-        required: true
     parameters: []
   /zaaktype-informatieobjecttypen/{uuid}:
     get:
@@ -4853,7 +4858,7 @@ paths:
       parameters:
       - name: catalogus
         in: query
-        description: URL naar de/het gerelateerde catalogus
+        description: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
         required: false
         schema:
           type: string
@@ -5042,6 +5047,12 @@ paths:
         \ `catalogus` en `omschrijving`. Dezelfde omeschrijving mag enkel\n  opnieuw\
         \ gebruikt worden als het zaaktype een andere geldigheidsperiode\n  kent dan\
         \ bestaande zaaktypen."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakType'
+        required: true
       responses:
         '201':
           description: Created
@@ -5173,12 +5184,6 @@ paths:
       security:
       - JWT-Claims:
         - zaaktypes.schrijven
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ZaakType'
-        required: true
     parameters: []
   /zaaktypen/{uuid}:
     get:
@@ -5969,7 +5974,6 @@ components:
         de Archiefactietermijn (=brondatum) van het zaakdossier.
       required:
       - afleidingswijze
-      - procestermijn
       type: object
       properties:
         afleidingswijze:
@@ -6143,6 +6147,7 @@ components:
             is.
           type: string
           format: duration
+          nullable: true
     ResultaatType:
       required:
       - zaaktype
