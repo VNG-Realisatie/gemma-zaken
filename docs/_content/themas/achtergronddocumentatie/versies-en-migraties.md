@@ -42,7 +42,7 @@ beschrijven hieronder 2 scenario's.
 GET https://gemeente.nl/api/zaken/v1/zaken/6c821f  HTTP/1.0
 
 HTTP 200
-https://github.com/VNG-Realisatie/gemma-zaken/tree/master/docs/_content{
+{
     "status": "https://gemeente.nl/api/zaken/v1/statussen/8aa57d"
     // ...
 }
