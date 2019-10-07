@@ -167,6 +167,29 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn
 applicaties die de scope `documenten.geforceerd-unlock` hebben. Deze consumers
 MOETEN het `lockId` weglaten indien ze geforceerd unlocken.
 
+#### HTTP-Caching
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+De Documenten API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In
+de API spec staat beschreven voor welke resources dit van toepassing is.
+
+De `ETag` MOET worden berekend op de JSON-weergave van de resource.
+Verschillende, maar equivalente weergaves (bijvoorbeeld dezelfde API ontsloten
+wel/niet via NLX) MOETEN verschillende waarden voor de `ETag` hebben.
+
+Indien de consumer een `HEAD` verzoek uitvooert op deze resources, dan MOET de
+provider antwoorden met dezelfde headers als bij een normale `GET`, dus
+inclusief de `ETag` header. Er MAG GEEN response body voorkomen.
+
+Indien de consumer gebruik maakt van de `If-None-Match` header, met één of
+meerdere waarden voor de `ETag`, dan MOET de provider antwoorden met een
+`HTTP 304` bericht indien de huidige `ETag` waarde van de resource hierin
+voorkomt. Als de huidige `ETag` waarde hier niet in voorkomt, dan MOET de
+provider een normale `HTTP 200` response sturen.
+
 ## Overige documentatie
 
 * [Referentiemodel Gemeentelijke Basisgegevens Zaken (RGBZ) 2.0](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling)
