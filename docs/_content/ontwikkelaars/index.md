@@ -13,6 +13,7 @@ De handleidingen vormen een algemene introductie voor ontwikkelaars die met de Z
 2. [Installatie en configuratie van een (lokale) kopie van de referentie-implementatie](./handleidingen-en-tutorials/installatie-en-configuratie)
 3. [Gebruik van de demo-applicatie](./handleidingen-en-tutorials/demo-applicatie)
 4. [Gebruik van testscenario's](./handleidingen-en-tutorials/test-scenarios)
+5. [Large files upload (Engels)](./handleidingen-en-tutorials/large-files)
 
 ### Tutorials
 Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZGW API's. Deze tutorials Ze zijn ontwikkeld voor gebruik tijdens API lab-bijeenkomsten, maar kunnen ook individueel doorlopen worden.
