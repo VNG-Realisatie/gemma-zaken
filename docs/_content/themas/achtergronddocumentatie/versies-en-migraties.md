@@ -36,7 +36,7 @@ beschrijven hieronder 2 scenario's.
 
 **Situatieschets:**
 
-1. Provider ondersteund op dit moment v1.0.0 van de Zaken API.
+1. Provider ondersteunt op dit moment v1.0.0 van de Zaken API.
 2. Een Zaak heeft een Status (beide in de Zaken API):
 ```
 GET https://gemeente.nl/api/zaken/v1/zaken/6c821f  HTTP/1.0
@@ -81,7 +81,7 @@ HTTP 200
 
 **Situatieschets:**
 
-1. Provider ondersteund op dit moment v1.0.0 van de Zaken API en Catalogi API v1.0.0.
+1. Provider ondersteunt op dit moment v1.0.0 van de Zaken API en Catalogi API v1.0.0.
 ```
 GET https://gemeente.nl/api/zaken/v1/zaken/6c821f  HTTP/1.0
 
