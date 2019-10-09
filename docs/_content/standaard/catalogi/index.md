@@ -129,19 +129,19 @@ Om de versie van een objecttype definitief te maken ("publiceren"), bestaat er e
 Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`.
 
 Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit objecttype en gerelateerde objecttype via de API.
-* Beperkingen voor objecten met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
+* Beperkingen voor objecttypen met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
     * Het objecttype mag NIET:
         * geheel bijgewerkt worden (PUT)
         * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid`
         * verwijderd worden (DELETE)
 
-* Beperkingen voor objecten gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
+* Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
     * Het objecttype mag NIET:
         * geheel bijgewerkt worden (PUT)
         * deels bijgewerkt worden (PATCH)
         * verwijderd worden (DELETE)
 
-* Beperkingen die gelden voor objecten die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
+* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 
