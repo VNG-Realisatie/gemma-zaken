@@ -55,7 +55,7 @@ Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/1.0.x/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het BRC.
 
