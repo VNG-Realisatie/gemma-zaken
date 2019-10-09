@@ -25,8 +25,7 @@ metadata:
   labels:
     k8s-app: demo
 spec:
-  # single replica because of volume mounts
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: demo
@@ -36,36 +35,6 @@ spec:
       labels:
         k8s-app: demo
     spec:
-      initContainers:
-        - name: collectstatic
-          image: vngr/gemma-zaken-demo:latest
-          command: ['sh', '-c', 'python /app/src/manage.py collectstatic --noinput']
-          env:
-            - name: DJANGO_SETTINGS_MODULE
-              value: zac.conf.docker
-            - name: DB_HOST
-              value: {{ db_host }}
-            - name: DB_NAME
-              value: demo
-            - name: REDIS_HOST
-              value: redis-demo
-            - name: IS_HTTPS
-              value: "yes"
-            - name: SECRET_KEY
-              value: dummy
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: demo-secrets
-                  key: DB_PASSWORD
-            - name: SENTRY_DSN
-              valueFrom:
-                secretKeyRef:
-                  name: demo-secrets
-                  key: SENTRY_DSN
-          volumeMounts:
-            - name: demo-staticfiles
-              mountPath: /app/static/
       containers:
         - name: demo
           image: vngr/gemma-zaken-demo:latest
@@ -119,13 +88,6 @@ spec:
                 secretKeyRef:
                   name: demo-secrets
                   key: SENTRY_DSN
-          volumeMounts:
-            - name: demo-staticfiles
-              mountPath: /app/static/
-      volumes:
-        - name: demo-staticfiles
-          persistentVolumeClaim:
-            claimName: demo-staticfiles
 
 ---
 
