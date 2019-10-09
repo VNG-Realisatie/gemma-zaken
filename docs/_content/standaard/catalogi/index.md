@@ -118,6 +118,32 @@ parametrisering is aan validatieregels onderhevig:
     * MOET een waarde hebben indien de afleidingswijze `termijn` is
     * MAG GEEN waarde hebben in de andere gevallen
 
+#### Concepten
+
+De resources `Zaaktype`, `InformatieObjecttype` en `Besluittype` bevatten het veld `concept`,
+indien dit veld aangemerkt is als `true`, dan betreft het een niet-definitieve versie van
+het objecttype. Deze versie mag niet buiten de Catalogi API gebruikt mag worden.
+Dat betekent dat je geen zaken van een `ZaakType` dat niet definitief is, mag aanmaken.
+
+Om de versie van een objecttype definitief te maken ("publiceren"), bestaat er een `publish` operatie.
+Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`.
+
+Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit objecttype en gerelateerde objecttype via de API.
+* Beperkingen voor objecttypen met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
+    * Het objecttype mag NIET:
+        * geheel bijgewerkt worden (PUT)
+        * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid`
+        * verwijderd worden (DELETE)
+
+* Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
+    * Het objecttype mag NIET:
+        * geheel bijgewerkt worden (PUT)
+        * deels bijgewerkt worden (PATCH)
+        * verwijderd worden (DELETE)
+
+* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
+    * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
+    * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 
 ## Overige documentatie
 
