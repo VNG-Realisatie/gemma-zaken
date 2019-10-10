@@ -16,7 +16,7 @@ Versiebeheer is gebaseerd op [Semantic Versioning](https://semver.org) en de
 Elke  API heeft een eigen versienummer, opgebouwd uit `MAJOR.MINOR.PATCH` 
 element. Bijvoorbeeld versie `2.1.8`:
 
-In [VNG API-Beheer](https://github.com/VNG-Realisatie/api-beheer/blob/master/versiebeheer.md) kun je lezen dat VNG API Beheer maximaal 2 major versies van elke API standaard ondersteund. Dat staat echter los van het aantal versies van een API dat door een provider applicatie wordt ondersteunt. Zo staat het een leverancier vrij om gelijktijdig alle ooit beschikbaar gestelde API's te ondersteunen. In de onderstaande scenario's gaan we daar niet vanuit.
+In [VNG API-Beheer](https://github.com/VNG-Realisatie/api-beheer/blob/master/versiebeheer.md) kun je lezen dat VNG API Beheer maximaal 2 major versies van elke API standaard ondersteunt. Dat staat echter los van het aantal versies van een API dat door een provider applicatie wordt ondersteund. Zo staat het een leverancier vrij om gelijktijdig alle ooit beschikbaar gestelde API's te ondersteunen. In de onderstaande scenario's gaan we daar niet vanuit.
 
 Naast dat er dus verschillende versies van een API ondersteund kunnen zijn, kunnen er ook verschillende leveranciers zijn die dezelfde
 registraties aanbieden, of kunnen er meerdere registraties worden gebruikt om dezelfde type data te ontsluiten. Zo kunnen er typisch meerdere Catalogi API's beschikbaar zijn en gebruikt worden in een Zaken API.
