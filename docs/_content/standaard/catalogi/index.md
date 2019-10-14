@@ -43,7 +43,7 @@ selectielijst-API (waar deze nu nog 1 API is)
 
 ## OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZTC.
 
@@ -144,6 +144,29 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 * Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
+
+#### HTTP-Caching
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+De Catalogi API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In
+de API spec staat beschreven voor welke resources dit van toepassing is.
+
+De `ETag` MOET worden berekend op de JSON-weergave van de resource.
+Verschillende, maar equivalente weergaves (bijvoorbeeld dezelfde API ontsloten
+wel/niet via NLX) MOETEN verschillende waarden voor de `ETag` hebben.
+
+Indien de consumer een `HEAD` verzoek uitvoert op deze resources, dan MOET de
+provider antwoorden met dezelfde headers als bij een normale `GET`, dus
+inclusief de `ETag` header. Er MAG GEEN response body voorkomen.
+
+Indien de consumer gebruik maakt van de `If-None-Match` header, met één of
+meerdere waarden voor de `ETag`, dan MOET de provider antwoorden met een
+`HTTP 304` bericht indien de huidige `ETag` waarde van de resource hierin
+voorkomt. Als de huidige `ETag` waarde hier niet in voorkomt, dan MOET de
+provider een normale `HTTP 200` response sturen.
 
 ## Overige documentatie
 
