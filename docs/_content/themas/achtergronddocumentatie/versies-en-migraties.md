@@ -32,11 +32,11 @@ De scenario's schetsen slechts een mogelijke aanpak, ze mogen niet beschouwd wor
 Stel, er komt een nieuwe versie uit van een van de VNG API standaarden. Waar moet je dan rekening mee houden? We 
 beschrijven hieronder 2 scenario's.
 
-### Migratie scenario 1: Nieuwe eigen API versie
+### Migratie scenario 1: Nieuwe versie van de eigen API
 
 **Situatieschets:**
 
-1. Provider ondersteunt op dit moment v1.0.0 van de Zaken API.
+1. De Provider ondersteunt op dit moment v1.0.0 van de Zaken API.
 2. Een Zaak heeft een Status (beide in de Zaken API):
 ```
 GET https://gemeente.nl/api/zaken/v1/zaken/6c821f  HTTP/1.0
@@ -49,6 +49,16 @@ HTTP 200
 ```
 
 3. De provider heeft er voor gekozen de URI's naar gerelateerde objecten in een koppeltabel in de database vast te leggen.
+   Dit betekent dat in de database in de records van de zaakobjecten UUID's zijn opgenomen waarmee wordt verwezen naar de
+   gerelateerde status- of besluitobjecten. In de koppeltabel zijn deze UUID's eveneens opgenomen met daarbij de
+   bijbehorende gegevens om de uri te kunnen samenstellen. Hieronder de voor dit voorbeeld van toepassing zijnde records in de
+   koppeltabel.
+   
+   |**UUID**|**URI**|
+   |---|---|
+   |8aa57d|https://gemeente.nl/api/zaken/v1/statussen/8aa57d|
+   |8aa57d|https://gemeente.nl/api/zaken/v2/statussen/8aa57d|
+   
 4. De provider gaat de Zaken API v2.0.0 ondersteunen en zal op termijn gaan stoppen met de ondersteuning van v1.0.0.
 
 **Wat gaat er gebeuren?**
@@ -56,11 +66,12 @@ HTTP 200
 1. De provider zal de Zaken API v1.0.0 nog enige tijd naast v2.0.0 moeten ondersteunen.
 2. Vanaf het beschikbaar komen van de Zaken API v2.0.0 geven verzoeken op de Zaken API v1.0.0 een waarschuwing mee als header
    waarin staat dat er een nieuwe versie beschikbaar is.
-3. In de koppeltabel is voor het object met de UUID's '8aa57d' vastgelegd welke v1.0.0 en welke v2.0.0 URI van toepassing is. 
+3. In de koppeltabel is voor het statusobject met de UUID's '8aa57d' vastgelegd welke v1.0.0 en welke v2.0.0 URI van toepassing is. 
 4. De zaak met UUID `6c821f` is beschikbaar via de Zaken API v1.0.0 en via v2.0.0.
-5. Verwijzingen binnen dezelfde API wijzen naar dezelfde versie. Ofwel, een 
+5. Verwijzingen binnen een API wijzen naar dezelfde versie. Ofwel, een 
    Zaak in Zaken API v1.0.0 mag niet wijzen naar een Status in de Zaken API 
-   v2.0.0. Door het in punt 4 genoemde is dat ook mogelijk.
+   v2.0.0 en een Zaak in Zaken API v2.0.0 mag niet wijzen naar een Status in de Zaken API 
+   v1.0.0. Dit principe is te realiseren door wat in punt 4 wordt genoemd.
 6. Voordat de Zaken API v1.0.0 wordt stopgezet moeten alle applicaties (die
    iets doen met de Zaken API) kunnen omgaan met Zaken API v2.0.0.
 7. Als alle applicaties kunnen omgaan met Zaken API v2.0.0 worden in de Zaken API v1.0.0 alleen de GET endpoints nog ondersteund.
@@ -77,7 +88,7 @@ HTTP 200
 }
 ```
 
-### Migratie scenario 2: Nieuwe externe API versie
+### Migratie scenario 2: Nieuwe versie van een externe API
 
 **Situatieschets:**
 
@@ -98,15 +109,15 @@ HTTP 200
 
 **Wat gaat er gebeuren?**
 
-1. De provider zal de Catalogi API v1.0.0 nog enige tijd naast v2.0.0 moeten ondersteunen.
-2. Vanaf het beschikbaar komen van de Catalogi API v2.0.0 geven verzoeken op de Catalogi API v1.0.0 een waarschuwing mee als header
-   waarin staat dat er een nieuwe versie beschikbaar is.
+1. De provider van de Catalogi API zal v1.0.0 nog enige tijd naast v2.0.0 moeten ondersteunen.
+2. Vanaf het beschikbaar komen van de Catalogi API v2.0.0 geven verzoeken op de Catalogi API v1.0.0 een waarschuwing mee als
+   header waarin staat dat er een nieuwe versie beschikbaar is.
 3. Het Zaaktype met UUID `a44e32` moet beschikbaar zijn via de Catalogi API v1.0.0 en via v2.0.0.
-4. In de provider zal de Zaken API zo geconfigureerd moeten dat deze Catalogi API v2.0.0 URLs zal accepteren.
+4. De provider van de Zaken API moet zo geconfigureerd worden dat deze in zijn responses Catalogi API v2.0.0 URI's teruggeeft.
 5. Voordat de Catalogi API v1.0.0 wordt stopgezet moeten alle applicaties (die
    iets doen met de Catalogi API) kunnen omgaan met Catalogi API v2.0.0.
-6. In de Catalogi API v1.0.0 worden alleen de GET endpoints nog ondersteund.
-7. De URI's van de gerelateerde objecten in de database moeten worden geconverteerd.
+6. Als alle applicaties kunnen omgaan met de Catalogi API v2.0.0 worden in de Catalogi API v1.0.0 alleen de GET endpoints nog ondersteund.
+7. Daarna moeten de URI's van de gerelateerde objecten in de database worden geconverteerd.
 8. De Catalogi API v1.0.0 kan worden stopgezet.
 
 ```
