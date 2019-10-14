@@ -11,16 +11,16 @@ The most relevant component for this tutorial:
 
 ## The requirements for this tutorial
 
-* `docker` and `docker-compose` to host the components locally on your (development machine). 
+* `docker` and `docker-compose` to host the components locally on your development machine. 
   See [installatie en configuratie](./installatie-en-configuratie) for a detailed description.
 * The [eenmalige setup](./eenmalige-setup) has been carried out.
 
 ## Overview of file upload process in DRC
 
 The main resource of DRC API is `EnkelvoudigInformatieObject` which supports creating and editing documents. 
-It's content can be divided into metadata (`identificatie`, `creatiedatum`, `titel` and etc) and file content.
+Its content can be divided into metadata (`identificatie`, `creatiedatum`, `titel` and etc) and file content.
 The main metadata of file content used by the DRC is the file size derived from the `bestandsomvang` attribute. 
-The process of uploading files is chosen based on the comparision of the value of `bestandsomvang` and the maximum file size.
+The process of uploading files is chosen based on the comparison of the value of `bestandsomvang` and the maximum file size.
 
 There can be 3 options:
 
@@ -32,7 +32,7 @@ There can be 3 options:
 
 In this tutorial we will consider all three ways to create document base on the files size.
 
-### Configure Maximujm file size
+### Configure Maximum file size
 
 The process choice depends on the maximum file size. 
 The default value of this parameter = 4GB (or 4294967296 Bytes)
@@ -219,7 +219,7 @@ To create the `EnkelvoudigInformatieObject` with a file size larger than the max
     * `url`: the link for uploading the file part
     * `volgnummer`: the sequence number of this part. The order of merging file parts after their upload depends on this attribute.
     * `omvang`: the size of the file part in Bytes
-    * `voltooid`: status it this file part is uploaded yet. 
+    * `voltooid`: boolean that indicates if this file part is uploaded or not. 
 
 2. Upload file parts
 
@@ -277,7 +277,7 @@ To create the `EnkelvoudigInformatieObject` with a file size larger than the max
     Now the `EnkelvoudigInformatieObject` is unlocked, all `bestandsdelen` are removed and the file content can be download via the `inhoud` url
  
 
-###Summary
+### Summary
 In this tutorial in ZTC we:
 
 * created Catalogus;
@@ -285,5 +285,5 @@ In this tutorial in ZTC we:
 
 After that we explore 3 options to create a `EnkelvoudigInformatieObject` in the DRC:
 * without a file
-* with the small file
-* with the large file (multiple step approach)
+* with a small file
+* with a large file (multiple step approach)
