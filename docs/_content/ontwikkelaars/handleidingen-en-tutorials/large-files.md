@@ -19,14 +19,14 @@ The most relevant component for this tutorial:
 
 The main resource of DRC API is `EnkelvoudigInformatieObject` which supports creating and editing documents. 
 It's content can be divided into metadata (`identificatie`, `creatiedatum`, `titel` and etc) and file content.
-The main metadata of file content used by DRC is file size derived from `bestandsomvang` attribute. 
+The main metadata of file content used by the DRC is the file size derived from the `bestandsomvang` attribute. 
 The process of uploading files is chosen based on the comparision of the value of `bestandsomvang` and the maximum file size.
 
 There can be 3 options:
 
-* file size = 0, i.e. document contains only metadata without file content. Document is created during 1 request to DRC.
-* file size <= maximum size. In this case file content is expected to be in `inhoud` attribute in 1 request.
-* file size > maximum size. In this case file content should be divided by parts and each part should be upload in the separate request.
+* file size = 0, i.e. `EnkelvoudigInformatieObject` contains only metadata without file content. The `EnkelvoudigInformatieObject` is created during 1 request to DRC.
+* file size <= maximum size. In this case the file content is expected to be in the `inhoud` attribute in 1 request.
+* file size > maximum size. In this case the file content should be divided by parts and each part should be upload in a separate request.
 
 ## To work
 
@@ -34,16 +34,16 @@ In this tutorial we will consider all three ways to create document base on the 
 
 ### Configure Maximujm file size
 
-The process choice depends on maximum file size. 
+The process choice depends on the maximum file size. 
 The default value of this parameter = 4GB (or 4294967296 Bytes)
 
 ### Configure ZTC
 
-Creation documents require the link to `informatieobjecttype`. 
-Therefore before creating documents we need to create `informatieobjecttype` 
+Creation of `EnkelvoudigInformatieObject` requires the link to `informatieobjecttype`. 
+Therefore before creating `EnkelvoudigInformatieObject`'s we need to create `informatieobjecttype` 
 
 Open in your browser `http://<ztc-ip>:8002/admin/` and log in with your username and password. 
-The API address is from ['installatie en configuratie'](./installatie-en-configuratie) tutorial.
+The API address is from the ['installatie en configuratie'](./installatie-en-configuratie) tutorial.
 
 #### Create Catalogus
 
@@ -60,7 +60,7 @@ The API address is from ['installatie en configuratie'](./installatie-en-configu
 3. Click on **Opslaan en opnieuw bewerken**.
 
 #### Request Informatieobjecttype
-In previous part we have created an Informatieobjecttype. We request it now to have the url of Informatieobjecttype.
+In the previous part we have created an Informatieobjecttype. We request it now to have the url of Informatieobjecttype.
 
    Get `Catalogussen`:
 
@@ -93,11 +93,11 @@ Now we have `informatieobjecttype url` which we will use in the next step
 
 ### Create document
 
-Now we will create document with 3 different ways to upload files.  
+Now we will create `EnkelvoudigInformatieObject` with 3 different ways to upload files.  
 
-#### Create document without file. 
+#### Create `EnkelvoudigInformatieObject` without file. 
 
-To create a document only with metadata we need:
+To create an `EnkelvoudigInformatieObject` only with metadata we need:
 
 * leave `inhoud` field empty
 * `bestandsomvang` = 0 
@@ -125,9 +125,9 @@ To create a document only with metadata we need:
     
 The response contains the created document without lock. 
 
-#### Create document with small file
+#### Create `EnkelvoudigInformatieObject` with small file
 
-To create the document with file size less or equal maximum file size we need:
+To create the `EnkelvoudigInformatieObject` with a file size less or equal to the maximum file size we need:
 
 * encode file content to Base64 and place it into `inhoud` attribute.
 * `bestandsomvang` = the actual size of file
@@ -154,14 +154,14 @@ To create the document with file size less or equal maximum file size we need:
     }
     ``` 
 
-The document is created without lock   
-The response contains the url to download the file in `inhoud` attribute. 
+The `EnkelvoudigInformatieObject` is created without lock   
+The response contains the url to download the file in the `inhoud` attribute. 
    
-#### Create document with large file   
+#### Create `EnkelvoudigInformatieObject` with a large file   
 
-To create the document with file size larger than maximum file size we need to perform several requests
+To create the `EnkelvoudigInformatieObject` with a file size larger than the maximum file size we need to perform several requests
 
-1. Create document with specified file size
+1. Create `EnkelvoudigInformatieObject` with specified file size
     
     * leave `inhoud` field empty
     * `bestandsomvang` = total file size 
@@ -185,8 +185,8 @@ To create the document with file size larger than maximum file size we need to p
     }
     ``` 
 
-    The created document is locked, which means that only users with lock key can change it. 
-    The response contains this lock key and `bestandsdelen` part with information for file parts uploading. 
+    The created `EnkelvoudigInformatieObject` is locked, which means that only users with lock key can change it. 
+    The response contains this lock key and the `bestandsdelen` part with information for file parts uploading. 
     
     Part of example response:
 
@@ -214,7 +214,7 @@ To create the document with file size larger than maximum file size we need to p
     }
     ```
 
-    Each of `bestandsdelen` object includes information necessary for upload of file parts:
+    Each of the `bestandsdelen` objects includes information necessary for the upload of file parts:
     
     * `url`: the link for uploading the file part
     * `volgnummer`: the sequence number of this part. The order of merging file parts after their upload depends on this attribute.
@@ -225,8 +225,8 @@ To create the document with file size larger than maximum file size we need to p
 
     Now we need to split our file into file parts such as their size would match the sizes of `bestandsdelen` objects.
     
-    After splitting the file we need to upload each file part in the separate request
-    Each request should be in multipart format and have following data:
+    After splitting the file we need to upload each file part in a separate request
+    Each request should be in multipart format and have the following data:
     
     * `lock`: lock key, which was received in the previous step
     * `inhoud`: part file content in binary format
@@ -236,10 +236,10 @@ To create the document with file size larger than maximum file size we need to p
     
     In the result `voltooid` should be changed to "true".
 
-3. Unlock the document
+3. Unlock the `EnkelvoudigInformatieObject`
 
-    After uploading all the parts it is time to unlock the document. 
-    By unlocking the user shows that the uploading process is finished and the file can be gathered together from uploaded file parts.
+    After uploading all the parts it is time to unlock the `EnkelvoudigInformatieObject`. 
+    By unlocking the user shows that the uploading process is finished and the file can be gathered together from the uploaded file parts.
 
     ```http
     POST http://<drc-ip>:8000/api/v1/enkelvoudiginformatieobjecten/<uuid>/unlock HTTP/1.0
@@ -253,9 +253,9 @@ To create the document with file size larger than maximum file size we need to p
 
     During unlock all file parts were merged into the whole file, all temporary file parts were removed.
     
-4. Request the document
+4. Request the `EnkelvoudigInformatieObject`
 
-    We can request the created document to see the changes.
+    We can request the created `EnkelvoudigInformatieObject` to see the changes.
 
     ```http
     GET http://<drc-ip>:8000/api/v1/enkelvoudiginformatieobjecten/<uuid> HTTP/1.0
@@ -274,7 +274,7 @@ To create the document with file size larger than maximum file size we need to p
         "bestandsdelen": []
     }
     ```
-    Now the document is unlocked, all `bestandsdelen` are removed and the file content can be download via the `inhoud` url
+    Now the `EnkelvoudigInformatieObject` is unlocked, all `bestandsdelen` are removed and the file content can be download via the `inhoud` url
  
 
 ###Summary
@@ -283,7 +283,7 @@ In this tutorial in ZTC we:
 * created Catalogus;
 * created Informatieobjecttype 
 
-After that we explore 3 options to create a document in DRC:
+After that we explore 3 options to create a `EnkelvoudigInformatieObject` in the DRC:
 * without a file
 * with the small file
 * with the large file (multiple step approach)
