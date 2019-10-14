@@ -15,12 +15,25 @@ info:
     \ GiB ondersteunen. Dit omvat de JSON van de\nmetadata EN de base64-encoded bestandsdata.\
     \ Hou hierbij rekening met de\noverhead van base64, die ongeveer 33% bedraagt\
     \ in worst-case scenario's. Dit\nbetekent dat bij een limiet van 4GB het bestand\
-    \ maximaal ongeveer 3GB groot\nmag zijn.\n\n**Afhankelijkheden**\n\nDeze API is\
-    \ afhankelijk van:\n\n* Catalogi API\n* Notificaties API\n* Autorisaties API *(optioneel)*\n\
-    * Zaken API *(optioneel)*\n\n**Autorisatie**\n\nDeze API vereist autorisatie.\
-    \ Je kan de\n[token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens\
-    \ te\ngenereren.\n\n### Notificaties\n\nDeze API publiceert notificaties op het\
-    \ kanaal `documenten`.\n\n**Main resource**\n\n`enkelvoudiginformatieobject`\n\
+    \ maximaal ongeveer 3GB groot\nmag zijn.\n\n_Nieuw in 1.1.0_\n\nBestanden kunnen\
+    \ groter zijn dan de minimale die door providers\nondersteund moet worden. De\
+    \ consumer moet dan:\n\n1. Het INFORMATIEOBJECT aanmaken in de API, waarbij de\
+    \ totale bestandsgrootte\n   meegestuurd wordt en de inhoud leeggelaten wordt.\n\
+    \   De API antwoordt met een lijst van BESTANDSDEELen, elk met een volgnummer\n\
+    \   en bestandsgrootte. De API lockt tegelijkertijd het INFORMATIEOBJECT.\n2.\
+    \ Het bestand opsplitsen: ieder BESTANDSDEEL moet de bestandsgrootte hebben\n\
+    \   zoals dit aangegeven werd in de response bij 1.\n3. Voor elk stuk van het\
+    \ bestand de binaire data naar de overeenkomstige\n   BESTANDSDEEL-url gestuurd\
+    \ worden, samen met het lock ID.\n4. Het INFORMATIEOBJECT unlocken. De provider\
+    \ valideert op dat moment dat alle\n   bestandsdelen correct opgestuurd werden,\
+    \ en voegt deze samen tot het\n   resulterende bestand.\n\nHet bijwerken van een\
+    \ INFORMATIEOBJECT heeft een gelijkaardig verloop.\n\nDe 1.0.x manier van uploaden\
+    \ is ook beschikbaar voor kleine(re) bestanden die\nniet gesplitst hoeven te worden.\n\
+    \n**Afhankelijkheden**\n\nDeze API is afhankelijk van:\n\n* Catalogi API\n* Notificaties\
+    \ API\n* Autorisaties API *(optioneel)*\n* Zaken API *(optioneel)*\n\n**Autorisatie**\n\
+    \nDeze API vereist autorisatie. Je kan de\n[token-tool](https://zaken-auth.vng.cloud/)\
+    \ gebruiken om JWT-tokens te\ngenereren.\n\n### Notificaties\n\nDeze API publiceert\
+    \ notificaties op het kanaal `documenten`.\n\n**Main resource**\n\n`enkelvoudiginformatieobject`\n\
     \n\n\n**Kenmerken**\n\n* `bronorganisatie`: Het RSIN van de Niet-natuurlijk persoon\
     \ zijnde de organisatie die het informatieobject heeft gecre\xEBerd of heeft ontvangen\
     \ en als eerste in een samenwerkingsketen heeft vastgelegd.\n* `informatieobjecttype`:\
@@ -34,7 +47,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0-rc2
+  version: 1.1.0-alpha
 security:
 - JWT-Claims: []
 paths:
@@ -388,9 +401,10 @@ paths:
     post:
       operationId: enkelvoudiginformatieobject_create
       summary: Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan.
-      description: '**Er wordt gevalideerd op**
-
-        - geldigheid `informatieobjecttype` URL'
+      description: "**Er wordt gevalideerd op**\n- geldigheid `informatieobjecttype`\
+        \ URL - de resource moet opgevraagd kunnen\n  worden uit de catalogi API en\
+        \ de vorm van een INFORMATIEOBJECTTYPE hebben.\n- publicatie `informatieobjecttype`\
+        \ - `concept` moet `false` zijn"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1084,7 +1098,10 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
+        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
+        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
+        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
+        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1263,7 +1280,10 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
+        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
+        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
+        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
+        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1443,12 +1463,14 @@ paths:
       description: 'Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT en alle bijbehorende
         versies,
 
-        samen met alle gerelateerde resources binnen deze API.
+        samen met alle gerelateerde resources binnen deze API. Dit is alleen mogelijk
+
+        als er geen OBJECTINFORMATIEOBJECTen relateerd zijn aan het (ENKELVOUDIG)
+
+        INFORMATIEOBJECT.
 
 
         **Gerelateerde resources**
-
-        - OBJECT-INFORMATIEOBJECT
 
         - GEBRUIKSRECHTen
 
@@ -3946,6 +3968,7 @@ components:
             plaatsgevonden.
           type: string
           format: date
+      nullable: true
     Integriteit:
       title: integriteit
       description: Uitdrukking van mate van volledigheid en onbeschadigd zijn van
@@ -4015,6 +4038,7 @@ components:
           description: Datum waarop de checksum is gemaakt.
           type: string
           format: date
+      nullable: true
     EnkelvoudigInformatieObject:
       required:
       - bronorganisatie
@@ -4172,7 +4196,7 @@ components:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          maximum: 9223372036854776000
           minimum: 0
           nullable: true
         link:
@@ -4398,7 +4422,7 @@ components:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          maximum: 9223372036854776000
           minimum: 0
           nullable: true
         link:
@@ -4792,7 +4816,7 @@ components:
           title: Bestandsomvang
           description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
           type: integer
-          maximum: 2147483647
+          maximum: 9223372036854776000
           minimum: 0
           nullable: true
         link:
