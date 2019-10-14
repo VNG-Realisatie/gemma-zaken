@@ -7,7 +7,10 @@ In this tutorial we explore the ways to upload files to DRC depending on the fil
 
 The most relevant component for this tutorial:
 
-* DRC: for creating documents and uploading files
+* DRC: for creating documents and uploading files ([OAS][drc-oas])
+
+[drc-oas]: https://documenten-api.vng.cloud/api/v1/schema/
+
 
 ## The requirements for this tutorial
 
