@@ -40,11 +40,7 @@ op Slack.
 Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 [Getting started with slack] snel aan de slag.
 
-Indien u een uitnodiging per email nodig hebt, dan kunt u die aanvragen via
-[github][github] of een mail sturen naar [API-Beheer](mailto:standaarden.ondersteuning@vng.nl).
-Indien gewenst kunt u uw e-maildomein ook laten opnemen in de whitelist van deze Slack community waardoor u
-en uw collega's zichzelf aan kunnen melden bij de community. Ook daarvoor kunt u een verzoek indienen bij
-[API-Beheer](mailto:standaarden.ondersteuning@vng.nl).
+Toegang tot de VNG API Community kunt u via [dit formulier](https://forms.gle/b7tPxkmfRGWVU4su9) aanvragen.
 
 [![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
 
