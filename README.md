@@ -2,6 +2,9 @@ API's voor Zaakgericht Werken
 =====
 [![Build Status](https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic)](https://jenkins.nlx.io/) ![Repo Status](https://img.shields.io/badge/status-concept-lightgrey.svg?style=plastic)
 
+[![Status badge](https://img.shields.io/endpoint.svg?style=for-the-badge&url=https%3A//api-test.nl/api/v1/provider-latest-badge/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/)](https://api-test.nl/api/v1/provider-latest-badge/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/)
+
+
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
 Je kan de work-in-progress standaard [hier](docs/_content/standaard/index.md) lezen.
