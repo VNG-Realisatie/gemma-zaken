@@ -1,6 +1,10 @@
 ---
-name:  RGBZ-mapping US xx
+name: RGBZ-mapping US xx
 about: RGBZ veld mapping bij user story
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 Mapping van velden behorend bij user story #xx
