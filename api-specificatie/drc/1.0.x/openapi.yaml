@@ -221,9 +221,10 @@ paths:
     post:
       operationId: enkelvoudiginformatieobject_create
       summary: Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan.
-      description: '**Er wordt gevalideerd op**
-
-        - geldigheid `informatieobjecttype` URL'
+      description: "**Er wordt gevalideerd op**\n- geldigheid `informatieobjecttype`\
+        \ URL - de resource moet opgevraagd kunnen\n  worden uit de catalogi API en\
+        \ de vorm van een INFORMATIEOBJECTTYPE hebben.\n- publicatie `informatieobjecttype`\
+        \ - `concept` moet `false` zijn"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -825,7 +826,10 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
+        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
+        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
+        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
+        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1004,7 +1008,10 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL\n\n*TODO*\n- valideer immutable attributes"
+        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
+        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
+        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
+        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1184,12 +1191,14 @@ paths:
       description: 'Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT en alle bijbehorende
         versies,
 
-        samen met alle gerelateerde resources binnen deze API.
+        samen met alle gerelateerde resources binnen deze API. Dit is alleen mogelijk
+
+        als er geen OBJECTINFORMATIEOBJECTen relateerd zijn aan het (ENKELVOUDIG)
+
+        INFORMATIEOBJECT.
 
 
         **Gerelateerde resources**
-
-        - OBJECT-INFORMATIEOBJECT
 
         - GEBRUIKSRECHTen
 
@@ -3388,6 +3397,7 @@ components:
             plaatsgevonden.
           type: string
           format: date
+      nullable: true
     Integriteit:
       title: integriteit
       description: Uitdrukking van mate van volledigheid en onbeschadigd zijn van
@@ -3457,6 +3467,7 @@ components:
           description: Datum waarop de checksum is gemaakt.
           type: string
           format: date
+      nullable: true
     EnkelvoudigInformatieObject:
       required:
       - bronorganisatie
