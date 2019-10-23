@@ -145,13 +145,13 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 
-#### <a name="ztc-010">Relaties tussen objecten ([ztc-010](#ztc-010))</a>
+#### <a name="ztc-012">Relaties tussen objecttypen ([ztc-012](#ztc-012))</a>
 
-Het is NIET TOEGESTAAN dat objecten relaties hebben over verschillende catalogi
+Het is NIET TOEGESTAAN dat objecttypen relaties hebben over verschillende catalogi
 heen. Zelfs als de catalogi hetzelfde zijn maar op verschillende endpoints
 worden aangeboden mogen de relaties niet door elkaar gelegd worden.
 
-*Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
+Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
 `Catalogus` Y. Een `Zaaktype` in `Catalogus` X op endpoint `https://www.foo.bar/`
 mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
