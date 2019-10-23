@@ -112,6 +112,13 @@ paths:
       summary: Alle KLANTCONTACTen opvragen.
       description: Alle KLANTCONTACTen opvragen.
       parameters:
+      - name: zaak
+        in: query
+        description: URL-referentie naar de ZAAK.
+        required: false
+        schema:
+          type: string
+          format: uri
       - name: page
         in: query
         description: Een pagina binnen de gepagineerde set resultaten.
@@ -149,6 +156,18 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/KlantContact'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: Unauthorized
           headers:
@@ -9563,6 +9582,7 @@ components:
             doorlooptijd.
           type: string
           format: duration
+      nullable: true
     Opschorting:
       title: Opschorting
       description: Gegevens omtrent het tijdelijk opschorten van de behandeling van
@@ -9582,6 +9602,7 @@ components:
             van de zaak.
           type: string
           maxLength: 200
+      nullable: true
     RelevanteZaak:
       description: Een lijst van relevante andere zaken.
       required:
@@ -9846,6 +9867,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RelevanteZaak'
+        eigenschappen:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+          uniqueItems: true
         status:
           title: Status
           description: Indien geen status bekend is, dan is de waarde 'null'
