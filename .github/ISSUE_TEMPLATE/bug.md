@@ -1,6 +1,9 @@
 ---
 name: Bug
 about: Breng een bug onder de aandacht
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
