@@ -33,9 +33,9 @@ Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen beslu
 ### Opslaan van grote bestanden
 
 Afhankelijk van de omvang van het bestand wordt de inhoud van het informatieobject als volgt opgeslagen:
-* omvang 0: het attribuut `Inhoud` blijft leeg
-* kleine omvang: in het attribuut 1 `Inhoud`.
-* grote omvang: in aparte `bestandsdelen`
+* omvang 0: het attribuut `inhoud` blijft leeg
+* kleine omvang: in het attribuut `inhoud`.
+* grote omvang: via aparte `bestandsdelen`
 
 ### Archief- en dossiervorming
 
