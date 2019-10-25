@@ -145,7 +145,11 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 
-#### <a name="ztc-012">Relaties tussen objecttypen ([ztc-012](#ztc-012))</a>
+#### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
+Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
+hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
+
+#### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
 
 Het is NIET TOEGESTAAN dat objecttypen relaties hebben over verschillende catalogi
 heen. Zelfs als de catalogi hetzelfde zijn maar op verschillende endpoints
