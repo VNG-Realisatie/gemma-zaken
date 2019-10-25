@@ -193,7 +193,7 @@ Het dossier wordt daarmee eigenlijk een BLOB. Daarmee wordt voorkomen dat in gev
 
 ## URL implementatiedetails
 
-In de bovenstaande scenario's zijn we er vanuit gegaan dat in de database absolute URI's worden opgeslagen. In plaats van absolute URL's as-is opslaan kunnen URI's echter ook gefragementeerd 
+In de bovenstaande scenario's zijn we er vanuit gegaan dat in de database absolute URI's worden opgeslagen. In plaats van absolute URL's as-is opslaan kunnen URI's echter ook gefragmenteerd 
 opgeslagen worden in de database. Later kan uit deze fragmenten weer de 
 volledige URL worden opgebouwd. Dit kan latere versie of locatie migraties 
 vergemakkelijken.
