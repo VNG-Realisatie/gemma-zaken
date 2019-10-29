@@ -11,11 +11,8 @@ Terugkoppeling naar de klant over voortgang gebeurt in termen van de opgestarte 
 
 Een verzoek kan meerdere producten/diensten omvatten hetgeen een winkelmandje mogelijk maakt op de website van de gemeente. Als gevolg hiervan kan een verzoek tot meerdere zaken leiden. 
 
-# Optioneel
-Een verzoek is niet per se nodig om een zaak te starten. Het blijft mogelijk en toegestaan om direct vanuit een formulier een zaak te starten. Implementeren van de Verzoeken API als onderdeel van de API's voor Zaakgericht Werken is optioneel.
-
 # Gegevens: generiek en specifiek
-Bij een verzoek wordt alleen generieke metadata opgeslagen, domein- of procesgegevens worden in een andere registratie opgeslagen. Bijv. bij een Melding Openbare Ruimte worden locatie en meldinggegevens in een MOR-registratie opgeslagen.
+Bij een verzoek wordt alleen generieke metadata opgeslagen, procesgegevens (domeinspecifiek) worden in een andere registratie opgeslagen. Bijv. bij een Melding Openbare Ruimte worden specifieke gegevens zoals locatie en meldinggegevens in een meldingen-registratie opgeslagen. Vanuit het verzoek wordt verwezen met een URI naar de melding.
 
 Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Terzijde: deze zouden eigenlijk bij de producten in de PDC moeten staan, maar we volgen voorlopig het huidige model.
 
@@ -26,10 +23,14 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 * aanleveren gegevens bij een reeds bestaand verzoek
 * bezwaar maken (in feite geen verzoek om een product), maar wel een verzoek
 
-# Relatie met contactmomenten, zaken en producten
-* Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. 
-* De relatie tussen zaken en verzoeken is many-to-many. Een verzoek kan tot meerdere zaken leiden en een zaak kan gekoppeld zijn aan meerdere verzoeken.
-* Een verzoek kan meerdere producten omvatten.
+# Relaties/cardinaliteiten
+* Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. Meerdere contactmomenten kunnen aan een verzoek worden gekoppeld.
+* De relatie tussen zaken en verzoeken is m:n. Een verzoek kan tot meerdere zaken leiden en een zaak kan gekoppeld zijn aan meerdere verzoeken (zie eerder voorbeeld over MOR).
+* Een verzoek kan meerdere producten omvatten. 1:n
+* Een verzoek kan betrekking hebben op meerdere andere verzoeken. Bijv. het verzoek tot intrekken heeft betrekking op een of meer andere verzoeken. Het verzoek met aanvullende gegevens heeft betrekking op een ander verzoek. 1:n
 
 # Relatie met DSO-verzoeken
-Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen. 
+Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd; zie ook de sectie over relaties hiervoor. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen en moeten in een vergunningen-registratie worden opgeslagen.
+
+# Optioneel
+Een verzoek is niet per se nodig om een zaak te starten. Het blijft mogelijk en toegestaan om direct vanuit een formulier een zaak te starten. Implementeren van de Verzoeken API als onderdeel van de API's voor Zaakgericht Werken is optioneel.
