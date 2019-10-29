@@ -17,3 +17,5 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 * bezwaar maken (in feite geen verzoek om een product), maar wel een verzoek
 
 Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. 
+
+Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen. 
