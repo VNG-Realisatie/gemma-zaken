@@ -1,6 +1,8 @@
 # Inleiding
 Een verzoek is een aanvraag of opdracht aan de gemeente voor de levering van een product of dienst. Verzoeken vormen dus schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en het zaakgericht werken voor de afhandeling. Dit biedt een aantal voordelen, onder andere op het gebied van herkenbaarheid voor de klant, die niet meer wordt geconfronteerd met voor hem onherkenbare zaaktypen. Voor gemeenten ontstaat bovendien meer flexibiliteit: een aanvraag van een klant leidt niet langer vanzelfsprekend tot een zaak, en één of meerdere verzoeken kunnen worden gerelateerd aan één of meerdere zaken.
 
+Verzoeken zijn voor het eerst geintroduceerd in GFO-Zaken, maar is daarna weer verdwenen in het opvolgende informatiemodel RGBZ. In de visie van VNG Realisatie is dat echter een omissie, en is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
+
 # Intake
 Op een verzoek wordt intake gedaan. Daarbij wordt het verzoek niet inhoudelijk beoordeeld, maar wordt wel gekeken of de  aangevraagde producten geleverd kunnen worden en of alle benodigde gegevens zijn ingevuld. Na de intake is het verzoek in behandeling genomen dan wel buiten behandeling gesteld. Een verzoek kan uitmonden in een of meerdere zaken of andere activiteiten (d.w.z. niet zaakgericht), dan wel direct worden afgehandeld, bijv. een product zoals een folder dat direct kan worden geleverd. Ook kan een verzoek worden gekoppeld aan reeds lopende zaak. Denk bijvoorbeeld aan een Melding Openbare Ruimte die reeds eerder is gedaan en waarvoor reeds een zaak loopt. 
 
@@ -33,4 +35,11 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd; zie ook de sectie over relaties hiervoor. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen en moeten in een vergunningen-registratie worden opgeslagen.
 
 # Optioneel
-Een verzoek is niet per se nodig om een zaak te starten. Het blijft mogelijk en toegestaan om direct vanuit een formulier een zaak te starten. Implementeren van de Verzoeken API als onderdeel van de API's voor Zaakgericht Werken is optioneel.
+Vanwege het ingrijpende karakter van de invoering van verzoeken is implementatie van de Verzoeken API als onderdeel van de API's voor Zaakgericht Werken optioneel. Een verzoek is niet per se nodig om een zaak te starten. Het blijft mogelijk en toegestaan om direct vanuit een formulier een zaak te starten.
+
+# Verantwoording 
+Bij de ontwikkeling van deze visie is gebruik gemaakt van de input uit de volgende bronnen:
+* Definitie van Verzoeken in GFO-Zaken
+* Positionering van Verzoeken in het rapport [Zaakgericht werken in het gemeentelijk gegevenslandschap](https://www.gemmaonline.nl/images/gemmaonline/f/f6/20190620_-_Zaakgericht_werken_in_het_Gemeentelijk_Gegevenslandschap_v101.pdf)
+* Verzoeken in DSO
+* Verzoeken API zoals ontwikkeld door Den Bosch samen met leverancier Conduction
