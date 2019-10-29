@@ -39,7 +39,7 @@ Vanwege het ingrijpende karakter van de invoering van verzoeken is implementatie
 
 # Verantwoording 
 Bij de ontwikkeling van deze visie is gebruik gemaakt van de input uit de volgende bronnen:
-* Definitie van Verzoeken in GFO-Zaken
+* Definitie van Verzoeken in [GFO-Zaken](https://www.gemmaonline.nl/index.php/GFO_Zaken_(Zaken_in_zicht))
 * Positionering van Verzoeken in het rapport [Zaakgericht werken in het gemeentelijk gegevenslandschap](https://www.gemmaonline.nl/images/gemmaonline/f/f6/20190620_-_Zaakgericht_werken_in_het_Gemeentelijk_Gegevenslandschap_v101.pdf)
 * Verzoeken in DSO
 * Verzoeken API zoals ontwikkeld door Den Bosch samen met leverancier Conduction
