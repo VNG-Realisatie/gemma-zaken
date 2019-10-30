@@ -33,7 +33,7 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 * Een verzoek kan bijlagen hebben in de vorm van informatieobjecten. 1:n
 
 # Relatie met DSO-verzoeken
-Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd; zie ook de sectie over relaties hiervoor. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen en moeten in een vergunningen-registratie worden opgeslagen.
+Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een ZGW Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd; zie ook de sectie over relaties hiervoor. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen en moeten in een vergunningen-registratie worden opgeslagen.
 
 # Optioneel
 Vanwege het ingrijpende karakter van de invoering van verzoeken is implementatie van de Verzoeken API als onderdeel van de API's voor Zaakgericht Werken optioneel. Een verzoek is niet per se nodig om een zaak te starten. Het blijft mogelijk en toegestaan om direct vanuit een formulier een zaak te starten.
