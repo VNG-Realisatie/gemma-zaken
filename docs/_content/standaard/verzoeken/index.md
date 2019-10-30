@@ -26,10 +26,11 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 * bezwaar maken (in feite geen verzoek om een product), maar wel een verzoek
 
 # Relaties/cardinaliteiten
-* Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. Meerdere contactmomenten kunnen aan een verzoek worden gekoppeld.
+* Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. Meerdere contactmomenten kunnen aan een verzoek worden gekoppeld. 1:n van verzoek naar contacten.
 * De relatie tussen zaken en verzoeken is m:n. Een verzoek kan tot meerdere zaken leiden en een zaak kan gekoppeld zijn aan meerdere verzoeken (zie eerder voorbeeld over MOR).
-* Een verzoek kan meerdere producten omvatten. 1:n
-* Een verzoek kan betrekking hebben op meerdere andere verzoeken. Bijv. het verzoek tot intrekken heeft betrekking op een of meer andere verzoeken. Het verzoek met aanvullende gegevens heeft betrekking op een ander verzoek. 1:n
+* Een verzoek kan meerdere producten omvatten. 1:n van verzoek naar producten
+* Een verzoek kan betrekking hebben op meerdere andere verzoeken. Bijv. het verzoek tot intrekken heeft betrekking op een of meer andere verzoeken. Het verzoek met aanvullende gegevens heeft betrekking op een ander verzoek. 1:n van verzoek naar verzoeken.
+* Een verzoek kan bijlagen hebben in de vorm van informatieobjecten. 1:n
 
 # Relatie met DSO-verzoeken
 Het moet mogelijk zijn om DSO-verzoeken te registreren in de Verzoeken API; er moet dus een mapping zijn van de attributen van een DSO-verzoek naar een Verzoek. Ook de relaties tussen DSO-Verzoeken moeten kunnen worden geregistreerd; zie ook de sectie over relaties hiervoor. De procesgegevens (ook wel domeinspecifieke gegevens) kunnen niet in de Verzoeken API worden opgeslagen en moeten in een vergunningen-registratie worden opgeslagen.
