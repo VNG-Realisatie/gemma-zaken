@@ -25,6 +25,9 @@ Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden ondersc
 * aanleveren gegevens bij een reeds bestaand verzoek
 * bezwaar maken (in feite geen verzoek om een product), maar wel een verzoek
 
+# Audit trail
+Van een verzoek moet, analoog aan zaken, documenten en besluiten, ook een audit trail worden bijgehouden zodat achter kan worden verantwoord wie wat wanneer heeft gedaan met een verzoek.
+
 # Relaties/cardinaliteiten
 * Een contactmoment kan over een verzoek of een zaak gaan. Met een contactmoment kan geen verzoek worden ingediend. Meerdere contactmomenten kunnen aan een verzoek worden gekoppeld. 1:n van verzoek naar contacten.
 * De relatie tussen zaken en verzoeken is m:n. Een verzoek kan tot meerdere zaken leiden en een zaak kan gekoppeld zijn aan meerdere verzoeken (zie eerder voorbeeld over MOR).
