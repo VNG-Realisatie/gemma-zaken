@@ -1,5 +1,5 @@
 # Inleiding
-Een verzoek is een aanvraag of opdracht aan de gemeente voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en het zaakgericht werken voor de afhandeling. Dit biedt een aantal voordelen, onder andere op het gebied van herkenbaarheid voor de klant, die niet meer wordt geconfronteerd met voor hem onherkenbare zaaktypen. Voor gemeenten ontstaat bovendien meer flexibiliteit: een aanvraag van een klant leidt niet langer vanzelfsprekend tot een zaak, en één of meerdere verzoeken kunnen worden gerelateerd aan één of meerdere zaken.
+Een verzoek is een aanvraag of opdracht aan de gemeente voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en het zaakgericht werken voor de afhandeling. Dit biedt een aantal voordelen. Voor gemeenten ontstaat bovendien meer flexibiliteit: een aanvraag van een klant leidt niet langer vanzelfsprekend tot een zaak, en één of meerdere verzoeken kunnen worden gerelateerd aan één of meerdere zaken.
 
 Verzoeken zijn voor het eerst geintroduceerd in GFO-Zaken, maar is daarna weer verdwenen in het opvolgende informatiemodel RGBZ. In de visie van VNG Realisatie is dat echter een omissie, en is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
 
@@ -16,7 +16,7 @@ Een verzoek kan meerdere producten/diensten omvatten hetgeen een winkelmandje mo
 # Gegevens: generiek en specifiek
 Bij een verzoek wordt alleen generieke metadata opgeslagen. Procesgegevens (domeinspecifiek) worden in een andere registratie opgeslagen. Bijv. bij een Melding Openbare Ruimte worden specifieke gegevens zoals locatie en meldinggegevens in een meldingen-registratie opgeslagen. Vanuit het verzoek wordt verwezen met een URI naar de melding.
 
-Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Terzijde: deze zouden eigenlijk bij de producten in de PDC moeten staan, omdat producten het interface vormen tussen klant en dienstverlener. Voor nu volgen we het huidige model.
+Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Terzijde: deze zouden eigenlijk bij de producten in de PDC moeten staan, omdat producten de interface vormen tussen klant en dienstverlener. Voor nu volgen we het huidige model.
 
 # Typen verzoeken
 Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden onderscheiden:
