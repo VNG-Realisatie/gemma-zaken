@@ -9,14 +9,14 @@ Op een verzoek wordt een intake gedaan. Daarbij wordt het verzoek niet inhoudeli
 Status van verzoeken: is in feite de status van de intake: nieuw, ingetrokken, in intake/behandeling, in behandeling genomen, afgewezen. Nadat een verzoek in behandeling is genomen (of afgewezen) kan het niet meer worden gewijzigd.
 
 # Interactie met de klant
-Terugkoppeling naar de klant over de voortgang van een verzoek gebeurt in termen van de opgestarte zaken of andere activiteiten. Een verzoek heeft alleen een status m.b.t. voortgang van de intake (zie hierboven) die overigens ook in de PIP getoond kan worden (let op: dit kan verwarrend zijn als ook statussen van zaken getoond worden; dit is aan de consumers om op te lossen). De klant kan een overzicht van ingediende verzoeken opvragen en moet een verzoek kunnen intrekken. Een verzoek tot intrekken wordt gerelateerd aan het oorspronkelijke verzoek. Ook kan een klant aanvullingen doen op een verzoek. Dat leidt tot een nieuw verzoek dat aan het oorspronkelijke verzoek wordt gekoppeld.
+Terugkoppeling naar de klant over de voortgang van een verzoek gebeurt d.m.v. van de statussen van de opgestarte zaken en/of andere activiteiten. Een verzoek heeft alleen een status m.b.t. voortgang van de intake (zie hierboven) die overigens ook in de PIP getoond kan worden (let op: dit kan verwarrend zijn als ook statussen van zaken getoond worden; dit is aan de consumers om op te lossen). De klant kan een overzicht van ingediende verzoeken opvragen en moet een verzoek kunnen intrekken. Een verzoek tot intrekken wordt gerelateerd aan het oorspronkelijke verzoek. Ook kan een klant aanvullingen doen op een verzoek. Dat leidt tot een nieuw verzoek dat aan het oorspronkelijke verzoek wordt gekoppeld.
 
-Een verzoek kan meerdere producten/diensten omvatten hetgeen een winkelmandje mogelijk maakt op de website van de gemeente. Als gevolg hiervan kan een verzoek tot meerdere zaken leiden. 
+Een verzoek kan meerdere producten/diensten omvatten hetgeen een winkelmandje mogelijk maakt op de website van de gemeente. Als gevolg hiervan kan een verzoek tot meerdere zaken leiden. Een verzoek kan ook gekoppeld worden aan een reeds bestaande zaak. Ook in dat geval gaat het verzoek naar status afgehandeld.
 
 # Gegevens: generiek en specifiek
 Bij een verzoek wordt alleen generieke metadata opgeslagen. Procesgegevens (domeinspecifiek) worden in een andere registratie opgeslagen. Bijv. bij een Melding Openbare Ruimte worden specifieke gegevens zoals locatie en meldinggegevens in een meldingen-registratie opgeslagen. Vanuit het verzoek wordt verwezen met een URI naar de melding.
 
-Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Terzijde: deze zouden eigenlijk bij de producten in de PDC moeten staan, omdat producten de interface vormen tussen klant en dienstverlener. Voor nu volgen we het huidige model.
+Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Een verzoek heeft geen termijnen. Terzijde: deze zouden eigenlijk bij de producten in de PDC moeten staan, omdat producten de interface vormen tussen klant en dienstverlener. Voor nu volgen we het huidige model.
 
 # Typen verzoeken
 Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden onderscheiden:
