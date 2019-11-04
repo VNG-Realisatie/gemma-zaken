@@ -18,9 +18,9 @@ Op een verzoek wordt een intake gedaan. Daarbij wordt het verzoek niet inhoudeli
 
 De initieel mogelijke statussen reflecteren de status van de intake: nieuw, ingetrokken, in intake/behandeling, in behandeling genomen, afgewezen. Nadat een verzoek in behandeling is genomen (of afgewezen) kan het omwille van de verantwoording niet meer worden gewijzigd.
 
-_Hier zit een bespreekpunt: leidt een verzoek 'direct' tot een zaak (https://github.com/VNG-Realisatie/gemma-zaken/issues/1404#issuecomment-547436681), dan is het communiceren van de status (en misschien zelfs de status zelf) niet nodig. Je verliest dan wel flexibiliteit, want een atomaire overgang van verzoek naar zaak of iets anders is alleen mogelijk als vooraf **altijd** duidelijk is waartoe een verzoek moet leiden._
+De intake van een verzoek kan zowel automatisch als handmatig plaatsvinden. De API moet beide ondersteunen. De consumers moeten zelf bepalen hoe de status van verzoek en zaak wordt gebruikt/gepresenteerd.
 
-_En een opmerking: hier wordt beschreven dat een verzoek niet meer gewijzigd kan worden nadat het in behandeling is genomen (of nadat het is afgewezen). Echter aanvullingen of intrekken (zie hieronder) zijn alleen mogelijk door een nieuw (gerelateerd) verzoek in te dienen. Feitelijk gaat het verzoek na indienen dus al 'op slot'. Volgens mij is dat laatste voor de verantwoording ook beter en duidelijker. Wel moet het uiteraard mogelijk blijven de status te wijzigen._
+Nadat een verzoek is ingediend kan het niet meer worden gewijzigd. Wel kan de status worden gewijzigd n.a.v. de intake en kunnen er relaties worden gelegd met andere verzoeken, zaken, informatieobjecten, contacten, etc.
 
 # Relatie met zaken
 Een verzoek kan resulteren in één of meerdere zaken of andere activiteiten (d.w.z. niet-zaakgericht), danwel direct worden afgehandeld, bijvoorbeeld door levering van een informatiebrochure na aanvraag daarvan. Bovendien kan een verzoek worden gekoppeld aan een reeds lopende zaak. Denk bijvoorbeeld aan een Melding Openbare Ruimte die reeds eerder door een andere klant is gemeld, en waarvoor reeds een zaak loopt. Denk hierbij ook aan een verzoek tot intrekken van een eerder verzoek (dat, indien naar aanleiding van dat eerdere verzoek reeds een zaak was gestart, als tweede (of derde, vierde enz.) verzoek aan die zaak moet worden gekoppeld)
