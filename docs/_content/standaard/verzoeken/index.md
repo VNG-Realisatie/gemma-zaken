@@ -62,7 +62,7 @@ Bij de ontwikkeling van deze visie is gebruik gemaakt van de input uit de volgen
 * Definitie van Verzoeken in [GFO-Zaken](https://www.gemmaonline.nl/index.php/GFO_Zaken_(Zaken_in_zicht))
 * Positionering van Verzoeken in het rapport [Zaakgericht werken in het gemeentelijk gegevenslandschap](https://www.gemmaonline.nl/images/gemmaonline/f/f6/20190620_-_Zaakgericht_werken_in_het_Gemeentelijk_Gegevenslandschap_v101.pdf)
 * Verzoeken in DSO
-* Verzoeken API zoals ontwikkeld door Den Bosch samen met leverancier Conduction
+* [Verzoeken API](https://github.com/ConductionNL/verzoekregistratiecomponent) zoals ontwikkeld door Den Bosch samen met leverancier Conduction
 
 ¹ Als een telefoongesprek met een gemeentelijk klantcontactcentrum leidt tot de aavraag van een vergunning, is duidelijk dat sprake is van een contactmoment dat heeft geleid tot een verzoek door de klant. De vraag is echter of dit ook geldt als diezelfde klant een contactforumulier op de website heeft gebruikt. En ontstaat bij het verzenden van een ingevuld e-formulier een contactmoment?
 
