@@ -30,6 +30,13 @@ Een informatieobject kan tot meer dan één zaak behoren en een zaak kan meer da
 
 Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen besluit en informatieobject is vastgelegd in besluitinformatieobject (Besluiten API) en objectinformatieobject (Documenten API), waarbij besluitinformatieobject leidend is.
 
+### Opslaan van grote bestanden
+
+Afhankelijk van de omvang van het bestand wordt de inhoud van het informatieobject als volgt opgeslagen:
+* omvang 0: het attribuut `inhoud` blijft leeg
+* kleine omvang: in het attribuut `inhoud`.
+* grote omvang: via aparte `bestandsdelen`
+
 ### Archief- en dossiervorming
 
 Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecten en zaakkenmerken samen vormen het zaakdossier.
