@@ -29,26 +29,22 @@ Zoals hierboven beschreven, kent een verzoek alleen statussen die betrekking heb
 * Voortgang van de intake met de statussen zoals gedefinieerd in de sectie over Intake.
 * Voortgang van de zaken of andere activiteiten die zijn opgestart om het verzoek inhoudelijk te behandelen. Dit gebeurt door middel van de statussen die horen bij de zaken en/of andere activiteiten.
 
-De klant kan een overzicht van ingediende verzoeken opvragen, en moet een verzoek kunnen intrekken. Een verzoek tot intrekken wordt gerelateerd aan het oorspronkelijke verzoek. Ook kan een klant aanvullingen doen op een verzoek. Dat leidt tot een nieuw verzoek dat aan het oorspronkelijke verzoek wordt gekoppeld. Aandachtspunt hierbij is dat klant geen last krijgt van gerelateerde verzoeken.
+Uitgangspunt is dat een verzoek niet kan  worden gewijzigd. De klant kan een overzicht van ingediende verzoeken opvragen, en moet een verzoek kunnen intrekken. Een verzoek tot intrekken leidt tot een nieuw verzoek dat wordt gerelateerd aan het oorspronkelijke verzoek. Ook kan een klant aanvullingen doen op een verzoek. Dit leidt ook tot een nieuw verzoek dat aan het oorspronkelijke verzoek wordt gekoppeld. Verzoeken voor intrekken en aanvullen worden gerepresenteerd door de relatie naar het betreffende verzoek met een attribuut op de relatie dat het doel vastlegt (intrekken of aanvullen).
 
 Een verzoek kan meerdere producten/diensten omvatten hetgeen een winkelmandje mogelijk maakt op de website van de gemeente. Als gevolg hiervan kan een verzoek tot meerdere zaken leiden. Een verzoek kan ook gekoppeld worden aan een reeds bestaande zaak. Ook in dat geval gaat het verzoek naar status afgehandeld.
 
-# Gegevens: generiek en specifiek
-Bij een verzoek wordt alleen generieke metadata opgeslagen. Procesgegevens (domeinspecifiek) worden in een andere registratie opgeslagen. Bij een Melding Openbare Ruimte worden bijvoorbeeld specifieke gegevens zoals locatie en meldinggegevens in een meldingen-registratie opgeslagen. Vanuit het verzoek wordt met een URI verwezen naar de aanvullende domeinspecifieke gegevens bij de melding.
-
-Wat betreft behandeltermijn (uiterste en geplande) volgen we de zaaktypen. Een verzoek heeft geen termijnen.
+Een verzoek heeft geen behandeltermijn en er vindt ook geen terugkoppeling plaats over behandeltermijn van een verzoek. Behandeltermijn komt voort uit zaken of andere afhandelprocessen. Bijv. uit een verzoek kunnen een of meer zaken voortkomen, waarvan de behandeltermijn kan worden teruggekoppeld.
 
 NB: termijnen zouden eigenlijk bij de producten in de PDC moeten staan, omdat producten de interface vormen tussen klant en dienstverlener. Voor nu volgen we echter de huidige praktijk waarin termijnen zijn gekoppeld aan zaaktypen.
 
+# Gegevens: generiek en specifiek
+In de verzoekenregistratie wordt alleen generieke metadata opgeslagen. Procesgegevens (domeinspecifiek) en informatieobjecten worden in  andere registraties opgeslagen. Bij een Melding Openbare Ruimte worden bijvoorbeeld specifieke gegevens zoals locatie en meldinggegevens in een meldingen-registratie opgeslagen. Vanuit het verzoek wordt met een URI verwezen naar de aanvullende domeinspecifieke gegevens bij de melding.
+
 # Typen verzoeken
-Er zijn verschillende typen verzoeken. Minimaal de volgende typen worden onderscheiden:
-* aanvragen product of dienst (uit de PDC van de gemeente)
-* doen van een melding (bijv. een melding openbare ruimte)
-* aanleveren gegevens bij een reeds bestaand verzoek
-* verzoek tot het in behandeling nemen van een bezwaar 
+Vooralsnog onderscheiden we geen typen verzoeken. De relatie met producten uit de PDC is waarschijnlijk voldoende om de afhandeling te bepalen. 
 
 # Relaties/cardinaliteiten
-* In welke gevalleen een contactmoment leidt to een verzoek is nog niet helemaal duidelijk, en hangt af van de precieze scope en definitie van zowel 'verzoeken' als 'contactmomenten'.¹ Voor nu volstaat de onomstreden notie dat één of meerdere contactmomenten kunnen leiden tot een verzoek. Er is dus een 1:n relatie van verzoek naar contacten.
+* Meerdere contactmomenten kunnen worden gekoppeld aan een verzoek. Een contactmoment kan tot een verzoek leiden, en de klant kan contact opnemen over een ingediend verzoek. Ook kan een contact worden gekoppeld meerdere verzoeken. Er is dus een m:n relatie.
 * Iets vergelijkbaars geldt voor 'verzoeken' en 'zaken'.² Wederom geldt echter dat de kardinaliteit van de relatie tussen deze twee enititeiten duidelijk is. Hierboven is immers beschreven dat een verzoek tot meerdere zaken kan leiden, en een zaak kan gekoppeld zijn aan meerdere verzoeken.
 * Een verzoek kan meerdere producten omvatten. 1:n van verzoek naar producten
 * Een verzoek kan betrekking hebben op meerdere andere verzoeken. Bijv. het verzoek tot intrekken heeft betrekking op een of meer andere verzoeken. Het verzoek met aanvullende gegevens heeft betrekking op een ander verzoek. Er is dus een 1:n relatie van verzoek naar verzoeken.
@@ -67,6 +63,5 @@ Bij de ontwikkeling van deze visie is gebruik gemaakt van de input uit de volgen
 * Verzoeken in DSO
 * [Verzoeken API](https://github.com/ConductionNL/verzoekregistratiecomponent) zoals ontwikkeld door Den Bosch samen met leverancier Conduction
 
-¹ Als een telefoongesprek met een gemeentelijk klantcontactcentrum leidt tot de aavraag van een vergunning, is duidelijk dat sprake is van een contactmoment dat heeft geleid tot een verzoek door de klant. De vraag is echter of dit ook geldt als diezelfde klant een contactforumulier op de website heeft gebruikt. En ontstaat bij het verzenden van een ingevuld e-formulier een contactmoment?
 
 ² Welke activiteiten die onderdeel zijn van de intake voor een zaak, kunnen strakt op het niveau van het verzoek worden afgehandeld? Hoe koppelen we 'verzoek', via '(PDC-)product/dienst' precies aan 'zaaktype'?
