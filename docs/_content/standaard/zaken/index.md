@@ -44,8 +44,23 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
 
 [![Gegevensmodel Zaken API](Zaken API.png){:width="1200px"}](Zaken API.png "Zaken gegevensmodel - klik voor groot")
 
+### Zaakcontactmomenten
 
-## Specificatie van de Catalogi API
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Voor versie 1.1.0 bestond er geen [Contactmomenten API](../contactmomenten/index)
+en werden klantcontacten in de Zaken API opgenomen. Vanaf versie 1.1.0 is deze
+resource deprecated - consumers horen van de contactmomenten API gebruik te
+maken.
+
+Over een zaak kunnen één of meerdere contactmomenten plaatsvinden. Via
+zaakcontactmomenten kunnen zaken en contactmomenten aan elkaar gerelateerd
+worden, waardoor het mogelijk wordt om alle contactmomenten bij een zaak
+in te kijken.
+
+## Specificatie van de Zaken API
 
 * [Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
 * API specificatie (OAS3) in
@@ -394,6 +409,10 @@ meerdere waarden voor de `ETag`, dan MOET de provider antwoorden met een
 `HTTP 304` bericht indien de huidige `ETag` waarde van de resource hierin
 voorkomt. Als de huidige `ETag` waarde hier niet in voorkomt, dan MOET de
 provider een normale `HTTP 200` response sturen.
+
+#### TODO: synchroniseren zaakcontactmomenten
+
+TODO
 
 ## Overige documentatie
 
