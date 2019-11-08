@@ -86,6 +86,8 @@ info:
 
     - `zaakbesluit`: create
 
+    - `zaakcontactmoment`: create
+
 
 
     **Handige links**
@@ -110,7 +112,10 @@ paths:
     get:
       operationId: klantcontact_list
       summary: Alle KLANTCONTACTen opvragen.
-      description: Alle KLANTCONTACTen opvragen.
+      description: 'Alle KLANTCONTACTen opvragen.
+
+
+        **DEPRECATED**: gebruik de contactmomenten API in plaats van deze endpoint.'
       parameters:
       - name: zaak
         in: query
@@ -134,6 +139,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/json:
               schema:
@@ -164,6 +174,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -176,6 +191,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -188,6 +208,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -200,6 +225,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -212,6 +242,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -224,6 +259,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -236,6 +276,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -248,6 +293,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -260,6 +310,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -269,12 +324,16 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
+      deprecated: true
     post:
       operationId: klantcontact_create
       summary: Maak een KLANTCONTACT bij een ZAAK aan.
       description: 'Indien geen identificatie gegeven is, dan wordt deze automatisch
 
-        gegenereerd.'
+        gegenereerd.
+
+
+        **DEPRECATED**: gebruik de contactmomenten API in plaats van deze endpoint.'
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -316,6 +375,11 @@ paths:
                 type: string
                 format: uri
               description: URL waar de resource leeft.
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/json:
               schema:
@@ -328,6 +392,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -340,6 +409,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -352,6 +426,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -364,6 +443,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -376,6 +460,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -388,6 +477,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -400,6 +494,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -412,6 +511,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -424,6 +528,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -433,12 +542,16 @@ paths:
       security:
       - JWT-Claims:
         - zaken.bijwerken
+      deprecated: true
     parameters: []
   /klantcontacten/{uuid}:
     get:
       operationId: klantcontact_read
       summary: Een specifiek KLANTCONTACT bij een ZAAK opvragen.
-      description: Een specifiek KLANTCONTACT bij een ZAAK opvragen.
+      description: 'Een specifiek KLANTCONTACT bij een ZAAK opvragen.
+
+
+        **DEPRECATED**: gebruik de contactmomenten API in plaats van deze endpoint.'
       parameters:
       - name: If-None-Match
         in: header
@@ -473,6 +586,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/json:
               schema:
@@ -485,6 +603,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -497,6 +620,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -509,6 +637,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -521,6 +654,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -533,6 +671,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -545,6 +688,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -557,6 +705,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -569,6 +722,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -581,6 +739,11 @@ paths:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Warning:
+              schema:
+                type: string
+              description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
+                van functionaliteit.
           content:
             application/problem+json:
               schema:
@@ -590,6 +753,7 @@ paths:
       security:
       - JWT-Claims:
         - zaken.lezen
+      deprecated: true
     parameters:
     - name: uuid
       in: path
@@ -2927,6 +3091,629 @@ paths:
       schema:
         type: string
         format: uuid
+  /zaakcontactmomenten:
+    get:
+      operationId: zaakcontactmoment_list
+      summary: Alle ZAAKCONTACTMOMENTen opvragen.
+      description: Alle ZAAKCONTACTMOMENTen opvragen.
+      parameters:
+      - name: zaak
+        in: query
+        description: URL-referentie naar de ZAAK.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: contactmoment
+        in: query
+        description: URL-referentie naar het CONTACTMOMENT (in de KCC API)
+        required: false
+        schema:
+          type: string
+          format: uri
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ZaakContactMoment'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaakcontactmomenten
+      security:
+      - JWT-Claims:
+        - zaken.lezen
+    post:
+      operationId: zaakcontactmoment_create
+      summary: Maak een ZAAKCONTACTMOMENT aan.
+      description: '**Er wordt gevalideerd op**
+
+        - geldigheid URL naar de CONTACTMOMENT'
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakContactMoment'
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Location:
+              schema:
+                type: string
+                format: uri
+              description: URL waar de resource leeft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakContactMoment'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaakcontactmomenten
+      security:
+      - JWT-Claims:
+        - zaken.bijwerken
+    parameters: []
+  /zaakcontactmomenten/{uuid}:
+    get:
+      operationId: zaakcontactmoment_read
+      summary: Een specifiek ZAAKCONTACTMOMENT opvragen.
+      description: Een specifiek ZAAKCONTACTMOMENT opvragen.
+      parameters:
+      - name: If-None-Match
+        in: header
+        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+          \ voor meer informatie."
+        required: false
+        examples:
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+          oneValue:
+            summary: "E\xE9n ETag-waarde"
+            value: '"79054025255fb1a26e4bc422aef54eb4"'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            ETag:
+              description: De ETag berekend op de response body JSON. Indien twee
+                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
+                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              schema:
+                type: string
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakContactMoment'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaakcontactmomenten
+      security:
+      - JWT-Claims:
+        - zaken.lezen
+    delete:
+      operationId: zaakcontactmoment_delete
+      description: Verwijder een ZAAKCONTACTMOMENT.
+      parameters:
+      - name: X-NLX-Request-Application-Id
+        in: header
+        description: Identificatie van de applicatie die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-NLX-Request-User-Id
+        in: header
+        description: Identificatie van de gebruiker die het verzoek stuurt (indien
+          NLX wordt gebruikt).
+        required: false
+        schema:
+          type: string
+      - name: X-Audit-Toelichting
+        in: header
+        description: Toelichting waarom een bepaald verzoek wordt gedaan
+        required: false
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No content
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - zaakcontactmomenten
+      security:
+      - JWT-Claims:
+        - zaken.bijwerken
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
   /zaakinformatieobjecten:
     get:
       operationId: zaakinformatieobject_list
@@ -4803,9 +5590,10 @@ paths:
       description: "Indien geen identificatie gegeven is, dan wordt deze automatisch\n\
         gegenereerd. De identificatie moet uniek zijn binnen de bronorganisatie.\n\
         \n**Er wordt gevalideerd op**:\n- `zaaktype` moet een geldige URL zijn.\n\
-        - `laatsteBetaaldatum` mag niet in de toekomst liggen.\n- `laatsteBetaaldatum`\
-        \ mag niet gezet worden als de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie`\
-        \ moet een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `laatsteBetaaldatum`\
+        \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
+        \ als de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een\
+        \ waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
         \ heeft.\n- `archiefactiedatum` moet een waarde hebben indien `archiefstatus`\
         \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen\
         \ een waarde anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
@@ -5474,19 +6262,19 @@ paths:
       operationId: zaak_update
       summary: Werk een ZAAK in zijn geheel bij.
       description: "**Er wordt gevalideerd op**\n- `zaaktype` mag niet gewijzigd worden.\n\
-        - `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet\
-        \ in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als\
-        \ de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een waarde\
-        \ hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\" heeft.\n\
-        - `archiefactiedatum` moet een waarde hebben indien `archiefstatus` niet de\n\
-        \  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen een waarde\
-        \ anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
-        \ INFORMATIEOBJECTen het attribuut\n  `status` de waarde \"gearchiveerd\"\
-        \ heeft.\n\n**Opmerkingen**\n- er worden enkel zaken getoond van de zaaktypes\
-        \ waar u toe geautoriseerd\n  bent.\n- zaaktype zal in de toekomst niet-wijzigbaar\
-        \ gemaakt worden.\n- indien een zaak heropend moet worden, doe dit dan door\
-        \ een nieuwe status\n  toe te voegen die NIET de eindstatus is.\n  Zie de\
-        \ `Status` resource."
+        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `identificatie`\
+        \ mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet in de toekomst\
+        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
+        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
+        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
+        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
+        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
+        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- er worden\
+        \ enkel zaken getoond van de zaaktypes waar u toe geautoriseerd\n  bent.\n\
+        - zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n- indien een\
+        \ zaak heropend moet worden, doe dit dan door een nieuwe status\n  toe te\
+        \ voegen die NIET de eindstatus is.\n  Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -5692,19 +6480,19 @@ paths:
       operationId: zaak_partial_update
       summary: Werk een ZAAK deels bij.
       description: "**Er wordt gevalideerd op**\n- `zaaktype` mag niet gewijzigd worden.\n\
-        - `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet\
-        \ in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als\
-        \ de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een waarde\
-        \ hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\" heeft.\n\
-        - `archiefactiedatum` moet een waarde hebben indien `archiefstatus` niet de\n\
-        \  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen een waarde\
-        \ anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
-        \ INFORMATIEOBJECTen het attribuut\n  `status` de waarde \"gearchiveerd\"\
-        \ heeft.\n\n**Opmerkingen**\n- er worden enkel zaken getoond van de zaaktypes\
-        \ waar u toe geautoriseerd\n  bent.\n- zaaktype zal in de toekomst niet-wijzigbaar\
-        \ gemaakt worden.\n- indien een zaak heropend moet worden, doe dit dan door\
-        \ een nieuwe status\n  toe te voegen die NIET de eindstatus is. Zie de `Status`\
-        \ resource."
+        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `identificatie`\
+        \ mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet in de toekomst\
+        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
+        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
+        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
+        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
+        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
+        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- er worden\
+        \ enkel zaken getoond van de zaaktypes waar u toe geautoriseerd\n  bent.\n\
+        - zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n- indien een\
+        \ zaak heropend moet worden, doe dit dan door een nieuwe status\n  toe te\
+        \ voegen die NIET de eindstatus is. Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -8215,6 +9003,39 @@ components:
             de status van een zaak.
           type: string
           maxLength: 1000
+    ZaakContactMoment:
+      required:
+      - zaak
+      - contactmoment
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        uuid:
+          title: Uuid
+          description: Unieke resource identifier (UUID4)
+          type: string
+          format: uuid
+          readOnly: true
+        zaak:
+          title: Zaak
+          description: URL-referentie naar de ZAAK.
+          type: string
+          format: uri
+        contactmoment:
+          title: Contactmoment
+          description: URL-referentie naar het CONTACTMOMENT (in de KCC API)
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
     ZaakInformatieObject:
       required:
       - informatieobject
