@@ -17,7 +17,7 @@ Op een verzoek wordt een intake gedaan. Daarbij wordt het verzoek niet inhoudeli
 
 De status van een verzoek geeft de status van de intake weer (en dus niet van de afhandeling): nieuw, ingetrokken, in intake/behandeling, in behandeling genomen, afgewezen. Nadat een verzoek in behandeling is genomen (of afgewezen) kan het omwille van de verantwoording niet meer worden gewijzigd.
 
-De intake van een verzoek kan zowel automatisch als handmatig plaatsvinden. De API moet beide ondersteunen. De consumers moeten zelf bepalen hoe de status van verzoek en zaak wordt gebruikt/gepresenteerd.
+De intake van een verzoek kan zowel automatisch als handmatig plaatsvinden. De API moet beide ondersteunen.
 
 Nadat een verzoek is ingediend kan het niet meer worden gewijzigd. Wel kan de status worden gewijzigd n.a.v. de intake en kunnen er relaties worden gelegd met andere verzoeken, zaken, informatieobjecten, contacten, etc.
 
