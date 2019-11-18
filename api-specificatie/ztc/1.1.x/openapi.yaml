@@ -6650,7 +6650,12 @@ paths:
       description: 'Maak een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie aan. Dit kan alleen
         als het
 
-        bijbehorende ZAAKTYPE een concept betreft.'
+        bijbehorende ZAAKTYPE een concept betreft.
+
+
+        Er wordt gevalideerd op:
+
+        - `zaaktype` en `informatieobjecttype` behoren tot dezelfde `catalogus`'
       requestBody:
         $ref: '#/components/requestBodies/ZaakTypeInformatieObjectType'
       responses:
@@ -6990,7 +6995,12 @@ paths:
       description: 'Werk een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie in zijn geheel
         bij. Dit kan
 
-        alleen als het bijbehorende ZAAKTYPE een concept betreft.'
+        alleen als het bijbehorende ZAAKTYPE een concept betreft.
+
+
+        Er wordt gevalideerd op:
+
+        - `zaaktype` en `informatieobjecttype` behoren tot dezelfde `catalogus`'
       requestBody:
         $ref: '#/components/requestBodies/ZaakTypeInformatieObjectType'
       responses:
@@ -7137,7 +7147,12 @@ paths:
       description: 'Werk een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie deels bij. Dit
         kan alleen
 
-        als het bijbehorende ZAAKTYPE een concept betreft.'
+        als het bijbehorende ZAAKTYPE een concept betreft.
+
+
+        Er wordt gevalideerd op:
+
+        - `zaaktype` en `informatieobjecttype` behoren tot dezelfde `catalogus`'
       requestBody:
         $ref: '#/components/requestBodies/ZaakTypeInformatieObjectType'
       responses:
@@ -7284,7 +7299,12 @@ paths:
       description: 'Verwijder een ZAAKTYPE-INFORMATIEOBJECTTYPE relatie. Dit kan alleen
         als
 
-        het bijbehorende ZAAKTYPE een concept betreft.'
+        het bijbehorende ZAAKTYPE een concept betreft.
+
+
+        Er wordt gevalideerd op:
+
+        - `zaaktype` of `informatieobjecttype` is nog niet gepubliceerd'
       responses:
         '204':
           description: No content

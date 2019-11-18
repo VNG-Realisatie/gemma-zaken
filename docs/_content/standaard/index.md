@@ -15,6 +15,7 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Autorisaties API specificatie](autorisaties/index)
 * [Notificaties API specificatie](notificaties/index)
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
+* [Contactmomenten API specificatie](contactmomenten/index)
 
 ## Algemeen
 
@@ -49,6 +50,7 @@ De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelij
 | Autorisaties                   |          |           |            |           |      X       |      X       |                 |   |
 | Notificaties                   |          |           |            |           |      X       |              |                 |   |
 | Notificaties   voor consumers  |          |           |            |           |              |              |                 |   |
+| Contacmomenten                 |          | optioneel |            |           |      X       |      X       |                 |   |
 
 
 ## Overkoepelend gegevensmodel
@@ -120,24 +122,24 @@ Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/vers
 
 #### Paginering
 
-In aanvulling op [API-42](https://docs.geostandaarden.nl/api/API-Strategie/#api-42-use-json-hal-with-media-type-application-hal-json-for-pagination) MOET er voor media-type `application/json` paginering worden 
+In aanvulling op [API-42](https://docs.geostandaarden.nl/api/API-Strategie/#api-42-use-json-hal-with-media-type-application-hal-json-for-pagination) MOET er voor media-type `application/json` paginering worden
 gebruikt.
 
-Ondersteuning voor media-type `application/json+hal` is geen onderdeel van de 
-API-specificatie maar MAG wel worden aangeboden naast media-type 
+Ondersteuning voor media-type `application/json+hal` is geen onderdeel van de
+API-specificatie maar MAG wel worden aangeboden naast media-type
 `application/json`.
 
-Paginering voor media-type `application/json` volgt een vaste structuur die 
+Paginering voor media-type `application/json` volgt een vaste structuur die
 wordt afgedwongen middels de API-specificatie.
 
 Het attribuut `count` MOET het totaal aantal resultaten weergeven. Het attribuut
-`next` en `previous` geven respectievelijk de URL naar de volgende en vorige 
+`next` en `previous` geven respectievelijk de URL naar de volgende en vorige
 pagina weer. Dit MOET dezelfde URL zijn als het opvragen van de eerste pagina,
-gevolgd door een query-parameter `page` die het paginanummer bevat, of `null` 
+gevolgd door een query-parameter `page` die het paginanummer bevat, of `null`
 indien er geen volgende of vorige pagina is.
 
-De eerste pagina MOET `1` zijn (en niet `0`). De URL's 
-`http://example.com/api/v1/resource` en 
+De eerste pagina MOET `1` zijn (en niet `0`). De URL's
+`http://example.com/api/v1/resource` en
 `http://example.com/api/v1/resource?page=1` MOETEN hetzelfde resultaat geven.
 
 De objecten van deze gepagineerde resource zitten in het attribuut `results`.
