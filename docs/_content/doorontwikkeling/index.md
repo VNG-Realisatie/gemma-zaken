@@ -4,6 +4,19 @@ date: '15-7-2019'
 weight: 10
 ---
 
+## Verwacht
+
+De publicatie van de 1.1.0 versies voor alle voor Zaakgericht werken in gebruik zijnde API standaarden wordt nog in 2019 verwacht. Daarmee zullen een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst is verdiepen in deze vernieuwingen nu al mogelijk in de testomgevingen van deze API standaarden:
+
+* [Catalogi API standaard](https://zaakgerichtwerken.vng.cloud/standaard/catalogi/index)
+* [Zaken API standaard](https://zaakgerichtwerken.vng.cloud/standaard/zaken/index)
+* [Documenten API standaard](https://zaakgerichtwerken.vng.cloud/standaard/documenten/index)
+* [Besluiten API standaard](https://zaakgerichtwerken.vng.cloud/standaard/besluiten/index)
+* [Autorisaties API standaard](https://zaakgerichtwerken.vng.cloud/standaard/autorisaties/index)
+* [Notificaties API standaard](https://zaakgerichtwerken.vng.cloud/standaard/notificaties/index)
+ 
+Momenteel wordt er hard gewerkt aan de Contactmomenten API standaard en de Verzoeken API standaard. De Release Candidate voor beide API standaarden verwachten we eveneens nog in 2019 te publiceren. Een preview op de specificatie van Contactmomenten API standaard is mogelijk in de [testomgeving](https://contactmomenten-api.test.vng.cloud/) daarvan. Voor de Verzoeken API standaard zal op korte termijn ook een testomgeving beschikbaar komen. Het ligt in de lijn van de verwachting dat de 1.0.0 versies van deze 2 standaarden volgend jaar gepubliceerd zullen gaan worden.
+
 ## Werkwijze
 
 Het team dat aan de API's voor Zaakgericht Werken werkt doet dit volgens de agile Scrum methodiek.
