@@ -6,7 +6,7 @@ weight: 10
 
 ## Verwacht
 
-De publicatie van de 1.1.0 versies voor alle voor Zaakgericht werken in gebruik zijnde API standaarden wordt nog in 2019 verwacht. Daarmee zullen een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst is verdiepen in deze vernieuwingen nu al mogelijk in de testomgevingen van deze API standaarden:
+De publicatie van de 1.1.0 versies voor alle voor Zaakgericht werken in gebruik zijnde API standaarden wordt nog in 2019 verwacht. Daarmee zullen een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst kunnen deze vernieuwingen nu al bestudeerd worden in de testomgevingen van deze API standaarden:
 
 * [Catalogi API standaard](https://zaakgerichtwerken.vng.cloud/standaard/catalogi/index)
 * [Zaken API standaard](https://zaakgerichtwerken.vng.cloud/standaard/zaken/index)
