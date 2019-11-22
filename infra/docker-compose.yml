@@ -41,6 +41,10 @@ services:
   nrc_rabbitmq:
     image: rabbitmq:3.7-alpine
 
+  # cache
+  redis:
+    image: redis
+
   # web
   zrc_web:
     image: vngr/gemma-zrc:latest
@@ -49,6 +53,7 @@ services:
       - SECRET_KEY=c1zqz%y-s-$$63ca_abc8dmfjno#&pk!wy8k9f8c*4w@(whxy1n'
       - DB_HOST=zrc_db
       - IS_HTTPS=0
+      - REDIS_CACHE=redis:6379/0
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
@@ -62,6 +67,7 @@ services:
       - DB_HOST=drc_db
       - IS_HTTPS=0
       - SENDFILE_BACKEND=sendfile.backends.simple
+      - REDIS_CACHE=redis:6379/1
     volumes:
       - token_fixtures:/app/fixtures
       - drc_media:/app/private-media
@@ -77,6 +83,7 @@ services:
       - drc_media:/private-media
     environment:
       - MIN_UPLOAD_SIZE=${MIN_UPLOAD_SIZE:-4294967296}
+      - REDIS_CACHE=redis:6379/2
     command: "/start.sh"
     depends_on:
       - drc_web
@@ -88,6 +95,7 @@ services:
       - SECRET_KEY=)lwxn07vp1+ru=yf^n+v4l&ij24l3vhhitw9vk4=0ix14ibmfj
       - DB_HOST=ztc_db
       - IS_HTTPS=0
+      - REDIS_CACHE=redis:6379/3
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
@@ -100,6 +108,7 @@ services:
       - SECRET_KEY=u=y-#vjs0lw^%d13s8i=7r-880=-%5v!vmyzdoo=2go%ana4rc
       - DB_HOST=brc_db
       - IS_HTTPS=0
+      - REDIS_CACHE=redis:6379/4
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
@@ -115,6 +124,7 @@ services:
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
+      - REDIS_CACHE=redis:6379/5
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
@@ -131,6 +141,7 @@ services:
       - PUBLISH_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672/%2F
       - CELERY_BROKER_URL=amqp://guest:guest@nrc_rabbitmq:5672//
       - CELERY_RESULT_BACKEND=amqp://guest:guest@nrc_rabbitmq:5672//
+      - REDIS_CACHE=redis:6379/5
     command: celery worker --app=nrc -l info --workdir=src
     volumes:
       - token_fixtures:/app/fixtures
@@ -145,6 +156,7 @@ services:
       - SECRET_KEY=%a$$ac3x=au_h_7q1--3hsu6crina5u)@a=i7l!!62h9vlo%#!c
       - DB_HOST=ac_db
       - IS_HTTPS=0
+      - REDIS_CACHE=redis:6379/6
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
