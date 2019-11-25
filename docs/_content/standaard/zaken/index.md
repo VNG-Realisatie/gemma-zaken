@@ -349,7 +349,7 @@ Wanneer een `Resultaat` bij een `Zaak` toegevoegd wordt, dan MOET het
 
 #### Archiveren
 
-**<a name="zrc-016">Afleiden van archiveringsparameters ([zrc-016](#zrc-016))</a>**
+**<a name="zrc-021">Afleiden van archiveringsparameters ([zrc-021](#zrc-021))</a>**
 
 Het resultaat van een zaak is bepalend voor het archiefregime. Bij het
 afsluiten van een zaak MOETEN de attributen `Zaak.archiefnominatie`
@@ -385,7 +385,7 @@ Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
 gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
 de archiefactietermijn niet beschikbaar is.
 
-**<a name="zrc-017">Zetten `Zaak.archiefstatus` ([zrc-017](#zrc-017))</a>**
+**<a name="zrc-022">Zetten `Zaak.archiefstatus` ([zrc-022](#zrc-022))</a>**
 
 De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
 waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status
@@ -398,7 +398,7 @@ waarde krijgen als de de archiefstatus een waarde krijgt anders dan
 Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
 foutbericht antwoorden.
 
-**<a name="zrc-018">Vernietigen van zaken ([zrc-018](#zrc-018))</a>**
+**<a name="zrc-023">Vernietigen van zaken ([zrc-023](#zrc-023))</a>**
 
 Bij het verwijderen van een `Zaak` MOETEN de zaak en gerelateerde objecten
 daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn
