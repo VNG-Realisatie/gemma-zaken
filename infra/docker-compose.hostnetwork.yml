@@ -28,6 +28,9 @@ services:
   nrc_rabbitmq:
     network_mode: host
 
+  redis:
+    network_mode: host
+
   zrc_web:
     network_mode: host
     environment:
