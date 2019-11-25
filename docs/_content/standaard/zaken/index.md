@@ -340,7 +340,7 @@ en `Zaak.archiefactiedatum` bepaald worden uit het `Zaak.Resultaat` als volgt:
               `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
               en gebruik de maximale waarde.
             * `termijn` -> `Zaak.einddatum` + `Resultaat.Resultaattype.brondatumArchiefprocedure.procestermijn`
-            * `gerelateerde_zaak` -> TODO
+            * `gerelateerde_zaak` -> maximale `Zaak.einddatum` van alle gerelateerde zaken
             * `ingangsdatum_besluit` -> maximale `Besluit.ingangsdatum` van alle
               gerelateerde besluiten
             * `vervaldatum_besluit` -> maximale `Besluit.vervaldatum` van alle
