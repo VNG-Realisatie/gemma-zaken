@@ -321,16 +321,28 @@ provider.
 
 **<a name="zrc-016">Valideren dat het `statustype` van een `Status` bij het `Zaak.zaaktype` hoort ([zrc-016](#zrc-016))</a>**
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
 Wanneer een `Status` bij een `Zaak` toegevoegd wordt, dan MOET het
 `Status.statustype` voorkomen in de `Status.zaak.zaaktype.statustypen`.
 
 **<a name="zrc-017">Valideren dat het `informatieobjecttype` van een `ZaakInformatieObject.informatieobject` bij het `Zaak.zaaktype` hoort ([zrc-017](#zrc-017))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
 
 Wanneer een `ZaakInformatieObject` bij een `Zaak` toegevoegd wordt, dan MOET het
 `ZaakInformatieObject.informatieobject.informatieobjecttype` voorkomen in de
 `ZaakInformatieObject.zaak.zaaktype.informatieobjecttypen`.
 
 **<a name="zrc-018">Valideren dat de `eigenschap` van een `ZaakEigenschap` bij het `Zaak.zaaktype` hoort ([zrc-018](#zrc-018))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
 
 Wanneer een `ZaakEigenschap` bij een `Zaak` toegevoegd wordt, dan MOET de
 `ZaakEigenschap.eigenschap` voorkomen in de `ZaakEigenschap.zaak.zaaktype.eigenschappen`.
@@ -339,10 +351,18 @@ TODO: [fix in ZRC](https://github.com/VNG-Realisatie/gemma-zaken/issues/1476)
 
 **<a name="zrc-019">Valideren dat het `roltype` van een `Rol` bij het `Zaak.zaaktype` hoort ([zrc-019](#zrc-019))</a>**
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
 Wanneer een `Rol` bij een `Zaak` toegevoegd wordt, dan MOET het
 `Rol.roltype` voorkomen in de `Rol.zaak.zaaktype.roltypen`.
 
 **<a name="zrc-020">Valideren dat het `resultaattype` van een `Resultaat` bij het `Zaak.zaaktype` hoort ([zrc-020](#zrc-020))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
 
 Wanneer een `Resultaat` bij een `Zaak` toegevoegd wordt, dan MOET het
 `Resultaat.resultaattype` voorkomen in de `Resultaat.zaak.zaaktype.resultaattypen`.
