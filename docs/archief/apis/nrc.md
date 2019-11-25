@@ -21,7 +21,7 @@ Het ondersteunt:
 
 * [API-specificatie (provider)](https://notificaties-api.vng.cloud/api/v1/schema/)
 * [API-specificatie (consumer)](https://redocly.github.io/redoc/?url=https://ref.tst.vng.cloud/api-specificatie/nrc/consumer-api/openapi.yaml)
-* [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
+* [Referentie implementatie](https://github.com/VNG-Realisatie/notificaties-api)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 
