@@ -53,7 +53,7 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
 * [![Build Status][ac-build-status]][ac-stable]
   [Autorisatiecomponent](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
 * [![Build Status][kcc-build-status]][kcc-stable]
-  [Contactmomenten API](https://github.com/VNG-Realisatie/gemma-klantcontactcomponent)
+  [Klantinteracties API](https://github.com/VNG-Realisatie/klantinteracties-api)
 
 **Ondersteunende tooling**
 
@@ -81,8 +81,8 @@ Copyright © VNG Realisatie 2018
 [nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
 [ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
 [ac-stable]: http://jenkins.nlx.io/job/gemma-autorisatiecomponent-stable
-[kcc-build-status]: https://travis-ci.org/VNG-Realisatie/gemma-klantcontactcomponent.svg?branch=master
-[kcc-stable]: https://travis-ci.org/VNG-Realisatie/gemma-klantcontactcomponent
+[kcc-build-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
+[kcc-stable]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api
 
 [vng-api-common-build-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
 [vng-api-common]: https://travis-ci.org/VNG-Realisatie/vng-api-common

@@ -102,13 +102,13 @@ spec:
             serviceName: demo
             servicePort: 8000
 
-  # Contactmomenten
-  - host: contactmomenten-api.vng.cloud
+  # Klantinteracties
+  - host: klantinteracties-api.vng.cloud
     http:
       paths:
         - path: /
           backend:
-            serviceName: cmc
+            serviceName: kic
             servicePort: 8000
 
   tls:
@@ -124,4 +124,4 @@ spec:
         - referentielijsten-api.vng.cloud
         - zaken-auth.vng.cloud
         - zgw-demo.vng.cloud
-        - contactmomenten-api.vng.cloud
+        - klantinteracties-api.vng.cloud

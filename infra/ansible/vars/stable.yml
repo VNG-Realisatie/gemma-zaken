@@ -18,7 +18,7 @@ services:
       - token-issuer
       - vrl
       - deploy
-      - cmc
+      - kic
 
   - name: redis
     templates: ../k8s/cache/
@@ -51,6 +51,6 @@ services:
   - name: token-issuer
     templates: ../k8s/tokens
 
-  - name: cmc
-    templates: ../k8s/cmc/
+  - name: kic
+    templates: ../k8s/kic/
     image_tag: 'latest'

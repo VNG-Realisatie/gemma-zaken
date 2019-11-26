@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}
-        image: vngr/contactmomenten-api:{{ service.image_tag }}
+        image: vngr/klantinteracties-api:{{ service.image_tag }}
         imagePullPolicy: Always
         resources:
           requests:
@@ -51,7 +51,7 @@ spec:
           periodSeconds: 5
         env:
           - name: DJANGO_SETTINGS_MODULE
-            value: kcc.conf.docker
+            value: kic.conf.docker
           - name: DB_HOST
             value: {{ db_host }}
           - name: DB_NAME

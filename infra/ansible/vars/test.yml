@@ -16,7 +16,7 @@ services:
       - nrc-test
       - ac-test
       - token-issuer-test
-      - cmc-test
+      - kic-test
 
   - name: redis-test
     templates: ../k8s/cache/
@@ -52,8 +52,8 @@ services:
   - name: token-issuer-test
     templates: ../k8s/tokens
 
-  - name: cmc-test
-    templates: ../k8s/cmc/
+  - name: kic-test
+    templates: ../k8s/kic/
     image_tag: 'latest'
 
 ingress:
@@ -74,5 +74,5 @@ ingress:
       name: nrc-test
     - host: zaken-auth.test.vng.cloud
       name: token-issuer-test
-    - host: contactmomenten-api.test.vng.cloud
-      name: cmc-test
+    - host: klantinteracties-api.test.vng.cloud
+      name: kic-test
