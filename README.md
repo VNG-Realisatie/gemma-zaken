@@ -7,7 +7,7 @@ API's voor Zaakgericht Werken
 Je kan de work-in-progress standaard [hier](docs/_content/standaard/index.md) lezen.
 
 ## Doel
-Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn een OpenAPI Specificatie van de nieuwe Zaak- en Documentservices (v2.0) en bijbehorende referentie-implementaties met persistente data.
+Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn meerdere OpenAPI Specificaties ten behoeve van zaakgericht werken en bijbehorende referentie-implementaties met persistente data.
 
 ## Vragen en bijdragen
 Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (met code of documentatie) in [`CONTRIBUTING.md`](CONTRIBUTING.md) (EN).
