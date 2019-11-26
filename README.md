@@ -48,8 +48,8 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
   [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
 * [![Build Status][brc-build-status]][brc-stable]
   [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
-* [![Build Status][nc-build-status]][nc-stable]
-  [Notificatiecomponent](https://github.com/VNG-Realisatie/gemma-notificatiecomponent)
+* [![Build Status][nrc-build-status]][nrc-stable]
+  [Notificatiecomponent](https://github.com/VNG-Realisatie/notificaties-api)
 * [![Build Status][ac-build-status]][ac-stable]
   [Autorisatiecomponent](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
 * [![Build Status][kcc-build-status]][kcc-stable]
@@ -77,8 +77,8 @@ Copyright © VNG Realisatie 2018
 [ztc-stable]: http://jenkins.nlx.io/job/gemma-zaaktypecatalogus-stable
 [brc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
 [brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
-[nc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
-[nc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
+[nrc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
+[nrc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
 [ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
 [ac-stable]: http://jenkins.nlx.io/job/gemma-autorisatiecomponent-stable
 [kcc-build-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
