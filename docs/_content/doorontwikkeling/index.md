@@ -6,14 +6,13 @@ weight: 10
 
 ## Verwacht
 
-De publicatie van de 1.1.0 versies voor alle voor Zaakgericht Werken in gebruik zijnde API standaarden wordt nog in 2019 verwacht. Daarmee zullen een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst kunnen deze vernieuwingen nu al bestudeerd worden in de testomgevingen van deze API standaarden:
+Na de release van 1.0.0 van de eerste VNG API's worden de API's vanaf nu apart doorontwikkeld. Dit zal tot gevolg hebben dat van sommige API's op relatief korte termijn een 1.1.0 versie zal verschijnen waarmee een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst kunnen deze vernieuwingen nu al bestudeerd worden in de testomgevingen van deze API standaarden:
 
-* [Catalogi API standaard](https://zaakgerichtwerken.vng.cloud/standaard/catalogi/index)
-* [Zaken API standaard](https://zaakgerichtwerken.vng.cloud/standaard/zaken/index)
-* [Documenten API standaard](https://zaakgerichtwerken.vng.cloud/standaard/documenten/index)
-* [Besluiten API standaard](https://zaakgerichtwerken.vng.cloud/standaard/besluiten/index)
-* [Autorisaties API standaard](https://zaakgerichtwerken.vng.cloud/standaard/autorisaties/index)
-* [Notificaties API standaard](https://zaakgerichtwerken.vng.cloud/standaard/notificaties/index)
+* [Catalogi API standaard](https://catalogi-api.test.vng.cloud/)
+* [Zaken API standaard](https://zaken-api.test.vng.cloud/)
+* [Documenten API standaard](https://documenten-api.test.vng.cloud/)
+* [Besluiten API standaard](https://besluiten-api.test.vng.cloud/)
+* [Autorisaties API standaard](https://autorisaties-api.test.vng.cloud/)
  
 Momenteel wordt er hard gewerkt aan de Contactmomenten API standaard en de Verzoeken API standaard. De Release Candidate voor beide API standaarden verwachten we eveneens nog in 2019 te publiceren. Een preview op de specificatie van Contactmomenten API standaard is mogelijk in de [testomgeving](https://contactmomenten-api.test.vng.cloud/) daarvan. Voor de Verzoeken API standaard zal op korte termijn ook een testomgeving beschikbaar komen. Het ligt in de lijn van de verwachting dat de 1.0.0 versies van deze 2 standaarden volgend jaar gepubliceerd zullen gaan worden.
 
