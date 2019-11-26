@@ -332,7 +332,7 @@ en `Zaak.archiefactiedatum` bepaald worden uit het `Zaak.Resultaat` als volgt:
             * `eigenschap` -> gebruik de waarde van de eigenschap met als naam
               de waarde van
               `Resultaat.Resultaattype.brondatumArchiefprocedure.datumkenmerk`
-            * `ander_datumkenmerk` -> brondatum MOET handmatig afgeleid en
+            * `ander_datumkenmerk` -> `Zaak.archiefactiedatum` MOET handmatig afgeleid en
               gezet worden
             * `zaakobject` -> zoek de gerelateerde objecten van type
               `Resultaat.Resultaattype.brondatumArchiefprocedure.objecttype`.
