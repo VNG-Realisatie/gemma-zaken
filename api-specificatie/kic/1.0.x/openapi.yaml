@@ -329,12 +329,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -1166,12 +1166,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -2042,12 +2042,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -2638,12 +2638,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -3195,12 +3195,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -4070,12 +4070,12 @@ paths:
           \ voor meer informatie."
         required: false
         examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
           oneValue:
             summary: "E\xE9n ETag-waarde"
             value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
         schema:
           type: string
       responses:
@@ -4344,6 +4344,38 @@ paths:
       schema:
         type: string
         format: uuid
+tags:
+- name: contactmomenten
+  description: ''
+- name: klanten
+  description: 'Een KLANT is een eenvoudige weergave van een NATUURLIJK PERSOON of
+
+    VESTIGING waarbij het gaat om niet geverifieerde gegevens. Om deze reden
+
+    zijn ook alle attributen optioneel.
+
+
+    Indien de KLANT geverifieerd is mag een relatie gelegd worden met een
+
+    NATUURLIJK PERSOON of VESTIGING  middels het attribuut `subject` of, indien
+
+    er geen API beschikbaar is voor deze objecten, middels
+
+    `subjectIdentificatie`.'
+- name: objectcontactmomenten
+  description: 'Het betreft een relatie tussen een willekeurig OBJECT, bijvoorbeeld
+    een
+
+    ZAAK in de Zaken API, en een CONTACTMOMENT.'
+- name: objectverzoeken
+  description: 'Het betreft een relatie tussen een willekeurig OBJECT, bijvoorbeeld
+    een
+
+    ZAAK in de Zaken API, en een VERZOEK.'
+- name: verzoeken
+  description: ''
+- name: verzoekinformatieobjecten
+  description: ''
 servers:
 - url: /api/v1
 components:
@@ -4368,9 +4400,9 @@ components:
       required: true
   securitySchemes:
     JWT-Claims:
-      bearerFormat: JWT
-      scheme: bearer
       type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     Medewerker:
       title: Medewerker identificatie
@@ -4434,6 +4466,18 @@ components:
           title: Tekst
           description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
           type: string
+        onderwerpLinks:
+          description: "E\xE9n of meerdere links naar een product, webpagina of andere\
+            \ entiteit zodat contactmomenten gegroepeerd kunnen worden op onderwerp."
+          type: array
+          items:
+            title: Onderwerp link
+            description: URL naar een product, webpagina of andere entiteit zodat
+              contactmomenten gegroepeerd kunnen worden.
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
         initiatiefnemer:
           title: Initiatiefnemer
           description: "De partij die het contact heeft ge\xEFnitieerd."
