@@ -77,8 +77,8 @@ worden op het bestaan. Indien het ophalen van het besluittype niet (uiteindelijk
 resulteert in een `HTTP 200` status code, MOET het BRC antwoorden met een
 `HTTP 400` foutbericht.
 
-(TODO: valideren dat het inderdaad om een besluittype resource gaat -> validatie
-aanscherpen)
+De provider MOET tevens valideren dat het opgehaalde besluittype een besluittype
+is conform de 1.0.x Catalogi API specificatie.
 
 #### **<a name="brc-002">Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource ([brc-002](#brc-002))</a>**
 
@@ -142,9 +142,35 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
+#### **Valideren tegen de catalogus en bijhorende typen**
+
+Het besluittype van een besluit legt vast wat de mogelijke waarden zijn voor
+gerelateerde resources aan besluiten. Dit MOET gevalideerd worden door een
+provider.
+
+**<a name="brc-006">Valideren dat het `besluittype` van een `Besluit` bij het `Zaak.zaaktype` hoort ([brc-006](#brc-006))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `Besluit` bij een zaak hoort (`Besluit.zaak` is gezet), dan MOET
+`Besluit.besluittype` voorkomen in de `Besluit.zaak.zaaktype.besluittypen`.
+
+
+**<a name="brc-007">Valideren dat het `informatieobjecttype` van een `BesluitInformatieObject` bij het `Besluit.besluittype` hoort ([brc-007](#brc-007))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `BesluitInformatieObject` toegevoegd wordt, dan MOET het
+`BesluitInformatieObject.informatieobject.informatieobjecttype` voorkomen in
+`BesluitInformatieObject.besluit.besluittype.informatieobjecttypen`.
+
 #### Archiveren
 
-**<a name="brc-006">Vernietigen van besluiten ([brc-006](#brc-006))</a>**
+**<a name="brc-008">Vernietigen van besluiten ([brc-008](#brc-008))</a>**
 
 Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde
 objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde

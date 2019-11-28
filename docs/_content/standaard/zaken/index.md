@@ -313,9 +313,63 @@ tegen het `Zaaktype.productenOfDiensten` van het betreffende zaaktype. De
 producten en/of diensten van de zaak MOETEN een subset van de producten en/of
 diensten op het zaaktype zijn.
 
+#### **Valideren tegen de catalogus en bijhorende typen**
+
+Het zaaktype van een zaak legt vast wat de mogelijke waarden zijn voor
+gerelateerde resources aan zaken. Dit MOET gevalideerd worden door een
+provider.
+
+**<a name="zrc-016">Valideren dat het `statustype` van een `Status` bij het `Zaak.zaaktype` hoort ([zrc-016](#zrc-016))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `Status` bij een `Zaak` toegevoegd wordt, dan MOET het
+`Status.statustype` voorkomen in de `Status.zaak.zaaktype.statustypen`.
+
+**<a name="zrc-017">Valideren dat het `informatieobjecttype` van een `ZaakInformatieObject.informatieobject` bij het `Zaak.zaaktype` hoort ([zrc-017](#zrc-017))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `ZaakInformatieObject` bij een `Zaak` toegevoegd wordt, dan MOET het
+`ZaakInformatieObject.informatieobject.informatieobjecttype` voorkomen in de
+`ZaakInformatieObject.zaak.zaaktype.informatieobjecttypen`.
+
+**<a name="zrc-018">Valideren dat de `eigenschap` van een `ZaakEigenschap` bij het `Zaak.zaaktype` hoort ([zrc-018](#zrc-018))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `ZaakEigenschap` bij een `Zaak` toegevoegd wordt, dan MOET de
+`ZaakEigenschap.eigenschap` voorkomen in de `ZaakEigenschap.zaak.zaaktype.eigenschappen`.
+
+TODO: [fix in ZRC](https://github.com/VNG-Realisatie/gemma-zaken/issues/1476)
+
+**<a name="zrc-019">Valideren dat het `roltype` van een `Rol` bij het `Zaak.zaaktype` hoort ([zrc-019](#zrc-019))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `Rol` bij een `Zaak` toegevoegd wordt, dan MOET het
+`Rol.roltype` voorkomen in de `Rol.zaak.zaaktype.roltypen`.
+
+**<a name="zrc-020">Valideren dat het `resultaattype` van een `Resultaat` bij het `Zaak.zaaktype` hoort ([zrc-020](#zrc-020))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Documentatie toegevoegd in patch 1.0.1</strong>
+</span>
+
+Wanneer een `Resultaat` bij een `Zaak` toegevoegd wordt, dan MOET het
+`Resultaat.resultaattype` voorkomen in de `Resultaat.zaak.zaaktype.resultaattypen`.
+
 #### Archiveren
 
-**<a name="zrc-016">Afleiden van archiveringsparameters ([zrc-016](#zrc-016))</a>**
+**<a name="zrc-021">Afleiden van archiveringsparameters ([zrc-021](#zrc-021))</a>**
 
 Het resultaat van een zaak is bepalend voor het archiefregime. Bij het
 afsluiten van een zaak MOETEN de attributen `Zaak.archiefnominatie`
@@ -351,7 +405,7 @@ Indien de archiefactiedatum niet bepaald kan worden, dan MAG er geen datum
 gezet worden. Dit kan voorkomen als de brondatum niet bepaald kan worden of
 de archiefactietermijn niet beschikbaar is.
 
-**<a name="zrc-017">Zetten `Zaak.archiefstatus` ([zrc-017](#zrc-017))</a>**
+**<a name="zrc-022">Zetten `Zaak.archiefstatus` ([zrc-022](#zrc-022))</a>**
 
 De standaardwaarde voor archiefstatus is `nog_te_archiveren`. Indien een andere
 waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status
@@ -364,7 +418,7 @@ waarde krijgen als de de archiefstatus een waarde krijgt anders dan
 Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400`
 foutbericht antwoorden.
 
-**<a name="zrc-018">Vernietigen van zaken ([zrc-018](#zrc-018))</a>**
+**<a name="zrc-023">Vernietigen van zaken ([zrc-023](#zrc-023))</a>**
 
 Bij het verwijderen van een `Zaak` MOETEN de zaak en gerelateerde objecten
 daadwerkelijk uit de opslag verwijderd worden. Zogenaamde "soft-deletes" zijn
