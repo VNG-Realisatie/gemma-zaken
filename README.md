@@ -1,11 +1,19 @@
 API's voor Zaakgericht Werken
 =====
-[![Status badge](https://img.shields.io/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/)](https://api-test.nl/server/1/be77d2e9-6843-47f9-b2d3-d426e92f1562/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/latest/) [![Build Status](https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic)](https://jenkins.nlx.io/) ![Repo Status](https://img.shields.io/badge/status-concept-lightgrey.svg?style=plastic) 
 
+[![Status badge][api-test-oas-status]][api-test-oas]
+[![Build Status][docs-build-status]][jenkins]
+![Repo Status][repo-status]
+
+[api-test-oas-status]: https://img.shields.io/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/
+[api-test-oas]: https://api-test.nl/server/1/be77d2e9-6843-47f9-b2d3-d426e92f1562/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/latest/
+[docs-build-status]: https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic
+[jenkins]: (https://jenkins.nlx.io/
+[repo-status]: https://img.shields.io/badge/Status-stable%2F1.0.x-brightgreen?style=plastic
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
-Je kan de work-in-progress standaard [hier](docs/_content/standaard/index.md) lezen.
+Je kan de stabiele versie van de standaard [hier](https://zaakgerichtwerken.vng.cloud/standaard/) lezen.
 
 ## Doel
 Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn meerdere OpenAPI Specificaties ten behoeve van zaakgericht werken en bijbehorende referentie-implementaties met persistente data.
