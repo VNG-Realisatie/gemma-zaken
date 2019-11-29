@@ -3767,6 +3767,16 @@ paths:
       schema:
         type: string
         format: uuid
+tags:
+- name: enkelvoudiginformatieobjecten
+  description: ''
+- name: gebruiksrechten
+  description: ''
+- name: objectinformatieobjecten
+  description: 'Het betreft een relatie tussen een willekeurig OBJECT, bijvoorbeeld
+    een
+
+    ZAAK in de Zaken API, en een INFORMATIEOBJECT.'
 servers:
 - url: /api/v1
 components:
@@ -4548,7 +4558,9 @@ components:
 
             * `drc` - Documentregistratiecomponent
 
-            * `brc` - Besluitregistratiecomponent'
+            * `brc` - Besluitregistratiecomponent
+
+            * `kic` - Klantinteractiescomponent'
           type: string
           enum:
           - ac
@@ -4557,6 +4569,7 @@ components:
           - ztc
           - drc
           - brc
+          - kic
         requestId:
           title: Request id
           description: Een globaal "request" ID om een verzoek door het netwerk heen
@@ -4995,3 +5008,4 @@ components:
           enum:
           - besluit
           - zaak
+          - verzoek
