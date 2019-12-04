@@ -13,8 +13,8 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Documenten API specificatie](../../../docs/_content/standaard/documenten/index.md)
 * [Besluiten API specificatie](../../../docs/_content/standaard/besluiten/index.md)
 * [Autorisaties API specificatie](../../../docs/_content/standaard/autorisaties/index.md)
-* [Notificaties API specificatie](../../../docs/_content/standaard/notificaties/index,md)
-* [Notificaties API specificatie voor consumers](../../../docs/_content/standaard/notificaties-consumer/index,md)
+* [Notificaties API specificatie](../../../docs/_content/standaard/notificaties/index.md)
+* [Notificaties API specificatie voor consumers](../../../docs/_content/standaard/notificaties-consumer/index.md)
 * [Klantinteracties API specificatie](../../../docs/_content/standaard/klantinteracties/index.md)
 <!--
 * [Catalogi API specificatie](catalogi/index)
