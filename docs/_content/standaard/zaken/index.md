@@ -50,7 +50,7 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
     <strong>Nieuw in versie 1.1.0</strong>
 </span>
 
-Voor versie 1.1.0 bestond er geen [Contactmomenten API](../contactmomenten/index)
+Voor versie 1.1.0 bestond er geen [Klantinteracties API](../klantinteracties/index)
 en werden klantcontacten in de Zaken API opgenomen. Vanaf versie 1.1.0 is deze
 resource deprecated - consumers horen van de contactmomenten API gebruik te
 maken.
