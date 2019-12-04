@@ -1,7 +1,7 @@
 ---
 title: Ontwikkelaars
 ---
-De ZGW API-stanadaarden worden gedefineerd in [de OAS3-specificatie en het voorgeschreven runtime-gedrag](../standaard/index). Om ontwikkelaars bij gemeentes en leveranciers te helpen met het realiseren
+De ZGW API-standaarden worden gedefineerd in [de OAS3-specificatie en het voorgeschreven runtime-gedrag](../standaard/index). Om ontwikkelaars bij gemeentes en leveranciers te helpen met het realiseren
 van, en aansluiten op, verschillende producten die volgens de ZGW API-standaarden
 werken, zijn naast de bovengenoemde stanadaardspecificaties, voor de verschillende API's referentie-implementaties gerealiseerd. Hierbij zijn diverse handeidingen en tutorials gemaakt. Hieronder een overzicht:
 
