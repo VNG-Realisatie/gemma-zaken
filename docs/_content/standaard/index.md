@@ -8,6 +8,15 @@ weight: 10
 
 Hieronder de directe links naar de specificatie en documentatie van de API's:
 
+* [Catalogi API specificatie](../../../docs/_content/standaard/catalogi/index.md)
+* [Zaken API specificatie](../../../docs/_content/standaard/zaken/index.md)
+* [Documenten API specificatie](../../../docs/_content/standaard/documenten/index.md)
+* [Besluiten API specificatie](../../../docs/_content/standaard/besluiten/index.md)
+* [Autorisaties API specificatie](../../../docs/_content/standaard/autorisaties/index.md)
+* [Notificaties API specificatie](../../../docs/_content/standaard/notificaties/index,md)
+* [Notificaties API specificatie voor consumers](../../../docs/_content/standaard/notificaties-consumer/index,md)
+* [Klantinteracties API specificatie](../../../docs/_content/standaard/klantinteracties/index.md)
+<!--
 * [Catalogi API specificatie](catalogi/index)
 * [Zaken API specificatie](zaken/index)
 * [Documenten API specificatie](documenten/index)
@@ -16,6 +25,8 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie](notificaties/index)
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
 * [Klantinteracties API specificatie](klantinteracties/index)
+-->
+
 
 ## Algemeen
 
@@ -32,7 +43,8 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 
 ![overzicht API's](apis.png){:width="700px"}
 
-Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
+Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../../../docs/_content/productvisie/index.md).
+[! Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).]
 
 
 ## Afhankelijkheden
@@ -64,9 +76,11 @@ De API’s zijn geïnspireerd op RGBZ en imZTC waarin objecten, gegevens en de o
 Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en imZTC wordt geschetst nog het meest. Daar waar in RGBZ resources uit verschillende bronnen en modellen samenkomen is dat in de API’s voor Zaakgericht Werken opgesplitst. Er is een Catalogus API voor de ZTC en Zaken API voor zaken een documenten API voor Document (Informatieobjecten) en een Besluiten API voor Besluiten.
 
 Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
-
+<!--
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
-
+-->
+![Overkoepelend gegevensmodel](ZGW API's.png){:width="1200px"}
+<!--(ZGW API's.png "Gegevensmodel, klik voor grote versie") -->
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
@@ -118,7 +132,8 @@ In overeenstemming met [API-20](https://docs.geostandaarden.nl/api/API-Strategie
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
-Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)
+<!Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)>
+Zie: achtergrond bij [versies en migraties](../../_content/themas/achtergronddocumentatie/versies-en-migraties.md)
 
 #### Paginering
 
@@ -173,7 +188,8 @@ Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
 API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
-Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)
+<!-- Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties) -->
+Zie: achtergrond bij [versies en migraties](../../_content/themas/achtergronddocumentatie/versies-en-migraties.md)
 
 ### Beschikbaar stellen van de OAS
 
@@ -204,10 +220,17 @@ Een duur MOET in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Dur
 uitgedrukt worden.
 
 ### API-compatibiliteit
+De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](api-compatibiliteit.md) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
+<!--
+### API-compatibiliteit
 De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
-
+-->
 
 ## Overige documentatie
 
+* [Achtergronddocumentatie](../themas/index.md)
+* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](../ontwikkelaars/index.md)
+<!--
 * [Achtergronddocumentatie](../themas/index)
 * [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)
+-->
