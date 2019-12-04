@@ -34,7 +34,8 @@ De API ondersteunt de volgende operaties:
 ## Specificatie van gedrag
 
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ac/openapi.yaml)
+<!-- Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ac/openapi.yaml)  -->
+Alle operaties beschreven in [`openapi.yaml`](../../../../api-specificatie/ac/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het AC.
 
