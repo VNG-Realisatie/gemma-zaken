@@ -25,32 +25,73 @@ services:
 
   - name: ac
     templates: ../k8s/ac/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0'
 
   - name: brc
     templates: ../k8s/brc/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0.post0'
 
   - name: drc
     templates: ../k8s/drc/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc
     templates: ../k8s/nrc/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0'
 
   - name: zrc
     templates: ../k8s/zrc/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0.post1'
 
   - name: ztc
     templates: ../k8s/ztc/
-    image_tag: '1.0.0-rc2'
+    image_tag: '1.0.0post1'
+
+  - name: docs
+    templates: ../k8s/docs
 
   - name: token-issuer
     templates: ../k8s/tokens
+    image_tag: '0.6.1'
 
   - name: kic
     templates: ../k8s/kic/
     image_tag: 'latest'
+
+  - name: vrl
+    templates: ../k8s/vrl/
+    image_tag: '0.5.2'
+
+ingress:
+  name: ref-implementatie
+  instance: zgw-stable
+  services:
+    # Primary APIs
+    - host: zaken-api.vng.cloud
+      name: zrc
+    - host: documenten-api.vng.cloud
+      name: drc
+    - host: catalogi-api.vng.cloud
+      name: ztc
+    - host: autorisaties-api.vng.cloud
+      name: ac
+    - host: besluiten-api.vng.cloud
+      name: brc
+    - host: notificaties-api.vng.cloud
+      name: nrc
+    - host: klantinteracties-api.vng.cloud
+      name: kic
+    # Documentation
+    - host: zaakgerichtwerken.vng.cloud
+      name: docs
+      port: 80
+    # Supporting services
+    - host: referentielijsten-api.vng.cloud
+      name: vrl
+    - host: zaken-auth.vng.cloud
+      name: token-issuer
+    - host: zgw-demo.vng.cloud
+      name: demo
+    - host: deploy-bot-zgw.vng.cloud
+      name: deploy
