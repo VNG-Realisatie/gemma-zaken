@@ -53,7 +53,10 @@ services:
 
   - name: token-issuer
     templates: ../k8s/tokens
-    image_tag: '0.6.1'
+    image_tag: '0.6.2'
+    redis_host: redis-test
+    redis_db: 7
+    host: zaken-auth.vng.cloud
 
   - name: kic
     templates: ../k8s/kic/
