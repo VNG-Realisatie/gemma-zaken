@@ -44,7 +44,7 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 ![overzicht API's](apis.png){:width="700px"}
 
 Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../../../docs/_content/productvisie/index.md).
-[! Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).]
+<!-- Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index). -->
 
 
 ## Afhankelijkheden
