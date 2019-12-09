@@ -132,4 +132,5 @@ We eisen deze maatregelen dus niet in de specificatie.
 
 ## Overige documentatie
 
-* [Tutorial Notificeren](../../ontwikkelaars/handleidingen-en-tutorials/notificeren)
+* [Tutorial Notificeren](../../ontwikkelaars/handleidingen-en-tutorials/notificeren.md)
+<!-- * [Tutorial Notificeren](../../ontwikkelaars/handleidingen-en-tutorials/notificeren) -->
