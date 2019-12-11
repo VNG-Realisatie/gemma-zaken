@@ -6,7 +6,7 @@ raven
 uwsgi
 kubernetes
 
-Django
+Django<3.0
 django-axes
 django-choices
 

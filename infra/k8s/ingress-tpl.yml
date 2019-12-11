@@ -17,7 +17,7 @@ spec:
           - path: /
             backend:
               serviceName: {{ service.name }}
-              servicePort: 8000
+              servicePort: {{ service.port | default(8000) }}
     {% endfor %}
 
   tls:

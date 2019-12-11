@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}
-        image: maykinmedia/zds-token-issuer:0.6.0
+        image: maykinmedia/zds-token-issuer:{{ service.image_tag }}
         resources:
           requests:
             memory: "200Mi"
@@ -50,20 +50,26 @@ spec:
           periodSeconds: 5
 
         env:
-          - name: DATABASE_HOST
+          - name: DB_HOST
             value: {{ db_host }}
-          - name: DATABASE_NAME
+          - name: DB_NAME
             value: {{ service.name }}
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: SECRET_KEY
-          - name: DATABASE_PASSWORD
+          - name: ALLOWED_HOSTS
+            value: "{{ service.host }},localhost"
+          - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: DB_PASSWORD
+          - name: CACHE_DEFAULT
+            value: "{{ service.redis_host }}:6379/{{ service.redis_db }}"
+          - name: CACHE_AXES
+            value: "{{ service.redis_host }}:6379/{{ service.redis_db }}"
           - name: SENTRY_DSN
             valueFrom:
               secretKeyRef:
