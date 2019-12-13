@@ -87,8 +87,12 @@ naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het
 ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een
 `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
-(TODO: valideren dat het inderdaad om een informatieobjecttype resource gaat
--> validatie aanscherpen)
+De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een informatieobjecttype
+is conform de 1.0.x Catalogi API specificatie.
+
+Als er geprobeerd wordt om het `informatieobjecttype` van een bestaand `EnkelvoudigInformatieObject`
+bij te werken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`),
+dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
 
