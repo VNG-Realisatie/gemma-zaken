@@ -435,6 +435,8 @@ NIET TOEGESTAAN. Onder gerelateerde objecten wordt begrepen:
 - `zaakeigenschap` - alle eigenschappen van de zaak
 - `zaakkenmerk` - alle kenmerken van de zaak
 - `zaakinformatieobject` - relatie naar enkelvoudige informatieobjecten \*
+- `zaakverzoek` - relatie naar een zaak verzoek (**nieuw in 1.1.0**)
+- `zaakcontactmoment` - relatie naar een zaak contactmoment (**nieuw in 1.1.0**)
 - `klantcontact` - alle klantcontacten bij een zaak
 - `audittrail` - de geschiedenis van het object
 
