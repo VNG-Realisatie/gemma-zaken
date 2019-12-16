@@ -36,7 +36,10 @@ De Klant kan anoniem zijn wat betekent dat Klant een optionele relatie heeft met
 ## Verzoeken
 
 Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en het zaakgericht werken voor de afhandeling. Het concept verzoeken is voor het eerst geintroduceerd in GFO Zaken, maar had in het opvolgende informatiemodel RGBZ geen plaats. In de visie van VNG Realisatie is dat echter een omissie (redenen zijn hieronder gegeven), en daarom is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
-Met verzoeken introduceren we een nieuw concept in het zaakgericht werken. Voor het bepalen van de functionaliteit die een eerste implementatie van de API moet bieden, gaan we uit van de ingediende user stories en andere/eerdere implementaties van het begrip 'verzoeken' (zie de bronnenlijst onderaan). Op basis daarvan kan een eerste set ontwerpbeslissingen en uitgangspunten worden opgesteld. Die zijn in dit document beschreven. Tegelijkertijd zijn over de precieze verhouding tussen 'verzoeken' en een aantal andere concepten in het zaakgericht werken, met name 'zaak' en 'contactmoment', nog een aantal vragen te beantwoorden (zie relaties/kardinaliteiten hieronder). Mogelijk wordt de Klantinteractie API naar aanleiding daarvan in de toekomst uitgebreid.
+
+Met verzoeken introduceren we een nieuw concept in het zaakgericht werken.
+
+Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verzoeken)
  
 ### Relatie met zaken en informatieobjecten
 
