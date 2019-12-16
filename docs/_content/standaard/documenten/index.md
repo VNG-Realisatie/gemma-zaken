@@ -41,7 +41,9 @@ Afhankelijk van de omvang van het bestand wordt de inhoud van het informatieobje
 
 Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecten en zaakkenmerken samen vormen het zaakdossier.
 
-[![Gegevensmodel Documenten API](Documenten API.png)](Documenten API.png "Documenten gegevensmodel - klik voor groot")
+[![Gegevensmodel Documenten API 1.0.0](Documenten API.png)](Documenten API.png "Documenten gegevensmodel - klik voor groot")
+
+[![Gegevensmodel Documenten API 1.1.0](Documenten API 1.1.0.png)](Documenten API 1.1.0.png "Documenten gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Documenten API

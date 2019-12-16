@@ -25,3 +25,4 @@ Bij de ontwikkeling van de API's zijn over sommige thema's notities opgesteld om
 * [Notificeren](../themas/achtergronddocumentatie/notificaties)
 * [Audit trail](../themas/achtergronddocumentatie/audit-trail)
 * [Grenzen van het gegevenslandschap: omgang met betrokkenen en zaakobjecten](../themas/achtergronddocumentatie/zgw-api-landschap-grenzen)
+* [Verzoeken](../themas/achtergronddocumentatie/verzoeken)
