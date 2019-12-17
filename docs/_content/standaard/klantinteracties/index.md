@@ -17,7 +17,7 @@ He gegevensmodel modelleert zowel Contactmomenten als Verzoeken aangezien deze z
 
 ## Contactmomenten
 
-Een contactmoment is een aaneengesloten periode waarbij interactief informatie wordt uitgewisseld tussen (minimaal) 2 partijen. Eén van deze partijen is een Medewerker van de gemeente of samenwerkingsverband en tenminste één Natuurlijk Persoon, eventueel in de rol van medewerker of vertegenwoordiger van (een Vestiging van) een Niet-Natuurlijk Persoon.  De gegevens van deze vertegenwoordiger worden in eerste instantie overgenomen  van de contactpersoon van de Vestiging uit het NHR. Deze kunnen worden overschreven.
+Een contactmoment is een aaneengesloten periode waarbij interactief informatie wordt uitgewisseld tussen (minimaal) 2 partijen. Eén van deze partijen is daarbij een Medewerker van de gemeente of samenwerkingsverband en de andere partij is tenminste één Natuurlijk Persoon, eventueel in de rol van medewerker of vertegenwoordiger van (een Vestiging van) een Niet-Natuurlijk Persoon.  De gegevens van deze vertegenwoordiger worden in eerste instantie overgenomen  van de contactpersoon van de Vestiging uit het NHR. Deze mogen echter worden overschreven.
 
 Voorbeelden van een Contactmoment zijn een baliebezoek en een telefonisch contact over een onderhanden zijnde Zaak. Twee telefoongesprekken over hetzelfde verzoek om informatie zijn 2 contactmomenten.
 De Klantinteractie API bevat resources voor Klant, Contactmoment en Objectcontactmoment.
@@ -35,9 +35,9 @@ De Klant kan anoniem zijn wat betekent dat Klant een optionele relatie heeft met
 
 ## Verzoeken
 
-Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en het zaakgericht werken voor de afhandeling. Het concept verzoeken is voor het eerst geintroduceerd in GFO Zaken, maar had in het opvolgende informatiemodel RGBZ geen plaats. In de visie van VNG Realisatie is dat echter een omissie (redenen zijn hieronder gegeven), en daarom is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
+Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en (evt.) het zaakgericht werken voor de afhandeling. Het concept verzoeken is voor het eerst geintroduceerd in GFO Zaken, maar had in het opvolgende informatiemodel RGBZ geen plaats. In de visie van VNG Realisatie is dat echter een omissie (redenen zijn hieronder gegeven), en daarom is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
 
-Met verzoeken introduceren we een nieuw concept in het zaakgericht werken.
+Met verzoeken introduceren we een nieuw concept in het zaakgericht werken wat niet betekent dat verzoeken niet ook gebruikt kunnen worden buiten het zaakgericht werken.
 
 Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verzoeken)
  
