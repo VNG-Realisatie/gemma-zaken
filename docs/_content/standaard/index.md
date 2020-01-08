@@ -189,7 +189,7 @@ API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
 <!-- Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties) -->
-Zie: achtergrond bij [versies en migraties](../../_content/themas/achtergronddocumentatie/versies-en-migraties.md)
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties.md)
 
 ### Beschikbaar stellen van de OAS
 
