@@ -72,14 +72,17 @@ zoals beschreven geïmplementeerd worden.
 
 #### **<a name="brc-001">Valideren `besluittype` op de `Besluit`-resource ([brc-001](#brc-001))</a>**
 
-Bij het aanmaken (`besluit_create`) en bijwerken (`besluit_update` en
-`besluit_partial_update`) MOET de URL-referentie naar het `besluittype` gevalideerd
+Bij het aanmaken (`besluit_create`) MOET de URL-referentie naar het `besluittype` gevalideerd
 worden op het bestaan. Indien het ophalen van het besluittype niet (uiteindelijk)
 resulteert in een `HTTP 200` status code, MOET het BRC antwoorden met een
 `HTTP 400` foutbericht.
 
 De provider MOET tevens valideren dat het opgehaalde besluittype een besluittype
 is conform de 1.0.x Catalogi API specificatie.
+
+Als er geprobeerd wordt om het `besluittype` van een bestaand `Besluit`
+bij te werken (`besluit_update`, `besluit_partial_update`),
+dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="brc-002">Garanderen uniciteit `verantwoordelijke_organisatie` en `identificatie` op de `Besluit`-resource ([brc-002](#brc-002))</a>**
 

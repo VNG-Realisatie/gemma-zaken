@@ -34,7 +34,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0
+  version: 1.0.1
 security:
 - JWT-Claims: []
 paths:
@@ -826,10 +826,7 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
-        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
-        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
-        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
+        - het `informatieobjecttype` mag niet gewijzigd worden\n- status NIET `definitief`"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header
@@ -1008,10 +1005,7 @@ paths:
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       description: "Dit cre\xEBert altijd een nieuwe versie van het (ENKELVOUDIG)\
         \ INFORMATIEOBJECT.\n\n**Er wordt gevalideerd op**\n- correcte `lock` waarde\n\
-        - geldigheid `informatieobjecttype` URL - de resource moet opgevraagd kunnen\n\
-        \  worden uit de catalogi API en de vorm van een INFORMATIEOBJECTTYPE hebben.\n\
-        - publicatie `informatieobjecttype` - `concept` moet `false` zijn\n- status\
-        \ NIET `definitief`\n\n*TODO*\n- valideer immutable attributes"
+        - het `informatieobjecttype` mag niet gewijzigd worden\n- status NIET `definitief`"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header

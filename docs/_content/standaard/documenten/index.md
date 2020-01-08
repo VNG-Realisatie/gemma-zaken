@@ -41,7 +41,9 @@ Afhankelijk van de omvang van het bestand wordt de inhoud van het informatieobje
 
 Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecten en zaakkenmerken samen vormen het zaakdossier.
 
-[![Gegevensmodel Documenten API](Documenten API.png)](Documenten API.png "Documenten gegevensmodel - klik voor groot")
+[![Gegevensmodel Documenten API 1.0.0](Documenten API.png)](Documenten API.png "Documenten gegevensmodel - klik voor groot")
+
+[![Gegevensmodel Documenten API 1.1.0](Documenten API 1.1.0.png)](Documenten API 1.1.0.png "Documenten gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Documenten API
@@ -88,8 +90,12 @@ naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het
 ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een
 `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
-(TODO: valideren dat het inderdaad om een informatieobjecttype resource gaat
--> validatie aanscherpen)
+De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een informatieobjecttype
+is conform de 1.0.x Catalogi API specificatie.
+
+Als er geprobeerd wordt om het `informatieobjecttype` van een bestaand `EnkelvoudigInformatieObject`
+bij te werken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`),
+dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
 

@@ -6,7 +6,7 @@
   hosts: local
 
   vars_files:
-    - vars/secrets.yml
+    - vars/secrets-stable.yml
     - vars/stable.yml
 
   tasks:
@@ -18,9 +18,6 @@
         validate:
           fail_on_error: yes
       with_items:
-        - ../k8s/tokens/secrets.yml
-        - ../k8s/vrl/secrets.yml
-        - ../k8s/deploy/secrets.yml
         - ../k8s/inway/secrets.yml
 
     - include_tasks: tasks/deploy_service.yml
@@ -32,6 +29,6 @@
       k8s:
         state: present
         namespace: zgw
-        src: ../k8s/ingress.yml
+        definition: "{{ lookup('template', '../k8s/ingress-tpl.yml') }}"
         validate:
           fail_on_error: yes

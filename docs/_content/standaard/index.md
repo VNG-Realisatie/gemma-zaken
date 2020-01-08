@@ -8,14 +8,14 @@ weight: 10
 
 Hieronder de directe links naar de specificatie en documentatie van de API's:
 
-* [Catalogi API specificatie](../../../docs/_content/standaard/catalogi/index.md)
-* [Zaken API specificatie](../../../docs/_content/standaard/zaken/index.md)
-* [Documenten API specificatie](../../../docs/_content/standaard/documenten/index.md)
-* [Besluiten API specificatie](../../../docs/_content/standaard/besluiten/index.md)
-* [Autorisaties API specificatie](../../../docs/_content/standaard/autorisaties/index.md)
-* [Notificaties API specificatie](../../../docs/_content/standaard/notificaties/index.md)
-* [Notificaties API specificatie voor consumers](../../../docs/_content/standaard/notificaties-consumer/index.md)
-* [Klantinteracties API specificatie](../../../docs/_content/standaard/klantinteracties/index.md)
+* [Catalogi API specificatie](../standaard/catalogi/index.md)
+* [Zaken API specificatie](../../standaard/zaken/index.md)
+* [Documenten API specificatie](../standaard/documenten/index.md)
+* [Besluiten API specificatie](../standaard/besluiten/index.md)
+* [Autorisaties API specificatie](../standaard/autorisaties/index.md)
+* [Notificaties API specificatie](../standaard/notificaties/index.md)
+* [Notificaties API specificatie voor consumers](../standaard/notificaties-consumer/index.md)
+* [Klantinteracties API specificatie](../standaard/klantinteracties/index.md)
 <!--
 * [Catalogi API specificatie](catalogi/index)
 * [Zaken API specificatie](zaken/index)
@@ -43,7 +43,7 @@ Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w.
 
 ![overzicht API's](apis.png){:width="700px"}
 
-Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../../../docs/_content/productvisie/index.md).
+Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index.md).
 <!-- Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index). -->
 
 

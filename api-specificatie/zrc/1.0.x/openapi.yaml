@@ -102,7 +102,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0
+  version: 1.0.1
 security:
 - JWT-Claims: []
 paths:
@@ -4480,11 +4480,12 @@ paths:
       summary: Maak een ZAAK aan.
       description: "Indien geen identificatie gegeven is, dan wordt deze automatisch\n\
         gegenereerd. De identificatie moet uniek zijn binnen de bronorganisatie.\n\
-        \n**Er wordt gevalideerd op**:\n- `zaaktype` moet een geldige URL zijn.\n\
-        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `laatsteBetaaldatum`\
-        \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
-        \ als de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een\
-        \ waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
+        \n**Er wordt gevalideerd op**:\n- geldigheid `zaaktype` URL - de resource\
+        \ moet opgevraagd kunnen\n  worden uit de Catalogi API en de vorm van een\
+        \ ZAAKTYPE hebben.\n- `zaaktype` is geen concept (`zaaktype.concept` = False)\n\
+        - `laatsteBetaaldatum` mag niet in de toekomst liggen.\n- `laatsteBetaaldatum`\
+        \ mag niet gezet worden als de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie`\
+        \ moet een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
         \ heeft.\n- `archiefactiedatum` moet een waarde hebben indien `archiefstatus`\
         \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen\
         \ een waarde anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
@@ -5058,19 +5059,18 @@ paths:
       operationId: zaak_update
       summary: Werk een ZAAK in zijn geheel bij.
       description: "**Er wordt gevalideerd op**\n- `zaaktype` mag niet gewijzigd worden.\n\
-        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `identificatie`\
-        \ mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet in de toekomst\
-        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
-        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
-        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
-        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
-        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
-        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
-        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- er worden\
-        \ enkel zaken getoond van de zaaktypes waar u toe geautoriseerd\n  bent.\n\
-        - zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n- indien een\
-        \ zaak heropend moet worden, doe dit dan door een nieuwe status\n  toe te\
-        \ voegen die NIET de eindstatus is.\n  Zie de `Status` resource."
+        - `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet\
+        \ in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als\
+        \ de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een waarde\
+        \ hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\" heeft.\n\
+        - `archiefactiedatum` moet een waarde hebben indien `archiefstatus` niet de\n\
+        \  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen een waarde\
+        \ anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
+        \ INFORMATIEOBJECTen het attribuut\n  `status` de waarde \"gearchiveerd\"\
+        \ heeft.\n\n**Opmerkingen**\n- er worden enkel zaken getoond van de zaaktypes\
+        \ waar u toe geautoriseerd\n  bent.\n- indien een zaak heropend moet worden,\
+        \ doe dit dan door een nieuwe status\n  toe te voegen die NIET de eindstatus\
+        \ is.\n  Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -5276,19 +5276,18 @@ paths:
       operationId: zaak_partial_update
       summary: Werk een ZAAK deels bij.
       description: "**Er wordt gevalideerd op**\n- `zaaktype` mag niet gewijzigd worden.\n\
-        - `zaaktype` is geen concept (`zaaktype.concept` = False)\n- `identificatie`\
-        \ mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet in de toekomst\
-        \ liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als de betalingsindicatie\n\
-        \  \"nvt\" is.\n- `archiefnominatie` moet een waarde hebben indien `archiefstatus`\
-        \ niet de\n  waarde \"nog_te_archiveren\" heeft.\n- `archiefactiedatum` moet\
-        \ een waarde hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\"\
-        \ heeft.\n- `archiefstatus` kan alleen een waarde anders dan \"nog_te_archiveren\"\
-        \n  hebben indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut\n\
-        \  `status` de waarde \"gearchiveerd\" heeft.\n\n**Opmerkingen**\n- er worden\
-        \ enkel zaken getoond van de zaaktypes waar u toe geautoriseerd\n  bent.\n\
-        - zaaktype zal in de toekomst niet-wijzigbaar gemaakt worden.\n- indien een\
-        \ zaak heropend moet worden, doe dit dan door een nieuwe status\n  toe te\
-        \ voegen die NIET de eindstatus is. Zie de `Status` resource."
+        - `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum` mag niet\
+        \ in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden als\
+        \ de betalingsindicatie\n  \"nvt\" is.\n- `archiefnominatie` moet een waarde\
+        \ hebben indien `archiefstatus` niet de\n  waarde \"nog_te_archiveren\" heeft.\n\
+        - `archiefactiedatum` moet een waarde hebben indien `archiefstatus` niet de\n\
+        \  waarde \"nog_te_archiveren\" heeft.\n- `archiefstatus` kan alleen een waarde\
+        \ anders dan \"nog_te_archiveren\"\n  hebben indien van alle gerelateeerde\
+        \ INFORMATIEOBJECTen het attribuut\n  `status` de waarde \"gearchiveerd\"\
+        \ heeft.\n\n**Opmerkingen**\n- er worden enkel zaken getoond van de zaaktypes\
+        \ waar u toe geautoriseerd\n  bent.\n- indien een zaak heropend moet worden,\
+        \ doe dit dan door een nieuwe status\n  toe te voegen die NIET de eindstatus\
+        \ is. Zie de `Status` resource."
       parameters:
       - name: Accept-Crs
         in: header
@@ -6662,7 +6661,10 @@ paths:
     post:
       operationId: zaakeigenschap_create
       summary: Maak een ZAAKEIGENSCHAP aan.
-      description: Maak een ZAAKEIGENSCHAP aan.
+      description: "Maak een ZAAKEIGENSCHAP aan.\n\n**Er wordt gevalideerd op:**\n\
+        - geldigheid `eigenschap` URL - de resource moet opgevraagd kunnen\n  worden\
+        \ uit de Catalogi API en de vorm van een EIGENSCHAP hebben.\n- de `eigenschap`\
+        \ moet bij het `ZAAK.zaaktype` horen"
       parameters:
       - name: X-NLX-Request-Application-Id
         in: header

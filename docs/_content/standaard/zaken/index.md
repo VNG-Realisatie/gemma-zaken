@@ -42,7 +42,10 @@ Een informatieobject kan tot meer dan één zaak behoren en een zaak kan meer da
 Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle kenmerken, alle daaraan gerelateerde Informatieobjecten en alle andere gerelateerde gegevens (via rol, zaakobject, etc.) vormen gezamenlijk het zaakdossier.
 
 
-[![Gegevensmodel Zaken API](Zaken API.png){:width="1200px"}](Zaken API.png "Zaken gegevensmodel - klik voor groot")
+[![Gegevensmodel Zaken API 1.0.0](Zaken API.png){:width="1200px"}](Zaken API.png "Zaken gegevensmodel - klik voor groot")
+
+[![Gegevensmodel Zaken API 1.1.0](Zaken API 1.1.0.png){:width="1200px"}](Zaken API 1.1.0.png "Zaken gegevensmodel - klik voor groot")
+
 
 ### Zaakcontactmomenten
 
@@ -50,7 +53,7 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
     <strong>Nieuw in versie 1.1.0</strong>
 </span>
 
-Voor versie 1.1.0 bestond er geen [Klantinteracties API](../../../_content/standaard/klantinteracties/index.md)
+Voor versie 1.1.0 bestond er geen [Klantinteracties API](../klantinteracties/index)
 en werden klantcontacten in de Zaken API opgenomen. Vanaf versie 1.1.0 is deze
 resource deprecated - consumers horen van de contactmomenten API gebruik te
 maken.
@@ -97,14 +100,16 @@ zoals beschreven geïmplementeerd worden.
 
 #### **<a name="zrc-001">Valideren `zaaktype` op de `Zaak`-resource ([zrc-001](#zrc-001))</a>**
 
-Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
-`zaak_partial_update`) MOET de URL-referentie naar het `zaaktype` gevalideerd
+Bij het aanmaken (`zaak_create`) MOET de URL-referentie naar het `zaaktype` gevalideerd
 worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk)
 resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een
 `HTTP 400` foutbericht.
 
-(TODO: valideren dat het inderdaad om een zaaktype resource gaat -> validatie
-aanscherpen)
+De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype
+is conform de 1.0.x Catalogi API specificatie.
+
+Als er geprobeerd wordt om het `zaaktype` van een bestaande `Zaak` bij te werken
+(`zaak_update`, `zaak_partial_update`), dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="zrc-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource ([zrc-002](#zrc-002))</a>**
 
@@ -432,6 +437,8 @@ NIET TOEGESTAAN. Onder gerelateerde objecten wordt begrepen:
 - `zaakeigenschap` - alle eigenschappen van de zaak
 - `zaakkenmerk` - alle kenmerken van de zaak
 - `zaakinformatieobject` - relatie naar enkelvoudige informatieobjecten \*
+- `zaakverzoek` - relatie naar een zaak verzoek (**nieuw in 1.1.0**)
+- `zaakcontactmoment` - relatie naar een zaak contactmoment (**nieuw in 1.1.0**)
 - `klantcontact` - alle klantcontacten bij een zaak
 - `audittrail` - de geschiedenis van het object
 
@@ -466,7 +473,57 @@ provider een normale `HTTP 200` response sturen.
 
 #### TODO: synchroniseren zaakcontactmomenten
 
-TODO
+
+
+#### **<a name="zrc-024">Synchroniseren relaties met verzoeken ([zrc-024](#zrc-024))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Wanneer een relatie tussen een `VERZOEK` en een `ZAAK` gemaakt
+of bijgewerkt wordt, dan MOET het ZRC in het KIC ook deze relatie
+aanmaken/bijwerken.
+
+Een voorbeeld:
+
+1. Een verzoek wordt gerelateerd aan een zaak door een consumer:
+
+    ```http
+    POST https://zrc.nl/api/v1/zaakverzoeken HTTP/1.0
+
+    {
+        "verzoek": "https://kic.nl/api/v1/verzoeken/1234",
+        "zaak": "https://zrc.nl/api/v1/zaken/456789",
+    }
+    ```
+
+2. Het ZRC MOET de relatie spiegelen in het KIC:
+
+    ```http
+    POST https://kic.nl/api/v1/objectverzoeken HTTP/1.0
+
+    {
+        "verzoek": "https://kic.nl/api/v1/verzoeken/1234",
+        "object": "https://zrc.nl/api/v1/zaken/456789",
+        "objectType": "zaak"
+    }
+    ```
+
+Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
+via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
+stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+#### **<a name="zrc-025">Synchroniseren relaties met contactmomenten ([zrc-025](#zrc-025))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Wanneer een relatie tussen een `CONTACTMOMENT` en een `ZAAK` gemaakt
+of bijgewerkt wordt, dan MOET het ZRC in het KIC ook deze relatie
+aanmaken/bijwerken.
+
 
 ## Overige documentatie
 
