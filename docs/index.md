@@ -22,15 +22,15 @@ als ze overstappen op een ander DRC moet dit eenvoudig te configureren zijn in
 het software pakket. Het kan dus ook zo zijn dat het ZRC, ZTC en DRC door
 verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
-Wilt u hier meer over weten, kijk dan bij [architectuur](../../../tree/master/docs/_content/architectuur/index.md).
+Wilt u hier meer over weten, kijk dan bij [architectuur](./_content/architectuur/index.md).
 
-Lees meer over de api's in de [productvisie](../../../tree/master/docs/_content/productvisie/index.md)
+Lees meer over de api's in de [productvisie](./_content/productvisie/index.md)
 
-De standaard staat [hier](../../../tree/master/docs/_content/standaard/index.md) beschreven. Ontwikkelaars kunnen
-[direct aan de slag](../../../tree/master/docs/_content/ontwikkelaars/index.md) met de beschikbare
-[API's](../../../tree/master/docs/_content/standaard/index.md) en de implementaties van de referentie
+De standaard staat [hier](./_content/standaard/index.md) beschreven. Ontwikkelaars kunnen
+[direct aan de slag](./_content/ontwikkelaars/index.md) met de beschikbare
+[API's](./_content/standaard/index.md) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](../../../tree/master/docs/_content/community/bijdragen.md) lezen.
+[hier](./_content/community/bijdragen.md) lezen.
 
 ## Slack
 
