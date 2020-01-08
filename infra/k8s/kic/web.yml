@@ -1,0 +1,92 @@
+---
+
+# Deployment
+
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ service.name }}
+  namespace: zgw
+  labels:
+    k8s-app: {{ service.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      k8s-app: {{ service.name }}
+  template:
+    metadata:
+      name: {{ service.name }}
+      labels:
+        k8s-app: {{ service.name }}
+    spec:
+      containers:
+      - name: {{ service.name }}
+        image: vngr/klantinteracties-api:{{ service.image_tag }}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "5m"
+          limits:
+            memory: "350Mi"
+            cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8000
+            httpHeaders:
+              - name: Host
+                value: localhost
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        env:
+          - name: DJANGO_SETTINGS_MODULE
+            value: kic.conf.docker
+          - name: DB_HOST
+            value: {{ db_host }}
+          - name: DB_NAME
+            value: {{ service.name }}
+          - name: SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ service.name }}-secrets
+                key: SECRET_KEY
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ service.name }}-secrets
+                key: DB_PASSWORD
+          - name: SENTRY_DSN
+            valueFrom:
+              secretKeyRef:
+                name: {{ service.name }}-secrets
+                key: SENTRY_DSN
+
+---
+
+# Service
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ service.name }}
+  namespace: zgw
+  labels:
+    k8s-app: {{ service.name }}
+spec:
+  selector:
+    k8s-app: {{ service.name }}
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
