@@ -133,7 +133,7 @@ de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
 <!Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)>
-Zie: achtergrond bij [versies en migraties](../../_content/themas/achtergronddocumentatie/versies-en-migraties.md)
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties.md)
 
 #### Paginering
 
