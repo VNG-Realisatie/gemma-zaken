@@ -9,7 +9,7 @@ weight: 10
 Hieronder de directe links naar de specificatie en documentatie van de API's:
 
 * [Catalogi API specificatie](../standaard/catalogi/index.md)
-* [Zaken API specificatie](../../standaard/zaken/index.md)
+* [Zaken API specificatie](../standaard/zaken/index.md)
 * [Documenten API specificatie](../standaard/documenten/index.md)
 * [Besluiten API specificatie](../standaard/besluiten/index.md)
 * [Autorisaties API specificatie](../standaard/autorisaties/index.md)
