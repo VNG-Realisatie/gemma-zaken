@@ -13,8 +13,6 @@ API's voor Zaakgericht Werken
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
-Je kan de stabiele versie van de standaard [hier](https://zaakgerichtwerken.vng.cloud/standaard/) lezen.
-
 ## Doel
 Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete resultaten zijn meerdere OpenAPI Specificaties ten behoeve van zaakgericht werken en bijbehorende referentie-implementaties met persistente data.
 
@@ -32,14 +30,9 @@ De volgende documenten beschrijven dit project:
 - [Technische documentatie](docs/_content/ontwikkelaars/index.md) voor developers
 - [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/ontwerpkeuzes.md) voor scrumteam, developers en stakeholders
 
-Een gehoste versie van de documentatie is beschikbaar op https://zaakgerichtwerken.vng.cloud
+## Beheer en ondersteuning
 
-## Rollen
-
-- Opdrachtgever: [@TheoVNGPeters](https://github.com/TheoVNGPeters)
-- Delivery manager: [@wishalg](https://github.com/wishalg)
-- Product Owner: [@Hugo-ter-Doest](https://github.com/Hugo-ter-Doest)
-- Scrum Master:  Peter de Graaf
+- Contact: standaarden.ondersteuning@vng.nl
 
 ## API spec bekijken
 
