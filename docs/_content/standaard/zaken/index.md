@@ -58,7 +58,7 @@ en werden klantcontacten in de Zaken API opgenomen. Vanaf versie 1.1.0 is deze
 resource deprecated - consumers horen van de contactmomenten API gebruik te
 maken.
 
-Over een zaak kunnen één of meerdere contactmomenten plaatsvinden. Via
+Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. Via
 zaakcontactmomenten kunnen zaken en contactmomenten aan elkaar gerelateerd
 worden, waardoor het mogelijk wordt om alle contactmomenten bij een zaak
 in te kijken.
@@ -84,7 +84,7 @@ Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/zrc/1.0.x/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../../api-specificatie/zrc/1.0.x/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZRC.
 
