@@ -4944,19 +4944,18 @@ components:
           minLength: 1
         klant:
           title: Klant
-          description: URL-referentie naar een KLANT (in de Contactmomenten API) indien
-            het contactmoment niet anoniem is.
+          description: URL-referentie naar een KLANT indien het verzoek niet anoniem is.
           type: string
           format: uri
           nullable: true
         datumtijd:
           title: Datumtijd
-          description: De datum en het tijdstip waarop het CONTACTMOMENT begint
+          description: De datum en het tijdstip waarop het verzoek is ingediend
           type: string
           format: date-time
         tekst:
           title: Tekst
-          description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
+          description: Een toelichting die inhoudelijk het verzoek van de klant beschrijft.
           type: string
     VerzoekInformatieObject:
       required:
