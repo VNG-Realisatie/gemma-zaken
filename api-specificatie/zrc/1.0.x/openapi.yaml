@@ -102,7 +102,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.1
+  version: 1.0.2
 security:
 - JWT-Claims: []
 paths:
@@ -432,7 +432,7 @@ paths:
       - klantcontacten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -904,7 +904,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -1205,7 +1205,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     patch:
       operationId: resultaat_partial_update
       summary: Werk een RESULTAAT deels bij.
@@ -1374,7 +1374,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     delete:
       operationId: resultaat_delete
       summary: Verwijder een RESULTAAT van een ZAAK.
@@ -1521,7 +1521,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: uuid
       in: path
@@ -1954,7 +1954,7 @@ paths:
       - rollen
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2212,7 +2212,7 @@ paths:
       - rollen
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: uuid
       in: path
@@ -3011,7 +3011,7 @@ paths:
       - zaakinformatieobjecten
       security:
       - JWT-Claims:
-        - (zaken.aanmaken | zaken.bijwerken)
+        - (zaken.aanmaken | zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -4016,7 +4016,7 @@ paths:
       - zaakobjecten
       security:
       - JWT-Claims:
-        - (zaken.aanmaken | zaken.bijwerken)
+        - (zaken.aanmaken | zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -6822,7 +6822,7 @@ paths:
       - zaken
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: zaak_uuid
       in: path
