@@ -1,5 +1,5 @@
 ---
-title: "Archiveringsproces \*"
+title: "Archiveringsproces *"
 date: '25-02-2019'
 weight: 70
 ---
