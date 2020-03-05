@@ -1,15 +1,16 @@
 API's voor Zaakgericht Werken
 =====
 
-[![Status badge][api-test-oas-status]][api-test-oas]
+[![Status badge][api-test-fullsuite-status]][api-test-fullsuite]
 [![Build Status][docs-build-status]][jenkins]
 ![Repo Status][repo-status]
 
-[api-test-oas-status]: https://img.shields.io/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/
-[api-test-oas]: https://api-test.nl/server/1/be77d2e9-6843-47f9-b2d3-d426e92f1562/64a5b8c4-ab12-4cf6-bbdb-295654f2ec67/latest/
+[api-test-fullsuite-status]: https://shields.api-test.nl/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/6ad4f59e-7051-491d-a601-488f1b66ad7d/
+[api-test-fullsuite]: https://api-test.nl/server/1/224fd5be-bc64-4d55-a190-454bee3cc8e3/6ad4f59e-7051-491d-a601-488f1b66ad7d/latest/
 [docs-build-status]: https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic
 [jenkins]: (https://jenkins.nlx.io/
 [repo-status]: https://img.shields.io/badge/Status-stable%2F1.0.x-brightgreen?style=plastic
+
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
