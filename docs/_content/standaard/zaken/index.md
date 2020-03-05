@@ -255,7 +255,7 @@ antwoorden met een `HTTP 400` foutbericht.
 
 Het ophalen van deze resource moet een JSON-document zijn met de vorm van
 een communicatiekanaal zoals gedocumenteerd op de
-[referentielijsten-api](https://ref.tst.vng.cloud/referentielijsten/api/v1/schema/#operation/communicatiekanaal_read):
+[referentielijsten-api](https://referentielijsten-api.vng.cloud/api/v1/schema/#operation/communicatiekanaal_read):
 
 ```json
 {

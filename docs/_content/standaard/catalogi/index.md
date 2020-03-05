@@ -43,8 +43,7 @@ selectielijst-API (waar deze nu nog 1 API is)
 
 ## OpenAPI specificatie
 
-<!-- Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml) -->
-Alle operaties beschreven in [`openapi.yaml`](../../../../api-specificatie/ztc/1.0.x/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml) 
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZTC.
 
@@ -151,6 +150,7 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 als het `InformatieObjectType` `concept=False` hebben
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
+
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
 
