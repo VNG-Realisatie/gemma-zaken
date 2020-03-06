@@ -4649,11 +4649,14 @@ components:
 
 
             * `natuurlijk_persoon` - Natuurlijk persoon
-
+            
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+            
             * `vestiging` - Vestiging'
           type: string
           enum:
           - natuurlijk_persoon
+          - niet_natuurlijk_persoon
           - vestiging
           nullable: true
       discriminator:
@@ -4848,6 +4851,70 @@ components:
       allOf:
       - $ref: '#/components/schemas/Klant'
       - $ref: '#/components/schemas/subject_identificatie_Vestiging'
+    NietNatuurlijkPersoon:
+      title: subject_identificatie
+      type: object
+      properties:
+        innNnpId:
+          title: Inn nnp id
+          description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+            NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 9
+        annIdentificatie:
+          title: Ann identificatie
+          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+            NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 17
+        statutaireNaam:
+          title: Statutaire naam
+          description: Naam van de niet-natuurlijke persoon zoals deze is vastgelegd
+            in de statuten (rechtspersoon) of in de vennootschapsovereenkomst is overeengekomen
+            (Vennootschap onder firma of Commanditaire vennootschap).
+          type: string
+          maxLength: 500
+        innRechtsvorm:
+          title: Inn rechtsvorm
+          description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
+          type: string
+          enum:
+          - besloten_vennootschap
+          - cooperatie_europees_economische_samenwerking
+          - europese_cooperatieve_venootschap
+          - europese_naamloze_vennootschap
+          - kerkelijke_organisatie
+          - naamloze_vennootschap
+          - onderlinge_waarborg_maatschappij
+          - overig_privaatrechtelijke_rechtspersoon
+          - stichting
+          - vereniging
+          - vereniging_van_eigenaars
+          - publiekrechtelijke_rechtspersoon
+          - vennootschap_onder_firma
+          - maatschap
+          - rederij
+          - commanditaire_vennootschap
+          - kapitaalvennootschap_binnen_eer
+          - overige_buitenlandse_rechtspersoon_vennootschap
+          - kapitaalvennootschap_buiten_eer
+        bezoekadres:
+          title: Bezoekadres
+          description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
+          type: string
+          maxLength: 1000
+        subVerblijfBuitenland:
+          $ref: '#/components/schemas/SubVerblijfBuitenland'
+    subject_identificatie_NietNatuurlijkPersoon:
+      type: object
+      properties:
+        subjectIdentificatie:
+          $ref: '#/components/schemas/NietNatuurlijkPersoon'
+    niet_natuurlijk_persoon:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Klant'
+      - $ref: '#/components/schemas/subject_identificatie_NietNatuurlijkPersoon'
     ObjectContactMoment:
       required:
       - contactmoment
