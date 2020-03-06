@@ -30,7 +30,7 @@ Zaak- Documentservices kent extraElementen, label-value combinaties voor gegeven
 
 ### Operaties
 
-Alle ZGW APIs zitten nu\* op versie 1.0.0-alpha.
+Alle ZGW APIs zitten nu\* op versie 1.0.0
 
 ZDS 1.2 | ZGW APIs\*
 --- | ---

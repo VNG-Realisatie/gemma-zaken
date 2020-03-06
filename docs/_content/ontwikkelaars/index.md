@@ -9,28 +9,18 @@ werken, zijn naast de bovengenoemde stanadaardspecificaties, voor de verschillen
 ## Handleidingen
 
 ### Algemene handleidingen
-<!-- De handleidingen vormen een algemene introductie voor ontwikkelaars die met de ZGW API's aan de slag willen.
+De handleidingen vormen een algemene introductie voor ontwikkelaars die met de ZGW API's aan de slag willen.
 1. [Snel aan de slag met de gehoste referentie-implementatie](./handleidingen-en-tutorials/api-guides)
 2. [Installatie en configuratie van een (lokale) kopie van de referentie-implementatie](./handleidingen-en-tutorials/installatie-en-configuratie)
 3. [Gebruik van de demo-applicatie](./handleidingen-en-tutorials/demo-applicatie)
 4. [Gebruik van testscenario's](./handleidingen-en-tutorials/test-scenarios)
 5. [Large files upload (Engels)](./handleidingen-en-tutorials/large-files)
--->
-De handleidingen vormen een algemene introductie voor ontwikkelaars die met de ZGW API's aan de slag willen.
-1. [Snel aan de slag met de gehoste referentie-implementatie](./handleidingen-en-tutorials/api-guides.md)
-2. [Installatie en configuratie van een (lokale) kopie van de referentie-implementatie](./handleidingen-en-tutorials/installatie-en-configuratie.md)
-3. [Gebruik van de demo-applicatie](./handleidingen-en-tutorials/demo-applicatie.md)
-4. [Gebruik van testscenario's](./handleidingen-en-tutorials/test-scenarios.md)
-5. [Large files upload (Engels)](./handleidingen-en-tutorials/large-files.md)
 
 ### Tutorials
 Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZGW API's. Deze tutorials Ze zijn ontwikkeld voor gebruik tijdens API lab-bijeenkomsten, maar kunnen ook individueel doorlopen worden.
-<!-- 1. [Eenmalige setup van de referentie-implementaties](./handleidingen-en-tutorials/eenmalige-setup)
+1. [Eenmalige setup van de referentie-implementaties](./handleidingen-en-tutorials/eenmalige-setup)
 2. [Aan de slag met notificeren](./handleidingen-en-tutorials/notificeren)
-3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren)  -->
-1. [Eenmalige setup van de referentie-implementaties](./handleidingen-en-tutorials/eenmalige-setup.md)
-2. [Aan de slag met notificeren](./handleidingen-en-tutorials/notificeren.md)
-3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren.md)
+3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren) 
 
 ## Testomgevingen
 
