@@ -11,4 +11,4 @@ assignees: ''
 
 [beschrijf de impediment]
 
-[assign aan Eddy, voeg label 'impediment' toe, kies bij 'projects' voor "organisatie en impediments"]
+[kies bij 'projects' voor "organisatie en impediments"]
