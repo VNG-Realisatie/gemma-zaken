@@ -10,7 +10,11 @@ Het team dat aan de API's voor Zaakgericht Werken werkt doet dit volgens de agil
 Iedere sprint duurt vier weken. Gemeenten en leveranciers leveren user stories rond zaakgericht 
 werken die vervolgens worden vertaald naar wat nodig is in de API's.
 
-Om de vier weken komt het team bijeen op de *dev.vloer* in Utrecht. Er wordt dan samengewerkt op locatie en dan vindt de weekly standup plaats. Overigens wordt op afstand samengewerkt met Github, Slack, etc. als tools. Elke vier weken vindt op maandag de sprint review, sprint retrospective en sprint planning plaats. De sprint review is openbaar en wordt bovendien live gestreamd als webinar. Daarnaast kunnen leveranciers en gemeenten op maandag langskomen op de dev.vloer met vragen.
+Om de vier weken komt het team bijeen op de *dev.vloer* in Utrecht. Er wordt dan samengewerkt op 
+locatie. Op vrijdag vindt telefonisch de weekly standup plaats. Overigens wordt op afstand samengewerkt met Github, 
+Slack, etc. als tools. Wanneer van toepassing kan een sprint review georganiseerd worden. 
+De sprint review is openbaar en wordt bovendien live gestreamd als webinar. 
+Daarnaast kunnen leveranciers en gemeenten op dinsdag langskomen op de dev.vloer met vragen.
 
 
 ## Bijdragen
