@@ -3,7 +3,7 @@ name: Impediment
 about: Breng een belemmering onder de aandacht
 title: ''
 labels: ''
-assignees: ''
+assignees: 'michielverhoef'
 
 ---
 
@@ -11,4 +11,4 @@ assignees: ''
 
 [beschrijf de impediment]
 
-[kies bij 'projects' voor "organisatie en impediments"]
+
