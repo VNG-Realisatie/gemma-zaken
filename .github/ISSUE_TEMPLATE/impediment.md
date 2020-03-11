@@ -10,4 +10,3 @@ assignees: michielverhoef
 # Impediment
 
 [beschrijf de impediment]
-
