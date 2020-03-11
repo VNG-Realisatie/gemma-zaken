@@ -2,8 +2,8 @@
 name: Bug
 about: Breng een bug onder de aandacht
 title: ''
-labels: ''
-assignees: ''
+labels: bug
+assignees: michielverhoef
 
 ---
 
@@ -11,7 +11,7 @@ assignees: ''
 
 [beschrijf de bug]
 
-[assign aan Joeri en/of Sergei, voeg label 'bug' toe, kies bij 'projects' voor 'Scrum ZGW Realisatie Huidige Sprint']
+[kies bij 'projects' voor 'Scrum ZGW Realisatie Huidige Sprint']
 
 Om gericht te ondersteunen graag ook antwoord op de onderstaande vragen:
 
