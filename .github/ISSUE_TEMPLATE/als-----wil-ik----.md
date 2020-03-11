@@ -2,8 +2,8 @@
 name: User Story
 about: Beschrijving van een feature/user story
 title: ''
-labels: ''
-assignees: ''
+labels: user story
+assignees: Hugo-ter-Doest, michielverhoef
 
 ---
 
