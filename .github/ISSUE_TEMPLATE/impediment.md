@@ -11,4 +11,3 @@ assignees: michielverhoef
 
 [beschrijf de impediment]
 
-[kies bij 'projects' voor "organisatie en impediments"]
