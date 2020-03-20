@@ -5047,6 +5047,11 @@ components:
             wordt
           type: string
           maxLength: 50
+        voorkeurskanaal:
+          title: Voorkeurskanaal
+          description: Het communicatiekanaal dat voor opvolging van het CONTACTMOMENT de voorkeur heeft van de KLANT
+          type: string
+          maxLength: 50
         tekst:
           title: Tekst
           description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
@@ -5538,37 +5543,15 @@ components:
           description: De datum en het tijdstip waarop het verzoek is ingediend
           type: string
           format: date-time
+        voorkeurskanaal:
+          title: Voorkeurskanaal
+          description: Het communicatiekanaal dat voor opvolging van het VERZOEK de voorkeur heeft van de KLANT
+          type: string
+          maxLength: 50
         tekst:
           title: Tekst
           description: Een toelichting die inhoudelijk het verzoek van de klant beschrijft.
           type: string
-    VerzoekContactmoment:
-      required:
-      - verzoek
-      - contactmoment
-      type: object
-      properties:
-        url:
-          title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-        verzoek:
-          title: Verzoek
-          description: URL-referentie naar het VERZOEK.
-          type: string
-          format: uri
-        contactmoment:
-          title: Contactmoment
-          description: URL-referentie naar het CONTACTMOMENT.
-          type: string
-          format: uri
-          maxLength: 1000
-          minLength: 1
     VerzoekInformatieObject:
       required:
       - informatieobject
