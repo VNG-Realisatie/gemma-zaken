@@ -4462,6 +4462,11 @@ components:
             wordt
           type: string
           maxLength: 50
+        voorkeurskanaal:
+          title: Voorkeurskanaal
+          description: Het communicatiekanaal dat voor opvolging van het CONTACTMOMENT de voorkeur heeft van de KLANT
+          type: string
+          maxLength: 50
         tekst:
           title: Tekst
           description: Een toelichting die inhoudelijk het contact met de klant beschrijft.
@@ -4953,6 +4958,11 @@ components:
           description: De datum en het tijdstip waarop het verzoek is ingediend
           type: string
           format: date-time
+        voorkeurskanaal:
+          title: Voorkeurskanaal
+          description: Het communicatiekanaal dat voor opvolging van het VERZOEK de voorkeur heeft van de KLANT
+          type: string
+          maxLength: 50
         tekst:
           title: Tekst
           description: Een toelichting die inhoudelijk het verzoek van de klant beschrijft.
