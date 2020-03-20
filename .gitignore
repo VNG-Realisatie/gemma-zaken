@@ -1,5 +1,5 @@
 .idea
 .env
 .vault_password.txt
-infra/env
-deploy-bot/env
+infra/env/
+deploy-bot/env/
