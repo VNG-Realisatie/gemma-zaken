@@ -4060,7 +4060,7 @@ paths:
   /verzoeken/{verzoek_uuid}/audittrail:
     get:
       operationId: audittrail_list
-      summary: Alle audit trail regels behorend bij het VerzVERZOEK.
+      summary: Alle audit trail regels behorend bij het VERZOEK.
       description: Alle audit trail regels behorend bij het VERZOEK.
       responses:
         '200':
