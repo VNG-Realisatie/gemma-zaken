@@ -1,0 +1,820 @@
+openapi: '3.0.0'
+info:
+  title: Generieke componenten voor Haal Centraal APIs
+  version: '1.0'
+components:
+  headers:
+    api_version:
+      schema:
+        type: string
+        description: Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+        example: 1.0.0
+    warning:
+      schema:
+        type: string
+        description: 'zie RFC 7234. In het geval een major versie wordt uitgefaseerd, gebruiken we warn-code 299 ("Miscellaneous Persistent Warning") en het API end-point (inclusief versienummer) als de warn-agent van de warning, gevolgd door de warn-text met de human-readable waarschuwing'
+        example: '299 https://service.../api/.../v1 "Deze versie van de API is verouderd en zal uit dienst worden genomen op 2018-02-01. Raadpleeg voor meer informatie hier de documentatie: https://omgevingswet.../api/.../v1".'
+    X_Pagination_Page:
+      schema:
+        type: integer
+        description: Huidige pagina.
+        example: 3
+    X_Pagination_Limit:
+      schema:
+        type: integer
+        description: Aantal resultaten per pagina.
+        example: 20
+    X_Rate_Limit_Limit:
+      schema:
+        type: integer
+    X_Rate_Limit_Remaining:
+      schema:
+        type: integer
+    X_Rate_Limit_Reset:
+      schema:
+        type: integer
+  parameters:
+    api-version:
+      name: api-version
+      in: header
+      required: false
+      description: "Bevat de major-versie van de aan te roepen API conform [Landelijke API-strategie](https://geonovum.github.io/KP-APIs/#versioning)."
+      schema:
+        type: integer
+        example: 1
+    expand:
+      name: expand
+      in: query
+      required: false
+      description: "Hier kan aangegeven worden welke gerelateerde resources meegeladen moeten worden. Resources en velden van resources die gewenst zijn kunnen in de expand parameter kommagescheiden worden opgegeven. Specifieke velden van resource kunnen worden opgegeven door het opgeven van de resource-naam gevolgd door de veldnaam, met daartussen een punt. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/expand.feature)"
+      schema:
+        type: string
+    fields:
+      name: fields
+      in: query
+      required: false
+      description: "Geeft de mogelijkheid de inhoud van de body van het antwoord naar behoefte aan te passen. Bevat een door komma's gescheiden lijst van veldennamen. Als niet-bestaande veldnamen worden meegegeven wordt een 400 Bad Request teruggegeven. Wanneer de parameter fields niet is opgenomen, worden alle gedefinieerde velden die een waarde hebben teruggegeven. Zie [functionele specificaties](https://github.com/VNG-Realisatie/Bevragingen-ingeschreven-personen/blob/master/features/fields.feature)"
+      schema:
+        type: string
+    uuid:
+      name: uuid
+      in: path
+      description: "Een UUID is een nummer van 128 bits (= 16 bytes). UUID wordt weergegeven in 32 ??hexadecimale cijfers. Deze cijfers zijn ingedeeld in vijf groepen, in ongelijk aantal en gescheiden door koppeltekens: 8-4-4-4-12 In zijn geheel wordt een UUID dus door 36 tekens gevormd, waarvan 32 hexadecimale karakters en vier streepjes: 550e8400-e29b-41d4-a716-446655440000"
+      required: true
+      schema:
+        type: string
+        maxLength: 36
+    peildatum:
+      name: peildatum
+      in: query
+      description: "De datum waarop de resource wordt opgevraagd."
+      required: false
+      schema:
+        type: string
+        format: date
+        example: "2018-09-09"
+    datumvan:
+      name: datumvan
+      in: query
+      description: "De begindatum van de periode waarover de resource wordt opgevraagd."
+      required: false
+      schema:
+        type: string
+        format: date
+        example: "2018-09-09"
+    datumtotenmet:
+      name: datumtotenmet
+      in: query
+      description: "De einddatum van de periode waarover de resource wordt opgevraagd."
+      required: false
+      schema:
+        type: string
+        format: date
+        example: "2018-10-09"
+    page:
+      description: Pagina nummer
+      name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: '20'
+  responses:
+    '204':
+      description: No content
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+    '400':
+      description: Bad Request
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/BadRequestFoutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.1 400 Bad Request
+            title: Ten minste één parameter moet worden opgegeven.
+            status: 400
+            detail: The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modification.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: paramsRequired
+            invalid-params:
+              - type: https://www.vng.nl/realisatie/api/validaties/integer
+                name: verblijfplaats__huisnummer
+                code: integer
+                reason: Waarde is geen geldige integer.
+    '401':
+      description: Unauthorized
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.2 401 Unauthorized
+            title: Niet correct geauthenticeerd.
+            status: 401
+            detail: The request requires user authentication. The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge applicable to the requested resource.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: authentication
+    '403':
+      description: Forbidden
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.4 403 Forbidden
+            title: U bent niet geautoriseerd voor deze operatie.
+            status: 403
+            detail: The server understood the request, but is refusing to fulfill it.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: autorisation
+    '404':
+      description: Not Found
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.5 404 Not Found
+            title: Opgevraagde resource bestaat niet.
+            status: 404
+            detail: The server has not found anything matching the Request-URI.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: notFound
+    '406':
+      description: Not Acceptable
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.7 406 Not Acceptable
+            title: Gevraagde contenttype wordt niet ondersteund.
+            status: 406
+            detail: The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to thr accept headers sent in the request
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: notAcceptable
+    '409':
+      description: Conflict
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.10 409 Conflict
+            title: Conflict
+            status: 409
+            detail: The request could not be completed due to a conflict with the current state of the resource
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: conflict
+    '410':
+      description: Gone
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.11 410 Gone
+            title: Gone
+            status: 410
+            detail: The request could not be completed due to a conflict with the current state of the resource
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: gone
+    '415':
+      description: Unsupported Media Type
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.4.16 415 Unsupported Media Type
+            title: Unsupported Media Type
+            status: 415
+            detail: The server is refusing the request because the entity of the request is in a format not supported by the requested resource for the requested method.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: unsupported
+    '429':
+      description: Too Many Requests
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+            title: Too many request
+            status: 429
+            detail: The user has sent too many requests in a given amount of time (rate limiting).
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: tooManyRequests
+    '500':
+      description: Internal Server Error
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.1 500 Internal server error
+            title: Interne server fout.
+            status: 500
+            detail: The server encountered an unexpected condition which prevented it from fulfilling the request.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: serverError
+    '501':
+      description: Not Implemented
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.2 501 Not Implemented
+            title: Not Implemented
+            status: 501
+            detail: The server does not support the functionality required to fulfill the request.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: notImplemented
+    '503':
+      description: Service Unavailable
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+          example:
+            type: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#/10.5.4 503 Service Unavailable
+            title: Bronservice {bron} is tijdelijk niet beschikbaar.
+            status: 503
+            detail: The service is currently unable to handle the request due to a temporary overloading or maintenance of the server.
+            instance: https://datapunt.voorbeeldgemeente.nl/api/v1/resourcenaam?parameter=waarde
+            code: notAvailable
+    'default':
+      description: Er is een onverwachte fout opgetreden
+      headers:
+        api-version:
+          $ref: "#/components/headers/api_version"
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Foutbericht'
+  schemas:
+    Href:
+      type: string
+      example: "datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcename/{resource-identificatie}"
+    HalLink:
+      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5
+      type: object
+      required:
+        - href
+      properties:
+        href:
+          $ref: "#/components/schemas/Href"
+        templated:
+          type: boolean
+        title:
+         description: "Voor mens leesbaar label bij de link"
+         type: string
+    HalCollectionLinks:
+      type: object
+      properties:
+        self:
+          $ref: "#/components/schemas/HalLink"
+    HalPaginationLinks:
+      allOf:
+      - $ref: "#/components/schemas/HalCollectionLinks"
+      - type: "object"
+        properties:
+          first:
+            type: "object"
+            description: "uri voor het opvragen van de eerste pagina van deze collectie"
+            properties:
+              href:
+                type: "string"
+                example: "https://datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcenaam?page=1"
+              templated:
+                type: boolean
+              title:
+                type: "string"
+                example: "Eerste pagina"
+          previous:
+            type: "object"
+            description: "uri voor het opvragen van de vorige pagina van deze collectie"
+            properties:
+              href:
+                type: "string"
+                example: "https://datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcenaam?page=3"
+              templated:
+                type: boolean
+              title:
+                type: "string"
+                example: "Vorige pagina"
+          next:
+            type: "object"
+            description: "uri voor het opvragen van de volgende pagina van deze collectie"
+            properties:
+              href:
+                type: "string"
+                example: "https://datapunt.voorbeeldgemeente.nl/api/{major-versie}/resourcenaam?page=5"
+              templated:
+                type: boolean
+              title:
+                type: "string"
+                example: "Volgende pagina"
+    Foutbericht:
+      type: object
+      description: Terugmelding bij een fout. JSON representatie in lijn met [RFC7807](https://tools.ietf.org/html/rfc7807).
+      properties:
+        type:
+          type: string
+          format: uri
+          description: Link naar meer informatie over deze fout
+        title:
+          type: string
+          description: Beschrijving van de fout
+        status:
+          type: integer
+          description: Http status code
+        detail:
+          type: string
+          description: Details over de fout
+        instance:
+          type: string
+          format: uri
+          description: Uri van de aanroep die de fout heeft veroorzaakt
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+          minLength: 1
+    InvalidParams:
+      type: object
+      description: Details over fouten in opgegeven parameters
+      properties:
+        type:
+          type: string
+          format: uri
+          example: https://www.vng.nl/realisatie/api/{major-versie}/validaties/integer
+        name:
+          type: string
+          description: Naam van de parameter
+          example: verblijfplaats__huisnummer
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+          minLength: 1
+          example: integer
+        reason:
+          type: string
+          description: Beschrijving van de fout op de parameterwaarde
+          example: Waarde is geen geldige integer.
+    BadRequestFoutbericht:
+      allOf:
+      - $ref: '#/components/schemas/Foutbericht'
+      - type: object
+        properties:
+          invalidParams:
+            description: Foutmelding per fout in een parameter. Alle gevonden fouten worden één keer teruggemeld.
+            type: array
+            items:
+              $ref: '#/components/schemas/InvalidParams'
+    Datum_onvolledig:
+      type: "object"
+      description: "Gegevens over de datums die mogelijk niet volledig zijn, maar\
+        \ waarvan de bekende gedeeltes wel moeten kunnen worden uitgewisseld. Als\
+        \ de volledige datum bekend is worden alle elementen gevuld."
+      properties:
+        dag:
+          type: "integer"
+          title: "dag"
+          description: "De dag. Als de dag van de datum bekend is wordt deze hier\
+            \ ingevuld. Ook als de volledige datum bekend is."
+          minimum: 1
+          maximum: 31
+          example: 3
+        datum:
+          type: "string"
+          title: "datum"
+          description: "De volledige datum die in de `date` definitie past. Dit element\
+            \ wordt alleen gevuld als de volledige datum bekend is."
+          format: "date"
+          example: "1989-05-03"
+        jaar:
+          type: "integer"
+          title: "jaar"
+          description: "Het jaar van de datum. Als het jaar bekend is wordt dit element\
+            \ gevuld, ook als de volledige datum bekend is."
+          maximum: 9999
+          example: 1989
+        maand:
+          type: "integer"
+          title: "maand"
+          description: "De maand. Als de maand van een datum bekend is wordt deze\
+            \ hier ingevuld. Ook als de volledige datum is ingevuld."
+          minimum: 1
+          maximum: 12
+          example: 5
+    Waardelijst:
+      type: "object"
+      description: "Generieke waardelijst met waarden om een code en omschrijving op te nemen."
+      properties:
+        code:
+          type: "string"
+          title: "code"
+          description: "6"
+        waarde:
+          type: "string"
+          title: "waarde"
+          description: "Huurrecht (zakelijk)"
+    Waardetabel:
+      type: "object"
+      description: "Generieke tabel met waarden om een code en omschrijving op te nemen."
+      properties:
+        code:
+          type: "string"
+          title: "code"
+          example: "6030"
+        omschrijving:
+          type: "string"
+          title: "omschrijving"
+          description: "Voor mensen leesbare omschrijving van de waarde."
+          example: "Nederland"
+    Geometry:
+      title: Geometry
+      description: GeoJSON geometry
+      required:
+      - type
+      type: object
+      properties:
+        type:
+          description: The geometry type
+          type: string
+          enum:
+          - Point
+          - MultiPoint
+          - LineString
+          - MultiLineString
+          - Polygon
+          - MultiPolygon
+          - Feature
+          - FeatureCollection
+          - GeometryCollection
+      discriminator:
+        propertyName: type
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1
+    Point2D:
+      title: Point2D
+      description: A 2D point
+      type: array
+      items:
+        type: number
+      maxItems: 2
+      minItems: 2
+    Point:
+      description: GeoJSON point geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            $ref: '#/components/schemas/Point2D'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.2
+    MultiPoint:
+      description: GeoJSON multi-point geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.3
+    LineString:
+      description: GeoJSON line-string geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              $ref: '#/components/schemas/Point2D'
+            minItems: 2
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.4
+    MultiLineString:
+      description: GeoJSON multi-line-string geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.5
+    Polygon:
+      description: GeoJSON polygon geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Point2D'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.6
+    MultiPolygon:
+      description: GeoJSON multi-polygon geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - coordinates
+        type: object
+        properties:
+          coordinates:
+            type: array
+            items:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Point2D'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.7
+    GeometryCollection:
+      description: GeoJSON multi-polygon geometry
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Geometry'
+      - required:
+        - geometries
+        type: object
+        properties:
+          geometries:
+            type: array
+            items:
+              $ref: '#/components/schemas/Geometry'
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.1.8
+    GeoJSONGeometry:
+      title: GeoJSONGeometry
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/Point'
+      - $ref: '#/components/schemas/MultiPoint'
+      - $ref: '#/components/schemas/LineString'
+      - $ref: '#/components/schemas/MultiLineString'
+      - $ref: '#/components/schemas/Polygon'
+      - $ref: '#/components/schemas/MultiPolygon'
+      - $ref: '#/components/schemas/GeometryCollection'
+    AuditTrail:
+      required:
+      - bron
+      - actie
+      - resultaat
+      - hoofdObject
+      - resource
+      - resourceUrl
+      - resourceWeergave
+      - wijzigingen
+      type: object
+      properties:
+        uuid:
+          title: Uuid
+          description: Unieke identificatie van de audit regel.
+          type: string
+          format: uuid
+        bron:
+          title: Bron
+          description: 'De naam van het component waar de wijziging in is gedaan.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `ac` - Autorisatiecomponent
+
+            * `nrc` - Notificatierouteringcomponent
+
+            * `zrc` - Zaakregistratiecomponent
+
+            * `ztc` - Zaaktypecatalogus
+
+            * `drc` - Documentregistratiecomponent
+
+            * `brc` - Besluitregistratiecomponent
+
+            * `kic` - Klantinteractiescomponent'
+          type: string
+          enum:
+          - ac
+          - nrc
+          - zrc
+          - ztc
+          - drc
+          - brc
+          - kic
+        requestId:
+          title: Request id
+          description: Een globaal "request" ID om een verzoek door het netwerk heen
+            te traceren.
+          type: string
+          maxLength: 255
+        applicatieId:
+          title: Applicatie id
+          description: Unieke identificatie van de applicatie, binnen de organisatie.
+          type: string
+          maxLength: 100
+        applicatieWeergave:
+          title: Applicatie weergave
+          description: Vriendelijke naam van de applicatie.
+          type: string
+          maxLength: 200
+        gebruikersId:
+          title: Gebruikers id
+          description: Unieke identificatie van de gebruiker die binnen de organisatie
+            herleid kan worden naar een persoon.
+          type: string
+          maxLength: 255
+        gebruikersWeergave:
+          title: Gebruikers weergave
+          description: Vriendelijke naam van de gebruiker.
+          type: string
+          maxLength: 255
+        actie:
+          title: Actie
+          description: 'De uitgevoerde handeling.
+
+
+            De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
+            andere waardes zijn ook toegestaan
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `create` - Object aangemaakt
+
+            * `list` - Lijst van objecten opgehaald
+
+            * `retrieve` - Object opgehaald
+
+            * `destroy` - Object verwijderd
+
+            * `update` - Object bijgewerkt
+
+            * `partial_update` - Object deels bijgewerkt'
+          type: string
+          maxLength: 50
+          minLength: 1
+        actieWeergave:
+          title: Actie weergave
+          description: Vriendelijke naam van de actie.
+          type: string
+          maxLength: 200
+        resultaat:
+          title: Resultaat
+          description: HTTP status code van de API response van de uitgevoerde handeling.
+          type: integer
+          maximum: 599
+          minimum: 100
+        hoofdObject:
+          title: Hoofd object
+          description: De URL naar het hoofdobject van een component.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        resource:
+          title: Resource
+          description: Het type resource waarop de actie gebeurde.
+          type: string
+          maxLength: 50
+          minLength: 1
+        resourceUrl:
+          title: Resource url
+          description: De URL naar het object.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        toelichting:
+          title: Toelichting
+          description: Toelichting waarom de handeling is uitgevoerd.
+          type: string
+        resourceWeergave:
+          title: Resource weergave
+          description: Vriendelijke identificatie van het object.
+          type: string
+          maxLength: 200
+          minLength: 1
+        aanmaakdatum:
+          title: Aanmaakdatum
+          description: De datum waarop de handeling is gedaan.
+          type: string
+          format: date-time
+          readOnly: true
+        wijzigingen:
+          $ref: '#/components/schemas/Wijzigingen'
+    Wijzigingen:
+      title: Wijzigingen
+      type: object
+      properties:
+        oud:
+          title: Oud
+          description: Volledige JSON body van het object zoals dat bestond voordat
+            de actie heeft plaatsgevonden.
+          type: object
+        nieuw:
+          title: Nieuw
+          description: Volledige JSON body van het object na de actie.
+          type: object
