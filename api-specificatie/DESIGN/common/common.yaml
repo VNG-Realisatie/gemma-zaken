@@ -3,12 +3,12 @@ info:
   title: Generieke componenten voor de Zaakgericht-werken API's
   version: '1.0'
 #dummy path to avoid error 
-paths:
-  /ping:
-    get:
-      responses:
-        '200':
-          description: OK
+# paths:
+#   /ping:
+#     get:
+#       responses:
+#         '200':
+#           description: OK
 components:
   headers:
     API-version:
