@@ -5901,7 +5901,7 @@ components:
       type: object
       properties:
         subjectIdentificatie:
-          $ref: "https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/common/common.yaml#/components/schemas/NietNatuurlijkPeroon"
+          $ref: "https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/common/common.yaml#/components/schemas/NietNatuurlijkPersoon"
     niet_natuurlijk_persoon:
       type: object
       allOf:
