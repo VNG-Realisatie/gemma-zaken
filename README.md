@@ -31,7 +31,7 @@ De volgende documenten beschrijven dit project:
 - [Technische documentatie](https://vng-realisatie.github.io/gemma-zaken/ontwikkelaars/) voor developers
 - [Designkeuzes en besluiten](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwerpkeuzes) voor scrumteam, developers en stakeholders
 
-De volledige documentatie zoals deze op github is beschreven is te vinden op de [github pages](https://vng-realisatie.github.io/gemma-zaken/).
+Een hoogover overzicht van de API's voor Zaakgericht werken staat [hier](https://www.vngrealisatie.nl/producten/api-standaarden-zaakgericht-werken). De volledige documentatie zoals deze op github is beschreven is te vinden op de [github pages](https://vng-realisatie.github.io/gemma-zaken/).
 De Visie en uitwerking van Zaakgericht Werken in de GEMMA Architectuur staat beschreven op het [Thema Zaakgericht werken](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken) op GEMMA Online.
 
 ## Beheer en ondersteuning
