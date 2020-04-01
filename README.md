@@ -2,13 +2,13 @@ API's voor Zaakgericht Werken
 =====
 
 [![Status badge][api-test-fullsuite-status]][api-test-fullsuite]
-[![Build Status][docs-build-status]][jenkins]
+[![Build Status][docs-ci-status]][docs-ci]
 ![Repo Status][repo-status]
 
 [api-test-fullsuite-status]: https://shields.api-test.nl/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/6ad4f59e-7051-491d-a601-488f1b66ad7d/
 [api-test-fullsuite]: https://api-test.nl/server/1/224fd5be-bc64-4d55-a190-454bee3cc8e3/6ad4f59e-7051-491d-a601-488f1b66ad7d/latest/
-[docs-build-status]: https://jenkins.nlx.io/job/gemma-zaken-build-and-test/badge/icon?style=plastic
-[jenkins]: (https://jenkins.nlx.io/
+[docs-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaken.svg?branch=master
+[docs-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaken
 [repo-status]: https://img.shields.io/badge/Status-stable%2F1.0.x-brightgreen?style=plastic
 
 
@@ -43,49 +43,54 @@ Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
 
 **Referentie-implementaties van componenten**
 
-* [![Build Status][zrc-build-status]][zrc-stable]
+* [![Build Status][zrc-ci-status]][zrc-ci]
   [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
-* [![Build Status][drc-build-status]][drc-stable]
+* [![Build Status][drc-ci-status]][drc-ci]
   [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
-* [![Build Status][ztc-build-status]][ztc-stable]
+* [![Build Status][ztc-ci-status]][ztc-ci]
   [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
-* [![Build Status][brc-build-status]][brc-stable]
+* [![Build Status][brc-ci-status]][brc-ci]
   [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
-* [![Build Status][nrc-build-status]][nrc-stable]
+* [![Build Status][nrc-ci-status]][nrc-ci]
   [Notificatiecomponent](https://github.com/VNG-Realisatie/notificaties-api)
-* [![Build Status][ac-build-status]][ac-stable]
+* [![Build Status][ac-ci-status]][ac-ci]
   [Autorisatiecomponent](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
-* [![Build Status][kcc-build-status]][kcc-stable]
+* [![Build Status][kcc-ci-status]][kcc-ci]
   [Klantinteracties API](https://github.com/VNG-Realisatie/klantinteracties-api)
 
 **Ondersteunende tooling**
 
-* [![Build Status][vng-api-common-build-status]][vng-api-common]
+* [![Build Status][vng-api-common-ci-status]][vng-api-common]
   [Gedeelde code tussen componenten](https://github.com/VNG-Realisatie/gemma-zaken-common)
+* [![Build Status][ref-lijsten-ci-status]][ref-lijsten-ci]
+  [Referentielijsten API](https://github.com/VNG-Realisatie/VNG-referentielijsten)
 * [ZGW Client](https://github.com/VNG-Realisatie/gemma-zds-client)
 * [Demo applicatie(s)](https://github.com/VNG-Realisatie/gemma-zaken-demo)
 * [Postman tests voor ZGW API's](https://github.com/VNG-Realisatie/gemma-postman-tests)
-* [Referentielijsten API](https://github.com/VNG-Realisatie/VNG-referentielijsten)
 
 ## Licentie
-Copyright © VNG Realisatie 2018
+
+Copyright © VNG Realisatie 2018 - 2020
 
 [Licensed under the EUPL](LICENCE.md)
 
-[zrc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaakregistratiecomponent-stable
-[zrc-stable]: http://jenkins.nlx.io/job/gemma-zaakregistratiecomponent-stable
-[drc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-documentregistratiecomponent-stable
-[drc-stable]: http://jenkins.nlx.io/job/gemma-documentregistratiecomponent-stable
-[ztc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
-[ztc-stable]: http://jenkins.nlx.io/job/gemma-zaaktypecatalogus-stable
-[brc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
-[brc-stable]: http://jenkins.nlx.io/job/gemma-besluitregistratiecomponent-stable
-[nrc-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-notificatiecomponent-stable
-[nrc-stable]: http://jenkins.nlx.io/job/gemma-notificatiecomponent-stable
-[ac-build-status]: http://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
-[ac-stable]: http://jenkins.nlx.io/job/gemma-autorisatiecomponent-stable
-[kcc-build-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
-[kcc-stable]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api
+[zrc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent.svg?branch=master
+[zrc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent
+[drc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent.svg?branch=master
+[drc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent
+[ztc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus.svg?branch=master
+[ztc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus
+[brc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent.svg?branch=master
+[brc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent
+[nrc-ci-status]: https://travis-ci.org/VNG-Realisatie/notificaties-api.svg?branch=master
+[nrc-ci]: https://travis-ci.org/VNG-Realisatie/notificaties-api
+[ac-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent.svg?branch=master
+[ac-ci]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent
+[kcc-ci-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
+[kcc-ci]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api
 
-[vng-api-common-build-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
+[ref-lijsten-ci-status]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten.svg?branch=master
+[ref-lijsten-ci]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten
+
+[vng-api-common-ci-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
 [vng-api-common]: https://travis-ci.org/VNG-Realisatie/vng-api-common

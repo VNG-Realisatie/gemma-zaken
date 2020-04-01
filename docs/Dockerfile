@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY _config.yml Gemfile Gemfile.lock ./
 
-RUN gem install jekyll && \
+RUN gem install jekyll bundler && \
     bundle install && \
     rm -rf public
 

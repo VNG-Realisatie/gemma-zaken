@@ -1,0 +1,21 @@
+language: minimal
+
+jobs:
+  include:
+    - stage: Test docker image build
+      services:
+        - docker
+      install: skip
+      script:
+        - cd infra
+        - rm -f docker-compose.override.yml
+        - docker-compose pull
+        - docker-compose up -d
+        - docker-compose down
+    - stage: Push docker image
+      services:
+        - docker
+      script:
+        - cd docs
+        - if [[ $TRAVIS_BRANCH = "master" ]]; then deploy=true; else deploy=false; fi
+        - ./release-docker-image.sh $deploy
