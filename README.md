@@ -23,13 +23,13 @@ Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (
 ## Documentatie
 De volgende documenten beschrijven dit project:
 
-- We werken aan realisatie van de [Productvisie](docs/_content/productvisie/index.md) (concept)
-- Hoe u kunt [bijdragen](docs/_content/doorontwikkeling/index.md) (inclusief het reviewproces)
+- We werken aan realisatie van de [Productvisie](https://vng-realisatie.github.io/gemma-zaken/productvisie/) (concept)
+- Hoe u kunt [bijdragen](https://vng-realisatie.github.io/gemma-zaken/doorontwikkeling/) (inclusief het reviewproces)
 - De [FAQ](docs/_content/overige/faq.md) beantwoordt vragen over het project
-- De [dev-straat](docs/_content/themas/achtergronddocumentatie/ontwikkelstraat.md) beschrijft de development
+- De [dev-straat](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwikkelstraat) beschrijft de development
   inrichting en tooling
-- [Technische documentatie](docs/_content/ontwikkelaars/index.md) voor developers
-- [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/ontwerpkeuzes.md) voor scrumteam, developers en stakeholders
+- [Technische documentatie](https://vng-realisatie.github.io/gemma-zaken/ontwikkelaars/) voor developers
+- [Designkeuzes en besluiten](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwerpkeuzes) voor scrumteam, developers en stakeholders
 
 ## Beheer en ondersteuning
 
