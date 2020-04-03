@@ -43,7 +43,7 @@ selectielijst-API (waar deze nu nog 1 API is)
 
 ## OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml) 
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZTC.
 
@@ -91,10 +91,11 @@ parametrisering is aan validatieregels onderhevig:
 
 * <a name="ztc-003">`Resultaattype.brondatumArchiefprocedure.afleidingswijze` ([ztc-003](#ztc-003))</a>:
     * afleidingswijze MOET `afgehandeld` zijn indien de selectielijstklasse
-      als procestermijn `nihil` heeft en vice versa
+      als procestermijn `nihil` heeft
     * afleidingswijze MOET `termijn` zijn indien de selectielijstklasse
-      als procestermijn `ingeschatte_bestaansduur_procesobject` heeft en vice
-      versa
+      als procestermijn `ingeschatte_bestaansduur_procesobject` heeft
+    * Als er geen procestermijn gezet is, dan mogen alle mogelijke afleidingswijzen gebruikt worden
+
 
 * <a name="ztc-004">`Resultaattype.brondatumArchiefprocedure.datumkenmerk` ([ztc-004](#ztc-004))</a>
     * MOET een waarde hebben als de afleidingswijze `eigenschap`, `zaakobject`
