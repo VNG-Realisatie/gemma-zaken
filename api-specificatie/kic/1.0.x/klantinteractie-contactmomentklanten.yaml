@@ -3821,10 +3821,10 @@ paths:
         schema:
           type: string
           format: uuid
-  /contactmomentklanten:
+  /klantcontactmomenten:
     get:
-      operationId: contactmomentklant_list
-      summary: Alle CONTACTMOMENT-KLANT relaties opvragen.
+      operationId: klantcontactmoment_list
+      summary: Alle KLANT-CONTACTMOMENT relaties opvragen.
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
         - name: contactmoment
@@ -3870,7 +3870,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ContactmomentKlant'
+                  $ref: '#/components/schemas/KlantContactmoment'
         '400':
           description: Bad request
           headers:
@@ -3989,13 +3989,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - contactmomentklanten
+        - klantcontactmomenten
       security:
         - JWT-Claims:
             - klanten.lezen
     post:
-      operationId: contactmomentklant_create
-      summary: Maak een VERZOEK-CONTACTMOMENT relatie aan.
+      operationId: klantcontactmoment_create
+      summary: Maak een KLANT-CONTACTMOMENT relatie aan.
       description: |-
         Registreer een CONTACTMOMENT bij een KLANT. Er worden twee types van
         relaties met andere objecten gerealiseerd:
@@ -4008,7 +4008,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/VerzoekContactMoment'
+              $ref: '#/components/schemas/KlantContactmoment'
         required: true
       responses:
         '201':
@@ -4028,7 +4028,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContactmomentKlant'
+                $ref: '#/components/schemas/KlantContactmoment'
         '400':
           description: Bad request
           headers:
@@ -4147,16 +4147,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - contactmomentklanten
+        - klantcontactmomenten
       security:
         - JWT-Claims:
             - klanten.aanmaken
     parameters: []
-  /contactmomentklanten/{uuid}:
+  /klantcontactmomenten/{uuid}:
     get:
-      operationId: contactmomentklant_read
-      summary: Een specifieke CONTACTMOMENT-KLANT relatie opvragen.
-      description: Een specifieke CONTACTMOMENT-KLANT relatie opvragen.
+      operationId: klantcontactmoment_read
+      summary: Een specifieke KLANT-CONTACTMOMENT relatie opvragen.
+      description: Een specifieke KLANT-CONTACTMOMENT relatie opvragen.
       parameters:
         - name: If-None-Match
           in: header
@@ -4200,7 +4200,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ContactmomentKlant'
+                $ref: '#/components/schemas/KlantContactmoment'
         '401':
           description: Unauthorized
           headers:
@@ -4319,14 +4319,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - contactmomentklanten
+        - klantcontactmomenten
       security:
         - JWT-Claims:
             - klanten.lezen
     delete:
-      operationId: contactmomentklant_delete
-      summary: Verwijder een CONTACTMOMENT-KLANT relatie.
-      description: Verwijder een CONTACTMOMENT-KLANT relatie.
+      operationId: klantcontactmoment_delete
+      summary: Verwijder een KLANT-CONTACTMOMENT relatie.
+      description: Verwijder een KLANT-CONTACTMOMENT relatie.
       responses:
         '204':
           description: No content
@@ -4455,7 +4455,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
       tags:
-        - contactmomentklanten
+        - klantcontactmomenten
       security:
         - JWT-Claims:
             - klanten.verwijderen
@@ -6693,7 +6693,7 @@ paths:
 tags:
   - name: contactmomenten
     description: ''
-  - name: contactmomentklanten
+  - name: klantcontactmomenten
     description: ''
   - name: klanten
     description: >-
@@ -6982,21 +6982,11 @@ components:
     Contactpersoon:
       type: object
       properties:
-        voornaam:
-          title: Voornaam
-          description: 'De voornaam, voorletters of roepnaam van de contactpersoon.'
+        naam:
+          title: naam
+          description: De naam van de contactpersoon.
           type: string
           maxLength: 200
-        achternaam:
-          title: Achternaam
-          description: De achternaam van de contactpersoon.
-          type: string
-          maxLength: 200
-        adres:
-          title: Adres
-          description: Het adres van de contactpersoon.
-          type: string
-          maxLength: 1000
         telefoonnummer:
           title: Telefoonnummer
           description: Het mobiele of vaste telefoonnummer van de contactpersoon.
@@ -7013,7 +7003,6 @@ components:
           description: De functie van de contactpersoon.
           type: string
           maxLength: 200
-
     Klant:
       type: object
       properties:
@@ -7427,7 +7416,7 @@ components:
           type: string
           enum:
             - zaak
-    ContactmomentKlant:
+    KlantContactmoment:
       required:
         - contactmoment
         - klant
