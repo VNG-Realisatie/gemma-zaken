@@ -94,8 +94,6 @@ parametrisering is aan validatieregels onderhevig:
       als procestermijn `nihil` heeft
     * afleidingswijze MOET `termijn` zijn indien de selectielijstklasse
       als procestermijn `ingeschatte_bestaansduur_procesobject` heeft
-    * Als er geen procestermijn gezet is, dan mogen alle mogelijke afleidingswijzen gebruikt worden
-
 
 * <a name="ztc-004">`Resultaattype.brondatumArchiefprocedure.datumkenmerk` ([ztc-004](#ztc-004))</a>
     * MOET een waarde hebben als de afleidingswijze `eigenschap`, `zaakobject`
@@ -118,6 +116,12 @@ parametrisering is aan validatieregels onderhevig:
 * <a name="ztc-008">`Resultaattype.brondatumArchiefprocedure.procestermijn` ([ztc-008](#ztc-008))</a>
     * MOET een waarde hebben indien de afleidingswijze `termijn` is
     * MAG GEEN waarde hebben in de andere gevallen
+
+Als er geen procestermijn gezet is (lege waarde), wat typisch het geval is als
+de archiefactie `bewaren` betreft, dan MOETEN alle waardes voor de 
+afleidingswijze mogelijk zijn. De procestermijn kan voor praktische redenen
+geïnterpreteerd worden als de waarde 0.
+
 
 #### Concepten
 
