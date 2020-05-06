@@ -66,7 +66,7 @@ Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en im
 Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
 
-Dit gegevensmodel is in een bewerkbare vorm in XMI formaat op te vragen: [overkoepelend gegevensmodel](./gegevensmodel/index)
+Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
