@@ -7420,6 +7420,7 @@ components:
       required:
         - contactmoment
         - klant
+        - rol
       type: object
       properties:
         url:
@@ -7442,8 +7443,13 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
-        contactpersoon:
-          $ref: '#/components/schemas/Contactpersoon'
+        rol:
+          title: Rol
+          description: De rol van de KLANT in het CONTACTMOMENT.
+          type: string
+          enum:
+            - belanghebbende
+            - gesprekspartner
     VerzoekContactMoment:
       required:
         - contactmoment
