@@ -60,6 +60,26 @@ paths:
       summary: Alle CONTACTMOMENTen opvragen.
       description: Alle CONTACTMOMENTen opvragen.
       parameters:
+      - name: vorigContactmoment
+        in: query
+        description: URL-referentie naar het vorige CONTACTMOMENT.
+        schema:
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
+      - name: volgendContactmoment
+        in: query
+        description: URL-referentie naar het volgende CONTACTMOMENT.
+        schema:
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
       - name: klant
         in: query
         description: URL-referentie naar een KLANT indien de klantinteractie niet anoniem is.
@@ -88,7 +108,7 @@ paths:
           maxLength: 50
       - name: initiatiefnemer
         in: query
-        description: De partij die het contact heeft ge\xEFnitieerd.
+        description: "De partij die het contact heeft ge\xEFnitieerd."
         schema:
           type: string
           enum:
@@ -101,26 +121,6 @@ paths:
           type: string
           format: uri
           maxLength: 1000
-      - name: vorigContactmoment
-        in: query
-        description: URL-referentie naar het vorige CONTACTMOMENT.
-        schema:
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-          nullable: true
-      - name: volgendContactmoment
-        in: query
-        description: URL-referentie naar het volgende CONTACTMOMENT.
-        schema:
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-          nullable: true
       responses:
         '200':
           description: OK
@@ -5801,13 +5801,30 @@ components:
       properties:
         url:
           title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
+          description: URL-referentie naar dit CONTACTMOMENT.
           type: string
           format: uri
           readOnly: true
           maxLength: 1000
           minLength: 1
+        vorigContactmoment:
+          title: Vorig contactmoment
+          description: URL-referentie naar het vorige CONTACTMOMENT.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
+        volgendContactmoment:
+          title: Volgend contactmoment
+          description: URL-referentie naar het volgende CONTACTMOMENT.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
         bronorganisatie:
           title: Bronorganisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
@@ -5872,24 +5889,6 @@ components:
           maxLength: 1000
         medewerkerIdentificatie:
           $ref: '#/components/schemas/Medewerker'
-        vorigContactmoment:
-          title: Vorig contactmoment
-          description: URL-referentie naar het vorige CONTACTMOMENT.
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-          nullable: true
-        volgendContactmoment:
-          title: Volgend contactmoment
-          description: URL-referentie naar het volgende CONTACTMOMENT.
-          type: string
-          format: uri
-          readOnly: true
-          maxLength: 1000
-          minLength: 1
-          nullable: true
     Fout:
       required:
       - code
