@@ -5810,6 +5810,24 @@ components:
           maxLength: 1000
         medewerkerIdentificatie:
           $ref: '#/components/schemas/Medewerker'
+        vorigContactmoment:
+          title: Vorig contactmoment
+          description: URL-referentie naar het vorige CONTACTMOMENT.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
+        volgendContactmoment:
+          title: Volgend contactmoment
+          description: URL-referentie naar het volgende CONTACTMOMENT.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
     Fout:
       required:
       - code
