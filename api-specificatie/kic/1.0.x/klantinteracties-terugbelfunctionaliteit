@@ -59,6 +59,68 @@ paths:
       operationId: contactmoment_list
       summary: Alle CONTACTMOMENTen opvragen.
       description: Alle CONTACTMOMENTen opvragen.
+      parameters:
+      - name: klant
+        in: query
+        description: URL-referentie naar een KLANT indien de klantinteractie niet anoniem is.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: interactiedatum
+        in: query
+        description: De datum en het tijdstip waarop de klantinteractie heeft plaatsgevonden.
+        schema:
+          type: string
+          format: date-time
+      - name: kanaal
+        in: query
+        description: Het communicatiekanaal waarlangs het CONTACTMOMENT gevoerd.
+        schema:
+          type: string
+          maxLength: 50
+      - name: voorkeurskanaal
+        in: query
+        description: Het communicatiekanaal dat voor opvolging van de klantinteractie
+            de voorkeur heeft van de KLANT.
+        schema:
+          type: string
+          maxLength: 50
+      - name: initiatiefnemer
+        in: query
+        description: De partij die het contact heeft ge\xEFnitieerd.
+        schema:
+          type: string
+          enum:
+          - gemeente
+          - klant
+      - name: medewerker
+        in: query
+        description: URL-referentie naar een medewerker
+        schema:
+          type: string
+          format: uri
+          maxLength: 1000
+      - name: vorigContactmoment
+        in: query
+        description: URL-referentie naar het vorige CONTACTMOMENT.
+        schema:
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
+      - name: volgendContactmoment
+        in: query
+        description: URL-referentie naar het volgende CONTACTMOMENT.
+        schema:
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
       responses:
         '200':
           description: OK
