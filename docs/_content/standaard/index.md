@@ -53,6 +53,7 @@ De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelij
 | Notificaties   voor consumers  |          |           |            |           |              |              |                 |   |
 | Contacmomenten                 |          | optioneel |            |           |      X       |      X       |                 |   |
 
+Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de [API versies](./versions) die nu beschikbaar zijn.
 
 ## Overkoepelend gegevensmodel
 
@@ -173,7 +174,7 @@ Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
 API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
-Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties) 
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties) 
 
 ### Beschikbaar stellen van de OAS
 
@@ -209,5 +210,6 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 
 ## Overige documentatie
 
+* [API versies](./versions)
 * [Achtergronddocumentatie](../themas/index)
 * [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)
