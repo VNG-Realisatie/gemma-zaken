@@ -8,21 +8,21 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 `verzoeken.aanmaken`
 
-**Laat toe om:**
+**Laat toe om de volgende resources aan te maken:**
 
-- verzoeken aan te maken
-- verzoekcontactmomenten aan te maken
-- verzoekinformatieobjecten aan te maken
-- verzoekproducten aan te maken
-- objectverzoeken aan te maken
+- verzoeken
+- verzoekcontactmomenten
+- verzoekinformatieobjecten
+- verzoekproducten
+- objectverzoeken
 
-## klanten.bijwerken
+## verzoeken.bijwerken
 
 **Scope**
 
 `verzoeken.bijwerken`
 
-**Laat toe om attributen bij te werken van**
+**Laat toe om attributen bij te werken van de volgende resources:**
 
 - verzoeken
 - verzoekcontactmomenten
@@ -36,7 +36,7 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 `verzoeken.lezen`
 
-**Laat toe om lijsten en details op te vragen van:**
+**Laat toe om lijsten en details op te vragen van de volgende resources:**
 
 - verzoeken
 - verzoekcontactmomenten
