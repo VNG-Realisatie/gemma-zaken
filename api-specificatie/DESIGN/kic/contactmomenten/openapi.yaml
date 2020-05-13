@@ -169,7 +169,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.lezen
+        - contactmomenten.lezen
     post:
       operationId: contactmoment_create
       summary: Maak een CONTACTMOMENT aan.
@@ -315,7 +315,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.aanmaken
+        - contactmomenten.aanmaken
     parameters: []
   /contactmomenten/{uuid}:
     get:
@@ -472,7 +472,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.lezen
+        - contactmomenten.lezen
     put:
       operationId: contactmoment_update
       summary: Werk een CONTACTMOMENT in zijn geheel bij.
@@ -625,7 +625,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.bijwerken
+        - contactmomenten.bijwerken
     patch:
       operationId: contactmoment_partial_update
       summary: Werk een CONTACTMOMENT deels bij.
@@ -778,7 +778,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.bijwerken
+        - contactmomenten.bijwerken
     delete:
       operationId: contactmoment_delete
       summary: Verwijder een CONTACTMOMENT.
@@ -904,7 +904,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - klanten.verwijderen
+        - contactmomenten.verwijderen
     parameters:
     - name: uuid
       in: path
@@ -1060,7 +1060,7 @@ paths:
       - objectcontactmomenten
       security:
       - JWT-Claims:
-        - klanten.lezen
+        - contactmomenten.lezen
     post:
       operationId: objectcontactmoment_create
       summary: Maak een OBJECT-CONTACTMOMENT relatie aan.
@@ -1218,7 +1218,7 @@ paths:
       - objectcontactmomenten
       security:
       - JWT-Claims:
-        - klanten.aanmaken
+        - contactmomenten.aanmaken
     parameters: []
   /objectcontactmomenten/{uuid}:
     get:
@@ -1375,7 +1375,7 @@ paths:
       - objectcontactmomenten
       security:
       - JWT-Claims:
-        - klanten.lezen
+        - contactmomenten.lezen
     delete:
       operationId: objectcontactmoment_delete
       summary: Verwijder een OBJECT-CONTACTMOMENT relatie.
@@ -1509,7 +1509,7 @@ paths:
       - objectcontactmomenten
       security:
       - JWT-Claims:
-        - klanten.verwijderen
+        - contactmomenten.verwijderen
     parameters:
     - name: uuid
       in: path
