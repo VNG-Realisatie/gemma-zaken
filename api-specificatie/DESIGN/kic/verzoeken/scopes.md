@@ -11,34 +11,49 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 **Laat toe om:**
 
 - verzoeken aan te maken
+- verzoekcontactmomenten aan te maken
+- verzoekinformatieobjecten aan te maken
+- verzoekproducten aan te maken
+- objectverzoeken aan te maken
 
-klanten.bijwerken
+## klanten.bijwerken
 
-Scope
+**Scope**
 
-klanten.bijwerken
+`verzoeken.bijwerken`
 
-Laat toe om:
+**Laat toe om attributen bij te werken van**
 
-    attributen van een klant te wijzingen
+- verzoeken
+- verzoekcontactmomenten
+- verzoekinformatieobjecten
+- verzoekproducten
+- objectverzoeken
 
-klanten.lezen
+## verzoeken.lezen
 
-Scope
+**Scope**
 
-klanten.lezen
+`verzoeken.lezen`
 
-Laat toe om:
+**Laat toe om lijsten en details op te vragen van:**
 
-    klanten te lezen
-    klantdetails op te vragen
+- verzoeken
+- verzoekcontactmomenten
+- verzoekinformatieobjecten
+- verzoekproducten
+- objectverzoeken
 
-klanten.verwijderen
+## verzoeken.verwijderen
 
-Scope
+**Scope**
 
-klanten.verwijderen
+`verzoeken.verwijderen`
 
-Laat toe om:
+**Laat toe om de volgende resources te verwijderen:**
 
-    klanten te verwijderen
+- verzoeken
+- verzoekcontactmomenten
+- verzoekinformatieobjecten
+- verzoekproducten
+- objectverzoeken
