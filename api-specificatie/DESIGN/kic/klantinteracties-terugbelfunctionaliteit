@@ -5795,9 +5795,9 @@ components:
           maxLength: 10
       nullable: true
     ContactMoment:
-      required:
-      - bronorganisatie
-      - vorigContactmoment
+      # required:
+      # - bronorganisatie
+      # - vorigContactmoment
       type: object
       properties:
         url:
