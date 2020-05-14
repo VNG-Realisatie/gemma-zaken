@@ -5,4 +5,4 @@ Hieronder de links naar de OAS specificaties in Redoc:
 
 Hieronder de links naar de OAS specificaties van de nieuwe features:
 - [1540: Meerdere klanten kunnen vastleggen bij contactmoment](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/klantinteractie-contactmomentklanten.yaml#tag/klantcontactmomenten)
-- [1325: Contactmomenten aan elkaar kunnen relateren die een vervolg op elkaar zijn, o.a. voor vastleggen terugbelacties](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/klantinteracties-terugbelfunctionaliteit)
+- [1325: Contactmomenten aan elkaar kunnen relateren die een vervolg op elkaar zijn (o.a. voor vastleggen terugbelacties)](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/klantinteracties-terugbelfunctionaliteit)
