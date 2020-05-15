@@ -7439,8 +7439,8 @@ components:
           type: string
           format: uri
         klant:
-          title: Verzoek
-          description: URL-referentie naar het VERZOEK.
+          title: Klant
+          description: URL-referentie naar de KLANT in het CONTACTMOMENT.
           type: string
           format: uri
         rol:
