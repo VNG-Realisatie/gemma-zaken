@@ -252,7 +252,7 @@ paths:
           - application/json
       requestBody:
         $ref: '#/components/requestBodies/ContactMoment'
-      responses:
+      responses: 
         '201':
           description: Created
           headers:
@@ -5795,9 +5795,8 @@ components:
           maxLength: 10
       nullable: true
     ContactMoment:
-      # required:
-      # - bronorganisatie
-      # - vorigContactmoment
+      required:
+      - bronorganisatie
       type: object
       properties:
         url:
@@ -5813,9 +5812,7 @@ components:
           description: URL-referentie naar het vorige CONTACTMOMENT.
           type: string
           format: uri
-          readOnly: true
           maxLength: 1000
-          minLength: 1
           nullable: true
         volgendContactmoment:
           title: Volgend contactmoment
@@ -5824,7 +5821,6 @@ components:
           format: uri
           readOnly: true
           maxLength: 1000
-          minLength: 1
           nullable: true
         bronorganisatie:
           title: Bronorganisatie
