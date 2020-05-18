@@ -9,3 +9,5 @@ Hieronder de links naar de gesplitste versie van de Klantinteractie API:
 Hieronder de links naar de OAS specificaties met de nieuwe features (user stories 1540 en 1325):
 - [1540: Meerdere klanten kunnen vastleggen bij contactmoment](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/klantinteractie-contactmomentklanten.yaml#tag/klantcontactmomenten)
 - [1325: Contactmomenten aan elkaar kunnen relateren die een vervolg op elkaar zijn (o.a. voor vastleggen terugbelacties)](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/klantinteracties-terugbelfunctionaliteit)
+
+Let op: bovenstaande uitwerkingen van user stories 1540 en 1325 waren al reeds uitgevoerd voor de splitsing. 
