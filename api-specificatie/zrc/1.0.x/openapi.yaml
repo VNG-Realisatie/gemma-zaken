@@ -4279,6 +4279,22 @@ paths:
         required: false
         schema:
           type: string
+      - name: maximaleVertrouwelijkheidaanduiding
+        in: query
+        description: Zaken met een vertrouwelijkheidaanduiding die beperkter is dan
+          de aangegeven aanduiding worden uit de resultaten gefiltered.
+        required: false
+        schema:
+          type: string
+          enum:
+          - openbaar
+          - beperkt_openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer_geheim
       - name: ordering
         in: query
         description: Which field to use when ordering the results.
@@ -9452,10 +9468,22 @@ components:
           minLength: 1
         archiefnominatie:
           title: Archiefnominatie
-          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
             termijn vernietigd moet worden.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `blijvend_bewaren` - Het zaakdossier moet bewaard blijven en op de Archiefactiedatum
+            overgedragen worden naar een archiefbewaarplaats.
+
+            * `vernietigen` - Het zaakdossier moet op of na de Archiefactiedatum vernietigd
+            worden.'
           type: string
-          minLength: 1
+          enum:
+          - blijvend_bewaren
+          - vernietigen
         archiefnominatie__in:
           title: Archiefnominatie  in
           description: Multiple values may be separated by commas.
@@ -9487,10 +9515,31 @@ components:
           minLength: 1
         archiefstatus:
           title: Archiefstatus
-          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
             termijn vernietigd moet worden.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `nog_te_archiveren` - De zaak cq. het zaakdossier is nog niet als geheel
+            gearchiveerd.
+
+            * `gearchiveerd` - De zaak cq. het zaakdossier is als geheel niet-wijzigbaar
+            bewaarbaar gemaakt.
+
+            * `gearchiveerd_procestermijn_onbekend` - De zaak cq. het zaakdossier
+            is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum
+            kan nog niet bepaald worden.
+
+            * `overgedragen` - De zaak cq. het zaakdossier is overgebracht naar een
+            archiefbewaarplaats.'
           type: string
-          minLength: 1
+          enum:
+          - nog_te_archiveren
+          - gearchiveerd
+          - gearchiveerd_procestermijn_onbekend
+          - overgedragen
         archiefstatus__in:
           title: Archiefstatus  in
           description: Multiple values may be separated by commas.
@@ -9521,6 +9570,40 @@ components:
           description: De datum waarop met de uitvoering van de zaak is gestart
           type: string
           minLength: 1
+        maximaleVertrouwelijkheidaanduiding:
+          title: Maximalevertrouwelijkheidaanduiding
+          description: 'Zaken met een vertrouwelijkheidaanduiding die beperkter is
+            dan de aangegeven aanduiding worden uit de resultaten gefiltered.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
+          type: string
+          enum:
+          - openbaar
+          - beperkt_openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer_geheim
         ordering:
           title: Ordering
           description: Which field to use when ordering the results.
