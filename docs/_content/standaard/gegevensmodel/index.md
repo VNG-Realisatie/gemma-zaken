@@ -4,7 +4,7 @@ date: '06-05-2020'
 weight: 10
 ---
 
-Onderstaand het gegevensmodel van de AP{I's voor Zaakgericht werken in XMI formaat. Hiermee is het onder andere leesbaar en bewerkbaar in Enterprise Architect en andere pakketen die het XMI formaat ondersteunen.
+Onderstaand het gegevensmodel van de API's voor Zaakgericht werken in XMI formaat. Hiermee is het onder andere leesbaar en bewerkbaar in Enterprise Architect en andere pakketen die het XMI formaat ondersteunen.
 
 Het gegevensmodel in XMI formaat: [Gegevensmodel API's voor Zaakgericht Werken dd. 1 mei 2020](_assets/20200501_ZGW_APIs.xml)
 
