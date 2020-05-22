@@ -17,7 +17,6 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
 * [Klantinteracties API specificatie](klantinteracties/index)
 
-
 ## Algemeen
 
 De standaard "API's voor Zaakgericht Werken" bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
@@ -67,6 +66,8 @@ Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en im
 
 Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
+
+Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
