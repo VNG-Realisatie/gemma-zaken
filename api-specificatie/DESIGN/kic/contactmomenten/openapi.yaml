@@ -1581,6 +1581,21 @@ components:
           readOnly: true
           maxLength: 1000
           minLength: 1
+        vorigContactmoment:
+          title: Vorig contactmoment
+          description: URL-referentie naar het vorige CONTACTMOMENT.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        volgendContactmoment:
+          title: Volgend contactmoment
+          description: URL-referentie naar het volgende CONTACTMOMENT. Dit veld is alleen leesbaar voor consumers en wordt automatisch bijgehouden door de API.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
         bronorganisatie:
           title: Bronorganisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
@@ -1591,14 +1606,14 @@ components:
           minLength: 1
         klant:
           title: Klant
-          description: URL-referentie naar een KLANT indien de klantinteractie niet
+          description: URL-referentie naar een KLANT indien het CONTACTMOMENT niet
             anoniem is.
           type: string
           format: uri
           nullable: true
-        interactiedatum:
-          title: Interactiedatum
-          description: De datum en het tijdstip waarop de klantinteractie heeft plaatsgevonden.
+        registratiedatum:
+          title: Registratiedatum
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
           type: string
           format: date-time
         kanaal:
@@ -1609,18 +1624,17 @@ components:
           maxLength: 50
         voorkeurskanaal:
           title: Voorkeurskanaal
-          description: Het communicatiekanaal dat voor opvolging van de klantinteractie
+          description: Het communicatiekanaal dat voor opvolging van het CONTACTMOMENT
             de voorkeur heeft van de KLANT.
           type: string
           maxLength: 50
         tekst:
           title: Tekst
-          description: Een toelichting die inhoudelijk de klantinteractie van de klant
-            beschrijft.
+          description: Een toelichting die inhoudelijk het CONTACTMOMENT met de KLANT(en) beschrijft.
           type: string
         onderwerpLinks:
           description: "E\xE9n of meerdere links naar een product, webpagina of andere\
-            \ entiteit zodat contactmomenten gegroepeerd kunnen worden op onderwerp."
+            \ entiteit zodat CONTACTMOMENTen gegroepeerd kunnen worden op onderwerp."
           type: array
           items:
             title: Onderwerp link
@@ -1632,7 +1646,7 @@ components:
             minLength: 1
         initiatiefnemer:
           title: Initiatiefnemer
-          description: "De partij die het contact heeft ge\xEFnitieerd."
+          description: "De partij die het CONTACTMOMENT heeft ge\xEFnitieerd."
           type: string
           enum:
           - gemeente
