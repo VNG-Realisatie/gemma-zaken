@@ -2,6 +2,16 @@
 
 Scopes worden typisch per component gedefinieerd en geven aan welke rechten er mogelijk zijn en in de context van een JWT geven ze aan welke rechten iemand heeft of wil verkrijgen.
 
+**Scope**
+
+`audittrails.lezen`
+
+**Laat toe om:**
+
+- audittrails op te lijsten
+- audittrail details op te vragen
+
+
 ## contactmomenten.aanmaken
 
 **Scope**
@@ -10,11 +20,11 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-De volgende resources aan te maken:
+- de volgende resources aan te maken:
 
-- contactmomenten
-- klantcontactmomenten
-- objectcontactmomenten
+    - contactmomenten
+    - klantcontactmomenten
+    - objectcontactmomenten
 
 ## contactmomenten.bijwerken
 
@@ -24,11 +34,11 @@ De volgende resources aan te maken:
 
 **Laat toe om:**
 
-De attributen van de volgende resources te wijzigen:
+- de attributen van de volgende resources te wijzigen:
 
-- contactmomenten
-- klantcontactmomenten
-- objectcontactmomenten
+    - contactmomenten
+    - klantcontactmomenten
+    - objectcontactmomenten
 
 ## contactmomenten.lezen
 
@@ -38,17 +48,17 @@ De attributen van de volgende resources te wijzigen:
 
 **Laat toe om:**
 
-Collecties op te vragen van de volgende resources:
+- de volgende resources op te lijsten:
 
-- contactmomenten
-- klantcontactmomenten
-- objectcontactmomenten
+    - contactmomenten
+    - klantcontactmomenten
+    - objectcontactmomenten
 
-Details op te vragen van de volgende resources:
+- details op te vragen van de volgende resources:
 
-- contactmomenten
-- klantcontactmomenten
-- objectcontactmomenten
+    - contactmomenten
+    - klantcontactmomenten
+    - objectcontactmomenten
 
 ## contactmomenten.verwijderen
 
@@ -58,8 +68,8 @@ Details op te vragen van de volgende resources:
 
 **Laat toe om:**
 
-De volgende resources te verwijderen:
+- de volgende resources te verwijderen:
 
-- contactmomenten
-- klantcontactmomenten
-- objectcontactmomenten
+    - contactmomenten
+    - klantcontactmomenten
+    - objectcontactmomenten
