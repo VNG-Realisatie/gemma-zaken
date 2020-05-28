@@ -40,7 +40,7 @@ De Visie en uitwerking van Zaakgericht Werken in de GEMMA Architectuur staat bes
 
 ## API spec bekijken
 
-Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
+Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma-zaken/standaard/index).
 
 ## Snelle links
 
