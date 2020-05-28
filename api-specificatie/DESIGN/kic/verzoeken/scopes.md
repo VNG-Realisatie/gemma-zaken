@@ -2,6 +2,17 @@
 
 Scopes worden typisch per component gedefinieerd en geven aan welke rechten er mogelijk zijn en in de context van een JWT geven ze aan welke rechten iemand heeft of wil verkrijgen.
 
+## audittrails.lezen
+
+**Scope**
+
+`audittrails.lezen`
+
+**Laat toe om:**
+
+- audittrails op te lijsten
+- audittrail details op te vragen
+
 ## verzoeken.aanmaken
 
 **Scope**
