@@ -30,7 +30,7 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-- klanten te lezen
+- klanten op te lijsten
 - klantdetails op te vragen
 
 ## klanten.verwijderen
