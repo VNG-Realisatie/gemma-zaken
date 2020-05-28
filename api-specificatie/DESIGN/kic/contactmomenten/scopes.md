@@ -10,7 +10,11 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-- contactmomenten of objectcontactmomenten aan te maken
+De volgende resources aan te maken:
+
+- contactmomenten
+- klantcontactmomenten
+- objectcontactmomenten
 
 ## contactmomenten.bijwerken
 
@@ -20,7 +24,11 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-- attributen van contactmomenten of objectcontactmomenten te wijzigen
+De attributen van de volgende resources te wijzigen:
+
+- contactmomenten
+- klantcontactmomenten
+- objectcontactmomenten
 
 ## contactmomenten.lezen
 
@@ -30,8 +38,17 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-- contactmomenten en objectcontacmomenten te lezen
-- details van contactmomenten of objectcontacmomenten op te vragen
+Collecties op te vragen van de volgende resources:
+
+- contactmomenten
+- klantcontactmomenten
+- objectcontactmomenten
+
+Details op te vragen van de volgende resources:
+
+- contactmomenten
+- klantcontactmomenten
+- objectcontactmomenten
 
 ## contactmomenten.verwijderen
 
@@ -41,4 +58,8 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Laat toe om:**
 
-- contactmomenten of objectcontacmomenten te verwijderen
+De volgende resources te verwijderen:
+
+- contactmomenten
+- klantcontactmomenten
+- objectcontactmomenten
