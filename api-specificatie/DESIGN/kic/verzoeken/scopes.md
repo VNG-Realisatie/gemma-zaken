@@ -6,11 +6,11 @@ Scopes worden typisch per component gedefinieerd en geven aan welke rechten er m
 
 **Scope**
 
-`audittrails.lezen`
+`audittrail.lezen`
 
 **Laat toe om:**
 
-- audittrails op te lijsten
+- audittrail op te lijsten
 - audittrail details op te vragen
 
 ## verzoeken.aanmaken
