@@ -54,6 +54,128 @@ paths:
       operationId: contactmoment_list
       summary: Alle CONTACTMOMENTen opvragen.
       description: Alle CONTACTMOMENTen opvragen.
+      parameters:
+        - name: contactmoment
+          in: query
+          description: URL-referentie naar het CONTACTMOMENT.
+          required: false
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+        - name: vorigContactmoment
+          in: query
+          description: URL-referentie naar het vorige CONTACTMOMENT.
+          required: false
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+        - name: volgendContactmoment
+          in: query
+          description: URL-referentie naar het volgende CONTACTMOMENT.
+          required: false
+          schema: 
+            type: string
+            format: uri
+            readOnly: true
+            maxLength: 1000
+            minLength: 1
+        - name: bronorganisatie
+          in: query
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die de klantinteractie heeft gecreeerd. Dit moet een geldig RSIN zijn
+            van 9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+          required: false
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 1
+        - name: registratiedatum
+          in: query
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__gt
+          in: query
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__gte
+          in: query
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__lt
+          in: query
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__lte
+          in: query
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: kanaal
+          in: query 
+          description: Het communicatiekanaal waarlangs het CONTACTMOMENT gevoerd
+            wordt.
+          required: false
+          schema:
+            type: string
+            maxLength: 50
+        - name: voorkeurskanaal
+          in: query
+          description: Het communicatiekanaal dat voor opvolging van het CONTACTMOMENT
+            de voorkeur heeft van de KLANT.
+          required: false
+          schema:
+            type: string
+            maxLength: 50
+        - name: voorkeurstaal
+          in: query
+          description: 'Een [ISO 639-2/B](https://www.iso.org/standard/4767.html) taalcode waarmee de voorkeurstaal van de KLANT is vastgelegd. Voorbeeld: `nld`.'
+          required: false
+          schema:
+            type: string
+            maxLength: 3
+            minLength: 3
+        - name: initiatiefnemer
+          in: query
+          description: "De partij die het CONTACTMOMENT heeft ge\xEFnitieerd."
+          required: false
+          schema:
+            type: string
+            enum:
+            - gemeente
+            - klant
+        - name: medewerker
+          in: query
+          description: URL-referentie naar een medewerker.
+          required: false
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
+          required: false
+          schema:
+            type: string
       responses:
         '200':
           description: OK
@@ -198,6 +320,8 @@ paths:
               schema:
                 type: string
                 format: uri
+                maxLength: 1000
+                minLength: 1
               description: URL waar de resource leeft.
           content:
             application/json:
@@ -1033,7 +1157,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - audittrails.lezen
+        - audittrail.lezen
     parameters:
     - name: uuid
       in: path
@@ -1198,7 +1322,7 @@ paths:
       - contactmomenten
       security:
       - JWT-Claims:
-        - audittrails.lezen
+        - audittrail.lezen
     parameters:
     - name: uuid
       in: path
@@ -1220,6 +1344,8 @@ paths:
           schema:
             type: string
             format: uri
+            maxLength: 1000
+            minLength: 1
         - name: klant
           in: query
           description: URL-referentie naar de KLANT.
@@ -1227,20 +1353,17 @@ paths:
           schema:
             type: string
             format: uri
-        - name: voornaam
+            maxLength: 1000
+            minLength: 1
+        - name: rol
           in: query
-          description: Voornaam contactpersoon.
+          description: De rol van de KLANT in het CONTACTMOMENT.
           required: false
           schema:
             type: string
-            maxLength: 200
-        - name: achternaam
-          in: query
-          description: Achternaam contactpersoon.
-          required: false
-          schema:
-            type: string
-            maxLength: 200
+            enum:
+              - belanghebbende
+              - gesprekspartner
       responses:
         '200':
           description: OK
@@ -1378,7 +1501,7 @@ paths:
         - klantcontactmomenten
       security:
         - JWT-Claims:
-            - klanten.lezen
+            - contactmomenten.lezen
     post:
       operationId: klantcontactmoment_create
       summary: Maak een KLANT-CONTACTMOMENT relatie aan.
@@ -1389,7 +1512,7 @@ paths:
         **Er wordt gevalideerd op**
         - geldigheid `contactmoment` URL
         - geldigheid `klant` URL
-        - de combinatie `contactmoment` en `verzoek` moet uniek zijn
+        - de combinatie `contactmoment` en `klant` moet uniek zijn
       requestBody:
         content:
           application/json:
@@ -1410,6 +1533,8 @@ paths:
               schema:
                 type: string
                 format: uri
+                maxLength: 1000
+                minLength: 1
               description: URL waar de resource leeft.
           content:
             application/json:
@@ -1536,7 +1661,7 @@ paths:
         - klantcontactmomenten
       security:
         - JWT-Claims:
-            - klanten.aanmaken
+            - contactmomenten.aanmaken
     parameters: []
   /klantcontactmomenten/{uuid}:
     get:
@@ -1708,7 +1833,7 @@ paths:
         - klantcontactmomenten
       security:
         - JWT-Claims:
-            - klanten.lezen
+            - contactmomenten.lezen
     delete:
       operationId: klantcontactmoment_delete
       summary: Verwijder een KLANT-CONTACTMOMENT relatie.
@@ -1844,7 +1969,7 @@ paths:
         - klantcontactmomenten
       security:
         - JWT-Claims:
-            - klanten.verwijderen
+            - contactmomenten.verwijderen
     parameters:
       - name: uuid
         in: path
@@ -1859,13 +1984,6 @@ paths:
       summary: Alle OBJECT-CONTACTMOMENT relaties opvragen.
       description: Alle OBJECT-CONTACTMOMENT relaties opvragen.
       parameters:
-      - name: object
-        in: query
-        description: URL-referentie naar het gerelateerde OBJECT (in een andere API).
-        required: false
-        schema:
-          type: string
-          format: uri
       - name: contactmoment
         in: query
         description: URL-referentie naar het CONTACTMOMENT.
@@ -1873,6 +1991,29 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
+      - name: object
+        in: query
+        description: URL-referentie naar het gerelateerde OBJECT (in een andere
+          API).
+        required: false
+        schema:
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+      - name: objectType
+        in: query
+        description: 'Het type van het gerelateerde OBJECT.
+            Uitleg bij mogelijke waarden:
+
+            * `zaak` - Zaak'
+        required: false
+        schema:
+          type: string
+          enum:
+            - zaak
       responses:
         '200':
           description: OK
@@ -2039,6 +2180,8 @@ paths:
               schema:
                 type: string
                 format: uri
+                maxLength: 1000
+                minLength: 1
               description: URL waar de resource leeft.
           content:
             application/json:
@@ -2596,6 +2739,7 @@ components:
           type: string
           format: uri
           maxLength: 1000
+          minLength: 1
         medewerkerIdentificatie:
           $ref: '#/components/schemas/Medewerker'
     KlantContactmoment:
@@ -2607,9 +2751,7 @@ components:
       properties:
         url:
           title: Url
-          description: >-
-            URL-referentie naar dit object. Dit is de unieke identificatie en
-            locatie van dit object.
+          description: URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
           type: string
           format: uri
           readOnly: true
@@ -2620,11 +2762,15 @@ components:
           description: URL-referentie naar het CONTACTMOMENT.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         klant:
           title: Klant
           description: URL-referentie naar de KLANT in het CONTACTMOMENT.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         rol:
           title: Rol
           description: De rol van de KLANT in het CONTACTMOMENT. Indien de KLANT zowel gesprekspartner als belanghebbende is, dan worden er twee KLANTCONTACTMOMENTen aangemaakt.
@@ -2756,6 +2902,8 @@ components:
           description: URL-referentie naar het CONTACTMOMENT.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         object:
           title: Object
           description: URL-referentie naar het gerelateerde OBJECT (in een andere
