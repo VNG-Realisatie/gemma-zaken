@@ -60,6 +60,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: verzoek
         in: query
         description: URL-referentie naar het VERZOEK.
@@ -67,6 +69,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       responses:
         '200':
           description: OK
@@ -665,6 +669,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: contactmoment
         in: query
         description: URL-referentie naar het CONTACTMOMENT.
@@ -672,6 +678,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       responses:
         '200':
           description: OK
@@ -2229,7 +2237,7 @@ paths:
       - verzoeken
       security:
       - JWT-Claims:
-        - audittrails.lezen
+        - audittrail.lezen
     parameters:
     - name: uuid
       in: path
@@ -2394,7 +2402,7 @@ paths:
       - verzoeken
       security:
       - JWT-Claims:
-        - audittrails.lezen
+        - audittrail.lezen
     parameters:
     - name: uuid
       in: path
@@ -2416,6 +2424,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: informatieobject
         in: query
         description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten API)
@@ -2425,6 +2435,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       responses:
         '200':
           description: OK
@@ -3012,6 +3024,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: product
         in: query
         description: URL-referentie naar het PRODUCT (in de Producten en Diensten
@@ -3020,6 +3034,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: productIdentificatie__code
         in: query
         description: De unieke code van het PRODUCT.
@@ -3608,6 +3624,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       - name: verzoek
         in: query
         description: URL-referentie naar het VERZOEK.
@@ -3615,6 +3633,8 @@ paths:
         schema:
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
       responses:
         '200':
           description: OK
@@ -4351,10 +4371,7 @@ components:
         objectType:
           title: Objecttype
           description: 'Het type van het gerelateerde OBJECT.
-
-
             Uitleg bij mogelijke waarden:
-
 
             * `zaak` - Zaak'
           type: string
@@ -4498,9 +4515,7 @@ components:
           description: 'De waarden van de typering van de voortgang van afhandeling
             van een VERZOEK.
 
-
             Uitleg bij mogelijke waarden:
-
 
             * `ontvangen` - (Ontvangen) Het verzoek is ingediend en door de organisatie
             ontvangen.
