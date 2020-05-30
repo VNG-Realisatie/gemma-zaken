@@ -1,4 +1,4 @@
-Hieronder de link naar de huidige OAS specificatie voor klantinteracties:
+Hieronder de link naar de huidige OAS-specificatie voor klantinteracties:
 - [Klantinteracties API](http://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/HenriKorver/gemma-zaken/master/api-specificatie/DESIGN/kic/openapi.yaml)
 
 Hieronder de links naar de gesplitste versie van de Klantinteractie API in Redoc-view:
