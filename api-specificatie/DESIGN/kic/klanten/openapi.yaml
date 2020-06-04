@@ -1048,6 +1048,8 @@ components:
           items:
             $ref: '#/components/schemas/FieldValidationError'
     Klant:
+      required:
+        - bronorganisatie
       type: object
       properties:
         url:
