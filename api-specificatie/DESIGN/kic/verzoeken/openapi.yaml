@@ -4543,6 +4543,7 @@ components:
           format: uri
           maxLength: 1000
           minLength: 1
+          nullable: True
         intrekkendeVerzoek:
           title: Url
           description: URL-referentie naar het (latere) VERZOEK waarin verzocht wordt dit VERZOEK in te trekken. Dit veld is alleen leesbaar en wordt automatisch gezet wanneer er een ander VERZOEK wordt aangemaakt dat dit VERZOEK intrekt. 
@@ -4551,6 +4552,7 @@ components:
           readOnly: true
           maxLength: 1000
           minLength: 1
+          nullable: True
         aangevuldeVerzoek:
           title: Url
           description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK wordt aangevuld.
@@ -4558,6 +4560,7 @@ components:
           format: uri
           maxLength: 1000
           minLength: 1
+          nullable: True
         aanvullendeVerzoek:
           title: Url
           description: URL-referentie naar het (latere) VERZOEK waarin dit VERZOEK wordt aangevuld. Dit veld is alleen leesbaar en wordt automatisch gezet indien een ander VERZOEK wordt aangemaakt dat dit VERZOEK aanvult.
@@ -4566,6 +4569,7 @@ components:
           readOnly: true
           maxLength: 1000
           minLength: 1
+          nullable: True
     VerzoekInformatieObject:
       required:
       - informatieobject
