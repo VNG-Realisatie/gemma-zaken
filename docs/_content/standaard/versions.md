@@ -50,8 +50,13 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 
 Versie   | Release datum | API specificatie 
 -------- | ------------- | ----------------
+1.0.2    | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff]
 1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
+
+[zaken-1.0.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaakregistratiecomponent/1.0.2/src/openapi.yaml
+[zaken-1.0.2-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaakregistratiecomponent/1.0.2/src/openapi.yaml
+[zaken-1.0.2-diff]: https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent/compare/1.0.1...1.0.2?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 [zaken-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaakregistratiecomponent/1.0.1/src/openapi.yaml
 [zaken-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaakregistratiecomponent/1.0.1/src/openapi.yaml
