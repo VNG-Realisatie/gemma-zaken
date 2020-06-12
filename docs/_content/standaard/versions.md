@@ -5,7 +5,6 @@ weight: 30
 ---
 
 <a href="#zaken-api">Zaken API</a> | <a href="#documenten-api">Documenten API</a> | <a href="#besluiten-api">Besluiten API</a> | <a href="#catalogi-api">Catalogi API</a> | <a href="#autorisaties-api">Autorisaties API</a> | <a href="#notificaties-api">Notificaties API</a>
---- | --- | --- | --- | --- | ---
 
 ## Algemeen
 
