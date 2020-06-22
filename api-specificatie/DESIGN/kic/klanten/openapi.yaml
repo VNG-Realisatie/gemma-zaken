@@ -65,9 +65,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Klant'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Klant'
         '401':
           description: Unauthorized
           headers:
@@ -1048,6 +1064,8 @@ components:
           items:
             $ref: '#/components/schemas/FieldValidationError'
     Klant:
+      required:
+        - bronorganisatie
       type: object
       properties:
         url:
