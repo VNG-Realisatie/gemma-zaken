@@ -53,6 +53,132 @@ paths:
       operationId: klant_list
       summary: Alle KLANTen opvragen.
       description: Alle KLANTen opvragen.
+      parameters:
+        - name: bronorganisatie
+          in: query
+          description: Het RSIN van de Niet-Natuurlijk Persoon zijnde de organisatie
+            die de klant heeft geregistreerd. Dit moet een geldig RSIN zijn
+            van 9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 1
+        - name: klantnummer
+          in: query
+          description: De unieke identificatie van de klant binnen de bronorganisatie.
+          schema:
+            type: string
+            maxLength: 8
+            minLength: 1
+        - name: bedrijfsnaam
+          in: query
+          description: De bedrijfsnaam van de klant.
+          schema:
+            type: string
+            maxLength: 200
+        - name: functie
+          in: query
+          description: De functie van de klant.
+          schema:
+            type: string
+            maxLength: 200
+        - name: achternaam
+          in: query
+          description: De achternaam van de klant.
+          schema:
+            type: string
+            maxLength: 200
+        - name: telefoonnummer
+          in: query
+          description: Het mobiele of vaste telefoonnummer van de klant.
+          schema:
+            type: string
+            maxLength: 20
+        - name: emailadres
+          in: query
+          description: Het e-mail adres van de klant.
+          schema:
+            type: string
+            format: email
+            maxLength: 254
+        - name: adres_straatnaam
+          in: query
+          schema:
+            type: string  
+        - name: adres_postcode
+          in: query
+          schema:
+            type: string
+        - name: woonplaatsnaam
+          in: query
+          schema:
+            type: string
+        - name: adres_landcode
+          description: De code, behorende bij de landnaam, zoals opgenomen in de Land/Gebied-tabel
+            van de BRP.
+          in: query
+          schema:
+            type: string
+            maxLength: 4
+            minLength: 1
+        - name: subject
+          in: query
+          description: URL-referentie naar een subject.
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+        - name: subjectType
+          in: query
+          description: Type van de `subject`.
+          schema:
+            type: string
+            enum:
+              - natuurlijk_persoon
+              - niet_natuurlijk_persoon
+              - vestiging
+            nullable: true
+        - name: subject_natuurlijkPersoon_inpBsn
+          in: query
+          description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
+            algemene bepalingen burgerservicenummer.
+          schema:
+            type: string
+            maxLength: 9
+        - name: subject_natuurlijkPersoon_anpIdentificatie
+          in: query
+          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+            NATUURLIJK PERSOON
+          schema:
+            type: string
+            maxLength: 17
+        - name: subject_natuurlijkPersoon_inpANummer
+          in: query
+          description: Het administratienummer van de persoon, bedoeld in de Wet BRP
+          schema:
+            type: string
+            pattern: ^[1-9][0-9]{9}$
+            maxLength: 10
+        - name: subject_nietNatuurlijkPersoon_innNnpId
+          in: query
+          description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+            NIET-NATUURLIJK PERSOON
+          schema:
+            type: string
+            maxLength: 9
+        - name: subject_nietNatuurlijkPersoon_annIdentificatie
+          in: query
+          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+            NIET-NATUURLIJK PERSOON
+          schema:
+            type: string
+            maxLength: 17
+        - name: subject_vestiging_vestigingsNummer
+          in: query
+          description: Een korte unieke aanduiding van de Vestiging.
+          schema:
+            type: string
+            maxLength: 24
       responses:
         '200':
           description: OK
@@ -189,15 +315,6 @@ paths:
       operationId: klant_create
       summary: Maak een KLANT aan.
       description: Maak een KLANT aan.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Klant'
       responses:
@@ -492,15 +609,6 @@ paths:
       operationId: klant_update
       summary: Werk een KLANT in zijn geheel bij.
       description: Werk een KLANT in zijn geheel bij.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Klant'
       responses:
@@ -645,15 +753,6 @@ paths:
       operationId: klant_partial_update
       summary: Werk een KLANT deels bij.
       description: Werk een KLANT deels bij.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Klant'
       responses:
