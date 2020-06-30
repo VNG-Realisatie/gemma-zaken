@@ -227,15 +227,6 @@ paths:
         Andere API''s, zoals de Zaken API, gebruiken dit
 
         endpoint bij het synchroniseren van relaties.'
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         content:
           application/json:
@@ -1288,7 +1279,142 @@ paths:
     get:
       operationId: verzoek_list
       summary: Alle VERZOEKen opvragen.
-      description: Alle VERZOEKen opvragen.
+      description: Alle VERZOEKen opvragen
+      parameters:
+        - name: identificatie
+          in: query
+          description: De unieke identificatie van het VERZOEK binnen de organisatie
+            die verantwoordelijk is voor de behandeling van het VERZOEK.
+          schema:
+            type: string
+            maxLength: 40
+        - name: bronorganisatie
+          in: query
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die de klantinteractie heeft gecreeerd. Dit moet een geldig RSIN zijn
+            van 9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+          schema:
+            type: string
+            maxLength: 9
+            minLength: 1
+        - name: externeIdentificatie
+          in: query
+          description: De identificatie van het VERZOEK buiten de eigen organisatie.
+          schema:
+            type: string
+            maxLength: 40
+        - name: registratiedatum
+          in: query
+          description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__gt
+          in: query
+          description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__gte
+          in: query
+          description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__lt
+          in: query
+          description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: registratiedatum__lte
+          in: query
+          description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: voorkeurskanaal
+          in: query
+          description: Het communicatiekanaal dat voor opvolging van het VERZOEK
+            de voorkeur heeft van de KLANT.
+          schema:
+            type: string
+            maxLength: 50
+        - name: tekst
+          in: query
+          description: Een toelichting die inhoudelijk het VERZOEK van de KLANT
+            beschrijft.
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: 'De waarden van de typering van de voortgang van afhandeling
+            van een VERZOEK.
+
+            Uitleg bij mogelijke waarden:
+
+            * `ontvangen` - (Ontvangen) Het verzoek is ingediend en door de organisatie
+            ontvangen.
+
+            * `in_behandeling` - (In behandeling) Het is verzoek is in behandeling.
+
+            * `afgehandeld` - (Afgehandeld) Het verzoek zelf is afgehandeld. Eventuele
+            vervolg acties, zoals zaken die voortkomen uit het verzoek, hebben een
+            eigen status.
+
+            * `afgewezen` - (Afgewezen) Het verzoek is afgewezen zonder vervolg acties.
+
+            * `ingetrokken` - (Ingetrokken) De indiener heeft het verzoek ingetrokken.'
+          schema:
+            type: string
+            enum:
+            - ontvangen
+            - in_behandeling
+            - afgehandeld
+            - afgewezen
+            - ingetrokken
+        - name: inTeTrekkenVerzoek
+          in: query
+          description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK wordt verzocht ingetrokken te worden.
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+            nullable: True
+        - name: intrekkendeVerzoek
+          in: query
+          description: URL-referentie naar het (latere) VERZOEK waarin verzocht wordt dit VERZOEK in te trekken. Dit veld is alleen leesbaar en wordt automatisch gezet wanneer er een ander VERZOEK wordt aangemaakt dat dit VERZOEK intrekt. 
+          schema:
+            type: string
+            format: uri
+            readOnly: true
+            maxLength: 1000
+            minLength: 1
+            nullable: True
+        - name: aangevuldeVerzoek
+          in: query
+          description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK wordt aangevuld.
+          schema:
+            type: string
+            format: uri
+            maxLength: 1000
+            minLength: 1
+            nullable: True
+        - name: aanvullendeVerzoek
+          in: query
+          description: URL-referentie naar het (latere) VERZOEK waarin dit VERZOEK wordt aangevuld. Dit veld is alleen leesbaar en wordt automatisch gezet indien een ander VERZOEK wordt aangemaakt dat dit VERZOEK aanvult.
+          schema:
+            type: string
+            format: uri
+            readOnly: true
+            maxLength: 1000
+            minLength: 1
+            nullable: True
       responses:
         '200':
           description: OK
@@ -1425,15 +1551,6 @@ paths:
       operationId: verzoek_create
       summary: Maak een VERZOEK aan.
       description: Maak een VERZOEK aan.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Verzoek'
       responses:
@@ -1728,15 +1845,6 @@ paths:
       operationId: verzoek_update
       summary: Werk een VERZOEK in zijn geheel bij.
       description: Werk een VERZOEK in zijn geheel bij.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Verzoek'
       responses:
@@ -1881,15 +1989,6 @@ paths:
       operationId: verzoek_partial_update
       summary: Werk een VERZOEK deels bij.
       description: Werk een VERZOEK deels bij.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         $ref: '#/components/requestBodies/Verzoek'
       responses:
@@ -2638,15 +2737,6 @@ paths:
         - de combinatie `informatieobject` en `verzoek` moet uniek zijn\n\n**Opmerkingen**\n\
         - Bij het aanmaken wordt ook in de Documenten API de gespiegelde relatie\n\
         \  aangemaakt, echter zonder de relatie-informatie."
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         content:
           application/json:
@@ -3863,15 +3953,6 @@ paths:
       operationId: klantverzoek_create
       summary: Maak een KLANT-VERZOEK relatie aan.
       description: Maak een KLANT-VERZOEK relatie aan.
-      parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
       requestBody:
         content:
           application/json:
