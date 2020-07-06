@@ -21,29 +21,29 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze
 businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN
 zoals beschreven geïmplementeerd worden.
 
-#### **<a name="zrc-001">Valideren `zaaktype` op de `Zaak`-resource ([zrc-001](#zrc-001))</a>**
 
-Bij het aanmaken (`zaak_create`) MOET de URL-referentie naar het `zaaktype` gevalideerd
-worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk)
-resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een
-`HTTP 400` foutbericht.
 
-De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype
-is conform de 1.0.x Catalogi API specificatie.
+#### **<a name="vrz-001">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Verzoek`-resource ([vrz-001](#vrz-001))</a>**
 
-Als er geprobeerd wordt om het `zaaktype` van een bestaande `Zaak` bij te werken
-(`zaak_update`, `zaak_partial_update`), dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
-
-#### **<a name="zrc-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource ([zrc-002](#zrc-002))</a>**
-
-Bij het aanmaken (`zaak_create`) en bijwerken (`zaak_update` en
-`zaak_partial_update`) MOET gevalideerd worden dat de combinatie `identificatie`
+Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en
+`verzoek_partial_update`) van een verzoek MOET gevalideerd worden dat de combinatie `identificatie`
 en `bronorganisatie` uniek is, indien de `identificatie` door de consumer
 meegestuurd wordt.
 
-Indien de identificatie niet door de consumer gestuurd wordt, dan MOET het ZRC
+Indien de identificatie niet door de consumer gestuurd wordt, dan MOET de Verzoeken API
 de identificatie genereren op een manier die garandeert dat de identificatie
 uniek is binnen de bronorganisatie.
+
+
+#### **<a name="vrz-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Verzoek`-resource ([vrz-002](#vrz-001))</a>**
+
+Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en
+`verzoek_partial_update`) van een verzoek MOET gevalideerd worden dat de combinatie `identificatie`
+en `bronorganisatie` uniek is, indien de `identificatie` door de consumer
+meegestuurd wordt.
+
+
+
 
 #### **<a name="zrc-003">Valideren `informatieobject` op de `ZaakInformatieObject`-resource ([zrc-003](#zrc-003))</a>**
 
