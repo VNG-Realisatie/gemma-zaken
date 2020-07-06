@@ -1,18 +1,12 @@
 
 # Specificatie van gedrag
 
-Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
+De Verzoeken API MOET aan twee aspecten voldoen:
 
-* de ZRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
+* de OAS-specificatie `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
-* het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
+* het run-time gedrag hieronder beschreven MOET correct geïmplementeerd
   zijn.
-
-## OpenAPI specificatie
-
-Alle operaties beschreven in de `openapi.yaml`
-MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
-referentie-implementatie van het ZRC.
 
 
 ## Run-time gedrag
@@ -46,7 +40,7 @@ Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en
 `verzoek_partial_update`) van een VERZOEK MOET op basis van het veld `aangevuldeVerzoek` het veld `aanvullendeVerzoek` van het VERZOEK dat is aangevuld worden aangepast zodat er een kruisverwijzing ontstaat.
 
 
-### **<a name="vrz-004">Valideren attributen `klant`, `verzoek` en `rol` bij aanmaken van een KLANT-VEZOEK relatie ([vrz-004](#vrz-004))</a>**
+### **<a name="vrz-004">Valideren attributen `klant`, `verzoek` en `rol` bij aanmaken van een KLANT-VERZOEK relatie ([vrz-004](#vrz-004))</a>**
 
 Bij het aanmaken van een KLANT-VERZOEK-relatie (`klantverzoek_create`) MOETEN de URL-referenties
 naar KLANT en VERZOEK gevalideerd worden op het bestaan. Indien het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. Bovendien MOET de combinatie `klant`, `verzoek` en `rol` uniek zijn. Als dit niet het geval is, MOET er geantwoord worden met een `HTTP 400` foutbericht.
@@ -71,7 +65,7 @@ naar VERZOEK en PRODUCT indien niet gelijk aan `null` gevalideerd worden op het 
 Bij het aanmaken van een OBJECT-VERZOEK relatie (`objectverzoek_create`) MOETEN de URL-referenties
 naar OBJECT en VERZOEK gevalideerd worden op het bestaan. Indien het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. Bovendien MOET de combinatie `object` en `verzoek` uniek zijn. Als dit niet het geval is, MOET er geantwoord worden met een `HTTP 400` foutbericht.
 
-#### **<a name="vrz-009">Valideren bestaan relatie tussen OBJECT en VERZOEK in de bron ([vrz-009](#vrz-009))</a>**
+### **<a name="vrz-009">Valideren bestaan relatie tussen OBJECT en VERZOEK in de bron ([vrz-009](#vrz-009))</a>**
 
 Er MOET gevalideerd worden dat de relatie tussen het OBJECT en het VERZOEK al bestaat in de bron van het OBJECT. De bron van het OBJECT is bekend door de eerdere validaties op deze URL. 
 
