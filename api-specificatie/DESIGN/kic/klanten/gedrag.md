@@ -19,7 +19,7 @@ zoals beschreven geïmplementeerd worden.
 ### **<a name="kla-001">Garanderen uniciteit `bronorganisatie` en `klantnummer` van een KLANT ([kla-001](#kla-001))</a>**
 
 Bij het aanmaken (`klant_create`) en bijwerken (`klant_update` en
-`klant_partial_update`) van een klant MOET gevalideerd worden dat de combinatie `bronorganisatie` en `klantnummer` uniek is, indien de `klantnummer` door de consumer
+`klant_partial_update`) van een klant MOET gevalideerd worden dat de combinatie `bronorganisatie` en `klantnummer` uniek is, indien het `klantnummer` door de consumer
 meegestuurd wordt.
 
 Indien het `klantnummer` niet door de consumer gestuurd wordt, dan MOET de Klanten API
@@ -30,7 +30,7 @@ uniek is binnen de bronorganisatie.
 ### **<a name="kla-002">Valideren attribuut `subject` bij aanmaken van een KLANT ([kla-006](#kla-002))</a>**
 
 Bij het aanmaken van een KLANT (`klant_create`) MOET de URL-referentie
-naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Indien het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
+naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
 
 
 ### HTTP-Caching
