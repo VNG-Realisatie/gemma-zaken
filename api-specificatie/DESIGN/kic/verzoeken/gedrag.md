@@ -71,14 +71,14 @@ Er MOET gevalideerd worden dat de relatie tussen het OBJECT en het VERZOEK al be
 
 ### HTTP-Caching
 
-De Documenten API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In
+De Verzoeken API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In
 de API spec staat beschreven voor welke resources dit van toepassing is.
 
 De `ETag` MOET worden berekend op de JSON-weergave van de resource.
 Verschillende, maar equivalente weergaves (bijvoorbeeld dezelfde API ontsloten
 wel/niet via NLX) MOETEN verschillende waarden voor de `ETag` hebben.
 
-Indien de consumer een `HEAD` verzoek uitvooert op deze resources, dan MOET de
+Indien de consumer een `HEAD` verzoek uitvoert op deze resources, dan MOET de
 provider antwoorden met dezelfde headers als bij een normale `GET`, dus
 inclusief de `ETag` header. Er MAG GEEN response body voorkomen.
 
