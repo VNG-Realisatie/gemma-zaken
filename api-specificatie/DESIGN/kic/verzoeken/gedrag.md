@@ -29,12 +29,12 @@ de identificatie genereren op een manier die garandeert dat de identificatie
 uniek is binnen de bronorganisatie.
 
 
-### **<a name="vrz-002">Automatisch zetten van het attribuut `intrekkendeVerzoek`([vrz-002](#vrz-001))</a>**
+### **<a name="vrz-002">Automatisch zetten van het attribuut `intrekkendeVerzoek`([vrz-002](#vrz-002))</a>**
 
 Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en
 `verzoek_partial_update`) van een VERZOEK MOET op basis van het veld `inTeTrekkenVerzoek` het veld `intrekkendeVerzoek` van het VERZOEK dat is ingetrokken automatisch worden aangepast zodat er een kruisverwijzing ontstaat.
 
-### **<a name="vrz-003">Automatisch zetten van het attribuut `aanvullendeVerzoek`([vrz-003](#vrz-001))</a>**
+### **<a name="vrz-003">Automatisch zetten van het attribuut `aanvullendeVerzoek`([vrz-003](#vrz-003))</a>**
 
 Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en
 `verzoek_partial_update`) van een VERZOEK MOET op basis van het veld `aangevuldeVerzoek` het veld `aanvullendeVerzoek` van het VERZOEK dat is aangevuld worden aangepast zodat er een kruisverwijzing ontstaat.

@@ -27,7 +27,7 @@ het nummer genereren op een manier die garandeert dat het
 uniek is binnen de bronorganisatie.
 
 
-### **<a name="kla-002">Valideren attribuut `subject` bij aanmaken van een KLANT ([kla-006](#kla-002))</a>**
+### **<a name="kla-002">Valideren attribuut `subject` bij aanmaken van een KLANT ([kla-002](#kla-002))</a>**
 
 Bij het aanmaken van een KLANT (`klant_create`) MOET de URL-referentie
 naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
