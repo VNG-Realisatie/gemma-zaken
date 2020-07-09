@@ -86,6 +86,130 @@ paths:
       operationId: contactmoment_list
       summary: Alle CONTACTMOMENTen opvragen.
       description: Alle CONTACTMOMENTen opvragen.
+      parameters:
+      - name: voorkeurstaal
+        in: query
+        description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+          is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
+        required: false
+        schema:
+          type: string
+      - name: vorigContactmoment
+        in: query
+        description: URL-referentie naar het vorige CONTACTMOMENT.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: volgendContactmoment
+        in: query
+        description: URL-referentie naar het volgende CONTACTMOMENT.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: bronorganisatie
+        in: query
+        description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+          die de klantinteractie heeft gecreeerd. Dit moet een geldig RSIN zijn van
+          9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum
+        in: query
+        description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__gt
+        in: query
+        description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__gte
+        in: query
+        description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__lt
+        in: query
+        description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__lte
+        in: query
+        description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: kanaal
+        in: query
+        description: Het communicatiekanaal waarlangs het CONTACTMOMENT gevoerd wordt
+        required: false
+        schema:
+          type: string
+      - name: voorkeurskanaal
+        in: query
+        description: Het communicatiekanaal dat voor opvolging van de klantinteractie
+          de voorkeur heeft van de KLANT.
+        required: false
+        schema:
+          type: string
+      - name: initiatiefnemer
+        in: query
+        description: "De partij die het contact heeft ge\xEFnitieerd."
+        required: false
+        schema:
+          type: string
+          enum:
+          - gemeente
+          - klant
+      - name: medewerker
+        in: query
+        description: URL-referentie naar een medewerker
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: ordering
+        in: query
+        description: Het veld waarop de resultaten geordend worden.
+        required: false
+        schema:
+          type: string
+          enum:
+          - url
+          - -url
+          - bronorganisatie
+          - -bronorganisatie
+          - klant
+          - -klant
+          - registratiedatum
+          - -registratiedatum
+          - kanaal
+          - -kanaal
+          - voorkeurskanaal
+          - -voorkeurskanaal
+          - tekst
+          - -tekst
+          - onderwerp_links
+          - -onderwerp_links
+          - initiatiefnemer
+          - -initiatiefnemer
+          - medewerker
+          - -medewerker
+          - medewerker_identificatie
+          - -medewerker_identificatie
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -98,9 +222,37 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ContactMoment'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ContactMoment'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: Unauthorized
           headers:
@@ -207,6 +359,14 @@ paths:
       summary: Maak een CONTACTMOMENT aan.
       description: Maak een CONTACTMOMENT aan.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -501,7 +661,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -672,7 +832,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -822,6 +982,14 @@ paths:
       summary: Werk een CONTACTMOMENT in zijn geheel bij.
       description: Werk een CONTACTMOMENT in zijn geheel bij.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -987,6 +1155,14 @@ paths:
       summary: Werk een CONTACTMOMENT deels bij.
       description: Werk een CONTACTMOMENT deels bij.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -1302,6 +1478,616 @@ paths:
       schema:
         type: string
         format: uuid
+  /klantcontactmomenten:
+    get:
+      operationId: klantcontactmoment_list
+      summary: Alle KLANT-CONTACTMOMENT relaties opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
+      parameters:
+      - name: contactmoment
+        in: query
+        description: URL-referentie naar het CONTACTMOMENT.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: klant
+        in: query
+        description: URL-referentie naar de KLANT.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: rol
+        in: query
+        description: De rol van de KLANT in het CONTACTMOMENT. Indien de KLANT zowel
+          gesprekspartner als belanghebbende is, dan worden er twee KLANTCONTACTMOMENTen
+          aangemaakt.
+        required: false
+        schema:
+          type: string
+          enum:
+          - belanghebbende
+          - gesprekspartner
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KlantContactMoment'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - klantcontactmomenten
+      security:
+      - JWT-Claims:
+        - contactmomenten.lezen
+    post:
+      operationId: klantcontactmoment_create
+      summary: Maak een KLANT-CONTACTMOMENT relatie aan.
+      description: 'Registreer een CONTACTMOMENT bij een KLANT.
+
+
+        **Er wordt gevalideerd op**
+
+
+        * geldigheid `contactmoment` URL
+
+        * geldigheid `klant` URL
+
+        * de combinatie `contactmoment` en `klant` moet uniek zijn'
+      parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KlantContactMoment'
+        required: true
+      responses:
+        '201':
+          description: Created
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+            Location:
+              schema:
+                type: string
+                format: uri
+              description: URL waar de resource leeft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KlantContactMoment'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - klantcontactmomenten
+      security:
+      - JWT-Claims:
+        - contactmomenten.aanmaken
+    parameters: []
+  /klantcontactmomenten/{uuid}:
+    get:
+      operationId: klantcontactmoment_read
+      summary: Een specifieke KLANT-CONTACTMOMENT relatie opvragen.
+      description: Een specifieke KLANT-CONTACTMOMENT relatie opvragen.
+      parameters:
+      - name: If-None-Match
+        in: header
+        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
+          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+          \ voor meer informatie."
+        required: false
+        examples:
+          oneValue:
+            summary: "E\xE9n ETag-waarde"
+            value: '"79054025255fb1a26e4bc422aef54eb4"'
+          multipleValues:
+            summary: Meerdere ETag-waardes
+            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            ETag:
+              description: De ETag berekend op de response body JSON. Indien twee
+                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
+                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              schema:
+                type: string
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KlantContactMoment'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - klantcontactmomenten
+      security:
+      - JWT-Claims:
+        - contactmomenten.lezen
+    delete:
+      operationId: klantcontactmoment_delete
+      summary: Verwijder een KLANT-CONTACTMOMENT relatie.
+      description: Verwijder een KLANT-CONTACTMOMENT relatie.
+      responses:
+        '204':
+          description: No content
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+        '401':
+          description: Unauthorized
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '403':
+          description: Forbidden
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '404':
+          description: Not found
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '406':
+          description: Not acceptable
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '409':
+          description: Conflict
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '410':
+          description: Gone
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '415':
+          description: Unsupported media type
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '429':
+          description: Too many requests
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+        '500':
+          description: Internal server error
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+      tags:
+      - klantcontactmomenten
+      security:
+      - JWT-Claims:
+        - contactmomenten.verwijderen
+    parameters:
+    - name: uuid
+      in: path
+      description: Unieke resource identifier (UUID4)
+      required: true
+      schema:
+        type: string
+        format: uuid
   /objectcontactmomenten:
     get:
       operationId: objectcontactmoment_list
@@ -1322,6 +2108,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -1334,9 +2126,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ObjectContactMoment'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ObjectContactMoment'
         '400':
           description: Bad request
           headers:
@@ -1462,6 +2270,15 @@ paths:
         Andere API''s, zoals de Zaken API, gebruiken dit
 
         endpoint bij het synchroniseren van relaties.'
+      parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       requestBody:
         content:
           application/json:
@@ -1611,7 +2428,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -1901,6 +2718,11 @@ paths:
 tags:
 - name: contactmomenten
   description: ''
+- name: klantcontactmomenten
+  description: 'Het betreft een relatie tussen een willekeurig OBJECT, bijvoorbeeld
+    een
+
+    ZAAK in de Zaken API, en een CONTACTMOMENT.'
 - name: objectcontactmomenten
   description: 'Het betreft een relatie tussen een willekeurig OBJECT, bijvoorbeeld
     een
@@ -1964,6 +2786,23 @@ components:
           readOnly: true
           maxLength: 1000
           minLength: 1
+        vorigContactmoment:
+          title: Vorig contactmoment
+          description: URL-referentie naar het vorige CONTACTMOMENT.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+          nullable: true
+        volgendContactmoment:
+          title: Volgend contactmoment
+          description: URL-referentie naar het volgende CONTACTMOMENT.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
         bronorganisatie:
           title: Bronorganisatie
           description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
@@ -1979,9 +2818,9 @@ components:
           type: string
           format: uri
           maxLength: 1000
-        interactiedatum:
-          title: Interactiedatum
-          description: De datum en het tijdstip waarop de klantinteractie heeft plaatsgevonden.
+        registratiedatum:
+          title: Registratiedatum
+          description: De datum en het tijdstip waarop het CONTACTMOMENT is geregistreerd.
           type: string
           format: date-time
         kanaal:
@@ -1996,6 +2835,12 @@ components:
             de voorkeur heeft van de KLANT.
           type: string
           maxLength: 50
+        voorkeurstaal:
+          title: Voorkeurstaal
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
+          type: string
+          maxLength: 3
         tekst:
           title: Tekst
           description: Een toelichting die inhoudelijk de klantinteractie van de klant
@@ -2293,6 +3138,45 @@ components:
           readOnly: true
         wijzigingen:
           $ref: '#/components/schemas/Wijzigingen'
+    KlantContactMoment:
+      required:
+      - contactmoment
+      - klant
+      - rol
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        contactmoment:
+          title: Contactmoment
+          description: URL-referentie naar het CONTACTMOMENT.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        klant:
+          title: Klant
+          description: URL-referentie naar de KLANT.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        rol:
+          title: Rol
+          description: De rol van de KLANT in het CONTACTMOMENT. Indien de KLANT zowel
+            gesprekspartner als belanghebbende is, dan worden er twee KLANTCONTACTMOMENTen
+            aangemaakt.
+          type: string
+          enum:
+          - belanghebbende
+          - gesprekspartner
     ObjectContactMoment:
       required:
       - contactmoment
@@ -2314,13 +3198,15 @@ components:
           description: URL-referentie naar het CONTACTMOMENT.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         object:
           title: Object
           description: URL-referentie naar het gerelateerde OBJECT (in een andere
             API).
           type: string
           format: uri
-          maxLength: 200
+          maxLength: 1000
           minLength: 1
         objectType:
           title: Objecttype
