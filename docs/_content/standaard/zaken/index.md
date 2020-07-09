@@ -202,6 +202,7 @@ gedefinieerd worden. Het is mogelijk om op het niveau van `Applicatie` de vlag
 alle operaties voor deze consumer toelaten, op alle zaken.
 
 #### **<a name="zrc-007">Afsluiten zaak ([zrc-007](#zrc-007))</a>**
+
 Een zaak wordt afgesloten door een eindstatus toe te kennen aan een `Zaak`. Elk
 `ZaakType` MOET minimaal één `StatusType` kennen. De eindstatus binnen een
 `ZaakType` is het `StatusType` met het hoogste `volgnummer`.
@@ -213,7 +214,10 @@ eindstatus via de `Status.datumStatusGezet`.
 
 Als een `Zaak` een eindstatus heeft dan is de zaak afgesloten en mogen gegevens
 van de zaak niet meer aangepast worden (behalve om redenen van correctie). Dit
-MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`.
+MOET beveiligd worden met de scope `zds.scopes.zaken.geforceerd-bijwerken`. "Gegevens
+van de zaak" omvat hier ook de gerelateerde gegevens zoals klantcontacten, resultaat,
+rollen, statussen, zaakinformatieobjecten, zaakobjecten, zaakbesluiten en
+zaakeigenschappen.
 
 Bij het afsluiten van een `Zaak` MOET het ZRC het
 `Informatieobject.indicatieGebruiksrecht` controleren van alle gerelateerde

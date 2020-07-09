@@ -91,18 +91,18 @@ info:
     **Handige links**
 
 
-    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+    * [Documentatie](https://vng-realisatie.github.io/gemma-zaken/standaard)
 
-    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+    * [Zaakgericht werken](https://vng-realisatie.github.io/gemma-zaken)
 
     '
   contact:
-    url: https://zaakgerichtwerken.vng.cloud
+    url: https://vng-realisatie.github.io/gemma-zaken
     email: standaarden.ondersteuning@vng.nl
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.1
+  version: 1.0.2
 security:
 - JWT-Claims: []
 paths:
@@ -432,7 +432,7 @@ paths:
       - klantcontacten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /klantcontacten/{uuid}:
     get:
@@ -904,7 +904,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /resultaten/{uuid}:
     get:
@@ -1205,7 +1205,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     patch:
       operationId: resultaat_partial_update
       summary: Werk een RESULTAAT deels bij.
@@ -1374,7 +1374,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     delete:
       operationId: resultaat_delete
       summary: Verwijder een RESULTAAT van een ZAAK.
@@ -1521,7 +1521,7 @@ paths:
       - resultaten
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: uuid
       in: path
@@ -1954,7 +1954,7 @@ paths:
       - rollen
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /rollen/{uuid}:
     get:
@@ -2212,7 +2212,7 @@ paths:
       - rollen
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: uuid
       in: path
@@ -3011,7 +3011,7 @@ paths:
       - zaakinformatieobjecten
       security:
       - JWT-Claims:
-        - (zaken.aanmaken | zaken.bijwerken)
+        - (zaken.aanmaken | zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /zaakinformatieobjecten/{uuid}:
     get:
@@ -4016,7 +4016,7 @@ paths:
       - zaakobjecten
       security:
       - JWT-Claims:
-        - (zaken.aanmaken | zaken.bijwerken)
+        - (zaken.aanmaken | zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters: []
   /zaakobjecten/{uuid}:
     get:
@@ -4276,6 +4276,70 @@ paths:
       - name: startdatum__lte
         in: query
         description: De datum waarop met de uitvoering van de zaak is gestart
+        required: false
+        schema:
+          type: string
+      - name: rol__betrokkeneType
+        in: query
+        description: Type van de `betrokkene`.
+        required: false
+        schema:
+          type: string
+          enum:
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - vestiging
+          - organisatorische_eenheid
+          - medewerker
+      - name: rol__betrokkene
+        in: query
+        description: URL-referentie naar een betrokkene gerelateerd aan de ZAAK.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: rol__omschrijvingGeneriek
+        in: query
+        description: Algemeen gehanteerde benaming van de aard van de ROL, afgeleid
+          uit het ROLTYPE.
+        required: false
+        schema:
+          type: string
+          enum:
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
+      - name: maximaleVertrouwelijkheidaanduiding
+        in: query
+        description: Zaken met een vertrouwelijkheidaanduiding die beperkter is dan
+          de aangegeven aanduiding worden uit de resultaten gefiltered.
+        required: false
+        schema:
+          type: string
+          enum:
+          - openbaar
+          - beperkt_openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer_geheim
+      - name: rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn
+        in: query
+        description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene
+          bepalingen burgerservicenummer.
+        required: false
+        schema:
+          type: string
+      - name: rol__betrokkeneIdentificatie__medewerker__identificatie
+        in: query
+        description: Een korte unieke aanduiding van de MEDEWERKER.
         required: false
         schema:
           type: string
@@ -6822,7 +6886,7 @@ paths:
       - zaken
       security:
       - JWT-Claims:
-        - zaken.bijwerken
+        - (zaken.bijwerken | zaken.geforceerd-bijwerken)
     parameters:
     - name: zaak_uuid
       in: path
@@ -9452,10 +9516,22 @@ components:
           minLength: 1
         archiefnominatie:
           title: Archiefnominatie
-          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
             termijn vernietigd moet worden.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `blijvend_bewaren` - Het zaakdossier moet bewaard blijven en op de Archiefactiedatum
+            overgedragen worden naar een archiefbewaarplaats.
+
+            * `vernietigen` - Het zaakdossier moet op of na de Archiefactiedatum vernietigd
+            worden.'
           type: string
-          minLength: 1
+          enum:
+          - blijvend_bewaren
+          - vernietigen
         archiefnominatie__in:
           title: Archiefnominatie  in
           description: Multiple values may be separated by commas.
@@ -9487,10 +9563,31 @@ components:
           minLength: 1
         archiefstatus:
           title: Archiefstatus
-          description: Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+          description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
             termijn vernietigd moet worden.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `nog_te_archiveren` - De zaak cq. het zaakdossier is nog niet als geheel
+            gearchiveerd.
+
+            * `gearchiveerd` - De zaak cq. het zaakdossier is als geheel niet-wijzigbaar
+            bewaarbaar gemaakt.
+
+            * `gearchiveerd_procestermijn_onbekend` - De zaak cq. het zaakdossier
+            is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum
+            kan nog niet bepaald worden.
+
+            * `overgedragen` - De zaak cq. het zaakdossier is overgebracht naar een
+            archiefbewaarplaats.'
           type: string
-          minLength: 1
+          enum:
+          - nog_te_archiveren
+          - gearchiveerd
+          - gearchiveerd_procestermijn_onbekend
+          - overgedragen
         archiefstatus__in:
           title: Archiefstatus  in
           description: Multiple values may be separated by commas.
@@ -9519,6 +9616,98 @@ components:
         startdatum__lte:
           title: Startdatum  lte
           description: De datum waarop met de uitvoering van de zaak is gestart
+          type: string
+          minLength: 1
+        rol__betrokkeneType:
+          title: Rol  betrokkenetype
+          description: 'Type van de `betrokkene`.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `vestiging` - Vestiging
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `medewerker` - Medewerker'
+          type: string
+          enum:
+          - natuurlijk_persoon
+          - niet_natuurlijk_persoon
+          - vestiging
+          - organisatorische_eenheid
+          - medewerker
+        rol__betrokkene:
+          title: Rol  betrokkene
+          description: URL-referentie naar een betrokkene gerelateerd aan de ZAAK.
+          type: string
+          minLength: 1
+        rol__omschrijvingGeneriek:
+          title: Rol  omschrijvinggeneriek
+          description: "Algemeen gehanteerde benaming van de aard van de ROL, afgeleid\
+            \ uit het ROLTYPE.\n\nUitleg bij mogelijke waarden:\n\n* `adviseur` -\
+            \ Adviseur\n* `behandelaar` - Behandelaar\n* `belanghebbende` - Belanghebbende\n\
+            * `beslisser` - Beslisser\n* `initiator` - Initiator\n* `klantcontacter`\
+            \ - Klantcontacter\n* `zaakcoordinator` - Zaakco\xF6rdinator\n* `mede_initiator`\
+            \ - Mede-initiator"
+          type: string
+          enum:
+          - adviseur
+          - behandelaar
+          - belanghebbende
+          - beslisser
+          - initiator
+          - klantcontacter
+          - zaakcoordinator
+          - mede_initiator
+        maximaleVertrouwelijkheidaanduiding:
+          title: Maximalevertrouwelijkheidaanduiding
+          description: 'Zaken met een vertrouwelijkheidaanduiding die beperkter is
+            dan de aangegeven aanduiding worden uit de resultaten gefiltered.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
+          type: string
+          enum:
+          - openbaar
+          - beperkt_openbaar
+          - intern
+          - zaakvertrouwelijk
+          - vertrouwelijk
+          - confidentieel
+          - geheim
+          - zeer_geheim
+        rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn:
+          title: Rol  betrokkeneidentificatie  natuurlijkpersoon  inpbsn
+          description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
+            algemene bepalingen burgerservicenummer.
+          type: string
+          minLength: 1
+        rol__betrokkeneIdentificatie__medewerker__identificatie:
+          title: Rol  betrokkeneidentificatie  medewerker  identificatie
+          description: Een korte unieke aanduiding van de MEDEWERKER.
           type: string
           minLength: 1
         ordering:
