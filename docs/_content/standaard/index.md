@@ -17,7 +17,6 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
 * [Klantinteracties API specificatie](klantinteracties/index)
 
-
 ## Algemeen
 
 De standaard "API's voor Zaakgericht Werken" bestaat uit een aantal API's. Per API is er een OAS3-specificatie en een beschrijving van het vereiste "run-time"-gedrag in zoverre dat niet kon worden vastgelegd in de API-specificatie. De OAS3-specificaties met beschrijvingen zijn normatief. De overige documentatie is ondersteunend en ter informatie.
@@ -53,6 +52,7 @@ De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelij
 | Notificaties   voor consumers  |          |           |            |           |              |              |                 |   |
 | Contacmomenten                 |          | optioneel |            |           |      X       |      X       |                 |   |
 
+Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de [API versies](./versions) die nu beschikbaar zijn.
 
 ## Overkoepelend gegevensmodel
 
@@ -66,6 +66,8 @@ Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en im
 
 Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
+
+Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
@@ -173,7 +175,7 @@ Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
 API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
-Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties) 
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties) 
 
 ### Beschikbaar stellen van de OAS
 
@@ -209,5 +211,6 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 
 ## Overige documentatie
 
+* [API versies](./versions)
 * [Achtergronddocumentatie](../themas/index)
 * [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)

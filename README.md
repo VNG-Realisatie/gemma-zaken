@@ -23,13 +23,16 @@ Lees meer over hoe je vragen kunt stellen, bugs kunt melden en bij kunt dragen (
 ## Documentatie
 De volgende documenten beschrijven dit project:
 
-- We werken aan realisatie van de [Productvisie](docs/_content/productvisie/index.md) (concept)
-- Hoe u kunt [bijdragen](docs/_content/doorontwikkeling/index.md) (inclusief het reviewproces)
+- We werken aan realisatie van de [Productvisie](https://vng-realisatie.github.io/gemma-zaken/productvisie/) (concept)
+- Hoe u kunt [bijdragen](https://vng-realisatie.github.io/gemma-zaken/doorontwikkeling/) (inclusief het reviewproces)
 - De [FAQ](docs/_content/overige/faq.md) beantwoordt vragen over het project
-- De [dev-straat](docs/_content/themas/achtergronddocumentatie/ontwikkelstraat.md) beschrijft de development
+- De [dev-straat](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwikkelstraat) beschrijft de development
   inrichting en tooling
-- [Technische documentatie](docs/_content/ontwikkelaars/index.md) voor developers
-- [Designkeuzes en besluiten](docs/_content/themas/achtergronddocumentatie/ontwerpkeuzes.md) voor scrumteam, developers en stakeholders
+- [Technische documentatie](https://vng-realisatie.github.io/gemma-zaken/ontwikkelaars/) voor developers
+- [Designkeuzes en besluiten](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwerpkeuzes) voor scrumteam, developers en stakeholders
+
+Een hoogover overzicht van de API's voor Zaakgericht werken staat [hier](https://www.vngrealisatie.nl/producten/api-standaarden-zaakgericht-werken). De volledige documentatie zoals deze op github is beschreven is te vinden op de [github pages](https://vng-realisatie.github.io/gemma-zaken/).
+De Visie en uitwerking van Zaakgericht Werken in de GEMMA Architectuur staat beschreven op het [Thema Zaakgericht werken](https://www.gemmaonline.nl/index.php/Thema_Zaakgericht_werken) op GEMMA Online.
 
 ## Beheer en ondersteuning
 
@@ -37,7 +40,7 @@ De volgende documenten beschrijven dit project:
 
 ## API spec bekijken
 
-Zie de relevante links in dit [overzicht](docs/_content/standaard/index.md).
+Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma-zaken/standaard/index).
 
 ## Snelle links
 
