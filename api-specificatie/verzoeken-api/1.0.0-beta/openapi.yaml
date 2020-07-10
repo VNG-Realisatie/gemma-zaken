@@ -95,6 +95,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -107,9 +113,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/KlantVerzoek'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/KlantVerzoek'
         '400':
           description: Bad request
           headers:
@@ -227,6 +249,14 @@ paths:
       operationId: klantverzoek_create
       description: Maak een KLANT-VERZOEK relatie aan.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -396,7 +426,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -716,6 +746,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -728,9 +764,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ObjectVerzoek'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ObjectVerzoek'
         '400':
           description: Bad request
           headers:
@@ -856,6 +908,15 @@ paths:
         Andere API''s, zoals de Zaken API, gebruiken dit
 
         endpoint bij het synchroniseren van relaties.'
+      parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       requestBody:
         content:
           application/json:
@@ -1005,7 +1066,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -1312,6 +1373,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -1324,9 +1391,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VerzoekContactMoment'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VerzoekContactMoment'
         '400':
           description: Bad request
           headers:
@@ -1457,6 +1540,14 @@ paths:
 
         - de combinatie `contactmoment` en `verzoek` moet uniek zijn'
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -1626,7 +1717,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -1931,6 +2022,13 @@ paths:
       operationId: verzoek_list
       summary: Alle VERZOEKen opvragen.
       description: Alle VERZOEKen opvragen.
+      parameters:
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -1943,9 +2041,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Verzoek'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Verzoek'
         '401':
           description: Unauthorized
           headers:
@@ -2052,6 +2166,14 @@ paths:
       summary: Maak een VERZOEK aan.
       description: Maak een VERZOEK aan.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -2217,7 +2339,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -2367,6 +2489,14 @@ paths:
       summary: Werk een VERZOEK in zijn geheel bij.
       description: Werk een VERZOEK in zijn geheel bij.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -2532,6 +2662,14 @@ paths:
       summary: Werk een VERZOEK deels bij.
       description: Werk een VERZOEK deels bij.
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -2987,7 +3125,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -3169,6 +3307,12 @@ paths:
         schema:
           type: string
           format: uri
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -3181,9 +3325,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VerzoekInformatieObject'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VerzoekInformatieObject'
         '400':
           description: Bad request
           headers:
@@ -3307,6 +3467,14 @@ paths:
         - Bij het aanmaken wordt ook in de Documenten API de gespiegelde relatie\n\
         \  aangemaakt, echter zonder de relatie-informatie."
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -3476,7 +3644,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -3803,6 +3971,12 @@ paths:
         required: false
         schema:
           type: string
+      - name: page
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        required: false
+        schema:
+          type: integer
       responses:
         '200':
           description: OK
@@ -3815,9 +3989,25 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/VerzoekProduct'
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/VerzoekProduct'
         '400':
           description: Bad request
           headers:
@@ -3945,6 +4135,14 @@ paths:
 
         - geldigheid `product` URL'
       parameters:
+      - name: Content-Type
+        in: header
+        description: Content type van de verzoekinhoud.
+        required: true
+        schema:
+          type: string
+          enum:
+          - application/json
       - name: X-NLX-Request-Application-Id
         in: header
         description: Identificatie van de applicatie die het verzoek stuurt (indien
@@ -4114,7 +4312,7 @@ paths:
         description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
           n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
           \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+          \ deze set, dan antwoordt de provider met een lege HTTP 304 request. Zie\
           \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
           \ voor meer informatie."
         required: false
@@ -4473,6 +4671,8 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         rol:
           title: Rol
           description: 'Rol van de KLANT bij het VERZOEK.
@@ -4632,6 +4832,8 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         object:
           title: Object
           description: URL-referentie naar het gerelateerde OBJECT (in een andere
@@ -4679,6 +4881,8 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
     Verzoek:
       required:
       - bronorganisatie
@@ -4762,24 +4966,40 @@ components:
             wordt verzocht ingetrokken te worden.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
           nullable: true
         intrekkendeVerzoek:
           title: Intrekkende verzoek
+          description: URL-referentie naar het (latere) VERZOEK waarin verzocht wordt
+            dit VERZOEK in te trekken. Dit veld is alleen leesbaar en wordt automatisch
+            gezet wanneer er een ander VERZOEK wordt aangemaakt dat dit VERZOEK intrekt.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
         aangevuldeVerzoek:
           title: Aangevulde verzoek
           description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK
             wordt aangevuld.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
           nullable: true
         aanvullendeVerzoek:
           title: Aanvullende verzoek
+          description: URL-referentie naar het (latere) VERZOEK waarin dit VERZOEK
+            wordt aangevuld. Dit veld is alleen leesbaar en wordt automatisch gezet
+            indien een ander VERZOEK wordt aangemaakt dat dit VERZOEK aanvult.
           type: string
           format: uri
           readOnly: true
+          maxLength: 1000
+          minLength: 1
+          nullable: true
     Wijzigingen:
       title: Wijzigingen
       type: object
@@ -4971,6 +5191,8 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
     Product:
       title: Product identificatie
       description: Identificerende gegevens van het PRODUCT voor het geval er bij
@@ -5005,6 +5227,8 @@ components:
           description: URL-referentie naar het VERZOEK.
           type: string
           format: uri
+          maxLength: 1000
+          minLength: 1
         product:
           title: Product
           description: URL-referentie naar het PRODUCT (in de Producten en Diensten
