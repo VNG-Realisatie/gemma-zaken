@@ -1,6 +1,49 @@
-# Verzoeken API
+---
+title: "Verzoeken API"
+date: '14-7-2020'
+weight: 10
+---
 
 *WIP*
+
+API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
+
+De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over verzoeken. 
+
+## Gegevensmodel
+
+Een verzoek wordt gedefinieerd als ...
+
+Deze API ondersteunt het verwerken van gegevens van verzoeken inclusief de relatie met eventuele klant(en), contactmoment(en), informatieobject(en) en/of za(a)k(en).
+
+### Relatie met klanten
+
+Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende` en `Initiator` en `Mede-initiator`. De relatie tussen klant en verzoek is vastgelegd in `klantverzoek` in de verzoeken API.
+
+### Relatie met contactmomenten
+
+Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
+
+### Relatie met zaken
+
+Een verzoek kan leiden tot één of meer zaken. Daarnaast kan een verzoek betrekking hebben op één of meer zaken en in één zaak kunnen één of meer verzoeken afgehandeld worden. Deze relatie is vastgelegd in `zaakverzoek` (Zaken API) en `objectverzoek` (Verzoeken API).
+
+### Relatie met informatieobjecten
+
+Bij een verzoek kunnen één of meer informatieobject(en) geregistreerd zijn. En een informatieobject kan bij één of meer verzoeken en rol spelen. deze relatie s vasgelegd in `verzoekinformatieobject` (Verzoeken API) en `objectinformatieobject` (Documenten API).
+
+### Relatie met verzoeken
+
+[![Gegevensmodel Verzoeken API](Verzoeken API 1.0.0b.png){:width="1200px"}](Verzoeken API 1.0.0b.png "Verzoeken gegevensmodel - klik voor groot")
+
+## Specificatie van de Contactmomenten API
+
+* [Referentie-implementatie Verzoeken API](https://verzoeken-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://verzoeken-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://verzoeken-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.yaml) of
+  [JSON](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.json)
 
 # Specificatie van gedrag
 
@@ -10,19 +53,15 @@ De Verzoeken API MOET aan twee aspecten voldoen:
 
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
 
-
 ## Run-time gedrag
 
 Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN zoals beschreven geïmplementeerd worden.
-
-
 
 ### **<a name="vrz-001">Garanderen uniciteit `bronorganisatie` en `identificatie` in de `Verzoek`-resource ([vrz-001](#vrz-001))</a>**
 
 Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en `verzoek_partial_update`) van een verzoek MOET gevalideerd worden dat de combinatie `identificatie` en `bronorganisatie` uniek is, indien de `identificatie` door de consumer meegestuurd wordt.
 
 Indien de identificatie niet door de consumer gestuurd wordt, dan MOET de Verzoeken API de identificatie genereren op een manier die garandeert dat de identificatie uniek is binnen de bronorganisatie.
-
 
 ### **<a name="vrz-002">Automatisch zetten van het attribuut `intrekkendeVerzoek`([vrz-002](#vrz-002))</a>**
 
@@ -31,7 +70,6 @@ Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en `verzoek_p
 ### **<a name="vrz-003">Automatisch zetten van het attribuut `aanvullendeVerzoek`([vrz-003](#vrz-003))</a>**
 
 Bij het aanmaken (`verzoek_create`) en bijwerken (`verzoek_update` en `verzoek_partial_update`) van een VERZOEK MOET op basis van het veld `aangevuldeVerzoek` het veld `aanvullendeVerzoek` van het VERZOEK dat is aangevuld worden aangepast zodat er een kruisverwijzing ontstaat.
-
 
 ### **<a name="vrz-004">Valideren attributen `klant`, `verzoek` en `rol` bij aanmaken van een KLANT-VERZOEK relatie ([vrz-004](#vrz-004))</a>**
 
