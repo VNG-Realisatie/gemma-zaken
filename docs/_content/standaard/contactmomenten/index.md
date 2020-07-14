@@ -1,5 +1,3 @@
-# Contactmomenten API
-
 ---
 title: "Contactmomenten API"
 date: '14-7-2020'
