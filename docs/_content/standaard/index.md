@@ -42,18 +42,18 @@ Het is niet verplicht alle API's te implementeren, maar er zijn wel afhankelijkh
 
 De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelijk van kolom):
 
-|                                | Catalogi | Zaken     | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Contactmomenten | Klanten | Verzoeken | | Gemeentelijke selectielijst API |
-|--------------------------------|:----------:|:-----------:|:------------:|:-----------:|:--------------:|:--------------:|:-----------------:|:-----------------:|:-----------------:|:-----------------:|:-----------------------------:|
-| Catalogi                       |          |           |            |           |      X       |              |                 |   |   |   | X |
-| Zaken                          |    X     |           | optioneel  | optioneel |      X       |      X       |                 |   |   |   |   |
-| Documenten                     |    X     | optioneel |            | optioneel |      X       |      X       |                 | Optioneel |   | Optioneel |   |
-| Besluiten                      |    X     |           | optioneel  | optioneel |      X       |      X       |                 |   |   |   |   |
-| Autorisaties                   |          |           |            |           |      X       |      X       |                 |   |   |   |   |
-| Notificaties                   |          |           |            |           |      X       |              |                 |   |   |   |   |
-| Notificaties   voor consumers  |          |           |            |           |              |              |                 |   |   |   |   |
-| Contactmomenten                |          | optioneel | Optioneel  |           |      X       |      X       |                 |   | Optioneel | Optioneel |   |
-| Klanten                        |          |           | Optioneel  |           |      X       |      X       |                 | Optioneel |   | Optioneel  |   |
-| Verzoeken                      |          | optioneel |            |           |      X       |      X       |                 | Optioneel | Optioneel |   |   |
+|                                | Catalogi | Zaken     | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Contactmomenten | Klanten | Verzoeken | Gemeentelijke selectielijst API |
+|--------------------------------|:----------:|:----------:|:------------:|:-----------:|:--------------:|:--------------:|:-----------------:|:---------------:|:-----:|:-------:|:-----------------------------:|
+| Catalogi                       |          |           |            |           | X |   |  |           |           |           | X |
+| Zaken                          |    X     |           | optioneel  | optioneel | X | X |  |           |           |           |   |
+| Documenten                     |    X     | optioneel |            | optioneel | X | X |  | Optioneel |           | Optioneel |   |
+| Besluiten                      |    X     |           | optioneel  | optioneel | X | X |  |           |           |           |   |
+| Autorisaties                   |          |           |            |           | X | X |  |           |           |           |   |
+| Notificaties                   |          |           |            |           | X |   |  |           |           |           |   |
+| Notificaties   voor consumers  |          |           |            |           |   |   |  |           |           |           |   |
+| Contactmomenten                |          | optioneel | Optioneel  |           | X | X |  |           | Optioneel | Optioneel |   |
+| Klanten                        |          |           | Optioneel  |           | X | X |  | Optioneel |           | Optioneel |   |
+| Verzoeken                      |          | optioneel |            |           | X | X |  | Optioneel | Optioneel |           |   |
 
 Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de [API versies](./versions) die nu beschikbaar zijn.
 
