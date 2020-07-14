@@ -30,7 +30,7 @@ De relatie is vastgelegd in `klantcontactmoment`.
 
 Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
 
-[![Gegevensmodel Besluiten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Besluiten gegevensmodel - klik voor groot")
+[![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Contactmomenten API
