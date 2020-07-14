@@ -1,6 +1,39 @@
-# Klanten API
+---
+title: "Klanten API"
+date: '14-7-2020'
+weight: 10
+---
 
 *WIP*
+
+API voor opslag en ontsluiting van klanten en daarbij behorende metadata.
+
+De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over klanten. 
+
+## Gegevensmodel
+
+Een klant wordt gedefinieerd als ...
+
+Deze API ondersteunt het verwerken van gegevens van klanten inclusief de relatie met eventuele contactmoment(en) en/of verzoek(en).
+
+### Relatie met contactmomenten
+
+Een klant kan een rol hebben in een contactmoment. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`. De relatie tussen klant en contactmoment is vastgelegd in `klantcontactmoment` in de Contactmomenten API.
+
+### Relatie met verzoeken
+
+Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`. De relatie tussen klant en contactmoment is vastgelegd in `verzoekcontactmoment` in de verzoeken API.
+
+[![Gegevensmodel Klanten API](Klanten API 1.0.0b.png){:width="1200px"}](Klanten API 1.0.0b.png "Klanten gegevensmodel - klik voor groot")
+
+## Specificatie van de Contactmomenten API
+
+* [Referentie-implementatie Klanten API](https://klanten-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://klanten-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://klanten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://klanten-api.vng.cloud/api/v1/schema/openapi.yaml) of
+  [JSON](https://klanten-api.vng.cloud/api/v1/schema/openapi.json)
 
 # Specificatie van gedrag
 
