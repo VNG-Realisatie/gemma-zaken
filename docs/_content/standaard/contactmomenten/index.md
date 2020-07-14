@@ -30,6 +30,10 @@ De relatie is vastgelegd in `klantcontactmoment`.
 
 Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
 
+## Relatie met contactmoment
+
+Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie is vastgelegd in het attribuut `VorigContactmoment`.
+
 [![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
 
 
@@ -74,7 +78,7 @@ Bij het aanmaken van een KLANT-CONTACTMOMENT-relatie (`klantcontactmoment_create
 
 ### **<a name="cm-005">Valideren attributen `contactmoment` en `object` bij aanmaken van een OBJECT-CONTACTMOMENT relatie ([cm-005](#cm-005))</a>**
 
-Bij het aanmaken van een KLANT-CONTACTMOMENT-relatie (`objectcontactmoment_create`) MOETEN de URL-referenties naar OBJECT en CONTACTMOMENT gevalideerd worden op het bestaan. Indien het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. Bovendien MOET de combinatie `object` en `contactmoment` uniek zijn. Als dit niet het geval is, MOET er geantwoord worden met een `HTTP 400` foutbericht.
+Bij het aanmaken van een OBJECT-CONTACTMOMENT-relatie (`objectcontactmoment_create`) MOETEN de URL-referenties naar OBJECT en CONTACTMOMENT gevalideerd worden op het bestaan. Indien het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. Bovendien MOET de combinatie `object` en `contactmoment` uniek zijn. Als dit niet het geval is, MOET er geantwoord worden met een `HTTP 400` foutbericht.
 
 ### **<a name="cm-006">Valideren bestaan relatie tussen OBJECT en CONTACTMOMENT in de bron ([cm-006](#cm-006))</a>**
 
