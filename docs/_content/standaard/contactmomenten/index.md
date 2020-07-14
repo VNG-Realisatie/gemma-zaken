@@ -1,6 +1,49 @@
 # Contactmomenten API
 
+---
+title: "Contactmomenten API"
+date: '14-7-2020'
+weight: 10
+---
+
 *WIP*
+
+API voor opslag en ontsluiting van contactmomenten en daarbij behorende metadata.
+
+De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over contactmomenten. 
+
+## Gegevensmodel
+
+Een contactmoment wordt gedefinieerd als ...
+
+Deze API ondersteunt het verwerken van gegevens van contactmomenten inclusief de relatie met eventuele za(a)k(en), klant(en) en/of verzoek(en).
+
+### Relatie met zaken
+
+Een contactmoment kan leiden tot één of meer zaken. Daarnaast kan een contactmoment betrekking hebben op één of meer zaken en bij één zaak kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `zaakcontactmoment` (Zaken API) en `objectcontactmoment` (Contactmomenten API).
+
+### Relatie met klanten
+
+Eén of meer klanten kunnen een rol hebben bij een contactmoment. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`.  
+
+De relatie is vastgelegd in `klantcontactmoment`.
+
+### Relatie met verzoeken
+
+Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
+
+[![Gegevensmodel Besluiten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Besluiten gegevensmodel - klik voor groot")
+
+
+## Specificatie van de Contactmomenten API
+
+* [Referentie-implementatie Contactmomenten API](https://contactmomenten-api.vng.cloud)
+* API specificatie (OAS3) in
+  [ReDoc](https://contactmomenten-api.vng.cloud/api/v1/schema/),
+  [Swagger](https://petstore.swagger.io/?url=https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [YAML](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
+  [JSON](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.json)
+
 
 # Specificatie van gedrag
 
@@ -8,8 +51,7 @@ De Contactmomenten API MOET aan twee aspecten voldoen:
 
 * de OAS-specificatie `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
-* het run-time gedrag hieronder beschreven MOET correct geïmplementeerd
-  zijn.
+* het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
 
 
 ## Run-time gedrag
