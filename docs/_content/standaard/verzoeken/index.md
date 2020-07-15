@@ -10,31 +10,43 @@ API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over verzoeken. 
 
-## Gegevensmodel
+Deze API ondersteunt het verwerken van gegevens van verzoeken inclusief de relatie met eventuele za(a)k(en), informatieobject(en), klant(en) en/of contactmoment(en).
 
-Een verzoek wordt gedefinieerd als ...
+Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en (evt.) het zaakgericht werken voor de afhandeling. Het concept verzoeken is voor het eerst geintroduceerd in GFO Zaken, maar had in het opvolgende informatiemodel RGBZ geen plaats. In de visie van VNG Realisatie is dat echter een omissie (redenen zijn hieronder gegeven), en daarom is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
 
-Deze API ondersteunt het verwerken van gegevens van verzoeken inclusief de relatie met eventuele klant(en), contactmoment(en), informatieobject(en) en/of za(a)k(en).
+Met verzoeken introduceren we een nieuw concept in het zaakgericht werken wat niet betekent dat verzoeken niet ook gebruikt kunnen worden buiten het zaakgericht werken.
 
-### Relatie met klanten
+Zie: Achtergrondinformatie bij Verzoeken
 
-Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende` en `Initiator` en `Mede-initiator`. De relatie tussen klant en verzoek is vastgelegd in `klantverzoek` in de verzoeken API.
+# Informatie- en gegevensmodel
 
-### Relatie met contactmomenten
+Zoals hierboven vermeld bevat RGBZ geen resource/objecttype voor Verzoeken. Omdat de Verzoeken API is opgezet in de bredere context van Klantinteractie, is voor dit domein een aanvullend informatiemodel gemaakt. 
+
+[![Informatiemodel Verzoeken API](IM Verzoeken.png){:width="1200px"}](IM Verzoeken.png "Informatiemodel Verzoeken - klik voor groot")
+
+Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
+
+[![Gegevensmodel Verzoeken API](Verzoeken API 1.0.0b.png){:width="1200px"}](Verzoeken API 1.0.0b.png "Verzoeken gegevensmodel - klik voor groot")
+
+## Relatie met klanten
+
+Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende`, `Initiator` en `Mede-initiator`. De relatie tussen klant en verzoek is vastgelegd in `klantverzoek` in de verzoeken API.
+
+## Relatie met contactmomenten
 
 Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
 
-### Relatie met zaken
+## Relatie met zaken
 
 Een verzoek kan leiden tot één of meer zaken. Daarnaast kan een verzoek betrekking hebben op één of meer zaken en in één zaak kunnen één of meer verzoeken afgehandeld worden. Deze relatie is vastgelegd in `zaakverzoek` (Zaken API) en `objectverzoek` (Verzoeken API).
 
-### Relatie met informatieobjecten
+## Relatie met informatieobjecten
 
-Bij een verzoek kunnen één of meer informatieobject(en) geregistreerd zijn. En een informatieobject kan bij één of meer verzoeken en rol spelen. deze relatie s vasgelegd in `verzoekinformatieobject` (Verzoeken API) en `objectinformatieobject` (Documenten API).
+Bij een verzoek kunnen één of meer informatieobject(en) geregistreerd zijn. En een informatieobject kan bij één of meer verzoeken en rol spelen. deze relatie is vastgelegd in `verzoekinformatieobject` (Verzoeken API) en `objectinformatieobject` (Documenten API).
 
-### Relatie met verzoeken
+## Relatie met verzoeken
 
-[![Gegevensmodel Verzoeken API](Verzoeken API 1.0.0b.png){:width="1200px"}](Verzoeken API 1.0.0b.png "Verzoeken gegevensmodel - klik voor groot")
+Een Verzoek kan gerelateerd zijn aan een ander Verzoek in de vorm van een aanvulling op een eerder Verzoek of het intrekken van een Verzoek. Dit is vastgelegd in de attributen `aangevuldeVerzoek`, `aanvullendVerzoek`, `inTeTrekkenVerzoek`, `intrekkendeVerzoek`.
 
 ## Specificatie van de Contactmomenten API
 
@@ -52,6 +64,14 @@ De Verzoeken API MOET aan twee aspecten voldoen:
 * de OAS-specificatie `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
+
+## OpenAPI specificatie
+
+*TODO: openapi.yaml URL*
+
+Alle operaties beschreven in [openapi.yaml](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de VRC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
 ## Run-time gedrag
 
