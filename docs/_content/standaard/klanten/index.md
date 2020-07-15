@@ -10,11 +10,21 @@ API voor opslag en ontsluiting van klanten en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over klanten. 
 
-## Gegevensmodel
+Een Klant is een Natuurlijk Persoon, eventueel in de rol van medewerker of vertegenwoordiger van (een Vestiging van) een Niet-Natuurlijk Persoon. De gegevens van deze vertegenwoordiger worden in eerste instantie overgenomen van de contactpersoon van de Vestiging uit het NHR. Deze mogen echter worden overschreven.
 
-Een klant wordt gedefinieerd als ...
+Klanten zijn gerelateerd aan Contactmoment (in de Contactmomenten API) en Verzoek (in de Verzoeken API).
 
-Deze API ondersteunt het verwerken van gegevens van klanten inclusief de relatie met eventuele contactmoment(en) en/of verzoek(en).
+De Klanten API bevat resources voor Klant.
+
+# Informatie- en gegevensmodel
+
+RGBZ bevat geen resource/objecttype voor Klant. De Klanten API is opgezet in de bredere context van Klantinteractie. Vopor dit domein een apart informatiemodel gemaakt,  geinspireerd op RGBZ. Klant is hierin een nieuw(e) resource/objecttype.
+
+[![Informatiemodel Klanten API](IM Klanten.png){:width="1200px"}](IM Klanten.png "Informatiemodel klanten - klik voor groot")
+
+Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
+
+[![Gegevensmodel Klanten API](Klanten API 1.0.0b.png){:width="1200px"}](Klanten API 1.0.0b.png "Klanten gegevensmodel - klik voor groot")
 
 ### Relatie met contactmomenten
 
@@ -22,9 +32,7 @@ Een klant kan een rol hebben in een contactmoment. Vooralsnog zijn deze rollen `
 
 ### Relatie met verzoeken
 
-Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`. De relatie tussen klant en contactmoment is vastgelegd in `verzoekcontactmoment` in de verzoeken API.
-
-[![Gegevensmodel Klanten API](Klanten API 1.0.0b.png){:width="1200px"}](Klanten API 1.0.0b.png "Klanten gegevensmodel - klik voor groot")
+Een klant kan een rol hebben bij een verzoek. Vooralsnog zijn deze rollen `Belanghebbende`, `Initiator` en `Mede-initiator`. De relatie tussen klant en contactmoment is vastgelegd in `klantverzoek` in de verzoeken API.
 
 ## Specificatie van de Contactmomenten API
 
@@ -42,7 +50,6 @@ De Klanten API MOET aan twee aspecten voldoen:
 * de OAS-specificatie `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
-
 
 ## Run-time gedrag
 
