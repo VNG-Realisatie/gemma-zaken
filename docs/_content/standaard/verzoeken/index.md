@@ -16,7 +16,7 @@ Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voo
 
 Met verzoeken introduceren we een nieuw concept in het zaakgericht werken wat niet betekent dat verzoeken niet ook gebruikt kunnen worden buiten het zaakgericht werken.
 
-Zie: Achtergrondinformatie bij Verzoeken
+Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verzoeken)
 
 # Informatie- en gegevensmodel
 
