@@ -17,6 +17,9 @@ services:
       - ac-test
       - token-issuer-test
       - kic-test
+      - klanten-test
+      - contactmomenten-test
+      - verzoeken-test
 
   - name: redis-test
     templates: ../k8s/cache/
@@ -60,6 +63,18 @@ services:
     templates: ../k8s/kic/
     image_tag: 'latest'
 
+  - name: klanten-test
+    templates: ../k8s/klanten/
+    image_tag: 'latest'
+
+  - name: contactmomenten-test
+    templates: ../k8s/contactmomenten/
+    image_tag: 'latest'
+
+  - name: verzoeken-test
+    templates: ../k8s/verzoeken/
+    image_tag: 'latest'
+
 ingress:
   name: ref-implementatie-test
   instance: test
@@ -80,3 +95,9 @@ ingress:
       name: token-issuer-test
     - host: klantinteracties-api.test.vng.cloud
       name: kic-test
+    - host: klanten-api.vng.cloud
+      name: klanten-test
+    - host: contactmomenten-api.vng.cloud
+      name: contactmomenten-test
+    - host: verzoeken-api.vng.cloud
+      name: verzoeken-test
