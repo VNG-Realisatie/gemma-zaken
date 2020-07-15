@@ -8,25 +8,33 @@ weight: 10
 
 API voor opslag en ontsluiting van contactmomenten en daarbij behorende metadata.
 
-De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over contactmomenten. 
-
-## Gegevensmodel
-
-Een contactmoment wordt gedefinieerd als ...
-
 Deze API ondersteunt het verwerken van gegevens van contactmomenten inclusief de relatie met eventuele za(a)k(en), klant(en) en/of verzoek(en).
 
-### Relatie met zaken
+Een contactmoment is een aaneengesloten periode waarbij interactief informatie wordt uitgewisseld tussen (minimaal) 2 partijen. Eén van deze partijen is een Medewerker van de gemeente of een samenwerkingsverband en de andere partij is tenminste één Natuurlijk Persoon, eventueel in de rol van medewerker of vertegenwoordiger van (een Vestiging van) een Niet-Natuurlijk Persoon. De gegevens van deze vertegenwoordiger worden in eerste instantie overgenomen van de contactpersoon van de Vestiging uit het NHR. Deze mogen echter worden overschreven.
+
+Voorbeelden van een Contactmoment zijn een baliebezoek en een telefonisch contact over een onderhanden zijnde Zaak. Twee telefoongesprekken over hetzelfde verzoek om informatie zijn 2 contactmomenten. De Contactmomenten API bevat resources voor Contactmoment, Klantcontactmoment en Objectcontactmoment.
+
+# Informatie- en gegevensmodel
+
+RGBZ bevat een resource/objecttype voor Klantcontact. Omdat de Contactmomenten API is opgezet in de bredere contaxt van Klantinteractie, is voor dit domein een apart informatiemodel gemaakt, wederom geinsireerd op RGBZ. De gebruikte resources/objecttypen en attributen zijn (voor een groot deel) te herleiden naar RGBZ.
+
+[![Informatiemodel Contactmomenten API](IM Contactmomenten.png){:width="1200px"}](IM Contactmomenten.png "Informatiemodel contactmomenten - klik voor groot")
+
+Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
+
+[![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
+
+## Relatie met zaken
 
 Een contactmoment kan leiden tot één of meer zaken. Daarnaast kan een contactmoment betrekking hebben op één of meer zaken en bij één zaak kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `zaakcontactmoment` (Zaken API) en `objectcontactmoment` (Contactmomenten API).
 
-### Relatie met klanten
+## Relatie met klanten
 
 Eén of meer klanten kunnen een rol hebben bij een contactmoment. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`.  
 
 De relatie is vastgelegd in `klantcontactmoment`.
 
-### Relatie met verzoeken
+## Relatie met verzoeken
 
 Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een contactmoment betrekking hebben op één of meer verzoeken en bij één verzoek kunnen één of meer contactmomenten geregistreerd zijn. Deze relatie is vastgelegd in `verzoekcontactmoment` (Verzoeken API).
 
@@ -34,10 +42,7 @@ Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een cont
 
 Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie is vastgelegd in het attribuut `VorigContactmoment`.
 
-[![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
-
-
-## Specificatie van de Contactmomenten API
+# Specificatie van de Contactmomenten API
 
 * [Referentie-implementatie Contactmomenten API](https://contactmomenten-api.vng.cloud)
 * API specificatie (OAS3) in
