@@ -4,8 +4,6 @@ date: '14-7-2020'
 weight: 10
 ---
 
-*WIP*
-
 API voor opslag en ontsluiting van contactmomenten en daarbij behorende metadata.
 
 Deze API ondersteunt het verwerken van gegevens van contactmomenten inclusief de relatie met eventuele za(a)k(en), klant(en) en/of verzoek(en).
@@ -16,7 +14,7 @@ Voorbeelden van een Contactmoment zijn een baliebezoek en een telefonisch contac
 
 # Informatie- en gegevensmodel
 
-RGBZ bevat een resource/objecttype voor Klantcontact. Omdat de Contactmomenten API is opgezet in de bredere contaxt van Klantinteractie, is voor dit domein een apart informatiemodel gemaakt, wederom geinsireerd op RGBZ. De gebruikte resources/objecttypen en attributen zijn (voor een groot deel) te herleiden naar RGBZ.
+RGBZ bevat een resource/objecttype voor Klantcontact. Omdat de Contactmomenten API is opgezet in de bredere context van Klantinteractie, is voor dit domein een apart informatiemodel gemaakt, wederom geinsireerd op RGBZ. De gebruikte resources/objecttypen en attributen zijn (voor een deel) te herleiden naar RGBZ.
 
 [![Informatiemodel Contactmomenten API](IM Contactmomenten.png){:width="1200px"}](IM Contactmomenten.png "Informatiemodel contactmomenten - klik voor groot")
 
@@ -60,6 +58,11 @@ De Contactmomenten API MOET aan twee aspecten voldoen:
 
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
 
+## OpenAPI specificatie
+
+Alle operaties beschreven in [openapi.yaml](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de VRC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
 ## Run-time gedrag
 
