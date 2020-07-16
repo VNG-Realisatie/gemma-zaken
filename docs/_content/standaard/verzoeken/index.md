@@ -4,8 +4,6 @@ date: '14-7-2020'
 weight: 10
 ---
 
-*WIP*
-
 API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over verzoeken. 
@@ -15,6 +13,8 @@ Deze API ondersteunt het verwerken van gegevens van verzoeken inclusief de relat
 Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voor de levering van een product of dienst. Verzoeken vormen dus de schakel tussen de klant, producten en diensten van de gemeente zoals in de PDC staan, en (evt.) het zaakgericht werken voor de afhandeling. Het concept verzoeken is voor het eerst geintroduceerd in GFO Zaken, maar had in het opvolgende informatiemodel RGBZ geen plaats. In de visie van VNG Realisatie is dat echter een omissie (redenen zijn hieronder gegeven), en daarom is er behoefte aan een concept dat vooraf gaat aan de daadwerkelijke behandeling in een zaak (of andere activiteit).
 
 Met verzoeken introduceren we een nieuw concept in het zaakgericht werken wat niet betekent dat verzoeken niet ook gebruikt kunnen worden buiten het zaakgericht werken.
+
+De verzoeken API bevat resources voor verzoek, klantverzoek, verzoekcontactmoment, verzoekinformatieobject, verzoekproduct en objectverzoek.
 
 Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verzoeken)
 
@@ -66,8 +66,6 @@ De Verzoeken API MOET aan twee aspecten voldoen:
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
 
 ## OpenAPI specificatie
-
-*TODO: openapi.yaml URL*
 
 Alle operaties beschreven in [openapi.yaml](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de VRC.
 
