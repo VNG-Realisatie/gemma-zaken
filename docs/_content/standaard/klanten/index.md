@@ -4,8 +4,6 @@ date: '14-7-2020'
 weight: 10
 ---
 
-*WIP*
-
 API voor opslag en ontsluiting van klanten en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over klanten. 
@@ -51,10 +49,15 @@ De Klanten API MOET aan twee aspecten voldoen:
 
 * het run-time gedrag hieronder beschreven MOET correct geïmplementeerd zijn.
 
+## OpenAPI specificatie
+
+Alle operaties beschreven in [openapi.yaml](https://klanten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de VRC.
+
+Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
+
 ## Run-time gedrag
 
 Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN zoals beschreven geïmplementeerd worden.
-
 
 ### **<a name="kla-001">Garanderen uniciteit `bronorganisatie` en `klantnummer` van een KLANT ([kla-001](#kla-001))</a>**
 
@@ -62,11 +65,9 @@ Bij het aanmaken (`klant_create`) en bijwerken (`klant_update` en `klant_partial
 
 Indien het `klantnummer` niet door de consumer gestuurd wordt, dan MOET de Klanten API het nummer genereren op een manier die garandeert dat het uniek is binnen de bronorganisatie.
 
-
 ### **<a name="kla-002">Valideren attribuut `subject` bij aanmaken van een KLANT ([kla-002](#kla-002))</a>**
 
 Bij het aanmaken van een KLANT (`klant_create`) MOET de URL-referentie naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
-
 
 ### HTTP-Caching
 
