@@ -60,7 +60,7 @@ De Contactmomenten API MOET aan twee aspecten voldoen:
 
 ## OpenAPI specificatie
 
-Alle operaties beschreven in [openapi.yaml](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de VRC.
+Alle operaties beschreven in [openapi.yaml](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van de CRC.
 
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
