@@ -213,4 +213,4 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 
 * [API versies](./versions)
 * [Achtergronddocumentatie](../themas/index)
-* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](/ontwikkelaars/index)
+* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](../ontwikkelaars/index)
