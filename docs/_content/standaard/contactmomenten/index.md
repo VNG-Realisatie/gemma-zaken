@@ -38,7 +38,7 @@ Een contactmoment kan leiden tot één of meer verzoeken. Daarnaast kan een cont
 
 ## Relatie met contactmoment
 
-Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie is vastgelegd in het attribuut `VorigContactmoment`.
+Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie is vastgelegd in de attributen `vorigContactmoment` en `volgendContactmoment`.
 
 # Specificatie van de Contactmomenten API
 
