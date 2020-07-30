@@ -42,7 +42,9 @@ Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecte
 
 ### Verzoekinformatieobjeten
 
-**Nieuw in versie 1.1.0**
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
 Een verzoek kan onderbouwd worden met één of meer informatieobjecten. De relatie tussen verzoek en informatieobject is vastgelegd in verzoekinformatieobject (Verzoeken API) en objectinformatieobject (Documenten API), waarbij verzoekinformatieobject leidend is.
 
 
