@@ -47,8 +47,8 @@ services:
     templates: ../k8s/ztc/
     image_tag: '1.0.0.post4'
 
-  # - name: docs
-  #   templates: ../k8s/docs
+  - name: docs
+    templates: ../k8s/docs
 
   - name: token-issuer
     templates: ../k8s/tokens
@@ -84,10 +84,10 @@ ingress:
       name: brc
     - host: notificaties-api.vng.cloud
       name: nrc
-    # # Documentation
-    # - host: zaakgerichtwerken.vng.cloud
-    #   name: docs
-    #   port: 80
+    # Documentation
+    - host: zaakgerichtwerken.vng.cloud
+      name: docs
+      port: 80
     # Supporting services
     - host: referentielijsten-api.vng.cloud
       name: vrl
