@@ -8,6 +8,8 @@ metadata:
   labels:
     app.kubernetes.io/instance: zgw-{{ ingress.instance }}
     app.kubernetes.io/name: zgw
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     {% for service in ingress.services -%}
@@ -21,7 +23,8 @@ spec:
     {% endfor %}
 
   tls:
+    {% for service in ingress.services -%}
     - hosts:
-        {% for service in ingress.services -%}
       - {{ service.host }}
-        {% endfor %}
+      secretName: {{ service.name }}-tls
+    {% endfor %}
