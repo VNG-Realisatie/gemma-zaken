@@ -50,16 +50,19 @@ services:
   # - name: docs
   #   templates: ../k8s/docs
 
-  # - name: token-issuer
-  #   templates: ../k8s/tokens
-  #   image_tag: '0.6.2'
-  #   redis_host: redis-test
-  #   redis_db: 7
-  #   host: zaken-auth.vng.cloud
+  - name: token-issuer
+    templates: ../k8s/tokens
+    image_tag: '0.6.2'
+    redis_host: redis-test
+    redis_db: 7
+    host: zaken-auth.vng.cloud
 
   - name: vrl
     templates: ../k8s/vrl/
-    image_tag: '0.5.2'
+    image_tag: '0.5.6'
+
+  - name: demo
+    templates: ../k8s/demo/
 
   - name: deploy
     templates: ../k8s/deploy/
