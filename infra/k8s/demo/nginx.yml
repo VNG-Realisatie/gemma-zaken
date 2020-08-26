@@ -5,7 +5,7 @@
 # # Nginx front facing reverse proxy, handles websocket + staticfiles
 
 # kind: Deployment
-# apiVersion: extensions/v1beta1
+# apiVersion: apps/v1
 # metadata:
 #   name: demo-nginx
 #   namespace: zgw
