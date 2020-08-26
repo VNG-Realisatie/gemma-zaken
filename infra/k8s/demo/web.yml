@@ -46,22 +46,22 @@ spec:
             limits:
               memory: "350Mi"
               cpu: "250m"
-          readinessProbe:
-            httpGet:
-              path: /admin/login/
-              port: 8000
-              httpHeaders:
-                - name: Host
-                  value: localhost
-            initialDelaySeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /admin/login/
-              port: 8000
-              httpHeaders:
-                - name: Host
-                  value: localhost
-            initialDelaySeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /admin/login/
+          #     port: 8000
+          #     httpHeaders:
+          #       - name: Host
+          #         value: localhost
+          #   initialDelaySeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: /admin/login/
+          #     port: 8000
+          #     httpHeaders:
+          #       - name: Host
+          #         value: localhost
+          #   initialDelaySeconds: 10
           env:
             - name: DJANGO_SETTINGS_MODULE
               value: zac.conf.docker
