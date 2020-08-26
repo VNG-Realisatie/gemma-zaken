@@ -26,18 +26,18 @@ services:
   #   templates: ../k8s/ac/
   #   image_tag: '1.0.0'
 
-  # - name: brc
-  #   templates: ../k8s/brc/
-  #   image_tag: '1.0.0.post0'
+  - name: brc
+    templates: ../k8s/brc/
+    image_tag: '1.0.1.post0'
 
   # - name: drc
   #   templates: ../k8s/drc/
   #   image_tag: '1.0.0'
   #   min_upload_size: 4294967296  # 4GB
 
-  # - name: nrc
-  #   templates: ../k8s/nrc/
-  #   image_tag: '1.0.0'
+  - name: nrc
+    templates: ../k8s/nrc/
+    image_tag: '1.0.0.post1'
 
   # - name: zrc
   #   templates: ../k8s/zrc/
@@ -80,10 +80,10 @@ ingress:
     #   name: ztc
     # - host: autorisaties-api.vng.cloud
     #   name: ac
-    # - host: besluiten-api.vng.cloud
-    #   name: brc
-    # - host: notificaties-api.vng.cloud
-    #   name: nrc
+    - host: besluiten-api.vng.cloud
+      name: brc
+    - host: notificaties-api.vng.cloud
+      name: nrc
     # # Documentation
     # - host: zaakgerichtwerken.vng.cloud
     #   name: docs
