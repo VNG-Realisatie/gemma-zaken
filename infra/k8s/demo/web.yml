@@ -71,6 +71,8 @@ spec:
               value: demo
             - name: REDIS_HOST
               value: redis-demo
+            - name: REDIS_PORT
+              value: '6379'
             - name: IS_HTTPS
               value: "yes"
             - name: SECRET_KEY
