@@ -18,7 +18,6 @@ services:
       - token-issuer
       - vrl
       - deploy
-      - kic
 
   - name: redis
     templates: ../k8s/cache/
@@ -58,13 +57,9 @@ services:
   #   redis_db: 7
   #   host: zaken-auth.vng.cloud
 
-  # - name: kic
-  #   templates: ../k8s/kic/
-  #   image_tag: 'latest'
-
-  # - name: vrl
-  #   templates: ../k8s/vrl/
-  #   image_tag: '0.5.2'
+  - name: vrl
+    templates: ../k8s/vrl/
+    image_tag: '0.5.2'
 
   - name: deploy
     templates: ../k8s/deploy/
@@ -86,8 +81,6 @@ ingress:
     #   name: brc
     # - host: notificaties-api.vng.cloud
     #   name: nrc
-    # - host: klantinteracties-api.vng.cloud
-    #   name: kic
     # # Documentation
     # - host: zaakgerichtwerken.vng.cloud
     #   name: docs
