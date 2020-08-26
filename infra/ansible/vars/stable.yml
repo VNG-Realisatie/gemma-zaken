@@ -67,6 +67,9 @@ services:
   - name: deploy
     templates: ../k8s/deploy/
 
+  - name: inway
+    templates: ../k8s/inway/
+
 ingress:
   name: ref-implementatie
   instance: zgw-stable
