@@ -36,8 +36,8 @@ spec:
             httpHeaders:
               - name: Host
                 value: localhost
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 30
         livenessProbe:
           httpGet:
             path: /
@@ -45,8 +45,8 @@ spec:
             httpHeaders:
               - name: Host
                 value: localhost
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 30
 
         env:
           - name: DJANGO_SETTINGS_MODULE
