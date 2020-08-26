@@ -66,6 +66,9 @@ services:
   #   templates: ../k8s/vrl/
   #   image_tag: '0.5.2'
 
+  - name: deploy
+    templates: ../k8s/deploy/
+
 ingress:
   name: ref-implementatie
   instance: zgw-stable
