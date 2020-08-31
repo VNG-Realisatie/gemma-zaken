@@ -3,7 +3,7 @@
 # Redis message broker
 
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: redis-demo
   namespace: zgw

@@ -3,7 +3,7 @@
 # Deployment
 
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: redirects
   namespace: zgw
@@ -34,14 +34,14 @@ spec:
           httpGet:
             path: /healthz
             port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 30
         livenessProbe:
           httpGet:
             path: /healthz
             port: 80
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          initialDelaySeconds: 10
+          periodSeconds: 30
         volumeMounts:
           - name: redirects-config
             mountPath: /etc/nginx/conf.d/

@@ -1,2 +1,2 @@
 [local]
-localhost ansible_connection=local ansible_python_interpreter=/home/bbt/.virtualenvs/gemma-zaken/bin/python
+localhost ansible_connection=local ansible_python_interpreter=/home/bbt/.virtualenvs/haven/bin/python

@@ -97,10 +97,10 @@ data:
     -----END CERTIFICATE-----
   org.crt: |
     -----BEGIN CERTIFICATE-----
-    MIIGEDCCA/igAwIBAgIUdYI+OlV1xdpFtJZEpouo2fquyWkwDQYJKoZIhvcNAQEN
+    MIIGEDCCA/igAwIBAgIUb03naB1+tF0p2IuFiVEd9uoeuxEwDQYJKoZIhvcNAQEN
     BQAwXzELMAkGA1UEBhMCTkwxFjAUBgNVBAgTDU5vb3JkLUhvbGxhbmQxEjAQBgNV
     BAcTCUFtc3RlcmRhbTEWMBQGA1UEChMNQ29tbW9uIEdyb3VuZDEMMAoGA1UECxMD
-    TkxYMB4XDTE5MDcwMjEzMDgwMFoXDTIwMDcwMTEzMDgwMFowgaMxCzAJBgNVBAYT
+    TkxYMB4XDTIwMDgyNjE1MzMwMFoXDTIxMDgyNjE1MzMwMFowgaMxCzAJBgNVBAYT
     Ak5MMRYwFAYDVQQIEw1Ob29yZC1Ib2xsYW5kMRIwEAYDVQQHEwlBbXN0ZXJkYW0x
     GjAYBgNVBAoTEXZuZy1yZWFsaXNhdGllLWJ2MSAwHgYDVQQLExdaYWFrZ2VyaWNo
     dCB3ZXJrZW4gQVBJczEqMCgGA1UEAxMhemFha2dlcmljaHR3ZXJrZW4taW53YXku
@@ -118,23 +118,23 @@ data:
     MOHAejisLkv1sRfc1TNnGb3uM3mq3qcv6yUCAwEAAaN/MH0wDgYDVR0PAQH/BAQD
     AgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAA
     MB0GA1UdDgQWBBT7zuNKzISohVVBoT40u+68QjXqeDAfBgNVHSMEGDAWgBRa4EFR
-    EYes2miHwADDBlzieS2J/TANBgkqhkiG9w0BAQ0FAAOCAgEAcB1YXfIqNj7mmzUN
-    2si9AUUbKSaovK0VrsuUlnJWD3yFulBkXR9uA9J/yx9f09H3ST2tgjFt8cYiJ8Wl
-    +2sq/rorNoJGP18r4xo4bYD7pfdsu57UbvmhUVrEYqpB9Wn6nfGWS7xMz6zUkksg
-    o6RqvIjA1/MlYPVrk62dPxTRx567oxgCBy+5e34Wofr3iVBkXFtrcTI91zXCjWed
-    oSY5DWHMhdKp5kvfthkicBiP33sos2pBdBT9IQq3tpARchlFR30iABcAqQjipDiC
-    jbG1gca3CIR3Kdp36bHxHx3mbQ+d20+jgyQA7GoJHW13ZB+KxkN5tQKBC5Zg88RR
-    m5mo1TCqGiF3WdeFNy+RAg0Vh24ORdfjFa61ClKyEUKupy8lttNhz+FDkEAlHwyt
-    ufW0xa7Jk4bQrekx3V5m20fkJnrtf6V8/hWwB+dHzeRrDHwwvaaMd4OH4PE1RsCx
-    xPtDQ9MNVtMGm48oAyDIXNhI7Npt0KB+eoFSaQJZFKhavdNjBIZVLeUrFhRx0dDx
-    Gb7C/RM93uxJJL3bD17P+P1xlZ1jnKK5kKCVkKfzKCA5e87NTJn5QXUHa48XiJXs
-    tFfVmJIndAqpoX7Gm92ZZ99Go/Q2bJrIUOlMGEIT52G+HMq+KJR3rVJ0/1TDwwCE
-    c5WzdqtHMbaaAu1bnCN9yJ3DxPM=
+    EYes2miHwADDBlzieS2J/TANBgkqhkiG9w0BAQ0FAAOCAgEAgVrOsBUmehjN2Dxa
+    xVUPm5qD88K1O1pJGtLo0gHAMGuSYm7tw8/oyMy2LgcoSHiLiCPIXHKxzFceWApF
+    3pObtOjcpn2kxU1Mag2gCVUZOxo3RZqZmnWHb7+NmzTIMALgQwVzvWH+0cii39sp
+    ucbfL1gwTgrX290pTvN9TFgknRih2LSVN9IZv/7DZBvakHGsLElbacbZaHNTg/4o
+    ZNNqgvEgTEocLup2L3dnhN07JPMwJJuR3VUJReANWqlCtk7kpZJiciROmM76pK+B
+    ieLwCMTosi+fQM66/TxGEDXRDreZxpSSiQ5dPWYjZCIfyPqNMvozGm2jHvK8I/pV
+    xfB+JFn8ETrAKWNRrYeOyJObMFEuRlCRt7SS8G0D++0pggH5TXfMq0BmtGeV035e
+    EzvrVBRYs7Lnxw3d4mBtuCTB4dP3PWLfHwybuAU/+a583yINuyYop26LLNwVnUAL
+    GeR+cLoi0FYSqJLHu47rKnP3k7+29G2x/7h4VM8SocIzmI8xZs0OSiaSzYN1+80Z
+    lZ1r3oOWNiJQMZf4YdliQMOfcDdjJgp7P0A7zpMaQDpJEYvLmvO99lSoWj3My2Gz
+    kZo8UYZy3FiRWVZZquHNirDIzZrsL4LlWuCcn50b5Gyb4WXjrURk+NVNSS93x88S
+    X6lSTF49MX6KQTAbTpu2mdnd81A=
     -----END CERTIFICATE-----
 
 ---
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nlx-inway
@@ -143,6 +143,9 @@ metadata:
     k8s-app: nlx-inway
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: nlx-inway
   strategy:
     type: RollingUpdate
     rollingUpdate:

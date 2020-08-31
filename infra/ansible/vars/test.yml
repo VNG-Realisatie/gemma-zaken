@@ -16,7 +16,6 @@ services:
       - nrc-test
       - ac-test
       - token-issuer-test
-      - kic-test
       - klanten-test
       - contactmomenten-test
       - verzoeken-test
@@ -59,10 +58,6 @@ services:
     redis_db: 7
     host: zaken-auth.test.vng.cloud
 
-  - name: kic-test
-    templates: ../k8s/kic/
-    image_tag: 'latest'
-
   - name: klanten-test
     templates: ../k8s/klanten/
     image_tag: 'latest'
@@ -93,8 +88,6 @@ ingress:
       name: nrc-test
     - host: zaken-auth.test.vng.cloud
       name: token-issuer-test
-    - host: klantinteracties-api.test.vng.cloud
-      name: kic-test
     - host: klanten-api.vng.cloud
       name: klanten-test
     - host: contactmomenten-api.vng.cloud

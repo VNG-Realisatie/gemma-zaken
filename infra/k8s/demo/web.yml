@@ -18,7 +18,7 @@
 # Django app
 
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: demo
   namespace: zgw
@@ -46,22 +46,22 @@ spec:
             limits:
               memory: "350Mi"
               cpu: "250m"
-          readinessProbe:
-            httpGet:
-              path: /admin/login/
-              port: 8000
-              httpHeaders:
-                - name: Host
-                  value: localhost
-            initialDelaySeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /admin/login/
-              port: 8000
-              httpHeaders:
-                - name: Host
-                  value: localhost
-            initialDelaySeconds: 10
+          # readinessProbe:
+          #   httpGet:
+          #     path: /admin/login/
+          #     port: 8000
+          #     httpHeaders:
+          #       - name: Host
+          #         value: localhost
+          #   initialDelaySeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: /admin/login/
+          #     port: 8000
+          #     httpHeaders:
+          #       - name: Host
+          #         value: localhost
+          #   initialDelaySeconds: 10
           env:
             - name: DJANGO_SETTINGS_MODULE
               value: zac.conf.docker
@@ -71,6 +71,8 @@ spec:
               value: demo
             - name: REDIS_HOST
               value: redis-demo
+            - name: REDIS_PORT
+              value: '6379'
             - name: IS_HTTPS
               value: "yes"
             - name: SECRET_KEY
