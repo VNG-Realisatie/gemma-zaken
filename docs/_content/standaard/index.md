@@ -68,7 +68,7 @@ De API’s zijn geïnspireerd op RGBZ en imZTC waarin objecten, gegevens en de o
 Het gegevensmodel voor de ZGW API’s benadert het totaalbeeld wat in RGBZ en imZTC wordt geschetst nog het meest. Daar waar in RGBZ resources uit verschillende bronnen en modellen samenkomen is dat in de API’s voor Zaakgericht Werken opgesplitst. Er is een Catalogus API voor de ZTC en Zaken API voor zaken een documenten API voor Document (Informatieobjecten) en een Besluiten API voor Besluiten.
 
 Het diagram toont geen ObjectTypen uit de Autorisatie API en de Notificaties API omdat deze geen (modelleerbare) relaties hebben met ObjectTypen uit de ander API's.
-[![Overkoepelend gegevensmodel](./ZGW API's 1.1.0.png){:width="1200px"}](./ZGW API's 1.1.0.png "Gegevensmodel, klik voor grote versie")
+[![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
 
 Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
 
