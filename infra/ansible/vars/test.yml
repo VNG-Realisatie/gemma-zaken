@@ -4,6 +4,8 @@ db_host: postgis-test
 redis_cache: redis-test
 
 services:
+  # Datastores
+
   - name: postgis-test
     templates: ../k8s/database/
     pvc_name: db-test
@@ -22,6 +24,8 @@ services:
 
   - name: redis-test
     templates: ../k8s/cache/
+
+  # Official APIs
 
   - name: ac-test
     templates: ../k8s/ac/
@@ -48,16 +52,6 @@ services:
     templates: ../k8s/ztc/
     image_tag: develop
 
-  - name: docs-test
-    templates: ../k8s/docs
-
-  - name: token-issuer-test
-    templates: ../k8s/tokens
-    image_tag: latest
-    redis_host: redis-test
-    redis_db: 7
-    host: zaken-auth.test.vng.cloud
-
   - name: klanten-test
     templates: ../k8s/klanten/
     image_tag: 'latest'
@@ -70,10 +64,33 @@ services:
     templates: ../k8s/verzoeken/
     image_tag: 'latest'
 
+  # Unofficial APIs
+
+  # n/a
+
+  # Documentation
+
+  # n/a
+
+  # Supporting services
+
+  - name: docs-test
+    templates: ../k8s/docs
+
+  - name: token-issuer-test
+    templates: ../k8s/tokens
+    image_tag: latest
+    redis_host: redis-test
+    redis_db: 7
+    host: zaken-auth.test.vng.cloud
+
+
 ingress:
   name: ref-implementatie-test
   instance: test
   services:
+    # Official APIs
+
     - host: zaken-api.test.vng.cloud
       name: zrc-test
     - host: documenten-api.test.vng.cloud
@@ -86,11 +103,22 @@ ingress:
       name: brc-test
     - host: notificaties-api.test.vng.cloud
       name: nrc-test
-    - host: zaken-auth.test.vng.cloud
-      name: token-issuer-test
     - host: klanten-api.vng.cloud
       name: klanten-test
     - host: contactmomenten-api.vng.cloud
       name: contactmomenten-test
     - host: verzoeken-api.vng.cloud
       name: verzoeken-test
+
+    # Unofficial APIs
+
+    # n/a
+
+    # Documentation
+
+    # n/a
+
+    # Supporting services
+
+    - host: zaken-auth.test.vng.cloud
+      name: token-issuer-test
