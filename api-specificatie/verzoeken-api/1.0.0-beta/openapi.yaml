@@ -2023,6 +2023,117 @@ paths:
       summary: Alle VERZOEKen opvragen.
       description: Alle VERZOEKen opvragen.
       parameters:
+      - name: identificatie
+        in: query
+        description: De unieke identificatie van het VERZOEK binnen de organisatie
+          die verantwoordelijk is voor de behandeling van het VERZOEK.
+        required: false
+        schema:
+          type: string
+      - name: bronorganisatie
+        in: query
+        description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+          die de klantinteractie heeft gecreeerd. Dit moet een geldig RSIN zijn van
+          9 nummers en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+        required: false
+        schema:
+          type: string
+      - name: externeIdentificatie
+        in: query
+        description: De identificatie van het VERZOEK buiten de eigen organisatie.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum
+        in: query
+        description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__gt
+        in: query
+        description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__gte
+        in: query
+        description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__lt
+        in: query
+        description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: registratiedatum__lte
+        in: query
+        description: De datum en het tijdstip waarop het VERZOEK is geregistreerd.
+        required: false
+        schema:
+          type: string
+      - name: voorkeurskanaal
+        in: query
+        description: Het communicatiekanaal dat voor opvolging van het VERZOEK de
+          voorkeur heeft van de KLANT.
+        required: false
+        schema:
+          type: string
+      - name: tekst
+        in: query
+        description: Een toelichting die inhoudelijk het VERZOEK van de KLANT beschrijft.
+        required: false
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: De waarden van de typering van de voortgang van afhandeling van
+          een VERZOEK.
+        required: false
+        schema:
+          type: string
+          enum:
+          - ontvangen
+          - in_behandeling
+          - afgehandeld
+          - afgewezen
+          - ingetrokken
+      - name: inTeTrekkenVerzoek
+        in: query
+        description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK
+          wordt verzocht ingetrokken te worden.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: intrekkendeVerzoek
+        in: query
+        description: URL-referentie naar het (latere) VERZOEK waarin verzocht wordt
+          dit VERZOEK in te trekken. Dit veld is alleen leesbaar en wordt automatisch
+          gezet wanneer er een ander VERZOEK wordt aangemaakt dat dit VERZOEK intrekt.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: aangevuldeVerzoek
+        in: query
+        description: URL-referentie naar het (eerdere) VERZOEK dat door dit VERZOEK
+          wordt aangevuld.
+        required: false
+        schema:
+          type: string
+          format: uri
+      - name: aanvullendeVerzoek
+        in: query
+        description: URL-referentie naar het (latere) VERZOEK waarin dit VERZOEK wordt
+          aangevuld. Dit veld is alleen leesbaar en wordt automatisch gezet indien
+          een ander VERZOEK wordt aangemaakt dat dit VERZOEK aanvult.
+        required: false
+        schema:
+          type: string
+          format: uri
       - name: page
         in: query
         description: Een pagina binnen de gepagineerde set resultaten.
@@ -2060,6 +2171,18 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Verzoek'
+        '400':
+          description: Bad request
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
         '401':
           description: Unauthorized
           headers:
