@@ -103,11 +103,11 @@ ingress:
       name: brc-test
     - host: notificaties-api.test.vng.cloud
       name: nrc-test
-    - host: klanten-api.vng.cloud
+    - host: klanten-api.test.vng.cloud
       name: klanten-test
-    - host: contactmomenten-api.vng.cloud
+    - host: contactmomenten-api.test.vng.cloud
       name: contactmomenten-test
-    - host: verzoeken-api.vng.cloud
+    - host: verzoeken-api.test.vng.cloud
       name: verzoeken-test
 
     # Unofficial APIs
