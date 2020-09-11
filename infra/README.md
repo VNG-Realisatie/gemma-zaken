@@ -10,7 +10,6 @@ deployed. This project is deployed in the `zgw` namespace.
 
 * `kubectl` binary on your system
 * access to the Haven bastion (IP-address white list), possibly through a jump host
-* private key to SSH to Haven bastion
 * kube config file for the Haven cluster
 * Ansible vault installation (see `requirements.txt`)
 * `openshift` - best to specify the python interpreter in the `hosts` file
@@ -19,27 +18,9 @@ deployed. This project is deployed in the `zgw` namespace.
 
 ## Preparation
 
-### Setting up the SSH tunnel
+### Requesting access to the k8s cluster
 
-Access to the cluster runs through an SSH tunnel.
-
-Directly without jump host:
-
-```bash
-ssh -i /path/to/private_key -4 -fNTL \*:6443:10.0.101.9:6443 kubectl@bastion_ip_address
-```
-
-With a jump host:
-
-```bash
-ssh  -J user@jump-host -i /path/to/private_key -4 -fNTL \*:6443:10.0.101.9:6443 kubectl@bastion_ip_address
-```
-
-### Point to the correct kubeconfig
-
-```bash
-export KUBECONFIG=/path/to/kube.conf
-```
+Follow the steps [here](https://auth.common.haven.vng.cloud/) to setup your local workspace to connect with the Haven cluster. Your IP address also has to be whitelisted in order to continue with the next steps.
 
 ## Deploy to kubernetes cluster
 
