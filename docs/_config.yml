@@ -33,3 +33,5 @@ remote_theme: VNG-Realisatie/jekyll-theme-vng
 github: VNG-Realisatie/gemma-zaken
 
 theme: jekyll-theme-time-machine
+
+project_name: gemma-zaken
