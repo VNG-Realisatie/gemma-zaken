@@ -17,7 +17,7 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Notificaties API specificatie voor consumers](notificaties-consumer/index)
 * [Contactmomenten API specificatie](contactmomenten/index)
 * [Klanten API specificatie](klanten/index)
-* [Verzoeken API specificatie](Verzoeken/index)
+* [Verzoeken API specificatie](verzoeken/index)
 
 ## Algemeen
 
