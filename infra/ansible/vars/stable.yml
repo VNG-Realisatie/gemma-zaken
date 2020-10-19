@@ -4,6 +4,8 @@ db_host: postgis
 redis_cache: redis
 
 services:
+  # Datastores
+
   - name: postgis
     templates: ../k8s/database/
     pvc_name: db
@@ -18,9 +20,14 @@ services:
       - token-issuer
       - vrl
       - deploy
+      - klanten
+      - contactmomenten
+      - verzoeken
 
   - name: redis
     templates: ../k8s/cache/
+
+  # Official APIs
 
   - name: ac
     templates: ../k8s/ac/
@@ -47,8 +54,30 @@ services:
     templates: ../k8s/ztc/
     image_tag: '1.0.0.post4'
 
+  - name: klanten
+    templates: ../k8s/klanten/
+    image_tag: 'latest'
+
+  - name: contactmomenten
+    templates: ../k8s/contactmomenten/
+    image_tag: 'latest'
+
+  - name: verzoeken
+    templates: ../k8s/verzoeken/
+    image_tag: 'latest'
+
+  # Unofficial APIs
+
+  - name: vrl
+    templates: ../k8s/vrl/
+    image_tag: '0.5.6'
+
+  # Documentation
+
   - name: docs
     templates: ../k8s/docs
+
+  # Supporting services
 
   - name: token-issuer
     templates: ../k8s/tokens
@@ -56,10 +85,6 @@ services:
     redis_host: redis-test
     redis_db: 7
     host: zaken-auth.vng.cloud
-
-  - name: vrl
-    templates: ../k8s/vrl/
-    image_tag: '0.5.6'
 
   - name: demo
     templates: ../k8s/demo/
@@ -74,7 +99,8 @@ ingress:
   name: ref-implementatie
   instance: zgw-stable
   services:
-    # Primary APIs
+    # Official APIs
+
     - host: zaken-api.vng.cloud
       name: zrc
     - host: documenten-api.vng.cloud
@@ -87,13 +113,26 @@ ingress:
       name: brc
     - host: notificaties-api.vng.cloud
       name: nrc
+    - host: klanten-api.vng.cloud
+      name: klanten
+    - host: contactmomenten-api.vng.cloud
+      name: contactmomenten
+    - host: verzoeken-api.vng.cloud
+      name: verzoeken
+
+    # Unofficial APIs
+
+    - host: referentielijsten-api.vng.cloud
+      name: vrl
+
     # Documentation
+
     - host: zaakgerichtwerken.vng.cloud
       name: docs
       port: 80
+
     # Supporting services
-    - host: referentielijsten-api.vng.cloud
-      name: vrl
+
     - host: zaken-auth.vng.cloud
       name: token-issuer
     - host: zgw-demo.vng.cloud
