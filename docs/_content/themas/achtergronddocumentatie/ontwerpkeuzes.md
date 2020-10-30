@@ -390,39 +390,47 @@ voor de designkeuzes hierbij.
 
 ## Many-to-many relaties verspreid over API's
 
-Deze beslissing komt voort uit
-[issue #166](https://github.com/VNG-Realisatie/gemma-zaken/issues/166).
+Deze beslissing komt voort uit [issue #166](https://github.com/VNG-Realisatie/gemma-zaken/issues/166) en is bijgesteld op basis van user story [issue #1677](https://github.com/VNG-Realisatie/gemma-zaken/issues/1677) n.a.v. user story [issue #979](https://github.com/VNG-Realisatie/gemma-zaken/issues/979).
 
-Tussen twee componenten A en B (met component A de component waar in het IM de
-relatie naar component B loopt), wordt de relatie in beide componenten
-bewaard. Eventuele metagegevens (extra informatie op de relatie) komt in
-component A te liggen, en component B bevat _enkel_ de relatieinformatie zelf.
+Tussen twee componenten A en B (met component A de component waar in het IM de relatie naar component B loopt), wordt de relatie in beide componenten bewaard. Eventuele metagegevens (extra informatie op de relatie) komt in component A te liggen, en component B bevat _enkel_ de relatieinformatie zelf.
 
-Dit is een technische oplossing zodat beide componenten de relaties kunnen
-opvragen zonder alle (mogelijks honderden) componenten af te moeten lopen om
-te vragen of ze een relatie hebben.
+Dit is een technische oplossing zodat beide componenten de relaties kunnen opvragen zonder alle (mogelijks honderden) componenten af te moeten lopen om te vragen of ze een relatie hebben.
 
-Een consumer maakt 1x een relatie aan, tussen component A en B, met
-metagegevens over de relatie in component A. Component A is vervolgens
-verantwoordelijk om de relatie in component B aan te maken.
+Een consumer maakt 1x een relatie aan, tussen component A en B, met metagegevens over de relatie in component A. Component A is vervolgens verantwoordelijk om de relatie in component B aan te maken.
 
-We stemmen de `objectTypes` af zodat die mappen op de namen van resources om
-generieke synchronisatieimplementaties mogelijk te maken.
+We stemmen de `objectTypes` af zodat die mappen op de namen van resources om generieke synchronisatieimplementaties mogelijk te maken.
+
+Component A moet aan de volgende spelregels voldoen:
+
+- de naam van de resource is `{resourceA}{resourceB}`, in component A
+- de resource accepteert een URL-veld met de naam `resourceB`
 
 Component B moet dan aan de volgende spelregels voldoen:
 
-- de naam van de resource is `{resourceB}{resourceA}`, in component B
-- de resource wordt genest ontsloten binnen `ResourceB`
-- de resource accepteert een URL-veld met de naam `resourceA`
+- de naam van de resource is `object{resourceB}` in component B
+- de resource accepteert een URL-veld met de naam `object`
+- de resource heeft een enumeratie `objectType` met een waarde voor `resourceA`
 
-Deze spelregels en interactie worden actief getest in de
-[integratietests](https://github.com/vng-Realisatie/gemma-zaken-test-integratie)
-om compliancy af te kunnen dwingen.
+Deze spelregels en interactie worden actief getest in de [integratietests](https://github.com/vng-Realisatie/gemma-zaken-test-integratie) om compliancy af te kunnen dwingen.
 
-Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een
-`ZAAK` in het ZRC:
+Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een `ZAAK` in het ZRC:
 
-1. De consumer maakt in het DRC een relatie (met polymorfe relatieinformatie):
+1. De consumer maakt in het ZRC een relatie (met polymorfe relatieinformatie):
+
+    ```http
+    POST https://zrc.nl/api/v1/zaakinformatieobjecten
+
+    {
+        "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
+        "zaak": "https://zrc.nl/api/v1/zaken/456789",
+        "objectType": "zaak",
+        "titel": "",
+        "beschrijving": "",
+        "registratiedatum": "2018-09-19T17:57:08+0200"
+    }
+    ```
+
+2. Het ZRC doet vervolgens een request naar het DRC (op basis van de URL van `object`):
 
     ```http
     POST https://drc.nl/api/v1/objectinformatieobjecten
@@ -431,19 +439,6 @@ Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
         "object": "https://zrc.nl/api/v1/zaken/456789",
         "objectType": "zaak",
-        "titel": "",
-        "beschrijving": "",
-        "registratiedatum": "2018-09-19T17:57:08+0200"
-    }
-    ```
-
-2. Het DRC doet vervolgens een request naar het ZRC (op basis van de URL van `object`):
-
-    ```http
-    POST https://zrc.nl/api/v1/zaken/456789/zaakinformatieobjecten
-
-    {
-       "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
     }
     ```
 
