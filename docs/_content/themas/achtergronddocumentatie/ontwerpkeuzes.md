@@ -423,7 +423,6 @@ Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een `ZAAK
     {
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
         "zaak": "https://zrc.nl/api/v1/zaken/456789",
-        "objectType": "zaak",
         "titel": "",
         "beschrijving": "",
         "registratiedatum": "2018-09-19T17:57:08+0200"
