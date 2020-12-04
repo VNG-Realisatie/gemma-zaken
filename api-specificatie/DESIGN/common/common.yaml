@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   title: Generieke componenten voor de Zaakgericht-werken API's
   version: '1.0'
-#dummy path to avoid error 
+#dummy path to avoid error
 # paths:
 #   /ping:
 #     get:
@@ -249,7 +249,9 @@ components:
 
             * `brc` - Besluitregistratiecomponent
 
-            * `kic` - Klantinteractiescomponent'
+            * `cmc` - Contactmomenten API
+
+            * `kc` - Klanten API'
           type: string
           enum:
           - ac
@@ -258,7 +260,8 @@ components:
           - ztc
           - drc
           - brc
-          - kic
+          - cmc
+          - kc
         requestId:
           title: Request id
           description: Een globaal "request" ID om een verzoek door het netwerk heen
