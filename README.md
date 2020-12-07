@@ -7,8 +7,8 @@ API's voor Zaakgericht Werken
 
 [api-test-fullsuite-status]: https://shields.api-test.nl/endpoint.svg?style=plastic&url=https%3A//api-test.nl/api/v1/provider-latest-badge/6ad4f59e-7051-491d-a601-488f1b66ad7d/
 [api-test-fullsuite]: https://api-test.nl/server/1/224fd5be-bc64-4d55-a190-454bee3cc8e3/6ad4f59e-7051-491d-a601-488f1b66ad7d/latest/
-[docs-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaken.svg?branch=master
-[docs-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaken
+[docs-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-zaken.svg?branch=master
+[docs-ci]: https://travis-ci.com/VNG-Realisatie/gemma-zaken
 [repo-status]: https://img.shields.io/badge/Status-stable%2F1.0.x-brightgreen?style=plastic
 
 
@@ -77,23 +77,23 @@ Copyright © VNG Realisatie 2018 - 2020
 
 [Licensed under the EUPL](LICENCE.md)
 
-[zrc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent.svg?branch=master
-[zrc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent
-[drc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent.svg?branch=master
-[drc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent
-[ztc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus.svg?branch=master
-[ztc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus
-[brc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent.svg?branch=master
-[brc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent
-[nrc-ci-status]: https://travis-ci.org/VNG-Realisatie/notificaties-api.svg?branch=master
-[nrc-ci]: https://travis-ci.org/VNG-Realisatie/notificaties-api
-[ac-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent.svg?branch=master
-[ac-ci]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent
-[kcc-ci-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
-[kcc-ci]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api
+[zrc-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-zaakregistratiecomponent.svg?branch=master
+[zrc-ci]: https://travis-ci.com/VNG-Realisatie/gemma-zaakregistratiecomponent
+[drc-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-documentregistratiecomponent.svg?branch=master
+[drc-ci]: https://travis-ci.com/VNG-Realisatie/gemma-documentregistratiecomponent
+[ztc-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-zaaktypecatalogus.svg?branch=master
+[ztc-ci]: https://travis-ci.com/VNG-Realisatie/gemma-zaaktypecatalogus
+[brc-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-besluitregistratiecomponent.svg?branch=master
+[brc-ci]: https://travis-ci.com/VNG-Realisatie/gemma-besluitregistratiecomponent
+[nrc-ci-status]: https://travis-ci.com/VNG-Realisatie/notificaties-api.svg?branch=master
+[nrc-ci]: https://travis-ci.com/VNG-Realisatie/notificaties-api
+[ac-ci-status]: https://travis-ci.com/VNG-Realisatie/gemma-autorisatiecomponent.svg?branch=master
+[ac-ci]: https://travis-ci.com/VNG-Realisatie/gemma-autorisatiecomponent
+[kcc-ci-status]: https://travis-ci.com/VNG-Realisatie/klantinteracties-api.svg?branch=master
+[kcc-ci]: https://travis-ci.com/VNG-Realisatie/klantinteracties-api
 
-[ref-lijsten-ci-status]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten.svg?branch=master
-[ref-lijsten-ci]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten
+[ref-lijsten-ci-status]:  https://travis-ci.com/VNG-Realisatie/VNG-referentielijsten.svg?branch=master
+[ref-lijsten-ci]:  https://travis-ci.com/VNG-Realisatie/VNG-referentielijsten
 
-[vng-api-common-ci-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
-[vng-api-common]: https://travis-ci.org/VNG-Realisatie/vng-api-common
+[vng-api-common-ci-status]: https://travis-ci.com/VNG-Realisatie/vng-api-common.svg?branch=master
+[vng-api-common]: https://travis-ci.com/VNG-Realisatie/vng-api-common
