@@ -71,6 +71,8 @@ spec:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: SENTRY_DSN
+          - name: SELF_BRANCH
+            value: {% if service.name == 'ac-test' %} master {% else %} '' {% endif %}
 
 ---
 

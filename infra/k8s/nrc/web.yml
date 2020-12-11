@@ -86,6 +86,8 @@ spec:
               secretKeyRef:
                 name: {{ service.name }}-secrets
                 key: CELERY_RESULT_BACKEND
+          - name: SELF_BRANCH
+            value: {% if service.name == 'nrc-test' %} master {% else %} '' {% endif %}
 
 ---
 
