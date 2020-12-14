@@ -30,12 +30,12 @@ ondersteunende tooling.
 
 Iedere referentieimplementatie van een component leeft in zijn eigen repository:
 
-* [ZRC](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
-* [DRC](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
-* [ZTC](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
-* [BRC](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent)
+* [ZRC](https://github.com/vng-Realisatie/zaken-api)
+* [DRC](https://github.com/VNG-Realisatie/documenten-api)
+* [ZTC](https://github.com/VNG-Realisatie/catalogi-api)
+* [BRC](https://github.com/VNG-Realisatie/besluiten-api)
 * [NRC](https://github.com/VNG-Realisatie/notificaties-api)
-* [AC](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
+* [AC](https://github.com/VNG-Realisatie/autorisaties-api)
 
 Voor de referentieimplementaties wordt het git-flow branching model
 aangehouden. Dit houdt in dat de `master` branch de huidige stabiele,

@@ -22,8 +22,8 @@ beschikbaar bij de bron.
 
 In GEMMA 2 en met name de uitwerking van het ZGW-deel is al voor een deel
 rekening gehouden met de beweging naar een “Gegevenslandschap”.
-Zaakregistratiecomponent (ZRC) en Zaakafhandelcomponent (ZAC),
-Documentregistratiecomponent (DRC) en Documentbeheerocmponent (DBC) (zie
+Zaken API (ZRC) en Zaakafhandelcomponent (ZAC),
+Documenten API (DRC) en Documentbeheerocmponent (DBC) (zie
 [functies en referentiecomponenten](https://www.gemmaonline.nl/index.php/ZG1_Functies_en_Referentiecomponenten)
 voor uitgebreide beschrijvingen van de componenten en een toelichting hierop)
 zijn afzonderlijke referentiecomponenten voor registratie respectievelijk
@@ -69,7 +69,7 @@ als [“Specifieke Zaakafhandelcomponenten”](https://www.gemmaonline.nl/index.
 neergezet.
 Processen die zaakgericht worden uitgevoerd, worden afgehandeld met een Zaakafhandelcomponent
 (ZAC, generiek of specifiek). De generieke ZAC slaat haar gegevens op in de
-Zaakregistratiecomponent (ZRC). Daarentegen slaat de specifieke ZAC alle gegevens
+Zaken API (ZRC). Daarentegen slaat de specifieke ZAC alle gegevens
 zelf op: over de zaak en het proces, het verloop daarvan en veelal ook de
 registratie van de objecten waarop dat proces betrekking heeft. Vanuit deze component
 wordt een zaak geregistreerd (gekopieerd) in de ZRC en wordt deze zaak bij wijzigingen
@@ -78,7 +78,7 @@ gescheiden worden van de procesapplicatie en in een of meerdere registraties
 worden ondergebracht en via gestandaardiseerde API’s ontsloten. Voor de
 Generieke Zaakafhandelcomponent is hierin al voorzien: deze gebruikt enkel
 generieke zaakgegevens. Deze gegevensset beperkt zich dus tot de gegevensset
-zoals wordt bijgehouden in de Zaakregistratiecomponent (ZRC). Voor een
+zoals wordt bijgehouden in de Zaken API (ZRC). Voor een
 specifieke ZAC waarin veel domein- of processpecifieke gegevens worden
 bijgehouden heeft dit (vergaande) consequenties.
 
@@ -155,7 +155,7 @@ De relatie tussen verzoek en alle informatie die bij de aanvraag aanwezig was, o
 *Figuur 4- Van Verzoek naar Zaak*
 
 NU het verzoek is geregistreerd, moet het in behandeling worden genomen. Dit gebeurt door een medewerker die in de regel met een taakapplicatie zal werken. Deze wordt ofwel genotificeerd over een nieuw binnengekomen verzoek, of deze applicatie controleert periodiek, bv. ieder uur, of er nog nieuwe verzoeken van een bepaald type binnen zijn gekomen.
-Als het verzoek in behandeling wordt genomen, wordt vanuit de desbetreffende taakapplicatie via de Zaakregistratiecomponent een Zaak aangemaakt. Het Verzoek wordt gerelateerd aan deze zaak (relatie nog in informatiemodel te formaliseren). Objecten die aan Verzoek waren gerelateerd (groen gekleurd in
+Als het verzoek in behandeling wordt genomen, wordt vanuit de desbetreffende taakapplicatie via de Zaken API een Zaak aangemaakt. Het Verzoek wordt gerelateerd aan deze zaak (relatie nog in informatiemodel te formaliseren). Objecten die aan Verzoek waren gerelateerd (groen gekleurd in
 figuur 4: Klant, Bijlagen, Meldingspecifieke gegevens), worden ook rechtstreeks aan Zaak gerelateerd.
 Tijdens de behandeling in de Zaakafhandelcomponent ontstaat bijkomende informatie in de Documentenregistratie en de Meldingenregistratie.
 De relatie tussen Verzoek en Zaak wordt nog verder uitgewerkt. Zie

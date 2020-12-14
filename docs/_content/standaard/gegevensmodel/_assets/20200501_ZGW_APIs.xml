@@ -743,7 +743,7 @@
 					</ownedEnd>
 				</packagedElement>
 				<packagedElement xmi:type="uml:Class" xmi:id="EAID_864B08F0_A156_46e2_A644_AAA48DCF2B3D" name="bestandsdeel"/>
-				<packagedElement xmi:type="uml:Association" xmi:id="EAID_592078F7_9C14_4fd5_AA4A_BBE160472461" name="inhoud kan geüpload worden via">
+				<packagedElement xmi:type="uml:Association" xmi:id="EAID_592078F7_9C14_4fd5_AA4A_BBE160472461" name="inhoud kan geï¿½pload worden via">
 					<memberEnd xmi:idref="EAID_dst2078F7_9C14_4fd5_AA4A_BBE160472461"/>
 					<memberEnd xmi:idref="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461"/>
 					<ownedEnd xmi:type="uml:Property" xmi:id="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461" association="EAID_592078F7_9C14_4fd5_AA4A_BBE160472461">
@@ -1998,7 +1998,7 @@
 						<type xmi:idref="EAID_B708932F_FF45_4a50_A30A_FB5174DCB202"/>
 					</ownedAttribute>
 				</packagedElement>
-				<packagedElement xmi:type="uml:Component" xmi:id="EAID_258166FB_54DF_48ff_B25D_044C6E9803F1" name="Autorisatiecomponent"/>
+				<packagedElement xmi:type="uml:Component" xmi:id="EAID_258166FB_54DF_48ff_B25D_044C6E9803F1" name="Autorisaties API"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_90036821_6CA8_4ece_9159_6F3B118D0989" name="Besluitencomponent"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_12C9B2BB_5BF9_4e68_A4EA_9ABC7B1A6826" name="Documentenregistratiecomponent"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_4A7F2DD1_E7AA_4475_868C_9CC0BC21F393" name="Klantinteractiescomponent"/>
@@ -2006,7 +2006,7 @@
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_FF049F17_E640_4241_89A4_4B47BDCEC71C" name="Referentielijstencomponent"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_4ED85671_5E8E_484c_91CC_88E4BBE5BAE6" name="Overigeregistratiecomponent"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_9D6DAA6A_7F8B_4d03_B0C6_671981B2FD54" name="Zakenregistratiecomponent"/>
-				<packagedElement xmi:type="uml:Component" xmi:id="EAID_638F0EFE_7039_4590_929E_2A62840DE37F" name="Zaaktypecataloguscomponent"/>
+				<packagedElement xmi:type="uml:Component" xmi:id="EAID_638F0EFE_7039_4590_929E_2A62840DE37F" name="Catalogi APIcomponent"/>
 				<packagedElement xmi:type="uml:Component" xmi:id="EAID_1C72F921_7A43_490c_B49A_B0DB4699E23A" name="Consumer">
 					<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_dst3B6AF4_7606_4c13_9584_81010CB9047D" association="EAID_0F3B6AF4_7606_4c13_9584_81010CB9047D">
 						<type xmi:idref="EAID_0DC74A9C_817A_4a25_AFD1_19B0053F0E81"/>
@@ -2818,7 +2818,7 @@
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_SML000000_97CC_4a6b_AA4A_BBE160472461" text="1" modelElement="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBSML000000_97CC_4a6b_AA4A_BBE160472461" x="763" y="396" width="5" height="13"/>
 				</ownedElement>
-				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_97CC_4a6b_AA4A_BBE160472461" text="inhoud kan geüpload worden via">
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_97CC_4a6b_AA4A_BBE160472461" text="inhoud kan geï¿½pload worden via">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBNL000000_97CC_4a6b_AA4A_BBE160472461" x="763" y="430" width="46" height="39"/>
 				</ownedElement>
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_TML000000_97CC_4a6b_AA4A_BBE160472461" text="0..*" modelElement="EAID_dst2078F7_9C14_4fd5_AA4A_BBE160472461">
@@ -4692,7 +4692,7 @@
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_SML000000_B9D1_4fbd_AA4A_BBE160472461" text="1" modelElement="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBSML000000_B9D1_4fbd_AA4A_BBE160472461" x="1460" y="328" width="16" height="13"/>
 				</ownedElement>
-				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_B9D1_4fbd_AA4A_BBE160472461" text="inhoud kan geüpload worden via">
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_B9D1_4fbd_AA4A_BBE160472461" text="inhoud kan geï¿½pload worden via">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBNL000000_B9D1_4fbd_AA4A_BBE160472461" x="1537" y="329" width="46" height="39"/>
 				</ownedElement>
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_TML000000_B9D1_4fbd_AA4A_BBE160472461" text="0..*" modelElement="EAID_dst2078F7_9C14_4fd5_AA4A_BBE160472461">
@@ -7977,7 +7977,7 @@
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_SML000000_E130_41bb_AA4A_BBE160472461" text="1" modelElement="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBSML000000_E130_41bb_AA4A_BBE160472461" x="1243" y="619" width="5" height="13"/>
 				</ownedElement>
-				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_E130_41bb_AA4A_BBE160472461" text="inhoud kan geüpload worden via">
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_E130_41bb_AA4A_BBE160472461" text="inhoud kan geï¿½pload worden via">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBNL000000_E130_41bb_AA4A_BBE160472461" x="1268" y="586" width="46" height="39"/>
 				</ownedElement>
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_TML000000_E130_41bb_AA4A_BBE160472461" text="0..*" modelElement="EAID_dst2078F7_9C14_4fd5_AA4A_BBE160472461">
@@ -9147,7 +9147,7 @@
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_SML000000_270D_4e56_AA4A_BBE160472461" text="1" modelElement="EAID_src2078F7_9C14_4fd5_AA4A_BBE160472461">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBSML000000_270D_4e56_AA4A_BBE160472461" x="761" y="396" width="5" height="13"/>
 				</ownedElement>
-				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_270D_4e56_AA4A_BBE160472461" text="inhoud kan geüpload worden via">
+				<ownedElement xmi:type="umldi:UMLNameLabel" xmi:id="EAID_NL000000_270D_4e56_AA4A_BBE160472461" text="inhoud kan geï¿½pload worden via">
 					<bounds xmi:type="dc:bounds" xmi:id="EAID_DBNL000000_270D_4e56_AA4A_BBE160472461" x="760" y="429" width="46" height="39"/>
 				</ownedElement>
 				<ownedElement xmi:type="umldi:UMLMultiplicityLabel" xmi:id="EAID_TML000000_270D_4e56_AA4A_BBE160472461" text="0..*" modelElement="EAID_dst2078F7_9C14_4fd5_AA4A_BBE160472461">
@@ -9637,7 +9637,7 @@ AAAA</modelDocument>
 					</attribute>
 					<attribute xmi:idref="EAID_D20DBDDD_A278_4013_A379_6157507C369E" name="besluittype" scope="Public">
 						<initial/>
-						<documentation value="Aanduiding van de aard van het BESLUIT. Referentie naar het BESLUITTYPE in de zaaktypecatalogus."/>
+						<documentation value="Aanduiding van de aard van het BESLUIT. Referentie naar het BESLUITTYPE in de Catalogi API."/>
 						<model ea_localid="5" ea_guid="{D20DBDDD-A278-4013-A379-6157507C369E}"/>
 						<properties type="string" collection="false" static="0" duplicates="0" changeability="changeable"/>
 						<coords ordered="0"/>
@@ -10297,7 +10297,7 @@ AAAA</modelDocument>
 						<code/>
 						<style/>
 						<styleex/>
-						<documentation value="&lt;b&gt;Besluitinformatieobject_read&lt;/b&gt;&#xA;Opvragen van één besluitinformatieobject relatie."/>
+						<documentation value="&lt;b&gt;Besluitinformatieobject_read&lt;/b&gt;&#xA;Opvragen van ï¿½ï¿½n besluitinformatieobject relatie."/>
 						<tags/>
 						<parameters>
 							<parameter xmi:idref="EAID_RETURNID_3DDF_4439_BC08_314360B409BD" visibility="public">
@@ -11285,7 +11285,7 @@ AAAA</modelDocument>
 			</element>
 			<element xmi:idref="EAID_DD7373A1_F445_421e_88DB_DE7AC4D31FF5" xmi:type="uml:Class" name="zaak" scope="public">
 				<model package="EAPK_9E6B649E_881E_4cd4_88F6_8E2163618C53" tpos="0" ea_localid="65" ea_eleType="element"/>
-				<properties documentation="&lt;b&gt;Zaken&lt;/b&gt;&#xA;De &lt;b&gt;zaak&lt;/b&gt; vormt de kern van het zaakgericht werken. &#xA;Het perspectief van de intiator bepaalt of iets een zaak is. De omvang en afbakening worden bepaald door het traject van (aan)vraag tot (passend) antwoord. Een zaak komt daarmee overeen met een bedrijfsproces.&#xA;&#xA;&lt;b&gt;Hoofd en deel-zaken&lt;/b&gt;&#xA;Als een product of dienst via verschillende bedrijsprocessen tot stand komt, wordt gewerkt met &lt;b&gt;&lt;i&gt;deelzaken&lt;/i&gt;&lt;/b&gt;. De &lt;b&gt;&lt;i&gt;hoofdzaak&lt;/i&gt;&lt;/b&gt; coördineert dat alle deelzaken samen leiden tot het (passende) antwoord op de (aan)vraag van de initiator.&#xA;&#xA;&lt;b&gt;Relevante andere zaken&lt;/b&gt;&#xA;Aan elkaar gerelateerde zaken (met elk hun eigen bedrijfsproces/aanleiding) worden vastgelegd als &lt;b&gt;&lt;i&gt;AndereRelevanteZaak&lt;/i&gt;&lt;/b&gt;. Dit zijn zowel zaken binnen dezelfde organisatie als van verschillende organisaties.&#xA;&#xA;&lt;b&gt;Zaakobject&lt;/b&gt;&#xA;Elke &lt;b&gt;zaak&lt;/b&gt; heeft ergens betrekking op wat is vastgelegd met de relatie naar &lt;b&gt;zaakobject&lt;/b&gt;.  De, bij de ontwikkeling van de API's gebruikte, zaakobjecten (&lt;b&gt;inzageverzoek&lt;/b&gt;, &lt;b&gt;mor&lt;/b&gt;,  &lt;b&gt;verblijfsobject&lt;/b&gt;, ...) zijn nu ook als resource opgenomen in de Zaken API. Aangezien nog niet kan worden aangenomen dat deze vanuit de bron beschikbaar zijn.&#xA;Soms heeft de ene &lt;b&gt;zaak &lt;/b&gt;betrekking op een andere &lt;b&gt;zaak&lt;/b&gt;, zoals een bezwaarzaak die volgt op een vergunningzaak. &#xA;&#xA;&lt;b&gt;Betrokken en rollen&lt;/b&gt;&#xA;Ook heeft elke &lt;b&gt;zaak &lt;/b&gt;één of meer &lt;b&gt;betrokkenen&lt;/b&gt;, die via hun &lt;b&gt;rol&lt;/b&gt; aan de zaak gerelateerd zijn. &#xA;De verschillende typen betrokkenen (&lt;b&gt;medewerker&lt;/b&gt;, &lt;b&gt;natuurlijk persoon&lt;/b&gt;, &lt;b&gt;niet natuurlijk persoon&lt;/b&gt; en &lt;b&gt;organisatieonderdeel&lt;/b&gt;), zijn nu opgenomen in de ZakenAPI. Aangezien nog niet kan worden aangenomen dat deze vanuit de bron beschikbaar zijn.&#xA;&#xA;&lt;b&gt;Zaakdossier&lt;/b&gt;&#xA;Een &lt;b&gt;zaak&lt;/b&gt;, met eventuele &lt;b&gt;&lt;i&gt;deelzaken&lt;/i&gt;&lt;/b&gt;&lt;i&gt; &lt;/i&gt;dan wel de verwijzing naar de &lt;b&gt;&lt;i&gt;hoofdzaak&lt;/i&gt;&lt;/b&gt;, alle &lt;b&gt;&lt;i&gt;kenmerken&lt;/i&gt;&lt;/b&gt;, alle daaraan gerelateerde &lt;b&gt;Informatieobjecten&lt;/b&gt; en alle andere gerelateerde gegevens (via &lt;b&gt;rol&lt;/b&gt;, &lt;b&gt;zaakobject&lt;/b&gt;, etc.) vormen gezamenlijk het zaakdossier. &#xA;&#xA;&lt;b&gt;Meer informatie&lt;/b&gt;&#xA;Zie &lt;a href=&quot;$inet://https://ref.tst.vng.cloud/standaard/apis/zrc&quot;&gt;&lt;font color=&quot;#0000ff&quot;&gt;&lt;u&gt;https://ref.tst.vng.cloud/standaard/apis/zrc&lt;/u&gt;&lt;/font&gt;&lt;/a&gt; voor documentatie van de API specificatie, de referentieimplementatie en scopes van de Zaken API." isSpecification="false" sType="Class" nType="0" scope="public" stereotype="ObjectType" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<properties documentation="&lt;b&gt;Zaken&lt;/b&gt;&#xA;De &lt;b&gt;zaak&lt;/b&gt; vormt de kern van het zaakgericht werken. &#xA;Het perspectief van de intiator bepaalt of iets een zaak is. De omvang en afbakening worden bepaald door het traject van (aan)vraag tot (passend) antwoord. Een zaak komt daarmee overeen met een bedrijfsproces.&#xA;&#xA;&lt;b&gt;Hoofd en deel-zaken&lt;/b&gt;&#xA;Als een product of dienst via verschillende bedrijsprocessen tot stand komt, wordt gewerkt met &lt;b&gt;&lt;i&gt;deelzaken&lt;/i&gt;&lt;/b&gt;. De &lt;b&gt;&lt;i&gt;hoofdzaak&lt;/i&gt;&lt;/b&gt; coï¿½rdineert dat alle deelzaken samen leiden tot het (passende) antwoord op de (aan)vraag van de initiator.&#xA;&#xA;&lt;b&gt;Relevante andere zaken&lt;/b&gt;&#xA;Aan elkaar gerelateerde zaken (met elk hun eigen bedrijfsproces/aanleiding) worden vastgelegd als &lt;b&gt;&lt;i&gt;AndereRelevanteZaak&lt;/i&gt;&lt;/b&gt;. Dit zijn zowel zaken binnen dezelfde organisatie als van verschillende organisaties.&#xA;&#xA;&lt;b&gt;Zaakobject&lt;/b&gt;&#xA;Elke &lt;b&gt;zaak&lt;/b&gt; heeft ergens betrekking op wat is vastgelegd met de relatie naar &lt;b&gt;zaakobject&lt;/b&gt;.  De, bij de ontwikkeling van de API's gebruikte, zaakobjecten (&lt;b&gt;inzageverzoek&lt;/b&gt;, &lt;b&gt;mor&lt;/b&gt;,  &lt;b&gt;verblijfsobject&lt;/b&gt;, ...) zijn nu ook als resource opgenomen in de Zaken API. Aangezien nog niet kan worden aangenomen dat deze vanuit de bron beschikbaar zijn.&#xA;Soms heeft de ene &lt;b&gt;zaak &lt;/b&gt;betrekking op een andere &lt;b&gt;zaak&lt;/b&gt;, zoals een bezwaarzaak die volgt op een vergunningzaak. &#xA;&#xA;&lt;b&gt;Betrokken en rollen&lt;/b&gt;&#xA;Ook heeft elke &lt;b&gt;zaak &lt;/b&gt;ï¿½ï¿½n of meer &lt;b&gt;betrokkenen&lt;/b&gt;, die via hun &lt;b&gt;rol&lt;/b&gt; aan de zaak gerelateerd zijn. &#xA;De verschillende typen betrokkenen (&lt;b&gt;medewerker&lt;/b&gt;, &lt;b&gt;natuurlijk persoon&lt;/b&gt;, &lt;b&gt;niet natuurlijk persoon&lt;/b&gt; en &lt;b&gt;organisatieonderdeel&lt;/b&gt;), zijn nu opgenomen in de ZakenAPI. Aangezien nog niet kan worden aangenomen dat deze vanuit de bron beschikbaar zijn.&#xA;&#xA;&lt;b&gt;Zaakdossier&lt;/b&gt;&#xA;Een &lt;b&gt;zaak&lt;/b&gt;, met eventuele &lt;b&gt;&lt;i&gt;deelzaken&lt;/i&gt;&lt;/b&gt;&lt;i&gt; &lt;/i&gt;dan wel de verwijzing naar de &lt;b&gt;&lt;i&gt;hoofdzaak&lt;/i&gt;&lt;/b&gt;, alle &lt;b&gt;&lt;i&gt;kenmerken&lt;/i&gt;&lt;/b&gt;, alle daaraan gerelateerde &lt;b&gt;Informatieobjecten&lt;/b&gt; en alle andere gerelateerde gegevens (via &lt;b&gt;rol&lt;/b&gt;, &lt;b&gt;zaakobject&lt;/b&gt;, etc.) vormen gezamenlijk het zaakdossier. &#xA;&#xA;&lt;b&gt;Meer informatie&lt;/b&gt;&#xA;Zie &lt;a href=&quot;$inet://https://ref.tst.vng.cloud/standaard/apis/zrc&quot;&gt;&lt;font color=&quot;#0000ff&quot;&gt;&lt;u&gt;https://ref.tst.vng.cloud/standaard/apis/zrc&lt;/u&gt;&lt;/font&gt;&lt;/a&gt; voor documentatie van de API specificatie, de referentieimplementatie en scopes van de Zaken API." isSpecification="false" sType="Class" nType="0" scope="public" stereotype="ObjectType" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
 				<project author="Edwin Coster" version="1.0" phase="1.0" created="2019-05-07 11:52:32" modified="2019-07-02 16:48:22" complexity="1" status="Proposed"/>
 				<code product_name="Java" gentype="Java"/>
 				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
@@ -11744,7 +11744,7 @@ AAAA</modelDocument>
 					<Association xmi:id="EAID_FBF869E4_137D_4a7e_83BB_2BD8C4654D34" start="EAID_1B1F6902_B24B_478c_9951_CA40464C7A58" end="EAID_B708932F_FF45_4a50_A30A_FB5174DCB202"/>
 				</links>
 			</element>
-			<element xmi:idref="EAID_258166FB_54DF_48ff_B25D_044C6E9803F1" xmi:type="uml:Component" name="Autorisatiecomponent" scope="public">
+			<element xmi:idref="EAID_258166FB_54DF_48ff_B25D_044C6E9803F1" xmi:type="uml:Component" name="Autorisaties API" scope="public">
 				<model package="EAPK_53C60E18_780C_4b7c_B410_0752838D2EA7" tpos="11" ea_localid="126" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Component" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<project author="ecoster" version="1.0" phase="1.0" created="2019-05-08 13:21:20" modified="2019-05-10 09:52:15" complexity="1" status="Proposed"/>
@@ -11824,7 +11824,7 @@ AAAA</modelDocument>
 				<xrefs/>
 				<extendedProperties tagged="0" package_name="Componenten"/>
 			</element>
-			<element xmi:idref="EAID_638F0EFE_7039_4590_929E_2A62840DE37F" xmi:type="uml:Component" name="Zaaktypecataloguscomponent" scope="public">
+			<element xmi:idref="EAID_638F0EFE_7039_4590_929E_2A62840DE37F" xmi:type="uml:Component" name="Catalogi APIcomponent" scope="public">
 				<model package="EAPK_53C60E18_780C_4b7c_B410_0752838D2EA7" tpos="19" ea_localid="116" ea_eleType="element"/>
 				<properties isSpecification="false" sType="Component" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
 				<project author="ecoster" version="1.0" phase="1.0" created="2019-05-08 13:01:19" modified="2019-05-10 09:52:35" complexity="1" status="Proposed"/>
@@ -13779,7 +13779,7 @@ AAAA</modelDocument>
 				<xrefs/>
 				<tags/>
 			</connector>
-			<connector xmi:idref="EAID_592078F7_9C14_4fd5_AA4A_BBE160472461" name="inhoud kan geüpload worden via">
+			<connector xmi:idref="EAID_592078F7_9C14_4fd5_AA4A_BBE160472461" name="inhoud kan geï¿½pload worden via">
 				<source xmi:idref="EAID_FB2E368D_DAA2_4bb5_A65A_B7AF19E0B821">
 					<model ea_localid="48" type="Class" name="enkelvoudiginformatieobject"/>
 					<role visibility="Public" targetScope="instance"/>
@@ -13808,7 +13808,7 @@ AAAA</modelDocument>
 				<parameterSubstitutions/>
 				<documentation/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
-				<labels lb="1" mt="inhoud kan geüpload worden via" rb="0..*"/>
+				<labels lb="1" mt="inhoud kan geï¿½pload worden via" rb="0..*"/>
 				<extendedProperties/>
 				<style/>
 				<xrefs/>
@@ -14997,8 +14997,8 @@ AAAA</modelDocument>
 				<modifiers isRoot="false" isLeaf="false"/>
 				<documentation/>
 				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
-				<labels mb=" &#xA;«trace»"/>
-				<extendedProperties conditional=" &#xA;«trace»" virtualInheritance="0"/>
+				<labels mb=" &#xA;ï¿½traceï¿½"/>
+				<extendedProperties conditional=" &#xA;ï¿½traceï¿½" virtualInheritance="0"/>
 				<style value="version=1.0;VOF=1;"/>
 				<xrefs value="$XREFPROP=$XID={128BB581-679A-4b91-A1C0-1BA8A14B5420}$XID;$NAM=Stereotypes$NAM;$TYP=connector property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=trace;GUID={C29A9F62-73B5-4675-8A93-2C83C50E222F};@ENDSTEREO;$DES;$CLT={9F74BF33-CEF4-4247-9FFB-D3DBB123F61F}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
 				<tags/>
@@ -17901,7 +17901,7 @@ AAAA</modelDocument>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatierol-Mogelijk geen waarde" name="Mogelijk geen waarde">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatierol-Indicatie materiële historie" name="Indicatie materiële historie">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatierol-Indicatie materiï¿½le historie" name="Indicatie materiï¿½le historie">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatierol-Authentiek" name="Authentiek">
@@ -17938,7 +17938,7 @@ AAAA</modelDocument>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatiesoort-Mogelijk geen waarde" name="Mogelijk geen waarde">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatiesoort-Indicatie materiële historie" name="Indicatie materiële historie">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatiesoort-Indicatie materiï¿½le historie" name="Indicatie materiï¿½le historie">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Relatiesoort-Authentiek" name="Authentiek">
@@ -17967,7 +17967,7 @@ AAAA</modelDocument>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Gegevensgroep-base_Attribute" name="base_Attribute" association="Attribute_Gegevensgroep">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#Attribute"/>
 					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="Gegevensgroep-Indicatie materiële historie" name="Indicatie materiële historie">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Gegevensgroep-Indicatie materiï¿½le historie" name="Indicatie materiï¿½le historie">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Gegevensgroep-Authentiek" name="Authentiek">
@@ -18206,7 +18206,7 @@ AAAA</modelDocument>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Attribuutsoort-Mogelijk geen waarde" name="Mogelijk geen waarde">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
-					<ownedAttribute xmi:type="uml:Property" xmi:id="Attribuutsoort-Indicatie materiële historie" name="Indicatie materiële historie">
+					<ownedAttribute xmi:type="uml:Property" xmi:id="Attribuutsoort-Indicatie materiï¿½le historie" name="Indicatie materiï¿½le historie">
 						<type href="http://www.omg.org/spec/UML/20131001/UML.xmi#String"/>
 					</ownedAttribute>
 					<ownedAttribute xmi:type="uml:Property" xmi:id="Attribuutsoort-Authentiek" name="Authentiek">
@@ -18284,7 +18284,7 @@ AAAA</modelDocument>
 			</diagram>
 			<diagram xmi:id="EAID_24B57C7D_48BE_4236_A58C_6464FFD71854">
 				<model package="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" localID="3" owner="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" tpos="2"/>
-				<properties name="Besluiten API" type="Logical" documentation="&lt;b&gt;Besluiten API&lt;/b&gt;&#xA;&#xA;Een Besluit is een na overweging of beraadslaging vastgestelde beslissing voor een individueel of concreet geval.&#xA;&#xA;Deze API slaat de gegevens van Besluiten op en ontsluit deze naar applicaties. &#xA;&#xA;Het gaat hierbij niet alleen om besluiten van bestuursorganen (vanuiteen publiekrechtelijke rechtshandeling) maar ook om andere besluiten, zoals bijvoorbeeld genomen op interne zaken. &#xA;&#xA;Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in één Informatieobject meerdere Besluiten vastgelegd zijn.&#xA;&#xA;Een Besluit kan een uitkomst zijn van  een Zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de Zaak waarvan het een uitkomst is. &#xA;&#xA;Indien het Besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is één van de betrokkkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort. "/>
+				<properties name="Besluiten API" type="Logical" documentation="&lt;b&gt;Besluiten API&lt;/b&gt;&#xA;&#xA;Een Besluit is een na overweging of beraadslaging vastgestelde beslissing voor een individueel of concreet geval.&#xA;&#xA;Deze API slaat de gegevens van Besluiten op en ontsluit deze naar applicaties. &#xA;&#xA;Het gaat hierbij niet alleen om besluiten van bestuursorganen (vanuiteen publiekrechtelijke rechtshandeling) maar ook om andere besluiten, zoals bijvoorbeeld genomen op interne zaken. &#xA;&#xA;Een besluit wordt veelal schriftelijk vastgelegd maar dit is niet noodzakelijk. Omgekeerd kan het voorkomen dat in ï¿½ï¿½n Informatieobject meerdere Besluiten vastgelegd zijn.&#xA;&#xA;Een Besluit kan een uitkomst zijn van  een Zaak van de zaakbehandelende organisatie. Besluit heeft dan ook een optionele relatie met de Zaak waarvan het een uitkomst is. &#xA;&#xA;Indien het Besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is ï¿½ï¿½n van de betrokkkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort. "/>
 				<project author="Edwin Coster" version="1.0" created="2019-05-07 09:21:15" modified="2019-07-02 16:46:37"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=827;DocSize.cy=1169;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=41710A61;"/>
@@ -18314,7 +18314,7 @@ AAAA</modelDocument>
 			</diagram>
 			<diagram xmi:id="EAID_CC156D32_97CC_4a6b_AC24_EC19E3CEAF9B">
 				<model package="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" localID="4" owner="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" tpos="4"/>
-				<properties name="Documenten API" type="Logical" documentation="&lt;b&gt;Documenten API&lt;/b&gt;&#xA;&#xA;Een Informatieobject is een generiekere term voor het veelgebruikte begrip Document dat beperkter van reikwijdte is. &#xA;&#xA;Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etcetera. &#xA;&#xA;In tegenstelling tot RGBZ onderkennen de ZGW API's  alleen EnkelvoudigeInformatieobjecten. Een e-mail met 3 bijlagen of een verzoek met bijbehorende CAD-tekening en Excel spreadsheet worden beschouwd als afzonderlijke Informatieobjecten.&#xA;&#xA;Een Informatieobject kan relevant zijn  voor meer dan één Zaak. &#xA;&#xA;Door informatieobjecten te registreren en aan een zaak te relateren wordt het archief bij/van de zaak opgebouwd; alle informatieobjecten bij een zaak vormen tezamen met de zaakkenmerken het zaakdossier. Het zaakdossier is dus geen apart objecttype.&#xA;&#xA;&#xA;&#xA;&#xA;"/>
+				<properties name="Documenten API" type="Logical" documentation="&lt;b&gt;Documenten API&lt;/b&gt;&#xA;&#xA;Een Informatieobject is een generiekere term voor het veelgebruikte begrip Document dat beperkter van reikwijdte is. &#xA;&#xA;Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etcetera. &#xA;&#xA;In tegenstelling tot RGBZ onderkennen de ZGW API's  alleen EnkelvoudigeInformatieobjecten. Een e-mail met 3 bijlagen of een verzoek met bijbehorende CAD-tekening en Excel spreadsheet worden beschouwd als afzonderlijke Informatieobjecten.&#xA;&#xA;Een Informatieobject kan relevant zijn  voor meer dan ï¿½ï¿½n Zaak. &#xA;&#xA;Door informatieobjecten te registreren en aan een zaak te relateren wordt het archief bij/van de zaak opgebouwd; alle informatieobjecten bij een zaak vormen tezamen met de zaakkenmerken het zaakdossier. Het zaakdossier is dus geen apart objecttype.&#xA;&#xA;&#xA;&#xA;&#xA;"/>
 				<project author="ecoster" version="1.0" created="2019-05-07 09:33:00" modified="2020-01-31 11:59:29"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=1130;DocSize.cy=787;ShowDetails=0;Orientation=L;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=EABC71B1;"/>
@@ -18381,7 +18381,7 @@ AAAA</modelDocument>
 			</diagram>
 			<diagram xmi:id="EAID_03C56B38_5C49_4ac2_8E01_792C2E471E74">
 				<model package="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" localID="5" owner="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" tpos="8"/>
-				<properties name="Zaken API 1.0.0" type="Logical" documentation="&lt;b&gt;Zaken API&lt;/b&gt;&#xA;&#xA;De Zaken API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. &#xA;&#xA;Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. &#xA;&#xA;Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in de documentregistratiecomponent, gegevens van besluiten in de besluitregistratiecomponent, etc."/>
+				<properties name="Zaken API 1.0.0" type="Logical" documentation="&lt;b&gt;Zaken API&lt;/b&gt;&#xA;&#xA;De Zaken API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. &#xA;&#xA;Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. &#xA;&#xA;Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in de Documenten API, gegevens van besluiten in de Besluiten API, etc."/>
 				<project author="Edwin Coster" version="1.0" created="2019-05-07 00:00:00" modified="2020-01-31 12:20:07"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=1614;DocSize.cy=1130;ShowDetails=0;Orientation=L;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=8;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=F922422C;"/>
@@ -18858,7 +18858,7 @@ AAAA</modelDocument>
 			</diagram>
 			<diagram xmi:id="EAID_83EDC8DC_4507_4fa0_91D1_D48578A18655">
 				<model package="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" localID="16" owner="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" tpos="9"/>
-				<properties name="Zaken API 1.1.0" type="Logical" documentation="&lt;b&gt;Zaken API&lt;/b&gt;&#xA;&#xA;De Zaken API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. &#xA;&#xA;Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. &#xA;&#xA;Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in de documentregistratiecomponent, gegevens van besluiten in de besluitregistratiecomponent, etc."/>
+				<properties name="Zaken API 1.1.0" type="Logical" documentation="&lt;b&gt;Zaken API&lt;/b&gt;&#xA;&#xA;De Zaken API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over alle gemeentelijke zaken, van elk type. &#xA;&#xA;Opslag vindt plaats conform het RGBZ waarin objecten, gegevens daarvan en onderlinge relaties zijn beschreven. &#xA;&#xA;Het bevat echter niet alle gegevens uit het RGBZ: documenten worden opgeslagen in de Documenten API, gegevens van besluiten in de Besluiten API, etc."/>
 				<project author="Edwin Coster" version="1.0" created="2019-11-11 09:49:23" modified="2020-01-31 12:23:20"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=1614;DocSize.cy=1130;ShowDetails=0;Orientation=L;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=8;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=D53B5F08;"/>
@@ -19246,7 +19246,7 @@ AAAA</modelDocument>
 			</diagram>
 			<diagram xmi:id="EAID_0FD3EC75_270D_4e56_A6A6_D233FDE433B0">
 				<model package="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" localID="21" owner="EAPK_9BB1341F_3608_4df7_8A50_048C28265860" tpos="4"/>
-				<properties name="Documenten API 1.1.0" type="Logical" documentation="&lt;b&gt;Documenten API&lt;/b&gt;&#xA;&#xA;Een Informatieobject is een generiekere term voor het veelgebruikte begrip Document dat beperkter van reikwijdte is. &#xA;&#xA;Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etcetera. &#xA;&#xA;In tegenstelling tot RGBZ onderkennen de ZGW API's  alleen EnkelvoudigeInformatieobjecten. Een e-mail met 3 bijlagen of een verzoek met bijbehorende CAD-tekening en Excel spreadsheet worden beschouwd als afzonderlijke Informatieobjecten.&#xA;&#xA;Een Informatieobject kan relevant zijn  voor meer dan één Zaak. &#xA;&#xA;Door informatieobjecten te registreren en aan een zaak te relateren wordt het archief bij/van de zaak opgebouwd; alle informatieobjecten bij een zaak vormen tezamen met de zaakkenmerken het zaakdossier. Het zaakdossier is dus geen apart objecttype.&#xA;&#xA;&#xA;&#xA;&#xA;"/>
+				<properties name="Documenten API 1.1.0" type="Logical" documentation="&lt;b&gt;Documenten API&lt;/b&gt;&#xA;&#xA;Een Informatieobject is een generiekere term voor het veelgebruikte begrip Document dat beperkter van reikwijdte is. &#xA;&#xA;Een informatieobject kan van alles zijn, ongeacht aard en vorm: een tekstverwerkingsdocument, een papieren brief, een webpagina, een landkaart, een foto, een geluidsopname, een dataset, een blog, etcetera. &#xA;&#xA;In tegenstelling tot RGBZ onderkennen de ZGW API's  alleen EnkelvoudigeInformatieobjecten. Een e-mail met 3 bijlagen of een verzoek met bijbehorende CAD-tekening en Excel spreadsheet worden beschouwd als afzonderlijke Informatieobjecten.&#xA;&#xA;Een Informatieobject kan relevant zijn  voor meer dan ï¿½ï¿½n Zaak. &#xA;&#xA;Door informatieobjecten te registreren en aan een zaak te relateren wordt het archief bij/van de zaak opgebouwd; alle informatieobjecten bij een zaak vormen tezamen met de zaakkenmerken het zaakdossier. Het zaakdossier is dus geen apart objecttype.&#xA;&#xA;&#xA;&#xA;&#xA;"/>
 				<project author="ecoster" version="1.0" created="2019-12-12 11:07:03" modified="2020-01-31 11:57:24"/>
 				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=1130;DocSize.cy=787;ShowDetails=0;Orientation=L;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=9;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
 				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;SaveTag=E6D06941;"/>

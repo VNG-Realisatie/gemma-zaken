@@ -40,8 +40,8 @@ _Volgens de [productvisie](/productvisie)_
 * Opstellen en realiseren van een nieuwe ZGW API's volgens Open API
 Specificatie v3 (AOS 3)
 * Realiseren van een open source referentie-implementatie van
-zaakregistratiecomponent, documentregistratiecomponent en
-zaaktypecataloguscomponent welke de ZGW API's strikt implementeren
+Zaken API, Documenten API en
+Catalogi APIcomponent welke de ZGW API's strikt implementeren
 * Functionele documentatie voor het gebruik van de API.
 
 _Volgens oorspronkelijke projectdefinitie_

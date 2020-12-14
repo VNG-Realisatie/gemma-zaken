@@ -69,7 +69,7 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 ## Specificatie van gedrag
 
-Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
+Zaken APIen (ZRC) MOETEN aan twee aspecten voldoen:
 
 * de ZRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 

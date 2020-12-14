@@ -43,9 +43,9 @@ welke gezamelijk wordt geprioriteerd. Daarbij wordt rekening gehouden met het
 toevoegen van zoveel mogelijk waarde bij zoveel mogelijk deelnemende partijen.
 
 Het scrumteam bepaalt samen hoe een RESTful API er uit moet zien, wat leidt tot
-een voorstel voor de verschillende ZGW API's, welke groeit gedurende de 
+een voorstel voor de verschillende ZGW API's, welke groeit gedurende de
 samenwerking.
-Een rol voor leveranciers van Zaakregistratiecomponenten (ZRC) is gewenst,
+Een rol voor leveranciers van Zaken APIen (ZRC) is gewenst,
 suggesties voor een samenwerking die leidt tot draagvlak en gelijke kansen zijn
 welkom. Vanaf sprint 3 moet dit goed functioneren.
 

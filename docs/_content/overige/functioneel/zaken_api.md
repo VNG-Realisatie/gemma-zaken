@@ -31,7 +31,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>Provider</td>
-<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-a97b6545-d5a7-485d-9b13-3ce22db5b9cf"><span class="underline">Zaakregistratiecomponent</span></a> (GEMMA2)</td>
+<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-a97b6545-d5a7-485d-9b13-3ce22db5b9cf"><span class="underline">Zaken API</span></a> (GEMMA2)</td>
 </tr>
 <tr class="even">
 <td>Consumer</td>

@@ -120,7 +120,7 @@ zonder menselijke controle kan gebeuren. Het secret wordt gebruikt om het JWT
 cryptografisch te ondertekeken, waardoor de provider garantie heeft dat de
 consumer ook echt is wie die beweert te zijn (via het `client_id`).
 
-Een autorisatiecomponent (AC) is verantwoordelijk voor het bijhouden van
+Een Autorisaties API (AC) is verantwoordelijk voor het bijhouden van
 autorisaties voor een applicatie. Typisch zien we dit voor ons als een
 component die centraal (per omgeving zoals testing, acceptatie en productie)
 binnen de gemeente ingericht is. De component ontsluit zelf een API waarmee
@@ -209,7 +209,7 @@ Vervolgens wordt dit JWT via de NLX outway & inway naar de API verstuurd. De
 zaken-API controleert de integriteit van het token doordat de `secret` gedeeld
 is tussen de API en de auth service van de organisatie.
 
-Dit mechanisme zet zich door tot aan de zaaktypecatalogus.
+Dit mechanisme zet zich door tot aan de Catalogi API.
 
 ![sequence](./_assets/authenticatie-autorisatie.png?raw=true)
 
@@ -219,7 +219,7 @@ In een eerdere sprint werden de scope/zaaktypes claims opgenomen in het JWT
 wat verstuurd wordt van de (taak)applicatie naar de API. Dit is niet langer
 zo - nu gebruiken we het JWT enkel nog om de (taak)applicatie te autoriseren
 met de betreffende API te communiceren. De autorisatie van de acties van de
-applicatie zelf is gedelegeerd naar de autorisatiecomponent.
+applicatie zelf is gedelegeerd naar de Autorisaties API.
 
 Dit brengt de autorisaties van een taakapplicatie strikter onder controle van
 de gemeente, aangezien deze op een AC inricht (of instelt) welke acties

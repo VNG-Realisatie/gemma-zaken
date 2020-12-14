@@ -4,7 +4,7 @@ date: '27-03-2019'
 weight: 110
 ---
 
-Als component moet je events publiceren naar een notificatierouteringcomponent
+Als component moet je events publiceren naar een Notificaties API
 (NRC), of je wil kunnen acteren op events. Deze guide helpt je op weg.
 
 Als uitgangspunt wordt de [gehoste notificatiecomponent](https://notificaties-api.vng.cloud/)

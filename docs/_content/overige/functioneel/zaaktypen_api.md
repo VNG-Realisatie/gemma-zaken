@@ -31,7 +31,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>Provider</td>
-<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314"><span class="underline">Zaaktypecataloguscomponent</span></a> (GEMMA2)</td>
+<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-3ef9cdd9-631c-4d3e-88c3-f756423d6314"><span class="underline">Catalogi APIcomponent</span></a> (GEMMA2)</td>
 </tr>
 <tr class="even">
 <td>Consumer</td>

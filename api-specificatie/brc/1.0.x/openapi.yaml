@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Besluiten API
-  description: 'Een API om een besluitregistratiecomponent (BRC) te benaderen.
+  description: 'Een API om een Besluiten API (BRC) te benaderen.
 
 
     Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet
@@ -2234,17 +2234,17 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `ac` - Autorisatiecomponent
+            * `ac` - Autorisaties API
 
-            * `nrc` - Notificatierouteringcomponent
+            * `nrc` - Notificaties API
 
-            * `zrc` - Zaakregistratiecomponent
+            * `zrc` - Zaken API
 
-            * `ztc` - Zaaktypecatalogus
+            * `ztc` - Catalogi API
 
-            * `drc` - Documentregistratiecomponent
+            * `drc` - Documenten API
 
-            * `brc` - Besluitregistratiecomponent'
+            * `brc` - Besluiten API'
           type: string
           enum:
           - ac

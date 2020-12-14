@@ -4,7 +4,7 @@ weight: 30
 ---
 
 In deze tutorial configureren we de referentieimplementatie van de
-Zaaktypecatalogus (ZTC) zodat Zaken in het Zaakregistratiecomponent (ZRC)
+Catalogi API (ZTC) zodat Zaken in het Zaken API (ZRC)
 juist worden aangemaakt en voorzien worden van de juiste meta attributen zodat
 archivering mogelijk is.
 

@@ -13,20 +13,20 @@ weight: 100
   - [Beschikbaar stellen van de OAS](#beschikbaar-stellen-van-de-oas)
 - [Gegevensformaten](#gegevensformaten)
 - [Autorisatie](#autorisatie)
-    - [Autorisatiecomponent](#autorisatiecomponent)
+    - [Autorisaties API](#Autorisaties API)
 - [Filter parameters](#filter-parameters)
 - [Notificaties](#notificaties)
 - [Audittrail](#audittrail)
-- [Zaakregistratiecomponent](#zaakregistratiecomponent)
+- [Zaken API](#Zaken API)
     - [OpenAPI specificatie](#openapi-specificatie)
     - [Run-time gedrag](#run-time-gedrag)
-- [Documentregistratiecomponent](#documentregistratiecomponent)
+- [Documenten API](#Documenten API)
     - [OpenAPI specificatie](#openapi-specificatie-1)
     - [Run-time gedrag](#run-time-gedrag-1)
-- [Besluitregistratiecomponent](#besluitregistratiecomponent)
+- [Besluiten API](#Besluiten API)
     - [OpenAPI specificatie](#openapi-specificatie-2)
    -  [Run-time gedrag](#run-time-gedrag-2)
-- [Zaaktypecatalogus](#zaaktypecatalogus)
+- [Catalogi API](#Catalogi API)
     - [OpenAPI specificatie](#openapi-specificatie-3)
     - [Run-time gedrag](#run-time-gedrag-3)
 
@@ -188,9 +188,9 @@ beweert te zijn.
 Providers MOETEN voor elke aanroep door de client controleren of de client
 geautoriseerd is om deze aanroep uit te voeren.
 
-Providers MOETEN een geconfigureerde autorisatiecomponent bevragen met het
+Providers MOETEN een geconfigureerde Autorisaties API bevragen met het
 `client_id` als query-parameter om de autorisaties van deze client op te
-vragen, conform de API-specificatie van het Autorisatiecomponent (AC).
+vragen, conform de API-specificatie van het Autorisaties API (AC).
 
 Providers MOGEN deze gegevens cachen om performance-redenen. Indien
 er van caching gebruik gemaakt wordt, dan MOETEN providers een mechanisme
@@ -219,7 +219,7 @@ Daarnaast ZOUDEN de volgende claims aanwezig MOETEN zijn:
 * `user_representation`: *(string)* de vriendelijke weergave van de
   eindgebruiker die verantwoordelijk is voor de API-aanroep.
 
-### Autorisatiecomponent
+### Autorisaties API
 
 Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ac/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
@@ -266,7 +266,7 @@ staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 ## Notificaties
 
 Componenten dienen events te publiceren naar (een)
-notificatierouteringcomponent(en) (NRC). De NRC MOET volledig de
+Notificaties API(en) (NRC). De NRC MOET volledig de
 [`openapi.yaml`](../../../api-specificatie/nrc/openapi.yaml) implementeren.
 
 Applicaties MOGEN een abonnement nemen op 1 of meer kanalen. Deze applicaties
@@ -323,9 +323,9 @@ verwijderd wordt, dan MOET de audittrail meeverwijderd worden.
 
 Zie de API spec voor de betekenis van de audittrailattributen.
 
-## Zaakregistratiecomponent
+## Zaken API
 
-Zaakregistratiecomponenten (ZRC) MOETEN aan twee aspecten voldoen:
+Zaken APIen (ZRC) MOETEN aan twee aspecten voldoen:
 
 * de ZRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
@@ -639,9 +639,9 @@ Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
 \* Het verwijderen van een `zaakinformatieobject` in het ZRC leidt er toe dat
 het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
-## Documentregistratiecomponent
+## Documenten API
 
-documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
+Documenten APIsen (DRC) MOETEN aan twee aspecten voldoen:
 
 * de DRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
@@ -758,9 +758,9 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn
 applicaties die de scope `documenten.geforceerd-unlock` hebben. Deze consumers
 MOETEN het `lockId` weglaten indien ze geforceerd unlocken.
 
-## Besluitregistratiecomponent
+## Besluiten API
 
-Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
+Besluiten APIen (BRC) MOETEN aan twee aspecten voldoen:
 
 * de BRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 
@@ -876,7 +876,7 @@ begrepen:
 dat het `objectinformatieobject` in het DRC ook verwijdert wordt indien dit kan.
 
 
-## Zaaktypecatalogus
+## Catalogi API
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 

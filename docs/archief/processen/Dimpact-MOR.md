@@ -29,7 +29,7 @@ Daarnaast blijken de user stories van Dimpact voor de MOR samen te vallen met ee
 
 
 ## Architectuurschets
-De architectuurschets geeft de nieuwe versie van Zaak- Documentservices 2.0 weer; deze bestaat in feite uit meerdere API-specificaties, waaronder die voor Zaaktypen, Zaken en Documenten. Deze API's worden aangeboden (gerealiseerd) door resp. de componenten Zaaktypecatalogus (ZTC), Zaakregistratiecomponent (ZRC) en Documentregistratiecomponent (DRC). Hieronder staan twee architectuurmodellen. Het linker model geeft de specifieke situatie bij Dimpact weer met gebruik van de Atos e-Suite. Het rechter model geeft de situatie weer in het algemene geval.
+De architectuurschets geeft de nieuwe versie van Zaak- Documentservices 2.0 weer; deze bestaat in feite uit meerdere API-specificaties, waaronder die voor Zaaktypen, Zaken en Documenten. Deze API's worden aangeboden (gerealiseerd) door resp. de componenten Catalogi API (ZTC), Zaken API (ZRC) en Documenten API (DRC). Hieronder staan twee architectuurmodellen. Het linker model geeft de specifieke situatie bij Dimpact weer met gebruik van de Atos e-Suite. Het rechter model geeft de situatie weer in het algemene geval.
 
 | ![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/apis-componenten-dimpact.png?raw=true) | ![Architectuurschets t.b.v. Dimpact MOR](./bestanden/Dimpact/apis-componenten-generiek.png?raw=true) |
 | --- | --- |
