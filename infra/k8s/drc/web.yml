@@ -20,6 +20,10 @@ spec:
       labels:
         k8s-app: {{ service.name }}
     spec:
+      volumes:
+        - name: private-storage
+          persistentVolumeClaim:
+            claimName: {{ service.name }}-private-media
       containers:
       - name: {{ service.name }}
         image: vngr/gemma-drc:{{ service.image_tag }}
@@ -49,6 +53,10 @@ spec:
                 value: localhost
           initialDelaySeconds: 15
           periodSeconds: 30
+        volumeMounts:
+          - name: private-storage
+            mountPath: /app/private-media
+            subPath: zgw/{{ service.name }}/private-media
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
@@ -77,14 +85,8 @@ spec:
                 key: SENTRY_DSN
           - name: MIN_UPLOAD_SIZE
             value: "{{ service.min_upload_size }}"
-        volumeMounts:
-          - name: private-storage
-            mountPath: /app/private-media
-            subPath: zgw/{{ service.name }}/private-media
-      volumes:
-        - name: private-storage
-          persistentVolumeClaim:
-            claimName: {{ service.name }}-private-media
+          - name: SELF_BRANCH
+            value: {% if service.name == 'drc-test' %} master {% else %} '' {% endif %}
 
 ---
 
