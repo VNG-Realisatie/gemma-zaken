@@ -29,24 +29,24 @@ services:
 
   - name: ac-test
     templates: ../k8s/ac/
-    image_tag: develop
+    image_tag: latest
 
   - name: brc-test
     templates: ../k8s/brc/
-    image_tag: develop
+    image_tag: latest
 
   - name: drc-test
     templates: ../k8s/drc/
-    image_tag: develop
+    image_tag: latest
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc-test
     templates: ../k8s/nrc/
-    image_tag: develop
+    image_tag: latest
 
   - name: zrc-test
     templates: ../k8s/zrc/
-    image_tag: develop
+    image_tag: latest
 
   - name: ztc-test
     templates: ../k8s/ztc/
