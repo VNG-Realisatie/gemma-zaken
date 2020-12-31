@@ -10,5 +10,7 @@ Het gegevensmodel in XMI formaat: [Gegevensmodel API's voor Zaakgericht Werken d
 
 De dtd voor het XMI formaat, deze plaatst u in dezelfde folder als het gegevensmodel: [UML_EA.DTD](_assets/UML_EA.DTD)
 
+Gegevensmodel in XMI formaat: [Gegevensmodel ZGW API's dd. 31 december 2020](_assets/20201231_ZGW_APIs.xml)
+
 Mocht u niet de beschikking hebben over het pakket Enterprise Architect biedt leverancier Sparx Systems een EA Viewer om het model in alleen-lezen modus te kunnen bekijken. Deze is [hier](https://www.sparxsystems.eu/enterprise-architect/ea-lite-edition/) te downloaden.
 
