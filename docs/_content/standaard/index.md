@@ -59,7 +59,7 @@ Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de 
 
 ## Overkoepelend gegevensmodel
 
-[![Visualisatie ZGW API's](./Visualisatie ZGW API's.png){:width="700px"}]
+[![Visualisatie ZGW API's](./Visualisatie ZGW API's.png)](./Visualisatie ZGW API's "Visualisatie ZGW API's, klik voor grote versie")
 
 Bovenstaande afbeelding toont de hoe API's voor zaakgericht werken aan elkaar gerelateerd zijn. Per API is aangegeven wat de belangrijkste resource(s) is/zijn en hoe deze relateren aan resources in ander API's. Een stippelijn betekent dat de relatie optioneel is en dat beide resources los van elkaar kunnen bestaan. Een Klant kan contactmomenten hebben of een zaak initieren en klanten, contactmomenten en zaken kunnen los van elkaar bestaan. Een zaak is van een zaaktype, en hoewel zaaktype kan bestaan zonder dat er een zaak van dat type bestaat is het niet mogelijk dat een zaak bestaat zonder onderliggend zaaktype.
 
