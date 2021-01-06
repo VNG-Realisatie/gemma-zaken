@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}
-        image: vngr/gemma-autorisatiecomponent:{{ service.image_tag }}
+        image: vngr/autorisaties-api:{{ service.image_tag }}
         imagePullPolicy: Always
         resources:
           requests:
