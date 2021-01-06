@@ -35,7 +35,7 @@ API specificatie t.o.v. `x.y.z`.*
 
 ## Zaken API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/zaken-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
@@ -67,7 +67,7 @@ Versie   | Release datum | API specificatie
 
 ## Documenten API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/documenten-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
@@ -94,7 +94,7 @@ Versie   | Release datum | API specificatie
 
 ## Besluiten API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/besluiten-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
@@ -121,7 +121,7 @@ Versie   | Release datum | API specificatie
 
 ## Catalogi API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/catalogi-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
@@ -147,7 +147,7 @@ Versie   | Release datum | API specificatie
 
 ## Autorisaties API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/autorisaties-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
@@ -173,7 +173,7 @@ Versie   | Release datum | API specificatie
 
 ## Notificaties API
 
-* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/notificaties-api/blob/develop/CHANGELOG.rst)
+* [Alle versies en wijzigingen](https://github.com/VNG-Realisatie/notificaties-api/blob/master/CHANGELOG.rst)
 
 ### Ondersteuning
 
