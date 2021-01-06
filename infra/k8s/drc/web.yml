@@ -11,6 +11,8 @@ metadata:
     k8s-app: {{ service.name }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate  # required to be able to (re) mount the RWO PV
   selector:
     matchLabels:
       k8s-app: {{ service.name }}
