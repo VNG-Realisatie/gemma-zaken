@@ -29,39 +29,48 @@ services:
 
   - name: ac-test
     templates: ../k8s/ac/
+    domain: autorisaties-api.test.vng.cloud
     image_tag: latest
 
   - name: brc-test
     templates: ../k8s/brc/
+    domain: besluiten-api.test.vng.cloud
     image_tag: latest
 
   - name: drc-test
     templates: ../k8s/drc/
+    domain: documenten-api.test.vng.cloud
     image_tag: latest
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc-test
     templates: ../k8s/nrc/
+    domain: notificaties-api.test.vng.cloud
     image_tag: latest
 
   - name: zrc-test
     templates: ../k8s/zrc/
+    domain: zaken-api.test.vng.cloud
     image_tag: latest
 
   - name: ztc-test
     templates: ../k8s/ztc/
+    domain: catalogi-api.test.vng.cloud
     image_tag: develop
 
   - name: klanten-test
     templates: ../k8s/klanten/
+    domain: klanten-api.test.vng.cloud
     image_tag: 'latest'
 
   - name: contactmomenten-test
     templates: ../k8s/contactmomenten/
+    domain: contactmomenten-api.test.vng.cloud
     image_tag: 'latest'
 
   - name: verzoeken-test
     templates: ../k8s/verzoeken/
+    domain: verzoeken-api.test.vng.cloud
     image_tag: 'latest'
 
   # Unofficial APIs
