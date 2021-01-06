@@ -31,39 +31,48 @@ services:
 
   - name: ac
     templates: ../k8s/ac/
+    domain: autorisaties-api.vng.cloud
     image_tag: '1.0.0'
 
   - name: brc
     templates: ../k8s/brc/
+    domain: besluiten-api.vng.cloud
     image_tag: '1.0.1.post0'
 
   - name: drc
     templates: ../k8s/drc/
+    domain: documenten-api.vng.cloud
     image_tag: '1.0.1.post0'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc
     templates: ../k8s/nrc/
+    domain: notificaties-api.vng.cloud
     image_tag: '1.0.0.post1'
 
   - name: zrc
     templates: ../k8s/zrc/
+    domain: zaken-api.vng.cloud
     image_tag: '1.0.1.post0'
 
   - name: ztc
     templates: ../k8s/ztc/
+    domain: catalogi-api.vng.cloud
     image_tag: '1.0.0.post4'
 
   - name: klanten
     templates: ../k8s/klanten/
+    domain: klanten-api.vng.cloud
     image_tag: 'latest'
 
   - name: contactmomenten
     templates: ../k8s/contactmomenten/
+    domain: contactmomenten-api.vng.cloud
     image_tag: 'latest'
 
   - name: verzoeken
     templates: ../k8s/verzoeken/
+    domain: verzoeken-api.vng.cloud
     image_tag: 'latest'
 
   # Unofficial APIs
