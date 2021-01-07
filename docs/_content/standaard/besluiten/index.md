@@ -55,7 +55,7 @@ Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/1.0.x/openapi.yaml) 
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/1.0.x/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het BRC.
 
@@ -145,13 +145,51 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
 via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
 stand kan komen, dan MOET deze ook gesynchroniseerd worden.
 
+#### **<a name="brc-006">Synchroniseren relaties met zaken ([brc-006](#brc-006))</a>**
+
+Wanneer er bij het aanmaken van een BESLUIT aan een ZAAK gekoppeld wordt,
+dan MOET het BRC in het ZRC ook deze relatie aanmaken.
+
+Een voorbeeld:
+
+1. Een besluit wordt gerelateerd aan een zaak door een consumer:
+
+    ```http
+    POST https://brc.nl/api/v1/besluiten HTTP/1.0
+
+    {
+        "zaak": "https://zrc.nl/api/v1/zaken/1234",
+        "besluittype": "https://ztc.nl/api/v1/besluittypen/456789",
+        "verantwoordelijkeOrganisatie": "000000000",
+        "datum": "2020-01-01",
+        "ingangsdatum": "2021-01-01"
+    }
+    ```
+
+2. Het BRC MOET de relatie spiegelen in het ZRC:
+
+    ```http
+    POST https://zrc.nl/api/v1/zaken/1234/besluiten HTTP/1.0
+
+    {
+        "besluit": "https://brc.nl/api/v1/besluiten/1234",
+    }
+    ```
+
+Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken
+via de API. Indien elders (bijvoorbeeld via een admininterface) een relatie tot
+stand kan komen, dan MOET deze ook gesynchroniseerd worden.
+
+Bij het bijwerken (`besluit_update` en `besluit_partial_update`) is het NIET
+TOEGESTAAN om `zaak` en te wijzingen.
+
 #### **Valideren tegen de catalogus en bijhorende typen**
 
 Het besluittype van een besluit legt vast wat de mogelijke waarden zijn voor
 gerelateerde resources aan besluiten. Dit MOET gevalideerd worden door een
 provider.
 
-**<a name="brc-006">Valideren dat het `besluittype` van een `Besluit` bij het `Zaak.zaaktype` hoort ([brc-006](#brc-006))</a>**
+**<a name="brc-007">Valideren dat het `besluittype` van een `Besluit` bij het `Zaak.zaaktype` hoort ([brc-007](#brc-007))</a>**
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Documentatie toegevoegd in patch 1.0.1</strong>
@@ -161,7 +199,7 @@ Wanneer een `Besluit` bij een zaak hoort (`Besluit.zaak` is gezet), dan MOET
 `Besluit.besluittype` voorkomen in de `Besluit.zaak.zaaktype.besluittypen`.
 
 
-**<a name="brc-007">Valideren dat het `informatieobjecttype` van een `BesluitInformatieObject` bij het `Besluit.besluittype` hoort ([brc-007](#brc-007))</a>**
+**<a name="brc-008">Valideren dat het `informatieobjecttype` van een `BesluitInformatieObject` bij het `Besluit.besluittype` hoort ([brc-008](#brc-008))</a>**
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Documentatie toegevoegd in patch 1.0.1</strong>
@@ -173,7 +211,7 @@ Wanneer een `BesluitInformatieObject` toegevoegd wordt, dan MOET het
 
 #### Archiveren
 
-**<a name="brc-008">Vernietigen van besluiten ([brc-008](#brc-008))</a>**
+**<a name="brc-009">Vernietigen van besluiten ([brc-009](#brc-009))</a>**
 
 Bij het verwijderen van een `Besluit` MOETEN het `Besluit` en gerelateerde
 objecten daadwerkelijk uit de opslag verwijderd worden. Zogenaamde
