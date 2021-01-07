@@ -11,6 +11,8 @@ metadata:
     k8s-app: {{ service.name }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate  # required to be able to (re) mount the RWO PV
   selector:
     matchLabels:
       k8s-app: {{ service.name }}
@@ -60,6 +62,8 @@ spec:
         env:
           - name: DJANGO_SETTINGS_MODULE
             value: drc.conf.docker
+          - name: ALLOWED_HOSTS
+            value: "{{ service.domain }},localhost"
           - name: DB_HOST
             value: {{ db_host }}
           - name: DB_NAME
