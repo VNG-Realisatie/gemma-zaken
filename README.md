@@ -47,19 +47,25 @@ Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma
 **Referentie-implementaties van componenten**
 
 * [![Build Status][zrc-ci-status]][zrc-ci]
-  [Zaakregistratiecomponent](https://github.com/vng-Realisatie/gemma-zaakregistratiecomponent)
+  [Zaken API](https://github.com/vng-Realisatie/zaken-api)
 * [![Build Status][drc-ci-status]][drc-ci]
-  [Documentregistratiecomponent](https://github.com/vng-Realisatie/gemma-documentregistratiecomponent)
+  [Documenten API](https://github.com/vng-Realisatie/documenten-api)
 * [![Build Status][ztc-ci-status]][ztc-ci]
-  [Zaaktypecatalogus](https://github.com/vng-Realisatie/gemma-zaaktypecatalogus)
+  [Catalogi API](https://github.com/vng-Realisatie/catalogi-api)
 * [![Build Status][brc-ci-status]][brc-ci]
-  [Besluitregistratiecomponent](https://github.com/vng-Realisatie/gemma-besluitregistratiecomponent)
+  [Besluiten API](https://github.com/vng-Realisatie/besluiten-api)
 * [![Build Status][nrc-ci-status]][nrc-ci]
   [Notificatiecomponent](https://github.com/VNG-Realisatie/notificaties-api)
 * [![Build Status][ac-ci-status]][ac-ci]
-  [Autorisatiecomponent](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
-* [![Build Status][kcc-ci-status]][kcc-ci]
-  [Klantinteracties API](https://github.com/VNG-Realisatie/klantinteracties-api)
+  [Autorisaties API](https://github.com/VNG-Realisatie/autorisaties-api)
+
+* [![Build Status][klanten-ci-status]][klanten-ci]
+  [Klanten API](https://github.com/VNG-Realisatie/klanten-api)
+* [![Build Status][contactmomenten-ci-status]][contactmomenten-ci]
+  [Contactmomenten API](https://github.com/VNG-Realisatie/contactmomenten-api)
+* [![Build Status][verzoeken-ci-status]][verzoeken-ci]
+  [Verzoeken API](https://github.com/VNG-Realisatie/verzoeken-api)
+
 
 **Ondersteunende tooling**
 
@@ -73,24 +79,29 @@ Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma
 
 ## Licentie
 
-Copyright © VNG Realisatie 2018 - 2020
+Copyright © VNG Realisatie 2018 - 2021
 
 [Licensed under the EUPL](LICENCE.md)
 
-[zrc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent.svg?branch=master
-[zrc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaakregistratiecomponent
-[drc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent.svg?branch=master
-[drc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-documentregistratiecomponent
-[ztc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus.svg?branch=master
-[ztc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaaktypecatalogus
-[brc-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent.svg?branch=master
-[brc-ci]: https://travis-ci.org/VNG-Realisatie/gemma-besluitregistratiecomponent
-[nrc-ci-status]: https://travis-ci.org/VNG-Realisatie/notificaties-api.svg?branch=master
-[nrc-ci]: https://travis-ci.org/VNG-Realisatie/notificaties-api
-[ac-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent.svg?branch=master
-[ac-ci]: https://travis-ci.org/VNG-Realisatie/gemma-autorisatiecomponent
-[kcc-ci-status]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api.svg?branch=master
-[kcc-ci]: https://travis-ci.org/VNG-Realisatie/klantinteracties-api
+[zrc-ci-status]: https://github.com/VNG-Realisatie/zaken-api/workflows/ci-build/badge.svg
+[zrc-ci]: https://github.com/VNG-Realisatie/zaken-api/actions?query=workflow%3Aci-build
+[drc-ci-status]: https://github.com/VNG-Realisatie/documenten-api/workflows/ci-build/badge.svg
+[drc-ci]: https://github.com/VNG-Realisatie/documenten-api/actions?query=workflow%3Aci-build
+[ztc-ci-status]: https://github.com/VNG-Realisatie/catalogi-api/workflows/ci-build/badge.svg
+[ztc-ci]: https://github.com/VNG-Realisatie/catalogi-api/actions?query=workflow%3Aci-build
+[brc-ci-status]: https://github.com/VNG-Realisatie/besluiten-api/workflows/ci-build/badge.svg
+[brc-ci]: https://github.com/VNG-Realisatie/besluiten-api/actions?query=workflow%3Aci-build
+[nrc-ci-status]: https://github.com/VNG-Realisatie/notificaties-api/workflows/ci-build/badge.svg
+[nrc-ci]: https://github.com/VNG-Realisatie/notificaties-api/actions?query=workflow%3Aci-build
+[ac-ci-status]: https://github.com/VNG-Realisatie/autorisaties-api/workflows/ci-build/badge.svg
+[ac-ci]: https://github.com/VNG-Realisatie/autorisaties-api/actions?query=workflow%3Aci-build
+[klanten-ci-status]: https://github.com/VNG-Realisatie/klanten-api/workflows/ci-build/badge.svg
+[klanten-ci]: https://github.com/VNG-Realisatie/klanten-api/actions?query=workflow%3Aci-build
+[contactmomenten-ci-status]: https://github.com/VNG-Realisatie/contactmomenten-api/workflows/ci-build/badge.svg
+[contactmomenten-ci]: https://github.com/VNG-Realisatie/contactmomenten-api/actions?query=workflow%3Aci-build
+[verzoeken-ci-status]: https://github.com/VNG-Realisatie/verzoeken-api/workflows/ci-build/badge.svg
+[verzoeken-ci]: https://github.com/VNG-Realisatie/verzoeken-api/actions?query=workflow%3Aci-build
+
 
 [ref-lijsten-ci-status]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten.svg?branch=master
 [ref-lijsten-ci]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten
