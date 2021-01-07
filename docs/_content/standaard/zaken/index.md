@@ -55,7 +55,7 @@ Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle 
 
 Voor versie 1.1.0 bestond er geen [Contactmomenten](../contactmomenten/index), [Klanten](../klanten/index) en [Verzoeken](../verzoeken/index) API's en werden klantcontacten in de Zaken API opgenomen. Vanaf versie 1.1.0 is deze resource deprecated - consumers horen van de contactmomenten API gebruik te maken.
 
-Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie met contactmomenten wordt gelegd via Zaakcontactmoment (Zaken API) en objectcontactmoment (Contactmomenten API). De relatie met verzoeken wordt gelegd via Zaakverzoek (Zaken API) en objectverzoek (Verzoeken API). 
+Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie met contactmomenten wordt gelegd via Zaakcontactmoment (Zaken API) en objectcontactmoment (Contactmomenten API). De relatie met verzoeken wordt gelegd via Zaakverzoek (Zaken API) en objectverzoek (Verzoeken API).
 
 ## Specificatie van de Zaken API
 
@@ -146,7 +146,7 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken via
 
 #### **<a name="zrc-006">Data filteren bij de bron op basis van zaaktypes ([zrc-006](#zrc-006))</a>**
 
-Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en wat de maximale vertrouwelijkheidaanduiding is voor een consumer. 
+Het AC legt op het niveau van `zaaktype` vast welke operaties mogelijk zijn en wat de maximale vertrouwelijkheidaanduiding is voor een consumer.
 
 Het ZRC MAG ENKEL zaken ontsluiten waarvan:
 
@@ -355,7 +355,7 @@ Indien de consumer gebruik maakt van de `If-None-Match` header, met één of mee
     <strong>Nieuw in versie 1.1.0</strong>
 </span>
 
-Wanneer een relatie tussen een `VERZOEK` en een `ZAAK` gemaakt of bijgewerkt wordt, dan MOET het ZRC in het KIC ook deze relatie aanmaken/bijwerken.
+Wanneer een relatie tussen een `VERZOEK` en een `ZAAK` gemaakt of bijgewerkt wordt, dan MOET het ZRC in de Verzoeken API ook deze relatie aanmaken/bijwerken.
 
 Een voorbeeld:
 
@@ -370,7 +370,7 @@ Een voorbeeld:
     }
     ```
 
-2. Het ZRC MOET de relatie spiegelen in het KIC:
+2. Het ZRC MOET de relatie spiegelen in de Verzoeken API:
 
     ```http
     POST https://vrc.nl/api/v1/objectverzoeken HTTP/1.0

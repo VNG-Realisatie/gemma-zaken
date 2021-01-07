@@ -5173,7 +5173,9 @@ components:
 
             * `brc` - Besluitregistratiecomponent
 
-            * `kic` - Klantinteractiescomponent'
+            * `cmc` - Contactmomenten API
+
+            * `kc` - Klanten API'
           type: string
           enum:
           - ac
@@ -5182,7 +5184,8 @@ components:
           - ztc
           - drc
           - brc
-          - kic
+          - cmc
+          - kc
         requestId:
           title: Request id
           description: Een globaal "request" ID om een verzoek door het netwerk heen
