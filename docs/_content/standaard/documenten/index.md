@@ -25,8 +25,12 @@ Een informatieobject kan tot meer dan één zaak behoren en een zaak kan meer da
 
 Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen besluit en informatieobject is vastgelegd in besluitinformatieobject (Besluiten API) en objectinformatieobject (Documenten API), waarbij besluitinformatieobject leidend is.
 
-### Opslaan van grote bestanden
+### Opslaan van bestanden
+In versie 1.0.x van de API moet het bestand base64-encoded opgeslagen worden in het attribuut `inhoud`. De omvang mag 4GB groot zijn. Hou hierbij rekening met de overhead van base64, die, in worst-case scenario's, ongeveer 33% bedraagt . Dit betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot mag zijn.
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
 Afhankelijk van de omvang van het bestand wordt de inhoud van het informatieobject als volgt opgeslagen:
 * omvang 0: het attribuut `inhoud` blijft leeg
 * kleine omvang: in het attribuut `inhoud`.
