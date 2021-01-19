@@ -31,7 +31,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>Provider</td>
-<td><a href=""><span class="underline">Besluitregistratiecomponent</span></a> (GEMMA2)</td>
+<td><a href=""><span class="underline">Besluiten API</span></a> (GEMMA2)</td>
 </tr>
 <tr class="even">
 <td>Consumer</td>

@@ -16,7 +16,7 @@ detail per component omschrijven wat er gewijzigd is]
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaakregistratiecomponent/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/zaken-api/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/zrc/openapi.yaml)
 
 
@@ -34,7 +34,7 @@ aanpassingen:
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/documenten-api/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/drc/openapi.yaml)
 
 
@@ -52,7 +52,7 @@ aanpassingen:
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/catalogi-api/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/ztc/openapi.yaml)
 
 
@@ -70,7 +70,7 @@ aanpassingen:
 
 **Links**
 
-* [Aanpassingen](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent/pull/X)
+* [Aanpassingen](https://github.com/VNG-Realisatie/besluiten-api/pull/X)
 * [API documentatie](http://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/<branch>/api-specificatie/brc/openapi.yaml)
 
 

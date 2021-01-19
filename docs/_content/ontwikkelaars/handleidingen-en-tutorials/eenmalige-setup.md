@@ -133,11 +133,11 @@ de status van configuratie toont.
    * 8005: AC
 
 7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 
@@ -175,11 +175,11 @@ de status van configuratie toont.
    * 8005: AC
 
 7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 
@@ -217,11 +217,11 @@ de status van configuratie toont.
    * 8005: AC
 
 7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 
@@ -259,11 +259,11 @@ de status van configuratie toont.
    * 8005: AC
 
 7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 
@@ -293,11 +293,11 @@ de status van configuratie toont.
    * 8005: AC
 
 3. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 
@@ -335,11 +335,11 @@ de status van configuratie toont.
    * 8004: NRC
 
 7. Configureer het AC: navigeer terug naar de **Voorpagina**. Klik vervolgens
-   op **AUTHORIZATIONS** > **Autorisatiecomponentconfiguratie**. Stel de velden
+   op **AUTHORIZATIONS** > **Autorisaties APIconfiguratie**. Stel de velden
    juist in:
 
     * **Api root**: `http://<ac-ip>:8005/api/v1/`
-    * **Component**: Zaakregistratiecomponent
+    * **Component**: Zaken API
 
     Klik vervolgens op **Opslaan**
 

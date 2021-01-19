@@ -188,7 +188,7 @@ of the consumer in the API and specific authorization to API resources.
 The provider authenticates the consumer based on its **Identifier** and a shared
  **Secret**, which are sent in JWT in the header of a request. After
 the consumer is recognized the provider defines its access based on the data in the
-Autorisatiecomponent (AC)
+Autorisaties API (AC)
 
 
 1. Set up authentication for the consumer
@@ -210,7 +210,7 @@ Autorisatiecomponent (AC)
    this API to get data about the consumer rights.
 
    First, configure the AC url in your API:
-   Login to the API admin and go to `Autorisatiecomponentconfiguratie` and click on **Add**.
+   Login to the API admin and go to `Autorisaties APIconfiguratie` and click on **Add**.
    Enter all data and click **Save**:
    * `Api root`: A url to the AC root, for example `http://<ip-of-localhost>:800x/api/v1/`.
    * `Component`: The sort of component this provider is - this is used to request the correct authorizations from the AC.

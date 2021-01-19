@@ -20,8 +20,8 @@ Documentservices.
 ![Jenkins][jenkins]
 
 * [API-specificatie](https://documenten-api.vng.cloud/api/v1/schema/)
-* [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-documentregistratiecomponent)
+* [Referentie implementatie](https://github.com/VNG-Realisatie/documenten-api)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 
-[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-documentregistratiecomponent-stable
+[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=documenten-api-stable

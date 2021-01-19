@@ -12,7 +12,7 @@ referentie implementaties van de verschillende componenten. Voor het gebruik van
 ### Authorization
 
 To access the ZGW APIs you must be authorized. This could be done through
-a JSON Web Token ([JWT][jwt]) and the Autorisatiecomponent ([AC][ac]).
+a JSON Web Token ([JWT][jwt]) and the Autorisaties API ([AC][ac]).
 The JWT proves that an application is who it claims to be, while the AC
 specifies which authorizations are given for certain APIs and/or API resources.
 the rights for certain APIs and / or API resources.
@@ -50,7 +50,7 @@ the **Secret** that both you and the components are aware of.
 #### Step 3: Configure authorization
 
 After the basic authentication is set up you need to specify your access for API
-resources. This is done by configuring authorizations in the Autorisatiecomponent (AC).
+resources. This is done by configuring authorizations in the Autorisaties API (AC).
 The token tool has an interface to the AC.
 
 1. Navigate to **Configure auth** section.

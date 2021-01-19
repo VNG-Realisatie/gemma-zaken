@@ -34,12 +34,12 @@ De API ondersteunt:
 ## Specificatie van gedrag
 
 Componenten dienen events te publiceren naar (een)
-notificatierouteringcomponent(en) (NRC). De NRC MOET volledig de
-[`openapi.yaml`](../../../api-specificatie/nrc/openapi.yaml) implementeren. 
+Notificaties API(en) (NRC). De NRC MOET volledig de
+[`openapi.yaml`](../../../api-specificatie/nrc/openapi.yaml) implementeren.
 
 Applicaties MOGEN een abonnement nemen op 1 of meer kanalen. Deze applicaties
 zijn dan event consumers. Een event consumer MOET de
-[API volgens `openapi.yaml`](../../../api-specificatie/nrc/consumer-api/openapi.yaml) 
+[API volgens `openapi.yaml`](../../../api-specificatie/nrc/consumer-api/openapi.yaml)
 implementeren om berichten te kunnen ontvangen.
 
 Componenten geven aan indien het nemen van een abonnement op bepaalde kanalen

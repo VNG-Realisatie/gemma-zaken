@@ -5,7 +5,7 @@ weight: 40
 
 In deze tutorial configureren we de referentieimplementaties van de ZGW
 componenten voor het versturen en ontvangen van notificaties via de
-notificatierouteringcomponent (NRC).
+Notificaties API (NRC).
 
 De tutorial is hands-on - onderaan vind je verdere referenties en bronnen
 indien je meer wil lezen.

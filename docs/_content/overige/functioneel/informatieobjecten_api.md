@@ -31,7 +31,7 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tr>
 <tr class="odd">
 <td>Provider</td>
-<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878"><span class="underline">Documentregistratiecomponent</span></a> (GEMMA2)</td>
+<td><a href="https://www.gemmaonline.nl/index.php/GEMMA2/0.9/id-0e99ec6c-283a-4ec9-8efa-e11468e6b878"><span class="underline">Documenten API</span></a> (GEMMA2)</td>
 </tr>
 <tr class="even">
 <td>Consumer</td>

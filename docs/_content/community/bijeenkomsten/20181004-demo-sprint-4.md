@@ -111,7 +111,7 @@ We werken aan functionele documentatie, onder meer om zicht te krijgen op de beh
 
 De huidige versie hiervan staat op github: https://github.com/VNG-Realisatie/gemma-zaken/tree/master/docs/content/functioneel
 
-### Documenten heten inmiddels informatieobjecten, waarom heet de DRC nog steeds Documentregistratiecomponent?
+### Documenten heten inmiddels informatieobjecten, waarom heet de DRC nog steeds Documenten API?
 
 Hoofdreden: omdat dit nu de naam is die het best bekend is bij iedereen. Zie
 ook [#408](https://github.com/VNG-Realisatie/gemma-zaken/issues/408) waar de

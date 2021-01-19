@@ -74,7 +74,7 @@ De visie op de te realiseren Zaak- en Documentservices is als volgt:
   in de API.
 - Alles rond "zaken" vindt zoveel mogelijk geautomatiseerd en op de achtergrond
   plaats. Medewerkers zijn bezig met inhoudelijke activiteiten, niet met zaken;
-- De inhoud van de zaaktypecatalogus (ZTC) wordt zoveel mogelijk
+- De inhoud van de Catalogi API (ZTC) wordt zoveel mogelijk
   gestandaardiseerd, rekening houdend met de
   [zaakgerichte selectielijst](https://vng.nl/files/vng/20170706-selectielijst-gemeenten-intergemeentelijke-organen-2017.pdf)
   (pdf) en GEMMA 2 processen. Gestreefd wordt naar het centraal aanbieden van een
@@ -154,7 +154,7 @@ Bij de start van dit traject hanteren we de volgende uitgangspunten:
   [Common Ground visie](https://github.com/VNG-Realisatie/common-ground/blob/master/cg-vision.md)
   (EN) worden als volgt toegepast:
   - Goede scheiding zaakafhandeling en -registratie (ook conform GEMMA 2 met
-    Zaakregistratiecomponent en Zaakafhandelcomponent)
+    Zaken API en Zaakafhandelcomponent)
   - Er wordt bij het opstellen van de specificatie uitgegaan van een
     gegevenslandschap waarbij alle gegevens bij de bron kunnen worden
     geraadpleegd en geen lokale kopie wordt gemaakt. Om de transitie mogelijk te
@@ -238,8 +238,8 @@ Voorzien wordt dat vanuit een centraal punt aanbieden van componenten (SaaS)
 naast decentraal gebruik van grote waarde kan zijn. Om daar te komen is het
 volgordelijk nodig eerst de API specificatie uit te werken.
 
-Een centraal gepositioneerde *Zaakregistratiecomponent* (ZRC) en
-*Documentregistratiecomponent* (DRC) is in veel ketensamenwerkingen wellicht
+Een centraal gepositioneerde *Zaken API* (ZRC) en
+*Documenten API* (DRC) is in veel ketensamenwerkingen wellicht
 een welkome oplossing als alternatief van de huidige praktijk van
 ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende
 silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het
@@ -249,7 +249,7 @@ proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
   hier mogelijk op korte termijn behoefte aan.
 - Ook binnen het Sociaal Domein heeft deze constructie potentie.
 
-Een landelijke *Zaaktypecatalogus* (ZTC) kan dienen als repository van content
+Een landelijke *Catalogi API* (ZTC) kan dienen als repository van content
 die voor veel gemeenten gelijk zal blijken. Voor veel zaken zal het niet nodig
 blijken af te wijken van de referentie. Ook hier geldt dat organisaties per
 proces zouden kunnen kiezen welke authoratieve bron voor Zaaktypen wordt

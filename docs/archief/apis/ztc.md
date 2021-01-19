@@ -13,14 +13,14 @@ zaken van een bepaald type de juiste gegevens(statussen, resultaattypen,
   zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een
   vergunningcomponent of een subsidiecomponent. Opslag van zaaktypegegevens
   vindt plaats conform het informatiemodel ZTC. De verzameling opgeslagen
-  zaaktypegegevens wordt ook aangeduid met de term "zaaktypecatalogus".
+  zaaktypegegevens wordt ook aangeduid met de term "Catalogi API".
 
 ## Verwijzingen
 
 ![Jenkins][jenkins]
 
 * [API-specificatie](https://catalogi-api.vng.cloud/api/v1/schema/)
-* [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-zaaktypecatalogus)
+* [Referentie implementatie](https://github.com/VNG-Realisatie/catalogi-api)
 * Test component
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
@@ -38,5 +38,5 @@ zijn:
 Deze gebruiker heeft geen rechten om objecten te verwijderen, zodat referenties
 van andere mensen niet stuk gaan.
 
-[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-zaaktypecatalogus-stable
+[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=catalogi-api-stable
 [ztcadmin]: https://catalogi-api.vng.cloud/admin

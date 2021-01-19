@@ -64,7 +64,7 @@ Een verzoek kan onderbouwd worden met één of meer informatieobjecten. De relat
 
 ## Specificatie van gedrag
 
-documentregistratiecomponentsen (DRC) MOETEN aan twee aspecten voldoen:
+Documenten APIsen (DRC) MOETEN aan twee aspecten voldoen:
 
 * de DRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 

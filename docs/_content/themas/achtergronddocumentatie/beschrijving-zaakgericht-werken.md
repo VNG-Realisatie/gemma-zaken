@@ -20,7 +20,7 @@ uitgevoerd. Elke deelzaak is op zich weer een ZAAK. Deze relateren we aan de
 'hoofdzaak': de 'samengestelde' ZAAK zoals die geïnitieerd is.
 
 Kenmerken van groepen vergelijkbare zaken leggen we vast met het ZAAKTYPE
-conform de [Zaaktypecatalogus][ztc].
+conform de [Catalogi API][ztc].
 
 Elke zaak heeft 'ergens betrekking op'. Dit modelleren we met de relatie naar
 OBJECT via ZAAKOBJECT als het een object van een type uit het RSGB of RGBZ
@@ -68,12 +68,12 @@ ingetrokken door de aanvrager of dat de zaak niet ontvankelijk is verklaard.
 Een zaakresultaat is veelal bepalend voor het 'archiefregime' van het
 zaakdossier: hoe lang te bewaren? Ook dit zijn kenmerken van ZAAK. De
 daadwerkelijke waarde wordt ontleend aan de specificatie van het desbetreffende
-zaaktype conform de [Zaaktypecatalogus][ztc]. In
+zaaktype conform de [Catalogi API][ztc]. In
 uitzonderingsgevallen kan een specifiek informatieobject in een zaakdossier een
 ander archiefregime krijgen, op basis van de specificaties van het zaaktype.
 Een zaak leidt in veel gevallen tot één of meer BESLUITen. Kenmerken van
 groepen vergelijkbare BESLUITen leggen we vast met het BESLUITTYPE conform de
-[Zaaktypecatalogus][ztc]. Een besluit wordt veelal schriftelijk vastgelegd maar
+[Catalogi API][ztc]. Een besluit wordt veelal schriftelijk vastgelegd maar
 dit is niet noodzakelijk. Vandaar de optionele relatie naar INFORMATIEOBJECT.
 
 Meerdere informatieobjecten ('documenten') kunnen gedurende de behandeling
@@ -96,6 +96,6 @@ INFORMATIEOBJECT of een SAMENGESTELD INFORMATIEOBJECT waarbij de laatstgenoemde
 bestaat uit twee of meer ENKELVOUDIGe INFORMATIEOBJECTen.
 
 Kenmerken van groepen vergelijkbare INFORMATIEOBJECTen leggen we vast met het
-INFORMATIEOBJECTTYPE conform de [Zaaktypecatalogus][ztc].
+INFORMATIEOBJECTTYPE conform de [Catalogi API][ztc].
 
 [ztc]: /standaard/catalogi/index

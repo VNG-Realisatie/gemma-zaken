@@ -1,5 +1,5 @@
 ---
-title: "Autorisaties API | Autorisatiecomponent (AC)"
+title: "Autorisaties API | Autorisaties API (AC)"
 date: '27-03-2019'
 weight: 120
 ---
@@ -20,8 +20,8 @@ De API ondersteunt de volgende operaties:
 ![Jenkins][jenkins]
 
 * [API-specificatie](https://autorisaties-api.vng.cloud/api/v1/schema/)
-* [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-autorisatiecomponent)
+* [Referentie implementatie](https://github.com/VNG-Realisatie/autorisaties-api)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 
-[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-autorisatiecomponent-stable
+[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=autorisaties-api-stable

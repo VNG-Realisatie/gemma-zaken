@@ -46,7 +46,7 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
 
 ## Specificatie van gedrag
 
-Besluitregistratiecomponenten (BRC) MOETEN aan twee aspecten voldoen:
+Besluiten APIen (BRC) MOETEN aan twee aspecten voldoen:
 
 * de BRC `openapi.yaml` MOET volledig geïmplementeerd zijn.
 

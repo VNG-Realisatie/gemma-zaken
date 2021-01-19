@@ -77,7 +77,7 @@ Grofweg is de status op dit moment:
 * Je kan besluiten, statussen, zaakobjecten, betrokkenen en klantcontacten bij
   zaken aanmaken.
 * Al deze gegevens kan je ook uitlezen
-* Je kan een zaaktypecatalogus inrichten om bovenstaande uit te kunnen voeren.
+* Je kan een Catalogi API inrichten om bovenstaande uit te kunnen voeren.
 
 ### Wat was de concrete doelstelling(en) aan het begin van het traject?
 

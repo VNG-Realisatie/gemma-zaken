@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Catalogi API
-  description: "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
+  description: "Een API om een Catalogi API (ZTC) te benaderen.\n\nDe Catalogi API\
     \ helpt gemeenten om het proces vanuit de 'vraag van een\nklant' (productaanvraag,\
     \ melding, aangifte, informatieverzoek e.d.) tot en met\nhet leveren van een passend\
     \ antwoord daarop in te richten, inclusief de\nbijbehorende informatievoorziening.\n\

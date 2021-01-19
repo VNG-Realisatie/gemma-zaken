@@ -21,8 +21,8 @@ medewerkerregistratiecomponent, etc.
 ![Jenkins][jenkins]
 
 * [API-specificatie](https://besluiten-api.vng.cloud/api/v1/schema/)
-* [Referentie implementatie](https://github.com/VNG-Realisatie/gemma-besluitregistratiecomponent)
+* [Referentie implementatie](https://github.com/VNG-Realisatie/besluiten-api)
 * Communiceren met dit component (client)
 * Zelf dit component implementeren (server)
 
-[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=gemma-besluitregistratiecomponent-stable
+[jenkins]: https://jenkins.nlx.io/buildStatus/icon?job=besluiten-api-stable

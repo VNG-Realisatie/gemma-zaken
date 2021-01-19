@@ -1,5 +1,5 @@
 ---
-title: "Notificaties API | Notificatierouteringcomponent (NRC)"
+title: "Notificaties API | Notificaties API (NRC)"
 date: '27-03-2019'
 weight: 110
 ---

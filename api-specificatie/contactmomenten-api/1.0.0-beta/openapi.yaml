@@ -3022,17 +3022,17 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `ac` - Autorisatiecomponent
+            * `ac` - Autorisaties API
 
-            * `nrc` - Notificatierouteringcomponent
+            * `nrc` - Notificaties API
 
-            * `zrc` - Zaakregistratiecomponent
+            * `zrc` - Zaken API
 
-            * `ztc` - Zaaktypecatalogus
+            * `ztc` - Catalogi API
 
-            * `drc` - Documentregistratiecomponent
+            * `drc` - Documenten API
 
-            * `brc` - Besluitregistratiecomponent
+            * `brc` - Besluiten API
 
             * `cmc` - Contactmomenten API
 

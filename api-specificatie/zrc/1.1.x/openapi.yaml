@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Zaken API
-  description: 'Een API om een zaakregistratiecomponent (ZRC) te benaderen.
+  description: 'Een API om een Zaken API (ZRC) te benaderen.
 
 
     De ZAAK is het kernobject in deze API, waaraan verschillende andere
@@ -11600,17 +11600,17 @@ components:
             Uitleg bij mogelijke waarden:
 
 
-            * `ac` - Autorisatiecomponent
+            * `ac` - Autorisaties API
 
-            * `nrc` - Notificatierouteringcomponent
+            * `nrc` - Notificaties API
 
-            * `zrc` - Zaakregistratiecomponent
+            * `zrc` - Zaken API
 
-            * `ztc` - Zaaktypecatalogus
+            * `ztc` - Catalogi API
 
-            * `drc` - Documentregistratiecomponent
+            * `drc` - Documenten API
 
-            * `brc` - Besluitregistratiecomponent
+            * `brc` - Besluiten API
 
             * `cmc` - Contactmomenten API
 
