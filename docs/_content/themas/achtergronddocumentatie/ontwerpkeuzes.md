@@ -415,7 +415,7 @@ Deze spelregels en interactie worden actief getest in de [integratietests](https
 
 Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een `ZAAK` in het ZRC:
 
-1. De consumer maakt in het ZRC een relatie (met polymorfe relatieinformatie):
+1. De consumer maakt in het ZRC een relatie:
 
     ```http
     POST https://zrc.nl/api/v1/zaakinformatieobjecten
@@ -424,12 +424,11 @@ Een concreet voorbeeld hiervan is een `INFORMATIEOBJECT` in het DRC en een `ZAAK
         "informatieobject": "https://drc.nl/api/v1/enkelvoudigeinformatieobjecten/1234",
         "zaak": "https://zrc.nl/api/v1/zaken/456789",
         "titel": "",
-        "beschrijving": "",
-        "registratiedatum": "2018-09-19T17:57:08+0200"
+        "beschrijving": ""
     }
     ```
 
-2. Het ZRC doet vervolgens een request naar het DRC (op basis van de URL van `object`):
+2. Het ZRC doet vervolgens een request naar het DRC (waarbij de link naar de zaak wordt doorgegeven via het polymorfe interface van de DRC):
 
     ```http
     POST https://drc.nl/api/v1/objectinformatieobjecten
