@@ -18,6 +18,8 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Contactmomenten API specificatie](contactmomenten/index)
 * [Klanten API specificatie](klanten/index)
 * [Verzoeken API specificatie](verzoeken/index)
+* [Referentielijsten en Selectielijst API](https://referentielijsten-api.vng.cloud/api/v1/schema/)
+
 
 ## Algemeen
 
