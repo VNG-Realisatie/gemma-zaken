@@ -21,7 +21,7 @@ Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZG
 1. [Eenmalige setup van de referentie-implementaties](./handleidingen-en-tutorials/eenmalige-setup)
 2. [Aan de slag met notificeren](./handleidingen-en-tutorials/notificeren)
 3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren) 
-4. [Crashcourse zaakgericht werken voor ontwikkelaars](./handleidingen-en-tutorials/crashcourse_zaakgericht_werken_voor_ontwikkelaars)
+4. [Crashcourse zaakgericht werken voor ontwikkelaars PDF](./handleidingen-en-tutorials/20201208%20-%20Crash%20course%20zaakgericht%20werken%20voor%20CG-ontwikkelteams_v1_0.pdf)
 
 ## Testomgevingen
 
