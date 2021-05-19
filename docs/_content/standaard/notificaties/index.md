@@ -74,13 +74,6 @@ In de documentatie van elke bron MOET beschreven zijn welke kanalen en
 kenmerken geldig zijn. Tevens MOET beschreven zijn welke gebeurtenissen tot
 een notificatie leiden.
 
-### Toekomstige ontwikkelingen
-
-* pollen
-* berichten bewaren (retentie)
-* (gemiste) berichten opvragen
-* abonnementen automatisch annuleren indien herhaaldelijk fout bij afleveren
-
 
 ### Audittrail
 
