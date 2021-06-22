@@ -52,13 +52,6 @@ spec:
       containers:
         - name: postgres
           image: mdillon/postgis:11
-	  resources:
-	    requests:
-	      memory: "4000Mi"
-	      cpu: "2000m"
-	    limit:
-	      memory: "8000Mi"
-	      cpu: "4000m"
           env:
             - name: POSTGRES_PASSWORD
               valueFrom:
