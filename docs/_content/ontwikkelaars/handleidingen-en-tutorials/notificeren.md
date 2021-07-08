@@ -203,7 +203,7 @@ JWT te genereren.
 
 ## Achtergrondinformatie
 
-De [technische notificaties achtergrond](/themas/achtergronddocumentatie/notificaties) bevat de
+De [technische notificaties achtergrond](/gemma-zaken/themas/achtergronddocumentatie/notificaties) bevat de
 design-standpunten en onderkent de limitaties en risico's van deze aanpak.
 
 [Hier](./_assets/notificeren.pptx) is de presentatie te vinden die gegeven is op het
