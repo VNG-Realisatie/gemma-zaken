@@ -6,7 +6,8 @@ weight: 10
 
 ## Verwacht
 
-Na de release van 1.0.0 van de eerste VNG API's worden de API's vanaf nu apart doorontwikkeld. Dit zal tot gevolg hebben dat van sommige API's op relatief korte termijn een 1.1.0 versie zal verschijnen waarmee een aantal belangrijke features aan deze API standaarden worden toegevoegd. Denk daarbij aan caching voor al deze API standaarden en ondersteuning voor bestanden groter dan 3 Gb in de Documenten API standaard. Indien gewenst kunnen deze vernieuwingen nu al bestudeerd worden in de testomgevingen van deze API standaarden:
+Na de release van 1.0.0 van de eerste VNG API's worden de API's vanaf nu apart doorontwikkeld. Dit heeft al geleid tot een 1.1 versie van de [Zaken API standaard](https://zaken-api.test.vng.cloud/), [Documenten API standaard](https://documenten-api.test.vng.cloud/) en [Catalogi API standaard](https://catalogi-api.test.vng.cloud/). Voor een volledig overzicht van de releaseplanning zie de [milestones van de standaard](https://github.com/VNG-Realisatie/gemma-zaken/milestones). Deze milestones bevatten ook de releasenotes
+
 
 * [Catalogi API standaard](https://catalogi-api.test.vng.cloud/)
 * [Zaken API standaard](https://zaken-api.test.vng.cloud/)
@@ -14,20 +15,18 @@ Na de release van 1.0.0 van de eerste VNG API's worden de API's vanaf nu apart d
 * [Besluiten API standaard](https://besluiten-api.test.vng.cloud/)
 * [Autorisaties API standaard](https://autorisaties-api.test.vng.cloud/)
  
-Momenteel wordt er hard gewerkt aan de Contactmomenten API standaard en de Verzoeken API standaard. De Release Candidate voor beide API standaarden verwachten we eveneens nog in 2019 te publiceren. Een preview op de specificatie van Contactmomenten API standaard is mogelijk in de [testomgeving](https://contactmomenten-api.test.vng.cloud/) daarvan. Voor de Verzoeken API standaard zal op korte termijn ook een testomgeving beschikbaar komen. Het ligt in de lijn van de verwachting dat de 1.0.0 versies van deze 2 standaarden volgend jaar gepubliceerd zullen gaan worden.
+Momenteel wordt er hard gewerkt aan de API standaarden voor Contactmomenten, Klanten en Verzoeken. Van de Contactmomenten API en Verzoeken API is inmiddels een 1.0.0 versie uitgebracht, van de Verzoeken API is een 1.0.0-beta versie beschikbaar.
+
+* [Contactmomenten API standaard](https://contactmomenten-api.vng.cloud/api/v1/schema/)
+* [Klanten API standaard](https://klanten-api.vng.cloud/api/v1/schema/)
+* [Verzoeken API standaard BETA](https://verzoeken-api.vng.cloud/api/v1/schema/)
+
 
 ## Werkwijze
 
-Het team dat aan de API's voor Zaakgericht Werken werkt doet dit volgens de agile Scrum methodiek.
-Iedere sprint duurt vier weken. Gemeenten en leveranciers leveren user stories rond zaakgericht 
-werken die vervolgens worden vertaald naar wat nodig is in de API's.
-
-Om de vier weken komt het team bijeen op de *dev.vloer* in Utrecht. Er wordt dan samengewerkt op 
-locatie. Op vrijdag vindt telefonisch de weekly standup plaats. Overigens wordt op afstand samengewerkt met Github, 
-Slack, etc. als tools. Wanneer van toepassing kan een sprint review georganiseerd worden. 
-De sprint review is openbaar en wordt bovendien live gestreamd als webinar. 
-Daarnaast kunnen leveranciers en gemeenten op dinsdag langskomen op de dev.vloer met vragen.
-
+Het team dat aan de API's voor Zaakgericht Werken werkt doet dit volgens de agile methodiek.
+Gemeenten en leveranciers leveren wensen en behoeften in de vorm van user stories rond zaakgericht werken die vervolgens worden vertaald naar wat nodig is in de API's.
+De user stories wordenin overleg met de stakeholders toegevoegd aan een [milestone](https://github.com/VNG-Realisatie/gemma-zaken/milestones) en in de betreffende release uitgewerkt.
 
 ## Bijdragen
 
