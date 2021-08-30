@@ -53,7 +53,7 @@ services:
   - name: zrc
     templates: ../k8s/zrc/
     domain: zaken-api.vng.cloud
-    image_tag: '1.1.1'
+    image_tag: '1.2.0'
 
   - name: ztc
     templates: ../k8s/ztc/
