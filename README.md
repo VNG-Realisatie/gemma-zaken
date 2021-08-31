@@ -9,7 +9,7 @@ API's voor Zaakgericht Werken
 [api-test-fullsuite]: https://api-test.nl/server/1/a779c380-0cd1-49f0-96b3-ecf82c2de651/9c11a73f-4123-47f0-b767-4312e5e5317a/latest/
 [docs-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaken.svg?branch=master
 [docs-ci]: https://travis-ci.org/VNG-Realisatie/gemma-zaken
-[repo-status]: https://img.shields.io/badge/Status-stable%2F1.0.x-brightgreen?style=plastic
+[repo-status]: https://img.shields.io/badge/Status-stable%2F1.2.x-brightgreen?style=plastic
 
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een bedrijfsproces wordt ontvangen of gecreëerd, samen met informatie over de procesuitvoering, wordt vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
