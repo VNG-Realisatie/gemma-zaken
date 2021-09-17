@@ -61,6 +61,10 @@ spec:
             value: {{ service.name }}
           - name: REDIS_CACHE
             value: {{ redis_cache }}:6379/0
+          - name: CACHE_DEFAULT
+            value: {{ redis_cache }}:6379/0
+          - name: CACHE_AXES
+            value: {{ redis_cache }}:6379/0
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:
