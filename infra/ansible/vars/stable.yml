@@ -101,8 +101,8 @@ services:
   - name: deploy
     templates: ../k8s/deploy/
 
-  - name: inway
-    templates: ../k8s/inway/
+  # - name: inway
+  #   templates: ../k8s/inway/
 
 ingress:
   name: ref-implementatie
