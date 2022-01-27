@@ -1,6 +1,6 @@
 ---
 title: "Beheer"
-date: '15-7-2019'
+date: '27-1-2022'
 weight: 10
 ---
 
@@ -8,11 +8,17 @@ weight: 10
 
 Met het gebruik van de API standaarden voor Zaakgericht werken is het onvermijdelijk dat er verbeterpunten naar boven komen. Om functionele behoeften van gemeenten goed in beeld te hebben en houden is er een zogenoemde Functionele gebruikersgroep ingericht. Hier hebben gemeenten zitting in. De onderwerpen gaan alleen over de functionaliteit van de API's. Ook wordt in de Functionele gebruikersgroep de volgorde en prioriteit van de doorontwikkeling bepaald. Wat is er nodig en wanneer?
 
+
 Bij het implementeren van de API's komen onvermijdelijk ook technische verbeterpunten naar voren. Deze worden besproken en opgelost in de Technische gebruikersgroep. Aan deze gebruikersgroep nemen leveranciers en gemeenten die zelf software ontwikkelen deel. 
+
+Wilt u deelnemen aan één van deze werkgroepen, meldt u dan [hier](https://formulieren.vngrealisatie.nl/Api_ZDS) aan. NB. de link verwijst naar een formulier op de website van VNG Realisatie.
+
 
 ## Bijeenkomsten
 Voor 2022 staan de volgende bijeenkomsten gepland:
-Functionele gebruikersgroep:
+
+
+### Functionele gebruikersgroep:
 - 20-01-2022
 - 03-03-2022
 - 07-04-2022
@@ -23,8 +29,27 @@ Functionele gebruikersgroep:
 - 03-11-2022
 - 08-12-2022
 
+De functionele gebruikersgroep kent de volgende leden:
 
-Technische gebruikersgroep:
+
+- Delft
+- Utrecht
+- Rijswijk
+- Dimpact
+- Equalit
+- Jan Verbeek, Den Haag
+- Nol Witte, Omgevingsdienst Midden-Holland
+- Robert Jan van Vliet, Texel
+- Erik de Lepper, 's Hertogenbosch
+- Eduard Witteveen, Sudwest Fryslan
+- Jacco Hovenga, Sudwest Fryslan
+- Arjan Kloosterboer, VNG
+- Henri Korver, VNG
+- Ivo Hendriks, VNG
+- Michiel Verhoef, VNG
+
+
+### Technische gebruikersgroep:
 - 26-01-2022
 - 23-02-2022
 - 23-03-2022
@@ -35,7 +60,31 @@ Technische gebruikersgroep:
 - 26-10-2022
 - 30-11-2022
 
-Wilt u deelnemen aan één van deze werkgroepen, meldt u dan [hier](https://formulieren.vngrealisatie.nl/Api_ZDS) aan. NB. de link verwijst naar een formulier op de website van VNG Realisatie.
+
+De technische gebruikersgroep kent de volgende leden:
+
+
+- Dimpact
+- Alain van Hanegem, Decos
+- Aren Slootweg, gemeente Schagen
+- Andy Verberne, ATOS
+- Bas Retera, Visma Circle
+- Bertil Rebergen, Pink Roccade
+- David Bronsveld, Decos
+- Eduard Witteveen, gemeente Sudwest Fryslan
+- Jimmy de Leeuw, Enable U
+- Joeri Bekker, Maykin Media
+- Johannes Battjes, Visma Roxit
+- Maarten Rutte, Pink Roccade
+- Michiel Nijdam, Visma Roxit
+- Roel de Bruin, Centric
+- Ruben van der Linde, Conduction
+- Sander Groen, Decos
+- Arjan Kloosterboer, VNG
+- Henri Korver, VNG
+- Ivo Hendriks, VNG
+- John van Dijk, VNG
+- Michiel Verhoef, VNG
 
 Een melding kan via diverse kanalen binnenkomen, zoals via Github als issue, het VNG API Community Slack kanaal maar ook mondeling (telefonisch, wandelgang) of via e-Mail. Een melding kan gaan om een vraag, een wens of een bug.
 
