@@ -32,11 +32,11 @@ Voor 2022 staan de volgende bijeenkomsten gepland:
 De functionele gebruikersgroep kent de volgende leden:
 
 
-- Delft
 - Utrecht
 - Rijswijk
 - Dimpact
 - Equalit
+- Edwin Coster, Delft
 - Jan Verbeek, Den Haag
 - Nol Witte, Omgevingsdienst Midden-Holland
 - Robert Jan van Vliet, Texel
@@ -53,7 +53,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - 26-01-2022
 - 23-02-2022
 - 23-03-2022
-- 28-04-2022
+- 21-04-2022
 - 25-05-2022
 - 29-06-2022
 - 28-09-2022
