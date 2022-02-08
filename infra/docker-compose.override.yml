@@ -2,6 +2,8 @@ version: '3.4'
 
 services:
   zrc_web:
+    environment:
+      - ALLOWED_HOSTS=*
     ports:
       - "${ZRC_UWSGI_PORT:-8000}:8000"
 

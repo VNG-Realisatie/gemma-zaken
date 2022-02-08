@@ -68,7 +68,6 @@ services:
       - IS_HTTPS=0
       - REDIS_CACHE=redis:6379/0
       - CACHE_DEFAULT=redis:6379/0
-      - ALLOWED_HOSTS=.localhost,.127.0.0.1
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:
