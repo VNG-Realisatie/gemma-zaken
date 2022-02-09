@@ -67,6 +67,7 @@ services:
       - DB_PASSWORD=secret
       - IS_HTTPS=0
       - REDIS_CACHE=redis:6379/0
+      - CACHE_DEFAULT=redis:6379/0
     volumes:
       - token_fixtures:/app/fixtures
     depends_on:

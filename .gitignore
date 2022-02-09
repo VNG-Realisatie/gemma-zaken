@@ -2,4 +2,5 @@
 .env
 .vault_password.txt
 infra/env/
+infra/fixtures/
 deploy-bot/env/
