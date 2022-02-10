@@ -4,7 +4,7 @@
 #
 #    pip-compile --no-index --output-file=requirements/jenkins.txt requirements/base.txt requirements/dev.txt requirements/jenkins.in
 #
-django==2.2.11
+django==2.2.27
     # via django-jenkins
 django-jenkins==0.110.0
     # via -r jenkins.in
