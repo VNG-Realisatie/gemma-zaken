@@ -105,7 +105,7 @@ pytz==2019.3
     # via
     #   -r base.in
     #   django
-pyyaml==5.3
+pyyaml==5.4
     # via
     #   gemma-zds-client
     #   kubernetes
