@@ -22,7 +22,7 @@ chardet==3.0.4
     # via requests
 click==7.1.1
     # via pip-tools
-cryptography==3.2
+cryptography==3.3.2
     # via ansible-core
 dictdiffer==0.8.1
     # via openshift
