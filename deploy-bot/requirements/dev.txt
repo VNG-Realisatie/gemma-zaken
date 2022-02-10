@@ -4,7 +4,7 @@
 #
 #    pip-compile --no-index --output-file=requirements/dev.txt requirements/base.txt requirements/dev.in requirements/testing.in
 #
-django==2.2.11
+django==2.2.27
     # via django-debug-toolbar
 django-debug-toolbar==2.0
     # via -r dev.in
