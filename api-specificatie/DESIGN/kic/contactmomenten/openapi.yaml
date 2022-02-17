@@ -147,15 +147,15 @@ paths:
           type: string
       - name: voorkeurskanaal
         in: query
-        description: Het communicatiekanaal dat voor opvolging van de klantinteractie
+        description: Het communicatiekanaal dat voor opvolging van deze klantinteractie
           de voorkeur heeft van de KLANT.
         required: false
         schema:
           type: string
       - name: voorkeurstaal
         in: query
-        description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
-          is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
+        description: 'Een ISO 639-2/B taalcode waarin de voorkeurstaal van de KLANT voor de opvolging van deze klantinteractie
+            is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
         required: false
         schema:
           type: string
@@ -1505,21 +1505,22 @@ components:
           maxLength: 50
         voorkeurskanaal:
           title: Voorkeurskanaal
-          description: Het communicatiekanaal dat voor opvolging van de klantinteractie
+          description: Het communicatiekanaal dat voor opvolging van deze klantinteractie
             de voorkeur heeft van de KLANT.
           type: string
           maxLength: 50
         voorkeurstaal:
           title: Voorkeurstaal
-          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+          description: 'Een ISO 639-2/B taalcode waarin de voorkeurstaal van de KLANT voor de opvolging van deze klantinteractie
             is vastgelegd. Voorbeeld: `nld`. Zie: https://www.iso.org/standard/4767.html'
           type: string
           maxLength: 3
         tekst:
-          title: Tekst
-          description: Een toelichting die inhoudelijk de klantinteractie van de klant
-            beschrijft.
-          type: string
+          $ref: '#/components/schemas/Tekst'
+          # title: Tekst
+          # description: Een toelichting die inhoudelijk de klantinteractie van de klant
+          #   beschrijft.
+          # type: string
         onderwerpLinks:
           description: "E\xE9n of meerdere links naar een product, webpagina of andere\
             \ entiteit zodat contactmomenten gegroepeerd kunnen worden op onderwerp."
@@ -1891,3 +1892,23 @@ components:
           type: string
           enum:
           - zaak
+    Tekst:
+      required:
+        - inhoud
+        - formaat
+      type: object
+      properties:
+        inhoud:
+          title: Inhoud
+          description: Een toelichting die inhoudelijk de klantinteractie van de klant
+            beschrijft.
+          type: string
+          example: "Tekst die in dit geval in **MarkDown** formaat is opgemaakt."
+        formaat:
+          title: Formaat
+          description: Het formaat waarin de tekst is opgemaakt.
+          type: string
+          example: markdown
+          enum:
+            - plain_text
+            - markdown
