@@ -1006,13 +1006,13 @@ components:
           maxLength: 254
         voorkeurskanaal:
           title: Voorkeurskanaal
-          description: Het communicatiekanaal dat de voorkeur heeft van de KLANT. Deze voorkeur is default maar kan overruled worden in een specifiek contactmoment.
+          description: Het communicatiekanaal dat de voorkeur heeft van de KLANT. Deze voorkeur is default maar kan overruled worden in een specifieke klantinteractie.
           type: string
           maxLength: 50
         voorkeurstaal:
           title: Voorkeurstaal
-          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
-            is vastgelegd. Zie: https://www.iso.org/standard/4767.html. Deze voorkeur is default maar kan overruled worden in een specifiek contactmoment.'
+          description: 'Een ISO 639-2/B taalcode waarin de voorkeurstaal van de klant voor interacties met de gemeente
+            is vastgelegd. Zie: https://www.iso.org/standard/4767.html. Deze voorkeur is default maar kan overruled worden in een specifieke klantinteractie.'
           type: string
           maxLength: 3
           example: "nld"
