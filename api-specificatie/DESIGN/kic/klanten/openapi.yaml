@@ -1049,7 +1049,9 @@ components:
       title: Verblijfsadres
       required:
       - aoaIdentificatie
+      - wplWoonplaatsNaam
       - gorOpenbareRuimteNaam
+      - aoaHuisnummer
       type: object
       properties:
         aoaIdentificatie:
@@ -1078,7 +1080,6 @@ components:
           type: integer
           maximum: 99999
           minimum: 0
-          nullable: true
         aoaHuisletter:
           title: Aoa huisletter
           type: string
@@ -1275,7 +1276,7 @@ components:
           title: Vestigings nummer
           description: Een korte unieke aanduiding van de Vestiging.
           type: string
-          maxLength: 24
+          maxLength: 12
         handelsnaam:
           description: De naam van de vestiging waaronder gehandeld wordt.
           type: array
