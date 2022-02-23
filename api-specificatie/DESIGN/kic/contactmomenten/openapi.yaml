@@ -1902,9 +1902,9 @@ components:
           example: "Tekst die in **MarkDown** formaat is opgemaakt."
         formaat:
           title: Formaat
-          description: Het formaat waarin de tekst is opgemaakt conform de media types uit de IANA-lijst (https://www.iana.org/assignments/media-types/media-types.xhtml). Hier wordt de lijst  beperkt tot  `text/plain` en `text/markdown`.
+          description: Het formaat waarin de tekst is opgemaakt conform de media types uit de IANA-lijst (https://www.iana.org/assignments/media-types/media-types.xhtml). Hier wordt deze lijst beperkt tot de media types `text/plain; charset=UTF-8` en `text/markdown; charset=UTF-8`. In de onderstaande enumeratie zijn deze twee waarden afgekort tot respectievelijk `plain_text` en `markdown`.
           type: string
-          example: text/markdown
+          example: markdown
           enum:
-            - text/plain
-            - text/markdown
+            - plain_text
+            - markdown
