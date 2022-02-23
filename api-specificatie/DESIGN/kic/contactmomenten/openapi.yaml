@@ -1517,10 +1517,6 @@ components:
           maxLength: 3
         tekst:
           $ref: '#/components/schemas/Tekst'
-          # title: Tekst
-          # description: Een toelichting die inhoudelijk de klantinteractie van de klant
-          #   beschrijft.
-          # type: string
         onderwerpLinks:
           description: "E\xE9n of meerdere links naar een product, webpagina of andere\
             \ entiteit zodat contactmomenten gegroepeerd kunnen worden op onderwerp."
@@ -1903,12 +1899,12 @@ components:
           description: Een toelichting die inhoudelijk de klantinteractie van de klant
             beschrijft.
           type: string
-          example: "Tekst die in dit geval in **MarkDown** formaat is opgemaakt."
+          example: "Tekst die in **MarkDown** formaat is opgemaakt."
         formaat:
           title: Formaat
-          description: Het formaat waarin de tekst is opgemaakt.
+          description: Het formaat waarin de tekst is opgemaakt conform de media types uit de IANA-lijst (https://www.iana.org/assignments/media-types/media-types.xhtml). Hier worden de lijst  beperkt tot  `text/plain` en `text/markdown`.
           type: string
-          example: markdown
+          example: text/markdown
           enum:
-            - plain_text
-            - markdown
+            - text/plain
+            - text/markdown
