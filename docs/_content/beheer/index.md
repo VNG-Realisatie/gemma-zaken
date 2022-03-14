@@ -53,7 +53,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - 26-01-2022
 - 23-02-2022
 - 23-03-2022
-- 21-04-2022
+- 14-04-2022
 - 25-05-2022
 - 29-06-2022
 - 28-09-2022
