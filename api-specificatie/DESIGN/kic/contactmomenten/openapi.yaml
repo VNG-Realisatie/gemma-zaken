@@ -77,7 +77,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0
+  version: 1.1.0
 security:
 - JWT-Claims: []
 paths:
@@ -1892,6 +1892,7 @@ components:
       required:
         - inhoud
         - formaat
+        - formaatWeergave
       type: object
       properties:
         inhoud:
@@ -1902,9 +1903,16 @@ components:
           example: "Tekst die in **MarkDown** formaat is opgemaakt."
         formaat:
           title: Formaat
-          description: Het formaat waarin de tekst is opgemaakt conform de media types uit de IANA-lijst (https://www.iana.org/assignments/media-types/media-types.xhtml). Hier wordt deze lijst beperkt tot de media types `text/plain; charset=UTF-8` en `text/markdown; charset=UTF-8`. In de onderstaande enumeratie zijn deze twee waarden afgekort tot respectievelijk `plain_text` en `markdown`.
+          description: "Er zijn twee formaten waaruit gekozen kan worden: `plain_text` en `markdown` conform de media types van [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). Dit zijn afkortingen van de media types: `text/plain; charset=UTF-8` en `text/markdown; charset=UTF-8` die volledig worden weegegeven in het veld `formaatWeergave`."
           type: string
           example: markdown
           enum:
             - plain_text
             - markdown
+        formaatWeergave:
+          title: Formaatweergave
+          description: Volledige weergave van het formaat volgens IANA.
+          type: string
+          readOnly: true
+          minLength: 1
+          example: "text/markdown; charset=UTF-8"
