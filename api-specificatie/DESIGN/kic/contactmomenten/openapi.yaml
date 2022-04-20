@@ -1903,16 +1903,16 @@ components:
           example: "Tekst die in **MarkDown** formaat is opgemaakt."
         formaat:
           title: Formaat
-          description: "Er zijn twee formaten waaruit gekozen kan worden: `plain_text` en `markdown` conform de media types van [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml). Dit zijn afkortingen van de media types: `text/plain; charset=UTF-8` en `text/markdown; charset=UTF-8` die volledig worden weegegeven in het veld `formaatWeergave`."
+          description: "Er zijn twee formaten waaruit gekozen kan worden: `plain` en `markdown`. Dit zijn afkortingen van de media types: `text/plain; charset=utf-8` (zie [RFC3676](https://www.rfc-editor.org/rfc/rfc3676.html)) en `text/markdown; charset=utf-8` (zie [RFC7763](https://www.rfc-editor.org/rfc/rfc7763.html)) zoals gepubliceerd in de lijst van [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml)."
           type: string
           example: markdown
           enum:
-            - plain_text
+            - plain
             - markdown
         formaatWeergave:
           title: Formaatweergave
-          description: Volledige weergave van het formaat volgens IANA.
+          description: Volledige weergave van het formaat volgens IANA zoals hierboven beschreven.
           type: string
           readOnly: true
           minLength: 1
-          example: "text/markdown; charset=UTF-8"
+          example: "text/markdown; charset=utf-8"
