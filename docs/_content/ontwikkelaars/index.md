@@ -17,7 +17,7 @@ De handleidingen vormen een algemene introductie voor ontwikkelaars die met de Z
 5. [Large files upload (Engels)](./handleidingen-en-tutorials/large-files)
 
 ### Tutorials
-Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZGW API's. Deze tutorials Ze zijn ontwikkeld voor gebruik tijdens API lab-bijeenkomsten, maar kunnen ook individueel doorlopen worden.
+Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZGW API's. Deze tutorials zijn ontwikkeld voor gebruik tijdens API lab-bijeenkomsten, maar kunnen ook individueel doorlopen worden.
 1. [Eenmalige setup van de referentie-implementaties](./handleidingen-en-tutorials/eenmalige-setup)
 2. [Aan de slag met notificeren](./handleidingen-en-tutorials/notificeren)
 3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren) 
