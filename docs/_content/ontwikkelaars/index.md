@@ -50,7 +50,7 @@ Deze omgevingen zijn:
 **Volgende release**
 
 Deze omgevingen zijn de nieuwe versies die in ontwikkeling zijn. Ze worden
-continue bijgewerkt op basis van de `develop` branch van de
+continue bijgewerkt op basis van de `master` branch van de
 referentieimplementaties. Deze omgevingen dienen om nieuwe features uit te
 testen en bugs op te sporen.
 
