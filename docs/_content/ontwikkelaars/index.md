@@ -22,6 +22,7 @@ Tutorials zijn introducties gericht op specifieke functionaliteiten binnen de ZG
 2. [Aan de slag met notificeren](./handleidingen-en-tutorials/notificeren)
 3. [Aan de slag met archiveren](./handleidingen-en-tutorials/archiveren) 
 4. [Crashcourse zaakgericht werken voor ontwikkelaars PDF](./handleidingen-en-tutorials/20201208%20-%20Crash%20course%20zaakgericht%20werken%20voor%20CG-ontwikkelteams_v1_0.pdf)
+4. [Git branch model binnen ZGW](./handleidingen-en-tutorials/git-branch-model)
 
 ## Testomgevingen
 
