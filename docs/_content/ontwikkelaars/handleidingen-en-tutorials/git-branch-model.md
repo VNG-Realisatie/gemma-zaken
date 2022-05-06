@@ -31,7 +31,7 @@ daarbij een nieuwe branch (bijvoorbeeld in het geval van een nieuwe minor releas
 Ook bugfixes en nieuw features zijn idealiter gericht naar de `master` branch tenzij
 het gaat om een bugfix of feature voor een specifieke release. Er kan daarnaast
 gekozen worden om de bugfix niet alleen naar `master` toe te richten maar ook te backporten
-naar specifiek releases. Wanneer het gaat om zogenaamde "breaking changes" dien je
+naar specifieke releases. Wanneer het gaat om zogeheiten "breaking changes" dien je
 altijd een nieuwe release te doen en hiermee ook de major versie op te hogen (e.g van `1.1.1` naar `2.0.0`).
 
 ## Aandachtspunten
