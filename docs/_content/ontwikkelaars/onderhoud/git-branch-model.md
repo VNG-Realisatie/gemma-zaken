@@ -4,37 +4,44 @@ date: '22-04-2022'
 weight: 20
 ---
 
-Het ontwikkelen van de ZGW componenten gebeurd aan de hand van het git branching
-model "[OneFlow]". In deze tutorial wordt beschreven hoe een je om dient te gaan
-met dit type branch model.
+Het ontwikkelen van de ZGW componenten gebeurt aan de hand van het `git`-branching
+model "[OneFlow]". Dit document beschrijft hoe je om dient te gaan met dit type
+branch model.
 
-## Standaard branch
+## Standaardbranch
+
 Voor het aanmaken van nieuwe features of bugfixes dien je gebruik te maken van de 
 `master` branch tenzij je een feature of bugfix wilt toevoegen voor een specifieke versie.
 
+Bijvoorbeeld `git checkout -b feature/some-feature master` of `git checkout -b issue/some-bugfix stable/1.2.x`.
+
 ## Testomgevingen
+
 Voor testomgevingen wordt gebruikt gemaakt van de `master` branch. Om een nieuwe versie 
 te deployen kan je als ontwikkelaar een [git tag] gebruiken of gebruik maken van de sha-256 checksum
-van een specifieke commit. Bij het gebruik van een git tag dien je het volgende format te hanteren:
+van een specifieke container image. Bij het gebruik van een git tag dien je het volgende format te hanteren:
 ```
 1.3.0-alpha1
 ```
 
 ## Productieomgevingen
+
 Productieomgevingen worden alleen gebruikt in combinatie met daadwerkelijke release versies. 
-Voor deze versies is altijd een branch aangemaakt met het volgende format: `<major>.<minor>.x`.
-Een voorbeeld hiervan zou kunnen zijn: `1.2.x`. Alleen bugfixes kunnen nog toegevoegd worden
+Voor deze versies is altijd een branch aangemaakt met het volgende format: `stable/<major>.<minor>.x`.
+Een voorbeeld hiervan zou kunnen zijn: `stable/1.2.x`. Alleen bugfixes kunnen nog toegevoegd worden
 aan deze branches. Een nieuwe minor of major versie betekent een nieuwe release en 
-daarbij een nieuwe branch (bijvoorbeeld in het geval van een nieuwe minor release `1.3.x`).
+daarbij een nieuwe branch (bijvoorbeeld in het geval van een nieuwe minor release `stable/1.3.x`).
 
 ## Bugfixes en features
+
 Ook bugfixes en nieuw features zijn idealiter gericht naar de `master` branch tenzij
 het gaat om een bugfix of feature voor een specifieke release. Er kan daarnaast
 gekozen worden om de bugfix niet alleen naar `master` toe te richten maar ook te backporten
-naar specifieke releases. Wanneer het gaat om zogeheiten "breaking changes" dien je
+naar specifieke releases. Wanneer het gaat om zogeheten "breaking changes" dien je
 altijd een nieuwe release te doen en hiermee ook de major versie op te hogen (e.g van `1.1.1` naar `2.0.0`).
 
 ## Aandachtspunten
+
 Om een versie van een ZGW component op te hogen dienen je rekening te houden met
 een aantal punten:
 1. Het ophogen van het versienummer gaat normaliter via de `API_VERSION` setting in je Django settings
