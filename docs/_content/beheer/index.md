@@ -76,7 +76,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - 29-06-2022
 - - _Gerelateerde zaken https://github.com/VNG-Realisatie/gemma-zaken/issues/1629_
 - 28-09-2022
-- 26-10-2022
+- 02-11-2022
 - 30-11-2022
 
 
