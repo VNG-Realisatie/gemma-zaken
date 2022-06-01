@@ -25,7 +25,7 @@ services:
   - name: redis-test
     templates: ../k8s/cache/
 
-  # Official APIs
+    # Official APIs
 
   - name: ac-test
     templates: ../k8s/ac/
@@ -46,7 +46,7 @@ services:
   - name: nrc-test
     templates: ../k8s/nrc/
     domain: notificaties-api.test.vng.cloud
-    image_tag: latest
+    image_tag: '2.0.0-alpha6'
 
   - name: zrc-test
     templates: ../k8s/zrc/
