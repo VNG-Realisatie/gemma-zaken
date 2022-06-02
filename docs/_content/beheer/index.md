@@ -15,7 +15,7 @@ Wilt u deelnemen aan één van deze werkgroepen, meldt u dan [hier](https://form
 
 
 ## Bijeenkomsten
-Voor 2022 staan de volgende bijeenkomsten gepland:
+Voor 2022 staan de volgende bijeenkomsten gepland. Bij elke datum staan de bespreekpunten. Om zo vroeg mogelijk een indicatie Voor toekomstige agenda's te geven staan die bespreekpunten in cursief. Deze agenda's kunnen nog wijzigen tot de bijeenkomst zelf.
 
 
 ### Functionele gebruikersgroep:
@@ -51,13 +51,32 @@ De functionele gebruikersgroep kent de volgende leden:
 
 ### Technische gebruikersgroep:
 - 26-01-2022
+- - Status Standaardisatie API's
+- - Catalogi API volgende versie: Historiemodel
 - 23-02-2022
+- - Gedrag Catalogi API
+- - - Aanmaken Zaak
+- - - Versieregime Zaaktpye, Informatieobjecttype, Besluittype
+- - - Mutaties en correcties
+- - - Historie en geldighied
+- - - Gebruik en betekenis Catalogus
 - 23-03-2022
-- 21-04-2022
+- - Status Standaardisatie API's
+- - Betrokkene Bij Zaak
+- - - Uitleg hoe bedeoeld in API
+- - - Bevindingen en voorstel tot verbetering
+- 14-04-2022
+- - Status Standaardisatie API's
+- - Betrokkene bij Zaak update
+- - Voorstel voor Performance Verbetering: Inclusions
 - 25-05-2022
+- - Milestoneplanning
+- - Status standaardisatie API's
+- - Performance verbetering: Inclusions / HAL / ALternatieven?
 - 29-06-2022
+- - _Gerelateerde zaken https://github.com/VNG-Realisatie/gemma-zaken/issues/1629_
 - 28-09-2022
-- 26-10-2022
+- 02-11-2022
 - 30-11-2022
 
 
