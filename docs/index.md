@@ -1,7 +1,6 @@
 ---
+layout: page-with-side-nav
 title: "API's voor zaakgericht werken"
-header-img: /img/sample-image.jpg
-date: 12-7-2018
 ---
 
 Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
