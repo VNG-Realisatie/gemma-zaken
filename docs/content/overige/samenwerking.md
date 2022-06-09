@@ -2,7 +2,9 @@
 title: "Samenwerking"
 date: '28-5-2018'
 weight: 30
+layout: page-with-side-nav
 ---
+# Samenwerking
 
 ## Samenwerkende partijen
 

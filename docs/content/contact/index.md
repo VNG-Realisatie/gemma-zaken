@@ -5,6 +5,8 @@ weight: 10
 layout: page-with-side-nav
 ---
 
+# Contact
+
 Gemeenten en VNG Realisatie werken samen aan de (door)ontwikkeling van de API's voor Zaakgericht werken. Het beheer vindt plaats onder regie van VNG Realisatie.
 
 ## Contact met het beheer- en ontwikkelteam van de ZGW API's

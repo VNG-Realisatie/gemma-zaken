@@ -4,6 +4,7 @@ date: '29-5-2018'
 weight: 100
 layout: page-with-side-nav
 ---
+# Productvisie
 
 ## Introductie
 
@@ -245,7 +246,7 @@ ketenautomatisering waarbij dossiers steeds worden gekopieerd naar een volgende
 silo. In de praktijk betekent dit dan dat organisaties afhankelijk van het
 proces en de ketenpartners het proces koppelen aan een andere ZRC en DRC.
 
-- Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde_trajecten)) is
+- Binnen het DSO (zie: [Gerelateerde trajecten](#gerelateerde-trajecten)) is
   hier mogelijk op korte termijn behoefte aan.
 - Ook binnen het Sociaal Domein heeft deze constructie potentie.
 

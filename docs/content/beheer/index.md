@@ -5,6 +5,8 @@ weight: 10
 layout: page-with-side-nav
 ---
 
+# Beheer
+
 ## Gebruikersgroepen
 
 Met het gebruik van de API standaarden voor Zaakgericht werken is het onvermijdelijk dat er verbeterpunten naar boven komen. Om functionele behoeften van gemeenten goed in beeld te hebben en houden is er een zogenoemde Functionele gebruikersgroep ingericht. Hier hebben gemeenten zitting in. De onderwerpen gaan alleen over de functionaliteit van de API's. Ook wordt in de Functionele gebruikersgroep de volgorde en prioriteit van de doorontwikkeling bepaald. Wat is er nodig en wanneer?
