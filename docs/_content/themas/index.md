@@ -2,6 +2,7 @@
 title: "Thema's"
 date: "11-7-2019"
 weight: 10
+layout: page-with-side-nav
 ---
 
 De achtergronddocumentatie bij de API's voor Zaakgericht werken is geen onderdeel van de standaard, maar vergroot het begrip en biedt achtergronden bij de gemaakte keuzen.
