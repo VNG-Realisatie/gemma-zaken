@@ -2,6 +2,7 @@
 title: "Beheer"
 date: '27-1-2022'
 weight: 10
+layout: page-with-side-nav
 ---
 
 ## Gebruikersgroepen
