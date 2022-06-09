@@ -12,17 +12,17 @@ nav:
       - title: Main
         path: /
       - title: Productvisie
-        path: /productvisie/
+        path: /_content/productvisie/
       - title: Ontwikkelaars
-        path: /ontwikkelaars/
+        path: /_content/ontwikkelaars/
       - title: Thema's
-        path: /themas/themas
+        path: /_content/themas/themas
       - title: Beheer
-        path: /beheer/
+        path: /_content/beheer/
       - title: Doorontwikkeling
-        path: /doorontwikkeling/
+        path: /_content/doorontwikkeling/
       - title: Contact
-        path: /contact/
+        path: /_content/contact/
 #  - title: Specificaties v. 1.0.0 
 #    subnav:
 #      - title: Getting started
