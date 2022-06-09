@@ -1,6 +1,7 @@
 ---
 title: "Zaken-API"
 date: '1-10-2018'
+layout: page-with-side-nav
 ---
 
 # ZAKEN API

@@ -1,7 +1,9 @@
 ---
 title: "Gebruik van de demo-applicatie"
 weight: 70
+layout: page-with-side-nav
 ---
+# Gebruik van de demo-applicatie
 
 De demo applicatie is een combinatie van verschillende aspecten zoals die te
 vinden zijn in zaaksystemen, suites en applicaties. De demo applicatie is

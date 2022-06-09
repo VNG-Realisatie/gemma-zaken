@@ -2,7 +2,9 @@
 title: "Gebruik testscenario's"
 date: '31-05-2019'
 weight: 60
+layout: page-with-side-nav
 ---
+# Gebruik testscenario's
 
 De ZGW API standaard bestaat uit een OAS en documentatie met voornamelijk
 gedragsregels van de provider implementatie. De provider implementatie van deze

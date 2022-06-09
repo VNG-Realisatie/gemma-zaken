@@ -2,7 +2,9 @@
 title: "Installatie en configuratie refentie-implementatie"
 date: '25-02-2019'
 weight: 80
+layout: page-with-side-nav
 ---
+# Installatie en configuratie refentie-implementatie
 
 De referentie-implementatiecomponenten kunnen gebruikt worden door ontwikkelaars in hun
 eigen ontwikkelomgeving om bijvoorbeeld vakapplicaties te testen, of een

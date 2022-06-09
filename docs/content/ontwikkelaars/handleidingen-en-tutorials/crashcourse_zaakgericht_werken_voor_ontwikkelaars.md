@@ -1,3 +1,7 @@
+---
+layout: page-with-side-nav
+---
+
 ![](RackMultipart20210422-4-vuzou2_html_f2cf87d34556e0e2.gif)
 
 _3 december 2020 – versie 1.0_

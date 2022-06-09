@@ -1,7 +1,9 @@
 ---
 title: "ZGW in Gegevenslandschap v0.7"
 date: '18-11-2018'
+layout: page-with-side-nav
 ---
+# ZGW in Gegevenslandschap v0.7
 
 ![Repo Status](https://img.shields.io/badge/status-concept-lightgrey.svg?style=plastic)
 

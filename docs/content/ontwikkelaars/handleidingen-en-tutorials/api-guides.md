@@ -1,7 +1,9 @@
 ---
 title: "API Guides"
 weight: 90
+layout: page-with-side-nav
 ---
+# API Guides
 
 In onderstaande voorbeelden wordt gebruik gemaakt van de door VNG gehoste
 referentie implementaties van de verschillende componenten. Voor het gebruik van de gehoste referentie-implementatie gelden [deze gebruiksvoorwaarden](../../beheer/gebruiksvoorwaarden).

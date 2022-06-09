@@ -1,7 +1,9 @@
 ---
 title: Tutorial notificeren
 weight: 40
+layout: page-with-side-nav
 ---
+# Tutorial notificeren
 
 In deze tutorial configureren we de referentieimplementaties van de ZGW
 componenten voor het versturen en ontvangen van notificaties via de

@@ -2,7 +2,9 @@
 title: "Gebruiksvoorwaarden gehoste referentieimplementaties"
 date: '22-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Gebruiksvoorwaarden gehoste referentieimplementaties
 
 Deze gebruiksvoorwaarden zijn van toepassing op de referentieimplementaties zoals gehost door VNG Realisatie.
 

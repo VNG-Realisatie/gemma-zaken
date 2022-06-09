@@ -2,6 +2,7 @@
 title: "Notificeren"
 date: '27-03-2019'
 weight: 110
+layout: page-with-side-nav
 ---
 
 Als component moet je events publiceren naar een Notificaties API

@@ -1,7 +1,9 @@
 ---
 title: "Type documentatie"
 date: '9-8-2018'
+layout: page-with-side-nav
 ---
+# Type documentatie
 
 De documentatie is geschreven voor verschillende doelgroepen en voor zowel het client- als het server-perspectief.
 

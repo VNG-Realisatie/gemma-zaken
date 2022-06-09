@@ -1,7 +1,9 @@
 ---
 title: "Large files upload tutorial"
 weight: 100
+layout: page-with-side-nav
 ---
+# Large files upload tutorial
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Added in version 1.1.0</strong>

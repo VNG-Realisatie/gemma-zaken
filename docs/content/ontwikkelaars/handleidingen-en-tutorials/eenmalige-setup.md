@@ -1,7 +1,9 @@
 ---
 title: "Tutorial eenmalige setup"
 weight: 50
+layout: page-with-side-nav
 ---
+# Tutorial eenmalige setup
 
 Deze tutorial beschrijft de eenmalige configuratie van de referentie-
 implementaties. De [autorisatieslides](./_assets/autorisatie.pptx) zoals gegeven op het

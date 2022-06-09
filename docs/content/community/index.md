@@ -1,7 +1,9 @@
 ---
 title: "Community"
 layout: subjects
+layout: page-with-side-nav
 ---
+# Community
 
 De standaard voor Zaakgericht werken wordt samen ontwikkeld. De community is
 hierbij belangrijk. Hieronder staat hoe u zelf kunt bijdragen en verslagen van

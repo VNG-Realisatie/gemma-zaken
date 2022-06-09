@@ -1,6 +1,7 @@
 ---
 title: "Zaaktypen-API"
 date: '19-01-2019'
+layout: page-with-side-nav
 ---
 
 # ZAAKTYPEN API

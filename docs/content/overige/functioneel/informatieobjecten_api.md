@@ -1,6 +1,7 @@
 ---
 title: "Informatieobjecten-API"
 date: '21-01-2019'
+layout: page-with-side-nav
 ---
 
 # INFORMATIEOBJECTEN API

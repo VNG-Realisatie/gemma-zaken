@@ -1,7 +1,9 @@
 ---
 title: "Tutorial archiveren"
 weight: 30
+layout: page-with-side-nav
 ---
+# Tutorial archiveren
 
 In deze tutorial configureren we de referentieimplementatie van de
 Catalogi API (ZTC) zodat Zaken in het Zaken API (ZRC)

@@ -1,7 +1,9 @@
 ---
 title: "Hoe komen we samen tot API-standaarden"
 date: '26-3-2019'
+layout: page-with-side-nav
 ---
+# Bijdragen
 
 Standaarden kunnen we alleen samen maken. We waarderen alle suggesties, zijn
 blij met feedback en verwelkomen verbeteringen in dit project. Brede

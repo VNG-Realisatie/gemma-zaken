@@ -1,7 +1,9 @@
 ---
 title: "Scrumteam"
 date: '14-6-2019'
+layout: page-with-side-nav
 ---
+# Scrumteam
 
 Organisatie | Persoon | Rol 
 --- | --- | ---
