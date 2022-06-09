@@ -2,6 +2,7 @@
 title: 'Contact'
 date: '11-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
 
 Gemeenten en VNG Realisatie werken samen aan de (door)ontwikkeling van de API's voor Zaakgericht werken. Het beheer vindt plaats onder regie van VNG Realisatie.
