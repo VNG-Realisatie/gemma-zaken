@@ -1,5 +1,6 @@
 ---
 title: Ontwikkelaars
+layout: page-with-side-nav
 ---
 <!-- De ZGW API-standaarden worden gedefineerd in [de OAS3-specificatie en het voorgeschreven runtime-gedrag](../standaard/index). Om ontwikkelaars bij gemeentes en leveranciers te helpen met het realiseren  -->
 De ZGW API-standaarden worden gedefineerd in [de OAS3-specificatie en het voorgeschreven runtime-gedrag](../standaard/index). Om ontwikkelaars bij gemeentes en leveranciers te helpen met het realiseren
