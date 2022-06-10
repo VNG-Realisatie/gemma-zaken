@@ -20,8 +20,9 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Contactmomenten API specificatie](contactmomenten/)
 * [Klanten API specificatie](klanten/)
 * [Verzoeken API specificatie](verzoeken/)
-* [Referentielijsten en Selectielijst API](https://referentielijsten-api.vng.cloud/api/v1/schema/)
+* [Referentielijsten en Selectielijst API][referentielijsten-1.0.0-redoc]
 
+[referentielijsten-1.0.0-redoc]: /gemma-zaken/content/standaard/referentielijsten/redoc-1.0.0
 
 ## Algemeen
 
