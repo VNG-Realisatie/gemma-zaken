@@ -39,11 +39,12 @@ Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 
 Het ZTC haalt informatie uit selectielijsten en de Gemeentelijke Selectielijst
 2017. Deze gegevens worden ontsloten in de
-[VNG-referentielijsten-API](https://referentielijsten-api.vng.cloud/api/v1/schema/). Op
+[VNG-referentielijsten-API][referentielijsten-1.0.0-redoc]. Op
 korte termijn zal deze API gesplitst worden in een referentielijsten-API en de
 selectielijst-API (waar deze nu nog 1 API is)
 [#3 on Github](https://github.com/VNG-Realisatie/VNG-referentielijsten/issues/3).
 
+[referentielijsten-1.0.0-redoc]: /gemma-zaken/content/standaard/referentielijsten/redoc-1.0.0
 
 ## OpenAPI specificatie
 
