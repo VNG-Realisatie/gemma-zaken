@@ -20,11 +20,13 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 * [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc](https://catalogi-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][catalogi-1.0.1-redoc],
+  [Swagger][catalogi-1.0.1-swagger],
   [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
 
+[catalogi-1.0.1-redoc]: /gemma-zaken/content/standaard/catalogi/redoc-1.0.1
+[catalogi-1.0.1-swagger]: /gemma-zaken/content/standaard/catalogi/swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 
@@ -45,7 +47,7 @@ selectielijst-API (waar deze nu nog 1 API is)
 
 ## OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/1.0.x/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZTC.
 

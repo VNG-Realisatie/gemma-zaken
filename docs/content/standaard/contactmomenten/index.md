@@ -46,11 +46,13 @@ Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie
 
 * [Referentie-implementatie Contactmomenten API](https://contactmomenten-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc](https://contactmomenten-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][contactmomenten-1.0.0-redoc],
+  [Swagger][contactmomenten-1.0.0-swagger],
   [YAML](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.json)
 
+[contactmomenten-1.0.0-redoc]: /gemma-zaken/content/standaard/contactmomenten/redoc-1.0.0
+[contactmomenten-1.0.0-swagger]: /gemma-zaken/content/standaard/contactmomenten/swagger-ui-1.0.0
 
 # Specificatie van gedrag
 

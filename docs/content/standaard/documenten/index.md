@@ -58,11 +58,13 @@ Een verzoek kan onderbouwd worden met één of meer informatieobjecten. De relat
 
 * [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
 * API specificatie (OAS3) in
-  [ReDoc](https://documenten-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][documenten-1.0.1-redoc],
+  [Swagger][documenten-1.0.1-swagger],
   [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
 
+[documenten-1.0.1-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.1
+[documenten-1.0.1-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 
@@ -74,7 +76,7 @@ Documenten APIsen (DRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/drc/1.0.x/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
+Alle operaties beschreven in [`openapi.yaml`](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
 
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 

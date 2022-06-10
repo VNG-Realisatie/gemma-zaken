@@ -27,17 +27,19 @@ De API ondersteunt:
 
 * [Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc](https://notificaties-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][notificaties-1.0.1-redoc],
+  [Swagger][notificaties-1.0.1-swagger],
   [YAML](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://notificaties-api.vng.cloud/api/v1/schema/openapi.json)
 
+[notificaties-1.0.1-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.1
+[notificaties-1.0.1-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 
 Componenten dienen events te publiceren naar (een)
 Notificaties API(en) (NRC). De NRC MOET volledig de
-[`openapi.yaml`](../../../api-specificatie/nrc/openapi.yaml) implementeren.
+[`openapi.yaml`](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml) implementeren.
 
 Applicaties MOGEN een abonnement nemen op 1 of meer kanalen. Deze applicaties
 zijn dan event consumers. Een event consumer MOET de
