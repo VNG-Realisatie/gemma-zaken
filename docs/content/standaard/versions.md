@@ -45,7 +45,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][zaken-1.x-docs]
 
-[zaken-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/zaken/index
+[zaken-1.x-docs]: /gemma-zaken/standaard/zaken/
 
 ### Releases
 
@@ -55,16 +55,16 @@ Versie   | Release datum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
 
-[zaken-1.0.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.2/src/openapi.yaml
-[zaken-1.0.2-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.2/src/openapi.yaml
+[zaken-1.0.2-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.2
+[zaken-1.0.2-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.2
 [zaken-1.0.2-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.1...1.0.2?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[zaken-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.1/src/openapi.yaml
-[zaken-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.1/src/openapi.yaml
+[zaken-1.0.1-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.1
+[zaken-1.0.1-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.1
 [zaken-1.0.1-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[zaken-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.0/src/openapi.yaml
-[zaken-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/zaken-api/1.0.0/src/openapi.yaml
+[zaken-1.0.0-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.0
+[zaken-1.0.0-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.0
 
 
 ## Documenten API
@@ -77,7 +77,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][documenten-1.x-docs]
 
-[documenten-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/documenten/index
+[documenten-1.x-docs]: /gemma-zaken/standaard/documenten/
 
 ### Releases
 
@@ -104,7 +104,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][besluiten-1.x-docs]
 
-[besluiten-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/besluiten/index
+[besluiten-1.x-docs]: /gemma-zaken/standaard/besluiten/
 
 ### Releases
 
@@ -131,7 +131,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][catalogi-1.x-docs]
 
-[catalogi-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/index
+[catalogi-1.x-docs]: /gemma-zaken/standaard/catalogi/
 
 ### Releases
 
@@ -157,7 +157,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][autorisaties-1.x-docs]
 
-[autorisaties-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/autorisaties/index
+[autorisaties-1.x-docs]: /gemma-zaken/standaard/autorisaties/
 
 ### Releases
 
@@ -183,7 +183,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][notificaties-1.x-docs]
 
-[notificaties-1.x-docs]: https://vng-realisatie.github.io/gemma-zaken/standaard/notificaties/index
+[notificaties-1.x-docs]: /gemma-zaken/standaard/notificaties/
 
 ### Releases
 
