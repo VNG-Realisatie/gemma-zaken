@@ -27,16 +27,18 @@ De API ondersteunt de volgende operaties:
 
 * [Referentie-implementatie Autorisaties API](https://autorisaties-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc](https://autorisaties-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][autorisaties-1.0.0-redoc],
+  [Swagger][autorisaties-1.0.0-swagger],
   [YAML](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.json)
 
+[autorisaties-1.0.0-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.0
+[autorisaties-1.0.0-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.0
 
 ## Specificatie van gedrag
 
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ac/openapi.yaml) 
+Alle operaties beschreven in [`openapi.yaml`](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml) 
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het AC.
 
@@ -92,4 +94,4 @@ staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 
 ## Overige documentatie
 
-* [Tutorial autorisatie](../../ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
+* [Tutorial autorisatie](gemma-zaken/content/ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
