@@ -42,7 +42,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 
 Toegang tot de VNG API Community kunt u via [dit formulier](https://forms.gle/b7tPxkmfRGWVU4su9) aanvragen.
 
-[![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
+[![vngapicommunity](/assets/img/slack.png?raw=true)][VNG Community]
 
 [VNG Community]: http://vngapicommunity.slack.com
 
