@@ -30,7 +30,7 @@ De standaard staat [hier](/gemma-zaken/content/standaard/) beschreven. Ontwikkel
 [direct aan de slag](/gemma-zaken/content/ontwikkelaars/) met de beschikbare
 [API's](/gemma-zaken/content/standaard/) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](/gemma-zaken/content/community/bijdragen.md) lezen.
+[hier](/gemma-zaken/content/community/bijdragen) lezen.
 
 ## Slack
 
