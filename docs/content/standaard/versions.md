@@ -45,7 +45,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][zaken-1.x-docs]
 
-[zaken-1.x-docs]: /gemma-zaken/standaard/zaken/
+[zaken-1.x-docs]: /gemma-zaken/content/standaard/zaken/
 
 ### Releases
 
@@ -77,7 +77,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][documenten-1.x-docs]
 
-[documenten-1.x-docs]: /gemma-zaken/standaard/documenten/
+[documenten-1.x-docs]: /gemma-zaken/content/standaard/documenten/
 
 ### Releases
 
@@ -104,7 +104,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][besluiten-1.x-docs]
 
-[besluiten-1.x-docs]: /gemma-zaken/standaard/besluiten/
+[besluiten-1.x-docs]: /gemma-zaken/content/standaard/besluiten/
 
 ### Releases
 
@@ -131,7 +131,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][catalogi-1.x-docs]
 
-[catalogi-1.x-docs]: /gemma-zaken/standaard/catalogi/
+[catalogi-1.x-docs]: /gemma-zaken/content/standaard/catalogi/
 
 ### Releases
 
@@ -157,7 +157,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][autorisaties-1.x-docs]
 
-[autorisaties-1.x-docs]: /gemma-zaken/standaard/autorisaties/
+[autorisaties-1.x-docs]: /gemma-zaken/content/standaard/autorisaties/
 
 ### Releases
 
@@ -183,7 +183,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][notificaties-1.x-docs]
 
-[notificaties-1.x-docs]: /gemma-zaken/standaard/notificaties/
+[notificaties-1.x-docs]: /gemma-zaken/content/standaard/notificaties/
 
 ### Releases
 

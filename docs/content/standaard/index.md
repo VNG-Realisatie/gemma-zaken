@@ -10,16 +10,16 @@ layout: page-with-side-nav
 
 Hieronder de directe links naar de specificatie en documentatie van de API's:
 
-* [Catalogi API specificatie](catalogi/index)
-* [Zaken API specificatie](zaken/index)
-* [Documenten API specificatie](documenten/index)
-* [Besluiten API specificatie](besluiten/index)
-* [Autorisaties API specificatie](autorisaties/index)
-* [Notificaties API specificatie](notificaties/index)
-* [Notificaties API specificatie voor consumers](notificaties-consumer/index)
-* [Contactmomenten API specificatie](contactmomenten/index)
-* [Klanten API specificatie](klanten/index)
-* [Verzoeken API specificatie](verzoeken/index)
+* [Catalogi API specificatie](catalogi/)
+* [Zaken API specificatie](zaken/)
+* [Documenten API specificatie](documenten/)
+* [Besluiten API specificatie](besluiten/)
+* [Autorisaties API specificatie](autorisaties/)
+* [Notificaties API specificatie](notificaties/)
+* [Notificaties API specificatie voor consumers](notificaties-consumer/)
+* [Contactmomenten API specificatie](contactmomenten/)
+* [Klanten API specificatie](klanten/)
+* [Verzoeken API specificatie](verzoeken/)
 * [Referentielijsten en Selectielijst API](https://referentielijsten-api.vng.cloud/api/v1/schema/)
 
 
