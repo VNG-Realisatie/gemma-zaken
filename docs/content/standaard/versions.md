@@ -86,12 +86,12 @@ Versie   | Release datum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [Diff][documenten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
-[documenten-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/1.0.1/src/openapi.yaml
-[documenten-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/1.0.1/src/openapi.yaml
+[documenten-1.0.1-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.1
+[documenten-1.0.1-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.1
 [documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[documenten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/1.0.0/src/openapi.yaml
-[documenten-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/1.0.0/src/openapi.yaml
+[documenten-1.0.0-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.0
+[documenten-1.0.0-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.0
 
 
 ## Besluiten API
@@ -113,12 +113,12 @@ Versie   | Release datum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
 
-[besluiten-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/besluiten-api/1.0.1/src/openapi.yaml
-[besluiten-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/besluiten-api/1.0.1/src/openapi.yaml
+[besluiten-1.0.1-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.1
+[besluiten-1.0.1-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.1
 [besluiten-1.0.1-diff]: https://github.com/VNG-Realisatie/besluiten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[besluiten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/besluiten-api/1.0.0/src/openapi.yaml
-[besluiten-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/besluiten-api/1.0.0/src/openapi.yaml
+[besluiten-1.0.0-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.0
+[besluiten-1.0.0-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.0
 
 
 ## Catalogi API
@@ -139,12 +139,12 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.0.0    | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]
 
-[catalogi-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/catalogi-api/1.0.1/src/openapi.yaml
-[catalogi-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/catalogi-api/1.0.1/src/openapi.yaml
+[catalogi-1.0.1-redoc]: /gemma-zaken/content/standaard/catalogi/redoc-1.0.1
+[catalogi-1.0.1-swagger]: /gemma-zaken/content/standaard/catalogi/swagger-ui-1.0.1
 [catalogi-1.0.1-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[catalogi-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/catalogi-api/1.0.0/src/openapi.yaml
-[catalogi-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/catalogi-api/1.0.0/src/openapi.yaml
+[catalogi-1.0.0-redoc]: /gemma-zaken/content/standaard/catalogi/redoc-1.0.0
+[catalogi-1.0.0-swagger]: /gemma-zaken/content/standaard/catalogi/swagger-ui-1.0.0
 
 
 ## Autorisaties API
@@ -165,12 +165,12 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.0.0    | 2019-11-18    | [ReDoc][autorisaties-1.0.0-redoc], [Swagger][autorisaties-1.0.0-swagger]
 
-[autorisaties-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/autorisaties-api/1.0.1/src/openapi.yaml
-[autorisaties-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/autorisaties-api/1.0.1/src/openapi.yaml
+[autorisaties-1.0.1-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.1
+[autorisaties-1.0.1-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.1
 [autorisaties-1.0.1-diff]: https://github.com/VNG-Realisatie/autorisaties-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[autorisaties-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/autorisaties-api/1.0.0/src/openapi.yaml
-[autorisaties-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/autorisaties-api/1.0.0/src/openapi.yaml
+[autorisaties-1.0.0-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.0
+[autorisaties-1.0.0-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.0
 
 
 ## Notificaties API
@@ -191,12 +191,12 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.0.0    | 2019-11-18    | [ReDoc][notificaties-1.0.0-redoc], [Swagger][notificaties-1.0.0-swagger]
 
-[notificaties-1.0.1-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/notificaties-api/1.0.1/src/openapi.yaml
-[notificaties-1.0.1-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/notificaties-api/1.0.1/src/openapi.yaml
+[notificaties-1.0.1-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.1
+[notificaties-1.0.1-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.1
 [notificaties-1.0.1-diff]: https://github.com/VNG-Realisatie/notificaties-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[notificaties-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/notificaties-api/1.0.0/src/openapi.yaml
-[notificaties-1.0.0-swagger]: https://petstore.swagger.io/?url=https://raw.githubusercontent.com/VNG-Realisatie/notificaties-api/1.0.0/src/openapi.yaml
+[notificaties-1.0.0-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.0
+[notificaties-1.0.0-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.0
 
 
 
