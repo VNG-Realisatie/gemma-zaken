@@ -63,7 +63,7 @@ Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de 
 
 ## Overkoepelend gegevensmodel
 
-![Visualisatie ZGW API's](./Visualisatie ZGW API's.png "Visualisatie ZGW API's, klik voor grote versie")
+![Visualisatie ZGW API's](./Visualisatie ZGW API's.png "Visualisatie ZGW API's, klik voor grote versie"){:width="1200px"}
 
 Bovenstaande afbeelding toont de hoe API's voor zaakgericht werken aan elkaar gerelateerd zijn. Per API is aangegeven wat de belangrijkste resource(s) is/zijn en hoe deze relateren aan resources in ander API's. Een stippelijn betekent dat de relatie optioneel is en dat beide resources los van elkaar kunnen bestaan. Een Klant kan contactmomenten hebben of een zaak initieren en klanten, contactmomenten en zaken kunnen los van elkaar bestaan. Een zaak is van een zaaktype, en hoewel zaaktype kan bestaan zonder dat er een zaak van dat type bestaat is het niet mogelijk dat een zaak bestaat zonder onderliggend zaaktype.
 
@@ -135,8 +135,7 @@ In overeenstemming met [API-20](https://docs.geostandaarden.nl/api/API-Strategie
 de URL van de `{API root URL}` zitten. Het versienummer MAG vooraf worden gegaan
 door de letter "v", bijvoorbeeld: `https://example.com/api/v1/`.
 
-<!Zie: achtergrond bij [versies en migraties](/themas/achtergronddocumentatie/versies-en-migraties)>
-Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties.md)
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties)
 
 #### Paginering
 
@@ -227,5 +226,5 @@ De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, 
 ## Overige documentatie
 
 * [API versies](./versions)
-* [Achtergronddocumentatie](../themas/index)
-* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](../ontwikkelaars/index)
+* [Achtergronddocumentatie](../themas/)
+* [Documentatie voor ontwikkelaars (handleidingen en tutorials)](../ontwikkelaars/)
