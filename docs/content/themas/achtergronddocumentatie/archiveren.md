@@ -2,7 +2,9 @@
 title: "Archiveringsproces *"
 date: '25-02-2019'
 weight: 70
+layout: page-with-side-nav
 ---
+# Archiveringsproces
 
 Zie: [#751](https://github.com/VNG-Realisatie/gemma-zaken/issues/751)
 

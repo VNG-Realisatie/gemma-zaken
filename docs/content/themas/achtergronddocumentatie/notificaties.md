@@ -2,7 +2,9 @@
 title: "Notificaties"
 date: '11-03-2019'
 weight: 70
+layout: page-with-side-nav
 ---
+# Notificaties
 
 Een component moet een bericht kunnen sturen die andere componenten kunnen
 ontvangen zodat zij hierop kunnen acteren indien dit een interessant bericht is

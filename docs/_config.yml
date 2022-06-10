@@ -13,6 +13,8 @@ nav:
         path: /
       - title: Productvisie
         path: /content/productvisie/
+      - title: API's
+        path: /content/standaard/
       - title: Ontwikkelaars
         path: /content/ontwikkelaars/
       - title: Thema's
@@ -47,38 +49,6 @@ nav:
 #        path: /swagger-ui-io
 #      - title: Bevragen API (redoc)
 #        path: /redoc-io
-  - title: Catalogi API specificatie
-    subnav:
-    
-  - title: Zaken API specificatie
-    subnav:
-    
-  - title: Documenten API specificatie
-    subnav:
-    
-  - title: Besluiten API specificatie
-    subnav:
-    
-  - title: Autorisaties API specificatie
-    subnav:
-    
-  - title: Notificaties API specificatie
-    subnav:
-    
-  - title: Notificaties API specificatie voor consumers
-    subnav:
-    
-  - title: Contactmomenten API specificatie
-    subnav:
-    
-  - title: Klanten API specificatie
-    subnav:
-    
-  - title: Verzoeken API specificatie
-    subnav:
-    
-  - title: Referentielijsten en Selectielijst API
-    subnav:
 
 plugins:
   - jekyll-redirect-from

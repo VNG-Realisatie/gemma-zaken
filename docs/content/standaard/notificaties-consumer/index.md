@@ -2,7 +2,9 @@
 title: "Notificaties API voor consumers"
 date: '12-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Notificaties API voor consumers
 
 Deze API maakt het mogelijk notificaties te ontvangen waarop de consumer is geabonneerd.
 

@@ -2,7 +2,9 @@
 title: "Documenten API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Documenten API
 
 API voor opslag en ontsluiting van documenten en daarbij behorende metadata.
 

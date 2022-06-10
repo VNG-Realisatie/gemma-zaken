@@ -2,7 +2,9 @@
 title: API versies
 date: '05-05-2020'
 weight: 30
+layout: page-with-side-nav
 ---
+# API versies
 
 <a href="#zaken-api">Zaken API</a> | <a href="#documenten-api">Documenten API</a> | <a href="#besluiten-api">Besluiten API</a> | <a href="#catalogi-api">Catalogi API</a> | <a href="#autorisaties-api">Autorisaties API</a> | <a href="#notificaties-api">Notificaties API</a>
 

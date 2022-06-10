@@ -2,7 +2,9 @@
 title: "Audit trail"
 date: '01-05-2019'
 weight: 50
+layout: page-with-side-nav
 ---
+# Audit trail
 
 Gebaseerd op: User Story [#722](https://github.com/VNG-Realisatie/gemma-zaken/issues/722)
 

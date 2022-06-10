@@ -2,7 +2,9 @@
 title: "Klanten API"
 date: '14-7-2020'
 weight: 10
+layout: page-with-side-nav
 ---
+# Klanten API
 
 API voor opslag en ontsluiting van klanten en daarbij behorende metadata.
 

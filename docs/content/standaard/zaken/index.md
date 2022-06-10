@@ -2,7 +2,9 @@
 title: "Zaken API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Zaken API
 
 API voor het opslaan en ontsluiten van zaakgegevens.
 

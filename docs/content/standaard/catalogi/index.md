@@ -2,7 +2,9 @@
 title: "Catalogi API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Catalogi API
 
 API voor opslag en ontsluiting van zaaktype-catalogi, zaaktypen en onderliggende typen.
 

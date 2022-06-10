@@ -2,7 +2,9 @@
 title: API's voor Zaakgericht Werken
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# API's voor Zaakgericht Werken
 
 ## API-specificaties
 

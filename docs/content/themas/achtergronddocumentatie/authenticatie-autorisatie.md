@@ -2,7 +2,9 @@
 title: "Authenticatie en autorisatie"
 date: '22-10-2018'
 weight: 70
+layout: page-with-side-nav
 ---
+# Authenticatie en autorisatie
 
 De APIs moeten beveiligd zijn tegen ongeautoriseerde toegang, om te voorkomen
 dat (gevoelige) gegevens op straat komen te liggen. In dit document wordt het

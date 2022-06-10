@@ -1,7 +1,9 @@
 ---
 title: "Ontwerpkeuzes"
 date: '31-7-2018'
+layout: page-with-side-nav
 ---
+# Ontwerpkeuzes
 
 ## UUID4 als ID-parameter in endpoints
 

@@ -2,7 +2,9 @@
 title: "ZGW API-landschap grenzen"
 date: '07-06-2019'
 weight: 50
+layout: page-with-side-nav
 ---
+# ZGW API-landschap grenzen
 
 In het Common Ground API-landschap worden straks alle gegevens netjes ontsloten 
 middels een API. Er is een API die Kadastergegevens ontsluit, een API voor 

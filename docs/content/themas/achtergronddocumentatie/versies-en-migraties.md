@@ -2,7 +2,9 @@
 title: "Versies en migraties"
 date: '28-06-2019'
 weight: 50
+layout: page-with-side-nav
 ---
+# Versies en migraties
 
 Gebaseerd op:
 

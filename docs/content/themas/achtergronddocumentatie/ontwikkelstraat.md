@@ -1,7 +1,9 @@
 ---
 title: "Ontwikkelstraat"
 date: '31-7-2018'
+layout: page-with-side-nav
 ---
+# Ontwikkelstraat
 
 De ontwikkelstraat is zoveel mogelijk geautomatiseerd zodat code-wijzigingen
 automatisch leiden tot het bijwerken van (test-)omgevingen.

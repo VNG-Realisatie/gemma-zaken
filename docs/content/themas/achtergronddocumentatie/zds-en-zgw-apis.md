@@ -1,8 +1,9 @@
 ---
 title: "ZDS en ZGW API's"
 date: '11-01-2019'
-
+layout: page-with-side-nav
 ---
+# ZDS en ZGW API's
 
 De Zaak- en Documentservices (ZDS) wijken af van de Zaakgericht werken (ZGW)
 APIs, maar er is ook overlap. De belangrijkste verschillen en overeenkomsten op

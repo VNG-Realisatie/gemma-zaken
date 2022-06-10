@@ -1,7 +1,9 @@
 ---
 title: "API-compatibiliteit"
 date: '19-06-2019'
+layout: page-with-side-nav
 ---
+# API-compatibiliteit
 
 Elke API-specificatie heeft zijn eigen versie, wat voor
 compatibiliteitsproblemen kan zorgen bij het combineren van APIs.

@@ -2,7 +2,9 @@
 title: "Besluiten API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Besluiten API
 
 API voor opslag en ontsluiting van besluiten en daarbij behorende metadata.
 

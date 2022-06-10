@@ -2,7 +2,9 @@
 title: "Notificaties API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Notificaties API
 
 Notificaties API voor het routeren van notificaties.
 

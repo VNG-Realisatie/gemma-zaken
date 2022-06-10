@@ -2,7 +2,9 @@
 title: "Verzoeken API"
 date: '14-7-2020'
 weight: 10
+layout: page-with-side-nav
 ---
+# Verzoeken API
 
 API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
 

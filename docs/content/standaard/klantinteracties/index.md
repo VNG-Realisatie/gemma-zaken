@@ -2,7 +2,9 @@
 title: "Klantinteracties API"
 date: '08-11-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Klantinteracties API
 
 *Work in progress*
 

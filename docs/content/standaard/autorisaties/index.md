@@ -2,7 +2,9 @@
 title: "Autorisaties API"
 date: '10-7-2019'
 weight: 10
+layout: page-with-side-nav
 ---
+# Autorisaties API
 
 API voor het beheren van autorisaties
 

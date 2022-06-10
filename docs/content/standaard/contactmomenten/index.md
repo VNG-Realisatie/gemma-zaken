@@ -2,7 +2,9 @@
 title: "Contactmomenten API"
 date: '14-7-2020'
 weight: 10
+layout: page-with-side-nav
 ---
+# Contactmomenten API
 
 API voor opslag en ontsluiting van contactmomenten en daarbij behorende metadata.
 

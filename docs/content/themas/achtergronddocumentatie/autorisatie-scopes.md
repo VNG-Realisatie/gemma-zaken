@@ -2,7 +2,9 @@
 title: "Scopes als autorisatiemechanisme"
 description: ""
 weight: 40
+layout: page-with-side-nav
 ---
+# Scopes als autorisatiemechanisme
 
 ## Scopes
 

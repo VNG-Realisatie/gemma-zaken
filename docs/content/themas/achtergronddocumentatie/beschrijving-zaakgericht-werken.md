@@ -2,7 +2,9 @@
 title: "Overzicht van Zaakgericht werken"
 date: '14-11-2018'
 weight: 10
+layout: page-with-side-nav
 ---
+# Overzicht van Zaakgericht werken
 
 *WIP: Overgenomen uit RGBZ 2.0 zodat samenhang helder wordt maar moet worden herschreven*
 

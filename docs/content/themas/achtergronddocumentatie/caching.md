@@ -1,7 +1,9 @@
 ---
 title: "Caching op API-niveau"
 date: '05-08-2019'
+layout: page-with-side-nav
 ---
+# Caching op API-niveau
 
 In de Common Ground visie wordt data bij de bron opgeslagen en ontsloten via
 (REST) APIs. Indien je vaak de API bevraagt, dan komt het voor dat de resource
