@@ -49,7 +49,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - Arjan Kloosterboer, VNG
 - Henri Korver, VNG
 - Ivo Hendriks, VNG
-- Michiel Verhoef, VNG
+- Michiel Verhoef, VNG-R
 
 
 ### Technische gebruikersgroep:
