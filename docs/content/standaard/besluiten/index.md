@@ -40,10 +40,13 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
 
 * [Referentie-implementatie Besluiten API](https://besluiten-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc](https://besluiten-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml),
+  [ReDoc][besluiten-1.0.1-redoc],
+  [Swagger][besluiten-1.0.1-swagger],
   [YAML](https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://besluiten-api.vng.cloud/api/v1/schema/openapi.json)
+
+[besluiten-1.0.1-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.1
+[besluiten-1.0.1-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.1
 
 
 ## Specificatie van gedrag
@@ -57,7 +60,7 @@ Besluiten APIen (BRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/brc/1.0.x/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het BRC.
 
