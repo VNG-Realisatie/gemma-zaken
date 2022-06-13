@@ -75,6 +75,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - - Performance verbetering: Inclusions / HAL / ALternatieven?
 - 29-06-2022
 - - _Gerelateerde zaken https://github.com/VNG-Realisatie/gemma-zaken/issues/1629_
+- - _Verwijzen naar persoons-/BAG-gegevens in een andere bron_
 - 28-09-2022
 - 02-11-2022
 - 30-11-2022
