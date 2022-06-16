@@ -11,7 +11,12 @@ Met het gebruik van de API standaarden voor Zaakgericht werken is het onvermijde
 
 Bij het implementeren van de API's komen onvermijdelijk ook technische verbeterpunten naar voren. Deze worden besproken en opgelost in de Technische gebruikersgroep. Aan deze gebruikersgroep nemen leveranciers en gemeenten die zelf software ontwikkelen deel. 
 
-Nieuwe releases van de API's staan als milestones op https://github.com/VNG-Realisatie/gemma-zaken/milestones . Op basis van de functionele en technische wensen uit de respectieveljke gebruikersgroepen worden issues geprioriteerd en toegekend aan een release. Het is altijd mogelijk om nieuwe issues in te brengen en die, in overleg, hoger geprioriteerd te krijgen. Als leverancier met een functionele wens raden we aan deze via gemeenten in te brengen in het functionele overleg. 
+Op basis van de functionele en technische wensen uit de respectieveljke gebruikersgroepen worden issues geprioriteerd en toegekend aan een release. Het is altijd mogelijk om nieuwe issues in te brengen en die, in overleg, hoger geprioriteerd te krijgen. Als leverancier met een functionele wens raden we aan deze via gemeenten in te brengen in het functionele overleg. 
+
+Nieuwe releases van de afzonderlijke API's voor Zaakgericht werken staan als milestones op https://github.com/VNG-Realisatie/gemma-zaken/milestones . De volgende releases staan op de planning voor 7 juli aanstaande:
+- Zaken API 1.3 https://github.com/VNG-Realisatie/gemma-zaken/milestone/20
+- Documenten API 1.2 https://github.com/VNG-Realisatie/gemma-zaken/milestone/22 
+- Catalogi API 1.2 https://github.com/VNG-Realisatie/gemma-zaken/milestone/17 
 
 Wilt u deelnemen aan één van deze werkgroepen, meldt u dan [hier](https://formulieren.vngrealisatie.nl/Api_ZDS) aan. NB. de link verwijst naar een formulier op de website van VNG Realisatie.
 
@@ -25,7 +30,6 @@ Voor 2022 staan de volgende bijeenkomsten gepland. Bij elke datum staan de bespr
 - 03-03-2022
 - 07-04-2022
 - 12-05-2022
-- 09-06-2022
 - 07-07-2022
 - 15-09-2022
 - 03-11-2022
@@ -102,6 +106,7 @@ De technische gebruikersgroep kent de volgende leden:
 - Roel de Bruin, Centric
 - Ruben van der Linde, Conduction
 - Sander Groen, Decos
+- WeAreFrank
 - Arjan Kloosterboer, VNG
 - Henri Korver, VNG
 - Ivo Hendriks, VNG
