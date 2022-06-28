@@ -51,6 +51,15 @@ Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecte
 </span>
 Een verzoek kan onderbouwd worden met één of meer informatieobjecten. De relatie tussen verzoek en informatieobject is vastgelegd in verzoekinformatieobject (Verzoeken API) en objectinformatieobject (Documenten API), waarbij verzoekinformatieobject leidend is.
 
+### Verzending
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span>
+De relatie klasse Verzending legt vast aan welke Betrokkene een Informatieobject verzonden is of van welke Betrokkene een Informatieobject ontvangen is. Om altijd te kunnen achterhalen naar/van welk adres een Informatieobject verzonden of ontvangen is moet dit adres ook worden vastgelegd. Immers, wanneer alleen verwezen wordt naar het adres waarop iemand ingeschreven staat verandert dit gegeven wanneer deze persoon verhuist of de geregistreerde gegevens bijgewerkt worden. Door het adres vast te leggen in Verzending is altijd te achterhalen naar/van welk adres een Informatieobject verstuurd/ontvangen is. 
+
+Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hiermee overbodig en deprecated geworden.
+
 
 ## Specificatie van de Documenten API
 
