@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '28-7-2022'
+date: '28-6-2022'
 weight: 10
 ---
 
@@ -44,7 +44,7 @@ Alle informatieobjecten van de zaak vormen het zaakarchief, de informatieobjecte
 
 [![Gegevensmodel Documenten API 1.1.0](Documenten API 1.1.0.png)](Documenten API 1.1.0.png "Documenten gegevensmodel - klik voor groot")
 
-### Verzoekinformatieobjeten
+### Verzoekinformatieobjecten
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.1.0</strong>
