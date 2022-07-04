@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '28-07-2022'
+date: '28-7-2022'
 weight: 10
 ---
 
