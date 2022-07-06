@@ -124,14 +124,16 @@ geïnterpreteerd worden als de waarde 0.
 
 
 #### Concepten
-TODO hier nog naar kijken
+
 De resources `Zaaktype`, `InformatieObjecttype` en `Besluittype` bevatten het veld `concept`,
 indien dit veld aangemerkt is als `true`, dan betreft het een niet-definitieve versie van
 het objecttype. Deze versie mag niet buiten de Catalogi API gebruikt mag worden.
 Dat betekent dat je geen zaken van een `ZaakType` dat niet definitief is, mag aanmaken.
 
 Om de versie van een objecttype definitief te maken ("publiceren"), bestaat er een `publish` operatie.
-Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`.
+Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`. De datum beginGeldigheid is reeds gezet bij het aanmaken en/of het eventueel aanpassen van de concept versie en bepaalt vanaf het moment van publiceren vanaf welke datum objecten van de gepubliceerde versie aangemaakt mogen worden. 
+
+Het is dus mogelijk om een nieuwe versie van bijvoorbeeld een zaaktype aan te maken en deze te publiceren met een datum beginGeldigheid in de toekomst. Een dergelijke versie van een zaaktype kan dan niet meer gewijzigd worden (tenzij met een <a name="correctie">([correctie](#correctie))</a>) dus het verdient aanbeveling dit tot een minimum te beperken.. Daarnaast is het van belang de datum eindGeldigheid van de voorgaande versie van het object te zetten met een waarde die 1 dag minder is dan de datum beginGeldigeid van de gepubliceerde versie.
 
 Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit objecttype en gerelateerde objecttype via de API.
 * Beperkingen voor objecttypen met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
@@ -163,10 +165,18 @@ als het `InformatieObjectType` `concept=False` hebben
 </s>
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Vervallen in versie 1.2.0</strong>
+</span>
+<s>
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
-
-TODO hier nog naar kijken
+</s>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span>
+De relaties tussen `Zaaktype`, `Besluittype` en `Zaaktype` worden gelegd middels de functionele attributen zaaktype.identificatie, informatieobjecttype.omschrijving en besluittype.omschrijving. Hiermee is de vaste relatie dmv. een url tussen versies van Zaaktype, Informatieobjecttype en Besluittype komen te vervallen. Het is dan ook niet meer noodzakelijk om bij een wijziging van bijvoorbeeld een zaaktype ook nieuwe versies van gerelateerde informatieobjecttypen en besluittypen te maken.
 
 #### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
 
@@ -180,6 +190,7 @@ mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
 
 ### Historiemodel Catalogi API
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
 </span>
@@ -242,6 +253,7 @@ voorkomt. Als de huidige `ETag` waarde hier niet in voorkomt, dan MOET de
 provider een normale `HTTP 200` response sturen.
 
 #### <a name="correctie">([Correctie](#correctie))</a>
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
 </span>
