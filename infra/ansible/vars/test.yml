@@ -25,7 +25,7 @@ services:
   - name: redis-test
     templates: ../k8s/cache/
 
-  # Official APIs
+    # Official APIs
 
   - name: ac-test
     templates: ../k8s/ac/
@@ -46,28 +46,28 @@ services:
   - name: nrc-test
     templates: ../k8s/nrc/
     domain: notificaties-api.test.vng.cloud
-    image_tag: latest
+    image_tag: '2.0.0-alpha12'
 
   - name: zrc-test
     templates: ../k8s/zrc/
     domain: zaken-api.test.vng.cloud
     image_tag: '1.3.0-alpha1'
-
+  
   - name: ztc-test
     templates: ../k8s/ztc/
     domain: catalogi-api.test.vng.cloud
     image_tag: "1846"
-
+  
   - name: klanten-test
     templates: ../k8s/klanten/
     domain: klanten-api.test.vng.cloud
     image_tag: 'latest'
-
+  
   - name: contactmomenten-test
     templates: ../k8s/contactmomenten/
     domain: contactmomenten-api.test.vng.cloud
     image_tag: 'latest'
-
+  
   - name: verzoeken-test
     templates: ../k8s/verzoeken/
     domain: verzoeken-api.test.vng.cloud
@@ -85,7 +85,7 @@ services:
 
   - name: docs-test
     templates: ../k8s/docs
-
+  
   - name: token-issuer-test
     templates: ../k8s/tokens
     image_tag: latest
