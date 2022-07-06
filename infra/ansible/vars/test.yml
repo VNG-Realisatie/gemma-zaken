@@ -40,7 +40,7 @@ services:
   - name: drc-test
     templates: ../k8s/drc/
     domain: documenten-api.test.vng.cloud
-    image_tag: '1.2.0-alpha2'
+    image_tag: '1.1.0'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc-test
