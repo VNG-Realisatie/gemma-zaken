@@ -143,9 +143,10 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
         * verwijderd worden (DELETE)
 
 * Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Aangepast in versie 1.2.0</strong>
-</span>
+</span><br/>
     * Het objecttype mag NIET:
         * geheel bijgewerkt worden (PUT) m.u.v een <a name="correctie">([correctie](#correctie))</a>
         * deels bijgewerkt worden (PATCH) of een <a name="correctie">([correctie](#correctie))</a>
@@ -153,29 +154,32 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-010)** alleen in het geval waarbij zowel het `ZaakType`
     als het `InformatieObjectType` `concept=False` hebben
 
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Vervallen in versie 1.2.0</strong>
-</span>
+</span><br/>
 <s>
 * Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType`
 als het `InformatieObjectType` `concept=False` hebben
-</s>
+</s><br/>
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Vervallen in versie 1.2.0</strong>
-</span>
+</span><br/>
 <s>
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
-</s>
+</s><br/>
+
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
-</span>
+</span> 
 De relaties tussen `Zaaktype`, `Besluittype` en `Zaaktype` worden gelegd middels de functionele attributen zaaktype.identificatie, informatieobjecttype.omschrijving en besluittype.omschrijving. Hiermee is de vaste relatie dmv. een url tussen versies van Zaaktype, Informatieobjecttype en Besluittype komen te vervallen. Het is dan ook niet meer noodzakelijk om bij een wijziging van bijvoorbeeld een zaaktype ook nieuwe versies van gerelateerde informatieobjecttypen en besluittypen te maken.
 
 #### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
