@@ -144,10 +144,10 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 
 * Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Aangepast in versie 1.2.0</strong>
-</span><br/>
-    * Het objecttype mag NIET:
+    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+        <strong>Aangepast in versie 1.2.0</strong>
+    </span><br/>
+    Het objecttype mag NIET:
         * geheel bijgewerkt worden (PUT) m.u.v een <a name="correctie">([correctie](#correctie))</a>
         * deels bijgewerkt worden (PATCH) of een <a name="correctie">([correctie](#correctie))</a>
         * verwijderd worden (DELETE)
@@ -155,16 +155,11 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     als het `InformatieObjectType` `concept=False` hebben
 
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Vervallen in versie 1.2.0</strong>
-</span><br/>
-<s>
-* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
+* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Vervallen in versie 1.2.0</strong></span> <s> Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
 * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType`
-als het `InformatieObjectType` `concept=False` hebben
-</s><br/>
+als het `InformatieObjectType` `concept=False` hebben</s>
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
 
