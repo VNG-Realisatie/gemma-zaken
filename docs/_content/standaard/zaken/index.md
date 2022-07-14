@@ -330,6 +330,19 @@ Een deelzaak KAN vernietigd worden zonder dat de hoofdzaak vernietigd wordt.
 
 \* Het verwijderen van een `zaakinformatieobject` in het ZRC leidt er toe dat het `objectinformatieobject` in het DRC ook verwijderd wordt indien dit kan.
 
+**<a name="zrc-026">Bewaren van zaken ([zrc-026](#zrc-026))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Nieuw in 1.3.0</strong>
+</span>
+
+
+De 'Startdatum bewaartermijn' markeert het einde van de Selectielijst-procestermijn en het begin van de Selectielijst-bewaartermijn. De periode waarover een zaakdossier na afronding van de zaak gearchiveerd blijft, bestaat in de Selectieljst uit twee gedeelten: achtereenvolgens de Procestermijn en de Bewaartermijn. De procestermijn eindigt bij het vervallen van het procesobject waarop de zaak betrekking heeft (zie attribuutsoort Procesobjectaard). Dit is het startmoment van de bewaartermijn d.w.z. van de periode waarover het zaakdossier vervolgens bewaard dient te blijven.
+
+De attribuutsoort wordt alleen van een waarde voorzien voor te vernietigen zaakdossiers. Voor altijd te bewaren zaakdossiers start de bewaartermijn op de datum van afronding van de zaak.
+De waarde van de attribuutsoort wordt zoveel als mogelijk bepaald gedurende de behandeling van de zaak, teneinde de archiefactiedatum (cq. datum vernietiging) te kunnen bepalen bij afronding van de zaak. In sommige gevallen is evenwel van het vervallen van het procesobject pas sprake nadat de zaak afgerond is. Een dergelijk procesobject moet gevolgd worden (m.b.v. de waarden van de groepattribuutsoort 'Procesobject') teneinde het vervallen daarvan te constateren en alsnog de waarde van 'Startdatum bewaartermijn' te kunnen bepalen.
+
+
 
 #### HTTP-Caching
 
