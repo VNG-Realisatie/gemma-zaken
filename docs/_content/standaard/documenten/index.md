@@ -134,6 +134,16 @@ Indien de client een `vertrouwelijkheidaanduiding` meegeeft bij het aanmaken of 
 
 Een `InformatieOject` response van de provider MOET altijd een geldige waarde voor `vertrouwelijkheidaanduiding` bevatten. Een client MAG een waarde voor `vertrouwelijkheidaanduiding` meesturen.
 
+#### **<a name="drc-011">Toegang tot een informatieobject ([drc-011](#drc-011))</a>**
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.3.0</strong>
+</span>
+
+Wanneer een informatieobject aan één of meer andere objecten (Zaak, Besluit, Verzoek) is gekoppeld en de gebruiker toegang heeft tot tenminste één van die gekoppelde objecten mag de gebruiker (de versie van) het informatieobject openen. Heeft de gebruiker geen toegang tot de gekoppelde objecten mag ook het Informatieobject niet geopend worden.
+
+
+
 #### Archiveren
 
 **<a name="drc-008">Vernietigen van informatieobjecten ([drc-008](#drc-008))</a>**
