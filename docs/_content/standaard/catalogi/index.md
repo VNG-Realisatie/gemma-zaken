@@ -258,7 +258,8 @@ provider een normale `HTTP 200` response sturen.
 Het kan voorkomen dat een versie van een object in gebruik is en fouten bevat. Normaal gesproken moet dan van dat object een nieuwe versie gemaakt worden maar die wijzigingen hebben dan geen effect op zaken, informatieobjecten of besluiten die reeds aangemaakt zijn. Daarom is het mogelijk om onder bepaalde omstandigheden correcties aan te brengen. Dit kan dan met een expliciete scope: geforceerd-bijwerken.
 
 De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
-- De wijziging is een uitbreiding, bijvoorbeeld het toevoegen van een optioneel informatieobjecttype aan een zaaktype of een statustype aan het eind van de reeds geconfigureerde statustypen aan een zaaktype. Er mogen dus geen releaties of gerelateerde objecten verwijdjerd worden.
+- De wijziging is een uitbreiding, bijvoorbeeld het toevoegen van een optioneel informatieobjecttype aan een zaaktype of een statustype aan het eind van de reeds geconfigureerde statustypen aan een zaaktype. Er mogen dus geen releaties of gerelateerde objecten verwijderd worden.
+- De wijziging is een uitbreiding, bijvoorbeeld het toevoegen van een trefwoord aan een Informatieobjecttype
 - Zaken van het zaaktype blijven nog steeds geldig en kunnen nog steeds afgehandeld worden. Met andere woorden, de afhandeling van deze zaken is nog steeds geldig.
 - Besluiten van het Besluittype blijven nog steeds geldig.
 - Informatieobjecten van het Informatieobjecttype blijven nog steeds geldig.
