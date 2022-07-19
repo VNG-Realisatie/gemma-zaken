@@ -36,7 +36,7 @@ jinja2==2.11.3
     #   openshift
 jsonschema==3.2.0
     # via kubernetes-validate
-kubernetes==10.1.0
+kubernetes==12.0.1
     # via openshift
 kubernetes-validate==1.16.0
     # via -r requirements.in
@@ -44,7 +44,7 @@ markupsafe==1.1.1
     # via jinja2
 oauthlib==3.1.0
     # via requests-oauthlib
-openshift==0.10.3
+openshift==0.12.1
     # via -r requirements.in
 packaging==21.3
     # via ansible-core
