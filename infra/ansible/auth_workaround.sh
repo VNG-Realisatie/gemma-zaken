@@ -4,6 +4,7 @@
 # EXAMPLE USAGE:
 # $ source ./auth_workaround.sh
 # $ ansible-playbook deploy-stable.yml --ask-vault-pass
+# $ ansible-playbook deploy-test.yml --ask-vault-password
 
 mkdir -p ~/.tmp
 
