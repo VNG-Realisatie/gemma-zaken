@@ -10,7 +10,7 @@ metadata:
   labels:
     k8s-app: {{ service.name }}
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       k8s-app: {{ service.name }}
