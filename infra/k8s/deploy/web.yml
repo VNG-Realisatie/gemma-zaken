@@ -24,11 +24,11 @@ spec:
         image: vngr/deploy-bot:1.0.2
         resources:
           requests:
-            memory: "200Mi"
+            memory: "150Mi"
             cpu: "5m"
           limits:
-            memory: "500Mi"
-            cpu: "250m"
+            memory: "250Mi"
+            cpu: "150m"
         readinessProbe:
           httpGet:
             path: /
