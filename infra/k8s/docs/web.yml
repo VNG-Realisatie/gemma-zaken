@@ -10,7 +10,7 @@ metadata:
   labels:
     k8s-app: {{ service.name }}
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       k8s-app: {{ service.name }}
@@ -29,8 +29,8 @@ spec:
             memory: "10Mi"
             cpu: "5m"
           limits:
-            memory: "100Mi"
-            cpu: "100m"
+            memory: "50Mi"
+            cpu: "50m"
         readinessProbe:
           httpGet:
             path: /

@@ -1,7 +1,7 @@
 ---
 
 kind: Ingress
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 metadata:
   name: redirects
   namespace: zgw
@@ -13,10 +13,14 @@ spec:
   - host: ref.tst.vng.cloud
     http:
       paths:
-        - path: /
+        - pathType: Prefix
+          path: /
           backend:
-            serviceName: redirects
-            servicePort: 80
+            service:
+              name: redirects
+              port:
+                number: 80
+
   tls:
     - hosts:
         - ref.tst.vng.cloud

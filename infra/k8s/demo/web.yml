@@ -1,20 +1,5 @@
 ---
 
-# Runtime secrets. Values are base64 encoded
-
-# kind: Secret
-# apiVersion: v1
-# metadata:
-#   name: demo-secrets
-#   namespace: zgw
-# type: Opaque
-# data:
-#   SECRET_KEY: <REDACTED>
-#   DB_PASSWORD: <REDACTED>
-#   SENTRY_DSN: <REDACTED>
-
----
-
 # Django app
 
 kind: Deployment
@@ -25,7 +10,7 @@ metadata:
   labels:
     k8s-app: demo
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       k8s-app: demo
@@ -41,11 +26,11 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              memory: "120Mi"
-              cpu: "5m"
+              memory: "100Mi"
+              cpu: "10m"
             limits:
-              memory: "350Mi"
-              cpu: "250m"
+              memory: "250Mi"
+              cpu: "200m"
           # readinessProbe:
           #   httpGet:
           #     path: /admin/login/

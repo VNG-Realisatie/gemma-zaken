@@ -1,6 +1,6 @@
 ---
 title: "Catalogi API"
-date: '10-7-2019'
+date: '5-7-2022'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -136,33 +136,50 @@ het objecttype. Deze versie mag niet buiten de Catalogi API gebruikt mag worden.
 Dat betekent dat je geen zaken van een `ZaakType` dat niet definitief is, mag aanmaken.
 
 Om de versie van een objecttype definitief te maken ("publiceren"), bestaat er een `publish` operatie.
-Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`.
+Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `concept` de waarde `false`. De datum beginGeldigheid is reeds gezet bij het aanmaken en/of het eventueel aanpassen van de concept versie en bepaalt vanaf het moment van publiceren vanaf welke datum objecten van de gepubliceerde versie aangemaakt mogen worden. 
+
+Het is dus mogelijk om een nieuwe versie van bijvoorbeeld een zaaktype aan te maken en deze te publiceren met een datum beginGeldigheid in de toekomst. Een dergelijke versie van een zaaktype kan dan niet meer gewijzigd worden (tenzij met een <a name="correctie">([correctie](#correctie))</a>) dus het verdient aanbeveling dit tot een minimum te beperken.. Daarnaast is het van belang de datum eindGeldigheid van de voorgaande versie van het object te zetten met een waarde die 1 dag minder is dan de datum beginGeldigeid van de gepubliceerde versie.
 
 Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit objecttype en gerelateerde objecttype via de API.
 * Beperkingen voor objecttypen met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
     * Het objecttype mag NIET:
-        * geheel bijgewerkt worden (PUT)
-        * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid`
+        * geheel bijgewerkt worden (PUT), m.u.v een <a name="correctie">([correctie](#correctie))</a>
+        * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid` of een <a name="correctie">([correctie](#correctie))</a>
         * verwijderd worden (DELETE)
 
 * Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
-    * Het objecttype mag NIET:
-        * geheel bijgewerkt worden (PUT)
-        * deels bijgewerkt worden (PATCH)
+
+    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+        <strong>Aangepast in versie 1.2.0</strong>
+    </span><br/>
+    Het objecttype mag NIET:
+        * geheel bijgewerkt worden (PUT) m.u.v een <a name="correctie">([correctie](#correctie))</a>
+        * deels bijgewerkt worden (PATCH) of een <a name="correctie">([correctie](#correctie))</a>
         * verwijderd worden (DELETE)
     * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-010)** alleen in het geval waarbij zowel het `ZaakType`
     als het `InformatieObjectType` `concept=False` hebben
 
-* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
-    * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
-    * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
-* Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType`
-als het `InformatieObjectType` `concept=False` hebben
+
+* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>** <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Vervallen in versie 1.2.0</strong></span>:
+    * <s>Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)</s>
+    * <s>Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update) </s>
+    * <s>Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben</s>
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Vervallen in versie 1.2.0</strong>
+</span><br/>
+<s>
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
+</s><br/>
+
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span> 
+De relaties tussen `Zaaktype`, `Besluittype` en `Zaaktype` worden gelegd middels de functionele attributen zaaktype.identificatie, informatieobjecttype.omschrijving en besluittype.omschrijving. Hiermee is de vaste relatie dmv. een url tussen versies van Zaaktype, Informatieobjecttype en Besluittype komen te vervallen. Het is dan ook niet meer noodzakelijk om bij een wijziging van bijvoorbeeld een zaaktype ook nieuwe versies van gerelateerde informatieobjecttypen en besluittypen te maken.
 
 #### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
 
@@ -174,6 +191,46 @@ Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
 `Catalogus` Y. Een `Zaaktype` in `Catalogus` X op endpoint `https://www.foo.bar/`
 mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
+
+### Historiemodel Catalogi API
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span>
+In voorgaande versies van de Catalogi API waren versies van Zaaktypen, Informatieobjecttypen, Besluittypen, Roltypen, Statustypen, Eigenschappen, Resultaatypen etc. één op één aan elkaar gekoppeld. Dit had als nadeel dat een wijziging in één versie van een object (ongeacht welk) van alle gerelateerde objecten een nieuwe versie gemaakt worden. Dit is in de praktijk niet werkbaar gebleken. Daarom zijn de volgende wijzigingen in Catalogi API 1.2 van toepassing:
+
+- Zaaktype, Informatieobjecttype en Besluittype kunnen onafhankelijk van elkaar gewijzigd worden. Dit is mogelijk door het leggen van relaties op basis van identificatie/omschrijving in plaats van een harde url naar een versie. 
+
+Zaaktype ZAKABC20220101 heeft relevant Besluittype BESXYZ20220403
+Wanneer van Zaaktype ZAKABC20220101 een nieuwe versie gemaakt wordt is Besluittype BESXYZ20220403 nog steeds relevant. De relatie is gelegd op basis van Besluittype.omschrijving en datumgeldigheid. 
+
+- Wanneer van een Zaaktype een nieuwe versie wordt gemaakt hoeft er geen nieuwe versie van Roltype, Statustype, Eigenschap Zaakobjecttype en/of Resultaattype gemaakt te worden. In onderstaande uitleg wordt Roltype gebruikt maar hetzelfde geldt voor de overige typen.
+
+De relatie wordt vanuit deze typen naar het Zaaktype gelegd via zaaktypeidentificatie. Op basis van roltype.zaaktypeidentificatie en roltype.beginGeldigheid <= zaaktype.beginGeldigheid <= roltype.eindGeldigheid wordt de juiste versie van het roltype opgehaald. Het is dus niet nodig om van elk gerelateerde objecttype de juiste versie expliciet op te halen.
+
+De bestaande url verwijzing naar zaaktype blijft bestaan maar krijgt een andere betekenis: Het is de verwijzing naar de versie van het zaaktype waarmee deze versie van het roltype voor het eerst in gebruik genomen is. Dit in gebruik nemen is gebeurd met behulp van de bestaande publish operatie op Zaaktypen.
+
+- Wanneer van een Roltype, Statustype, Eigenschap Zaakobjecttype en/of Resultaattype een nieuwe versie wordt gemaakt MOET er een nieuwe versie van Zaaktype gemaakt te worden. Reeds bestaande versies van roltypen etc. blijven geldig voor die nieuwe versie van het Zaaktype. In onderstaande uitleg wordt Roltype gebruikt maar hetzelfde geldt voor de overige typen.
+
+Om een versie van een object in gebruik te nemen moet deze gepubliceerd worden. De publish operatie werkt op Zaaktypen, Informatieobjecttypen en Besluittypen. Om een versie van een roltype te publiceren moet de bijbehorende versie van het zaaktype gepubliceerd worden. 
+
+### Datum beginGeldigheid en eindGeldigheid
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span>
+Omdat een versie van Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype niet meer één op één aan een versie van een Zaaktype gekoppeld zijn zijn de attributen beginGeldigheid en eindGeldigheid ook aan die objecttypen toegevoegd. 
+
+De betekenis van de attributen is:
+beginGeldigheid  : De datum waarop de versie van het object geldig is geworden
+eindGeldigheid : De laatste datum waarop de versie van het object geldig is. 
+
+De versie van het object is dus geldig van beginGeldigheid *tot en met* eindGeldigheid. 
+
+Daarnaast kennen objecten ook nog de datumvelden beginObject en eindObject. Dit zijn respectievelijk de geboortedatum en overlijdensdatum van het object. Oftewel de datum waarop het object voor het eerst gebruikt kon worden en de datum waarom het object voor het laatst gebruikt kon worden.
+
+Om de juiste versie van bijvoorbeeld een roltype bij een zaaktype te vinden wordt gezocht op de versie van het roltype die op een datum geldig is (geweest) voor dat zaaktype. Een versie van een roltype kan aan slechts één versie van een zaaktype gekoppeld zijn. Door te zoeken op Roltypen met de queryparameters roltype.zaaktypeidentificatie = zaaktype.identificatie en roltype.beginGeldigheid <= zaaktype.beginGeldigheid <= roltype.eindGeldigheid
+
+Bij het opvragen van een versie van een zaaktype worden de onderliggende objecten Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype op deze manier bij de versie gezocht. Met de url uit het resultaat kan de voor deze versie van het zaaktype geldige versie van de onderliggende objecten worden opgehaald. Het is dan dus niet meer nodig om nog te filteren op zaaktypeidentificatie en datum.
 
 #### HTTP-Caching
 
@@ -197,6 +254,20 @@ meerdere waarden voor de `ETag`, dan MOET de provider antwoorden met een
 `HTTP 304` bericht indien de huidige `ETag` waarde van de resource hierin
 voorkomt. Als de huidige `ETag` waarde hier niet in voorkomt, dan MOET de
 provider een normale `HTTP 200` response sturen.
+
+#### <a name="correctie">([Correctie](#correctie))</a>
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.2.0</strong>
+</span>
+Het kan voorkomen dat een versie van een object in gebruik is en fouten bevat. Normaal gesproken moet dan van dat object een nieuwe versie gemaakt worden maar die wijzigingen hebben dan geen effect op zaken, informatieobjecten of besluiten die reeds aangemaakt zijn. Daarom is het mogelijk om onder bepaalde omstandigheden correcties aan te brengen. Dit kan dan met een expliciete scope: geforceerd-bijwerken.
+
+De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
+- De wijziging is een uitbreiding, bijvoorbeeld het toevoegen van een optioneel informatieobjecttype aan een zaaktype of een statustype aan het eind van de reeds geconfigureerde statustypen aan een zaaktype. Er mogen dus geen releaties of gerelateerde objecten verwijderd worden.
+- De wijziging is een uitbreiding, bijvoorbeeld het toevoegen van een trefwoord aan een Informatieobjecttype
+- Zaken van het zaaktype blijven nog steeds geldig en kunnen nog steeds afgehandeld worden. Met andere woorden, de afhandeling van deze zaken is nog steeds geldig.
+- Besluiten van het Besluittype blijven nog steeds geldig.
+- Informatieobjecten van het Informatieobjecttype blijven nog steeds geldig.
 
 ## Overige documentatie
 
