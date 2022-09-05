@@ -1,37 +1,65 @@
-collections:
-  content:
-    output: true
-    permalink: /:path
-  assets:
-    output: true
-    permalink: /:path
-
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: default
-  - scope:
-      path: ""
-      type: "content"
-    values:
-      layout: default
-
-markdown: kramdown
-
-exclude:
-  - archief
-  - vendor
+baseurl: "/gemma-zaken"
+apiname: "API's voor zaakgericht werken"
+url: "http://localhost:4000"
+# nav is t.b.v. generatie side-navigation menu.
+# Een 'title' zonder path of url genereert slechts een kopje.
+# 'path' vormt tezamen met de baseurl de url waarmee de 'href' wordt gevuld. 
+# Indien een 'url' voorradig dan wordt daarmee de 'href' gevuld en dient het path slechts om te bepalen welke link active is.
+# 'target: blank' zorgt er voor dat de link in een nieuw tabblad wordt geöpend.
+nav:
+  - title: API's voor zaakgericht werken
+    subnav:
+      - title: Main
+        path: /
+      - title: Productvisie
+        path: /content/productvisie/
+      - title: API's
+        path: /content/standaard/
+      - title: Ontwikkelaars
+        path: /content/ontwikkelaars/
+      - title: Thema's
+        path: /content/themas/
+      - title: Beheer
+        path: /content/beheer/
+      - title: Doorontwikkeling
+        path: /content/doorontwikkeling/
+      - title: Contact
+        path: /content/contact/
+#  - title: Specificaties v. 1.0.0 
+#    subnav:
+#      - title: Getting started
+#        path: /getting-started
+#      - title: User stories
+#        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-prod
+#        https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22user+story%22+label%3A%22BRK+bevragen+v1.2%22
+#        path: /user-stories
+#      - title: Bevragen API (swagger-ui)
+#        path: /swagger-ui
+#      - title: Bevragen API (redoc)
+#        path: /redoc
+#  - title: Specificaties v. 1.0.0-rc2 (In Ontwikkeling)
+#    subnav:
+#      - title: Getting started
+#        path: /getting-started
+#      - title: User stories
+#        url: https://vng-realisatie.github.io/Haal-Centraal-BRK-bevragen/user-stories-prod
+#        https://github.com/VNG-Realisatie/Haal-Centraal-BRK-bevragen/issues?q=is%3Aissue+label%3A%22user+story%22+label%3A%22BRK+bevragen+v1.2%22
+#        path: /user-stories
+#      - title: Bevragen API (swagger-ui)
+#        path: /swagger-ui-io
+#      - title: Bevragen API (redoc)
+#        path: /redoc-io
 
 plugins:
   - jekyll-redirect-from
   - jekyll-remote-theme
 
-remote_theme: VNG-Realisatie/jekyll-theme-vng
+remote_theme: VNG-Realisatie/jekyll-theme-vng-realisatie
 
 github: VNG-Realisatie/gemma-zaken
 
 theme: jekyll-theme-time-machine
 
-project_name: gemma-zaken
+project_name: /gemma-zaken
+
+standard_family: ZGW

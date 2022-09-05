@@ -1,8 +1,8 @@
 ---
+layout: page-with-side-nav
 title: "API's voor zaakgericht werken"
-header-img: /img/sample-image.jpg
-date: 12-7-2018
 ---
+# API's voor zaakgericht werken
 
 Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
 Zaak- en Documentservices (ZDS) ontwikkeld, inmiddels bekend als de ZGW API's.
@@ -22,15 +22,15 @@ als ze overstappen op een ander DRC moet dit eenvoudig te configureren zijn in
 het software pakket. Het kan dus ook zo zijn dat het ZRC, ZTC en DRC door
 verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
-Wilt u hier meer over weten, kijk dan bij [architectuur](./_content/architectuur/index.md).
+Wilt u hier meer over weten, kijk dan bij [architectuur](/gemma-zaken/content/architectuur/).
 
-Lees meer over de api's in de [productvisie](./_content/productvisie/index.md)
+Lees meer over de api's in de [productvisie](/gemma-zaken/content/productvisie/)
 
-De standaard staat [hier](./_content/standaard/index.md) beschreven. Ontwikkelaars kunnen
-[direct aan de slag](./_content/ontwikkelaars/index.md) met de beschikbare
-[API's](./_content/standaard/index.md) en de implementaties van de referentie
+De standaard staat [hier](/gemma-zaken/content/standaard/) beschreven. Ontwikkelaars kunnen
+[direct aan de slag](/gemma-zaken/content/ontwikkelaars/) met de beschikbare
+[API's](/gemma-zaken/content/standaard/) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](./_content/community/bijdragen.md) lezen.
+[hier](/gemma-zaken/content/community/bijdragen) lezen.
 
 ## Slack
 
@@ -42,7 +42,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 
 Toegang tot de VNG API Community kunt u via [dit formulier](https://forms.gle/b7tPxkmfRGWVU4su9) aanvragen.
 
-[![vngapicommunity](/img/slack.png?raw=true)][VNG Community]
+[![vngapicommunity](/gemma-zaken/assets/img/slack.png?raw=true)][VNG Community]
 
 [VNG Community]: http://vngapicommunity.slack.com
 
