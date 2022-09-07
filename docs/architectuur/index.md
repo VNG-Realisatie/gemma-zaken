@@ -1,7 +1,7 @@
 ---
 title: "Architectuur"
 description: ""
-layout: subjects
+layout: page-with-side-nav
 weight: 10
 name: architectuur
 ---
