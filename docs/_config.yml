@@ -9,11 +9,11 @@ url: "http://localhost:4000"
 nav:
   - title: API's voor zaakgericht werken
     subnav:
-      - title: Main
+      - title: Home
         path: /
       - title: Productvisie
         path: /productvisie/
-      - title: API's
+      - title: Standaard
         path: /standaard/
       - title: Ontwikkelaars
         path: /ontwikkelaars/
