@@ -22,15 +22,15 @@ als ze overstappen op een ander DRC moet dit eenvoudig te configureren zijn in
 het software pakket. Het kan dus ook zo zijn dat het ZRC, ZTC en DRC door
 verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
-Wilt u hier meer over weten, kijk dan bij [architectuur](/gemma-zaken/content/architectuur/).
+Wilt u hier meer over weten, kijk dan bij [architectuur](architectuur/).
 
-Lees meer over de api's in de [productvisie](/gemma-zaken/content/productvisie/)
+Lees meer over de api's in de [productvisie](productvisie/)
 
-De standaard staat [hier](/gemma-zaken/content/standaard/) beschreven. Ontwikkelaars kunnen
-[direct aan de slag](/gemma-zaken/content/ontwikkelaars/) met de beschikbare
-[API's](/gemma-zaken/content/standaard/) en de implementaties van de referentie
+De standaard staat [hier](standaard/) beschreven. Ontwikkelaars kunnen
+[direct aan de slag](ontwikkelaars/) met de beschikbare
+[API's](/standaard/) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u
-[hier](/gemma-zaken/content/community/bijdragen) lezen.
+[hier](community/bijdragen) lezen.
 
 ## Slack
 
@@ -42,7 +42,7 @@ Mocht u nog onbekend zijn met Slack, dan kunt u via deze
 
 Toegang tot de VNG API Community kunt u via [dit formulier](https://forms.gle/b7tPxkmfRGWVU4su9) aanvragen.
 
-[![vngapicommunity](/gemma-zaken/assets/img/slack.png?raw=true)][VNG Community]
+[![vngapicommunity](/assets/img/slack.png?raw=true)][VNG Community]
 
 [VNG Community]: http://vngapicommunity.slack.com
 
