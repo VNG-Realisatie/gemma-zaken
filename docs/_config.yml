@@ -12,19 +12,19 @@ nav:
       - title: Main
         path: /
       - title: Productvisie
-        path: /productvisie/
+        path: /content/productvisie/
       - title: API's
-        path: /standaard/
+        path: /content/standaard/
       - title: Ontwikkelaars
-        path: /ontwikkelaars/
+        path: /content/ontwikkelaars/
       - title: Thema's
-        path: /themas/
+        path: /content/themas/
       - title: Beheer
-        path: /beheer/
+        path: /content/beheer/
       - title: Doorontwikkeling
-        path: /doorontwikkeling/
+        path: /content/doorontwikkeling/
       - title: Contact
-        path: /contact/
+        path: /content/contact/
 #  - title: Specificaties v. 1.0.0 
 #    subnav:
 #      - title: Getting started
