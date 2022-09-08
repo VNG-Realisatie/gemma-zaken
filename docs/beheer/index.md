@@ -21,7 +21,7 @@ Nieuwe releases van de afzonderlijke API's voor Zaakgericht werken staan als mil
 - Documenten API 1.2 https://github.com/VNG-Realisatie/gemma-zaken/milestone/22 
 - Catalogi API 1.2 https://github.com/VNG-Realisatie/gemma-zaken/milestone/17 
 
-Wilt u deelnemen aan één van deze werkgroepen, meldt u dan via dit [formulier](https://formulieren.vngrealisatie.nl/Api_ZDS) aan. NB. de link verwijst naar een formulier op de website van VNG Realisatie.
+Wilt u deelnemen aan één van deze werkgroepen, meldt u dan via dit [formulier](https://formulieren.vngrealisatie.nl/Api_ZDS) op de website van VNG Realisatie aan.
 
 
 ## Bijeenkomsten
