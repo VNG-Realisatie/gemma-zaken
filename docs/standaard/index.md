@@ -84,7 +84,7 @@ In tegenstelling tot de bovenstaande visualisatie toont dit model alleen de API'
 
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
 
-Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
+In deze [beschrijving van het gegevensmodel](./gegevensmodel/index) vind u meer informatie.
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
