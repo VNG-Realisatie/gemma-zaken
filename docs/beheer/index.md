@@ -72,7 +72,7 @@ De functionele gebruikersgroep kent de volgende leden:
 - 23-03-2022
   - Status Standaardisatie API's
   - Betrokkene Bij Zaak
-    - Uitleg hoe bedeoeld in API
+    - Uitleg hoe bedoeld in API
     - Bevindingen en voorstel tot verbetering
 - 14-04-2022
   - Status Standaardisatie API's
@@ -126,4 +126,4 @@ Wanneer een fout reproduceerbaar is kan deze opgelost worden. Urgente fouten waa
 
 Er kunnen ook fouten in de API Testvoorziening of de onderliggende technische voorzieningen voorkomen. Deze worden door API Beheer doorgezet naar de betreffende beheerteams. 
 
-Volledige beschrijving van de werkwijze van Beheer vind je [hier](https://github.com/VNG-Realisatie/api-beheer/tree/master/Processen).
+Lees de meer over de werkwijze van Beheer in de (volledige beschrijving)(https://github.com/VNG-Realisatie/api-beheer/tree/master/Processen) op github.
