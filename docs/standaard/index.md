@@ -84,7 +84,7 @@ In tegenstelling tot de bovenstaande visualisatie toont dit model alleen de API'
 
 [![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
 
-Zie [hier](./gegevensmodel/index) voor meer informatie over het gegevensmodel.
+In deze [beschrijving van het gegevensmodel](./gegevensmodel/index) vind u meer informatie.
 
 ## Eisen en uitgangspunten die voor alle API's gelden
 
@@ -222,7 +222,7 @@ uitgedrukt worden.
 
 ### API-compatibiliteit
 
-De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
+De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. In dit [overzicht](./api-compatibiliteit) is beschreven welke API-versies compatibel zijn met elkaar.
 
 ## Overige documentatie
 
