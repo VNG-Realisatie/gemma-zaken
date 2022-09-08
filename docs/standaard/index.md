@@ -222,7 +222,7 @@ uitgedrukt worden.
 
 ### API-compatibiliteit
 
-De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. [Hier](./api-compatibiliteit) vind je een overzicht van de API-versies die compatibel zijn met elkaar.
+De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. In dit [overzicht](./api-compatibiliteit) is beschreven welke API-versies compatibel zijn met elkaar.
 
 ## Overige documentatie
 
