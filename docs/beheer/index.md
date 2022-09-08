@@ -126,4 +126,4 @@ Wanneer een fout reproduceerbaar is kan deze opgelost worden. Urgente fouten waa
 
 Er kunnen ook fouten in de API Testvoorziening of de onderliggende technische voorzieningen voorkomen. Deze worden door API Beheer doorgezet naar de betreffende beheerteams. 
 
-Lees de meer over de werkwijze van Beheer in de (volledige beschrijving)(https://github.com/VNG-Realisatie/api-beheer/tree/master/Processen) op github.
+Lees de meer over de werkwijze van Beheer in de [volledige beschrijving](https://github.com/VNG-Realisatie/api-beheer/tree/master/Processen) op github.
