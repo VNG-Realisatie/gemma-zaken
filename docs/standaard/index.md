@@ -22,7 +22,7 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Verzoeken API specificatie](verzoeken/)
 * [Referentielijsten en Selectielijst API][referentielijsten-1.0.0-redoc]
 
-[referentielijsten-1.0.0-redoc]: referentielijsten/redoc-1.0.0-alpha
+[referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
 ## Algemeen
 
