@@ -25,8 +25,8 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
   [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
 
-[catalogi-1.0.1-redoc]: /gemma-zaken/content/standaard/catalogi/redoc-1.0.1
-[catalogi-1.0.1-swagger]: /gemma-zaken/content/standaard/catalogi/swagger-ui-1.0.1
+[catalogi-1.0.1-redoc]: redoc-1.0.1
+[catalogi-1.0.1-swagger]: swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 
