@@ -59,8 +59,8 @@ Een Verzoek kan gerelateerd zijn aan een ander Verzoek in de vorm van een aanvul
   [YAML](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://verzoeken-api.vng.cloud/api/v1/schema/openapi.json)
 
-[verzoeken-1.0.0-redoc]: /gemma-zaken/content/standaard/verzoeken/redoc-1.0.0
-[verzoeken-1.0.0-swagger]: /gemma-zaken/content/standaard/verzoeken/swagger-ui-1.0.0
+[verzoeken-1.0.0-redoc]: redoc-1.0.0
+[verzoeken-1.0.0-swagger]: swagger-ui-1.0.0
 
 # Specificatie van gedrag
 
