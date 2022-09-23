@@ -32,8 +32,8 @@ De API ondersteunt:
   [YAML](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://notificaties-api.vng.cloud/api/v1/schema/openapi.json)
 
-[notificaties-1.0.1-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.1
-[notificaties-1.0.1-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.1
+[notificaties-1.0.1-redoc]: redoc-1.0.1
+[notificaties-1.0.1-swagger]: swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 
