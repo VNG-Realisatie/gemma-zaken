@@ -45,8 +45,8 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
   [YAML](https://besluiten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://besluiten-api.vng.cloud/api/v1/schema/openapi.json)
 
-[besluiten-1.0.1-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.1
-[besluiten-1.0.1-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.1
+[besluiten-1.0.1-redoc]: redoc-1.0.1
+[besluiten-1.0.1-swagger]: swagger-ui-1.0.1
 
 
 ## Specificatie van gedrag
