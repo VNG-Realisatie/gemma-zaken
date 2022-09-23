@@ -32,8 +32,8 @@ De API ondersteunt de volgende operaties:
   [YAML](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://autorisaties-api.vng.cloud/api/v1/schema/openapi.json)
 
-[autorisaties-1.0.0-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.0
-[autorisaties-1.0.0-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.0
+[autorisaties-1.0.0-redoc]: redoc-1.0.0
+[autorisaties-1.0.0-swagger]: swagger-ui-1.0.0
 
 ## Specificatie van gedrag
 

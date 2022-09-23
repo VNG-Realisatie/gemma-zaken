@@ -72,8 +72,8 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
   [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
 
-[documenten-1.0.1-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.1
-[documenten-1.0.1-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.1
+[documenten-1.0.1-redoc]: redoc-1.0.1
+[documenten-1.0.1-swagger]: swagger-ui-1.0.1
 
 ## Specificatie van gedrag
 

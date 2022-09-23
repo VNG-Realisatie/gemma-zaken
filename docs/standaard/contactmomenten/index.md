@@ -51,8 +51,8 @@ Een contactmoment kan een vervolg zijn op een eerder contactmoment. Deze relatie
   [YAML](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://contactmomenten-api.vng.cloud/api/v1/schema/openapi.json)
 
-[contactmomenten-1.0.0-redoc]: /gemma-zaken/content/standaard/contactmomenten/redoc-1.0.0
-[contactmomenten-1.0.0-swagger]: /gemma-zaken/content/standaard/contactmomenten/swagger-ui-1.0.0
+[contactmomenten-1.0.0-redoc]: redoc-1.0.0
+[contactmomenten-1.0.0-swagger]: swagger-ui-1.0.0
 
 # Specificatie van gedrag
 
