@@ -66,11 +66,21 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 ## Specificatie van de Documenten API
 
 * [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
-* API specificatie (OAS3) in
-  [ReDoc][documenten-1.0.1-redoc],
-  [Swagger][documenten-1.0.1-swagger],
+* API specificatie (OAS3) versie 1.1.0 in
+  [ReDoc][documenten-1.1.0-redoc],
+  [Swagger][documenten-1.1.0-swagger],
   [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
+
+[documenten-1.0.1-redoc]: redoc-1.1.0
+[documenten-1.0.1-swagger]: swagger-ui-1.1.0
+
+
+* API specificatie (OAS3) versie 1.0.1 in
+  [ReDoc][documenten-1.0.1-redoc],
+  [Swagger][documenten-1.0.1-swagger],
+  [YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml) of
+  Een JSON versie is momenteel niet beschikbaar
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1
