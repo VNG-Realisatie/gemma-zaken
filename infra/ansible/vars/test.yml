@@ -56,7 +56,7 @@ services:
   - name: ztc-test
     templates: ../k8s/ztc/
     domain: catalogi-api.test.vng.cloud
-    image_tag: '1.2.0-rc6'
+    image_tag: '1.2.0-rc8'
 
   - name: klanten-test
     templates: ../k8s/klanten/
