@@ -109,7 +109,7 @@ Grof geschetst bewegen we van een situatie zoals in figuur 1 naar een situatie z
 
 In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreven door GEMMA 2.
 
-![zgw in de huidige situatie v2.png](./_assets/zgw_in_de_huidige_situatie_v2.png?raw=true)
+![zgw in de huidige situatie v2.png](_assets/zgw_in_de_huidige_situatie_v2.png?raw=true)
 *Figuur 1 - ZGW in de huidige situatie (~GEMMA 2)*
 
 * Een zaak is geregistreerd in een ZRC. Aan een zaak gerelateerde objecten (RGBZ) worden ook geregistreerd in de ZRC: Betrokkenen, Besluiten, Klantcontacten, Zaakobjecten en eventuele zaaktypespecifieke Objecten met zaaktypespecifieke eigenschappen.
@@ -128,7 +128,7 @@ In figuur 1 staat een schets van de huidige situatie zoals min of meer beschreve
 
 In het Gegevenslandschap komt bovenstaand plaatje er, door het scheiden van proces en data, eenmalige opslag en bevraging ‘bij de bron’ en het verminderen van informatiestromen anders uit te zien (zie figuur 2):
 
-![zgw-in-gegevenslandschap.png](./_assets/zgw-in-gegevenslandschap.png?raw=true)
+![zgw-in-gegevenslandschap.png](_assets/zgw-in-gegevenslandschap.png?raw=true)
 *Figuur 2 - ZGW in een Gegevenslandschap*
 
 * De domein/objectgegevens gegevens zijn uit de Zaakafhandelcomponent verdwenen. Procesdefinities en procesgegevens blijven daar echter achter. Dit is ook precies het punt waar procesapplicaties zich op kunnen onderscheiden: goede procesondersteuning.
@@ -146,14 +146,14 @@ Bovenstaande plaat schetst het concept ZGW in een Gegevenslandschap al heel beho
 In bovenstaande figuur is de relatie tussen Melding/Aanvraag (Verzoek) en Zaak als een stippellijn getekend (Merk op dat er ook zaakgericht gewerkt kan worden in processen die niet naar aanleiding van een verzoek van de klant worden opgestart, marabv. n.a.v. een binnengekomen gebeurtenis.In dat geval is er ook geen Verzoek.. Dit omdat Verzoek niet in het RGBZ voorkomt (zat wel in GFO Zaken) en we dus niet weten hoe Verzoek en Zaak zich tot elkaar verhouden. Essentie van de relatie lijkt te zijn dat een verzoek of melding een op zichzelf staand ‘iets’ is en behandeld wordt als zaak. Één verzoek kan leiden tot meerdere zaken. Meerdere Verzoeken kunnen ook leiden tot één Zaak. Bv. meerdere meldingen die als één zaak worden afgehandeld. Verzoek heeft juridisch ook een eigen betekenis, bijvoorbeeld in het kader van archivering en het bepalen van de afhandeltermijn (ontvangstdatum Verzoek).
 Een verzoek kan bv. een subsidieaanvraag of een melding zijn.
 
-![verzoeken v2.png](./_assets/verzoeken_v2.png?raw=true)
+![verzoeken v2.png](_assets/verzoeken_v2.png?raw=true)
 *Figuur 3 -Verzoeken*
 
 We kiezen ervoor om Verzoeken als aparte registratie te onderkennen en op te nemen in het RGBZ (als apart Informatiemodel Verzoeken met relatie met Zaak). Zo wordt het eerder aangehaalde nadeel dat gestructureerde gegevens die in een formulier zijn ingevuld “verloren” dreigen te gaan voorkomen.
 Een e-formulierencomponent (of ander systeem waarin een burger of bedrijf een aanvraag kan doen) registreert het verzoek in de Verzoekenregistratie. De gegevens van de aanvrager (in figuur 3 een burger) in de klantenregistratie (als deze niet al bestond) en de documenten bij de aanvraag in de documentenregistratie. Meldingspecifieke gegevens in de domeinspecifieke registratie voor meldingen. Denk aan aard van de melding, omschrijving van de klacht etc.
 De relatie tussen verzoek en alle informatie die bij de aanvraag aanwezig was, of eventueel later is aangevuld, wordt vastgelegd en mag niet meer gewijzigd worden. Zo is te allen tijde duidelijk welke gegevens er bij de aanvraag zaten.
 
-![van verzoek naar zaak2.png](./_assets/van_verzoek_naar_zaak2.png?raw=true)
+![van verzoek naar zaak2.png](_assets/van_verzoek_naar_zaak2.png?raw=true)
 *Figuur 4- Van Verzoek naar Zaak*
 
 NU het verzoek is geregistreerd, moet het in behandeling worden genomen. Dit gebeurt door een medewerker die in de regel met een taakapplicatie zal werken. Deze wordt ofwel genotificeerd over een nieuw binnengekomen verzoek, of deze applicatie controleert periodiek, bv. ieder uur, of er nog nieuwe verzoeken van een bepaald type binnen zijn gekomen.
