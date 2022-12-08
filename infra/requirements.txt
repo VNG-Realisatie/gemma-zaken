@@ -12,7 +12,7 @@ attrs==19.3.0
     # via jsonschema
 cachetools==4.0.0
     # via google-auth
-certifi==2019.11.28
+certifi==2022.12.7
     # via
     #   kubernetes
     #   requests
@@ -24,8 +24,6 @@ click==7.1.1
     # via pip-tools
 cryptography==3.3.2
     # via ansible-core
-dictdiffer==0.8.1
-    # via openshift
 google-auth==1.11.3
     # via kubernetes
 idna==2.9
