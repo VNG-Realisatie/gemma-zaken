@@ -40,7 +40,7 @@ services:
   - name: drc-test
     templates: ../k8s/drc/
     domain: documenten-api.test.vng.cloud
-    image_tag: '1.2.0-rc6'
+    image_tag: '1.2.0-rc7'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc-test
@@ -51,12 +51,12 @@ services:
   - name: zrc-test
     templates: ../k8s/zrc/
     domain: zaken-api.test.vng.cloud
-    image_tag: '1.3.0-rc6'
+    image_tag: '1.3.0-rc7'
 
   - name: ztc-test
     templates: ../k8s/ztc/
     domain: catalogi-api.test.vng.cloud
-    image_tag: '1.2.0-rc8'
+    image_tag: '1.2.0-rc9'
 
   - name: klanten-test
     templates: ../k8s/klanten/
