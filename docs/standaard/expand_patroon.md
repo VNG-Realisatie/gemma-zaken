@@ -57,12 +57,12 @@ Op basis van de grenzen zijn de volgende versies van de API's voor Zaakgericht w
 Zaken API
 * API specificatie (OAS3) versie 1.2.1 in
   - [ReDoc](./zaken/redoc-1.2.1),
-  - [Swagger](./zaken/swagger-1.2.1),
+  - [Swagger](./zaken/swagger-ui-1.2.1),
 
 Documenten API
 * API specificatie (OAS3) versie 1.1.1 in
   - [ReDoc](./documenten/redoc-1.1.1),
-  - [Swagger](./documenten/swagger-1.1.1),
+  - [Swagger](./documenten/swagger-ui-1.1.1),
 
 
 
