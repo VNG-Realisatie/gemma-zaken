@@ -224,6 +224,9 @@ uitgedrukt worden.
 
 De API-specificaties hebben ieder hun eigen versie en doorontwikkeling. Echter, ze hebben ook afhankelijkheden, waardoor niet alle versies van de API's met elkaar kunnen samenwerken. In dit [overzicht](./api-compatibiliteit) is beschreven welke API-versies compatibel zijn met elkaar.
 
+## Performance
+Om het aantal calls te kunnen verminderen teneinde de performance te verbeteren zijn van de API's voor Zaakgericht werken versies beschikbaar waarin een expand patroon toegepast is. Zie hier voor de [pagina](./expand_patroon) waarin dit beschreven staat, inclusief links naar de Open API Specificaties.
+
 ## Overige documentatie
 
 * [API versies](./versions)
