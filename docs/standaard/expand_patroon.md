@@ -1,3 +1,9 @@
+---
+title: Performance verbeteringen API's voor Zaakgericht werken
+date: '22-12-2022'
+weight: 10
+layout: page-with-side-nav
+---
 # Performance verbeteringen API's voor Zaakgericht werken
 
 ## Inleiding
