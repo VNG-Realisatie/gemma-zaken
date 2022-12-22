@@ -1,6 +1,6 @@
 ---
 title: "Beheer"
-date: '27-1-2022'
+date: '22-9-2022'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -85,7 +85,8 @@ De functionele gebruikersgroep kent de volgende leden:
 - 29-06-2022
 - - _Gerelateerde zaken https://github.com/VNG-Realisatie/gemma-zaken/issues/1629_
 - - _Verwijzen naar persoons-/BAG-gegevens in een andere bron_
-- 28-09-2022
+- - _Andere dan correspondentieadressen in Verzending registrreren: https://github.com/VNG-Realisatie/gemma-zaken/issues/2112_
+- 28-10-2022
 - 02-11-2022
 - 30-11-2022
 
