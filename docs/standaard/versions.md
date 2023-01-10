@@ -45,26 +45,28 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][zaken-1.x-docs]
 
-[zaken-1.x-docs]: /gemma-zaken/content/standaard/zaken/
+[zaken-1.x-docs]: ./zaken/
 
 ### Releases
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.2.0    | 2021-08-31    |
+1.1.0    |     | 
 1.0.2    | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff]
 1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
 
-[zaken-1.0.2-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.2
-[zaken-1.0.2-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.2
+[zaken-1.0.2-redoc]: .//zaken/redoc-1.0.2
+[zaken-1.0.2-swagger]: ./zaken/swagger-ui-1.0.2
 [zaken-1.0.2-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.1...1.0.2?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[zaken-1.0.1-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.1
-[zaken-1.0.1-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.1
+[zaken-1.0.1-redoc]: ./zaken/redoc-1.0.1
+[zaken-1.0.1-swagger]: ./zaken/swagger-ui-1.0.1
 [zaken-1.0.1-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[zaken-1.0.0-redoc]: /gemma-zaken/content/standaard/zaken/redoc-1.0.0
-[zaken-1.0.0-swagger]: /gemma-zaken/content/standaard/zaken/swagger-ui-1.0.0
+[zaken-1.0.0-redoc]: ./zaken/redoc-1.0.0
+[zaken-1.0.0-swagger]: ./zaken/swagger-ui-1.0.0
 
 
 ## Documenten API
@@ -77,21 +79,23 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][documenten-1.x-docs]
 
-[documenten-1.x-docs]: /gemma-zaken/content/standaard/documenten/
+[documenten-1.x-docs]: ./documenten/
 
 ### Releases
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.2.0    | 19-12-2022    |
+1.1.0    | 24-05-2021    |
 1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [Diff][documenten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
-[documenten-1.0.1-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.1
-[documenten-1.0.1-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.1
+[documenten-1.0.1-redoc]: ./documenten/redoc-1.0.1
+[documenten-1.0.1-swagger]: ./documenten/swagger-ui-1.0.1
 [documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[documenten-1.0.0-redoc]: /gemma-zaken/content/standaard/documenten/redoc-1.0.0
-[documenten-1.0.0-swagger]: /gemma-zaken/content/standaard/documenten/swagger-ui-1.0.0
+[documenten-1.0.0-redoc]: ./documenten/redoc-1.0.0
+[documenten-1.0.0-swagger]: ./documenten/swagger-ui-1.0.0
 
 
 ## Besluiten API
@@ -104,7 +108,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][besluiten-1.x-docs]
 
-[besluiten-1.x-docs]: /gemma-zaken/content/standaard/besluiten/
+[besluiten-1.x-docs]: ./besluiten/
 
 ### Releases
 
@@ -113,12 +117,12 @@ Versie   | Release datum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
 
-[besluiten-1.0.1-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.1
-[besluiten-1.0.1-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.1
+[besluiten-1.0.1-redoc]: ./besluiten/redoc-1.0.1
+[besluiten-1.0.1-swagger]: ./besluiten/swagger-ui-1.0.1
 [besluiten-1.0.1-diff]: https://github.com/VNG-Realisatie/besluiten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[besluiten-1.0.0-redoc]: /gemma-zaken/content/standaard/besluiten/redoc-1.0.0
-[besluiten-1.0.0-swagger]: /gemma-zaken/content/standaard/besluiten/swagger-ui-1.0.0
+[besluiten-1.0.0-redoc]: ./besluiten/redoc-1.0.0
+[besluiten-1.0.0-swagger]: ./besluiten/swagger-ui-1.0.0
 
 
 ## Catalogi API
@@ -131,12 +135,14 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][catalogi-1.x-docs]
 
-[catalogi-1.x-docs]: /gemma-zaken/content/standaard/catalogi/
+[catalogi-1.x-docs]: ./catalogi/
 
 ### Releases
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.2.0    | 19-12-2022    | 
+1.1.0    |               | 
 1.0.0    | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]
 
 [catalogi-1.0.1-redoc]: /gemma-zaken/content/standaard/catalogi/redoc-1.0.1
