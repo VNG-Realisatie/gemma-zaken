@@ -20,14 +20,22 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 * [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc][catalogi-1.0.1-redoc],
-  [Swagger][catalogi-1.0.1-swagger],
+  [ReDoc 1.2.0][catalogi-1.0.1-redoc],
+  [Swagger 1.2.0][catalogi-1.0.1-swagger],
   [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
 
+* Oudere versies:
+  [ReDoc 1.0.1 ][catalogi-1.0.1-redoc],
+  [Swagger 1.0.1][catalogi-1.0.1-swagger],
+
 [catalogi-1.0.1-redoc]: redoc-1.0.1
 [catalogi-1.0.1-swagger]: swagger-ui-1.0.1
-
+ 
+[catalogi-1.2.0-redoc]: redoc-1.2.0
+[catalogi-1.2.0-swagger]: swagger-ui-1.2.0
+ 
+ 
 ## Specificatie van gedrag
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
@@ -160,10 +168,10 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     als het `InformatieObjectType` `concept=False` hebben
 
 
-* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>** <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Vervallen in versie 1.2.0</strong></span>:
-    * <s>Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)</s>
-    * <s>Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update) </s>
-    * <s>Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben</s>
+* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
+    * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
+    * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
+    * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
 
@@ -192,33 +200,12 @@ Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
 mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
 
-### Historiemodel Catalogi API
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.2.0</strong>
-</span>
-In voorgaande versies van de Catalogi API waren versies van Zaaktypen, Informatieobjecttypen, Besluittypen, Roltypen, Statustypen, Eigenschappen, Resultaatypen etc. één op één aan elkaar gekoppeld. Dit had als nadeel dat een wijziging in één versie van een object (ongeacht welk) van alle gerelateerde objecten een nieuwe versie gemaakt worden. Dit is in de praktijk niet werkbaar gebleken. Daarom zijn de volgende wijzigingen in Catalogi API 1.2 van toepassing:
-
-- Zaaktype, Informatieobjecttype en Besluittype kunnen onafhankelijk van elkaar gewijzigd worden. Dit is mogelijk door het leggen van relaties op basis van identificatie/omschrijving in plaats van een harde url naar een versie. 
-
-Zaaktype ZAKABC20220101 heeft relevant Besluittype BESXYZ20220403
-Wanneer van Zaaktype ZAKABC20220101 een nieuwe versie gemaakt wordt is Besluittype BESXYZ20220403 nog steeds relevant. De relatie is gelegd op basis van Besluittype.omschrijving en datumgeldigheid. 
-
-- Wanneer van een Zaaktype een nieuwe versie wordt gemaakt hoeft er geen nieuwe versie van Roltype, Statustype, Eigenschap Zaakobjecttype en/of Resultaattype gemaakt te worden. In onderstaande uitleg wordt Roltype gebruikt maar hetzelfde geldt voor de overige typen.
-
-De relatie wordt vanuit deze typen naar het Zaaktype gelegd via zaaktypeidentificatie. Op basis van roltype.zaaktypeidentificatie en roltype.beginGeldigheid <= zaaktype.beginGeldigheid <= roltype.eindGeldigheid wordt de juiste versie van het roltype opgehaald. Het is dus niet nodig om van elk gerelateerde objecttype de juiste versie expliciet op te halen.
-
-De bestaande url verwijzing naar zaaktype blijft bestaan maar krijgt een andere betekenis: Het is de verwijzing naar de versie van het zaaktype waarmee deze versie van het roltype voor het eerst in gebruik genomen is. Dit in gebruik nemen is gebeurd met behulp van de bestaande publish operatie op Zaaktypen.
-
-- Wanneer van een Roltype, Statustype, Eigenschap Zaakobjecttype en/of Resultaattype een nieuwe versie wordt gemaakt MOET er een nieuwe versie van Zaaktype gemaakt te worden. Reeds bestaande versies van roltypen etc. blijven geldig voor die nieuwe versie van het Zaaktype. In onderstaande uitleg wordt Roltype gebruikt maar hetzelfde geldt voor de overige typen.
-
-Om een versie van een object in gebruik te nemen moet deze gepubliceerd worden. De publish operatie werkt op Zaaktypen, Informatieobjecttypen en Besluittypen. Om een versie van een roltype te publiceren moet de bijbehorende versie van het zaaktype gepubliceerd worden. 
-
 ### Datum beginGeldigheid en eindGeldigheid
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
 </span>
-Omdat een versie van Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype niet meer één op één aan een versie van een Zaaktype gekoppeld zijn zijn de attributen beginGeldigheid en eindGeldigheid ook aan die objecttypen toegevoegd. 
+Ondanks dat een versie van Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype nog steedséén op één aan een versie van een Zaaktype gekoppeld zijn zijn de attributen beginGeldigheid en eindGeldigheid ook aan die objecttypen toegevoegd. 
 
 De betekenis van de attributen is:
 beginGeldigheid  : De datum waarop de versie van het object geldig is geworden
@@ -226,11 +213,9 @@ eindGeldigheid : De laatste datum waarop de versie van het object geldig is.
 
 De versie van het object is dus geldig van beginGeldigheid *tot en met* eindGeldigheid. 
 
-Daarnaast kennen objecten ook nog de datumvelden beginObject en eindObject. Dit zijn respectievelijk de geboortedatum en overlijdensdatum van het object. Oftewel de datum waarop het object voor het eerst gebruikt kon worden en de datum waarom het object voor het laatst gebruikt kon worden.
+Daarnaast kennen objecten ook nog de datumvelden *beginObject* en *eindObject*. Dit zijn respectievelijk de geboortedatum en overlijdensdatum van het object. Oftewel de datum waarop het object voor het eerst gebruikt kon worden en de datum waarom het object voor het laatst gebruikt kon worden.
 
-Om de juiste versie van bijvoorbeeld een roltype bij een zaaktype te vinden wordt gezocht op de versie van het roltype die op een datum geldig is (geweest) voor dat zaaktype. Een versie van een roltype kan aan slechts één versie van een zaaktype gekoppeld zijn. Door te zoeken op Roltypen met de queryparameters roltype.zaaktypeidentificatie = zaaktype.identificatie en roltype.beginGeldigheid <= zaaktype.beginGeldigheid <= roltype.eindGeldigheid
-
-Bij het opvragen van een versie van een zaaktype worden de onderliggende objecten Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype op deze manier bij de versie gezocht. Met de url uit het resultaat kan de voor deze versie van het zaaktype geldige versie van de onderliggende objecten worden opgehaald. Het is dan dus niet meer nodig om nog te filteren op zaaktypeidentificatie en datum.
+Bij het aanmaken van een nieuwe versie van een Roltype, Statustype, ResultaatType, Eigenschap of Zaakobjecttype wordt de beginGeldigheid gevalideerd tegen de beginGeldigheid en versieDatum van het bijbehorende Zaaktype. Deze MOETen overeenkomen.
 
 #### HTTP-Caching
 
