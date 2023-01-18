@@ -12,8 +12,9 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 
 ## Gegevensmodel
+De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer informatie over het ImZTC versie 2.2 zie [GEMMA Online](https://www.gemmaonline.nl/index.php/ImZTC_2.2_in_ontwikkeling)
 
-[![Gegevensmodel Catalogi API](Catalogi API.png)](Catalogi API.png "Catalogi gegevensmodel - klik voor groot")
+[![Gegevensmodel Catalogi API ImZTC 2.2](ImZTC_2_2.png)](ImZTC_2_2.png "ImZTC versie 2.2 - klik voor groot")
 
 
 ## Specificatie van de Catalogi API
