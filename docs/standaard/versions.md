@@ -53,8 +53,8 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.2.1    | 21-12-2022    | [ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]
 1.3.0    | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff]
-1.2.0    | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger]
-1.1.0    | 24-05-2021    | 
+1.2.0    | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff]
+1.1.0    | 24-05-2021    | [ReDoc][zaken-1.1.0-redoc], [Swagger][zaken-1.1.0-swagger], [Diff][zaken-1.1.0-diff]
 1.0.2    | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff]
 1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
@@ -72,13 +72,18 @@ Versie   | Release datum | API specificatie
 
 [zaken-1.2.0-redoc]: ./zaken/redoc-1.2.0
 [zaken-1.2.0-swagger]: ./zaken/swagger-ui-1.2.0
+[zaken-1.2.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 [zaken-1.2.1-redoc]: ./zaken/redoc-1.2.1
 [zaken-1.2.1-swagger]: ./zaken/swagger-ui-1.2.1
 
 [zaken-1.3.0-redoc]: ./zaken/redoc-1.3.0
 [zaken-1.3.0-swagger]: ./zaken/swagger-ui-1.3.0
-[zaken-1.3.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/stable/1.2.x...stable/1.3.x
+[zaken-1.3.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.2.0...1.3.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.1.0-redoc]: ./zaken/redoc-1.1.0
+[zaken-1.1.0-swagger]: ./zaken/swagger-ui-1.1.0
+[zaken-1.1.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.2...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 ## Documenten API
 
@@ -110,11 +115,11 @@ Versie   | Release datum | API specificatie
 
 [documenten-1.1.0-redoc]: ./documenten/redoc-1.1.0
 [documenten-1.1.0-swagger]: ./documenten/swagger-ui-1.1.0
-[documenten-1.1.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.0.x...stable/1.1.x
+[documenten-1.1.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.1...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 [documenten-1.2.0-redoc]: ./documenten/redoc-1.2.0
 [documenten-1.2.0-swagger]: ./documenten/swagger-ui-1.2.0
-[documenten-1.2.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.1.x...stable/1.2.x
+[documenten-1.2.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 ## Besluiten API
 
