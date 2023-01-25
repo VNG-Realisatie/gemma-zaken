@@ -96,3 +96,4 @@ staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 
 * [Tutorial autorisatie](../../ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
 * [Tutorial autorisatie](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
+* [Tutorial autorisatie](https://github.com/VNG-Realisatie/gemma-zaken/raw/master/docs/ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
