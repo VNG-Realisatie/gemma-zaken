@@ -94,4 +94,4 @@ staat, dan MOET de API antwoorden met een HTTP 400 foutbericht.
 
 ## Overige documentatie
 
-* [Tutorial autorisatie](../ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
+* [Tutorial autorisatie](../../ontwikkelaars/handleidingen-en-tutorials/_assets/autorisatie.pptx)
