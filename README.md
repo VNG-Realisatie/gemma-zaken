@@ -25,7 +25,7 @@ De volgende documenten beschrijven dit project:
 
 - We werken aan realisatie van de [Productvisie](https://vng-realisatie.github.io/gemma-zaken/productvisie/) (concept)
 - Hoe u kunt [bijdragen](https://vng-realisatie.github.io/gemma-zaken/doorontwikkeling/) (inclusief het reviewproces)
-- De [FAQ](docs/_content/overige/faq.md) beantwoordt vragen over het project
+- De [FAQ](docs/overige/faq.md) beantwoordt vragen over het project
 - De [dev-straat](https://vng-realisatie.github.io/gemma-zaken/themas/achtergronddocumentatie/ontwikkelstraat) beschrijft de development
   inrichting en tooling
 - [Technische documentatie](https://vng-realisatie.github.io/gemma-zaken/ontwikkelaars/) voor developers
