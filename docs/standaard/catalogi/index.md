@@ -21,8 +21,8 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 
 * [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc 1.2.0][catalogi-1.0.1-redoc],
-  [Swagger 1.2.0][catalogi-1.0.1-swagger],
+  [ReDoc 1.2.0][catalogi-1.2.0-redoc],
+  [Swagger 1.2.0][catalogi-1.2.0-swagger],
   [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
 
