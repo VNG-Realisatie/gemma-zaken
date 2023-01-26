@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.3.1
+  version: 1.4.0
   description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
@@ -6555,6 +6555,16 @@ paths:
             en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
           schema:
             type: string
+        - name: bronorganisatie__in
+          required: false
+          in: query
+          description: Multiple values may be separated by commas.
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
         - name: zaaktype
           required: false
           in: query
@@ -6595,6 +6605,12 @@ paths:
             deze ZAAK indien nog leeg.
           schema:
             type: string
+        - name: archiefactiedatum__isnull
+          required: false
+          in: query
+          description: De archiefactiedatum is leeg
+          schema:
+            type: boolean
         - name: archiefactiedatum__lt
           required: false
           in: query
@@ -6701,16 +6717,20 @@ paths:
           description: De datum waarop de uitvoering van de zaak afgerond is.
           schema:
             type: string
+        - name: einddatum__isnull
+          required: false
+          in: query
+          description: De einddatum is leeg.
+          schema:
+            type: boolean
         - name: einddatum__gt
           required: false
           in: query
-          description: De datum waarop de uitvoering van de zaak afgerond is.
           schema:
             type: string
         - name: einddatum__lt
           required: false
           in: query
-          description: De datum waarop de uitvoering van de zaak afgerond is.
           schema:
             type: string
         - name: einddatumGepland
@@ -6879,20 +6899,24 @@ paths:
         - name: ordering
           required: false
           in: query
-          description: Het veld waarop de resultaten geordend worden.
+          description: Het veld waarop de resultaten geordend worden. Het minnetje betekent omgekeerde volgorde.
           schema:
             type: array
             items:
               type: string
               enum:
-                - - startdatum
-                  - -startdatum
-                  - einddatum
-                  - -einddatum
-                  - publicatiedatum
-                  - -publicatiedatum
-                  - archiefactiedatum
-                  - -archiefactiedatum
+                - startdatum
+                - -startdatum
+                - einddatum
+                - -einddatum
+                - publicatiedatum
+                - -publicatiedatum
+                - archiefactiedatum
+                - -archiefactiedatum
+                - registratiedatum
+                - -registratiedatum
+                - identificatie
+                - -identificatie
           style: form
           explode: false
         - name: page
@@ -14363,12 +14387,25 @@ components:
                 en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
               type: string
               minLength: 1
+            bronorganisatie__in:
+              description: Array van bronorganisaties.
+              type: array
+              items:
+                type: string
+                format: string
+                minLength: 1
             zaaktype:
               title: Zaaktype
               description: URL-referentie naar het ZAAKTYPE (in de Catalogi API) in de
                 CATALOGUS waar deze voorkomt
               type: string
               minLength: 1
+            zaaktype__in:
+              description: Array van zaaktypen.
+              type: array
+              items:
+                type: string
+                format: uri
             archiefnominatie:
               title: Archiefnominatie
               description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
@@ -14395,20 +14432,15 @@ components:
                 aan deze ZAAK indien nog leeg.
               type: string
               minLength: 1
+            archiefactiedatum__isnull:
+              title: Archiefactiedatum is leeg
+              type: boolean
             archiefactiedatum__lt:
               title: Archiefactiedatum  lt
-              description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
-                worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
-                Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
-                aan deze ZAAK indien nog leeg.
               type: string
               minLength: 1
             archiefactiedatum__gt:
               title: Archiefactiedatum  gt
-              description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
-                worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
-                Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
-                aan deze ZAAK indien nog leeg.
               type: string
               minLength: 1
             archiefstatus:
@@ -14459,6 +14491,61 @@ components:
             startdatum__lte:
               title: Startdatum  lte
               description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            registratiedatum:
+              title: Registratiedatum
+              description: De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd. Indien deze niet opgegeven wordt, wordt de datum van vandaag gebruikt.
+              type: string
+              minLength: 1
+            registratiedatum__gt:
+              title: Registratiedatum (groter dan)
+              type: string
+              minLength: 1
+            registratiedatum__lt:
+              title: Registratiedatum (kleiner dan)
+              type: string
+              minLength: 1
+            einddatum:
+              title: Einddatum
+              description: De datum waarop de uitvoering van de zaak afgerond is.
+              type: string
+              minLength: 1
+            einddatum__isnull:
+              title: Einddatum is leeg
+              type: boolean
+            einddatum__gt:
+              title: Einddatum (groter dan)
+              type: string
+              minLength: 1
+            einddatum__lt:
+              title: Einddatum (kleiner dan)
+              type: string
+              minLength: 1
+            einddatumGepland:
+              title: Einddatum gepland 
+              description: De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.
+              type: string
+              minLength: 1
+            einddatumGepland__gt:
+              title: Einddatum gepland (groter dan)
+              type: string
+              minLength: 1
+            einddatumGepland__lt:
+              title: Einddatum gepland (kleiner dan)
+              type: string
+              minLength: 1
+            uiterlijkeEinddatumAfdoening:
+              title: Uiterlijke einddatumAfdoening
+              description: De laatste datum waarop volgens wet- en regelgeving de zaak afgerond dient te zijn.
+              type: string
+              minLength: 1
+            uiterlijkeEinddatumAfdoening__gt:
+              title: Uiterlijke einddatumAfdoening (groter dan)
+              type: string
+              minLength: 1
+            uiterlijkeEinddatumAfdoening__lt:
+              title: Uiterlijke einddatumAfdoening (kleiner dan)
               type: string
               minLength: 1
             rol__betrokkeneType:
@@ -14569,16 +14656,7 @@ components:
               minLength: 1
             ordering:
               title: Ordering
-              description: 'Het veld waarop de resultaten geordend worden.
-                Uitleg bij mogelijke waarden:
-                * `startdatum` - Startdatum
-                * `-startdatum` - Startdatum (descending)
-                * `einddatum` - Einddatum
-                * `-einddatum` - Einddatum (descending)
-                * `publicatiedatum` - Publicatiedatum
-                * `-publicatiedatum` - Publicatiedatum (descending)
-                * `archiefactiedatum` - Archiefactiedatum
-                * `-archiefactiedatum` - Archiefactiedatum (descending)'
+              description: Het veld waarop de resultaten geordend worden. Het minnetje betekent omgekeerde volgorde.
               type: string
               enum:
               - startdatum
@@ -14589,6 +14667,10 @@ components:
               - -publicatiedatum
               - archiefactiedatum
               - -archiefactiedatum
+              - registratiedatum
+              - -registratiedatum
+              - identificatie
+              - -identificatie
     ZakelijkRechtHeeftAlsGerechtigde:
       type: object
       properties:
