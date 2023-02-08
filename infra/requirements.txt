@@ -22,10 +22,8 @@ chardet==3.0.4
     # via requests
 click==7.1.1
     # via pip-tools
-cryptography==3.3.2
+cryptography==39.0.1
     # via ansible-core
-dictdiffer==0.8.1
-    # via openshift
 google-auth==1.11.3
     # via kubernetes
 idna==2.9
@@ -85,7 +83,6 @@ ruamel-yaml==0.16.10
     # via openshift
 six==1.14.0
     # via
-    #   cryptography
     #   google-auth
     #   jsonschema
     #   kubernetes
