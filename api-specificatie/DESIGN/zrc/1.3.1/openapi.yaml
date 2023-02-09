@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.3.0
+  version: 1.3.1
   description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
@@ -108,7 +108,7 @@ info:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
 paths:
-  /api/v1/klantcontacten:
+  /klantcontacten:
     get:
       operationId: klantcontact_list
       description: 'Alle KLANTCONTACTen opvragen.
@@ -443,7 +443,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/klantcontacten/{uuid}:
+  /klantcontacten/{uuid}:
     get:
       operationId: klantcontact_retrieve
       description: 'Een specifieke KLANTCONTACT opvragen.
@@ -597,7 +597,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/resultaten:
+  /resultaten:
     get:
       operationId: resultaat_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -933,7 +933,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/resultaten/{uuid}:
+  /resultaten/{uuid}:
     get:
       operationId: resultaat_retrieve
       description: Een specifieke RESULTAAT opvragen.
@@ -1685,7 +1685,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Resultaat'
           description: OK
-  /api/v1/rollen:
+  /rollen:
     get:
       operationId: rol_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -2115,7 +2115,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/rollen/{uuid}:
+  /rollen/{uuid}:
     get:
       operationId: rol_retrieve
       description: Een specifieke ROL bij een ZAAK opvragen.
@@ -2492,7 +2492,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Rol'
           description: OK
-  /api/v1/statussen:
+  /statussen:
     get:
       operationId: status_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -2845,7 +2845,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/statussen/{uuid}:
+  /statussen/{uuid}:
     get:
       operationId: status_retrieve
       description: Een specifieke STATUS van een ZAAK opvragen.
@@ -3074,7 +3074,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Status'
           description: OK
-  /api/v1/zaakcontactmomenten:
+  /zaakcontactmomenten:
     get:
       operationId: zaakcontactmoment_list
       description: Alle ZAAKCONTACTMOMENTen opvragen.
@@ -3406,7 +3406,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaakcontactmomenten/{uuid}:
+  /zaakcontactmomenten/{uuid}:
     get:
       operationId: zaakcontactmoment_retrieve
       description: Een specifiek ZAAKCONTACTMOMENT opvragen.
@@ -3704,7 +3704,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaakinformatieobjecten:
+  /zaakinformatieobjecten:
     get:
       operationId: zaakinformatieobject_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -4041,7 +4041,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaakinformatieobjecten/{uuid}:
+  /zaakinformatieobjecten/{uuid}:
     get:
       operationId: zaakinformatieobject_retrieve
       description: Een specifieke ZAAK-INFORMATIEOBJECT relatie opvragen.
@@ -4797,7 +4797,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakInformatieObject'
           description: OK
-  /api/v1/zaakobjecten:
+  /zaakobjecten:
     get:
       operationId: zaakobject_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -5178,7 +5178,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaakobjecten/{uuid}:
+  /zaakobjecten/{uuid}:
     get:
       operationId: zaakobject_retrieve
       description: Een specifieke ZAAKOBJECT opvragen.
@@ -5904,7 +5904,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakObject'
           description: OK
-  /api/v1/zaakverzoeken:
+  /zaakverzoeken:
     get:
       operationId: zaakverzoek_list
       description: Alle ZAAK-VERZOEKen opvragen.
@@ -6234,7 +6234,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaakverzoeken/{uuid}:
+  /zaakverzoeken/{uuid}:
     get:
       operationId: zaakverzoek_retrieve
       description: Een specifieke ZAAK-VERZOEK opvragen.
@@ -6532,7 +6532,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken:
+  /zaken:
     get:
       operationId: zaak_list
       description: Deze lijst kan gefilterd wordt met query-string parameters.
@@ -7320,7 +7320,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{uuid}:
+  /zaken/{uuid}:
     get:
       operationId: zaak_retrieve
       description: Een specifieke ZAAK opvragen.
@@ -8311,7 +8311,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Zaak'
           description: OK
-  /api/v1/zaken/{zaak_uuid}/audittrail:
+  /zaken/{zaak_uuid}/audittrail:
     get:
       operationId: audittrail_list
       description: Alle audit trail regels behorend bij de ZAAK.
@@ -8449,7 +8449,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{zaak_uuid}/audittrail/{uuid}:
+  /zaken/{zaak_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_retrieve
       description: Een specifieke audit trail regel opvragen.
@@ -8606,7 +8606,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{zaak_uuid}/besluiten:
+  /zaken/{zaak_uuid}/besluiten:
     get:
       operationId: zaakbesluit_list
       description: Alle ZAAKBESLUITen opvragen.
@@ -8931,7 +8931,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{zaak_uuid}/besluiten/{uuid}:
+  /zaken/{zaak_uuid}/besluiten/{uuid}:
     get:
       operationId: zaakbesluit_retrieve
       description: Een specifiek ZAAKBESLUIT opvragen.
@@ -9251,7 +9251,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{zaak_uuid}/zaakeigenschappen:
+  /zaken/{zaak_uuid}/zaakeigenschappen:
     get:
       operationId: zaakeigenschap_list
       description: Alle ZAAKEIGENSCHAPpen opvragen.
@@ -9574,7 +9574,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
-  /api/v1/zaken/{zaak_uuid}/zaakeigenschappen/{uuid}:
+  /zaken/{zaak_uuid}/zaakeigenschappen/{uuid}:
     get:
       operationId: zaakeigenschap_retrieve
       description: Een specifieke ZAAKEIGENSCHAP opvragen.
@@ -10331,7 +10331,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakEigenschap'
           description: OK
-  /api/v1/zaken/_zoek:
+  /zaken/_zoek:
     post:
       operationId: zaak__zoek
       description:
@@ -14340,20 +14340,255 @@ components:
         - verzoek
         - zaak
     ZaakZoek:
-      type: object
-      properties:
-        zaakgeometrie:
-          allOf:
-            - $ref: '#/components/schemas/GeoWithin'
-          title: zaakgeometrie
-        uuid__in:
-          type: array
-          items:
-            type: string
-            format: uuid
-            title: ''
-          description: Array of unieke resource identifiers (UUID4)
-          title: uuid__in
+          type: object
+          properties:
+            zaakgeometrie:
+              $ref: '#/components/schemas/GeoWithin'
+            uuid__in:
+              description: Array of unieke resource identifiers (UUID4)
+              type: array
+              items:
+                type: string
+                format: uuid
+            identificatie:
+              title: Identificatie
+              description: De unieke identificatie van de ZAAK binnen de organisatie die
+                verantwoordelijk is voor de behandeling van de ZAAK.
+              type: string
+              minLength: 1
+            bronorganisatie:
+              title: Bronorganisatie
+              description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+                die de zaak heeft gecreeerd. Dit moet een geldig RSIN zijn van 9 nummers
+                en voldoen aan https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+              type: string
+              minLength: 1
+            zaaktype:
+              title: Zaaktype
+              description: URL-referentie naar het ZAAKTYPE (in de Catalogi API) in de
+                CATALOGUS waar deze voorkomt
+              type: string
+              minLength: 1
+            archiefnominatie:
+              title: Archiefnominatie
+              description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+                termijn vernietigd moet worden.
+                Uitleg bij mogelijke waarden:
+                * `blijvend_bewaren` - Het zaakdossier moet bewaard blijven en op de Archiefactiedatum
+                overgedragen worden naar een archiefbewaarplaats.
+                * `vernietigen` - Het zaakdossier moet op of na de Archiefactiedatum vernietigd
+                worden.'
+              type: string
+              enum:
+              - blijvend_bewaren
+              - vernietigen
+            archiefnominatie__in:
+              title: Archiefnominatie  in
+              description: Multiple values may be separated by commas.
+              type: string
+              minLength: 1
+            archiefactiedatum:
+              title: Archiefactiedatum
+              description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+                worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+                Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+                aan deze ZAAK indien nog leeg.
+              type: string
+              minLength: 1
+            archiefactiedatum__lt:
+              title: Archiefactiedatum  lt
+              description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+                worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+                Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+                aan deze ZAAK indien nog leeg.
+              type: string
+              minLength: 1
+            archiefactiedatum__gt:
+              title: Archiefactiedatum  gt
+              description: De datum waarop het gearchiveerde zaakdossier vernietigd moet
+                worden dan wel overgebracht moet worden naar een archiefbewaarplaats.
+                Wordt automatisch berekend bij het aanmaken of wijzigen van een RESULTAAT
+                aan deze ZAAK indien nog leeg.
+              type: string
+              minLength: 1
+            archiefstatus:
+              title: Archiefstatus
+              description: 'Aanduiding of het zaakdossier blijvend bewaard of na een bepaalde
+                termijn vernietigd moet worden.
+                Uitleg bij mogelijke waarden:
+                * `nog_te_archiveren` - De zaak cq. het zaakdossier is nog niet als geheel
+                gearchiveerd.
+                * `gearchiveerd` - De zaak cq. het zaakdossier is als geheel niet-wijzigbaar
+                bewaarbaar gemaakt.
+                * `gearchiveerd_procestermijn_onbekend` - De zaak cq. het zaakdossier
+                is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum
+                kan nog niet bepaald worden.
+                * `overgedragen` - De zaak cq. het zaakdossier is overgebracht naar een
+                archiefbewaarplaats.'
+              type: string
+              enum:
+              - nog_te_archiveren
+              - gearchiveerd
+              - gearchiveerd_procestermijn_onbekend
+              - overgedragen
+            archiefstatus__in:
+              title: Archiefstatus  in
+              description: Multiple values may be separated by commas.
+              type: string
+              minLength: 1
+            startdatum:
+              title: Startdatum
+              description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            startdatum__gt:
+              title: Startdatum  gt
+              description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            startdatum__gte:
+              title: Startdatum  gte
+              description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            startdatum__lt:
+              title: Startdatum  lt
+              description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            startdatum__lte:
+              title: Startdatum  lte
+              description: De datum waarop met de uitvoering van de zaak is gestart
+              type: string
+              minLength: 1
+            rol__betrokkeneType:
+              title: Rol  betrokkenetype
+              description: 'Type van de `betrokkene`.
+                Uitleg bij mogelijke waarden:
+                * `natuurlijk_persoon` - Natuurlijk persoon
+                * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+                * `vestiging` - Vestiging
+                * `organisatorische_eenheid` - Organisatorische eenheid
+                * `medewerker` - Medewerker'
+              type: string
+              enum:
+              - natuurlijk_persoon
+              - niet_natuurlijk_persoon
+              - vestiging
+              - organisatorische_eenheid
+              - medewerker
+            rol__betrokkene:
+              title: Rol  betrokkene
+              description: URL-referentie naar een betrokkene gerelateerd aan de ZAAK.
+              type: string
+              minLength: 1
+            rol__omschrijvingGeneriek:
+              title: Rol  omschrijvinggeneriek
+              description: "Algemeen gehanteerde benaming van de aard van de ROL, afgeleid\
+                \ uit het ROLTYPE.\n\nUitleg bij mogelijke waarden:\n\n* `adviseur` -\
+                \ Adviseur\n* `behandelaar` - Behandelaar\n* `belanghebbende` - Belanghebbende\n\
+                * `beslisser` - Beslisser\n* `initiator` - Initiator\n* `klantcontacter`\
+                \ - Klantcontacter\n* `zaakcoordinator` - Zaakco\xF6rdinator\n* `mede_initiator`\
+                \ - Mede-initiator"
+              type: string
+              enum:
+              - adviseur
+              - behandelaar
+              - belanghebbende
+              - beslisser
+              - initiator
+              - klantcontacter
+              - zaakcoordinator
+              - mede_initiator
+            maximaleVertrouwelijkheidaanduiding:
+              title: Maximalevertrouwelijkheidaanduiding
+              description: 'Zaken met een vertrouwelijkheidaanduiding die beperkter is
+                dan de aangegeven aanduiding worden uit de resultaten gefiltered.
+                Uitleg bij mogelijke waarden:
+                * `openbaar` - Openbaar
+                * `beperkt_openbaar` - Beperkt openbaar
+                * `intern` - Intern
+                * `zaakvertrouwelijk` - Zaakvertrouwelijk
+                * `vertrouwelijk` - Vertrouwelijk
+                * `confidentieel` - Confidentieel
+                * `geheim` - Geheim
+                * `zeer_geheim` - Zeer geheim'
+              type: string
+              enum:
+              - openbaar
+              - beperkt_openbaar
+              - intern
+              - zaakvertrouwelijk
+              - vertrouwelijk
+              - confidentieel
+              - geheim
+              - zeer_geheim
+            rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn:
+              title: Rol  betrokkeneidentificatie  natuurlijkpersoon  inpbsn
+              description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
+                algemene bepalingen burgerservicenummer.
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie:
+              title: Rol  betrokkeneidentificatie  natuurlijkpersoon  anpidentificatie
+              description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+                NATUURLIJK PERSOON
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer:
+              title: Rol  betrokkeneidentificatie  natuurlijkpersoon  inpa nummer
+              description: Het administratienummer van de persoon, bedoeld in de Wet BRP
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__nietNatuurlijkPersoon__innNnpId:
+              title: Rol  betrokkeneidentificatie  nietnatuurlijkpersoon  innnnpid
+              description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+                NIET-NATUURLIJK PERSOON
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__nietNatuurlijkPersoon__annIdentificatie:
+              title: Rol  betrokkeneidentificatie  nietnatuurlijkpersoon  annidentificatie
+              description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
+                NIET-NATUURLIJK PERSOON
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__vestiging__vestigingsNummer:
+              title: Rol  betrokkeneidentificatie  vestiging  vestigingsnummer
+              description: Een korte unieke aanduiding van de Vestiging.
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__medewerker__identificatie:
+              title: Rol  betrokkeneidentificatie  medewerker  identificatie
+              description: Een korte unieke aanduiding van de MEDEWERKER.
+              type: string
+              minLength: 1
+            rol__betrokkeneIdentificatie__organisatorischeEenheid__identificatie:
+              title: Rol  betrokkeneidentificatie  organisatorischeeenheid  identificatie
+              description: Een korte identificatie van de organisatorische eenheid.
+              type: string
+              minLength: 1
+            ordering:
+              title: Ordering
+              description: 'Het veld waarop de resultaten geordend worden.
+                Uitleg bij mogelijke waarden:
+                * `startdatum` - Startdatum
+                * `-startdatum` - Startdatum (descending)
+                * `einddatum` - Einddatum
+                * `-einddatum` - Einddatum (descending)
+                * `publicatiedatum` - Publicatiedatum
+                * `-publicatiedatum` - Publicatiedatum (descending)
+                * `archiefactiedatum` - Archiefactiedatum
+                * `-archiefactiedatum` - Archiefactiedatum (descending)'
+              type: string
+              enum:
+              - startdatum
+              - -startdatum
+              - einddatum
+              - -einddatum
+              - publicatiedatum
+              - -publicatiedatum
+              - archiefactiedatum
+              - -archiefactiedatum
     ZakelijkRechtHeeftAlsGerechtigde:
       type: object
       properties:
@@ -14723,6 +14958,9 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/michielverhoef/Zaken/1.3.1
   - url: https://zaken-api.test.vng.cloud/api/v1
 tags:
   - name: klantcontacten
