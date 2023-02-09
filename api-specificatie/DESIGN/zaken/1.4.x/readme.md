@@ -1,0 +1,1 @@
+View in [Redoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-patch-zaken-1.4.x/api-specificatie/DESIGN/zaken/1.4.x/openapi.yaml#tag/zaakverzoeken/operation/zaakverzoek_retrieve).
