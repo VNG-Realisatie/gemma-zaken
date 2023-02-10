@@ -1,5 +1,5 @@
 openapi: 3.0.3
-info: 
+info:
   title: Zaken API
   version: 1.4.0
   description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
@@ -641,6 +641,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaginatedResultaatList'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ResultaatHalCollectie'                      
           description: OK
         '400':
           headers:
@@ -990,6 +993,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Resultaat'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ResultaatHal'                
           description: OK
         '401':
           headers:
@@ -1827,6 +1833,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaginatedRolList'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/RolHalCollectie'                      
           description: OK
         '400':
           headers:
@@ -2172,6 +2181,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Rol'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/RolHal'                
           description: OK
         '401':
           headers:
@@ -2544,6 +2556,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaginatedStatusList'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/StatusHalCollectie'
           description: OK
         '400':
           headers:
@@ -2902,6 +2917,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Status'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/StatusHal'                
           description: OK
         '401':
           headers:
@@ -3746,6 +3764,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ZaakInformatieObject'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakInformatieObjectHalCollectie'
           description: OK
         '400':
           headers:
@@ -4098,6 +4119,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ZaakInformatieObject'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakInformatieObjectHal'                
           description: OK
         '401':
           headers:
@@ -4881,6 +4905,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaginatedZaakObjectList'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakObjectHalCollectie'                
           description: OK
         '400':
           headers:
@@ -5235,6 +5262,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ZaakObject'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakObjectHal'                
           description: OK
         '401':
           headers:
@@ -6974,6 +7004,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PaginatedZaakList'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakHalCollectie'                
           description: OK
         '400':
           headers:
@@ -7432,6 +7465,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Zaak'
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/ZaakHal'                                
           description: OK
         '401':
           headers:
@@ -15034,6 +15070,482 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectZakelijkRecht'
+    HalLink:
+      required:
+      - href
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Href'
+        templated:
+          type: boolean
+        title:
+          type: string
+          description: Voor mens leesbaar label bij de link
+      description: De Link Object zoals gespecificeerd in https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5;
+        Deze link kan als templated link worden aangeboden. [URI-templating is hier
+        beschreven](https://github.com/VNG-Realisatie/Haal-Centraal-common/blob/v1.2.0/features/uri-templating.feature).
+    Href:
+      type: string
+      example: https://datapunt.voorbeeldgemeente.nl/api/v{major-versie}/resourcename/{resource-identificatie}
+    HalPaginationLinks:
+      description: |
+        HalPaginationLinks bevat de link properties die nodig zijn om te kunnen navigeren in een collectie:
+        - first: uri voor het opvragen van de eerste pagina van deze collectie
+        - previous: uri voor het opvragen van de vorige pagina van deze collectie
+        - next: uri voor het opvragen van de volgende pagina van deze collectie
+      example:
+        self:
+          href: /resourcenaam?page=4
+        first:
+          href: /resourcenaam?page=1
+          title: Eerste pagina
+        previous:
+          href: /resourcenaam?page=3
+          title: Vorige pagina
+        next:
+          href: /resourcenaam?page=5
+          title: Volgende pagina
+      allOf:
+      - $ref: '#/components/schemas/HalCollectionLinks'
+      - type: object
+        properties:
+          first:
+            $ref: '#/components/schemas/HalLink'
+          previous:
+            $ref: '#/components/schemas/HalLink'
+          next:
+            $ref: '#/components/schemas/HalLink'
+    HalCollectionLinks:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/HalLink'
+      description: |
+        HalCollectionLinks bevat de self link die elke HAL Resource minimaal moet hebben in zijn _links property  
+    ResultaatHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/ResultaatHalCollectieEmbedded'
+    ResultaatHalCollectieEmbedded:
+      type: object
+      properties:
+        resultaten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResultaatHal'
+    ResultaatHal:
+          allOf:
+          - $ref: '#/components/schemas/ResultaatHalBasis'
+          - properties:
+              _embedded:
+                $ref: '#/components/schemas/ResultaatEmbedded'
+    ResultaatHalBasis:
+          allOf:
+          - $ref: '#/components/schemas/Resultaat'
+          - properties:
+              _links:
+                $ref: '#/components/schemas/ResultaatLinks'
+    ResultaatLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        resultaattype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    ResultaatEmbedded:
+      type: object
+      properties:
+        resultaattype:
+          $ref: '#/components/schemas/ResultaattypeHalBasis'
+    ResultaattypeHalBasis:
+      allOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/ResultaatType'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ResultaattypeLinks'
+    ResultaattypeLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaaktype:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        resultaattypeomschrijving:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        selectielijstklasse:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'    
+    RolHalBasis:
+          allOf:
+          - $ref: '#/components/schemas/Rol'
+          - properties:
+              _links:
+                $ref: '#/components/schemas/RolLinks'
+    RolLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        betrokkene:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        roltype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    RolHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/RolHalCollectieEmbedded'
+    RolHalCollectieEmbedded:
+      type: object
+      properties:
+        rollen:
+          type: array
+          items:
+            $ref: '#/components/schemas/RolHal'
+    RolHal:
+          allOf:
+          - $ref: '#/components/schemas/RolHalBasis'
+          - properties:
+              _embedded:
+                $ref: '#/components/schemas/RolEmbedded'
+    RolEmbedded:
+      type: object
+      properties:
+        roltype:
+          $ref: '#/components/schemas/RoltypeHalBasis'
+    RoltypeHalBasis:
+      allOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/RolType'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/RoltypeLinks'
+    RoltypeLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaaktype:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    StatusHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/StatusHalCollectieEmbedded'
+    StatusHalCollectieEmbedded:
+      type: object
+      properties:
+        statussen:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusHal'
+    StatusHal:
+          allOf:
+          - $ref: '#/components/schemas/StatusHalBasis'
+          - properties:
+              _embedded:
+                $ref: '#/components/schemas/StatusEmbedded'
+    StatusEmbedded:
+      type: object
+      properties:
+        statustype:
+          $ref: '#/components/schemas/StatustypeHalBasis'
+    StatustypeHalBasis:
+      allOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/StatusType'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/StatustypeLinks'
+    StatustypeLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaaktype:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    StatusHalBasis:
+      allOf:
+      - $ref: '#/components/schemas/Status'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/StatusLinks'
+    StatusLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        statustype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    ZaakInformatieObjectHalBasis:
+      allOf:
+      - $ref: '#/components/schemas/ZaakInformatieObject'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaakInformatieObjectLinks'
+    ZaakInformatieObjectHal:
+      allOf:
+      - $ref: '#/components/schemas/ZaakInformatieObjectHalBasis'
+      - properties:
+          _embedded:
+            $ref: '#/components/schemas/ZaakInformatieObjectEmbedded'
+    ZaakInformatieObjectLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        informatieobject:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    ZaakInformatieObjectEmbedded:
+      type: object
+      properties: 
+        zaak:
+          $ref: '#/components/schemas/ZaakHal'
+    ZaakInformatieObjectHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZaakInformatieObjectHalCollectieEmbedded'
+    ZaakInformatieObjectHalCollectieEmbedded:
+      type: object
+      properties:
+        zaakinformatieobjecten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakInformatieObjectHal'
+    ZaakObjectHalBasis:
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaakObjectLinks'
+    ZaakObjectHal:
+      allOf:
+      - $ref: '#/components/schemas/ZaakObjectHalBasis'
+      - properties:
+          _embedded:
+            $ref: '#/components/schemas/ZaakObjectEmbedded'
+    ZaakObjectLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        object:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+    ZaakObjectEmbedded:
+      type: object
+      properties: 
+        zaak:
+          $ref: '#/components/schemas/ZaakHal'
+    ZaakObjectHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZaakObjectHalCollectieEmbedded'
+    ZaakObjectHalCollectieEmbedded:
+      type: object
+      properties:
+        zaakobjecten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakObjectHal'    
+    ZaakHalBasis:
+      allOf:
+      - $ref: '#/components/schemas/Zaak'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaakLinks'
+    ZaakHal:
+      allOf:
+      - $ref: '#/components/schemas/ZaakHalBasis'
+      - properties:
+          _embedded:
+            $ref: '#/components/schemas/ZaakEmbedded'
+    ZaakLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaaktype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        communicatiekanaal:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        productenOfDiensten:
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        selectielijstklasse:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        hoofdzaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'         
+        deelzaken:
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        relevanteAndereZaken:
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'       
+        rollen: 
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'      
+        status:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'         
+        zaakinformatieobjecten:
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'       
+        zaakobjecten:
+          type: array
+          items: 
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'       
+        resultaten:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'       
+    ZaakEmbedded:
+      type: object
+      properties: 
+        zaaktype:
+          $ref: '#/components/schemas/ZaaktypeHalBasis'
+        selectielijstklasse:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        hoofdzaak:
+         $ref: '#/components/schemas/ZaakHalBasis'         
+        deelzaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakHalBasis'
+        relevanteAndereZaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaaktypeHalBasis'
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakEigenschapHalBasis'       
+        rollen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/RolHalBasis'      
+        status:
+          $ref: '#/components/schemas/StatusHalBasis'
+        zaakinformatieobjecten:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakInformatieObjectHalBasis'
+        zaakobjecten:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakObjectHalBasis'
+        resultaten:
+          $ref: '#/components/schemas/ResultaatHalBasis'          
+    ZaakHalCollectie:
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HalPaginationLinks'
+        _embedded:
+          $ref: '#/components/schemas/ZaakHalCollectieEmbedded'
+    ZaakHalCollectieEmbedded:
+      type: object
+      properties:
+        zaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakHal'
+    ZaaktypeHalBasis:
+      allOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/ZaakType'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaaktypeLinks'
+    ZaaktypeLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        productenOfDiensten:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        statustypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        resultaattypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        eigenschappen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        informatieobjecttypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        roltypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        besluittypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        gerelateerdeZaaktypen:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'    
+    ZaakEigenschapHalBasis:
+      allOf:
+      - $ref: '#/components/schemas/ZaakEigenschap'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaakEigenschapLinks'
+    ZaakEigenschapLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaak:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        eigenschap:
+          type: array
+          items:
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'        
   securitySchemes:
     JWT-Claims:
       type: http
