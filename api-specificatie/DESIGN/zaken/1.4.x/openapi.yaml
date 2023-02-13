@@ -1835,7 +1835,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedRolList'
             application/hal+json:
               schema:
-                $ref: '#/components/schemas/RolHalCollectie'                      
+                $ref: '#/components/schemas/RolHalCollectie'
           description: OK
         '400':
           headers:
@@ -15359,11 +15359,15 @@ components:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
         object:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
+        zaakobjecttype:
+           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'          
     ZaakObjectEmbedded:
       type: object
       properties: 
         zaak:
           $ref: '#/components/schemas/ZaakHal'
+        zaakobjecttype:
+          $ref: '#/components/schemas/ZaakobjecttypeHalBasis'          
     ZaakObjectHalCollectie:
       type: object
       properties:
@@ -15546,6 +15550,17 @@ components:
           type: array
           items:
             $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'        
+    ZaakobjecttypeHalBasis:
+      allOf:
+      - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.2.x/openapi.yaml#/components/schemas/ZaakObjectType'
+      - properties:
+          _links:
+            $ref: '#/components/schemas/ZaakobjecttypeLinks'
+    ZaakobjecttypeLinks:
+      type: object
+      properties: 
+        self:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/API-Kennisbank/master/common/common.yaml#/components/schemas/HalLink'
   securitySchemes:
     JWT-Claims:
       type: http
