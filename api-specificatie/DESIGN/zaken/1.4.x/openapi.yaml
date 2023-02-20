@@ -1,8 +1,11 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.4.0
-  description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
+  version: 1.4.1
+  description: " <b><i>Met expand mechanisme in plain json</i></b>
+  
+    
+    Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
     De ZAAK is het kernobject in deze API, waaraan verschillende andere
@@ -11981,7 +11984,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Zaak'
+            $ref: '#/components/schemas/ZaakExpanded'
     PaginatedZaakObjectList:
       type: object
       properties:
@@ -12877,6 +12880,19 @@ components:
         - url
         - uuid
         - zaak
+    ResultaatExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Resultaat'
+     - properties:
+          _embedded:
+            $ref: '#/components/schemas/ResultaatEmbedded'
+    ResultaatEmbedded:
+      type: object
+      properties: 
+        zaak: 
+          $ref: '#/components/schemas/ZaakExpanded'
+        resultaattype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/ResultaatType'
     Rol:
       type: object
       properties:
@@ -13036,6 +13052,23 @@ components:
           niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_Rol'
           organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_Rol'
           vestiging: '#/components/schemas/vestiging_Rol'
+    RolExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Rol'
+     - properties:
+          _embedded:
+            $ref: '#/components/schemas/RolEmbedded'
+    RolEmbedded:
+      type: object
+      properties: 
+        zaak:
+          $ref: '#/components/schemas/ZaakExpanded'
+        roltype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/RolType'
+        statussen:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusExpanded'
     RolMedewerker:
       type: object
       properties:
@@ -13307,6 +13340,23 @@ components:
         - uuid
         - zaak
         - zaakinformatieobjecten
+    StatusExpanded:
+      allOf:
+        - $ref: '#/components/schemas/Status'
+        - properties:
+            _embedded:
+              $ref: '#/components/schemas/StatusEmbedded'
+    StatusEmbedded:
+      type: object
+      properties:
+        statustype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/StatusType'
+        gezetdoor:
+          $ref: '#/components/schemas/Rol'
+        zaakinformatieobjecten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakInformatieObject'
     SubVerblijfBuitenland:
       type: object
       properties:
@@ -13975,6 +14025,50 @@ components:
         - zaakinformatieobjecten
         - zaakobjecten
         - zaaktype
+    ZaakExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Zaak'
+     - properties:
+          _embedded:
+            $ref: '#/components/schemas/ZaakEmbedded'
+    ZaakEmbedded:
+      type: object
+      properties: 
+        zaaktype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/ZaakType'
+        # selectielijstklasse:
+        #   $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/Selectielijstklasse'
+        # Nog even uitzoeken waar deze API te vinden is.
+        hoofdzaak:
+           $ref: '#/components/schemas/ZaakExpanded'       
+        deelzaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakExpanded'
+        relevanteAndereZaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakExpanded'
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakEigenschap'      
+        rollen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/RolExpanded'   
+        status:
+          $ref: '#/components/schemas/StatusExpanded'
+        zaakinformatieobjecten:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakInformatieObjectExpanded'
+        zaakobjecten:
+          type: array
+          items: 
+           $ref: '#/components/schemas/ZaakObject'
+        resultaten:
+          $ref: '#/components/schemas/ResultaatExpanded'
     ZaakBesluit:
       type: object
       description:
@@ -14192,6 +14286,17 @@ components:
         - url
         - uuid
         - zaak
+    ZaakInformatieObjectExpanded:
+     allOf:
+     - $ref: '#/components/schemas/ZaakInformatieObject'
+     - properties:
+          _embedded:
+            $ref: '#/components/schemas/ZaakInformatieObjectEmbedded'
+    ZaakInformatieObjectEmbedded:
+      type: object
+      properties: 
+        status:
+          $ref: '#/components/schemas/StatusExpanded'
     ZaakKenmerk:
       type: object
       properties:
@@ -14396,6 +14501,17 @@ components:
           woz_waarde: '#/components/schemas/woz_waarde_ZaakObject'
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
+    # ZaakObjectExpanded:
+    # allOf:
+    #   - $ref: '#/components/schemas/ZaakObject'
+    #   - properties:
+    #         _embedded:
+    #           $ref: '#/components/schemas/ZaakObjectEmbedded'
+    # ZaakObjectEmbedded:
+    #   type: object
+    #   properties: 
+    #     zaakobjecttype:
+    #       $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.1.x/openapi.yaml#/components/schemas/RolType'
     ZaakVerzoek:
       type: object
       properties:
