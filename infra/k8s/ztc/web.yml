@@ -59,6 +59,8 @@ spec:
             value: {{ db_host }}
           - name: DB_NAME
             value: {{ service.name }}
+          - name: NOTIFICATIONS_DISABLED
+            value: "true"
           - name: SECRET_KEY
             valueFrom:
               secretKeyRef:

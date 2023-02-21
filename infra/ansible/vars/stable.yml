@@ -42,7 +42,7 @@ services:
   - name: drc
     templates: ../k8s/drc/
     domain: documenten-api.vng.cloud
-    image_tag: '1.2.0'
+    image_tag: '1.2.1'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc
@@ -53,12 +53,12 @@ services:
   - name: zrc
     templates: ../k8s/zrc/
     domain: zaken-api.vng.cloud
-    image_tag: '1.3.0'
+    image_tag: '1.3.1'
 
   - name: ztc
     templates: ../k8s/ztc/
     domain: catalogi-api.vng.cloud
-    image_tag: '1.2.0'
+    image_tag: '1.2.1'
 
   - name: klanten
     templates: ../k8s/klanten/
