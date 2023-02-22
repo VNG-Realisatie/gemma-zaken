@@ -42,7 +42,7 @@ services:
   - name: drc
     templates: ../k8s/drc/
     domain: documenten-api.vng.cloud
-    image_tag: '1.2.1'
+    image_tag: '1.2.2'
     min_upload_size: 4294967296  # 4GB
 
   - name: nrc
