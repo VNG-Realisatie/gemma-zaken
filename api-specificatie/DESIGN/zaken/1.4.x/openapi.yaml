@@ -6899,6 +6899,12 @@ paths:
           description: Een korte identificatie van de organisatorische eenheid.
           schema:
             type: string
+        - name: expand
+          in: query
+          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          schema:
+            type: string
+            example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype
         - name: ordering
           required: false
           in: query
@@ -7434,7 +7440,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Zaak'
+                $ref: '#/components/schemas/ZaakExpanded'
           description: OK
         '401':
           headers:
