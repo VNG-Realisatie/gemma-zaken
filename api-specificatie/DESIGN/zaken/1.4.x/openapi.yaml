@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.4.0-rc2
+  version: 1.4.0
   description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
@@ -2731,7 +2731,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Status'
+                $ref: '#/components/schemas/StatusRequestbody'
           description: Created
         '400':
           headers:
@@ -13332,8 +13332,75 @@ components:
             minLength: 1
             maxLength: 1000
           readOnly: true
-          title: status
+          title: zaakInformatieobjecten
           uniqueItems: true
+      required:
+        - datumStatusGezet
+        - indicatieLaatstGezetteStatus
+        - statustype
+        - url
+        - uuid
+        - zaak
+        - zaakinformatieobjecten
+    StatusRequestbody:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        uuid:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Unieke resource identifier (UUID4)
+          title: uuid
+        zaak:
+          type: string
+          format: uri
+          description: URL-referentie naar de ZAAK.
+          title: zaak
+          minLength: 1
+          maxLength: 1000
+        statustype:
+          type: string
+          format: uri
+          description: URL-referentie naar het STATUSTYPE (in de Catalogi API).
+          title: statustype
+          maxLength: 1000
+        datumStatusGezet:
+          type: string
+          format: date-time
+          description: De datum waarop de ZAAK de status heeft verkregen.
+          title: datum status gezet
+        statustoelichting:
+          type: string
+          description:
+            Een, voor de initiator van de zaak relevante, toelichting op
+            de status van een zaak.
+          title: statustoelichting
+          maxLength: 1000
+        indicatieLaatstGezetteStatus:
+          type: boolean
+          readOnly: true
+          description:
+            Het gegeven is afleidbaar uit de historie van de attribuutsoort
+            Datum status gezet van van alle statussen bij de desbetreffende zaak.
+          title: indicatieLaatstGezetteStatus
+        gezetdoor:
+          type: string
+          format: uri
+          title: Gezet door
+          description:
+            De BETROKKENE die in zijn/haar ROL in een ZAAK heeft geregistreerd
+            dat STATUSsen in die ZAAK bereikt zijn.
+          maxLength: 200
       required:
         - datumStatusGezet
         - indicatieLaatstGezetteStatus
