@@ -2731,7 +2731,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatusRequestBody'
+                $ref: '#/components/schemas/StatusRequestbody'
           description: Created
         '400':
           headers:
