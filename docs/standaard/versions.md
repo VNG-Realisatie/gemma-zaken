@@ -51,6 +51,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.4.0    | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger]
 1.2.1    | 21-12-2022    | [ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]
 1.3.0    | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff]
 1.2.0    | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff]
@@ -84,6 +85,10 @@ Versie   | Release datum | API specificatie
 [zaken-1.1.0-redoc]: ./zaken/redoc-1.1.0
 [zaken-1.1.0-swagger]: ./zaken/swagger-ui-1.1.0
 [zaken-1.1.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.2...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.4.0-redoc]: ./zaken/redoc-1.4.0
+[zaken-1.4.0-swagger]: ./zaken/swagger-ui-1.4.0
+
 
 ## Documenten API
 
