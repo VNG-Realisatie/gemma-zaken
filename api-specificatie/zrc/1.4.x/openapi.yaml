@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.4.0-rc2
+  version: 1.4.0
   description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
