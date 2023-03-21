@@ -63,10 +63,9 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 * [Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
 * API specificatie (OAS3) in
-  [ReDoc](https://zaken-api.vng.cloud/api/v1/schema/),
-  [Swagger](https://petstore.swagger.io/?url=https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml),
-  [YAML](https://zaken-api.vng.cloud/api/v1/schema/openapi.yaml) of
-  [JSON](https://zaken-api.vng.cloud/api/v1/schema/openapi.json)
+  [ReDoc](./redoc-1.4.0.md),
+  [Swagger](./swagger-ui-1.4.0.md),
+  [YAML](https://github.com/VNG-Realisatie/zaken-api/tree/master/src/openapi.yaml)
 
 
 ## Specificatie van gedrag
