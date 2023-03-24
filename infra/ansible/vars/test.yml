@@ -51,12 +51,12 @@ services:
   - name: zrc-test
     templates: ../k8s/zrc/
     domain: zaken-api.test.vng.cloud
-    image_tag: '1.4.0-rc2'
+    image_tag: '1.4.0-rc3'
 
   - name: ztc-test
     templates: ../k8s/ztc/
     domain: catalogi-api.test.vng.cloud
-    image_tag: '1.3.0-rc2'
+    image_tag: '1.3.0-rc3'
 
   - name: klanten-test
     templates: ../k8s/klanten/
