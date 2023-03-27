@@ -3,6 +3,11 @@
 db_host: postgis
 redis_cache: redis
 
+
+scaler:
+  min: 1
+  max: 3
+
 services:
   # Datastores
 
@@ -18,7 +23,6 @@ services:
       - nrc
       - ac
       - token-issuer
-      - vrl
       - deploy
       - klanten
       - contactmomenten
@@ -53,7 +57,7 @@ services:
   - name: zrc
     templates: ../k8s/zrc/
     domain: zaken-api.vng.cloud
-    image_tag: '1.3.2'
+    image_tag: '1.4.0'
 
   - name: ztc
     templates: ../k8s/ztc/
@@ -76,15 +80,10 @@ services:
     image_tag: 'latest'
 
   # Unofficial APIs
-
   - name: vrl
     templates: ../k8s/vrl/
-    image_tag: '0.5.6'
-
-  # Documentation
-
-  - name: docs
-    templates: ../k8s/docs
+    domain: referentielijsten-api.vng.cloud
+    image_tag: '0.1.0'
 
   # Supporting services
 
@@ -94,12 +93,6 @@ services:
     redis_host: redis-test
     redis_db: 7
     host: zaken-auth.vng.cloud
-
-  - name: demo
-    templates: ../k8s/demo/
-
-  - name: deploy
-    templates: ../k8s/deploy/
 
   # - name: inway
   #   templates: ../k8s/inway/
@@ -134,17 +127,7 @@ ingress:
     - host: referentielijsten-api.vng.cloud
       name: vrl
 
-    # Documentation
-
-    - host: zaakgerichtwerken.vng.cloud
-      name: docs
-      port: 80
-
     # Supporting services
 
     - host: zaken-auth.vng.cloud
       name: token-issuer
-    - host: zgw-demo.vng.cloud
-      name: demo
-    - host: deploy-bot-zgw.vng.cloud
-      name: deploy

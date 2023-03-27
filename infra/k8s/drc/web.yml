@@ -28,7 +28,7 @@ spec:
             claimName: {{ service.name }}-private-media
       containers:
       - name: {{ service.name }}
-        image: vngr/gemma-drc:{{ service.image_tag }}
+        image: ghcr.io/vng-realisatie/documenten-api:{{ service.image_tag }}
         imagePullPolicy: Always
         resources:
           requests:

@@ -3,6 +3,10 @@
 db_host: postgis-test
 redis_cache: redis-test
 
+scaler:
+  min: 1
+  max: 2
+
 services:
   # Datastores
 
@@ -51,7 +55,7 @@ services:
   - name: zrc-test
     templates: ../k8s/zrc/
     domain: zaken-api.test.vng.cloud
-    image_tag: '1.4.0-rc3'
+    image_tag: '1.4.0'
 
   - name: ztc-test
     templates: ../k8s/ztc/
@@ -75,16 +79,11 @@ services:
 
   # Unofficial APIs
 
-  # n/a
-
   # Documentation
 
   # n/a
 
   # Supporting services
-
-  - name: docs-test
-    templates: ../k8s/docs
 
   - name: token-issuer-test
     templates: ../k8s/tokens
@@ -120,8 +119,6 @@ ingress:
       name: verzoeken-test
 
     # Unofficial APIs
-
-    # n/a
 
     # Documentation
 
