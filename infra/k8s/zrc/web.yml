@@ -10,7 +10,7 @@ metadata:
   labels:
     k8s-app: {{ service.name }}
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       k8s-app: {{ service.name }}
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: {{ service.name }}
-        image: vngr/gemma-zrc:{{ service.image_tag }}
+        image: ghcr.io/vng-realisatie/zaken-api:{{ service.image_tag }}
         imagePullPolicy: Always
         resources:
           requests:
