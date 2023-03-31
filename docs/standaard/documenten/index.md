@@ -105,7 +105,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze bu
 
 #### **<a name="drc-001">Valideren `informatieobjecttype` op de `EnkelvoudigInformatieObject`-resource ([drc-001](#drc-001))</a>**
 
-Bij het aanmaken (`enkelvoudiginformatieobject_create`) MOET de URL-referentie naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
+Bij het aanmaken (`enkelvoudiginformatieobject_create`) of bewerken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`) MOET de URL-referentie naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
 De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een informatieobjecttype is conform de geldige Catalogi API specificatie.
 
@@ -113,8 +113,6 @@ De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een in
     <strong>overgenomen uit de openapi.yaml</strong>
 </span>
 Daarnaast MOET de provider valideren dat het opgehaalde 'informatieobjecttype' 'concept = false' is. Indien het opgehaalde 'informatieobjecttype' niet 'concept = false' is MOET de DRC antwoorden met een `HTTP 400` foutbericht.
-
-Als er geprobeerd wordt om het `informatieobjecttype` van een bestaand `EnkelvoudigInformatieObject` bij te werken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`), dan MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
 
