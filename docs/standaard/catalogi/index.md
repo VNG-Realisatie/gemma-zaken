@@ -183,22 +183,24 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
         <strong>Nieuw in versie 1.3.0</strong>
     </span><br/>
-    
-    
-De volgende regels gelden voor Zaaktype en daaraan gerelateerde typen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**:
-    * Een wijziging in één van de genoemde typen leidt tot een nieuwe versie van het Zaaktype en de gerelateerde typen. 
+
+
+[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
+
+De volgende regels gelden voor Zaaktype en daaraan gerelateerde objecttypen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen. Dit betreft het groene gedeelte in bovenstaande afbeelding.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**:
+    * Een wijziging in één van de genoemde typen (Zaaktype of gerelateerde objecttypen) leidt tot een nieuwe versie van het Zaaktype **en** de gerelateerde objecttypen. 
     * Er mag GEEN nieuw objecttype van bovengenoemde typen aangemaakt worden met een relatie naar een objecttype van bovengenoemde typen met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype van bovengenoemde typen en een objecttype van bovengenoemde typen met `concept=false` (update, partial_update)
     * Relaties tussen Zaaktype en Besluittype worden gelegd in het Zaaktype middels de besluittype.omschrijving en deze zijn versie-onafhankelijk. Om deze relatie te verwijderen dient een nieuwe versie van het Zaaktype en gerelateerde typen gemaakt te worden.
     * Er mogen WEL relaties gelegd worden van een Zaaktype naar een Besluittype of Informatieobjecttype met `concept=false`. Hiervoor dient een nieuw(e versie van een) Zaaktype met gerelateerde typen gemaakt te worden.
     * Relaties tussen Resultaatype en Besluittype worden gelegd in het Resultaatype middels de besluittype.omschrijving en deze zijn versie-onafhankelijk. Om deze relatie te verwijderen dient een nieuwe versie van het Zaaktype, Resultaattype en overige gerelateerde typen gemaakt te worden.
 
-De volgende regels gelden voor Besluittype.  **<a name="ztc-011b">([ztc-011b](#ztc-011b))</a>**:
+De volgende regels gelden voor Besluittype. Dit betreft het rode gedeelte in bovenstaande afbeelding.  **<a name="ztc-011b">([ztc-011b](#ztc-011b))</a>**:
     * Relaties tussen Besluittype en Informatieobjecttype worden gelegd in het Besluittype middels de Informatieobjecttype.omschrijving en deze zijn versie-onafhankelijk. Om een relatie te verwijderen dient een nieuwe versie vna het Besluittype gemaakt te worden.
     * Een wijziging in een Besluittype leidt NIET tot een nieuwe versie van een gerelateerd Zaaktype of Informatieobjecttype.
     * Een wijziging in een Zaaktype of Besluittype leidt NIET tot een nieuwe versie van een gerelateerd Besluittype.
     
-De volgende regels gelden voor Informatieobjecttype.  **<a name="ztc-011c">([ztc-011c](#ztc-011c))</a>**:
+De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gedeelte in bovenstaande afbeelding. **<a name="ztc-011c">([ztc-011c](#ztc-011c))</a>**:
     * Relaties tussen Zaaktype en Informatieobjecttype worden, via ZaaktypInformatieobjecttype, gelegd door de informatieobjecttype.omschrijving op te nemen in het ZaaktypInformatieobjecttype. 
     * Relaties tussen Zaaktype en Besluittype worden gelegd door de informatieobjecttype.omschrijving op te nemen in het Besluittype. 
     * Het is WEL toegestaan relaties naar een Informatieobjecttype met `concept=false` aan te maken vanuit een Zaaktype/ZaaktypeInformatieobjecttype of Besluittype.
