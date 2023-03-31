@@ -185,7 +185,7 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     </span><br/>
 
 
-[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
+[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 
 De volgende regels gelden voor Zaaktype en daaraan gerelateerde objecttypen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen. Dit betreft het groene gedeelte in bovenstaande afbeelding.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**:
     * Een wijziging in één van de genoemde typen (Zaaktype of gerelateerde objecttypen) leidt tot een nieuwe versie van het Zaaktype **en** de gerelateerde objecttypen. 
