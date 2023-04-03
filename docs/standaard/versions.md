@@ -205,7 +205,7 @@ Versie   | Release datum | Einddatum ondersteuning | Documentatie
 -------- | ------------- | ------------------------|-------------
 1.x      | 2019-11-18    | (nog niet bekend)       | [Documentatie][autorisaties-1.x-docs]
 
-[autorisaties-1.x-docs]: /gemma-zaken/content/standaard/autorisaties/
+[autorisaties-1.x-docs]: /gemma-zaken/standaard/autorisaties/
 
 ### Releases
 
@@ -213,12 +213,12 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.0.0    | 2019-11-18    | [ReDoc][autorisaties-1.0.0-redoc], [Swagger][autorisaties-1.0.0-swagger]
 
-[autorisaties-1.0.1-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.1
-[autorisaties-1.0.1-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.1
+[autorisaties-1.0.1-redoc]: /gemma-zaken/standaard/autorisaties/redoc-1.0.1
+[autorisaties-1.0.1-swagger]: /gemma-zaken/standaard/autorisaties/swagger-ui-1.0.1
 [autorisaties-1.0.1-diff]: https://github.com/VNG-Realisatie/autorisaties-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[autorisaties-1.0.0-redoc]: /gemma-zaken/content/standaard/autorisaties/redoc-1.0.0
-[autorisaties-1.0.0-swagger]: /gemma-zaken/content/standaard/autorisaties/swagger-ui-1.0.0
+[autorisaties-1.0.0-redoc]: /gemma-zaken/standaard/autorisaties/redoc-1.0.0
+[autorisaties-1.0.0-swagger]: /gemma-zaken/standaard/autorisaties/swagger-ui-1.0.0
 
 
 ## Notificaties API
@@ -239,12 +239,12 @@ Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.0.0    | 2019-11-18    | [ReDoc][notificaties-1.0.0-redoc], [Swagger][notificaties-1.0.0-swagger]
 
-[notificaties-1.0.1-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.1
-[notificaties-1.0.1-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.1
+[notificaties-1.0.1-redoc]: /gemma-zaken/standaard/notificaties/redoc-1.0.1
+[notificaties-1.0.1-swagger]: /gemma-zaken/standaard/notificaties/swagger-ui-1.0.1
 [notificaties-1.0.1-diff]: https://github.com/VNG-Realisatie/notificaties-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[notificaties-1.0.0-redoc]: /gemma-zaken/content/standaard/notificaties/redoc-1.0.0
-[notificaties-1.0.0-swagger]: /gemma-zaken/content/standaard/notificaties/swagger-ui-1.0.0
+[notificaties-1.0.0-redoc]: /gemma-zaken/standaard/notificaties/redoc-1.0.0
+[notificaties-1.0.0-swagger]: /gemma-zaken/standaard/notificaties/swagger-ui-1.0.0
 
 
 

@@ -27,13 +27,13 @@ De API ondersteunt:
 
 * [Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
 * API specificatie (OAS3) in
-  [ReDoc][notificaties-1.0.1-redoc],
-  [Swagger][notificaties-1.0.1-swagger],
+  [ReDoc][notificaties-1.0.0-redoc],
+  [Swagger][notificaties-1.0.0-swagger],
   [YAML](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://notificaties-api.vng.cloud/api/v1/schema/openapi.json)
 
-[notificaties-1.0.1-redoc]: redoc-1.0.1
-[notificaties-1.0.1-swagger]: swagger-ui-1.0.1
+[notificaties-1.0.0-redoc]: redoc-1.0.0
+[notificaties-1.0.0-swagger]: swagger-ui-1.0.0
 
 ## Specificatie van gedrag
 
