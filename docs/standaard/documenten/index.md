@@ -65,25 +65,40 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 
 ## Specificatie van de Documenten API
 
-* [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
-* API specificatie (OAS3) versie 1.1.0 in
-  [ReDoc][documenten-1.1.0-redoc],
-  [Swagger][documenten-1.1.0-swagger],
-  [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
-  [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
+[Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
 
-[documenten-1.1.0-redoc]: redoc-1.1.0
-[documenten-1.1.0-swagger]: swagger-ui-1.1.0
+### Releases
 
+Versie   | Release datum | API specificatie
+-------- | ------------- | ----------------
+1.3.0    | 29-03-2023    | [ReDoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
+1.2.0    | 19-12-2022    | [ReDoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
+1.1.0    | 24-05-2021    | [ReDoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
+1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
+1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
-* API specificatie (OAS3) versie 1.0.1 in
-  [ReDoc][documenten-1.0.1-redoc],
-  [Swagger][documenten-1.0.1-swagger],
-  [YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml) of
-  Een JSON versie is momenteel niet beschikbaar
+[documenten-1.3.0-redoc]: redoc-1.3.0
+[documenten-1.3.0-swagger]: swagger-ui-1.3.0
+[documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...master
+
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1
+[documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+[documenten-1.0.1-YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml)
+
+[documenten-1.0.0-redoc]: ./documenten/redoc-1.0.0
+[documenten-1.0.0-swagger]: ./documenten/swagger-ui-1.0.0
+
+[documenten-1.1.0-redoc]: redoc-1.1.0
+[documenten-1.1.0-swagger]: swagger-ui-1.1.0
+[documenten-1.1.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.1...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+[documenten-1.1.0-YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) 
+[documenten-1.1.0-JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
+
+[documenten-1.2.0-redoc]: redoc-1.2.0
+[documenten-1.2.0-swagger]: swagger-ui-1.2.0
+[documenten-1.2.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 ## Specificatie van gedrag
 
