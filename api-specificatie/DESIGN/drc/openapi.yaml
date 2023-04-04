@@ -6211,6 +6211,11 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
+        andereVersies:
+          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
+          type: array
+          items: 
+             $ref: '#/components/schemas/AndereVersies'
         lock:
           type: string
           readOnly: true
@@ -6444,6 +6449,11 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
+        andereVersies:
+          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
+          type: array
+          items: 
+             $ref: '#/components/schemas/AndereVersies'
       required:
         - auteur
         - bronorganisatie
@@ -6921,6 +6931,11 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
+        andereVersies:
+          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
+          type: array
+          items: 
+             $ref: '#/components/schemas/AndereVersies'
         lock:
           type: string
           writeOnly: true
