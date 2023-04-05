@@ -88,11 +88,9 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze bu
 
 #### **<a name="zrc-001">Valideren `zaaktype` op de `Zaak`-resource ([zrc-001](#zrc-001))</a>**
 
-Bij het aanmaken (`zaak_create`) MOET de URL-referentie naar het `zaaktype` gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
+Bij het aanmaken (`zaak_create`) of bijwerken (`zaak_update`, `zaak_partial_update`) van een zaak MOET de URL-referentie naar het `zaaktype` gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
-De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype is conform de 1.0.x Catalogi API specificatie.
-
-Als er geprobeerd wordt om het `zaaktype` van een bestaande `Zaak` bij te werken (`zaak_update`, `zaak_partial_update`), dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
+De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype is conform de vigerende Catalogi API specificatie.
 
 #### **<a name="zrc-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource ([zrc-002](#zrc-002))</a>**
 
