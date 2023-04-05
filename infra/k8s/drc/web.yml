@@ -28,7 +28,7 @@ spec:
             claimName: {{ service.name }}-private-media
       containers:
       - name: {{ service.name }}
-        image: vngr/gemma-drc:{{ service.image_tag }}
+        image: ghcr.io/vng-realisatie/documenten-api:{{ service.image_tag }}
         imagePullPolicy: Always
         resources:
           requests:
@@ -68,6 +68,8 @@ spec:
             value: {{ db_host }}
           - name: DB_NAME
             value: {{ service.name }}
+          - name: NOTIFICATIONS_DISABLED
+            value: "true"
             # see nginx.yml, this is required until a better storage solution
             # is available
           - name: SENDFILE_BACKEND
