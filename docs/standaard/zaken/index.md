@@ -61,11 +61,51 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 ## Specificatie van de Zaken API
 
-* [Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
-* API specificatie (OAS3) in
-  [ReDoc](./redoc-1.4.0.md),
-  [Swagger](./swagger-ui-1.4.0.md),
-  [YAML](https://github.com/VNG-Realisatie/zaken-api/tree/master/src/openapi.yaml)
+
+### Releases
+
+[Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
+
+Versie   | Release datum | API specificatie
+-------- | ------------- | ----------------
+1.4.0    | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger]
+1.2.1    | 21-12-2022    | [ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]
+1.3.0    | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff]
+1.2.0    | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff]
+1.1.0    | 24-05-2021    | [ReDoc][zaken-1.1.0-redoc], [Swagger][zaken-1.1.0-swagger], [Diff][zaken-1.1.0-diff]
+1.0.2    | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff]
+1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
+1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
+
+[zaken-1.0.2-redoc]: redoc-1.0.2
+[zaken-1.0.2-swagger]: swagger-ui-1.0.2
+[zaken-1.0.2-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.1...1.0.2?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.0.1-redoc]: redoc-1.0.1
+[zaken-1.0.1-swagger]: swagger-ui-1.0.1
+[zaken-1.0.1-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.0.0-redoc]: redoc-1.0.0
+[zaken-1.0.0-swagger]: swagger-ui-1.0.0
+
+[zaken-1.2.0-redoc]: redoc-1.2.0
+[zaken-1.2.0-swagger]: swagger-ui-1.2.0
+[zaken-1.2.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.2.1-redoc]: redoc-1.2.1
+[zaken-1.2.1-swagger]: swagger-ui-1.2.1
+
+[zaken-1.3.0-redoc]: redoc-1.3.0
+[zaken-1.3.0-swagger]: swagger-ui-1.3.0
+[zaken-1.3.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.2.0...1.3.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.1.0-redoc]: redoc-1.1.0
+[zaken-1.1.0-swagger]: swagger-ui-1.1.0
+[zaken-1.1.0-diff]: https://github.com/VNG-Realisatie/zaken-api/compare/1.0.2...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[zaken-1.4.0-redoc]: redoc-1.4.0
+[zaken-1.4.0-swagger]: swagger-ui-1.4.0
+[zaken-1.4.0-yaml]: https://github.com/VNG-Realisatie/zaken-api/tree/master/src/openapi.yaml
 
 
 ## Specificatie van gedrag
