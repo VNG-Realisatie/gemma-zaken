@@ -118,6 +118,10 @@ Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven sta
 
 Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN zoals beschreven geïmplementeerd worden.
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Gewijzigd in 1.3.0</strong>
+</span>
+
 #### **<a name="drc-001">Valideren `informatieobjecttype` op de `EnkelvoudigInformatieObject`-resource ([drc-001](#drc-001))</a>**
 
 Bij het aanmaken (`enkelvoudiginformatieobject_create`) of bewerken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`) MOET de URL-referentie naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
@@ -127,6 +131,7 @@ De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een in
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>overgenomen uit de openapi.yaml</strong>
 </span>
+
 Daarnaast MOET de provider valideren dat het opgehaalde 'informatieobjecttype' 'concept = false' is. Indien het opgehaalde 'informatieobjecttype' niet 'concept = false' is MOET de DRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
@@ -181,6 +186,7 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn applic
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>overgenomen uit de openapi.yaml</strong>
 </span>
+
 Bij het werken wordt gevalideerd of:
 - Een correcte lock waarde aanwezig is (zie ([drc-009](#drc-009))
 - De  status NIET definitief is
