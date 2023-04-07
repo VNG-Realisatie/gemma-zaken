@@ -31,6 +31,7 @@ Onder het tablad Standaard vindt u de [beschrijving van de standaard](standaard/
 [API's](standaard/) en de implementaties van de referentie
 componenten. Hoe we samen komen tot API-standaarden, kunt u in de [beschrijving hoe bij te dragen](community/bijdragen) lezen.
 
+<!--
 ## Slack
 
 U kunt ook gebruik maken van de [VNG Community][VNG Community]
@@ -46,6 +47,6 @@ Toegang tot de VNG API Community kunt u via [dit formulier](https://forms.gle/b7
 [VNG Community]: http://vngapicommunity.slack.com
 
 [Getting started with slack]: https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-members
-
+-->
 [github]: https://github.com/VNG-Realisatie/gemma-zaken
 [teamleden]: https://zaakgerichtwerken.vng.cloud/overige/samenwerking
