@@ -19,23 +19,31 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 
 ## Specificatie van de Catalogi API
 
-* [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
-* API specificatie (OAS3) in
-  [ReDoc 1.2.0][catalogi-1.2.0-redoc],
-  [Swagger 1.2.0][catalogi-1.2.0-swagger],
-  [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
-  [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
+[Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 
-* Oudere versies:
-  [ReDoc 1.0.1 ][catalogi-1.0.1-redoc],
-  [Swagger 1.0.1][catalogi-1.0.1-swagger],
+### Releases
 
-[catalogi-1.0.1-redoc]: redoc-1.0.1
-[catalogi-1.0.1-swagger]: swagger-ui-1.0.1
- 
-[catalogi-1.2.0-redoc]: redoc-1.2.0
-[catalogi-1.2.0-swagger]: swagger-ui-1.2.0
- 
+Versie   | Release datum | API specificatie
+-------- | ------------- | ----------------
+1.2.0    | 19-12-2022    | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger]
+1.1.0    | 24-05-2021    | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger]
+1.0.0    | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]
+
+[catalogi-1.0.1-redoc]: ./catalogi/redoc-1.0.1
+[catalogi-1.0.1-swagger]: ./catalogi/swagger-ui-1.0.1
+[catalogi-1.0.1-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[catalogi-1.0.0-redoc]: ./catalogi/redoc-1.0.0
+[catalogi-1.0.0-swagger]: ./catalogi/swagger-ui-1.0.0
+
+[catalogi-1.1.0-redoc]: ./catalogi/redoc-1.1.0
+[catalogi-1.1.0-swagger]: ./catalogi/swagger-ui-1.1.0
+[catalogi-1.1.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.0.x...stable/1.1.x
+
+[catalogi-1.2.0-redoc]: ./catalogi/redoc-1.2.0
+[catalogi-1.2.0-swagger]: ./catalogi/swagger-ui-1.2.0
+[catalogi-1.2.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.1.x...stable/1.2.x
+
  
 ## Specificatie van gedrag
 
