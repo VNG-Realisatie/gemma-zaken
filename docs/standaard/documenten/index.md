@@ -190,7 +190,12 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn applic
 Bij het werken wordt gevalideerd of:
 - Een correcte lock waarde aanwezig is (zie ([drc-009](#drc-009))
 - De  status NIET definitief is
-- Het informatieobjecttype niet gewijzigd wordt
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>gewijzigd in 1.3.0</strong>
+</span>
+
+- ~~Het informatieobjecttype niet gewijzigd wordt~~
 
 Wanneer aan één of meer van deze voorwaarden niet wordt voldaan MOET het DRC antwoorden met een `HTTP 400` foutbericht. 
 
