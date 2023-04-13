@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.4.0
+  version: 1.4.0-relateren-versies-2078
   description:
     "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
     _Wat is nieuw in 1.4.0?_\n\n
@@ -3268,6 +3268,18 @@ paths:
           schema:
             type: string
             format: uri
+        - name: naamRelatie
+          required: false
+          in: query
+          description: De naam van de relatie tussen het OBJECT en het INFORMATIEOBJECT.
+          schema:
+            type: string
+        - name: naamInverseRelatie
+          required: false
+          in: query
+          description: De naam van de inverse relatie tussen het OBJECT en het INFORMATIEOBJECT.
+          schema:
+            type: string
       tags:
         - objectinformatieobjecten
       security:
@@ -3409,9 +3421,9 @@ paths:
     post:
       operationId: objectinformatieobject_create
       description:
-        "**LET OP: Dit endpoint hoor je als consumer niet zelf aan te spreken.**
+        "**LET OP:** Dit endpoint mag je alleen aanspreken als het `objectType` de waarde `informatieobject` heeft. Voor andere waarden hoor je als consumer dit endpoint niet zelf aan te spreken. 
         Andere API's, zoals de Zaken API en de Besluiten API, gebruiken dit endpoint
-        bij het synchroniseren van relaties. **Er wordt gevalideerd op** - geldigheid
+        bij het synchroniseren van relaties. <br><br> **Er wordt gevalideerd op** - geldigheid
         `informatieobject` URL - de combinatie `informatieobject` en `object` moet
         uniek zijn - bestaan van `object` URL"
       summary: Maak een OBJECT-INFORMATIEOBJECT relatie aan.
@@ -5921,11 +5933,13 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
-        andereVersies:
-          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
-          type: array
-          items: 
-             $ref: '#/components/schemas/AndereVersies'
+        # gerelateerdeObjecten:
+        #   description: Links naar gerelateerde objecten.
+        #   type: array
+        #   readOnly: true
+        #   items: 
+        #     type: string
+        #     format: uri
       required:
         - auteur
         - beginRegistratie
@@ -5938,33 +5952,6 @@ components:
         - titel
         - url
         - versie
-    AndereVersies:
-      type: object
-      description: Andere versies van het enkelvoudig informatieobject.
-      properties:
-        andereVersie:
-          type: string
-          format: uri
-          title: url
-          description:
-            URL-referentie naar de andere versie van dit object.
-          minLength: 1
-          maxLength: 1000
-        aanduidingVersie:
-          description: De naam waarmee de andere versie wordt aangeduid.
-          type: string
-          maxLength: 30
-          example: gestempeld
-        richtingRelatie:
-          description: Richting van de relatie. 
-          type: string
-          enum:
-            - heeft_versie
-            - is_versie_van
-      required:
-        - andereVersie
-        - aanduidingVersie
-        - richtingRelatie
     EnkelvoudigInformatieObjectCreateLock:
       type: object
       description:
@@ -6211,11 +6198,6 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
-        andereVersies:
-          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
-          type: array
-          items: 
-             $ref: '#/components/schemas/AndereVersies'
         lock:
           type: string
           readOnly: true
@@ -6449,11 +6431,6 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
-        andereVersies:
-          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
-          type: array
-          items: 
-             $ref: '#/components/schemas/AndereVersies'
       required:
         - auteur
         - bronorganisatie
@@ -6931,11 +6908,6 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
-        andereVersies:
-          description: Andere versies van het enkelvoudig informatieobject. Voor elke gerelateerde versie wordt automatisch de inverse relatie aangemaakt.
-          type: array
-          items: 
-             $ref: '#/components/schemas/AndereVersies'
         lock:
           type: string
           writeOnly: true
@@ -7248,15 +7220,16 @@ components:
           allOf:
             - $ref: '#/components/schemas/ObjectTypeEnum'
           title: Objecttype
-          description: 'Het type van het gerelateerde OBJECT.
-
-
-            Uitleg bij mogelijke waarden:
-
-
-            * `besluit` - Besluit
-
-            * `zaak` - Zaak'
+          description: 'Het type van het gerelateerde OBJECT.'
+          example: informatieobject
+        naamRelatie:
+          description: De naam van de relatie van OBJECT naar INFORMATIEOBJECT.
+          type: string
+          example: "heeft_als_gestempelde_versie"
+        naamInverseRelatie:
+          description: De naam van de relatie van INFORMATIEOBJECT naar OBJECT.
+          type: string
+          example: "is_een_gestempelde_versie_van"
       required:
         - informatieobject
         - object
@@ -7283,15 +7256,16 @@ components:
           allOf:
             - $ref: '#/components/schemas/ObjectTypeEnum'
           title: Objecttype
-          description: 'Het type van het gerelateerde OBJECT.
-
-
-            Uitleg bij mogelijke waarden:
-
-
-            * `besluit` - Besluit
-
-            * `zaak` - Zaak'
+          description: 'Het type van het gerelateerde OBJECT.'
+          example: informatieobject
+        naamRelatie:
+          description: De naam van de relatie van OBJECT naar INFORMATIEOBJECT.
+          type: string
+          example: "heeft_als_gestempelde_versie"
+        naamInverseRelatie:
+          description: De naam van de relatie van INFORMATIEOBJECT naar OBJECT.
+          type: string
+          example: "is_een_gestempelde_versie_van"
       required:
         - informatieobject
         - object
@@ -7301,6 +7275,7 @@ components:
         - besluit
         - zaak
         - verzoek
+        - informatieobject
       type: string
     Ondertekening:
       type: object
