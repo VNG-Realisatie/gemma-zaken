@@ -55,7 +55,7 @@ services:
   - name: zrc-test
     templates: ../k8s/zrc/
     domain: zaken-api.test.vng.cloud
-    image_tag: '1.4.0'
+    image_tag: 'pr-267'
 
   - name: ztc-test
     templates: ../k8s/ztc/
