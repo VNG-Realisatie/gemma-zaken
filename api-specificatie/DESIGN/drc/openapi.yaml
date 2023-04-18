@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.3.0
+  version: 1.4.0-labels
   description:
     "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
     In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\n\
@@ -258,6 +258,17 @@ paths:
             \ eerste in een samenwerkingsketen heeft vastgelegd."
           schema:
             type: string
+        - name: trefwoorden
+          required: false
+          in: query
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          schema:
+            type: array
+            items:
+              type: string
+            example: ["bouwtekening","vergunning","aanvraag"]
+          style: form
+          explode: false
         - name: page
           required: false
           in: query
@@ -5919,6 +5930,12 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - beginRegistratie
@@ -6177,6 +6194,12 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example: ["bouwtekening","vergunning","aanvraag"]
         lock:
           type: string
           readOnly: true
@@ -6410,6 +6433,12 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - bronorganisatie
@@ -6663,6 +6692,12 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - beginRegistratie
@@ -6887,6 +6922,12 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example: ["bouwtekening","vergunning","aanvraag"]
         lock:
           type: string
           writeOnly: true
