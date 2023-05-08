@@ -47,12 +47,12 @@ Versie   | Release datum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
 
-[besluiten-1.0.1-redoc]: ./besluiten/redoc-1.0.1
-[besluiten-1.0.1-swagger]: ./besluiten/swagger-ui-1.0.1
+[besluiten-1.0.1-redoc]: ./redoc-1.0.1
+[besluiten-1.0.1-swagger]: ./swagger-ui-1.0.1
 [besluiten-1.0.1-diff]: https://github.com/VNG-Realisatie/besluiten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
-[besluiten-1.0.0-redoc]: ./besluiten/redoc-1.0.0
-[besluiten-1.0.0-swagger]: ./besluiten/swagger-ui-1.0.0
+[besluiten-1.0.0-redoc]: ./redoc-1.0.0
+[besluiten-1.0.0-swagger]: ./swagger-ui-1.0.0
 
 
 ## Specificatie van gedrag
