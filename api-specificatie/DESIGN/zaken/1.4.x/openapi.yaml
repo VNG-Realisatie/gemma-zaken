@@ -7601,8 +7601,7 @@ paths:
     put:
       operationId: zaak_update
       description:
-        "**Er wordt gevalideerd op** \n- `zaaktype` mag niet gewijzigd\
-        \ worden.\n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
+        "**Er wordt gevalideerd op** \n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
         \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
         \ als de betalingsindicatie\n\"nvt\" is.\n- `archiefnominatie` moet een waarde\
         \ hebben indien `archiefstatus` niet de\nwaarde \"nog_te_archiveren\" heeft.\n\
@@ -7844,8 +7843,7 @@ paths:
     patch:
       operationId: zaak_partial_update
       description:
-        "**Er wordt gevalideerd op** \n- `zaaktype` mag niet gewijzigd\
-        \ worden.\n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
+        "**Er wordt gevalideerd op** \n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
         \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
         \ als de betalingsindicatie\n\"nvt\" is.\n- `archiefnominatie` moet een waarde\
         \ hebben indien `archiefstatus` niet de\nwaarde \"nog_te_archiveren\" heeft.\n\
