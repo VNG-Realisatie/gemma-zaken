@@ -89,7 +89,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze bu
 #### **<a name="zrc-001">Valideren `zaaktype` op de `Zaak`-resource ([zrc-001](#zrc-001))</a>**
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.4.1: bij een zaak kan nu het zaaktype worden aangepast.</strong>
+    <strong>Nieuw in versie 1.5.0: bij een zaak kan nu het zaaktype worden aangepast.</strong>
 </span>
 
 Bij het aanmaken (`zaak_create`) of bijwerken (`zaak_update`, `zaak_partial_update`) van een zaak MOET de URL-referentie naar het `zaaktype` gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
