@@ -30,6 +30,24 @@ Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen beslu
 ### Opslaan van bestanden
 In versie 1.0.x van de API moet het bestand base64-encoded opgeslagen worden in het attribuut `inhoud`. De omvang mag 4GB groot zijn. Hou hierbij rekening met de overhead van base64, die, in worst-case scenario's, ongeveer 33% bedraagt . Dit betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot mag zijn.
 
+Uploaden van bestanden
+
+Binnen deze API bestaan een aantal endpoints die binaire data ontvangen, al dan niet base64-encoded. Webservers moeten op deze endpoints een minimale request body size van 4.0 GiB ondersteunen. Dit omvat de JSON van de metadata EN de base64-encoded bestandsdata. Hou hierbij rekening met de overhead van base64, die ongeveer 33% bedraagt in worst-case scenario's. Dit betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot mag zijn.
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Bestanden kunnen groter zijn dan de hierboven genoemde 3GB. In dat geval is het mogelijk om het bestand in delen op te splitsen en in delen toe te voegen. Om dit te doen moet de consumer:
+
+- Het INFORMATIEOBJECT aanmaken in de API, waarbij de totale bestandsgrootte meegestuurd wordt en de inhoud leeggelaten wordt. De API antwoordt met een lijst van BESTANDSDEELen, elk met een volgnummer en bestandsgrootte. De API lockt tegelijkertijd het INFORMATIEOBJECT.
+- Het bestand opsplitsen: ieder BESTANDSDEEL moet de bestandsgrootte hebben zoals dit aangegeven werd in de response bij 1.
+- Voor elk stuk van het bestand de binaire data naar de overeenkomstige BESTANDSDEEL-url gestuurd worden, samen met het lock ID.
+- Het INFORMATIEOBJECT unlocken. De provider valideert op dat moment dat alle bestandsdelen correct opgestuurd werden, en voegt deze samen tot het resulterende bestand.
+- Het bijwerken van een INFORMATIEOBJECT heeft een gelijkaardig verloop.
+
+De 1.0.x manier van uploaden is ook beschikbaar voor kleine(re) bestanden die niet gesplitst hoeven te worden. Het is echter niet verplicht om deze manier te blijven gebruiken voor bestanden kleiner dan 3GB. Ook dan mag de hierboven beschreven manier met bestandsdelen gebruikt worden.
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.1.0</strong>
 </span>
