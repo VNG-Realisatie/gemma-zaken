@@ -21,61 +21,11 @@ the rights for certain APIs and / or API resources.
 
 The JWT must be included to every request to the APIs.
 
-#### Step 1: Create Client ID and Secret
+#### Generate the JWT
 
-All components must know who you are. This process has been added for testing
-purposes to make all components aware of your **Client ID** and **Secret**.
+To generate the JWT follow the instructions described on: https://github.com/VNG-Realisatie/token-issuer
 
-1. Go to https://zaken-auth.vng.cloud
-
-2. Enter the **Clientlabel** (_for example `mijn-consumer`_) and click on **Bevestig**.
-
-3. Save the generated **Client ID** and **Secret**
-
-They has now been immediately added to all available components listed in the right
-part of the page.
-
-#### Step 2: Generate JWT
-
-In the step below, the actual JWT is generated based on the **Client ID** and
-the **Secret** that both you and the components are aware of.
-
-1. Click on **Genereer een JWT** button below **Client ID** and **Secret** generated
-   in step 1.
-
-   If everything goes well, the Client ID and Secret are already pre-filled and the JWT
-   is generated. If you have other credentials fill them in the relevant fields and
-   click on **Bevestig** button.
-
-2. Save the value of **Authorization** field. This is the generated JWT.
-
-#### Step 3: Configure authorization
-
-After the basic authentication is set up you need to specify your access for API
-resources. This is done by configuring authorizations in the Autorisaties API (AC).
-The token tool has an interface to the AC.
-
-1. Navigate to **Configure auth** section.
-   **Client ID** should be already pre-filled. Fill in the remaining authorization properties:
-
-   a. Choose **Component** - this is the type of component you want to send requests to.
-
-   b. Tick the **Scopes** that apply. For testing purposes, all scopes can be checked.
-
-   c. Specify the **Zaaktype** that you want to access, if you selected **ZRC** component.
-
-   d. Specify the **Informatieobjecttype** that you want to access, if you selected **DRC** component.
-
-   e. Specify the **Besluittype** that you want to access, if you selected **BRC** component.
-
-   f. Choose **Maximale vertrouwelijkheidaanduiding** for **ZRC** and **DRC** components.
-
-2. Click on **Add authorization**.
-
-Repeat this step to create authorization for all components you want to have an access,
-and for each `Zaaktype`/`Informatieobjecttype`/`Besluittype` that you need to access.
-
-#### Step 4: Use the JWT
+#### Use the JWT
 
 The generated JWT should be given to each API request in the `Authorization` header:
 `Authorization: Bearer <JWT>`. For example:
