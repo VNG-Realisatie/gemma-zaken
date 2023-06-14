@@ -64,13 +64,13 @@ Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de 
 
 ## Overkoepelend gegevensmodel
 
-![Visualisatie ZGW API's](./Visualisatie ZGW API's.png "Visualisatie ZGW API's, klik voor grote versie"){:width="1200px"}
+![Visualisatie ZGW API's](./Visualisatie_ZGW_APIs.png "Visualisatie ZGW API's, klik voor grote versie"){:width="1200px"}
 
 Bovenstaande afbeelding toont de hoe API's voor zaakgericht werken aan elkaar gerelateerd zijn. Per API is aangegeven wat de belangrijkste resource(s) is/zijn en hoe deze relateren aan resources in ander API's. Een stippelijn betekent dat de relatie optioneel is en dat beide resources los van elkaar kunnen bestaan. Een Klant kan contactmomenten hebben of een zaak initieren en klanten, contactmomenten en zaken kunnen los van elkaar bestaan. Een zaak is van een zaaktype, en hoewel zaaktype kan bestaan zonder dat er een zaak van dat type bestaat is het niet mogelijk dat een zaak bestaat zonder onderliggend zaaktype.
 
 De Notificaties en Autorisaties API liggen onder de andere API's omdat ze door elke ZGW API (behalve de referentielijsten API) gebruikt moeten worden. Elke API publiceert notificaties en zonder autorisatie is het niet mogelijk gebruik te maken van de API's om de onderliggende gegevens te verwerken.
 
-Vooruitlopend op de release van de klantinteractie API's toont de afbeelding  al de Klanten en Contactmomenten API's. De Verzoeken API ontbreekt omdat het concept van Verzoeken nog onderwerp van discussie is.
+In het verleden waren in deze plaat ook de Klanten en Contatmomenten API's ingetekend. Deze standaard wordt echter apart doorontwikkeld en daarom niet meer ingetekend in de API's Zaakgericht werken. Voor informatie over de Klantinteracties API's zie de github pages van de [standaard voor Klantinteracties](https://vng-realisatie.github.io/klantinteracties/).
 
 Onderstaand diagram toont alle resources (objecttypen) uit de API's voor Zaakgericht Werken inclusief de relaties ertussen.
 
