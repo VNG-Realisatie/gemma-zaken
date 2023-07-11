@@ -97,7 +97,7 @@ Versie   | Release datum | API specificatie
 
 [documenten-1.3.0-redoc]: redoc-1.3.0
 [documenten-1.3.0-swagger]: swagger-ui-1.3.0
-[documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...master
+[documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...stable/1.3.x
 
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
