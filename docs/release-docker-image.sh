@@ -3,7 +3,7 @@
 set -e # exit on error
 set -x # echo commands
 
-CONTAINER_REPO=vngr/gemma-zaken-docs
+CONTAINER_REPO=ghcr.io/vng-realisatie/gemma-zaken-docs
 
 git_tag=$(git tag --points-at HEAD) &>/dev/null
 
