@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.4.0-labels-expand
+  version: 1.4.0
   description:
     "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
     In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\n\
@@ -6991,7 +6991,7 @@ components:
       type: object
       properties: 
         informatieobjecttype: 
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/catalogi-api/1.2.1/src/openapi.yaml#/components/schemas/InformatieObjectType'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
