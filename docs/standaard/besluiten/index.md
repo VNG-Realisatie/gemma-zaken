@@ -42,10 +42,17 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
 
 ### Releases
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.0.2</strong>
+</span>
+
+NB: Op dit moment zijn de versienummers van de referentieimplementaties hard gekoppeld aan de versienummers van de standaard. Normaal gesproken is dit geen probleem, de referentie implementatie wordt immers doorontwikkeld naar aanleiding van doorontwikkeling van de standaard. Nu hebben we te maken met de omgekeerde situatie. In de huidige versie van de referentie implementatie Besluiten API 1.0.2 is een bug opgelost om de Postman testscripts te kunnen verbeteren. Aan de standaard is verder niets veranderd maar door de koppeling tussen de versies van de standaard en referentie implementaties is het noodzakelijk geworden de versie van de Besluiten API op te hogen met een patch. Besluiten API versie 1.0.2 is dus identiek aan Besluiten API versie 1.0.1.
+
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
-1.0.1    | 2019-12-16    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
-1.0.0    | 2019-11-18    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
+1.0.2    | 22-08-2023    | [ReDoc][besluiten-1.0.2-redoc], [Swagger][besluiten-1.0.2-swagger]
+1.0.1    | 16-12-2019    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
+1.0.0    | 18-11-2019    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
 
 [besluiten-1.0.1-redoc]: ./redoc-1.0.1
 [besluiten-1.0.1-swagger]: ./swagger-ui-1.0.1
@@ -53,6 +60,9 @@ Versie   | Release datum | API specificatie
 
 [besluiten-1.0.0-redoc]: ./redoc-1.0.0
 [besluiten-1.0.0-swagger]: ./swagger-ui-1.0.0
+
+[besluiten-1.0.2-redoc]: ./redoc-1.0.2
+[besluiten-1.0.2-swagger]: ./swagger-ui-1.0.2
 
 
 ## Specificatie van gedrag
