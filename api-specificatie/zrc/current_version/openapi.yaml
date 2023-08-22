@@ -1,8 +1,11 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.4.0
-  description: "Een API om een zaakregistratiecomponent (ZRC) te benaderen.
+  version: 1.5.0
+  description: " <b><i>Met expand mechanisme in plain json</i></b>
+  
+    
+    Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
     De ZAAK is het kernobject in deze API, waaraan verschillende andere
@@ -6929,6 +6932,12 @@ paths:
           schema:
             type: string
             example: "123456789"
+        - name: expand
+          in: query
+          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          schema:
+            type: string
+            example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype
         - name: ordering
           required: false
           in: query
@@ -7433,6 +7442,12 @@ paths:
             vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
             is hetzelfde als WGS84).
           required: true
+        - name: expand
+          in: query
+          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          schema:
+            type: string
+            example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype
       tags:
         - zaken
       security:
@@ -7466,7 +7481,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Zaak'
+                $ref: '#/components/schemas/ZaakExpanded'
           description: OK
         '401':
           headers:
@@ -7601,8 +7616,7 @@ paths:
     put:
       operationId: zaak_update
       description:
-        "**Er wordt gevalideerd op** \n- `zaaktype` mag niet gewijzigd\
-        \ worden.\n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
+        "**Er wordt gevalideerd op** \n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
         \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
         \ als de betalingsindicatie\n\"nvt\" is.\n- `archiefnominatie` moet een waarde\
         \ hebben indien `archiefstatus` niet de\nwaarde \"nog_te_archiveren\" heeft.\n\
@@ -7844,8 +7858,7 @@ paths:
     patch:
       operationId: zaak_partial_update
       description:
-        "**Er wordt gevalideerd op** \n- `zaaktype` mag niet gewijzigd\
-        \ worden.\n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
+        "**Er wordt gevalideerd op** \n- `identificatie` mag niet gewijzigd worden.\n- `laatsteBetaaldatum`\
         \ mag niet in de toekomst liggen.\n- `laatsteBetaaldatum` mag niet gezet worden\
         \ als de betalingsindicatie\n\"nvt\" is.\n- `archiefnominatie` moet een waarde\
         \ hebben indien `archiefstatus` niet de\nwaarde \"nog_te_archiveren\" heeft.\n\
@@ -12016,7 +12029,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Zaak'
+            $ref: '#/components/schemas/ZaakExpanded'
     PaginatedZaakObjectList:
       type: object
       properties:
@@ -12912,6 +12925,19 @@ components:
         - url
         - uuid
         - zaak
+    ResultaatExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Resultaat'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/ResultaatEmbedded'
+    ResultaatEmbedded:
+      type: object
+      properties: 
+        zaak: 
+          $ref: '#/components/schemas/ZaakExpanded'
+        resultaattype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType'
     Rol:
       type: object
       properties:
@@ -13052,6 +13078,8 @@ components:
             dat STATUSsen in die ZAAK bereikt zijn.
           title: statussen
           uniqueItems: true
+        _expand:
+            $ref: '#/components/schemas/RolEmbedded'
       required:
         - betrokkeneType
         - omschrijving
@@ -13071,6 +13099,24 @@ components:
           niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_Rol'
           organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_Rol'
           vestiging: '#/components/schemas/vestiging_Rol'
+    RolExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Rol'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/RolEmbedded'
+    RolEmbedded:
+      type: object
+      properties: 
+        zaak:
+          $ref: '#/components/schemas/ZaakExpanded'
+          example: {}
+        roltype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType'
+        statussen:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusExpanded'
     RolMedewerker:
       type: object
       properties:
@@ -13342,6 +13388,23 @@ components:
         - uuid
         - zaak
         - zaakinformatieobjecten
+    StatusExpanded:
+      allOf:
+        - $ref: '#/components/schemas/Status'
+        - properties:
+            _expand:
+              $ref: '#/components/schemas/StatusEmbedded'
+    StatusEmbedded:
+      type: object
+      properties:
+        statustype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType'
+        gezetdoor:
+          $ref: '#/components/schemas/Rol'
+        zaakinformatieobjecten:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakInformatieObject'
     StatusRequestbody:
       type: object
       properties:
@@ -14077,6 +14140,58 @@ components:
         - zaakinformatieobjecten
         - zaakobjecten
         - zaaktype
+    ZaakExpanded:
+     allOf:
+     - $ref: '#/components/schemas/Zaak'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/ZaakEmbedded'
+    ZaakEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties: 
+        zaaktype:
+           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+        hoofdzaak:
+          oneOf:
+            - $ref: '#/components/schemas/ZaakExpanded' 
+            - $ref: '#/components/schemas/EmptyObject' 
+          example: {}
+        deelzaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakExpanded'
+          example: [{}]
+        relevanteAndereZaken:
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakExpanded'
+          example: [{}]
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakEigenschap'      
+        rollen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/RolExpanded'   
+        status:
+          oneOf:
+          - $ref: '#/components/schemas/StatusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaakobjecten:
+          type: array
+          items: 
+           $ref: '#/components/schemas/ZaakObject'
+        resultaat:
+          oneOf:
+          - $ref: '#/components/schemas/ResultaatExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+    EmptyObject:
+      type: object
+      description: Leeg object. Dit wordt teruggeven indien het te expanderen veld een null waarde heeft.
+      example: {}
     ZaakBesluit:
       type: object
       description:
@@ -14294,6 +14409,17 @@ components:
         - url
         - uuid
         - zaak
+    ZaakInformatieObjectExpanded:
+     allOf:
+     - $ref: '#/components/schemas/ZaakInformatieObject'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/ZaakInformatieObjectEmbedded'
+    ZaakInformatieObjectEmbedded:
+      type: object
+      properties: 
+        status:
+          $ref: '#/components/schemas/StatusExpanded'
     ZaakKenmerk:
       type: object
       properties:
@@ -14459,6 +14585,8 @@ components:
           description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
           title: relatieomschrijving
           maxLength: 80
+        _expand:
+            $ref: '#/components/schemas/ZaakObjectEmbedded'
       required:
         - objectType
         - url
@@ -14498,6 +14626,17 @@ components:
           woz_waarde: '#/components/schemas/woz_waarde_ZaakObject'
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
+    ZaakObjectExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ZaakObject'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ZaakObjectEmbedded'
+    ZaakObjectEmbedded:
+      type: object
+      properties: 
+        zaakobjecttype:
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType'
     ZaakVerzoek:
       type: object
       properties:
@@ -15253,7 +15392,7 @@ components:
         - $ref: '#/components/schemas/ZaakObject'
     status_PatchedZaakObject:
       allOf:
-        - $ref: '#/components/schemas/PatchedZaakObject'
+        - $ref: '#/components/schemas/PatchedZaakObject'    
     terrein_gebouwd_object_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15261,7 +15400,7 @@ components:
     terrein_gebouwd_object_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'    
     terreindeel_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15269,7 +15408,7 @@ components:
     terreindeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'    
     vestiging_Rol:
       allOf:
         - $ref: '#/components/schemas/Rol'
@@ -15289,7 +15428,7 @@ components:
     waterdeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'    
     wegdeel_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15297,7 +15436,7 @@ components:
     wegdeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'    
     wijk_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15305,7 +15444,7 @@ components:
     wijk_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWijk'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWijk'    
     woonplaats_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15313,7 +15452,7 @@ components:
     woonplaats_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'    
     woz_deelobject_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
@@ -15329,7 +15468,7 @@ components:
     woz_object_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'    
     woz_waarde_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
