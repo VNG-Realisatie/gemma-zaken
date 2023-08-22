@@ -1,6 +1,6 @@
 ---
 title: "Zaken API"
-date: '10-7-2019'
+date: '22-8-2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -68,6 +68,7 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.5.0    | 22-08-2023    | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger]
 1.4.0    | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger]
 1.2.1    | 21-12-2022    | [ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]
 1.3.0    | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff]
@@ -105,7 +106,11 @@ Versie   | Release datum | API specificatie
 
 [zaken-1.4.0-redoc]: redoc-1.4.0
 [zaken-1.4.0-swagger]: swagger-ui-1.4.0
-[zaken-1.4.0-yaml]: https://github.com/VNG-Realisatie/zaken-api/tree/master/src/openapi.yaml
+[zaken-1.4.0-yaml]: https://github.com/VNG-Realisatie/zaken-api/blob/stable/1.4.x/src/openapi.yaml
+
+[zaken-1.5.0-redoc]: redoc-1.5.0
+[zaken-1.5.0-swagger]: swagger-ui-1.5.0
+[zaken-1.5.0-yaml]: https://github.com/VNG-Realisatie/zaken-api/blob/stable/1.5.x/src/openapi.yaml
 
 
 ## Specificatie van gedrag
@@ -118,7 +123,7 @@ Zaken APIen (ZRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../../api-specificatie/zrc/1.0.x/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het ZRC.
+Alle operaties beschreven in [`openapi.yaml`](../../../../api-specificatie/zrc/current_version/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het ZRC.
 
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
@@ -130,9 +135,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze bu
 
 Bij het aanmaken (`zaak_create`) MOET de URL-referentie naar het `zaaktype` gevalideerd worden op het bestaan. Indien het ophalen van het zaaktype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
 
-De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype is conform de 1.0.x Catalogi API specificatie.
-
-Als er geprobeerd wordt om het `zaaktype` van een bestaande `Zaak` bij te werken (`zaak_update`, `zaak_partial_update`), dan MOET het ZRC antwoorden met een `HTTP 400` foutbericht.
+De provider MOET tevens valideren dat het opgehaalde zaaktype een zaaktype is conform de [huidige versie van de Catalogi API](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/api-specificatie/ztc/current_version/openapi.yaml) specificatie.
 
 #### **<a name="zrc-002">Garanderen uniciteit `bronorganisatie` en `identificatie` op de `Zaak`-resource ([zrc-002](#zrc-002))</a>**
 

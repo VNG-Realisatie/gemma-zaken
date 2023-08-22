@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '28-6-2022'
+date: '22-8--2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -89,6 +89,7 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.4.0    | 22-08-2023    | [ReDoc][documenten-1.4.0-redoc], [Swagger][documenten-1.4.0-swagger]
 1.3.0    | 29-03-2023    | [ReDoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
 1.2.0    | 19-12-2022    | [ReDoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
 1.1.0    | 24-05-2021    | [ReDoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
@@ -99,6 +100,8 @@ Versie   | Release datum | API specificatie
 [documenten-1.3.0-swagger]: swagger-ui-1.3.0
 [documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...stable/1.3.x
 
+[documenten-1.4.0-redoc]: redoc-1.4.0
+[documenten-1.4.0-swagger]: swagger-ui-1.4.0
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1
@@ -128,7 +131,7 @@ Documenten APIsen (DRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/drc/current_version/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
 
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
@@ -207,7 +210,13 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn applic
 
 Bij het werken wordt gevalideerd of:
 - Een correcte lock waarde aanwezig is (zie ([drc-009](#drc-009))
-- De  status NIET definitief is
+
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>gewijzigd in 1.4.0</strong>
+</span>
+
+- ~~De  status NIET definitief is~~
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>gewijzigd in 1.3.0</strong>
