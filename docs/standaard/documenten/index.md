@@ -30,6 +30,24 @@ Een besluit kan vastgelegd zijn in een informatieobject. De relatie tussen beslu
 ### Opslaan van bestanden
 In versie 1.0.x van de API moet het bestand base64-encoded opgeslagen worden in het attribuut `inhoud`. De omvang mag 4GB groot zijn. Hou hierbij rekening met de overhead van base64, die, in worst-case scenario's, ongeveer 33% bedraagt . Dit betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot mag zijn.
 
+Uploaden van bestanden
+
+Binnen deze API bestaan een aantal endpoints die binaire data ontvangen, al dan niet base64-encoded. Webservers moeten op deze endpoints een minimale request body size van 4.0 GiB ondersteunen. Dit omvat de JSON van de metadata EN de base64-encoded bestandsdata. Hou hierbij rekening met de overhead van base64, die ongeveer 33% bedraagt in worst-case scenario's. Dit betekent dat bij een limiet van 4GB het bestand maximaal ongeveer 3GB groot mag zijn.
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Bestanden kunnen groter zijn dan de hierboven genoemde 3GB. In dat geval is het mogelijk om het bestand in delen op te splitsen en in delen toe te voegen. Om dit te doen moet de consumer:
+
+- Het INFORMATIEOBJECT aanmaken in de API, waarbij de totale bestandsgrootte meegestuurd wordt en de inhoud leeggelaten wordt. De API antwoordt met een lijst van BESTANDSDEELen, elk met een volgnummer en bestandsgrootte. De API lockt tegelijkertijd het INFORMATIEOBJECT.
+- Het bestand opsplitsen: ieder BESTANDSDEEL moet de bestandsgrootte hebben zoals dit aangegeven werd in de response bij 1.
+- Voor elk stuk van het bestand de binaire data naar de overeenkomstige BESTANDSDEEL-url gestuurd worden, samen met het lock ID.
+- Het INFORMATIEOBJECT unlocken. De provider valideert op dat moment dat alle bestandsdelen correct opgestuurd werden, en voegt deze samen tot het resulterende bestand.
+- Het bijwerken van een INFORMATIEOBJECT heeft een gelijkaardig verloop.
+
+De 1.0.x manier van uploaden is ook beschikbaar voor kleine(re) bestanden die niet gesplitst hoeven te worden. Het is echter niet verplicht om deze manier te blijven gebruiken voor bestanden kleiner dan 3GB. Ook dan mag de hierboven beschreven manier met bestandsdelen gebruikt worden.
+
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.1.0</strong>
 </span>
@@ -65,25 +83,40 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 
 ## Specificatie van de Documenten API
 
-* [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
-* API specificatie (OAS3) versie 1.1.0 in
-  [ReDoc][documenten-1.1.0-redoc],
-  [Swagger][documenten-1.1.0-swagger],
-  [YAML](https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml) of
-  [JSON](https://documenten-api.vng.cloud/api/v1/schema/openapi.json)
+[Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
 
-[documenten-1.1.0-redoc]: redoc-1.1.0
-[documenten-1.1.0-swagger]: swagger-ui-1.1.0
+### Releases
 
+Versie   | Release datum | API specificatie
+-------- | ------------- | ----------------
+1.3.0    | 29-03-2023    | [ReDoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
+1.2.0    | 19-12-2022    | [ReDoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
+1.1.0    | 24-05-2021    | [ReDoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
+1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
+1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
-* API specificatie (OAS3) versie 1.0.1 in
-  [ReDoc][documenten-1.0.1-redoc],
-  [Swagger][documenten-1.0.1-swagger],
-  [YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml) of
-  Een JSON versie is momenteel niet beschikbaar
+[documenten-1.3.0-redoc]: redoc-1.3.0
+[documenten-1.3.0-swagger]: swagger-ui-1.3.0
+[documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...stable/1.3.x
+
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1
+[documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+[documenten-1.0.1-YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml)
+
+[documenten-1.0.0-redoc]: ./redoc-1.0.0
+[documenten-1.0.0-swagger]: ./swagger-ui-1.0.0
+
+[documenten-1.1.0-redoc]: redoc-1.1.0
+[documenten-1.1.0-swagger]: swagger-ui-1.1.0
+[documenten-1.1.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.1...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+[documenten-1.1.0-YAML]: https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml
+[documenten-1.1.0-JSON]: https://documenten-api.vng.cloud/api/v1/schema/openapi.json
+
+[documenten-1.2.0-redoc]: redoc-1.2.0
+[documenten-1.2.0-swagger]: swagger-ui-1.2.0
+[documenten-1.2.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 ## Specificatie van gedrag
 
@@ -103,18 +136,21 @@ Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven sta
 
 Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze businesslogica bevatten. Deze gedragingen zijn hieronder beschreven en MOETEN zoals beschreven geïmplementeerd worden.
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Gewijzigd in 1.3.0</strong>
+</span>
+
 #### **<a name="drc-001">Valideren `informatieobjecttype` op de `EnkelvoudigInformatieObject`-resource ([drc-001](#drc-001))</a>**
 
-Bij het aanmaken (`enkelvoudiginformatieobject_create`) MOET de URL-referentie naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
+Bij het aanmaken (`enkelvoudiginformatieobject_create`) of bewerken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`) MOET de URL-referentie naar het `informatieobjecttype` gevalideerd worden op het bestaan. Indien het ophalen van het informatieobjecttype niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET het DRC antwoorden met een `HTTP 400` foutbericht.
 
 De provider MOET tevens valideren dat het opgehaalde informatieobjecttype een informatieobjecttype is conform de geldige Catalogi API specificatie.
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>overgenomen uit de openapi.yaml</strong>
 </span>
-Daarnaast MOET de provider valideren dat het opgehaalde 'informatieobjecttype' 'concept = false' is. Indien het opgehaalde 'informatieobjecttype' niet 'concept = false' is MOET de DRC antwoorden met een `HTTP 400` foutbericht.
 
-Als er geprobeerd wordt om het `informatieobjecttype` van een bestaand `EnkelvoudigInformatieObject` bij te werken (`enkelvoudiginformatieobject_update`, `enkelvoudiginformatieobject_partial_update`), dan MOET het DRC antwoorden met een `HTTP 400` foutbericht.
+Daarnaast MOET de provider valideren dat het opgehaalde 'informatieobjecttype' 'concept = false' is. Indien het opgehaalde 'informatieobjecttype' niet 'concept = false' is MOET de DRC antwoorden met een `HTTP 400` foutbericht.
 
 #### **<a name="drc-002">Valideren `object` op de `ObjectInformatieObject`-resource ([drc-002](#drc-002))</a>**
 
@@ -168,10 +204,16 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn applic
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>overgenomen uit de openapi.yaml</strong>
 </span>
+
 Bij het werken wordt gevalideerd of:
 - Een correcte lock waarde aanwezig is (zie ([drc-009](#drc-009))
 - De  status NIET definitief is
-- Het informatieobjecttype niet gewijzigd wordt
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>gewijzigd in 1.3.0</strong>
+</span>
+
+- ~~Het informatieobjecttype niet gewijzigd wordt~~
 
 Wanneer aan één of meer van deze voorwaarden niet wordt voldaan MOET het DRC antwoorden met een `HTTP 400` foutbericht. 
 

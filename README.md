@@ -42,6 +42,13 @@ De Visie en uitwerking van Zaakgericht Werken in de GEMMA Architectuur staat bes
 
 Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma-zaken/standaard/index).
 
+## Migratie
+
+De folder waar voorheen `infra` te vinden was (om via ansible naar het kubernetes cluster te deployen) is gemigreerd naar:
+
+[zgw-infra](https://github.com/VNG-Realisatie/zgw-infra)
+
+Het is ook te adviseren om de instructies daar te volgen wanneer je de `zgw-apis` wilt deployen of testen.
 ## Snelle links
 
 **Referentie-implementaties van componenten**
