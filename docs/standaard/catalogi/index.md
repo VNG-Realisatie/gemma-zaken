@@ -1,6 +1,6 @@
 ---
 title: "Catalogi API"
-date: '29-3-2023'
+date: '22-8-2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -20,28 +20,39 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 ## Specificatie van de Catalogi API
 
 * [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
-* API specificatie (OAS3) in
-  [ReDoc 1.2.0][catalogi-1.2.0-redoc],
-  [Swagger 1.2.0][catalogi-1.2.0-swagger],
-  [YAML](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml) of
-  [JSON](https://catalogi-api.vng.cloud/api/v1/schema/openapi.json)
 
-* Oudere versies:
-  [ReDoc 1.0.1 ][catalogi-1.0.1-redoc],
-  [Swagger 1.0.1][catalogi-1.0.1-swagger],
+### Releases
 
-[catalogi-1.0.1-redoc]: redoc-1.0.1
-[catalogi-1.0.1-swagger]: swagger-ui-1.0.1
- 
-[catalogi-1.2.0-redoc]: redoc-1.2.0
-[catalogi-1.2.0-swagger]: swagger-ui-1.2.0
- 
+Versie   | Release datum | API specificatie
+-------- | ------------- | ----------------
+1.3.0    | 22-08-2023    | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger]
+1.2.0    | 19-12-2022    | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger]
+1.1.0    | 24-05-2021    | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger]
+1.0.0    | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]
+
+[catalogi-1.0.1-redoc]: ./redoc-1.0.1
+[catalogi-1.0.1-swagger]: ./swagger-ui-1.0.1
+[catalogi-1.0.1-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
+
+[catalogi-1.0.0-redoc]: ./redoc-1.0.0
+[catalogi-1.0.0-swagger]: ./swagger-ui-1.0.0
+
+[catalogi-1.1.0-redoc]: ./redoc-1.1.0
+[catalogi-1.1.0-swagger]: ./swagger-ui-1.1.0
+[catalogi-1.1.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.0.x...stable/1.1.x
+
+[catalogi-1.2.0-redoc]: ./redoc-1.2.0
+[catalogi-1.2.0-swagger]: ./swagger-ui-1.2.0
+[catalogi-1.2.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.1.x...stable/1.2.x
+
+[catalogi-1.3.0-redoc]: ./redoc-1.3.0
+[catalogi-1.3.0-swagger]: ./swagger-ui-1.3.0
  
 ## Specificatie van gedrag
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 
-* de ZTC `openapi.yaml` MOET volledig geïmplementeerd zijn.
+* de ZTC [`openapi.yaml`](../../../api-specificatie/ztc/current_version/openapi.yaml) MOET volledig geïmplementeerd zijn.
 
 * het run-time gedrag beschreven in deze standaard MOET correct geïmplementeerd
   zijn.
@@ -57,7 +68,7 @@ selectielijst-API (waar deze nu nog 1 API is)
 
 ## OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](https://catalogi-api.vng.cloud/api/v1/schema/openapi.yaml)
+Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/ztc/current_version/openapi.yaml)
 MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de
 referentie-implementatie van het ZTC.
 
@@ -233,6 +244,7 @@ mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
 </span>
+
 Ondanks dat een versie van Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype nog steeds één op één aan een versie van een Zaaktype gekoppeld zijn zijn de attributen beginGeldigheid en eindGeldigheid ook aan die objecttypen toegevoegd. Deze velden bevatten de afgeleide waarden van de beginGeldighied en eindGeldigheid van het bijbehorende Zaaktype.
 
 De betekenis van de attributen is:
@@ -273,6 +285,7 @@ provider een normale `HTTP 200` response sturen.
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.2.0</strong>
 </span>
+
 Het kan voorkomen dat een versie van een object in gebruik is en fouten bevat. Normaal gesproken moet dan van dat object een nieuwe versie gemaakt worden maar die wijzigingen hebben dan geen effect op zaken, informatieobjecten of besluiten die reeds aangemaakt zijn. Daarom is het mogelijk om onder bepaalde omstandigheden correcties aan te brengen. Dit kan dan met een expliciete scope: geforceerd-bijwerken.
 
 De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
