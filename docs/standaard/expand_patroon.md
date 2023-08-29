@@ -1,6 +1,6 @@
 ---
 title: Performance verbeteringen API's voor Zaakgericht werken
-date: '22-12-2022'
+date: '29-08-2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -16,32 +16,27 @@ Het verbeteren van de performance van de API's voor Zaakgericht werken gebeurt o
 
 De filtermogelijkheden zullen worden opgenomen in de betreffende Open API Specificaties (OAS). Deze kunnen geraadpleegd worden via de documentatie website https://vng-realisatie.github.io/gemma-zaken/standaard/
 
-Het opnemen van gerelateerde informatie wordt in deze bijlage beschreven. 
+Het opnemen van gerelateerde informatie vereist meer achtergrondinformatie en dit wordt in deze bijlage beschreven. 
 
 ##Uitgangspunten korte termijn verbetering API's voor Zaakgericht werken
 Om te voorkomen dat in de korte termijn oplossing beslissingen genomen worden die in de toekomst voor problemen kunnen gaan zorgen gelden onderstaande uitgangspunten.
 
 ### Niet tornen aan fundament bestaande standaarden:
-- Aanpassingen zoveel mogelijk beperken zodat oplossing relatief eenvoudig te implementeren en eventueel te verwijderen(!) is.
+- Aanpassingen zoveel mogelijk laten passen binnen de bestaande structuren
 - Dit betekent dat we nu niet kijken naar schrijfoperaties.
 - Handhaven CRUD karakter
+- Grootste problemen nu met Zaken APPI en Documenten API, deze lossen we als eerste op
 - Handhaven grenzen tussen bestaande API standaarden (Zaken, Documenten, Besluiten) behalve de Catalogi API.
 
-### Wél optimaliseren van het bevragen van de Zaken API
-- In één keer bevragen van resources in de Zaken/Documenten/Besluiten en Catalogi API’s naar aanleiding van inventarisatie samen te voegen calls
+### Wél optimaliseren van het bevragen van de Zaken API en Documenten API
+- In één keer bevragen van resources in de Zaken/Documenten en Catalogi API’s naar aanleiding van inventarisatie samen te voegen calls
 - Inventariseren van gewenste filtermogelijkheden op kenmerken die in het zaken/documenten/besluitenregister beschikbaar zijn
 
 
+## Rationale keuze voor expand patroon
+Het opnemen van gerelateerde informatie via een expand patroon, is op het moment van schrijven (nog) niet opgenomen in de [Landelijke API Strategie](https://docs.geostandaarden.nl/api/API-Strategie/). Dit betekent dat er nog geen keuze is gemaakt in een syntax om dit te bereiken. Om de gevolgen zo minimaal te laten zijn bij een keuze in de Landelijke API Strategie is het van belang dat het gekozen expand patroon voor consumers optioneel is binnen de standaard. Dat wil zeggen dat voor consumers het niet verplicht is het expand patroon toe te passen en de huidige manier van werken toepasbaar blijft. Providers dienen het expand mechanisme uiteraard in te bouwen.
 
-## Status van deze bijlage en rationale keuze voor expand patroon
-Het opnemen van gerelateerde informatie via een expand patroon, is op het moment van schrijven (nog) niet opgenomen in de [Landelijke API Strategie](https://docs.geostandaarden.nl/api/API-Strategie/). Dit betekent dat er nog geen keuze is gemaakt in een syntax om dit te bereiken. Om de gevolgen zo minimaal te laten zijn bij een keuze in de Landelijke API Strategie is het van belang dat het gekozen expand patroon optioneel is binnen de standaard. Dat wil zeggen dat het niet verplicht is het expand patroon toe te passen en de huidige manier van werken toepasbaar blijft.
-
-Er zijn verschillende mogelijkheden voor het implementeren van een expand patroon. Elke mogelijkheid heeft eigen voor- en nadelen. Tijdens sessies van de Technische Gebruikersgroep van de API's voor Zaakgericht werken zijn zowel het HAL patroon als het Inclusions patroon uitgebreid gepresenteerd en besproken. Ook is deze vergelijking intern bij VNG Realisatie gedaan. Inhoudelijk gezien kan met  beide patronen het aantal calls verminderd worden.
-
-Het Inclusions patroon is geen standaard maar een patroon afkomstig uit de Python wereld. Dit maakt dat er weinig informatie te vinden is buiten deze [beschrijving](https://github.com/VNG-Realisatie/gemma-zaken/discussions/1960). 
-
-Voor HAL spreekt dat het weliswaar geen standaard is maar wel een Draft. Er is dus informatie te vinden over hoe met HAL om te gaan en er bestaan bibliotheken die het werken met HAL kunnen vergemakkelijken. De keerzijde is dat het correct gebruik van HAL veranderingen in de OAS met zich meebrengt. Echter, in de OAS wordt HAL een extra mogelijkheid om het antwoord op een request te structureren. Bestaande consumer implementaties kunnen de bestaande operaties en structuren blijven gebruiken. Wie behoefte heeft aan informatierijkere antwoorden kan er voor kiezen de uitgebreide HAL responses te vragen. Om die reden is er voor gekozen om het expand patroon met HAL op te nemen in de API's voor Zaakgerichtwerken standaard.
-
+Er zijn verschillende mogelijkheden voor het implementeren van een expand patroon. Elke mogelijkheid heeft eigen voor- en nadelen. Tijdens sessies van de Technische Gebruikersgroep van de API's voor Zaakgericht werken zijn zowel het HAL patroon als het Inclusions patroon uitgebreid gepresenteerd en besproken. Ook is deze vergelijking intern bij VNG Realisatie gedaan. Inhoudelijk gezien kan met beide patronen het aantal calls verminderd worden. Uiteindelijk is gekozen voor een derde variant, nl. expand parameter met inline expand. Net als bij het Inclusions patroon is de structuur van de gegevens in expand gelijk aan die van de resources. Het voordeel is echter dat net als bij HAL de geëxpandeerde gegevens op de plek staan waar ze uitgevraagd zijn. Weliswaar kan dit leiden tot grotere berichten maar dit weegt in onze ogen niet op tegen de eenvoud voor de consumer die de informatie daar krijgt waar deze nodig is.
 
 ## Grenzen aan het expand patroon
 Zoals eerder genoemd in de uitgangspunten gelden de volgende grenzen aan het expand patroon:
@@ -52,17 +47,17 @@ Zoals eerder genoemd in de uitgangspunten gelden de volgende grenzen aan het exp
 Het is niet mogelijk om bijvoorbeeld bij een ROL de gegevens van de BETROKKENE op te halen via de rol.betrokkene. De BETROKKENE is immers opgeslagen buiten Zaken API en Catalogi API.
 
 ## Uitwerking
-Op basis van de grenzen zijn de volgende versies van de API's voor Zaakgericht werken uitgewerkt met HAL:
+Op basis van de grenzen zijn de volgende versies van de API's voor Zaakgericht werken uitgewerkt met expand:
 
 Zaken API
-* API specificatie (OAS3) versie 1.2.1 in
-  - [ReDoc](./zaken/redoc-1.2.1),
-  - [Swagger](./zaken/swagger-ui-1.2.1),
+* API specificatie (OAS3) versie 1.5.0 in
+  - [ReDoc](./zaken/redoc-1.5.0),
+  - [Swagger](./zaken/swagger-ui-1.5.0),
 
 Documenten API
-* API specificatie (OAS3) versie 1.1.1 in
-  - [ReDoc](./documenten/redoc-1.1.1),
-  - [Swagger](./documenten/swagger-ui-1.1.1),
+* API specificatie (OAS3) versie 1.4.0 in
+  - [ReDoc](./documenten/redoc-1.4.0),
+  - [Swagger](./documenten/swagger-ui-1.4.0),
 
 
 
