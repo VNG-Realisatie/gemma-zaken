@@ -120,27 +120,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      type: object
-                      additionalProperties: {}
-                      description: Unspecified response body
+                $ref: '#/components/schemas/PaginatedBesluitTypeList'
           description: OK
         '400':
           headers:
@@ -475,9 +455,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/BesluitType'
           description: OK
         '401':
           headers:
@@ -2957,29 +2935,9 @@ paths:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
           content:
-            application/json:
+             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      type: object
-                      additionalProperties: {}
-                      description: Unspecified response body
+                $ref: '#/components/schemas/PaginatedInformatieObjectTypeList'
           description: OK
         '400':
           headers:
@@ -3312,9 +3270,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/InformatieObjectType'
           description: OK
         '401':
           headers:
@@ -9554,27 +9510,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  count:
-                    type: integer
-                    example: 123
-                  next:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=4
-                  previous:
-                    type: string
-                    nullable: true
-                    format: uri
-                    example: http://api.example.org/accounts/?page=2
-                  results:
-                    type: array
-                    items:
-                      type: object
-                      additionalProperties: {}
-                      description: Unspecified response body
+                $ref: '#/components/schemas/PaginatedZaakTypeList'
           description: OK
         '400':
           headers:
@@ -9921,9 +9857,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/ZaakType'
           description: OK
         '401':
           headers:
@@ -12130,6 +12064,26 @@ components:
         - zaakcoordinator
         - mede_initiator
       type: string
+    PaginatedBesluitTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/BesluitType'
     PaginatedCatalogusList:
       type: object
       properties:
@@ -12190,6 +12144,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResultaatType'
+    PaginatedInformatieObjectTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InformatieObjectType'
     PaginatedRolTypeList:
       type: object
       properties:
@@ -12270,6 +12244,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+    PaginatedZaakTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakType'
     PatchedEigenschap:
       type: object
       properties:
@@ -15233,6 +15227,7 @@ components:
         - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
+
     ZaakTypenRelatie:
       type: object
       properties:
@@ -15307,6 +15302,9 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/michielverhoef/Catalogussen_API/1.3.0
   - url: https://catalogi-api.vng.cloud/api/v1
     description: Productie Omgeving
 tags:
