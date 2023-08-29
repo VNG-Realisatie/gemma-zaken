@@ -89,6 +89,9 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.4.1    | 29-08-2023    | [ReDoc][documenten-1.4.1-redoc], [Swagger][documenten-1.4.1-swagger]
+1.3.1    | 29-08-2023    | [ReDoc][documenten-1.3.1-redoc], [Swagger][documenten-1.3.1-swagger]
+1.2.4    | 29-08-2023    | [ReDoc][documenten-1.2.4-redoc], [Swagger][documenten-1.2.4-swagger]
 1.4.0    | 22-08-2023    | [ReDoc][documenten-1.4.0-redoc], [Swagger][documenten-1.4.0-swagger]
 1.3.0    | 29-03-2023    | [ReDoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
 1.2.0    | 19-12-2022    | [ReDoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
@@ -102,6 +105,13 @@ Versie   | Release datum | API specificatie
 
 [documenten-1.4.0-redoc]: redoc-1.4.0
 [documenten-1.4.0-swagger]: swagger-ui-1.4.0
+
+[documenten-1.4.1-redoc]: redoc-1.4.1
+[documenten-1.4.1-swagger]: swagger-ui-1.4.1
+[documenten-1.3.1-redoc]: redoc-1.3.1
+[documenten-1.3.1-swagger]: swagger-ui-1.3.1
+[documenten-1.2.4-redoc]: redoc-1.2.4
+[documenten-1.2.4-swagger]: swagger-ui-1.2.4
 
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1

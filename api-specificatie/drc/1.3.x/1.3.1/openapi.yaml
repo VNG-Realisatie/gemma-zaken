@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.4.1
+  version: 1.3.1
   description:
     "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
     In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\n\
@@ -258,23 +258,6 @@ paths:
             \ eerste in een samenwerkingsketen heeft vastgelegd."
           schema:
             type: string
-        - name: trefwoorden
-          required: false
-          in: query
-          description: Een lijst van trefwoorden gescheiden door comma's.
-          schema:
-            type: array
-            items:
-              type: string
-            example: ["bouwtekening","vergunning","aanvraag"]
-          style: form
-          explode: false
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobjecttype
         - name: page
           required: false
           in: query
@@ -932,12 +915,6 @@ paths:
           description:
             Een datumtijd in ISO8601 formaat. De versie van het INFORMATIEOBJECT
             die qua `begin_registratie` het kortst hiervoor zit wordt opgehaald.
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobjecttype
       tags:
         - enkelvoudiginformatieobjecten
       security:
@@ -962,7 +939,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+                $ref: '#/components/schemas/EnkelvoudigInformatieObject'
           description: OK
         '401':
           headers:
@@ -2205,12 +2182,6 @@ paths:
             toepassing zijn.
           schema:
             type: string
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobject
       tags:
         - gebruiksrechten
       security:
@@ -2230,7 +2201,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GebruiksrechtenExpanded'
+                  $ref: '#/components/schemas/Gebruiksrechten'
           description: OK
         '400':
           headers:
@@ -2554,12 +2525,6 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobject
       tags:
         - gebruiksrechten
       security:
@@ -2584,7 +2549,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GebruiksrechtenExpanded'
+                $ref: '#/components/schemas/Gebruiksrechten'
           description: OK
         '401':
           headers:
@@ -4009,12 +3974,6 @@ paths:
           schema:
             type: string
             format: uri
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobject
         - name: page
           required: false
           in: query
@@ -4343,12 +4302,6 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
-          schema:
-            type: string
-            example: informatieobject
       tags:
         - verzendingen
       responses:
@@ -4370,7 +4323,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VerzendingExpanded'
+                $ref: '#/components/schemas/Verzending'
           description: OK
         '401':
           headers:
@@ -5971,12 +5924,6 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
-        trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
-          type: array
-          items:
-            type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - beginRegistratie
@@ -6235,12 +6182,6 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
-        trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
-          type: array
-          items:
-            type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
         lock:
           type: string
           readOnly: true
@@ -6474,12 +6415,6 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
-        trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
-          type: array
-          items:
-            type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - bronorganisatie
@@ -6733,12 +6668,6 @@ components:
             $ref: '#/components/schemas/BestandsDeel'
           readOnly: true
           title: bestandsdelen
-        trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
-          type: array
-          items:
-            type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
       required:
         - auteur
         - beginRegistratie
@@ -6963,12 +6892,6 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
-        trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
-          type: array
-          items:
-            type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
         lock:
           type: string
           writeOnly: true
@@ -6986,17 +6909,6 @@ components:
         - lock
         - taal
         - titel
-    EnkelvoudigInformatieObjectExpanded:
-      allOf:
-        - $ref: '#/components/schemas/EnkelvoudigInformatieObject'
-        - properties:
-              _expand:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectEmbedded'
-    EnkelvoudigInformatieObjectEmbedded:
-      type: object
-      properties: 
-        informatieobjecttype: 
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -7098,17 +7010,6 @@ components:
         - omschrijvingVoorwaarden
         - startdatum
         - url
-    GebruiksrechtenExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Gebruiksrechten'
-     - properties:
-          _expand:
-            $ref: '#/components/schemas/GebruiksrechtenEmbedded'
-    GebruiksrechtenEmbedded:
-      type: object
-      properties: 
-        informatieobject: 
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     GebruiksrechtenRequest:
       type: object
       properties:
@@ -7444,7 +7345,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+            $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     PaginatedVerzendingList:
       type: object
       properties:
@@ -7464,7 +7365,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/VerzendingExpanded'
+            $ref: '#/components/schemas/Verzending'
     PatchedEnkelvoudigInformatieObjectWithLockRequest:
       type: object
       description:
@@ -8082,17 +7983,6 @@ components:
         - contactPersoon
         - informatieobject
         - url
-    VerzendingExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Verzending'
-     - properties:
-          _expand:
-            $ref: '#/components/schemas/VerzendingEmbedded'
-    VerzendingEmbedded:
-      type: object
-      properties: 
-        informatieobject: 
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     VerzendingRequest:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
