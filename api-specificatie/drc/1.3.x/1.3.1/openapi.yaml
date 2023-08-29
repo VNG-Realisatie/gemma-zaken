@@ -5301,7 +5301,12 @@ components:
             zeggen: het aantal bytes dat staat genoemd bij grootte is daadwerkelijk
             ontvangen.'
           title: voltooid
+        lock:
+          type: string
+          description: Hash string, which represents id of the lock of related informatieobject
+          title: lock          
       required:
+        - lock
         - omvang
         - url
         - volgnummer
