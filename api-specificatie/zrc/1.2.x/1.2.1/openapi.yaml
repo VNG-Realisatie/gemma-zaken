@@ -1,7 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Zaken API
-  description: 'Een API om een zaakregistratiecomponent (ZRC) te benaderen.
+  title: TERUGGETROKKEN Zaken API
+  description: 'Let op: Deze versie van de Zaken API is terug getrokken in verband met de release van Zaken API 1.5.0! 
+    Een API om een zaakregistratiecomponent (ZRC) te benaderen.
 
 
     De ZAAK is het kernobject in deze API, waaraan verschillende andere
