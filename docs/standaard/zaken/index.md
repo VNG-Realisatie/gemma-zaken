@@ -66,11 +66,13 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 [Referentie-implementatie Zaken API](https://zaken-api.vng.cloud/)
 
+*In release Zaken API 1.5.0 is het expand mechanisme toegevoegd aan de standaard. Om redenen zoals omschreven in [deze pagina](../expand_patroon) is daarom Zaken API versie 1.2.1 komen te vervallen.*
+
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
 1.5.0    | 22-08-2023    | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger]
 1.4.0    | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger]
-1.2.1    | 21-12-2022    | [ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]
+~~1.2.1~~    | ~~21-12-2022~~    | VERVALLEN ~~[ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]~~
 1.3.0    | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff]
 1.2.0    | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff]
 1.1.0    | 24-05-2021    | [ReDoc][zaken-1.1.0-redoc], [Swagger][zaken-1.1.0-swagger], [Diff][zaken-1.1.0-diff]
