@@ -18,7 +18,7 @@ De filtermogelijkheden zullen worden opgenomen in de betreffende Open API Specif
 
 Het opnemen van gerelateerde informatie vereist meer achtergrondinformatie en dit wordt in deze bijlage beschreven. 
 
-##Uitgangspunten korte termijn verbetering API's voor Zaakgericht werken
+## Uitgangspunten korte termijn verbetering API's voor Zaakgericht werken
 Om te voorkomen dat in de korte termijn oplossing beslissingen genomen worden die in de toekomst voor problemen kunnen gaan zorgen gelden onderstaande uitgangspunten.
 
 ### Niet tornen aan fundament bestaande standaarden:
