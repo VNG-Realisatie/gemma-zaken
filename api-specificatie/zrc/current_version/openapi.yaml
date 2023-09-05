@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.5.0
+  version: 1.5.1
   description: " <b><i>Met expand mechanisme in plain json</i></b>
   
     
@@ -1688,10 +1688,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Resultaat'
           description: OK
   /rollen:
     get:
@@ -2495,10 +2491,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Rol'
           description: OK
   /statussen:
     get:
@@ -3077,10 +3069,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Status'
           description: OK
   /zaakcontactmomenten:
     get:
@@ -4800,10 +4788,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ZaakInformatieObject'
           description: OK
   /zaakobjecten:
     get:
@@ -5907,10 +5891,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ZaakObject'
           description: OK
   /zaakverzoeken:
     get:
@@ -8378,10 +8358,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Zaak'
           description: OK
   /zaken/{zaak_uuid}/audittrail:
     get:
@@ -10398,10 +10374,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ZaakEigenschap'
           description: OK
   /zaken/_zoek:
     post:
