@@ -25,6 +25,8 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.3.1    | 06-09-2023    | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger]
+1.2.1    | 06-09-2023    | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger]
 1.3.0    | 22-08-2023    | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger]
 1.2.0    | 19-12-2022    | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger]
 1.1.0    | 24-05-2021    | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger]
@@ -48,6 +50,15 @@ Versie   | Release datum | API specificatie
 [catalogi-1.3.0-redoc]: ./redoc-1.3.0
 [catalogi-1.3.0-swagger]: ./swagger-ui-1.3.0
  
+[catalogi-1.2.1-redoc]: ./redoc-1.2.1
+[catalogi-1.2.1-swagger]: ./swagger-ui-1.2.1
+
+[catalogi-1.3.1-redoc]: ./redoc-1.3.1
+[catalogi-1.3.1-swagger]: ./swagger-ui-1.3.1
+
+
+
+
 ## Specificatie van gedrag
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
