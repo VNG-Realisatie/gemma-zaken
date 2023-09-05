@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.4.1
+  version: 1.4.2
   description:
     "Een API om een documentregistratiecomponent (DRC) te benaderen.\n\n\
     In een documentregistratiecomponent worden INFORMATIEOBJECTen opgeslagen. Een\n\
@@ -1666,10 +1666,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObject'
           description: OK
   /enkelvoudiginformatieobjecten/{uuid}/download:
     get:
@@ -3274,10 +3270,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Gebruiksrechten'
           description: OK
   /objectinformatieobjecten:
     get:
@@ -3969,10 +3961,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ObjectInformatieObject'
           description: OK
   /verzendingen:
     get:
@@ -5018,10 +5006,6 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Verzending'
           description: OK
 components:
   responses:
@@ -5899,6 +5883,7 @@ components:
           format: date
           nullable: true
           description:
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending. 
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -5911,6 +5896,7 @@ components:
           format: date
           nullable: true
           description:
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
