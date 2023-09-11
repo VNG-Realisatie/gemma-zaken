@@ -70,6 +70,9 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.5.1    | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger]
+1.4.1    | 26-09-2023    | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger]
+1.3.1    | 26-09-2022    | [ReDoc][zaken-1.3.1-redoc], [Swagger][zaken-1.3.1-swagger]
 1.5.0    | 22-08-2023    | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger]
 1.4.0    | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger]
 ~~1.2.1~~    | ~~21-12-2022~~    | VERVALLEN ~~[ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]~~
@@ -79,6 +82,13 @@ Versie   | Release datum | API specificatie
 1.0.2    | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff]
 1.0.1    | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]
+
+[zaken-1.5.1-redoc]: redoc-1.5.1
+[zaken-1.5.1-swagger]: swagger-ui-1.5.1
+[zaken-1.4.1-redoc]: redoc-1.4.1
+[zaken-1.4.1-swagger]: swagger-ui-1.4.1
+[zaken-1.3.1-redoc]: redoc-1.3.1
+[zaken-1.3.1-swagger]: swagger-ui-1.3.1
 
 [zaken-1.0.2-redoc]: redoc-1.0.2
 [zaken-1.0.2-swagger]: swagger-ui-1.0.2
