@@ -452,6 +452,35 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken via
 Wanneer een relatie tussen een `CONTACTMOMENT` en een `ZAAK` gemaakt of bijgewerkt wordt, dan MOET het ZRC in het CRC ook deze relatie aanmaken/bijwerken.
 
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.5.0</strong>
+</span>
+
+#### **<a name="zrc-025">Reikwijdte expand parameters ([zrc-025](#zrc-025))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET deze parameter alleen informatie uit de Zaken API of gerelateerde informatie uit de Catalogi API bevatten. Indien een expand parameter om informatie uit andere bronnen vraagt moet een foutmelding (http 406?) worden teruggegeven.
+
+#### **<a name="zrc-026">Diepte uitvoeren expand parameters ([zrc-026](#zrc-026))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET de expand niet dieper gaan dan maximaal 3 niveaus diep. Wanneer een consumer een diepere expand opgeeft MOET het antwoord maximaal de 3 niveaus diep gaan. Hiermee kan de volgende informatie in een response opgenomen worden:
+
+```
+Zaak
+	zaaktype
+	status
+		statustype
+	gerelateerdeZaak
+		zaaktype
+		status
+			statustype
+
+```
+
+#### **<a name="zrc-026">Expand parameter onderdeel van opgevraagde resource ([zrc-026](#zrc-026))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.
+
+#### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>** 
+Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
+
+
 ## Overige documentatie
 
 * [Referentiemodel Gemeentelijke Basisgegevens Zaken (RGBZ) 2.0](https://www.gemmaonline.nl/index.php/RGBZ_2.0_in_ontwikkeling)
