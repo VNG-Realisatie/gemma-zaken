@@ -295,6 +295,14 @@ De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
 - Besluiten van het Besluittype blijven nog steeds geldig.
 - Informatieobjecten van het Informatieobjecttype blijven nog steeds geldig.
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.3.0</strong>
+</span>
+
+#### <a name="ztc-014">Leesrechten Zaken en Documenten ook voor Catalogi ([ztc-014](#ztc-014))</a>
+Wanneer de ZRC of DRC met respectievelijk de scopes zaken.lezen of documenten.lezen de ZTC raadplegen moet de provider deze verzoeken behandelen alsof de scope catalogi.lezen gebruikt is.
+
+
 ## Overige documentatie
 
 * [Informatiemodel Zaaktypen (ImZTC)](https://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC))
