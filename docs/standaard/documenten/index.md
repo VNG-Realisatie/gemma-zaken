@@ -89,9 +89,9 @@ Het attribuut richting uit de relatieklasse ZaaktypeInformatieobjecttype is hier
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
-1.4.2    | 06-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
-1.3.2    | 06-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
-1.2.5    | 06-09-2023    | [ReDoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
+1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
+1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
+1.2.5    | 26-09-2023    | [ReDoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
 1.4.1    | 29-08-2023    | [ReDoc][documenten-1.4.1-redoc], [Swagger][documenten-1.4.1-swagger]
 1.3.1    | 29-08-2023    | [ReDoc][documenten-1.3.1-redoc], [Swagger][documenten-1.3.1-swagger]
 1.2.4    | 29-08-2023    | [ReDoc][documenten-1.2.4-redoc], [Swagger][documenten-1.2.4-swagger]
