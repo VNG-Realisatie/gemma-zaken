@@ -236,6 +236,32 @@ Bij het werken wordt gevalideerd of:
 
 Wanneer aan één of meer van deze voorwaarden niet wordt voldaan MOET het DRC antwoorden met een `HTTP 400` foutbericht. 
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>toegevoegd in 1.4.0</strong>
+</span>
+
+#### **<a name="drc-011">Reikwijdte expand parameters ([drc-011](#drc-011))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET deze parameter alleen informatie uit de Documenten API of gerelateerde informatie uit de Catalogi API bevatten. Indien een expand parameter om informatie uit andere bronnen vraagt moet een foutmelding (http 406?) worden teruggegeven.
+
+#### **<a name="drc-012">Diepte uitvoeren expand parameters ([drc-012](#drc-012))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET de expand niet dieper gaan dan maximaal 3 niveaus diep. Wanneer een consumer een diepere expand opgeeft MOET het antwoord maximaal de 3 niveaus diep gaan. Hiermee kan de volgende informatie in een response opgenomen worden:
+
+```
+Enkelvoudiginformatieobject
+    ....
+	informatieobjectype
+        ...
+		omschrijvingGeneriek
+			informatieobjecttypeOmschrijvingGeneriek
+
+```
+
+#### **<a name="drc-013">Expand parameter onderdeel van opgevraagde resource ([drc-013](#drc-013))</a>**
+Indien een verzoek één of meer expand parameters bevat MOET het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.
+
+#### **<a name="drc-014">Gedrag bij fouten in expand parameters ([drc-014](#drc-014)</a>** 
+Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
+
 
 #### HTTP-Caching
 
