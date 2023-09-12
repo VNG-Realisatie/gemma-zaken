@@ -38,9 +38,9 @@ De Visie en uitwerking van Zaakgericht Werken in de GEMMA Architectuur staat bes
 
 - Contact: standaarden.ondersteuning@vng.nl
 
-## API spec bekijken
+## <a name="api_spec">API specs van de standaard bekijken</a>
 
-Zie de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma-zaken/standaard/index).
+Om de API specs en aanvullende bedrijfsregels van de *standaard* te bekijken, volg de relevante links in dit [overzicht](https://vng-realisatie.github.io/gemma-zaken/standaard/index).
 
 ## Migratie
 
@@ -52,6 +52,8 @@ Het is ook te adviseren om de instructies daar te volgen wanneer je de `zgw-apis
 ## Snelle links
 
 **Referentie-implementaties van componenten**
+
+Let op, voor de standaard zie [API specs van de standaard bekijken](#api_spec)
 
 * [![Build Status][zrc-ci-status]][zrc-ci]
   [Zaken API](https://github.com/vng-Realisatie/zaken-api)
