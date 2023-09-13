@@ -263,18 +263,18 @@ paths:
           in: query
           description: Een lijst van trefwoorden gescheiden door comma's.
           schema:
-            type: array
-            items:
-              type: string
-            example: ["bouwtekening","vergunning","aanvraag"]
-          style: form
-          explode: false
+            type: string
         - name: expand
+          required: false
           in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          description:
+            "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,\
+            \ hoofdzaak.deelzaken.status.statustype`\nHaal details van gelinkte resources\
+            \ direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze\
+            \ scheiden met een komma. Voor het ophalen van resources die een laag dieper\
+            \ genest zijn wordt de punt-notatie gebruikt."
           schema:
             type: string
-            example: informatieobjecttype
         - name: page
           required: false
           in: query
@@ -932,12 +932,31 @@ paths:
           description:
             Een datumtijd in ISO8601 formaat. De versie van het INFORMATIEOBJECT
             die qua `begin_registratie` het kortst hiervoor zit wordt opgehaald.
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+        - in: query
+          name: expand
           schema:
             type: string
-            example: informatieobjecttype
+          description:
+            Haal details van gelinkte resources direct op. Als je meerdere
+            resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor
+            het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie
+            gebruikt.
+          examples:
+            ExpandZaaktype:
+              value: zaaktype
+              summary: expand zaaktype
+            ExpandStatus:
+              value: status
+              summary: expand status
+            ExpandStatus.statustype:
+              value: status.statustype
+              summary: expand status.statustype
+            ExpandHoofdzaak.status.statustype:
+              value: hoofdzaak.status.statustype
+              summary: expand hoofdzaak.status.statustype
+            ExpandHoofdzaak.deelzaken.status.statustype:
+              value: hoofdzaak.deelzaken.status.statustype
+              summary: expand hoofdzaak.deelzaken.status.statustype
       tags:
         - enkelvoudiginformatieobjecten
       security:
@@ -962,7 +981,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+                $ref: '#/components/schemas/SchemaEIO'
           description: OK
         '401':
           headers:
@@ -2206,11 +2225,16 @@ paths:
           schema:
             type: string
         - name: expand
+          required: false
           in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          description:
+            "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,\
+            \ hoofdzaak.deelzaken.status.statustype`\nHaal details van gelinkte resources\
+            \ direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze\
+            \ scheiden met een komma. Voor het ophalen van resources die een laag dieper\
+            \ genest zijn wordt de punt-notatie gebruikt."
           schema:
             type: string
-            example: informatieobject
       tags:
         - gebruiksrechten
       security:
@@ -2230,7 +2254,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GebruiksrechtenExpanded'
+                  $ref: '#/components/schemas/Gebruiksrechten'
           description: OK
         '400':
           headers:
@@ -2554,12 +2578,31 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+        - in: query
+          name: expand
           schema:
             type: string
-            example: informatieobject
+          description:
+            Haal details van gelinkte resources direct op. Als je meerdere
+            resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor
+            het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie
+            gebruikt.
+          examples:
+            ExpandZaaktype:
+              value: zaaktype
+              summary: expand zaaktype
+            ExpandStatus:
+              value: status
+              summary: expand status
+            ExpandStatus.statustype:
+              value: status.statustype
+              summary: expand status.statustype
+            ExpandHoofdzaak.status.statustype:
+              value: hoofdzaak.status.statustype
+              summary: expand hoofdzaak.status.statustype
+            ExpandHoofdzaak.deelzaken.status.statustype:
+              value: hoofdzaak.deelzaken.status.statustype
+              summary: expand hoofdzaak.deelzaken.status.statustype
       tags:
         - gebruiksrechten
       security:
@@ -2584,7 +2627,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GebruiksrechtenExpanded'
+                $ref: '#/components/schemas/Gebruiksrechten'
           description: OK
         '401':
           headers:
@@ -3301,6 +3344,17 @@ paths:
           schema:
             type: string
             format: uri
+        - name: expand
+          required: false
+          in: query
+          description:
+            "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,\
+            \ hoofdzaak.deelzaken.status.statustype`\nHaal details van gelinkte resources\
+            \ direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze\
+            \ scheiden met een komma. Voor het ophalen van resources die een laag dieper\
+            \ genest zijn wordt de punt-notatie gebruikt."
+          schema:
+            type: string
       tags:
         - objectinformatieobjecten
       security:
@@ -3636,6 +3690,31 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - in: query
+          name: expand
+          schema:
+            type: string
+          description:
+            Haal details van gelinkte resources direct op. Als je meerdere
+            resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor
+            het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie
+            gebruikt.
+          examples:
+            ExpandZaaktype:
+              value: zaaktype
+              summary: expand zaaktype
+            ExpandStatus:
+              value: status
+              summary: expand status
+            ExpandStatus.statustype:
+              value: status.statustype
+              summary: expand status.statustype
+            ExpandHoofdzaak.status.statustype:
+              value: hoofdzaak.status.statustype
+              summary: expand hoofdzaak.status.statustype
+            ExpandHoofdzaak.deelzaken.status.statustype:
+              value: hoofdzaak.deelzaken.status.statustype
+              summary: expand hoofdzaak.deelzaken.status.statustype
       tags:
         - objectinformatieobjecten
       security:
@@ -4010,11 +4089,16 @@ paths:
             type: string
             format: uri
         - name: expand
+          required: false
           in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+          description:
+            "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,\
+            \ hoofdzaak.deelzaken.status.statustype`\nHaal details van gelinkte resources\
+            \ direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze\
+            \ scheiden met een komma. Voor het ophalen van resources die een laag dieper\
+            \ genest zijn wordt de punt-notatie gebruikt."
           schema:
             type: string
-            example: informatieobject
         - name: page
           required: false
           in: query
@@ -4343,12 +4427,31 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
-        - name: expand
-          in: query
-          description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+        - in: query
+          name: expand
           schema:
             type: string
-            example: informatieobject
+          description:
+            Haal details van gelinkte resources direct op. Als je meerdere
+            resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor
+            het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie
+            gebruikt.
+          examples:
+            ExpandZaaktype:
+              value: zaaktype
+              summary: expand zaaktype
+            ExpandStatus:
+              value: status
+              summary: expand status
+            ExpandStatus.statustype:
+              value: status.statustype
+              summary: expand status.statustype
+            ExpandHoofdzaak.status.statustype:
+              value: hoofdzaak.status.statustype
+              summary: expand hoofdzaak.status.statustype
+            ExpandHoofdzaak.deelzaken.status.statustype:
+              value: hoofdzaak.deelzaken.status.statustype
+              summary: expand hoofdzaak.deelzaken.status.statustype
       tags:
         - verzendingen
       responses:
@@ -4370,7 +4473,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VerzendingExpanded'
+                $ref: '#/components/schemas/Verzending'
           description: OK
         '401':
           headers:
@@ -5348,12 +5451,7 @@ components:
             zeggen: het aantal bytes dat staat genoemd bij grootte is daadwerkelijk
             ontvangen.'
           title: voltooid
-        lock:
-          type: string
-          description: Hash string, which represents id of the lock of related informatieobject
-          title: lock          
       required:
-        - lock
         - omvang
         - url
         - volgnummer
@@ -5899,27 +5997,27 @@ components:
           format: date
           nullable: true
           description:
-            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending. 
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -5974,11 +6072,13 @@ components:
           readOnly: true
           title: bestandsdelen
         trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
           type: array
           items:
             type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
       required:
         - auteur
         - beginRegistratie
@@ -6165,25 +6265,27 @@ components:
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -6238,11 +6340,13 @@ components:
           readOnly: true
           title: bestandsdelen
         trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
           type: array
           items:
             type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
         lock:
           type: string
           readOnly: true
@@ -6416,25 +6520,27 @@ components:
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -6477,11 +6583,14 @@ components:
           title: informatieobjecttype
           maxLength: 200
         trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
           type: array
           items:
             type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
+            minLength: 1
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
       required:
         - auteur
         - bronorganisatie
@@ -6663,25 +6772,27 @@ components:
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -6736,11 +6847,13 @@ components:
           readOnly: true
           title: bestandsdelen
         trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
           type: array
           items:
             type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
       required:
         - auteur
         - beginRegistratie
@@ -6905,25 +7018,27 @@ components:
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -6966,11 +7081,14 @@ components:
           title: informatieobjecttype
           maxLength: 200
         trefwoorden:
-          description: Een lijst van één of meer trefwoorden.
           type: array
           items:
             type: string
-          example: ["bouwtekening","vergunning","aanvraag"]
+            minLength: 1
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
         lock:
           type: string
           writeOnly: true
@@ -6988,17 +7106,6 @@ components:
         - lock
         - taal
         - titel
-    EnkelvoudigInformatieObjectExpanded:
-      allOf:
-        - $ref: '#/components/schemas/EnkelvoudigInformatieObject'
-        - properties:
-              _expand:
-                $ref: '#/components/schemas/EnkelvoudigInformatieObjectEmbedded'
-    EnkelvoudigInformatieObjectEmbedded:
-      type: object
-      properties: 
-        informatieobjecttype: 
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -7100,17 +7207,6 @@ components:
         - omschrijvingVoorwaarden
         - startdatum
         - url
-    GebruiksrechtenExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Gebruiksrechten'
-     - properties:
-          _expand:
-            $ref: '#/components/schemas/GebruiksrechtenEmbedded'
-    GebruiksrechtenEmbedded:
-      type: object
-      properties: 
-        informatieobject: 
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     GebruiksrechtenRequest:
       type: object
       properties:
@@ -7446,7 +7542,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+            $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     PaginatedVerzendingList:
       type: object
       properties:
@@ -7466,7 +7562,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/VerzendingExpanded'
+            $ref: '#/components/schemas/Verzending'
     PatchedEnkelvoudigInformatieObjectWithLockRequest:
       type: object
       description:
@@ -7619,25 +7715,27 @@ components:
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
-            te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
-            organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
-            aan documenten die van of naar andere personen ontvangen of verzonden
-            zijn waarbij die personen niet deel uit maken van de behandeling van de
-            zaak waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
           title: ontvangstdatum
         verzenddatum:
           type: string
           format: date
           nullable: true
           description:
-            De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
-            op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
-            uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
-            inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan
-            documenten die van of naar andere personen ontvangen of verzonden zijn
-            waarbij die personen niet deel uit maken van de behandeling van de zaak
-            waarin het document een rol speelt.
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
           title: verzenddatum
         indicatieGebruiksrecht:
           type: boolean
@@ -7679,6 +7777,15 @@ components:
             API).
           title: informatieobjecttype
           maxLength: 200
+        trefwoorden:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
         lock:
           type: string
           writeOnly: true
@@ -7858,6 +7965,311 @@ components:
         - antwoordnummer
         - postbusnummer
       type: string
+    SchemaBestandsDeel:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        volgnummer:
+          type: integer
+          readOnly: true
+          description: Een volgnummer dat de volgorde van de bestandsdelen aangeeft.
+          title: volgnummer
+        omvang:
+          type: integer
+          readOnly: true
+          description: De grootte van dit specifieke bestandsdeel.
+          title: omvang
+        voltooid:
+          type: boolean
+          readOnly: true
+          description:
+            'Indicatie of dit bestandsdeel volledig is geupload. Dat wil
+            zeggen: het aantal bytes dat staat genoemd bij grootte is daadwerkelijk
+            ontvangen.'
+          title: voltooid
+        lock:
+          type: string
+          description: Hash string, which represents id of the lock of related informatieobject
+          title: lock
+      required:
+        - lock
+        - omvang
+        - url
+        - volgnummer
+        - voltooid
+    SchemaEIO:
+      type: object
+      description: Serializer for the EnkelvoudigInformatieObject model
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        identificatie:
+          type: string
+          description:
+            Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
+          title: identificatie
+          maxLength: 40
+        bronorganisatie:
+          type: string
+          description:
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
+          title: bronorganisatie
+          maxLength: 9
+        creatiedatum:
+          type: string
+          format: date
+          description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
+          title: creatiedatum
+        titel:
+          type: string
+          description: De naam waaronder het INFORMATIEOBJECT formeel bekend is.
+          title: titel
+          maxLength: 200
+        vertrouwelijkheidaanduiding:
+          description:
+            'Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+            openbaarheid bestemd is.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `openbaar` - Openbaar
+
+            * `beperkt_openbaar` - Beperkt openbaar
+
+            * `intern` - Intern
+
+            * `zaakvertrouwelijk` - Zaakvertrouwelijk
+
+            * `vertrouwelijk` - Vertrouwelijk
+
+            * `confidentieel` - Confidentieel
+
+            * `geheim` - Geheim
+
+            * `zeer_geheim` - Zeer geheim'
+          title: vertrouwelijkheidaanduiding
+          oneOf:
+            - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
+            - $ref: '#/components/schemas/BlankEnum'
+        auteur:
+          type: string
+          description:
+            "De persoon of organisatie die in de eerste plaats verantwoordelijk\
+            \ is voor het cre\xEBren van de inhoud van het INFORMATIEOBJECT."
+          title: auteur
+          maxLength: 200
+        status:
+          description:
+            "Aanduiding van de stand van zaken van een INFORMATIEOBJECT.
+            De waarden 'in bewerking' en 'ter vaststelling' komen niet voor als
+            het attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
+            de Status in 'gearchiveerd' impliceert dat het informatieobject een
+            duurzaam, niet-wijzigbaar Formaat dient te hebben.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog gewerkt.
+
+            * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed maar
+            moet nog vastgesteld worden.
+
+            * `definitief` - (Definitief) Informatieobject door bevoegd iets of iemand
+            vastgesteld dan wel ontvangen.
+
+            * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam bewaarbaar
+            gemaakt; een gearchiveerd informatie-element."
+          title: status
+          oneOf:
+            - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
+        formaat:
+          type: string
+          description:
+            'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
+          title: formaat
+          maxLength: 255
+        taal:
+          type: string
+          description:
+            'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `dut`. Zie: https://www.iso.org/standard/4767.html'
+          title: taal
+          maxLength: 3
+          minLength: 3
+        versie:
+          type: integer
+          readOnly: true
+          description:
+            Het (automatische) versienummer van het INFORMATIEOBJECT. Deze
+            begint bij 1 als het INFORMATIEOBJECT aangemaakt wordt.
+          title: versie
+        beginRegistratie:
+          type: string
+          format: date-time
+          readOnly: true
+          description:
+            Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
+          title: begin registratie
+        bestandsnaam:
+          type: string
+          description:
+            De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
+          title: bestandsnaam
+          maxLength: 255
+        inhoud:
+          type: string
+          format: uri
+          description: Download URL van de binaire inhoud.
+          nullable: true
+          title: inhoud
+        bestandsomvang:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          nullable: true
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
+          title: bestandsomvang
+        link:
+          type: string
+          format: uri
+          description:
+            De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
+            is.
+          title: link
+          maxLength: 200
+        beschrijving:
+          type: string
+          description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
+          title: beschrijving
+          maxLength: 1000
+        ontvangstdatum:
+          type: string
+          format: date
+          nullable: true
+          description:
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht te\
+            \ registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende\
+            \ organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden\
+            \ aan documenten die van of naar andere personen ontvangen of verzonden\
+            \ zijn waarbij die personen niet deel uit maken van de behandeling van\
+            \ de zaak waarin het document een rol speelt."
+          title: ontvangstdatum
+        verzenddatum:
+          type: string
+          format: date
+          nullable: true
+          description:
+            "**DEPRECATED** Dit attribuut is verplaatst naar resource Verzending.\
+            \ \n\n De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze op\
+            \ het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als\
+            \ uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk\
+            \ inkomend en uitgaand zijn. Ontvangst en verzending is voorbehouden aan\
+            \ documenten die van of naar andere personen ontvangen of verzonden zijn\
+            \ waarbij die personen niet deel uit maken van de behandeling van de zaak\
+            \ waarin het document een rol speelt."
+          title: verzenddatum
+        indicatieGebruiksrecht:
+          type: boolean
+          nullable: true
+          description:
+            Indicatie of er beperkingen gelden aangaande het gebruik van
+            het informatieobject anders dan raadpleging. Dit veld mag `null` zijn
+            om aan te geven dat de indicatie nog niet bekend is. Als de indicatie
+            gezet is, dan kan je de gebruiksrechten die van toepassing zijn raadplegen
+            via de GEBRUIKSRECHTen resource.
+          title: indicatie gebruiksrecht
+        verschijningsvorm:
+          type: string
+          description: "De essenti\xEBle opmaakaspecten van een INFORMATIEOBJECT."
+          title: verschijningsvorm
+        ondertekening:
+          allOf:
+            - $ref: '#/components/schemas/Ondertekening'
+          nullable: true
+          description:
+            Aanduiding van de rechtskracht van een informatieobject. Mag
+            niet van een waarde zijn voorzien als de `status` de waarde 'in bewerking'
+            of 'ter vaststelling' heeft.
+          title: ondertekening
+        integriteit:
+          allOf:
+            - $ref: '#/components/schemas/Integriteit'
+          nullable: true
+          description:
+            Uitdrukking van mate van volledigheid en onbeschadigd zijn
+            van digitaal bestand.
+          title: integriteit
+        informatieobjecttype:
+          type: string
+          format: uri
+          description:
+            URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
+          title: informatieobjecttype
+          maxLength: 200
+        locked:
+          type: boolean
+          readOnly: true
+          description:
+            Geeft aan of het document gelocked is. Alleen als een document
+            gelocked is, mogen er aanpassingen gemaakt worden.
+          title: locked
+        bestandsdelen:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchemaBestandsDeel'
+          readOnly: true
+          title: bestandsdelen
+        trefwoorden:
+          type: array
+          items:
+            type: string
+            maxLength: 100
+          nullable: true
+          description: Een lijst van trefwoorden gescheiden door comma's.
+          title: trefwoorden
+      required:
+        - auteur
+        - beginRegistratie
+        - bestandsdelen
+        - bronorganisatie
+        - creatiedatum
+        - informatieobjecttype
+        - locked
+        - taal
+        - titel
+        - url
+        - versie
     SoortEnum:
       enum:
         - analoog
@@ -8084,17 +8496,6 @@ components:
         - contactPersoon
         - informatieobject
         - url
-    VerzendingExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Verzending'
-     - properties:
-          _expand:
-            $ref: '#/components/schemas/VerzendingEmbedded'
-    VerzendingEmbedded:
-      type: object
-      properties: 
-        informatieobject: 
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
     VerzendingRequest:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
@@ -8255,6 +8656,9 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/michielverhoef/Documenten_API/1.4.1
   - url: https://documenten-api.vng.cloud/api/v1
     description: Productie Omgeving
 tags:
