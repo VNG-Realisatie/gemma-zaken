@@ -6418,6 +6418,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -6430,6 +6431,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -6665,6 +6667,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -6677,6 +6680,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -6907,6 +6911,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -6919,6 +6924,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -7621,6 +7627,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -7633,6 +7640,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -7761,6 +7769,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -7775,6 +7784,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -7987,6 +7997,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -8001,6 +8012,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
@@ -8137,6 +8149,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT ontvangen is. Verplicht
             te registreren voor INFORMATIEOBJECTen die van buiten de zaakbehandelende
             organisatie(s) ontvangen zijn. Ontvangst en verzending is voorbehouden
@@ -8151,6 +8164,7 @@ components:
           format: date
           nullable: true
           description:
+            <b>DEPRECATED</b> Dit attribuut is verplaatst naar resource Verzending.
             De datum waarop het INFORMATIEOBJECT verzonden is, zoals deze
             op het INFORMATIEOBJECT vermeld is. Dit geldt voor zowel inkomende als
             uitgaande INFORMATIEOBJECTen. Eenzelfde informatieobject kan niet tegelijk
