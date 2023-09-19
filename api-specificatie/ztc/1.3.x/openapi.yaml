@@ -3075,15 +3075,19 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: {}
-              description: Unspecified request body
+              $ref: '#/components/schemas/InformatieObjectType'
+        required: true
       security:
         - JWT-Claims:
             - catalogi.schrijven
       responses:
-        '200':
+        '201':
           headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+              description: URL waar de resource leeft.
             API-version:
               schema:
                 type: string
@@ -3093,10 +3097,8 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
-          description: OK
+                $ref: '#/components/schemas/InformatieObjectType'
+          description: Created
         '400':
           headers:
             API-version:
