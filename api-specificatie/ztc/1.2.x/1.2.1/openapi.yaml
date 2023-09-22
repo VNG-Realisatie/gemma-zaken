@@ -12759,9 +12759,7 @@ components:
           description:
             "Een aanduiding waarmee onderscheid wordt gemaakt tussen ZAAKTYPEn\
             \ die Intern respectievelijk Extern ge\xEFnitieerd worden. Indien van\
-            \ beide sprake kan zijn, dan prevaleert de externe initiatie.\n\nUitleg\
-            \ bij mogelijke waarden:\n\n* `inkomend` - Inkomend\n* `intern` - Intern\n\
-            * `uitgaand` - Uitgaand"
+            \ beide sprake kan zijn, dan prevaleert de externe initiatie."
           title: indicatie intern of extern
         handelingInitiator:
           type: string
@@ -13830,9 +13828,7 @@ components:
           description:
             "Een aanduiding waarmee onderscheid wordt gemaakt tussen ZAAKTYPEn\
             \ die Intern respectievelijk Extern ge\xEFnitieerd worden. Indien van\
-            \ beide sprake kan zijn, dan prevaleert de externe initiatie.\n\nUitleg\
-            \ bij mogelijke waarden:\n\n* `inkomend` - Inkomend\n* `intern` - Intern\n\
-            * `uitgaand` - Uitgaand"
+            \ beide sprake kan zijn, dan prevaleert de externe initiatie."
           title: indicatie intern of extern
         handelingInitiator:
           type: string
