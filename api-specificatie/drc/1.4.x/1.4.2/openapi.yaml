@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.4.2
+  version: 1.4.2-2
   description: >
     Een API om een documentregistratiecomponent (DRC) te benaderen.
 
@@ -5889,7 +5889,15 @@ components:
             \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
             \ eerste in een samenwerkingsketen heeft vastgelegd."
           type: string
-          example: "000000000"          
+          example: "000000000"
+        expand:
+          description: >-
+            Haal details van gelinkte resources direct op. Als je meerdere
+            resources tegelijk wilt ophalen kun je deze scheiden met een komma.
+            Voor het ophalen van resources die een laag dieper genest zijn wordt
+            de punt-notatie gebruikt.
+          type: string
+          example: informatieobjecttype
       required:
         - uuid__in
     EnkelvoudigInformatieObject:
