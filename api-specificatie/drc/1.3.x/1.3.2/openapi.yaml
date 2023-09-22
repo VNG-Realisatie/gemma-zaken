@@ -5656,7 +5656,7 @@ components:
     EIOZoekRequest:
       type: object
       properties:
-        uuid_In:
+        uuid__in:
           type: array
           items:
             type: string
@@ -5664,8 +5664,23 @@ components:
             title: ''
           description: Array of unieke resource identifiers (UUID4)
           title: uuid__in
+        identificatie:
+          title: Identificatie
+          description:
+            Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
+          type: string
+          example: "Document123"
+        bronorganisatie:
+          title: Bronorganisatie        
+          description:
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie\
+            \ die het informatieobject heeft gecre\xEBerd of heeft ontvangen en als\
+            \ eerste in een samenwerkingsketen heeft vastgelegd."
+          type: string
+          example: "000000000"
       required:
-        - uuid_In
+        - uuid__in
     EnkelvoudigInformatieObject:
       type: object
       description: Serializer for the EnkelvoudigInformatieObject model
@@ -8127,6 +8142,9 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/michielverhoef/Documenten_API/1.3.2
   - url: https://documenten-api.vng.cloud/api/v1
     description: Productie Omgeving
 tags:
