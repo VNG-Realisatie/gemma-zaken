@@ -5703,7 +5703,7 @@ components:
     EIOZoekRequest:
       type: object
       properties:
-        uuid_In:
+        uuid__in:
           type: array
           items:
             type: string
@@ -5712,7 +5712,7 @@ components:
           description: Array of unieke resource identifiers (UUID4)
           title: uuid__in
       required:
-        - uuid_In
+        - uuid__in
     EnkelvoudigInformatieObject:
       type: object
       description: Serializer for the EnkelvoudigInformatieObject model
