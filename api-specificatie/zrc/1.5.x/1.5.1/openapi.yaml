@@ -12418,11 +12418,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -14074,11 +14069,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
