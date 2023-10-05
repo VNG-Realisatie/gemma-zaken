@@ -85,6 +85,7 @@ Het attribuut `richting` uit de relatieklasse ZaaktypeInformatieobjecttype en de
 
 [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
 
+### Releasenotes
 De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
 
 ### Releases
