@@ -1,6 +1,6 @@
 ---
 title: "Zaken API"
-date: '22-8-2023'
+date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -61,6 +61,8 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 ## Specificatie van de Zaken API
 
+### Releasenotes
+De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
 
 ### Releases
 
