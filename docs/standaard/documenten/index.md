@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '22-8--2023'
+date: '05-10--2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -84,6 +84,8 @@ Het attribuut `richting` uit de relatieklasse ZaaktypeInformatieobjecttype en de
 ## Specificatie van de Documenten API
 
 [Referentie-implementatie Documenten API](https://documenten-api.vng.cloud/)
+
+De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
 
 ### Releases
 
