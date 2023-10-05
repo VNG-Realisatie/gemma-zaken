@@ -1,6 +1,6 @@
 ---
 title: "Catalogi API"
-date: '22-8-2023'
+date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -20,6 +20,9 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 ## Specificatie van de Catalogi API
 
 [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
+
+### Releasenotes
+De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
 
 ### Releases
 
