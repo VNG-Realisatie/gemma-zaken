@@ -9565,7 +9565,7 @@ paths:
       operationId: zaaktype_create
       description:
         "Er wordt gevalideerd op:\n- geldigheid `catalogus` URL, dit moet\
-        \ een catalogus binnen dezelfde API zijn\n - Uniciteit `catalogus` en `omschrijving`.\
+        \ een catalogus binnen dezelfde API zijn\n - Uniciteit `catalogus` en `zaaktypeidentificatie`.\
         \ Dezelfde omeschrijving mag enkel  opnieuw gebruikt worden als het zaaktype\
         \ een andere geldigheidsperiode  kent dan bestaande zaaktypen.\n - `deelzaaktypen`\
         \ moeten tot dezelfde catalogus behoren als het ZAAKTYPE."
