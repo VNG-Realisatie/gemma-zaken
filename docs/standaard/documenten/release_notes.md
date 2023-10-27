@@ -8,6 +8,14 @@ layout: page-with-side-nav
 
 Versie   | Release datum 
 -------- | ------------- 
+1.4.3    | 28-10-2023    
+
+- `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
+  Dit bleek in versie 1.4.1 niet volledig opgelost.
+
+
+Versie   | Release datum 
+-------- | ------------- 
 1.4.2    | 26-09-2023    
 1.3.2    | 26-09-2023    
 1.2.5    | 26-09-2023    
