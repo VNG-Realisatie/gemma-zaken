@@ -92,7 +92,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
-1.4.3    | 28-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
+1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
 1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
 1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
 1.2.5    | 26-09-2023    | [ReDoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
