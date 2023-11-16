@@ -78,6 +78,20 @@ Een verzoek kan onderbouwd worden met één of meer informatieobjecten. De relat
 </span>
 De relatie klasse Verzending legt vast aan welke Betrokkene een Informatieobject verzonden is of van welke Betrokkene een Informatieobject ontvangen is. Om altijd te kunnen achterhalen naar/van welk adres een Informatieobject verzonden of ontvangen is moet dit adres ook worden vastgelegd. Immers, wanneer alleen verwezen wordt naar het adres waarop iemand ingeschreven staat verandert dit gegeven wanneer deze persoon verhuist of de geregistreerde gegevens bijgewerkt worden. Door het adres vast te leggen in Verzending is altijd te achterhalen naar/van welk adres een Informatieobject verstuurd/ontvangen is. 
 
+Een `Enkelvoudiginformatieobject` kan meer dan één maal verzonden worden maar een `Verzending` is altijd slechts naar één `adres`. De waarde van `aardrelatie` is dan `geadresseerde`. Onder een `adres` wordt verstaan één van onderstaande gegevens:
+
+- binnenlandsCorrespondentieadres
+- buitenlandsCorrespondentieadres
+- correspondentiePostadres
+- faxnummer
+- emailadres
+- mijnOverheid
+- telefoonnummer
+
+Het is dus **niet** mogelijk om in een `Verzending` bijvoorbeeld zowel een `emailadres` als `mijnOverheid` of een `correspondentiePostadres` aan te geven, dit zijn immers meerdere adressen. In dat geval dienen evenzovele `Verzendingen` aangemaakt te worden als er verschillende adressen gebruikt zijn. 
+
+Een `Enkelvoudiginformatieobject` kan ook slechts van één adres ontvangen worden. De waarde van `aardrelatie` is dan `afzender`. Wanneer een Informatieobject ontvangen en geregistreerd wordt zal dit informatieobject als nieuw informatieobject geregistreerd worden. Daarom zal de relatie tussen een `Enkelvoudiginformatieobject` en een `Verzending` in geval van ontvangen (en er dus een afzender geregistreerd wordt) een 1 op 1 relatie zijn.
+
 Het attribuut `richting` uit de relatieklasse ZaaktypeInformatieobjecttype en de attributen `ontvangstdatum` en `verzenddatum` uit Einkelvoudiginformatieobject zijn hiermee overbodig en deprecated geworden.
 
 
