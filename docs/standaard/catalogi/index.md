@@ -321,49 +321,49 @@ Wanneer de ZRC of DRC met respectievelijk de scopes zaken.lezen of documenten.le
     <strong>Nieuw in versie 1.3.0</strong>
 </span>
 
-Vanaf versie 1.3.0 is het mogelijk de Catalogi API te expanden. Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onderstaande tabel staat beschreven welke velden door welke API ontsloten kunnen worden. Deze velden kunnen vooralsnog alleen indirect geëxpand worden, dus vanuit de Zaken API of Documenten API. Niet rechtstreeks vanuit de Catalogi API zelf.
+Vanaf versie 1.3.0 is het mogelijk de Catalogi API te expanden. Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onderstaande tabel staat beschreven welke velden in de Catalogi API geëxpandeerd kunnen worden. Deze velden kunnen vooralsnog alleen indirect geëxpandeerd worden, dus vanuit de Zaken API of Documenten API. Niet rechtstreeks vanuit de Catalogi API zelf. Een volledig overzicht van velden die geëxpandeerd kunnen worden staat op [deze pagina](../expand_patroon)
 
-| API        | Resource                      | Veld met url           | Expand   | Doel API   | Doel resource                 | Opmerkingen                             |
-| ---------- | ----------------------------- | ---------------------- | -------- | ---------- | ----------------------------- | --------------------------------------- |
-| catalogi   | zaaktypen                     | zaakobjecttypen        | Indirect | catalogi   | zaakobjecttypen               |                                         |
-| catalogi   | zaaktypen                     | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | zaaktypen                     | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
-| catalogi   | zaaktypen                     | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
-| catalogi   | zaaktypen                     | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
-| catalogi   | zaaktypen                     | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | zaaktypen                     | roltypen               | Indirect | catalogi   | roltypen                      |                                         |
-| catalogi   | zaaktypen                     | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
-| catalogi   | zaaktypen                     | deelzaaktypen          | Indirect | catalogi   | deelzaaktypen                 |                                         |
-| catalogi   | zaaktypen                     | gerelateerdeZaaktypen  | Indirect | catalogi   | gerelateerdeZaaktypen         | Array bestaat uit objecten met url veld |
-| catalogi   | besluittypen                  | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | besluittypen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | besluittypen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | besluittypen                  | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
-| catalogi   | catalogussen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | catalogussen                  | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
-| catalogi   | catalogussen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | eigenschappen                 | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | eigenschappen                 | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | eigenschappen                 | statustype             | Indirect | catalogi   | statustypen                   |                                         |
-| catalogi   | informatieobjecttypen         | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | informatieobjecttypen         | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | informatieobjecttypen         | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
-| catalogi   | resultaattypen                | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | resultaattypen                | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | resultaattypen                | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
-| catalogi   | resultaattypen                | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | statustypen                   | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | statustypen                   | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | statustypen                   | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
-| catalogi   | zaakobjecttypen               | objecttype             | Indirect | catalogi   | objecttypen                   |                                         |
-| catalogi   | zaakobjecttypen               | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | zaakobjecttypen               | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
-| catalogi   | zaakobjecttypen               | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
-| catalogi   | zaakobjecttypen               | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | zaaktypeinformatieobjecttypen | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | zaaktypeinformatieobjecttypen | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | zaaktypeinformatieobjecttypen | informatieobjecttype   | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | zaaktypeinformatieobjecttypen | statustype             | Indirect | catalogi   | statustypen                   |                                         |
+| API        | Versie vanaf | Resource                      | Veld met url           | Expand   | Doel API   | Doel resource                 | Opmerkingen                             |
+| ---------- | ------------ | ----------------------------- | ---------------------- | -------- | ---------- | ----------------------------- | --------------------------------------- |
+| catalogi   | 1.3.0        | zaaktypen                     | zaakobjecttypen        | Indirect | catalogi   | zaakobjecttypen               |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | roltypen               | Indirect | catalogi   | roltypen                      |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | deelzaaktypen          | Indirect | catalogi   | deelzaaktypen                 |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | gerelateerdeZaaktypen  | Indirect | catalogi   | gerelateerdeZaaktypen         | Array bestaat uit objecten met url veld |
+| catalogi   | 1.3.0        | besluittypen                  | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | statustype             | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | statustypen                   | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | statustypen                   | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | statustypen                   | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | objecttype             | Indirect | catalogi   | objecttypen                   |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | informatieobjecttype   | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | statustype             | Indirect | catalogi   | statustypen                   |                                         |
 
 
 ## Overige documentatie
