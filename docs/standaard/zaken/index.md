@@ -495,6 +495,73 @@ Indien een verzoek één of meer expand parameters bevat MOET het attribuut onde
 #### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>** 
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
 
+Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onderstaande tabel staat beschreven welke velden in de Zaken API geëxpandeerd kunnen worden. Indirect kunnen vanuit de Zaken API verwijzingen naar de Catalogi API worden ontsloten. Een volledig overzicht van velden die geëxpandeerd kunnen worden staat op [deze pagina](../expand_patroon)
+
+| API        | Versie vanaf | Resource                      | Veld met url           | Expand   | Doel API   | Doel resource                 | Opmerkingen                             |
+| ---------- | ------------ | ----------------------------- | ---------------------- | -------- | ---------- | ----------------------------- | --------------------------------------- |
+| zaken      | 1.5.0        | zaken                         | zaaktype               | Ja       | catalogi   | zaaktypen                     |                                         |
+| zaken      | 1.5.0        | zaken                         | hoofdzaak              | Ja       | zaken      | zaken                         |                                         |
+| zaken      | 1.5.0        | zaken                         | deelzaken              | Ja       | zaken      | zaken                         |                                         |
+| zaken      | 1.5.0        | zaken                         | relevanteAndereZaken   | Ja       | zaken      | zaken                         | Array bestaat uit objecten met url veld |
+| zaken      | 1.5.0        | zaken                         | eigenschappen          | Ja       | zaken      | zaken::zaakeigenschappen      |                                         |
+| zaken      | 1.5.0        | zaken                         | rollen                 | Ja       | zaken      | rollen                        |                                         |
+| zaken      | 1.5.0        | zaken                         | status                 | Ja       | zaken      | statussen                     |                                         |
+| zaken      | 1.5.0        | zaken                         | zaakinformatieobjecten | Ja       | zaken      | zaakinformatieobjecten        |                                         |
+| zaken      | 1.5.0        | zaken                         | zaakobjecten           | Ja       | zaken      | zaakobjecten                  |                                         |
+| zaken      | 1.5.0        | zaken                         | resultaat              | Ja       | zaken      | resultaten                    |                                         |
+| zaken      | 1.5.0        | zaken::zaakeigenschappen      | zaak                   | Ja       | zaken      | zaak                          |                                         |
+| zaken      | 1.5.0        | zaken::zaakeigenschappen      | eigenschap             | Ja       | catalogi   | eigenschappen                 |                                         |
+| zaken      | 1.5.0        | resultaten                    | zaak                   | Ja       | zaken      | zaken                         |                                         |
+| zaken      | 1.5.0        | resultaten                    | resultaattype          | Ja       | catalogi   | resultaattypen                |                                         |
+| zaken      | 1.5.0        | rollen                        | zaak                   | Ja       | zaken      | zaken                         |                                         |
+| zaken      | 1.5.0        | rollen                        | roltype                | Ja       | catalogi   | roltypen                      |                                         |
+| zaken      | 1.5.0        | rollen                        | statussen              | Ja       | zaken      | statussen                     |                                         |
+| zaken      | 1.5.0        | statussen                     | zaak                   | Ja       | zaken      | zaken                         |                                         |
+| zaken      | 1.5.0        | statussen                     | statustype             | Ja       | catalogi   | statustypen                   |                                         |
+| zaken      | 1.5.0        | statussen                     | gezetdoor              | Ja       | zaken      | rollen                        |                                         |
+| zaken      | 1.5.0        | statussen                     | zaakinformatieobjecten | Ja       | zaken      | zaakinformatieobjecten        |                                         |
+| zaken      | 1.5.0        | zaakobjecten                  | zaakobjecttype         | Ja       | zaken      | zaakobjecttypen               |                                         |
+| zaken      | 1.5.0        | zaakverzoeken                 | zaak                   | Ja       | zaken      | zaken                         | Niet te expanden via zaak               |
+| catalogi   | 1.3.0        | zaaktypen                     | zaakobjecttypen        | Indirect | catalogi   | zaakobjecttypen               |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | roltypen               | Indirect | catalogi   | roltypen                      |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | deelzaaktypen          | Indirect | catalogi   | deelzaaktypen                 |                                         |
+| catalogi   | 1.3.0        | zaaktypen                     | gerelateerdeZaaktypen  | Indirect | catalogi   | gerelateerdeZaaktypen         | Array bestaat uit objecten met url veld |
+| catalogi   | 1.3.0        | besluittypen                  | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | besluittypen                  | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | catalogussen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | eigenschappen                 | statustype             | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
+| catalogi   | 1.3.0        | resultaattypen                | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | statustypen                   | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | statustypen                   | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | statustypen                   | eigenschappen          | Indirect | catalogi   | eigenschappen                 |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | objecttype             | Indirect | catalogi   | objecttypen                   |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
+| catalogi   | 1.3.0        | zaakobjecttypen               | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | informatieobjecttype   | Indirect | catalogi   | informatieobjecttypen         |                                         |
+| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | statustype             | Indirect | catalogi   | statustypen                   |                                         |
+
 
 ## Overige documentatie
 
