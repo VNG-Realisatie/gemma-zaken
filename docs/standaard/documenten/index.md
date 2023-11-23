@@ -293,13 +293,16 @@ Indien een verzoek één of meer expand parameters bevat MOET het attribuut onde
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
 
 
-Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onderstaande tabel staat beschreven welke velden in de Documenten API geëxpandeerd kunnen worden. Een volledig overzicht van velden die geëxpandeerd kunnen worden staat op [deze pagina](../expand_patroon)
+Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onderstaande tabel staat beschreven welke velden in de Documenten API geëxpandeerd kunnen worden. Indirect kunnen vanuit de Zaken API verwijzingen naar de Catalogi API worden ontsloten. Een volledig overzicht van velden die geëxpandeerd kunnen worden staat op [deze pagina](../expand_patroon)
 
 | API        | Versie vanaf | Resource                      | Veld met url           | Expand   | Doel API   | Doel resource                 | Opmerkingen                             |
 | ---------- | ------------ | ----------------------------- | ---------------------- | -------- | ---------- | ----------------------------- | --------------------------------------- |
 | documenten | 1.4.0        | enkelvoudiginformatieobjecten | informatieobjecttype   | Ja       | catalogi   | informatieobjecttypen         |                                         |
 | documenten | 1.4.0        | gebruiksrechten               | informatieobject       | Ja       | documenten | enkelvoudiginformatieobjecten |                                         |
 | documenten | 1.4.0        | verzendingen                  | informatieobject       | Ja       | documenten | enkelvoudiginformatieobjecten |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
+| catalogi   | 1.3.0        | informatieobjecttypen         | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
 
 
 #### HTTP-Caching
