@@ -532,19 +532,9 @@ Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onde
 | catalogi   | 1.3.0        | zaaktypen                     | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
 | catalogi   | 1.3.0        | zaaktypen                     | deelzaaktypen          | Indirect | catalogi   | deelzaaktypen                 |                                         |
 | catalogi   | 1.3.0        | zaaktypen                     | gerelateerdeZaaktypen  | Indirect | catalogi   | gerelateerdeZaaktypen         | Array bestaat uit objecten met url veld |
-| catalogi   | 1.3.0        | besluittypen                  | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | 1.3.0        | besluittypen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | 1.3.0        | besluittypen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | 1.3.0        | besluittypen                  | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
-| catalogi   | 1.3.0        | catalogussen                  | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | 1.3.0        | catalogussen                  | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
-| catalogi   | 1.3.0        | catalogussen                  | informatieobjecttypen  | Indirect | catalogi   | informatieobjecttypen         |                                         |
 | catalogi   | 1.3.0        | eigenschappen                 | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
 | catalogi   | 1.3.0        | eigenschappen                 | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
 | catalogi   | 1.3.0        | eigenschappen                 | statustype             | Indirect | catalogi   | statustypen                   |                                         |
-| catalogi   | 1.3.0        | informatieobjecttypen         | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | 1.3.0        | informatieobjecttypen         | zaaktypen              | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | 1.3.0        | informatieobjecttypen         | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
 | catalogi   | 1.3.0        | resultaattypen                | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
 | catalogi   | 1.3.0        | resultaattypen                | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
 | catalogi   | 1.3.0        | resultaattypen                | besluittypen           | Indirect | catalogi   | besluittypen                  |                                         |
@@ -557,10 +547,6 @@ Het expand patroon staat beschreven op [deze pagina](../expand_patroon). In onde
 | catalogi   | 1.3.0        | zaakobjecttypen               | resultaattypen         | Indirect | catalogi   | resultaattypen                |                                         |
 | catalogi   | 1.3.0        | zaakobjecttypen               | statustypen            | Indirect | catalogi   | statustypen                   |                                         |
 | catalogi   | 1.3.0        | zaakobjecttypen               | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | zaaktype               | Indirect | catalogi   | zaaktypen                     |                                         |
-| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | catalogus              | Indirect | catalogi   | catalogussen                  |                                         |
-| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | informatieobjecttype   | Indirect | catalogi   | informatieobjecttypen         |                                         |
-| catalogi   | 1.3.0        | zaaktypeinformatieobjecttypen | statustype             | Indirect | catalogi   | statustypen                   |                                         |
 
 
 ## Overige documentatie
