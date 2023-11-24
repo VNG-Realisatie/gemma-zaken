@@ -455,7 +455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitType'
+                $ref: '#/components/schemas/BesluitTypeExpanded'
           description: OK
         '401':
           headers:
@@ -1627,7 +1627,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Catalogus'
+                $ref: '#/components/schemas/CatalogusExpanded'
           description: OK
         '401':
           headers:
@@ -2197,7 +2197,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Eigenschap'
+                $ref: '#/components/schemas/EigenschapExpanded'
           description: OK
         '401':
           headers:
@@ -3258,7 +3258,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InformatieObjectType'
+                $ref: '#/components/schemas/InformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -4437,7 +4437,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResultaatType'
+                $ref: '#/components/schemas/ResultaatTypeExpanded'
           description: OK
         '401':
           headers:
@@ -5516,7 +5516,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RolType'
+                $ref: '#/components/schemas/RolTypeExpanded'
           description: OK
         '401':
           headers:
@@ -6575,7 +6575,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatusType'
+                $ref: '#/components/schemas/StatusTypeExpanded'
           description: OK
         '401':
           headers:
@@ -7666,7 +7666,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakObjectType'
+                $ref: '#/components/schemas/ZaakObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -8731,7 +8731,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+                $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -9821,7 +9821,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakType'
+                $ref: '#/components/schemas/ZaakTypeExpanded'
           description: OK
         '401':
           headers:
