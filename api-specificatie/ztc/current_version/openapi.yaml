@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Catalogi API
-  version: 1.3.1
+  version: 1.3.2
   description:
     "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
     \ helpt gemeenten om het proces vanuit de 'vraag van een\nklant' (productaanvraag,\
@@ -10933,6 +10933,37 @@ components:
         - url
         - vastgelegdIn
         - zaaktypen
+    BesluitTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/BesluitType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/BesluitTypeEmbedded'
+    BesluitTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakTypeExpanded' 
+        informatieobjecttypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded' 
+        resultaattypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ResultaatTypeExpanded'
+    EmptyObject:
+      type: object
+      description: Leeg object. Dit wordt teruggeven indien het te expanderen veld een null waarde heeft.
+      example: {}
     BesluitTypeCreate:
       type: object
       properties:
@@ -11567,6 +11598,29 @@ components:
         - rsin
         - url
         - zaaktypen
+    CatalogusExpanded:
+      allOf:
+      - $ref: '#/components/schemas/Catalogus'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/CatalogusEmbedded'
+    CatalogusEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        zaaktypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakTypeExpanded' 
+        besluittypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/BesluitTypeExpanded' 
+        informatieobjecttypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded' 
     CheckListItem:
       type: object
       properties:
@@ -11692,6 +11746,29 @@ components:
         - url
         - zaaktype
         - zaaktypeIdentificatie
+    EigenschapExpanded:
+      allOf:
+      - $ref: '#/components/schemas/Eigenschap'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/EigenschapEmbedded'
+    EigenschapEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        statustype:
+          oneOf:
+          - $ref: '#/components/schemas/StatusTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
     EigenschapSpecificatie:
       type: object
       properties:
@@ -11943,6 +12020,29 @@ components:
         - url
         - vertrouwelijkheidaanduiding
         - zaaktypen
+    InformatieObjectTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/InformatieObjectType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/InformatieObjectTypeEmbedded'
+    InformatieObjectTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakTypeExpanded'
+        besluittypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/BesluitTypeExpanded'
     InformatieObjectTypeOmschrijvingGeneriek:
       type: object
       properties:
@@ -12914,8 +13014,6 @@ components:
     ResultaatType:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
-
-
         Usage: include the mixin on the ModelSerializer that has gegevensgroepen.'
       properties:
         url:
@@ -13125,11 +13223,36 @@ components:
         - url
         - zaaktype
         - zaaktypeIdentificatie
+    ResultaatTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ResultaatType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ResultaatTypeEmbedded'
+    ResultaatTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        besluittypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/BesluitTypeExpanded'
+        informatieobjecttypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded'
     ResultaatTypeCreate:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
-
-
         Usage: include the mixin on the ModelSerializer that has gegevensgroepen.'
       properties:
         url:
@@ -13642,6 +13765,25 @@ components:
         - url
         - zaaktype
         - zaaktypeIdentificatie
+    RolTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/RolType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/RolTypeEmbedded'
+    RolTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
     StatusType:
       type: object
       properties:
@@ -13781,6 +13923,29 @@ components:
         - volgnummer
         - zaaktype
         - zaaktypeIdentificatie
+    StatusTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/StatusType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/StatusTypeEmbedded'
+    StatusTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/EigenschapExpanded'
     ValidatieFout:
       type: object
       description: Formaat van HTTP 4xx en 5xx fouten.
@@ -13943,6 +14108,33 @@ components:
         - url
         - zaaktype
         - zaaktypeIdentificatie
+    ZaakObjectTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ZaakObjectType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ZaakObjectTypeEmbedded'
+    ZaakObjectTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        resultaattypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ResultaatTypeExpanded'
+        statustypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/StatusTypeExpanded'
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
     ZaakType:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
@@ -14332,6 +14524,57 @@ components:
         - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
+    ZaakTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ZaakType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ZaakTypeEmbedded'
+    ZaakTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        zaakobjecttypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakObjectTypeExpanded'
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        statustypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/StatusTypeExpanded' 
+        resultaattypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ResultaatTypeExpanded'
+        eigenschappen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/EigenschapExpanded'
+        informatieobjecttypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded' 
+        roltypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/RolTypeExpanded'
+        besluittypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/BesluitTypeExpanded'
+        deelzaaktypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakTypeExpanded'
+        gerelateerdeZaaktypen: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/ZaakTypeExpanded'
     ZaakTypeCreate:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
@@ -14796,6 +15039,33 @@ components:
         - volgnummer
         - zaaktype
         - zaaktypeIdentificatie
+    ZaakTypeInformatieObjectTypeExpanded:
+      allOf:
+      - $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+      - properties:
+            _expand:
+              $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeEmbedded'
+    ZaakTypeInformatieObjectTypeEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties:
+        zaaktype:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        catalogus:
+          oneOf:
+          - $ref: '#/components/schemas/CatalogusExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        informatieobjecttype:
+          oneOf:
+          - $ref: '#/components/schemas/InformatieObjectTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        statustype:
+          oneOf:
+          - $ref: '#/components/schemas/StatusTypeExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
     ZaakTypeUpdate:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
