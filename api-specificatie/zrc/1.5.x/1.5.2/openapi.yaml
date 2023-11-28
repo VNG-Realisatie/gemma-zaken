@@ -12909,8 +12909,9 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType'
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatTypeExpanded'
+          allOf:
+          - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType'
+          - $ref: '#/components/schemas/ExpandCatalogusObject'
     Rol:
       type: object
       properties:
@@ -13085,8 +13086,9 @@ components:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
         roltype:
-          # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType'
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolTypeExpanded'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
         statussen:
           type: array
           items:
@@ -13372,8 +13374,9 @@ components:
       type: object
       properties:
         statustype:
-          # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType'
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusTypeExpanded'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
         gezetdoor:
           $ref: '#/components/schemas/Rol'
         zaakinformatieobjecten:
@@ -14127,8 +14130,10 @@ components:
         Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
         zaaktype:
-        #  $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
-           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+               #  $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
@@ -14147,7 +14152,7 @@ components:
         eigenschappen: 
           type: array
           items: 
-            $ref: '#/components/schemas/ZaakEigenschap'      
+            $ref: '#/components/schemas/ZaakEigenschapExpanded'      
         rollen: 
           type: array
           items: 
@@ -14168,6 +14173,12 @@ components:
       type: object
       description: Leeg object. Dit wordt teruggeven indien het te expanderen veld een null waarde heeft.
       example: {}
+    ExpandCatalogusObject:
+      type: object
+      properties:
+        _expand:
+          type: object
+          description: Zie de Catalogus API hoe dit object verder geëxpandeerd kan worden.
     ZaakBesluit:
       type: object
       description:
@@ -14298,7 +14309,7 @@ components:
         - uuid
         - waarde
         - zaak
-    ZaakeigenschapExpanded:
+    ZaakEigenschapExpanded:
      allOf:
      - $ref: '#/components/schemas/ZaakEigenschap'
      - properties:
@@ -14314,7 +14325,9 @@ components:
           - $ref: '#/components/schemas/ZaakExpanded'
           - $ref: '#/components/schemas/EmptyObject'
         eigenschap:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/EigenschapExpanded'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/Eigenschap'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
     ZaakInformatieObject:
       type: object
       properties:
