@@ -3080,9 +3080,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/InformatieObjectType'
           description: OK
         '400':
           headers:
