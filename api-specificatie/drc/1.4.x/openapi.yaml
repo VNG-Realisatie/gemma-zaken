@@ -7001,7 +7001,9 @@ components:
       type: object
       properties: 
         informatieobjecttype: 
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -8260,6 +8262,12 @@ components:
           additionalProperties: {}
           description: Volledige JSON body van het object na de actie.
           title: nieuw
+    ExpandCatalogusObject:
+      type: object
+      properties:
+        _expand:
+          type: object
+          description: Zie de Catalogus API hoe dit object verder geëxpandeerd kan worden.
   securitySchemes:
     JWT-Claims:
       type: http
