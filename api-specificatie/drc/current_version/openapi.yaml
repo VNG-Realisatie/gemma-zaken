@@ -6851,7 +6851,7 @@ components:
             - bouwtekening
             - vergunning
             - aanvraag
-        relevantAndereInformatieobjecten:
+        relevanteAndereInformatieobjecten:
           type: array
           description: Een lijst met relevante andere informatieobjecten.
           items: 
@@ -6880,16 +6880,20 @@ components:
           minLength: 1
         aardRelatie:
           type: string
-          description: Aard van de relatie. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
+          description: Aard van de relatie tussen het informatieobject en het relevante andere informatieobject. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
           title: Aard relatie
           maxLength: 100
         richtingRelatie:
           type: string
-          description: De richting van de relatie waarin de aard van de relatie gelezen moet worden.
+          description: "De richting van de relatie waarin het attribuut `aardRelatie` geïnterpreteerd moet worden."
           title: Richting relatie.
           enum:
             - standaard
             - omgekeerd
+      required:
+        - informatieobject
+        - aardRelatie
+        - richtingRelatie
     EnkelvoudigInformatieObjectCreateLock:
       type: object
       description: |-
@@ -8227,7 +8231,7 @@ components:
           minLength: 1
         aardRelatie:
           type: string
-          description: Aard van de relatie. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
+          description: Aard van de relatie tussen het informatieobject en het relevante andere informatieobject. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
           title: Aard relatie
           maxLength: 100
       required:
