@@ -6851,11 +6851,11 @@ components:
             - bouwtekening
             - vergunning
             - aanvraag
-        relevanteAndereInformatieobjecten:
+        gerelateerdeInformatieobjecten:
           type: array
-          description: Een lijst met relevante andere informatieobjecten.
+          description: Een lijst met gerelateerde informatieobjecten.
           items: 
-            $ref: '#/components/schemas/RelevantAnderInformatieobject'
+            $ref: '#/components/schemas/GerelateerdInformatieobject'
           readOnly: true
       required:
         - auteur
@@ -6869,7 +6869,7 @@ components:
         - titel
         - url
         - versie
-    RelevantAnderInformatieobject:
+    GerelateerdInformatieobject:
       type: object
       properties:
         informatieobject:
@@ -6878,22 +6878,18 @@ components:
           description: URL-referentie naar het relevante andere informatieobject.
           title: Informatieobject
           minLength: 1
-        aardRelatie:
+        relatie:
           type: string
-          description: Aard van de relatie tussen het informatieobject en het relevante andere informatieobject. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
-          title: Aard relatie
-          maxLength: 100
-        richtingRelatie:
-          type: string
-          description: "De richting van de relatie waarin het attribuut `aardRelatie` geïnterpreteerd moet worden."
-          title: Richting relatie.
+          description: De relatie met het gerelateerde informatieobject. 
+          title: Relatie
           enum:
-            - standaard
-            - omgekeerd
+            - "is_een_geanonimiseerde_variant_van"
+            - "is_een_vervanger_van"
+            - "heeft_als_geanonimiseerde_variant"
+            - "is_vervangen_door"
       required:
         - informatieobject
-        - aardRelatie
-        - richtingRelatie
+        - relatie
     EnkelvoudigInformatieObjectCreateLock:
       type: object
       description: |-
@@ -8216,29 +8212,31 @@ components:
             URL-referentie naar dit object. Dit is de unieke identificatie en
             locatie van dit object.
           minLength: 1
-        informatieobject:
+        informatieobjectA:
           type: string
           format: uri
-          title: Informatiobject
+          title: Informatiobject A
           description: >-
-            URL-referentie naar het informatieobject.
+            URL-referentie naar het informatieobject dat het beginpunt is van de relatie.
           minLength: 1
-        relevantAnderInformatieobject:
+        informatieobjectB:
           type: string
           format: uri
-          description: URL-referentie naar het relevante andere informatieobject.
-          title: Relevant ander idformatieobject
+          description: URL-referentie naar het informatieobject dat het eindpunt is van de relatie.
+          title: Informatieobject B
           minLength: 1
-        aardRelatie:
+        relatie:
           type: string
-          description: Aard van de relatie tussen het informatieobject en het relevante andere informatieobject. De waarden die zijn toegestaan voor dit attribuut zijn beschreven in de aanvullende specificatie.
-          title: Aard relatie
-          maxLength: 100
+          description: De relatie tussen de twee informatieobjecten zoals beschreven in de tabel van de aanvullende specificatie.
+          title: Relatie
+          enum:
+            - "is_een_geanonimiseerde_variant_van"
+            - "is_een_vervanger_van"
       required:
         - url
-        - informatieobject
-        - relevantAnderInformatieobject
-        - aardRelatie
+        - informatieobjectA
+        - informatieobjectB
+        - relatie
     ObjectInformatieObjectRequest:
       type: object
       properties:
