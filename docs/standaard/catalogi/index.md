@@ -78,7 +78,7 @@ korte termijn zal deze API gesplitst worden in een referentielijsten-API en de
 selectielijst-API (waar deze nu nog 1 API is)
 [#3 on Github](https://github.com/VNG-Realisatie/VNG-referentielijsten/issues/3).
 
-[referentielijsten-1.0.0-redoc]: /gemma-zaken/content/standaard/referentielijsten/redoc-1.0.0
+[referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml
 
 ## OpenAPI specificatie
 
