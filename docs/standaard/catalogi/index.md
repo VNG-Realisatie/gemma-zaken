@@ -320,7 +320,7 @@ Wanneer de ZRC of DRC met respectievelijk de scopes zaken.lezen of documenten.le
     <strong>Nieuw in versie 1.3.1</strong>
 </span>
 
-#### <a name="ztc-014">Datumvelden bij het specificeren van eigenschappen ([ztc-015](#ztc-014))</a>
+#### <a name="ztc-015">Datumvelden bij het specificeren van eigenschappen ([ztc-015](#ztc-015))</a>
 
 Als het attribuut `eigenschap.specificatie.formaat` de waarde `datum` heeft, dan moet er worden voldaan aan de volgende twee voorwaarden.
 
