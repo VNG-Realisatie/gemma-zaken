@@ -5984,9 +5984,9 @@ components:
             duurzaam, niet-wijzigbaar Formaat dient te hebben.
           title: status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/StatusEnum1_5'
             - $ref: '#/components/schemas/BlankEnum'
+            - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
             Geeft aan in hoeverre het informatieobject duurzaam 
@@ -6293,9 +6293,9 @@ components:
             duurzaam, niet-wijzigbaar Formaat dient te hebben.
           title: status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/StatusEnum1_5'
             - $ref: '#/components/schemas/BlankEnum'
+            - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
             Geeft aan in hoeverre het informatieobject duurzaam 
@@ -6601,9 +6601,9 @@ components:
             duurzaam, niet-wijzigbaar Formaat dient te hebben.
           title: status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/StatusEnum1_5'
             - $ref: '#/components/schemas/BlankEnum'
+            - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
             Geeft aan in hoeverre het informatieobject duurzaam 
@@ -6875,9 +6875,9 @@ components:
             duurzaam, niet-wijzigbaar Formaat dient te hebben.
           title: status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/StatusEnum1_5'
             - $ref: '#/components/schemas/BlankEnum'
+            - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
             Geeft aan in hoeverre het informatieobject duurzaam 
@@ -7174,9 +7174,9 @@ components:
             duurzaam, niet-wijzigbaar Formaat dient te hebben.
           title: status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/StatusEnum1_5'
             - $ref: '#/components/schemas/BlankEnum'
+            - $ref: '#/components/schemas/StatusEnum' 
         archiefstatus:
           description: >-
             Geeft aan in hoeverre het informatieobject duurzaam 
@@ -8245,7 +8245,7 @@ components:
             * `concept` - (Concept) De inhoud van het informatieobject heeft een 
             mate van bestendigheid bereikt waardoor die aan derden ter beoordeling 
             kan worden voorgelegd. Deze beoordeling kan leiden tot verandering van 
-            de inhoud van het informatieobject. (_Nieuw vanaf versie 1.5.0_.)
+            de inhoud van het informatieobject.
 
             * `definitief` - (Definitief) De inhoud van het informatieobject heeft een 
             mate van bestendigheid bereikt waardoor die niet (langer) zomaar veranderd 
@@ -8255,7 +8255,11 @@ components:
             is betrokken bij een lopend besluitvormingsproces.
 
             * `vastgesteld` - (Vastgesteld) De inhoud van het informatieobject is 
-            bekrachtigd tijdens een besluitvormingsproces. (_Nieuw vanaf versie 1.5.0_.)"
+            bekrachtigd tijdens een besluitvormingsproces.
+        
+
+         **Let op:** De waarden `concept` en `vastgesteld` zijn nieuw vanaf versie 1.5.0
+        van deze API."
       enum:
         - in_bewerking
         - concept
