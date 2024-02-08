@@ -5325,6 +5325,28 @@ components:
         - sha_512
         - sha_3
       type: string
+    ArchiefstatusEnum:
+      description:
+       "Uitleg bij de enumeratiewaarden:
+
+            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
+            kunnen vrijelijk veranderen.
+
+            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
+            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
+            en integriteit gewaarborgd zijn.
+
+            * `duurzaam_toegankelijk` (Duurzaam toegankelijk) Het 
+            informatieobject voldoet aan de eisen van duurzame 
+            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
+            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
+            op het in de selectielijst voorgeschreven moment vernietigd 
+            of overgebracht worden."
+      type: string
+      enum:
+        - mutabel
+        - onveranderlijk
+        - duurzaam_toegankelijk
     AuditTrail:
       type: object
       properties:
@@ -5682,6 +5704,8 @@ components:
         - woonplaatsnaam
       nullable: true
     BlankEnum:
+      description: " "
+      type: string
       enum:
         - ''
     BronEnum:
@@ -5977,68 +6001,43 @@ components:
           maxLength: 200
         status:
           description: >-
-            Aanduiding van de stand van zaken van een INFORMATIEOBJECT. De
-            waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
-            de Status in 'gearchiveerd' impliceert dat het informatieobject een
-            duurzaam, niet-wijzigbaar Formaat dient te hebben.
-          title: status
+            Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
+          title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum1_5'
+            - $ref: '#/components/schemas/StatusEnumV2'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het informatieobject duurzaam 
+            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
             toegankelijk is en op het voorgeschreven moment vernietigd of 
             overgebracht kan worden.
-
-
-            Uitleg bij de enumeratiewaarden:
-
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
-            kunnen vrijelijk veranderen.
-
-            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
-            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk). Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden. 
-          type: string
-          enum:
-            - mutabel
-            - onveranderlijk
-            - duurzaam_toegankelijk
-          nullable: true
-        indicatieInhoudVervallen:
+          title: Archiefstatus
+          oneOf: 
+            - $ref: '#/components/schemas/ArchiefstatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'      
+        inhoudIsVervallen:
           description: >-
-            Geeft aan of de inhoud van het informatieobject al dan niet 
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
-            * `true` De inhoud van het informatieobject is vervallen.
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
-            * `false` De inhoud van het informatieobject is niet vervallen.
-
-            * `null` Het is niet bekend of de inhoud van het informatieobject 
-            is vervallen of niet.
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
           type: boolean
           nullable: true
-        indicatiePersoonsgegevensAanwezig:
+        bevatNietOpenbarePersoonsgegevens:
           description: >-
-            Geeft aan of in de inhoud van het informatieobject persoonsgegevens 
-            aanwezig zijn.
+            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
+            aanwezig zijn die niet openbaar gemaakt mogen worden.
 
-            * `true` In het informatieobject zijn persoonsgegevens aanwezig.
+            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
+            niet openbaar gemaakt mogen worden.
 
-            * `false` In het informatieobject zijn geen persoonsgegevens aanwezig.
-
-            * `null` Het is niet bekend of in de inhoud van het inforformatieobject 
-            persoonsgegevens aanwezig zijn.
+            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
+            die niet openbaar gemaakt mogen worden.
+          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6286,68 +6285,43 @@ components:
           maxLength: 200
         status:
           description: >-
-            Aanduiding van de stand van zaken van een INFORMATIEOBJECT. De
-            waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
-            de Status in 'gearchiveerd' impliceert dat het informatieobject een
-            duurzaam, niet-wijzigbaar Formaat dient te hebben.
-          title: status
+            Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
+          title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum1_5'
+            - $ref: '#/components/schemas/StatusEnumV2'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het informatieobject duurzaam 
+            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
             toegankelijk is en op het voorgeschreven moment vernietigd of 
             overgebracht kan worden.
-
-
-            Uitleg bij de enumeratiewaarden:
-
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
-            kunnen vrijelijk veranderen.
-
-            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
-            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk). Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden. 
-          type: string
-          enum:
-            - mutabel
-            - onveranderlijk
-            - duurzaam_toegankelijk
-          nullable: true
-        indicatieInhoudVervallen:
+          title: Archiefstatus
+          oneOf: 
+            - $ref: '#/components/schemas/ArchiefstatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'      
+        inhoudIsVervallen:
           description: >-
-            Geeft aan of de inhoud van het informatieobject al dan niet 
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
-            * `true` De inhoud van het informatieobject is vervallen.
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
-            * `false` De inhoud van het informatieobject is niet vervallen.
-
-            * `null` Het is niet bekend of de inhoud van het informatieobject 
-            is vervallen of niet.
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
           type: boolean
           nullable: true
-        indicatiePersoonsgegevensAanwezig:
+        bevatNietOpenbarePersoonsgegevens:
           description: >-
-            Geeft aan of in de inhoud van het informatieobject persoonsgegevens 
-            aanwezig zijn.
+            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
+            aanwezig zijn die niet openbaar gemaakt mogen worden.
 
-            * `true` In het informatieobject zijn persoonsgegevens aanwezig.
+            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
+            niet openbaar gemaakt mogen worden.
 
-            * `false` In het informatieobject zijn geen persoonsgegevens aanwezig.
-
-            * `null` Het is niet bekend of in de inhoud van het inforformatieobject 
-            persoonsgegevens aanwezig zijn.
+            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
+            die niet openbaar gemaakt mogen worden.
+          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6594,68 +6568,43 @@ components:
           maxLength: 200
         status:
           description: >-
-            Aanduiding van de stand van zaken van een INFORMATIEOBJECT. De
-            waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
-            de Status in 'gearchiveerd' impliceert dat het informatieobject een
-            duurzaam, niet-wijzigbaar Formaat dient te hebben.
-          title: status
+            Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
+          title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum1_5'
+            - $ref: '#/components/schemas/StatusEnumV2'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het informatieobject duurzaam 
+            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
             toegankelijk is en op het voorgeschreven moment vernietigd of 
             overgebracht kan worden.
-
-
-            Uitleg bij de enumeratiewaarden:
-
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
-            kunnen vrijelijk veranderen.
-
-            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
-            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk). Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden. 
-          type: string
-          enum:
-            - mutabel
-            - onveranderlijk
-            - duurzaam_toegankelijk
-          nullable: true
-        indicatieInhoudVervallen:
+          title: Archiefstatus
+          oneOf: 
+            - $ref: '#/components/schemas/ArchiefstatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'      
+        inhoudIsVervallen:
           description: >-
-            Geeft aan of de inhoud van het informatieobject al dan niet 
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
-            * `true` De inhoud van het informatieobject is vervallen.
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
-            * `false` De inhoud van het informatieobject is niet vervallen.
-
-            * `null` Het is niet bekend of de inhoud van het informatieobject 
-            is vervallen of niet.
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
           type: boolean
           nullable: true
-        indicatiePersoonsgegevensAanwezig:
+        bevatNietOpenbarePersoonsgegevens:
           description: >-
-            Geeft aan of in de inhoud van het informatieobject persoonsgegevens 
-            aanwezig zijn.
+            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
+            aanwezig zijn die niet openbaar gemaakt mogen worden.
 
-            * `true` In het informatieobject zijn persoonsgegevens aanwezig.
+            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
+            niet openbaar gemaakt mogen worden.
 
-            * `false` In het informatieobject zijn geen persoonsgegevens aanwezig.
-
-            * `null` Het is niet bekend of in de inhoud van het inforformatieobject 
-            persoonsgegevens aanwezig zijn.
+            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
+            die niet openbaar gemaakt mogen worden.
+          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6868,68 +6817,43 @@ components:
           maxLength: 200
         status:
           description: >-
-            Aanduiding van de stand van zaken van een INFORMATIEOBJECT. De
-            waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
-            de Status in 'gearchiveerd' impliceert dat het informatieobject een
-            duurzaam, niet-wijzigbaar Formaat dient te hebben.
-          title: status
+            Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
+          title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum1_5'
+            - $ref: '#/components/schemas/StatusEnumV2'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het informatieobject duurzaam 
+            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
             toegankelijk is en op het voorgeschreven moment vernietigd of 
             overgebracht kan worden.
-
-
-            Uitleg bij de enumeratiewaarden:
-
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
-            kunnen vrijelijk veranderen.
-
-            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
-            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk). Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden. 
-          type: string
-          enum:
-            - mutabel
-            - onveranderlijk
-            - duurzaam_toegankelijk
-          nullable: true
-        indicatieInhoudVervallen:
+          title: Archiefstatus
+          oneOf: 
+            - $ref: '#/components/schemas/ArchiefstatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'      
+        inhoudIsVervallen:
           description: >-
-            Geeft aan of de inhoud van het informatieobject al dan niet 
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
-            * `true` De inhoud van het informatieobject is vervallen.
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
-            * `false` De inhoud van het informatieobject is niet vervallen.
-
-            * `null` Het is niet bekend of de inhoud van het informatieobject 
-            is vervallen of niet.
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
           type: boolean
           nullable: true
-        indicatiePersoonsgegevensAanwezig:
+        bevatNietOpenbarePersoonsgegevens:
           description: >-
-            Geeft aan of in de inhoud van het informatieobject persoonsgegevens 
-            aanwezig zijn.
+            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
+            aanwezig zijn die niet openbaar gemaakt mogen worden.
 
-            * `true` In het informatieobject zijn persoonsgegevens aanwezig.
+            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
+            niet openbaar gemaakt mogen worden.
 
-            * `false` In het informatieobject zijn geen persoonsgegevens aanwezig.
-
-            * `null` Het is niet bekend of in de inhoud van het inforformatieobject 
-            persoonsgegevens aanwezig zijn.
+            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
+            die niet openbaar gemaakt mogen worden.
+          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -7167,68 +7091,43 @@ components:
           maxLength: 200
         status:
           description: >-
-            Aanduiding van de stand van zaken van een INFORMATIEOBJECT. De
-            waarden 'in bewerking' en 'ter vaststelling' komen niet voor als het
-            attribuut `ontvangstdatum` van een waarde is voorzien. Wijziging van
-            de Status in 'gearchiveerd' impliceert dat het informatieobject een
-            duurzaam, niet-wijzigbaar Formaat dient te hebben.
-          title: status
+            Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
+          title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnum1_5'
+            - $ref: '#/components/schemas/StatusEnumV2'
             - $ref: '#/components/schemas/BlankEnum'
-            - $ref: '#/components/schemas/StatusEnum' 
+            - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het informatieobject duurzaam 
+            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
             toegankelijk is en op het voorgeschreven moment vernietigd of 
             overgebracht kan worden.
-
-
-            Uitleg bij de enumeratiewaarden:
-
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
-            kunnen vrijelijk veranderen.
-
-            * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
-            informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk). Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden. 
-          type: string
-          enum:
-            - mutabel
-            - onveranderlijk
-            - duurzaam_toegankelijk
-          nullable: true
-        indicatieInhoudVervallen:
+          title: Archiefstatus
+          oneOf: 
+            - $ref: '#/components/schemas/ArchiefstatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'      
+        inhoudIsVervallen:
           description: >-
-            Geeft aan of de inhoud van het informatieobject al dan niet 
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
-            * `true` De inhoud van het informatieobject is vervallen.
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
-            * `false` De inhoud van het informatieobject is niet vervallen.
-
-            * `null` Het is niet bekend of de inhoud van het informatieobject 
-            is vervallen of niet.
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
           type: boolean
           nullable: true
-        indicatiePersoonsgegevensAanwezig:
+        bevatNietOpenbarePersoonsgegevens:
           description: >-
-            Geeft aan of in de inhoud van het informatieobject persoonsgegevens 
-            aanwezig zijn.
+            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
+            aanwezig zijn die niet openbaar gemaakt mogen worden.
 
-            * `true` In het informatieobject zijn persoonsgegevens aanwezig.
+            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
+            niet openbaar gemaakt mogen worden.
 
-            * `false` In het informatieobject zijn geen persoonsgegevens aanwezig.
-
-            * `null` Het is niet bekend of in de inhoud van het inforformatieobject 
-            persoonsgegevens aanwezig zijn.
+            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
+            die niet openbaar gemaakt mogen worden.
+          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -8235,7 +8134,7 @@ components:
         - gearchiveerd
       type: string
       deprecated: true
-    StatusEnum1_5:
+    StatusEnumV2:
       description: 
         "Uitleg bij de enumeratiewaarden:
 
