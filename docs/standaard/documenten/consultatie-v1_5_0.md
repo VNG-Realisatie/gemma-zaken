@@ -192,9 +192,13 @@ Op basis hiervan verwachten we van API-providers het volgende gedrag:
 
 Van API-consumers verwachten we dat ze zo snel mogelijk overstappen van bestaande naar nieuwe statuswaarden, en dat zij archiefstatussen, geldigheidsinformatie en informmatie over aanwezigheid van persoonsgegevens (laatste twee voor zover relevant) in de bijbehorende nieuwe property's gaan registeren.
 
+**We horen graag van belanghebbenden of zij zich kunnen vinden in de keuze bovenstaande wijzigingen in een _minor_ versie door te voeren en of zij opmerkingen hebben over het gedrag dat we van met name API-providers verwachten.**
+
 ### Gelijke waarde, andere semantiek
 
 Een ander aandachtspunt is dat statuswaarden `in_bewerking`, `ter_vaststelling` en `definitief` straks in twee enums voorkomen, waarbij de betekenis van dezelfde waarde subtiel kan verschillen. Voor API-providers is echter niet altijd te achterhalen op basis van welke enum, en dus met welke betekenis een API-consumer een statuswaarde registreert. Vanwege het zeer subtiele karakter van de verschillen verwachten we hierdoor in de praktijk echter geen grote problemen.
+
+**We horen graag van belanghebbenden of zij deze verwachting delen.**
 
 De tabel hieronder illustreert hoe 'oude' statuswaarden zich vertalen naar nieuwe (archief)statuswaarden.
 
@@ -211,4 +215,9 @@ _status (1.4.3)_ | _status (1.5.0)_   | _archiefstatus (1.5.0)_
 
 ### Derde `archiefstatus` nodig of gewenst?
 
-[De keuze voor drie mogelijke waarden bij archiefstatus](#property-archiefstatus) is hierboven gemotiveerd. We denken dat het aanvullend bij wat [minimaal nodig is om een zaak af te kunnen sluiten](#gedragsregel-zetten-zaakarchiefstatus-zrc-022) opnemen van de waarde `duurzaam_toegankelijk` alleen al nodig is om informatieobjecten met status `gearchiveerd` waarvoor daadwerkelijk de duurzame toegankelijkheid of opslag geregeld is van de juiste `archiefstatus` te voorzien. We zien ook de mogelijkheid om op basis van `onveranderlijke` informatieobjecten een 'werklijst' voor informatiebeheerders te creëren. Het uitgevoerde werk levert dan een `duurzaam_toegankelijk` informatieobject op. Over nut en noodzaak van het opnemen van deze waarde was tijdens het voorbereiden van bovenstaande wijzigingen echter geen volledige overeenstemming. Inzichten die helpen bepalen of we deze waarde moeten opnemen of niet zijn daarom van harte welkom.
+De keuze voor [drie mogelijke waarden bij archiefstatus](#property-archiefstatus) is hierboven gemotiveerd. Waar de waarden `muteerbaar` en `onveranderlijk`, wat [minimaal nodig is](#gedragsregel-zetten-zaakarchiefstatus-zrc-022) voor afsluiten van een zaak, noodzakelijk zijn om met zaken te kunnen werken, geldt dat voor `duurzaam_toegankelijk` niet. We zien echter twee redenen om deze waarde toch op te nemen:
+
+1. Informatieobjecten met status `gearchiveerd` waarvoor daadwerkelijk de duurzame toegankelijkheid of opslag geregeld is, kunnen zonder deze waarde niet van een `archiefstatus` worden voorzien die uitdrukt dat het informatieobject voldoet aan de eisen van duurzame toegankelijkheid. Omzetting zou met in deze gevallen met andere woorden verlies van kennis en bekenis tot gevolg hebben;
+2. Op basis van `onveranderlijke` informatieobjecten kan een 'werklijst' voor informatiebeheerders worden gecreëerd. Het uitgevoerde werk levert dan een `duurzaam_toegankelijk` informatieobject op.
+
+**Over nut en noodzaak van het opnemen van deze waarde was tijdens het voorbereiden van bovenstaande wijzigingen echter geen volledige overeenstemming. Belanghebbenden met inzichten die helpen bepalen of we deze waarde moeten opnemen of niet zijn daarom van harte uitgenodigd die inzichten te delen.**
