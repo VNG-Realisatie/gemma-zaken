@@ -6,9 +6,9 @@ De voorgestelde wijzigingen worden hieronder in vier onderdelen nader toegelicht
 
 ## Wat wordt gewijzigd?
 
-### property 'status'
-
 Hieronder is ter referentie steeds hetgeen vervalt (of depricated wordt verklaard) doorgehaald.
+
+### property 'status'
 
 #### Beschrijving
 
