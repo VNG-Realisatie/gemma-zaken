@@ -216,7 +216,7 @@ _status (1.4.3)_ | _status (1.5.0)_   | _archiefstatus (1.5.0)_
 `definitief` | `definitief` (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie) |
 `definitief` | `vastgesteld` (mapping mogelijk onder voorwaarde van bekrachtiging in besluitvormingsproces) |
 `gearchiveerd` | | `onveranderlijk` (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie)
-`gearchiveerd` | | `duurzaam_toegankelijk `(mapping mogelijk onder voorwaarde dat wordt voldaan aan eisen voor duurzame toegankelijkheid)
+`gearchiveerd` | | `duurzaam_toegankelijk` (mapping mogelijk onder voorwaarde dat wordt voldaan aan eisen voor duurzame toegankelijkheid)
 
 ### Derde `archiefstatus` nodig of gewenst?
 
