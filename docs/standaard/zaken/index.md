@@ -371,7 +371,7 @@ De attributen `Zaak.archiefnominatie` en `Zaak.archiefactiedatum` MOETEN een waa
 Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een `HTTP 400` foutbericht antwoorden.
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
-    <strong>Nieuw in 1.5.2</strong>
+    <strong>Nieuw in 1.6.0</strong>
 </span>
 <br><br>
 
