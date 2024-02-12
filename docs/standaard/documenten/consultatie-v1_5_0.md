@@ -57,6 +57,8 @@ Rationale en tabel illustreren dat, door voor te stellen bovenstaande wijziginge
 
 ### Gedragsregel 'Zetten Zaak.archiefstatus (zrc-022)'
 
+**Het wijzigen van deze gedragsregel maakt het nodig een nieuwe minorversie van de Zaken API (1.6) uit te brengen.**
+
 Link huidige: [zrc-022](../zaken/index.md/#archiveren)
 
 De standaardwaarde voor archiefstatus [van de zaak, IH] is `nog_te_archiveren`. Indien een andere waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status `gearchiveerd` (depricated) EN/OF de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` hebben (zie [archiefstatus](#property-archiefstatus) hieronder).
@@ -177,22 +179,25 @@ In de volgende _major_ release van de Documenten API kan de enum `StatusEnum` ge
 
 ### Interacties tussen API-consumers en -providers
 
-Depricaten van de statuswaarden die in versies < 1.5.0 van de Documenten API werden gehanteerd heeft een aantal consequenties:
+Depricaten van de statuswaarden die in versies lager dan 1.5.0 van de Documenten API werden gehanteerd heeft een aantal consequenties:
 
-- API-consumers kunnen (of ze nu kennis hebben van in 1.5.0 doorgevoerde wijzigingen of niet) naast de nieuwe ook de in eerdere versies gehanteerde statuswaarden registeren.
-- API-consumers zonder kennis van versies > 1.4.3 kunnen mogelijk in 1.5.0 toegevoegde statuswaarden niet interpreteren.
-- API-consumers met kennis van versies > 1.4.3 verwachten kennis over de archiefstatus te kunnen halen uit de waarde van de property `archiefstatus`, terwijl die kennis ook in de vorm van de deprecated waarde `gearchiveerd` bij `status` geregistreerd kan zijn.
+- API-consumers (of ze nu kennis hebben van in 1.5.0 doorgevoerde wijzigingen of niet) kunnen naast de nieuwe, ook de in eerdere versies gehanteerde statuswaarden registeren.
+- API-consumers zónder kennis van versies van versie 1.5.0 of hoger kunnen mogelijk in 1.5.0 toegevoegde statuswaarden niet verwerken (bijvoorbeeld omdat toegestane waarden _hardcoded_ zijn geprogrammeerd). Gezien het beperkte aantal implementaties van de Documenten API verwachten we dat dit probleem in de praktijk meevalt en eventuele voorkomens van dit probleem snel kunnen worden opgelost.
+- API-consumers mét kennis van versie 1.5.0 of hoger verwachten kennis over de archiefstatus te kunnen halen uit de waarde van de property `archiefstatus`, terwijl die kennis ook in de vorm van de deprecated waarde `gearchiveerd` bij `status` geregistreerd kan zijn.
 
 Op basis hiervan verwachten we van API-providers het volgende gedrag:
 
 - bij `status` wordt, depricated of niet, iedere geldige waarde (`in_bewerking`, `concept`, `definitief`, `ter_vaststelling`, `vastgesteld` of `gearchiveerd`) die een consumer aanbiedt geregistreerd.
-- aan consumers die API-versies > 1.4.3 bevragen wordt de geregistreerde statuswaarde, depricated of niet.
-- aan consumers die API-versies < 1.5.0 bevragen worden alleen statuswaarden geleverd die in die API-versies geldig waren (`in_bewerking`, `ter_vaststelling`, `definitief` of `gearchiveerd`). Als een andere waarde is geregistreerd wordt de statuswaarde `null` geleverd.
-- bij registratie van statuswaarde `gearchiveerd`, wordt door de provider automatisch óók de archiefstatus `onveranderlijk` of eventueel `duurzaam_toegankelijk` geregistreerd. Zo worden consumers bediend die op basis van 1.5-specificaties daar de kennis over de archiefstatus verwachten.
+- aan consumers wordt de geregistreerde statuswaarde, depricated of niet, geleverd.
+- bij registratie van statuswaarde `gearchiveerd`, wordt door de provider automatisch óók de archiefstatus `onveranderlijk` of eventueel `duurzaam_toegankelijk` [(zie mappingtabel hieronder)](#gelijke-waarde-andere-semantiek) geregistreerd.
+- andersom is het voor providers **niet**  toegestaan om na registratie van de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` bij status `gearchiveerd` te registreren. Het is ook voor providers ook niet toegestaan bij afsluiten van een zaak bij status `gearchiveerd` te registreren. De status `gearchiveerd` kan in versie 1.5.0 of hoger dus _alleen_ door consumers worden geregistreerd.
 
 Van API-consumers verwachten we dat ze zo snel mogelijk overstappen van bestaande naar nieuwe statuswaarden, en dat zij archiefstatussen, geldigheidsinformatie en informmatie over aanwezigheid van persoonsgegevens (laatste twee voor zover relevant) in de bijbehorende nieuwe property's gaan registeren.
 
-**We horen graag van belanghebbenden of zij zich kunnen vinden in de keuze bovenstaande wijzigingen in een _minor_ versie door te voeren en of zij opmerkingen hebben over het gedrag dat we van met name API-providers verwachten.**
+**We horen graag van belanghebbenden:**
+**- of zij de inschatting delen dat het probleem van verwerking van 'nieuwe' statuswaarden door consumers meevalt**
+**- daaraan gerelateerd: of zij zich kunnen vinden in de keuze bovenstaande wijzigingen in een _minor_ versie door te voeren**
+**- en of zij opmerkingen hebben over het gedrag dat we van met name API-providers verwachten.**
 
 ### Gelijke waarde, andere semantiek
 
@@ -205,13 +210,13 @@ De tabel hieronder illustreert hoe 'oude' statuswaarden zich vertalen naar nieuw
  'oude' waarde | te mappen naar of interpreteren als | te mappen naar of interpreteren als
 --|--|--                                        
 _status (1.4.3)_ | _status (1.5.0)_   | _archiefstatus (1.5.0)_ 
-`in_bewerking` | `in_bewerking (veilig) |
+`in_bewerking` | `in_bewerking (veilig, maar mogelijk betekenisverlies vanwege 'beperkter' definitie) |
  | `concept` (onder voorwaarde van voldoende bestendigheid) |
 `ter_vaststelling` | `ter_vaststelling` (veilig) |
-`definitief` | `definitief` (veilig) |
- | `vastgesteld` (onder voorwaarde van bekrachtiging in besluitvormingsproces) |
-`gearchiveerd` | | `onveranderlijk` (veilig)
- | | `duurzaam_toegankelijk `(onder voorwaarde dat wordt voldaan aan eisen voor duurzame toegankelijkheid)
+`definitief` | `definitief` (veilig, maar mogelijk betekenisverlies vanwege 'beperkter' definitie) |
+`definitief` | `vastgesteld` (onder voorwaarde van bekrachtiging in besluitvormingsproces) |
+`gearchiveerd` | | `onveranderlijk` (veilig, maar mogelijk betekenisverlies vanwege 'beperkter' definitie)
+`gearchiveerd` | | `duurzaam_toegankelijk `(onder voorwaarde dat wordt voldaan aan eisen voor duurzame toegankelijkheid)
 
 ### Derde `archiefstatus` nodig of gewenst?
 
