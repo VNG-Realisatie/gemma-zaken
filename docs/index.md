@@ -2,6 +2,9 @@
 layout: page-with-side-nav
 title: "API's voor zaakgericht werken"
 ---
+
+_**Op dit moment zijn we bezig met een consultatie voor een nieuwe versie van de specificaties van de Documenten API-standaard. Op [deze Github-discussiespagina](https://github.com/VNG-Realisatie/gemma-zaken/discussions/2407) staat meer informatie en kan reactie worden achtergelaten.**_
+
 # API's voor zaakgericht werken
 
 Om Zaakgericht Werken (ZGW) een stap verder te brengen wordt de opvolger van de
