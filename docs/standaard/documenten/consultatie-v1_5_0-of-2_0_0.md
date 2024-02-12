@@ -1,6 +1,6 @@
-# Consultatie wijziging specificaties Documenten API (1.5.0 of 2.0.0)
+# Consultatie wijziging specificaties Documenten API-standaard (1.5.0 of 2.0.0)
 
-Op initiatief van een aantal gemeenten en leveranciers worden onderstaande wijzigingen aan belanghebbenden voorgelegd. Het voornemen is dat het gewijzigd of ongewijzigd doorvoeren van deze aanpassingen leidt tot het uitbrengen van een nieuwe versie van de Documenten API.
+Deze toelichting beschrijft een aantal voorgestelde wijzigingen in de specificaties van de Documenten API-standaard. Deze zijn ontstaan op initiatief van een aantal gemeenten en leveranciers. Het voornemen is dat het gewijzigd of ongewijzigd doorvoeren van deze aanpassingen leidt tot het uitbrengen van een nieuwe versie van deze specificaties.
 
 De user story waarin de discussie werd gevoerd die tot deze wijzigen heeft geleid is [#2242](https://github.com/VNG-Realisatie/gemma-zaken/issues/2242).
 
@@ -61,7 +61,7 @@ Voor de betekenis bij de verschillende waarden is getracht consequent het perspe
 
 De Bewerkings- en vaststellingsstatus `definitief` moet niet verward worden met de Archiefstatus `onveranderlijk`. Die laatste betekent in feite "geen enkele wijziging toegestaan". Voor zover het gaat om door de gemeente gecreëerde informatieobjecten betekent `definitief` daarentegen dat naar aanleiding van overleg, reviews en afspraken een 'overeengekomen' of 'afgestemde' versie van informatieobjectinhoud is ontstaan. Wijzigingen hierin zijn niet verboden, maar zullen in veel gevallen vragen om verantwoording bij doorgevoerde wijzigingen op basis van nieuwe reviews en afspraken.
 
-Rationale en tabel illustreren dat, door voor te stellen bovenstaande wijzigingen in een minor-versie van de Documenten API te verwerken, een situatie ontstaat waarin sommige waarden meerdere betekenissen kunnen hebben. Onder aandachtspunten wordt uitgelegd waarom hiervoor toch is gekozen.
+Rationale en tabel illustreren dat, door voor te stellen bovenstaande wijzigingen in een minor-versie van de Documenten API-specificaties te verwerken, een situatie ontstaat waarin sommige waarden meerdere betekenissen kunnen hebben. Onder aandachtspunten wordt uitgelegd waarom hiervoor toch is gekozen.
 
 ### Gelijke waarde, andere semantiek
 
@@ -80,7 +80,7 @@ _status (1.4.3)_ | _status (nieuw)_   | _archiefstatus (nieuw)_
 
 ### Gedragsregel 'Zetten Zaak.archiefstatus (zrc-022)'
 
-_**Het wijzigen van deze gedragsregel maakt het nodig een nieuwe minorversie van de Zaken API (1.6) uit te brengen.**_
+_**Het wijzigen van deze gedragsregel maakt het nodig een nieuwe minorversie van de Zaken API-specificaties (1.6) uit te brengen.**_
 
 Link huidige: [zrc-022](../zaken/index.md/#archiveren)
 
@@ -191,7 +191,7 @@ __Merk op dat de áfwezigheid van persoonsgegevens niet kan worden gezien als vr
 
 #### Minor
 
-Belanghebbenden gaven aan bovenstaande wijziging bij voorkeur verwerkt te zien in een _minor_ (versienummer 1.5.0) release van de Documenten API. Dit heeft als positief gevolg dat de overgang naar nieuwe property's en waarden niet in één 'big bang' hoeft te gebeuren. Het betekent ook dat het 'oude' niet zonder meer uit de specificatie mag verdwijnen; er moet sprake zijn van een overgangsperiode waarin oud en nieuw naast elkaar kunnen bestaan. Dit kan worden bereikt door middel van 'deprication'. Met name de property `status` vormt hierbij een uitdaging. Daarvoor geldt immers dat sommige toegestane waarden geheel nieuw zijn, sommige een (naar aanleiding van de betekenis van nieuwe waarden) geactualiseerde betekenis hebben gekregen, terwijl één waarde ()`gearchiveerd`) geheel vervalt. Om aan te geven dat we willen dat 'oude' waarden zo min mogelijk worden gebruikt, zagen we drie mogelijkheden:
+Belanghebbenden gaven aan bovenstaande wijziging bij voorkeur verwerkt te zien in een _minor_ (versienummer 1.5.0) release van de Documenten API-standaard. Dit heeft als positief gevolg dat de overgang naar nieuwe property's en waarden niet in één 'big bang' hoeft te gebeuren. Het betekent ook dat het 'oude' niet zonder meer uit de specificatie mag verdwijnen; er moet sprake zijn van een overgangsperiode waarin oud en nieuw naast elkaar kunnen bestaan. Dit kan worden bereikt door middel van 'deprication'. Met name de property `status` vormt hierbij een uitdaging. Daarvoor geldt immers dat sommige toegestane waarden geheel nieuw zijn, sommige een (naar aanleiding van de betekenis van nieuwe waarden) geactualiseerde betekenis hebben gekregen, terwijl één waarde ()`gearchiveerd`) geheel vervalt. Om aan te geven dat we willen dat 'oude' waarden zo min mogelijk worden gebruikt, zagen we drie mogelijkheden:
 
 1. Het toekennen van het 'depricated'-label aan individuele enum-waarden. 
 2. Het opnemen van een geheel nieuwe property `statusv2` (of iets dergelijks), terwijl aan de bestaande property `status` het 'depricated'-label wordt toegekend. 
@@ -224,8 +224,8 @@ In geval van release van een nieuwe majorversie verwachten we van API-consumers 
 Van API-consumers verwachten we in alle gevallen dat ze zo snel mogelijk overstappen van bestaande naar nieuwe statuswaarden, en dat zij archiefstatussen, geldigheidsinformatie en informatie over aanwezigheid van persoonsgegevens (laatste twee voor zover relevant) in de bijbehorende nieuwe property's gaan registeren.
 
 **We horen graag van belanghebbenden:**
-- **of het hun voorkeur heeft deze wijzigingen door te voeren in in _minor_ of _major_ versie van de API-specificaties**
-- **waarop dit oordeel is gebaseerd**
+- **of het hun voorkeur heeft deze wijzigingen door te voeren in in _minor_ of _major_ versie van de API-specificaties,**
+- **waarop dit oordeel is gebaseerd,**
 - **en of zij opmerkingen hebben over het gedrag dat we van API-providers verwachten.**
 
 ### Derde archiefstatus (`duurzaam_toegankelijk`) nodig of gewenst?
