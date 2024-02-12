@@ -1,8 +1,16 @@
 # Consultatie wijziging specificaties Documenten API (1.5.0 of 2.0.0)
 
-Op initiatief van een aantal gemeenten en leveranciers worden onderstaande wijzigingen aan belanghebbenden voorgelegd. Het voornemen is dat het gewijzigd of ongewijzigd doorvoeren van deze aanpassingen leidt tot het uitbrengen van een nieuwe versie van de Documenten API. De user story waarin de discussie die tot deze voorgestelde wijzigen heeft geleid is [#2242](https://github.com/VNG-Realisatie/gemma-zaken/issues/2242).
+Op initiatief van een aantal gemeenten en leveranciers worden onderstaande wijzigingen aan belanghebbenden voorgelegd. Het voornemen is dat het gewijzigd of ongewijzigd doorvoeren van deze aanpassingen leidt tot het uitbrengen van een nieuwe versie van de Documenten API.
 
-De voorgestelde wijzigingen worden hieronder in vier onderdelen nader toegelicht. ['Wat wordt gewijzigd?'](#wat-wordt-gewijzigd) en ['wat is nieuw?'](#wat-is-er-nieuw) beschrijven de voorstelde wijzigingen. [Aandachtspunten en vragen bij deze consultatie](#aandachtspunten-bij-deze-consultatie) noemt een aantal zaken waarover belanghebbenden naar aanleiding van consultatie specifiek zouden kunnen nadenken. Belangrijkste hiervan is de vraag of de voorgestelde wijzigingen in [een _minor_ of _major_ release](#minor-of-major-release) van de Documenten API-specificatie moeten worden doorgevoerd.
+De user story waarin de discussie werd gevoerd die tot deze wijzigen heeft geleid is [#2242](https://github.com/VNG-Realisatie/gemma-zaken/issues/2242).
+
+De voorgestelde wijzigingen worden hieronder in drie onderdelen nader toegelicht. ['Wat wordt gewijzigd?'](#wat-wordt-gewijzigd) en ['wat is nieuw?'](#wat-is-er-nieuw) beschrijven de voorstelde wijzigingen en toevoegingen. [Aandachtspunten en vragen bij deze consultatie](#aandachtspunten-bij-deze-consultatie) noemt een aantal zaken waarover belanghebbenden naar aanleiding van consultatie specifiek zouden kunnen nadenken. Belangrijkste hiervan is de vraag of de voorgestelde wijzigingen in [een _minor_ of _major_ release](#minor-of-major-release) van de Documenten API-specificatie moeten worden doorgevoerd.
+
+## Concept-OAS:
+
+De concept-OAS is [hier te vinden (Redoc)](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/2242-drc-nieuwe-statusvelden/api-specificatie/drc/1.5.x/1.5.0/openapi.yaml). 
+
+_Let op: de OAS gaat uit van een keuze de wijzigingen in de vorm van een minor release door te voeren. Maar de vraag of dit de juiste keuze is moet in deze consultatie nog beantwoord worden._
 
 ## Wat wordt gewijzigd?
 
@@ -12,9 +20,9 @@ Hieronder is ter referentie steeds hetgeen vervalt (of depricated wordt verklaar
 
 #### Beschrijving
 
-~Aanduiding van de stand van zaken van een informatieobject. De waarden `in bewerking` en `ter vaststelling` komen niet voor als het attribuut ontvangstdatum van een waarde is voorzien. Wijziging van de Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam, niet-wijzigbaar Formaat dient te hebben.~
+~"Aanduiding van de stand van zaken van een informatieobject. De waarden `in bewerking` en `ter vaststelling` komen niet voor als het attribuut ontvangstdatum van een waarde is voorzien. Wijziging van de Status in 'gearchiveerd' impliceert dat het informatieobject een duurzaam, niet-wijzigbaar Formaat dient te hebben."~
 
-Geeft de status van het informatieobject aan in een proces van bewerking en eventuele vaststelling.
+"Geeft de status van het informatieobject aan in een proces van bewerking en eventuele vaststelling."
 
 #### Toegestane waarden
 
@@ -61,7 +69,7 @@ De tabel hieronder illustreert hoe 'oude' statuswaarden zich vertalen naar nieuw
 
  'oude' waarde | te mappen naar of interpreteren als | te mappen naar of interpreteren als
 --|--|--                                        
-_status (bestaand 1.4.3))_ | _status (nieuw)_   | _archiefstatus (nieuw)_ 
+_status (1.4.3)_ | _status (nieuw)_   | _archiefstatus (nieuw)_ 
 `in_bewerking` | `in_bewerking` (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie) |
 | | `concept` (mapping mogelijk onder voorwaarde van voldoende bestendigheid inhoud informatieobject) |
 `ter_vaststelling` | `ter_vaststelling` (veilig) |
@@ -72,15 +80,15 @@ _status (bestaand 1.4.3))_ | _status (nieuw)_   | _archiefstatus (nieuw)_
 
 ### Gedragsregel 'Zetten Zaak.archiefstatus (zrc-022)'
 
-**Het wijzigen van deze gedragsregel maakt het nodig een nieuwe minorversie van de Zaken API (1.6) uit te brengen.**
+_**Het wijzigen van deze gedragsregel maakt het nodig een nieuwe minorversie van de Zaken API (1.6) uit te brengen.**_
 
 Link huidige: [zrc-022](../zaken/index.md/#archiveren)
 
-De standaardwaarde voor archiefstatus [van de zaak, IH] is `nog_te_archiveren`. Indien een andere waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status `gearchiveerd` (depricated) EN/OF de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` hebben (zie [archiefstatus](#property-archiefstatus) hieronder).
+"De standaardwaarde voor archiefstatus [van de zaak, IH] is `nog_te_archiveren`. Indien een andere waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status `gearchiveerd` EN/OF de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` hebben (zie [archiefstatus](#property-archiefstatus) hieronder).
 
 De attributen Zaak.archiefnominatie en Zaak.archiefactiedatum MOETEN een waarde krijgen als de de archiefstatus een waarde krijgt anders dan nog_te_archiveren.
 
-Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een HTTP 400 foutbericht antwoorden.
+Indien deze voorwaarden niet voldaan zijn, dan MOET het ZRC met een HTTP 400 foutbericht antwoorden."
 
 #### Rationale voor wijziging
 
@@ -90,7 +98,7 @@ Dat informatieobjecten na afsluiten van een zaak niet meer ('zomaar') gewijzigd 
 
 Link huidige: [drc-005](./index.md/#statuswijzigingen-van-informatieobjecten-drc-005)
 
-~Wanneer `InformatieObject.ontvangstdatum` een waarde heeft, dan zijn de waarden `in bewerking` en `ter_vaststelling` voor InformatieObject.status NIET TOEGESTAAN. Indien een dergelijke status gezet is voor de verzenddatum opgegeven wordt, dan moet de API een HTTP 400 foutbericht geven met status als veld in de invalid-params. De client MOET dan ontvangstdatum leeg laten of eerst de status wijzingen.~
+~"Wanneer `InformatieObject.ontvangstdatum` een waarde heeft, dan zijn de waarden `in bewerking` en `ter_vaststelling` voor InformatieObject.status NIET TOEGESTAAN. Indien een dergelijke status gezet is voor de verzenddatum opgegeven wordt, dan moet de API een HTTP 400 foutbericht geven met status als veld in de invalid-params. De client MOET dan ontvangstdatum leeg laten of eerst de status wijzingen."~
 
 #### Rationale voor wijziging
 
@@ -102,7 +110,7 @@ Dit is een complexe gedragsregel waarvan moeilijk is vast te stellen dat die alt
 
 #### Beschrijving
 
-Geeft aan in hoeverre het informatieobject duurzaam toegankelijk is en op het voorgeschreven moment vernietigd of overgebracht kan worden.
+"Geeft aan in hoeverre het informatieobject duurzaam toegankelijk is en op het voorgeschreven moment vernietigd of overgebracht kan worden."
 
 #### Toegestane waarden
 
@@ -128,13 +136,13 @@ Een informatieobject hoeft niet altijd alle archiefstatussen te doorlopen. Ontva
 #### Rationale voor toevoeging
 
 - Het toekennen van de waarde `gearchiveerd` resulteerde in verlies van kennis over bewerking of vaststelling. Was sprake van een gearchiveerd concept (een informatieobject met als voorlaatste status `in_bewerking`) of een definitief informatieobject (met als voorlaatste status `definitief`)? Dit heeft geleid tot het 'lostrekken' van 'archiefstatus' uit 'status'.
-- [Gedragsregel zrc-022](#gedragsregel-zetten-zaakarchiefstatus-zrc-022) vereist dat aan een zaak gerelateerde informatieobjecten bij afsluiten van de zaak de status `gearchiveerd` hebben. In de praktijk is er niet altijd sprake van dat informatieobjecten op dit moment ook zoals de huidige definitie omschrijft 'duurzaam bewaarbaar zijn gemaakt'. Activiteiten die daaraan bijdragen (zoals het omzetten naar een duurzaam bewaarbaar bestandsformaat) kunnen immers ook ná afsluiten van de zaak plaatsvinden. Wél vereist is dat de inhoud van informatieobjecten na afsluiten van de zaak niet zomaar meer kan worden aangepast. Het toestaan van mutaties staat immers verantwoording over het verloop van de zaak in de weg. Dit heeft geleid tot het toevoegen van de archiefstatussen `muteerbaar` (voor gebruik tijdens lopende zaken zolang de inhoud van het informatieobject mag worden aangepast), `onveranderlijk` (wanneer de inhoud van het informatieobject om welke reden dan ook 'onherroepelijk' is geworden) en `duurzaam_toegankelijk` (wanneer het aan alle voor het specifieke informatieobject noodzakelijke eisen ten aanzien van duurzame toegankelijkheid voldoet).
+- [Gedragsregel zrc-022](#gedragsregel-zetten-zaakarchiefstatus-zrc-022) vereist dat aan een zaak gerelateerde informatieobjecten bij afsluiten van de zaak de status `gearchiveerd` hebben. In de praktijk is er niet altijd sprake van dat informatieobjecten op dat moment ook zoals de huidige definitie omschrijft "duurzaam bewaarbaar zijn gemaakt". Activiteiten die daaraan bijdragen (zoals het omzetten naar een duurzaam bewaarbaar bestandsformaat) kunnen immers ook ná afsluiten van de zaak plaatsvinden. Voor het afsluiten van de zaak is het wél vereist dat de vorm en inhoud van gerelateerde informatieobjecten niet meer kunnen worden gewijzigd. Het toestaan van mutaties staat immers verantwoording over het verloop van de zaak in de weg. Dit heeft geleid tot het toevoegen van de archiefstatussen `muteerbaar` (voor gebruik tijdens lopende zaken zolang de inhoud van het informatieobject mag worden aangepast), `onveranderlijk` (wanneer de inhoud van het informatieobject om welke reden dan ook 'onherroepelijk' is geworden) en `duurzaam_toegankelijk` (wanneer het aan alle voor het specifieke informatieobject noodzakelijke eisen ten aanzien van duurzame toegankelijkheid voldoet).
 
 ### property 'inhoudIsVervallen'
 
 #### Beschrijving
 
-Geeft aan of de inhoud van het informatieobject vervallen (dus niet langer geldig) is.
+"Geeft aan of de inhoud van het informatieobject vervallen (dus niet langer geldig) is."
 
 #### Toegestane waarden
 
@@ -159,7 +167,7 @@ Het begrip 'vervallen' in deze indicatie moet gelezen worden als 'ongeldig gewor
 
 #### Beschrijving
 
-Geeft aan of in de inhoud van het informatieobject persoonsgegevens aanwezig zijn die niet openbaar gemaakt mogen worden.
+"Geeft aan of in de inhoud van het informatieobject persoonsgegevens aanwezig zijn die niet openbaar gemaakt mogen worden."
 
 #### Rationale voor toevoeging
 
@@ -181,7 +189,9 @@ __Merk op dat de áfwezigheid van persoonsgegevens niet kan worden gezien als vr
 
 ### _Minor_ of _major_ release?
 
-Belanghebbenden gaven aan bovenstaande wijziging bij voorkeur verwerkt te zien in een _minor_ (versienummer 1.5.0) release van de Documenten API. Dit heeft als positief gevolg dat de overgang naar nieuwe property's en waarden niet in één 'big bang' hoeft te gebeuren. Maar het betekent dat het 'oude' niet zonder meer uit de specificatie mag verdwijnen, maar dat sprake moet zijn van een overgangsperiode waarin oud en nieuw naast elkaar kunnen bestaan. Dit kan worden bereikt door middel van 'deprication'. Met name de property `status` vormt hierbij een uitdaging. Daarvoor geldt immers dat sommige toegestane waarden geheel nieuw zijn, sommige een (door introductie van nieuwe waarden) geactualiseerde betekenis hebben gekregen, terwijl één waarde `gearchiveerd` geheel vervalt. Om aan te geven dat we willen dat 'oude' waarden zo min mogelijk worden gebruikt, zagen we drie mogelijkheden:
+#### Minor
+
+Belanghebbenden gaven aan bovenstaande wijziging bij voorkeur verwerkt te zien in een _minor_ (versienummer 1.5.0) release van de Documenten API. Dit heeft als positief gevolg dat de overgang naar nieuwe property's en waarden niet in één 'big bang' hoeft te gebeuren. Het betekent ook dat het 'oude' niet zonder meer uit de specificatie mag verdwijnen; er moet sprake zijn van een overgangsperiode waarin oud en nieuw naast elkaar kunnen bestaan. Dit kan worden bereikt door middel van 'deprication'. Met name de property `status` vormt hierbij een uitdaging. Daarvoor geldt immers dat sommige toegestane waarden geheel nieuw zijn, sommige een (naar aanleiding van de betekenis van nieuwe waarden) geactualiseerde betekenis hebben gekregen, terwijl één waarde ()`gearchiveerd`) geheel vervalt. Om aan te geven dat we willen dat 'oude' waarden zo min mogelijk worden gebruikt, zagen we drie mogelijkheden:
 
 1. Het toekennen van het 'depricated'-label aan individuele enum-waarden. 
 2. Het opnemen van een geheel nieuwe property `statusv2` (of iets dergelijks), terwijl aan de bestaande property `status` het 'depricated'-label wordt toegekend. 
@@ -189,7 +199,7 @@ Belanghebbenden gaven aan bovenstaande wijziging bij voorkeur verwerkt te zien i
 
 Optie 1 is, volgens de OpenAPI-specificaties versie 3.0 die we voor deze standaarden hanteren, [niet mogelijk](https://stackoverflow.com/questions/63963150/with-swagger-2-0-or-even-3-0-is-it-possible-to-mark-an-enum-value-as-deprecat).
 
-Optie 2 is technisch [_niet_ breaking](https://stackoverflow.com/questions/61462334/is-it-necessary-to-update-major-api-version-when-adding-new-field-in-response-js). Echter is het zeer voorstelbaar dat verschillende API-consumers die al dan niet kennis hebben van de in versie 1.5.0 of hoger doorgevoerde wijzigingen statuswaarden in verschillende property's (`status` respectievelijk `statusv2` registreren. Dit kan het onmogelijk maken te bepalen wat nu de werkelijke of bedoelde status van een informatieobject is. Semantisch moeten we deze wijziging dus als wél breaking beschouwen. Providers zullen bovendien de waarden bij statusproperty's (en in versie 1.5.0 de archiefstatusproperty) moeten gaan synchroniseren (met bijbehorend verlies van betekenis, zie [de mappingtabel hieronder](#gelijke-waarde-andere-semantiek)) om API-consumers met verschillende versieverwachtingen te bedienen. Deze optie leidt er ten slotte toe dat we ofwel tot in lengte van dagen met een lelijke, niet descriptieve propertynaam met daarin een versieaanduiding blijven zitten, ofwel later nog een wijziging moeten doorvoeren om de 'v2'-suffix weer te verwijderen.
+Optie 2 is technisch [_niet_ breaking](https://stackoverflow.com/questions/61462334/is-it-necessary-to-update-major-api-version-when-adding-new-field-in-response-js). Het is echter goed voorstelbaar dat verschillende API-consumers, die al dan niet weten van de in versie 1.5.0 doorgevoerde wijzigingen, statuswaarden in verschillende property's (`status` respectievelijk `statusv2` registreren. Dit kan het onmogelijk maken te bepalen wat nu de werkelijke of bedoelde status van een informatieobject is. Semantisch moeten we deze wijziging dus als wél breaking beschouwen. Providers zullen bovendien de waarden bij statusproperty's (en in versie 1.5.0 de archiefstatusproperty) moeten gaan synchroniseren (met bijbehorend verlies van betekenis, zie [de mappingtabel hieronder](#gelijke-waarde-andere-semantiek)) om API-consumers met verschillende versieverwachtingen te bedienen. Deze optie leidt er ten slotte toe dat we ofwel tot in lengte van dagen met een lelijke, niet descriptieve propertynaam met daarin een versieaanduiding blijven zitten, ofwel later nog een wijziging moeten doorvoeren om de 'v2'-suffix weer te verwijderen.
 
 Optie 3 is waarschijnlijk technisch [_wél_ breaking](https://tyk.io/blog/api-design-guidance-enums/). Immers, API-consumers zónder kennis van versie 1.5.0 of hoger kunnen mogelijk in 1.5.0 toegevoegde statuswaarden niet verwerken (bijvoorbeeld omdat eerder toegestane waarden _hardcoded_ zijn geprogrammeerd). Als variant op verlies van betekenis door synchronisatie bij optie 2 kan bovendien verwarring ontstaan over bij een registratie bedoelde semantiek. Bedoelde een API-consumer `defintief` met de betekenis van versie 1.4.3 of met de subtiel afwijkende betekenis die daaraan in versie 1.5.0 is gegeven? Voor API-providers is dat niet te achterhalen.
 
@@ -200,25 +210,27 @@ Bovenstaande afwegende oordelen we dat hoe dan ook een betekenisprobleem ontstaa
 3. Bij registratie van statuswaarde `gearchiveerd`, wordt door de API-provider automatisch óók de archiefstatus `onveranderlijk` of eventueel `duurzaam_toegankelijk` [(zie mappingtabel hierboven)](#gelijke-waarde-andere-semantiek) geregistreerd.
 4. Andersom is het voor API-providers **niet**  toegestaan om naar aanleiding van registratie van de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` bij status de waarde `gearchiveerd` te registreren. Het is ook voor providers ook niet toegestaan bij afsluiten van een zaak voor gerelateerde informatieobjecten de status `gearchiveerd` te registreren. Dit om verlies aan kennis over de status die het informatieobject op het moment van `onveranderlijk` of `duurzaam_toegankelijk` worden te voorkomen. Ergo: de status `gearchiveerd` kan in versie 1.5.0 of hoger _alleen_ door API-consumers worden geregistreerd.
 
+#### Major
+
 Een alternatief om verwarring en complexe regels te vermijden is het verwerken van de voorgestelde wijzigingen in een nieuwe _major_ (versienummer 2.0) versie. Daarbij horen óók nadelen:
 
 1. API-providers moeten (enige tijd) twee endpoints aanbieden ('v1' en 'v2').
-2. Via het ene (v1) endpoint geregistreerde statuswaarden moeten bevraagbaar gemaakt worden volgens de specificaties van het andere (v2) endpoint en vice versa. Synchronisatie van statuswaarden met bijbehorend betekenisverlies zoals we hierboven bij optie 2 zagen is dus evengoed nodig.
+2. Via het ene ('v1') endpoint geregistreerde statuswaarden moeten bevraagbaar gemaakt worden volgens de specificaties van het andere ('v2') endpoint en vice versa. Synchronisatie van statuswaarden met bijbehorend betekenisverlies zoals we hierboven bij optie 2 zagen is dus evengoed nodig.
 
 In geval van release van een nieuwe majorversie verwachten we van API-consumers het volgende gedrag:
 
-1. Statuswaarden die via een v1-endpoint worden geregistreerd zijn volgens de beperkingen van de bijbehorende specificaties beschikbaar voor bevraging door consumers van een v2-endpoint en vice versie. Leidraad voor omzetting van v1-statuswaarden naar v2- status- en archiefstatuswaarden is [bovenstaande mappingtabel](#gelijke-waarde-andere-semantiek).
+1. Statuswaarden die via een 'v1'-endpoint worden geregistreerd zijn volgens de beperkingen van de bijbehorende specificaties beschikbaar voor bevraging door consumers van een 'v2'-endpoint en vice versie. Leidraad voor omzetting van 'v1'-statuswaarden naar 'v2'-status- en archiefstatuswaarden is [bovenstaande mappingtabel](#gelijke-waarde-andere-semantiek).
 
 Van API-consumers verwachten we in alle gevallen dat ze zo snel mogelijk overstappen van bestaande naar nieuwe statuswaarden, en dat zij archiefstatussen, geldigheidsinformatie en informatie over aanwezigheid van persoonsgegevens (laatste twee voor zover relevant) in de bijbehorende nieuwe property's gaan registeren.
 
 **We horen graag van belanghebbenden:**
-**- of het hun voorkeur heeft deze wijzigingen door te voeren in in _minor_ of _major_ versie van de API-specificaties**
-**- waarop dit oordeel is gebaseerd**
-**- en of zij opmerkingen hebben over het gedrag dat we van API-providers verwachten.**
+- **of het hun voorkeur heeft deze wijzigingen door te voeren in in _minor_ of _major_ versie van de API-specificaties**
+- **waarop dit oordeel is gebaseerd**
+- **en of zij opmerkingen hebben over het gedrag dat we van API-providers verwachten.**
 
 ### Derde archiefstatus (`duurzaam_toegankelijk`) nodig of gewenst?
 
-De keuze voor [drie mogelijke waarden bij archiefstatus](#property-archiefstatus) is hierboven gemotiveerd. Waar de waarden `muteerbaar` en `onveranderlijk`, wat [minimaal nodig is](#gedragsregel-zetten-zaakarchiefstatus-zrc-022) voor afsluiten van een zaak, noodzakelijk zijn om met zaken te kunnen werken, geldt dat voor `duurzaam_toegankelijk` niet. We zien echter twee redenen om deze waarde toch op te nemen:
+De keuze voor [drie mogelijke waarden bij archiefstatus](#property-archiefstatus) is hierboven gemotiveerd. Waar de waarden `muteerbaar` en `onveranderlijk` noodzakelijk zijn om met zaken te kunnen werken en die [af te kunnen sluiten](#gedragsregel-zetten-zaakarchiefstatus-zrc-022), geldt dat voor `duurzaam_toegankelijk` niet. We zien echter twee redenen om deze waarde toch op te nemen:
 
 1. Informatieobjecten met status `gearchiveerd` waarvoor daadwerkelijk de duurzame toegankelijkheid of opslag geregeld is, kunnen zonder deze waarde niet van een `archiefstatus` worden voorzien die uitdrukt dat het informatieobject voldoet aan de eisen van duurzame toegankelijkheid. Omzetting zou met in deze gevallen met andere woorden verlies van kennis en betekenis tot gevolg hebben.
 2. Op basis van `onveranderlijke` informatieobjecten kan een 'werklijst' voor informatiebeheerders worden gecreëerd. Het uitgevoerde werk levert dan een `duurzaam_toegankelijk` informatieobject op.
