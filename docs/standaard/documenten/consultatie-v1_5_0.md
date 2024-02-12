@@ -210,7 +210,7 @@ De tabel hieronder illustreert hoe 'oude' statuswaarden zich vertalen naar nieuw
  'oude' waarde | te mappen naar of interpreteren als | te mappen naar of interpreteren als
 --|--|--                                        
 _status (1.4.3)_ | _status (1.5.0)_   | _archiefstatus (1.5.0)_ 
-`in_bewerking` | `in_bewerking (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie) |
+`in_bewerking` | `in_bewerking` (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie) |
 | | `concept` (mapping mogelijk onder voorwaarde van voldoende bestendigheid inhoud informatieobject) |
 `ter_vaststelling` | `ter_vaststelling` (veilig) |
 `definitief` | `definitief` (veilige mapping, maar leidt mogelijk tot betekenisverlies vanwege 'beperkter' definitie) |
