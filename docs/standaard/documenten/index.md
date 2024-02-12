@@ -4,6 +4,9 @@ date: '05-10--2023'
 weight: 10
 layout: page-with-side-nav
 ---
+
+_**Op dit moment zijn we bezig met een consultatie voor een nieuwe versie van de specificaties van de Documenten API-standaard. Op [deze Github-discussiespagina](https://github.com/VNG-Realisatie/gemma-zaken/discussions/2407) staat meer informatie en kan reactie worden achtergelaten.**_
+
 # Documenten API
 
 API voor opslag en ontsluiting van documenten en daarbij behorende metadata.
