@@ -57,7 +57,7 @@ Rationale en tabel illustreren dat, door voor te stellen bovenstaande wijziginge
 
 ### Gedragsregel 'Zetten Zaak.archiefstatus (zrc-022)'
 
-Link huidige: [Zrc-022](../zaken/index.md/#archiveren)
+Link huidige: [zrc-022](../zaken/index.md/#archiveren)
 
 De standaardwaarde voor archiefstatus [van de zaak, IH] is `nog_te_archiveren`. Indien een andere waarde gezet wordt, dan MOETEN alle gerelateerde informatieobjecten de status `gearchiveerd` (depricated) EN/OF de archiefstatus `onveranderlijk` of `duurzaam_toegankelijk` hebben (zie [archiefstatus](#property-archiefstatus) hieronder).
 
@@ -71,7 +71,7 @@ Dat informatieobjecten na afsluiten van een zaak niet meer ('zomaar') gewijzigd 
 
 ### Gedragsregel 'Statuswijzigingen van informatieobjecten (drc-005)'
 
-Link huidige: [Zrc-022](./index.md/#statuswijzigingen-van-informatieobjecten-drc-005)
+Link huidige: [drc-005](./index.md/#statuswijzigingen-van-informatieobjecten-drc-005)
 
 ~Wanneer `InformatieObject.ontvangstdatum` een waarde heeft, dan zijn de waarden `in bewerking` en `ter_vaststelling` voor InformatieObject.status NIET TOEGESTAAN. Indien een dergelijke status gezet is voor de verzenddatum opgegeven wordt, dan moet de API een HTTP 400 foutbericht geven met status als veld in de invalid-params. De client MOET dan ontvangstdatum leeg laten of eerst de status wijzingen.~
 
@@ -177,7 +177,7 @@ In de volgende _major_ release van de Documenten API kan de enum `StatusEnum` ge
 
 ### Interacties tussen API-consumers en -providers
 
-Depricaten van de statuswaarden zoals die versies van Documenten API > 1.5.0 werden gehanteerd heeft een aantal consequenties:
+Depricaten van de statuswaarden die in versies < 1.5.0 van de Documenten API werden gehanteerd heeft een aantal consequenties:
 
 - API-consumers kunnen (of ze nu kennis hebben van in 1.5.0 doorgevoerde wijzigingen of niet) naast de nieuwe ook de in eerdere versies gehanteerde statuswaarden registeren.
 - API-consumers zonder kennis van versies > 1.4.3 kunnen mogelijk in 1.5.0 toegevoegde statuswaarden niet interpreteren.
