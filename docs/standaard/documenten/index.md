@@ -5,7 +5,7 @@ weight: 10
 layout: page-with-side-nav
 ---
 
-_**Op dit moment zijn we bezig met een consultatie voor een nieuwe versie van de specificaties van de Documenten API-standaard. Op [deze Github-discussiespagina](https://github.com/VNG-Realisatie/gemma-zaken/discussions/2407) staat meer informatie en kan reactie worden achtergelaten.**_
+_**Op dit moment zijn we bezig met een consultatie voor een nieuwe versie van de specificaties van de Documenten API-standaard. Op [deze Github-discussiespagina](https://github.com/VNG-Realisatie/gemma-zaken/discussions/2407) staat meer informatie en kan reactie worden achtergelaten. De consultatie loopt tot 26 februari.**_
 
 # Documenten API
 
