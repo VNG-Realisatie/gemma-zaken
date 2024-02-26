@@ -1204,7 +1204,6 @@ paths:
 
         - correcte `lock` waarde
 
-        - status NIET `definitief`
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       parameters:
         - in: path
@@ -1397,7 +1396,7 @@ paths:
 
         **Er wordt gevalideerd op**
          - correcte `lock` waarde
-         - status NIET `definitief`
+         
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       parameters:
         - in: path
