@@ -14588,14 +14588,15 @@ components:
           woz_waarde: '#/components/schemas/woz_waarde_ZaakObject'
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
-    ZaakObjectExpanded:
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - properties:
-            _expand:
-              $ref: '#/components/schemas/ZaakObjectEmbedded'
+    # ZaakObjectExpanded:
+    #   allOf:
+    #   - $ref: '#/components/schemas/ZaakObject'
+    #   - properties:
+    #         _expand:
+    #           $ref: '#/components/schemas/ZaakObjectEmbedded'
     ZaakObjectEmbedded:
       type: object
+      description: "**LET OP: Deze expand mag alleen worden toegepast op het `/zaken` endpoint en niet op het `/zaakobjecten` endpoint!**"
       properties: 
         zaakobjecttype:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType'
@@ -14926,8 +14927,10 @@ components:
               type: string
               example: "123456789"
             expand:
-              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,' \
-            \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
+              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,` \
+                   \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. 
+                   Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. 
+                   Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
               title: expand
               type: string
               example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype              
