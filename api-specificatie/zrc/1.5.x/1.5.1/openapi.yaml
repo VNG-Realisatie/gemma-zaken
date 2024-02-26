@@ -13066,13 +13066,14 @@ components:
           niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_Rol'
           organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_Rol'
           vestiging: '#/components/schemas/vestiging_Rol'
-    RolExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Rol'
-     - properties:
-          _expand:
-            $ref: '#/components/schemas/RolEmbedded'
+    # RolExpanded:
+    #  allOf:
+    #  - $ref: '#/components/schemas/Rol'
+    #  - properties:
+    #       _expand:
+    #         $ref: '#/components/schemas/RolEmbedded'
     RolEmbedded:
+      description: "**LET OP: Deze expand mag alleen worden toegepast op het `/zaken` endpoint en niet op het `/rollen` endpoint!**"
       type: object
       properties: 
         zaak:
@@ -14137,7 +14138,7 @@ components:
         rollen: 
           type: array
           items: 
-            $ref: '#/components/schemas/RolExpanded'   
+            $ref: '#/components/schemas/Rol'   
         status:
           oneOf:
           - $ref: '#/components/schemas/StatusExpanded'
