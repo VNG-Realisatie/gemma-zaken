@@ -13073,7 +13073,7 @@ components:
     #       _expand:
     #         $ref: '#/components/schemas/RolEmbedded'
     RolEmbedded:
-      description: "**LET OP: Deze expand mag alleen worden toegepast op het `/zaken` endpoint en niet op het `/rollen` endpoint!**"
+      description: "**LET OP: Deze expand kan alleen worden toegepast op het `/zaken` endpoint en niet op het `/rollen` endpoint!**"
       type: object
       properties: 
         zaak:
@@ -14597,7 +14597,7 @@ components:
     #           $ref: '#/components/schemas/ZaakObjectEmbedded'
     ZaakObjectEmbedded:
       type: object
-      description: "**LET OP: Deze expand mag alleen worden toegepast op het `/zaken` endpoint en niet op het `/zaakobjecten` endpoint!**"
+      description: "**LET OP: Deze expand kan alleen worden toegepast op het `/zaken` endpoint en niet op het `/zaakobjecten` endpoint!**"
       properties: 
         zaakobjecttype:
           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType'
