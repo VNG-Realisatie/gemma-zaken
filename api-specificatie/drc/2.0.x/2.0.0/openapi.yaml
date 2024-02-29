@@ -5328,24 +5328,16 @@ components:
       description:
        "Uitleg bij de enumeratiewaarden:
 
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
+            * `veranderlijk` - (Veranderlijk) Vorm en inhoud van het informatieobject 
             kunnen vrijelijk veranderen.
 
             * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
             informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk) Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden."
+            en integriteit gewaarborgd zijn."
       type: string
       enum:
-        - mutabel
+        - veranderlijk
         - onveranderlijk
-        - duurzaam_toegankelijk
     AuditTrail:
       type: object
       properties:
@@ -6008,9 +6000,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6279,9 +6269,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6549,9 +6537,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6785,9 +6771,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -7046,9 +7030,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -8493,8 +8475,6 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
-  # - description: SwaggerHub API Auto Mocking
-  #   url: https://virtserver.swaggerhub.com/michielverhoef/Documenten_API/1.4.2
   - url: https://documenten-api.vng.cloud/api/v2
     description: Productie Omgeving
   - url: https://documenten-api.test.vng.cloud/api/v2

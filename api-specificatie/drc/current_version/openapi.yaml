@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.5.0
+  version: 2.0.0
   description: >
     Een API om een documentregistratiecomponent (DRC) te benaderen.
 
@@ -1204,7 +1204,6 @@ paths:
 
         - correcte `lock` waarde
 
-        - status NIET `definitief`
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       parameters:
         - in: path
@@ -1397,7 +1396,7 @@ paths:
 
         **Er wordt gevalideerd op**
          - correcte `lock` waarde
-         - status NIET `definitief`
+         
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       parameters:
         - in: path
@@ -5329,24 +5328,16 @@ components:
       description:
        "Uitleg bij de enumeratiewaarden:
 
-            * `mutabel` - (Mutabel) Vorm en inhoud van het informatieobject 
+            * `veranderlijk` - (Veranderlijk) Vorm en inhoud van het informatieobject 
             kunnen vrijelijk veranderen.
 
             * `onveranderlijk` - (Onveranderlijk) Vorm en inhoud van het 
             informatieobject zijn onveranderlijk geworden zodat authenticiteit 
-            en integriteit gewaarborgd zijn.
-
-            * `duurzaam_toegankelijk` (Duurzaam toegankelijk) Het 
-            informatieobject voldoet aan de eisen van duurzame 
-            toegankelijkheid (het is vindbaar, beschikbaar, leesbaar, 
-            interpreteerbaar, betrouwbaar en toekomstbestendig) en kan 
-            op het in de selectielijst voorgeschreven moment vernietigd 
-            of overgebracht worden."
+            en integriteit gewaarborgd zijn."
       type: string
       enum:
-        - mutabel
+        - veranderlijk
         - onveranderlijk
-        - duurzaam_toegankelijk
     AuditTrail:
       type: object
       properties:
@@ -6009,9 +6000,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6025,19 +6014,6 @@ components:
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: Inhoud is vervallen
-          type: boolean
-          nullable: true
-        bevatNietOpenbarePersoonsgegevens:
-          description: >-
-            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
-            aanwezig zijn die niet openbaar gemaakt mogen worden.
-
-            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
-            niet openbaar gemaakt mogen worden.
-
-            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
-            die niet openbaar gemaakt mogen worden.
-          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6293,9 +6269,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6309,19 +6283,6 @@ components:
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: Inhoud is vervallen
-          type: boolean
-          nullable: true
-        bevatNietOpenbarePersoonsgegevens:
-          description: >-
-            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
-            aanwezig zijn die niet openbaar gemaakt mogen worden.
-
-            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
-            niet openbaar gemaakt mogen worden.
-
-            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
-            die niet openbaar gemaakt mogen worden.
-          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6576,9 +6537,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6592,19 +6551,6 @@ components:
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: Inhoud is vervallen
-          type: boolean
-          nullable: true
-        bevatNietOpenbarePersoonsgegevens:
-          description: >-
-            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
-            aanwezig zijn die niet openbaar gemaakt mogen worden.
-
-            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
-            niet openbaar gemaakt mogen worden.
-
-            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
-            die niet openbaar gemaakt mogen worden.
-          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -6825,9 +6771,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6841,19 +6785,6 @@ components:
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: Inhoud is vervallen
-          type: boolean
-          nullable: true
-        bevatNietOpenbarePersoonsgegevens:
-          description: >-
-            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
-            aanwezig zijn die niet openbaar gemaakt mogen worden.
-
-            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
-            niet openbaar gemaakt mogen worden.
-
-            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
-            die niet openbaar gemaakt mogen worden.
-          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -7099,9 +7030,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan in hoeverre het INFORMATIEOBJECT duurzaam 
-            toegankelijk is en op het voorgeschreven moment vernietigd of 
-            overgebracht kan worden.
+            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -7115,19 +7044,6 @@ components:
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: Inhoud is vervallen
-          type: boolean
-          nullable: true
-        bevatNietOpenbarePersoonsgegevens:
-          description: >-
-            Geeft aan of in de inhoud van het INFORMATIEOBJECT persoonsgegevens 
-            aanwezig zijn die niet openbaar gemaakt mogen worden.
-
-            * `true` In het INFORMATIEOBJECT zijn persoonsgegevens aanwezig die 
-            niet openbaar gemaakt mogen worden.
-
-            * `false` In het INFORMATIEOBJECT zijn geen persoonsgegevens aanwezig 
-            die niet openbaar gemaakt mogen worden.
-          title: Bevat niet-openbare persoonsgegevens
           type: boolean
           nullable: true
         formaat:
@@ -8559,10 +8475,10 @@ components:
       bearerFormat: JWT
       scheme: bearer
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/michielverhoef/Documenten_API/1.4.2
-  - url: https://documenten-api.vng.cloud/api/v1
+  - url: https://documenten-api.vng.cloud/api/v2
     description: Productie Omgeving
+  - url: https://documenten-api.test.vng.cloud/api/v2
+    description: Test Omgeving
 tags:
   - name: enkelvoudiginformatieobjecten
     description: Opvragen en bewerken van (ENKELVOUDIG) INFORMATIEOBJECTen (documenten).
