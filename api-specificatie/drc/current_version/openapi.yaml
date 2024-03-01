@@ -6000,7 +6000,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
+            Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6269,7 +6269,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
+            Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6537,7 +6537,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
+            Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -6771,7 +6771,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
+            Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
@@ -7030,7 +7030,7 @@ components:
             - $ref: '#/components/schemas/StatusEnum'
         archiefstatus:
           description: >-
-            Geeft aan of het INFORMATIEOBJECT veranderlijk of onveranderlijk is.
+            Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
           title: Archiefstatus
           oneOf: 
             - $ref: '#/components/schemas/ArchiefstatusEnum'
