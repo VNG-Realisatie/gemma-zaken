@@ -6003,6 +6003,17 @@ components:
           oneOf:
             - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        inhoudIsVervallen:
+          description: >-
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
+            vervallen, dus niet langer geldig is.
+
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
+
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
+          type: boolean
+          nullable: true
         formaat:
           type: string
           description: >-
@@ -6273,6 +6284,17 @@ components:
           oneOf:
             - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        inhoudIsVervallen:
+          description: >-
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
+            vervallen, dus niet langer geldig is.
+
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
+
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
+          type: boolean
+          nullable: true
         formaat:
           type: string
           description: >-
@@ -6542,6 +6564,17 @@ components:
           oneOf:
             - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        inhoudIsVervallen:
+          description: >-
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
+            vervallen, dus niet langer geldig is.
+
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
+
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
+          type: boolean
+          nullable: true
         formaat:
           type: string
           description: >-
@@ -6777,6 +6810,17 @@ components:
           oneOf:
             - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        inhoudIsVervallen:
+          description: >-
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
+            vervallen, dus niet langer geldig is.
+
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
+
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
+          type: boolean
+          nullable: true
         formaat:
           type: string
           description: >-
@@ -7037,6 +7081,17 @@ components:
           oneOf:
             - $ref: '#/components/schemas/StatusEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        inhoudIsVervallen:
+          description: >-
+            Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
+            vervallen, dus niet langer geldig is.
+
+            * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
+
+            * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
+          title: Inhoud is vervallen
+          type: boolean
+          nullable: true
         formaat:
           type: string
           description: >-
