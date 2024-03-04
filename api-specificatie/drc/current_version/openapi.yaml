@@ -5995,9 +5995,8 @@ components:
             Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
           title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnumV2'
-            - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
         archiefstatus:
           description: >-
             Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
@@ -6264,9 +6263,8 @@ components:
             Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
           title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnumV2'
-            - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
         archiefstatus:
           description: >-
             Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
@@ -6532,9 +6530,8 @@ components:
             Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
           title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnumV2'
-            - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
         archiefstatus:
           description: >-
             Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
@@ -6766,9 +6763,8 @@ components:
             Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
           title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnumV2'
-            - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
         archiefstatus:
           description: >-
             Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
@@ -7025,9 +7021,8 @@ components:
             Geeft de status van het INFORMATIEOBJECT aan in een proces van bewerking en eventuele vaststelling.
           title: Status
           oneOf:
-            - $ref: '#/components/schemas/StatusEnumV2'
-            - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/StatusEnum'
+            - $ref: '#/components/schemas/BlankEnum'
         archiefstatus:
           description: >-
             Geeft aan of vorm en inhoud van het INFORMATIEOBJECT nog aanpast mogen worden, of dat deze het in het kader van archivering zijn bevroren.
@@ -8028,29 +8023,29 @@ components:
         - digitaal
         - pki
       type: string
+    # StatusEnum:
+    #   description: 
+    #      "Uitleg bij mogelijke waarden:
+
+    #         * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog
+    #         gewerkt.
+
+    #         * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed
+    #         maar moet nog vastgesteld worden.
+
+    #         * `definitief` - (Definitief) Informatieobject door bevoegd iets of
+    #         iemand vastgesteld dan wel ontvangen.
+
+    #         * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam
+    #         bewaarbaar gemaakt; een gearchiveerd informatie-element."
+    #   enum:
+    #     - in_bewerking
+    #     - ter_vaststelling
+    #     - definitief
+    #     - gearchiveerd
+    #   type: string
+    #   deprecated: true
     StatusEnum:
-      description: 
-         "Uitleg bij mogelijke waarden:
-
-            * `in_bewerking` - (In bewerking) Aan het informatieobject wordt nog
-            gewerkt.
-
-            * `ter_vaststelling` - (Ter vaststelling) Informatieobject gereed
-            maar moet nog vastgesteld worden.
-
-            * `definitief` - (Definitief) Informatieobject door bevoegd iets of
-            iemand vastgesteld dan wel ontvangen.
-
-            * `gearchiveerd` - (Gearchiveerd) Informatieobject duurzaam
-            bewaarbaar gemaakt; een gearchiveerd informatie-element."
-      enum:
-        - in_bewerking
-        - ter_vaststelling
-        - definitief
-        - gearchiveerd
-      type: string
-      deprecated: true
-    StatusEnumV2:
       description: 
         "Uitleg bij de enumeratiewaarden:
 
@@ -8070,11 +8065,7 @@ components:
             is betrokken bij een lopend besluitvormingsproces.
 
             * `vastgesteld` - (Vastgesteld) De inhoud van het informatieobject is 
-            bekrachtigd tijdens een besluitvormingsproces.
-        
-
-         **Let op:** De waarden `concept` en `vastgesteld` zijn nieuw vanaf versie 1.5.0
-        van deze API."
+            bekrachtigd tijdens een besluitvormingsproces."
       enum:
         - in_bewerking
         - concept
