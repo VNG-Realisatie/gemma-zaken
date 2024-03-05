@@ -50,6 +50,15 @@ info:
     mag zijn.
 
 
+    _Nieuw in 1.5.0_
+
+    1. Het optionele attribuut "inhoudIsVervallen" is toegevoegd aan de resource `enkelvoudiginformatieobjecten`.
+    
+    2. De voorwaarde "status NIET definitief" is verwijderd uit de beschrijvingen van de PUT- en PATCH-operatie 
+    op `enkelvoudiginformatieobjecten`. Dit is een verbetering van een fout in de OAS want deze voorwaarde was al 
+    geschrapt in de aanvullende specificatie van versie 1.4.0. 
+
+
     _Nieuw in 1.1.0_
 
 
@@ -1204,7 +1213,6 @@ paths:
 
         - correcte `lock` waarde
 
-        - status NIET `definitief`
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.
       parameters:
         - in: path
@@ -1397,7 +1405,6 @@ paths:
 
         **Er wordt gevalideerd op**
          - correcte `lock` waarde
-         - status NIET `definitief`
       summary: Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.
       parameters:
         - in: path
@@ -6011,7 +6018,7 @@ components:
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
-          title: Inhoud is vervallen
+          title: inhoud is vervallen
           type: boolean
           nullable: true
         formaat:
@@ -6292,7 +6299,7 @@ components:
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
-          title: Inhoud is vervallen
+          title: inhoud is vervallen
           type: boolean
           nullable: true
         formaat:
@@ -6572,7 +6579,7 @@ components:
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
-          title: Inhoud is vervallen
+          title: inhoud is vervallen
           type: boolean
           nullable: true
         formaat:
@@ -6818,7 +6825,7 @@ components:
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
-          title: Inhoud is vervallen
+          title: inhoud is vervallen
           type: boolean
           nullable: true
         formaat:
@@ -7089,7 +7096,7 @@ components:
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
-          title: Inhoud is vervallen
+          title: inhoud is vervallen
           type: boolean
           nullable: true
         formaat:
