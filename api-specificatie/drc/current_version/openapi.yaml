@@ -55,8 +55,8 @@ info:
     1. Het optionele attribuut "inhoudIsVervallen" is toegevoegd aan de resource `enkelvoudiginformatieobjecten`.
     
     2. De voorwaarde "status NIET definitief" is verwijderd uit de beschrijvingen van de PUT- en PATCH-operatie 
-    op `enkelvoudiginformatieobjecten`. Dit is een verbetering van een fout in de OAS want deze voorwaarde was al 
-    geschrapt in de aanvullende specificatie van versie 1.4.0. 
+    op `enkelvoudiginformatieobjecten`. Dit is een correctie van een fout in de OAS, want deze voorwaarde was al 
+    geschrapt in de aanvullende specificatie van versie 1.4.0.
 
 
     _Nieuw in 1.1.0_
