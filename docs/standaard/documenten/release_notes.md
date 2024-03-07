@@ -1,6 +1,6 @@
 ---
 title: "Release Notes Documenten API"
-date: '05-10--2023'
+date: '07-03-2024'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -8,11 +8,42 @@ layout: page-with-side-nav
 
 Versie   | Release datum 
 -------- | ------------- 
+1.5.0    | xx-03-2024    
+
+- property `inhoudIsVervallen` bij resource 'enkelvoudiginformatieobjecten' toegevoegd (zie toelichting hieronder).
+- regel die PUT en PATCH-operaties op 'enkelvoudiginformatieobjecten' alleen toestaat voor informatieobjecten waarvan de 'status NIET `definitief`' is ([drc-010](index.md#bijwerken-van-documenten-drc-010), is in overeenstemming met vervallen van deze regel in versie 1.4.0 uit de OAS verwijderd.
+
+### Toelichting bij toevoeging property 'inhoudIsVervallen'
+
+#### Beschrijving
+
+"Geeft aan of de inhoud van het informatieobject vervallen (dus niet langer geldig) is."
+
+#### Toegestane waarden
+
+Waarde | Beschrijving
+-- | --
+`null` |
+`true` | De inhoud van het informatieobject is vervallen
+`false` | De inhoud van het informatieobject is niet vervallen.
+
+#### Rationale voor toevoeging
+
+- Gebleken behoefte aan een manier om aan te geven dat de inhoud van een informatieobject niet langer 'van belang' is, bijvoorbeeld omdat het is vervangen door een ander informatieobject met andere inhoud dat gaat over hetzelfde onderwerp. [De consultatie naar (onder andere) toevoeging van deze property](https://github.com/VNG-Realisatie/gemma-zaken/discussions/2407) wees uit dat deze property in de standaard kon worden opgenomen.
+
+#### Gebruik
+
+Het begrip 'vervallen' in deze indicatie moet gelezen worden als 'ongeldig geworden'. Geldigheid moet in deze context zowel 'breed' als 'eng' gelezen worden.
+
+- Breed in de zin dat verlies van geldigheid van de inhoud van een informatieobject zowel het gevolg kan zijn van een formele procedure, zoals de herroeping van een besluit, als van informele handelingen, zoals een bouwtekening waarvan de inhoud door het verschijnen van een meer actuele illustratie achterhaald is. Hoewel we in het dagelijks taalgebruik in het laatste geval waarschijnlijk zouden zeggen dat de bouwtekening "niet meer actueel is", benoemen we die in de context van deze indicatie als "niet meer geldig, dus vervallen".
+- Eng in de zin dat verlies van geldigheid niet betekent dat een informatieobject in het geheel geen waarde meer heeft. Een herroepen besluit kan immers aanleiding geven voor aantekenen van bezwaar of beroep. En de 'vervangen' bouwtekening kan vanuit cultuurhistorisch perspectief best heel interessant (blijken te) zijn.
+
+Versie   | Release datum 
+-------- | ------------- 
 1.4.3    | 27-10-2023    
 
 - `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
   Dit bleek in versie 1.4.1 niet volledig opgelost.
-
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -33,7 +64,6 @@ Versie   | Release datum
 1.2.4    | 29-08-2023    
 
 - `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
-
 
 Versie   | Release datum 
 -------- | ------------- 
