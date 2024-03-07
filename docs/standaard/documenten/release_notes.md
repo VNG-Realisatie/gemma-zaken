@@ -6,6 +6,8 @@ layout: page-with-side-nav
 ---
 # Release Notes Documenten API
 
+## Versie 1.5.0
+
 Versie   | Release datum 
 -------- | ------------- 
 1.5.0    | xx-03-2024    
@@ -38,12 +40,16 @@ Het begrip 'vervallen' in deze indicatie moet gelezen worden als 'ongeldig gewor
 - Breed in de zin dat verlies van geldigheid van de inhoud van een informatieobject zowel het gevolg kan zijn van een formele procedure, zoals de herroeping van een besluit, als van informele handelingen, zoals een bouwtekening waarvan de inhoud door het verschijnen van een meer actuele illustratie achterhaald is. Hoewel we in het dagelijks taalgebruik in het laatste geval waarschijnlijk zouden zeggen dat de bouwtekening "niet meer actueel is", benoemen we die in de context van deze indicatie als "niet meer geldig, dus vervallen".
 - Eng in de zin dat verlies van geldigheid niet betekent dat een informatieobject in het geheel geen waarde meer heeft. Een herroepen besluit kan immers aanleiding geven voor aantekenen van bezwaar of beroep. En de 'vervangen' bouwtekening kan vanuit cultuurhistorisch perspectief best heel interessant (blijken te) zijn.
 
+## Versie 1.4.3
+
 Versie   | Release datum 
 -------- | ------------- 
 1.4.3    | 27-10-2023    
 
 - `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
   Dit bleek in versie 1.4.1 niet volledig opgelost.
+
+## Versies 1.4.2/1.3.2/1.2.5
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -57,6 +63,8 @@ Versie   | Release datum
 - Parameternaam `UUID__IN` in `documenten_zoek` operatie correct gespeld in OAS yaml (#2300)
 - Response bodies verwijderd uit `HEAD` operaties (#2328)
 
+## Versies 1.4.1/1.3.1/1.2.4
+
 Versie   | Release datum 
 -------- | ------------- 
 1.4.1    | 29-08-2023    
@@ -64,6 +72,8 @@ Versie   | Release datum
 1.2.4    | 29-08-2023    
 
 - `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
+
+## Versie 1.4.0
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -73,6 +83,8 @@ Versie   | Release datum
 - `trefwoorden` toegevoegd aan resource `Informatieobject`. (#2057)
 - Validatie op `informatieobjecttype` bij wijzigen `Informatieobject` vervallen (#2241) 
 
+## Versie 1.3.0
+
 Versie   | Release datum 
 -------- | ------------- 
 1.3.0    | 29-03-2023    
@@ -80,6 +92,8 @@ Versie   | Release datum
 - Gelockte documenten kunnen niet verwijderd worden (#1956)
 - Telefoonnummer aan relatieklasse `Verzendingen` toegevoegd (#2113)
 - Informatieobjecttype aanpasbaar gemaakt (#1777)
+
+## Versie 1.2.0
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -90,7 +104,8 @@ Versie   | Release datum
 - Relatieklasse `Verzendingen` toegevoegd (#1785)
 - Voorbeeldwaarde attribuut `taal` aangepast naar correcte waarde (#1775)
 - `documenten_zoek` endpoint toegevoegd (#1881)
-  
+
+## Versies 1.1.0/1.0.1/1.0.0  
 
 Versie   | Release datum 
 -------- | ------------- 
