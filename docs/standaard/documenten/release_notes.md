@@ -49,7 +49,7 @@ Versie   | Release datum
 - `lock` attribuut weer toegevoegd aan groepsattribuut `bestandsdelen` aan responses GET/GET List /Informatieobjecten (#2293)
   Dit bleek in versie 1.4.1 niet volledig opgelost.
 
-## Versies 1.4.2/1.3.2/1.2.5
+## Versies 1.4.2 / 1.3.2 / 1.2.5
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -63,7 +63,7 @@ Versie   | Release datum
 - Parameternaam `UUID__IN` in `documenten_zoek` operatie correct gespeld in OAS yaml (#2300)
 - Response bodies verwijderd uit `HEAD` operaties (#2328)
 
-## Versies 1.4.1/1.3.1/1.2.4
+## Versies 1.4.1 / 1.3.1 / 1.2.4
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -105,7 +105,7 @@ Versie   | Release datum
 - Voorbeeldwaarde attribuut `taal` aangepast naar correcte waarde (#1775)
 - `documenten_zoek` endpoint toegevoegd (#1881)
 
-## Versies 1.1.0/1.0.1/1.0.0  
+## Versies 1.1.0 / 1.0.1 / 1.0.0  
 
 Versie   | Release datum 
 -------- | ------------- 
