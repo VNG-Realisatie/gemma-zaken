@@ -6,7 +6,7 @@ layout: page-with-side-nav
 ---
 # Release Notes Zaken API
 
-## Versies 1.5.1/1.4.1/1.3.1
+## Versies 1.5.1 / 1.4.1 / 1.3.1
 
 Versie   | Releasedatum  
 -------- | ------------- 
@@ -74,7 +74,7 @@ Versie   | Releasedatum
 
 - PUT/PATCH/DELETE operaties toegevoegd voor de resources `ZaakEigenschap` en `ZaakObject`.
 
-## Versies 1.1.0/1.0.2/1.0.1/1.0.0
+## Versies 1.1.0 / 1.0.2 / 1.0.1 / 1.0.0
 
 Versie   | Releasedatum 
 -------- | -------------

@@ -6,7 +6,7 @@ layout: page-with-side-nav
 ---
 # Release Notes Catalogi API
 
-## Versies 1.3.1/1.2.1
+## Versies 1.3.1 / 1.2.1
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -40,7 +40,7 @@ Versie   | Release datum
 - Per resource `beginObject`, `eindObject` toegevoegd (#1971)
 - Werking `beginGeldigheid` en `eindGeldigheid` beschreven (#1970)
 
-## Versies 1.1.0/1.0.0
+## Versies 1.1.0 / 1.0.0
 
 Versie   | Release datum 
 -------- | ------------- 
