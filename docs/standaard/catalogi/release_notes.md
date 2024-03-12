@@ -24,7 +24,7 @@ Versie   | Release datum
 
 - Historiemodel toegevoegd om beheer Zaaktypen Catalogus te verbeteren
 
-## Versies 1.2.0
+## Versie 1.2.0
 
 Versie   | Release datum 
 -------- | ------------- 
