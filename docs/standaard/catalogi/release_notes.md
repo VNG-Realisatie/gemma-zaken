@@ -6,6 +6,7 @@ layout: page-with-side-nav
 ---
 # Release Notes Catalogi API
 
+## Versies 1.3.1/1.2.1
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -15,12 +16,15 @@ Versie   | Release datum
 - Open API Specificatie aangepast: scope `geforceerd-schrijven` toegepast in plaats van het foutieve `geforceerd-bijwerken`.(#2302) 
 - Relatie tussen Zaakobjecttype, Statustype en Resultaattype opgenomen in POST operatie van Zaakobjecttype (#2334) 
 
+## Versie 1.3.0
 
 Versie   | Release datum 
 -------- | ------------- 
 1.3.0    | 22-08-2023    
 
 - Historiemodel toegevoegd om beheer Zaaktypen Catalogus te verbeteren
+
+## Versies 1.2.0
 
 Versie   | Release datum 
 -------- | ------------- 
@@ -36,8 +40,9 @@ Versie   | Release datum
 - Per resource `beginObject`, `eindObject` toegevoegd (#1971)
 - Werking `beginGeldigheid` en `eindGeldigheid` beschreven (#1970)
 
-  
+## Versies 1.1.0/1.0.0
+
 Versie   | Release datum 
 -------- | ------------- 
 1.1.0    | 24-05-2021    
-1.0.0    | 2019-11-18    
+1.0.0    | 2019-11-18
