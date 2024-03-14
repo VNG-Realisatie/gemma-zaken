@@ -10,7 +10,7 @@ layout: page-with-side-nav
 
 Versie   | Release datum 
 -------- | ------------- 
-1.5.0    | 13-03-2024    
+1.5.0    | 14-03-2024    
 
 - property `inhoudIsVervallen` bij resource 'enkelvoudiginformatieobjecten' toegevoegd (zie toelichting hieronder).
 - regel die PUT en PATCH-operaties op 'enkelvoudiginformatieobjecten' alleen toestaat voor informatieobjecten waarvan de 'status NIET `definitief`' is ([drc-010](index.md#bijwerken-van-documenten-drc-010)), is in overeenstemming met vervallen van deze regel in versie 1.4.0 uit de OAS verwijderd.

@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '13-03-2024'
+date: '14-03-2024'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -9,7 +9,6 @@ layout: page-with-side-nav
 API voor opslag en ontsluiting van documenten en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Opslag vindt plaats conform het informatie-objecten-gedeelte van het RGBZ.
-
 
 ## Gegevensmodel
 
@@ -106,7 +105,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
-1.5.0    | xx-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
+1.5.0    | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
 1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
 1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
 1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
