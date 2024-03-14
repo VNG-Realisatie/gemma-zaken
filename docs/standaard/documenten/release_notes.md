@@ -8,7 +8,9 @@ layout: page-with-side-nav
 
 ## Versie 1.5.0
 
-Versie   | Release datum 
+**Let op: bij versie 1.5.0 is nog geen referentie-implementatie uitgebracht. Die volgt later in maart 2024. **
+
+Versie   | Releasedatum 
 -------- | ------------- 
 1.5.0    | 14-03-2024    
 
@@ -42,7 +44,7 @@ Het begrip 'vervallen' in deze indicatie moet gelezen worden als 'ongeldig gewor
 
 ## Versie 1.4.3
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.4.3    | 27-10-2023    
 
@@ -51,7 +53,7 @@ Versie   | Release datum
 
 ## Versies 1.4.2 / 1.3.2 / 1.2.5
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.4.2    | 26-09-2023    
 1.3.2    | 26-09-2023    
@@ -65,7 +67,7 @@ Versie   | Release datum
 
 ## Versies 1.4.1 / 1.3.1 / 1.2.4
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.4.1    | 29-08-2023    
 1.3.1    | 29-08-2023    
@@ -75,7 +77,7 @@ Versie   | Release datum
 
 ## Versie 1.4.0
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.4.0    | 22-08-2023    
 
@@ -85,7 +87,7 @@ Versie   | Release datum
 
 ## Versie 1.3.0
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.3.0    | 29-03-2023    
 
@@ -95,7 +97,7 @@ Versie   | Release datum
 
 ## Versie 1.2.0
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.2.0    | 19-12-2022    
 
@@ -107,7 +109,7 @@ Versie   | Release datum
 
 ## Versies 1.1.0 / 1.0.1 / 1.0.0  
 
-Versie   | Release datum 
+Versie   | Releasedatum 
 -------- | ------------- 
 1.1.0    | 24-05-2021    
 1.0.1    | 2019-12-16    
