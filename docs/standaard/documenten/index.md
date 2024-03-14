@@ -105,7 +105,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Releasedatum | API specificatie
 -------- | ------------- | ----------------
-1.5.0*   | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
+1.5.0†   | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
 1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
 1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
 1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
@@ -120,7 +120,7 @@ Versie   | Releasedatum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
-*Let op: bij versie 1.5.0 is nog geen referentie-implementatie uitgebracht. Die volgt later in maart 2024.
+**†Let op: bij versie 1.5.0 is nog geen referentie-implementatie uitgebracht. Die volgt later in maart 2024.**
 
 [documenten-1.5.0-redoc]: ./redoc-1.5.0
 [documenten-1.5.0-swagger]: ./swagger-ui-1.5.0

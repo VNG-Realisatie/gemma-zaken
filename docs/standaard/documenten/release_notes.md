@@ -8,7 +8,7 @@ layout: page-with-side-nav
 
 ## Versie 1.5.0
 
-**Let op: bij versie 1.5.0 is nog geen referentie-implementatie uitgebracht. Die volgt later in maart 2024. **
+**Let op: bij versie 1.5.0 is nog geen referentie-implementatie uitgebracht. Die volgt later in maart 2024.**
 
 Versie   | Releasedatum 
 -------- | ------------- 
