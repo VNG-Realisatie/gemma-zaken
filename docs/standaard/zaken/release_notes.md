@@ -33,6 +33,7 @@ Versie   | Releasedatum
 1.5.0    | 22-08-2023   
 
 - expand functionaliteit om met één aanroep een grote hoeveelheid informatie op te kunnen halen en zo de performance te verbeteren
+- Zaaktype kan gewijzigd worden (#2223)
 
 ## Versie 1.4.0
 
