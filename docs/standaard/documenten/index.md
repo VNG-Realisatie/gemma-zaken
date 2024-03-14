@@ -151,7 +151,7 @@ Versie   | Releasedatum | API specificatie
 [documenten-1.0.1-redoc]: redoc-1.0.1
 [documenten-1.0.1-swagger]: swagger-ui-1.0.1
 [documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
-[documenten-1.0.1-YAML](https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml)
+[documenten-1.0.1-YAML]: https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml
 
 [documenten-1.0.0-redoc]: ./redoc-1.0.0
 [documenten-1.0.0-swagger]: ./swagger-ui-1.0.0
