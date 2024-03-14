@@ -1,6 +1,6 @@
 ---
 title: "Documenten API"
-date: '05-10--2023'
+date: '14-03-2024'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -9,7 +9,6 @@ layout: page-with-side-nav
 API voor opslag en ontsluiting van documenten en daarbij behorende metadata.
 
 De API ondersteunt het opslaan en naar andere applicaties ontsluiten van informatieobjecten (in de 'volksmond': documenten). De component slaat deze gestructureerd en voorzien van de benodigde metadata op en stelt applicaties in staat deze te wijzigen, te verwijderen en aan de hand van een aantal zoekcriteria op te vragen. Opslag vindt plaats conform het informatie-objecten-gedeelte van het RGBZ.
-
 
 ## Gegevensmodel
 
@@ -106,6 +105,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.5.0    | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
 1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
 1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
 1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
@@ -119,6 +119,9 @@ Versie   | Release datum | API specificatie
 1.1.0    | 24-05-2021    | [ReDoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
 1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
+
+[documenten-1.5.0-redoc]: ./redoc-1.5.0
+[documenten-1.5.0-swagger]: ./swagger-ui-1.5.0
 
 [documenten-1.3.0-redoc]: redoc-1.3.0
 [documenten-1.3.0-swagger]: swagger-ui-1.3.0
@@ -252,12 +255,11 @@ Het DRC MOET geforceerd unlocken toelaten door 'administrators'. Dit zijn applic
 Bij het werken wordt gevalideerd of:
 - Een correcte lock waarde aanwezig is (zie ([drc-009](#drc-009))
 
-
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>gewijzigd in 1.4.0</strong>
 </span>
 
-- ~~De  status NIET definitief is~~
+- ~~De status NIET definitief is~~
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>gewijzigd in 1.3.0</strong>
