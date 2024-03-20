@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.5.1
+  version: 1.5.2
   description: " <b><i>Met expand mechanisme in plain json</i></b>
   
     
@@ -12418,6 +12418,11 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
+        resultaattoelichting:
+          type: string
+          description: Een toelichting op wat het resultaat van de zaak inhoudt.
+          title: resultaattoelichting
+          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -12904,7 +12909,9 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType'
+          allOf:
+          - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType'
+          - $ref: '#/components/schemas/ExpandCatalogusObject'
     Rol:
       type: object
       properties:
@@ -13079,7 +13086,9 @@ components:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
         roltype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
         statussen:
           type: array
           items:
@@ -13365,7 +13374,9 @@ components:
       type: object
       properties:
         statustype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType'
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
         gezetdoor:
           $ref: '#/components/schemas/Rol'
         zaakinformatieobjecten:
@@ -14069,6 +14080,11 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
+        resultaattoelichting:
+          type: string
+          description: Een toelichting op wat het resultaat van de zaak inhoudt.
+          title: resultaattoelichting
+          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -14114,7 +14130,10 @@ components:
         Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
         zaaktype:
-           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+          # allOf:
+          #   - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/catalogi-1_3_2/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+            # - $ref: '#/components/schemas/ExpandCatalogusObject'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
@@ -14133,7 +14152,7 @@ components:
         eigenschappen: 
           type: array
           items: 
-            $ref: '#/components/schemas/ZaakEigenschap'      
+            $ref: '#/components/schemas/ZaakEigenschapExpanded'      
         rollen: 
           type: array
           items: 
@@ -14154,6 +14173,12 @@ components:
       type: object
       description: Leeg object. Dit wordt teruggeven indien het te expanderen veld een null waarde heeft.
       example: {}
+    ExpandCatalogusObject:
+      type: object
+      properties:
+        _expand:
+          type: object
+          description: Zie de Catalogus API hoe dit object verder geëxpandeerd kan worden.
     ZaakBesluit:
       type: object
       description:
@@ -14284,6 +14309,25 @@ components:
         - uuid
         - waarde
         - zaak
+    ZaakEigenschapExpanded:
+     allOf:
+     - $ref: '#/components/schemas/ZaakEigenschap'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/ZaakEigenschapEmbedded'
+    ZaakEigenschapEmbedded:
+      type: object
+      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
+        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
+      properties: 
+        zaak:
+          oneOf:
+          - $ref: '#/components/schemas/ZaakExpanded'
+          - $ref: '#/components/schemas/EmptyObject'
+        eigenschap:
+          allOf:
+            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/Eigenschap'
+            - $ref: '#/components/schemas/ExpandCatalogusObject'
     ZaakInformatieObject:
       type: object
       properties:
@@ -14925,12 +14969,6 @@ components:
               description: Een korte identificatie van de organisatorische eenheid.
               type: string
               example: "123456789"
-            expand:
-              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,' \
-                  \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
-              title: expand
-              type: string
-              example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype              
             ordering:
               title: Ordering
               description: Het veld waarop de resultaten geordend worden. Het minnetje betekent omgekeerde volgorde.
