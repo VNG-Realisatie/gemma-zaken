@@ -14130,10 +14130,10 @@ components:
         Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
         zaaktype:
-          allOf:
-            - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
-               #  $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/HenriKorver-drc-1_4_4/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
-            - $ref: '#/components/schemas/ExpandCatalogusObject'
+          # allOf:
+          #   - $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType'
+            $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/catalogi-1_3_2/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+            # - $ref: '#/components/schemas/ExpandCatalogusObject'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
