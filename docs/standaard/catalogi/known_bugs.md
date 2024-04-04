@@ -7,7 +7,7 @@ layout: page-with-side-nav
 
 # Known Bugs Catalogi API
 
-## Versies 1.3.1 / 1.2.1
+## Versie 1.3.1 / 1.3.0
 
 Versie   | Release datum
 -------- | -------------
