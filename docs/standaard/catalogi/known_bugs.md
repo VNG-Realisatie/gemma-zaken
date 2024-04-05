@@ -14,4 +14,4 @@ Versie   | Release datum
 1.3.1    | 26-09-2023
 1.3.0    | 22-08-2023
 
-- Attribuut "zaaktypen" is weggevallen in de POST-operatie van `/besluittypen` tijdens het genereren van de OAS (zie [#2437](https://github.com/VNG-Realisatie/gemma-zaken/issues/2437)).
+- Attribuut "zaaktypen" weggevallen in POST-operatie van `/besluittypen` tijdens het genereren van OAS (zie [#2437](https://github.com/VNG-Realisatie/gemma-zaken/issues/2437)).
