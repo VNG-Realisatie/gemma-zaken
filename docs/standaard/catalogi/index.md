@@ -21,8 +21,11 @@ De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer in
 
 [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 
-### Releasenotes
-De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
+### Release Notes
+De [release notes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md).
+
+### Known Issues
+De [known issues](./known_issues.md) van de versies staan beschreven op deze [pagina](./known_issues.md).
 
 ### Releases
 
