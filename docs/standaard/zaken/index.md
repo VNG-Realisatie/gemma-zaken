@@ -61,8 +61,11 @@ Over een zaak kunnen één of meerdere klantinteracties plaatsvinden. De relatie
 
 ## Specificatie van de Zaken API
 
-### Releasenotes
-De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md) 
+### Release Notes
+De [release notes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md).
+
+### Known Issues
+De [known issues](./known_issues.md) van de versies staan beschreven op deze [pagina](./known_issues.md).
 
 ### Releases
 
