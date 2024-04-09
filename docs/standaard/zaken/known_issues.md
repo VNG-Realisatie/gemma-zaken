@@ -42,9 +42,7 @@ Versie   | Release datum
 
 **Issue**: Het is niet duidelijk of in alle geledingen van de expand parameter geëxpandeerd moeten worden of alleen de laatste (zie [#2398](https://github.com/VNG-Realisatie/gemma-zaken/issues/2398)).
 
-**Fix**: Opnemen van de volgende verduidelijkende tekst in de specificatie: 
-
-> Bij geneste expand worden alle velden die in het pad (met punt-notatie) voorkomen geëxpandeerd.
+**Fix**: Opnemen van de volgende verduidelijkende tekst in de specificatie: "Bij geneste expand worden alle velden die in het pad (met punt-notatie) voorkomen geëxpandeerd."
 
 
 ## zrc-issue-004
