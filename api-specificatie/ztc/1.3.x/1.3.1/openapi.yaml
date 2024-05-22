@@ -14215,9 +14215,18 @@ components:
           title: Zaaktype
           uniqueItems: true
         informatieobjecttypen:
-          type: string
+          type: array
+          items:
+            type: string
+            title: informatieobjecttypen
+          description: "Referenties naar de INFORMATIEOBJECTTYPEN die horen bij dit ZAAKTYPE. <br>
+            De referenties zijn hier geen URL-referenties maar textuele omschrijvingen zoals gedefinieerd in
+            https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/attribuutsoort/informatieobjecttype.informatieobjecttype-omschrijving.
+            <br><br>
+            Bijvoorbeeld: <code>[\"Bouwaanvraag\", \"Kapvergunning\", \"Uitbouwvergunning\"]</code>"
           readOnly: true
-          title: informatieobjecttypen
+          uniqueItems: true
+          example: [Bouwaanvraag, Kapvergunning, Uitbouwvergunning]
         roltypen:
           type: array
           items:
