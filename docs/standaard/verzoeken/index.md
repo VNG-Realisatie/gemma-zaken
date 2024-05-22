@@ -4,6 +4,12 @@ date: '14-7-2020'
 weight: 10
 layout: page-with-side-nav
 ---
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Deze API is niet meer in gebruik</strong>
+</span>
+<br><br>
+
 # Verzoeken API
 
 API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
