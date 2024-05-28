@@ -4,9 +4,14 @@ date: '08-11-2019'
 weight: 10
 layout: page-with-side-nav
 ---
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
+    <strong>Deze API's zijn niet meer in gebruik</strong>
+</span>
+<br><br>
+
 # Klantinteracties API
 
-*Work in progress*
 
 De Klantinteractie API ondersteunt het opslaan en ontsluiten van contactmomenten en verzoeken. De component slaat deze gestructureerd op en stelt applicaties in staat deze te wijzigen en te verwijderen.
 
