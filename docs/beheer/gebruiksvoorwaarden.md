@@ -6,6 +6,8 @@ layout: page-with-side-nav
 ---
 # Gebruiksvoorwaarden gehoste referentieimplementaties
 
+## <span style="color:red">LET OP! De doorontwikkeling en ondersteuining van de referentie-implementaties van de ZGW- en Verwerkingenlogging standaarden wordt per 1 augustus 2024 beëindigd.</span><br/>Klik [hier](./eindeontwikkelingris) voor meer informatie.
+
 Deze gebruiksvoorwaarden zijn van toepassing op de referentieimplementaties zoals gehost door VNG Realisatie.
 
 ## Doel van de referentieimplementaties
