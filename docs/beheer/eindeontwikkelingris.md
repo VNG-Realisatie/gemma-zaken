@@ -1,3 +1,9 @@
+---
+title: "Einde ontwikkeling referentie-implementaties"
+date: '31-7-2024'
+weight: 10
+layout: page-with-side-nav
+---
 # Einde ontwikkeling referentie-implementaties
  
 ## Beëindiging referentie-implementaties van de ZGW- en Verwerkingenlogging standaarden  
