@@ -10,8 +10,9 @@ layout: page-with-side-nav
 
 ### Aanleiding 
 
-Op 24 juni is een mailing verstuurd (naar …? ) met een onduidelijke titel en inleiding. Met onderstaand bericht wil de VNG duidelijk 
-maken dat het stoppen met de referentie-implementaties niet betekent dat de VNG stopt met de (door)ontwikkeling van de standaarden zelf.  
+Op 24 juni is een mailing verstuurd naar gemeenten en leveranciers met een onduidelijke titel en inleiding. Met onderstaand bericht 
+wil de VNG duidelijk maken dat het stoppen met de referentie-implementaties niet betekent dat de VNG stopt met de (door)ontwikkeling 
+van de standaarden zelf.  
 
 ### Samenvatting 
 
