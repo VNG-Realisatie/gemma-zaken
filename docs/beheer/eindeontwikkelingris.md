@@ -8,6 +8,18 @@ layout: page-with-side-nav
  
 ## Beëindiging referentie-implementaties van de ZGW- en Verwerkingenlogging standaarden  
 
+### Aanleiding 
+
+Op 24 juni is een mailing verstuurd naar alle groeipact deelnemers vanuit de VNG over het stoppen met het aanbieden van 
+referentie-implementaties voor de ZGW-API en Verwerkingenlogging standaarden. In de titel van de mail ontbrak, per abuis, 
+de woorden “referentie-implementaties”. Deze omissie heeft bij sommige partners tot verwarring geleid.  
+
+Gezien het belang van deze standaarden voor gemeenten en leveranciers, die ze al in productiesoftware hebben geïmplementeerd, 
+hecht de VNG eraan deze verwarring weg te nemen. Voor alle duidelijkheid: de ‘Pas-toe-of-leg-uit’ status van de ZGW-API’s en 
+het beheer van de standaarden door de VNG blijven ongewijzigd. Het besluit van de VNG over het stopzetten van de 
+referentie-implementaties betekent níet dat de VNG stopt met de (door)ontwikkeling van de standaarden zelf. In onderstaand bericht 
+wordt het besluit nader toegelicht.  
+
 ### Samenvatting 
 
 Bij een aantal standaarden voor gegevensuitwisseling leverde de VNG referentie-implementaties. Deze referentie-implementaties bestaan 
