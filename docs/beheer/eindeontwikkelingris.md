@@ -8,6 +8,11 @@ layout: page-with-side-nav
  
 ## Beëindiging referentie-implementaties van de ZGW- en Verwerkingenlogging standaarden  
 
+### Aanleiding 
+
+Op 24 juni is een mailing verstuurd (naar …? ) met een onduidelijke titel en inleiding. Met onderstaand bericht wil de VNG duidelijk 
+maken dat het stoppen met de referentie-implementaties niet betekent dat de VNG stopt met de (door)ontwikkeling van de standaarden zelf.  
+
 ### Samenvatting 
 
 Bij een aantal standaarden voor gegevensuitwisseling leverde de VNG referentie-implementaties. Deze referentie-implementaties bestaan 
