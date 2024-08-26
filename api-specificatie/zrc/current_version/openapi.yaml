@@ -12418,11 +12418,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -13050,8 +13045,6 @@ components:
             dat STATUSsen in die ZAAK bereikt zijn.
           title: statussen
           uniqueItems: true
-        _expand:
-            $ref: '#/components/schemas/RolEmbedded'
       required:
         - betrokkeneType
         - omschrijving
@@ -13072,11 +13065,173 @@ components:
           organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_Rol'
           vestiging: '#/components/schemas/vestiging_Rol'
     RolExpanded:
-     allOf:
-     - $ref: '#/components/schemas/Rol'
-     - properties:
-          _expand:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        uuid:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Unieke resource identifier (UUID4)
+          title: uuid
+        zaak:
+          type: string
+          format: uri
+          description: URL-referentie naar de ZAAK.
+          title: zaak
+          minLength: 1
+          maxLength: 1000
+        betrokkene:
+          type: string
+          format: uri
+          description: URL-referentie naar een betrokkene gerelateerd aan de ZAAK.
+          title: betrokkene
+          maxLength: 1000
+        betrokkeneType:
+          allOf:
+            - $ref: '#/components/schemas/BetrokkeneTypeEnum'
+          description: 'Type van de `betrokkene`.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `vestiging` - Vestiging
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `medewerker` - Medewerker'
+          title: betrokkene type
+        afwijkendeNaamBetrokkene:
+          type: string
+          description:
+            De naam van de betrokkene waaronder deze in relatie tot de
+            zaak aangesproken wil worden.
+          title: afwijkende naam betrokkene
+          maxLength: 625
+        roltype:
+          type: string
+          format: uri
+          description:
+            URL-referentie naar een roltype binnen het ZAAKTYPE van de
+            ZAAK.
+          title: roltype
+          maxLength: 1000
+        omschrijving:
+          type: string
+          readOnly: true
+          description: Omschrijving van de aard van de ROL, afgeleid uit het ROLTYPE.
+          title: omschrijving
+        omschrijvingGeneriek:
+          type: string
+          readOnly: true
+          description:
+            "Algemeen gehanteerde benaming van de aard van de ROL, afgeleid\
+            \ uit het ROLTYPE.\n\nUitleg bij mogelijke waarden:\n\n* `adviseur` -\
+            \ (Adviseur) Kennis in dienst stellen van de behandeling van (een deel\
+            \ van) een zaak.\n* `behandelaar` - (Behandelaar) De vakinhoudelijke behandeling\
+            \ doen van (een deel van) een zaak.\n* `belanghebbende` - (Belanghebbende)\
+            \ Vanuit eigen en objectief belang rechtstreeks betrokken zijn bij de\
+            \ behandeling en/of de uitkomst van een zaak.\n* `beslisser` - (Beslisser)\
+            \ Nemen van besluiten die voor de uitkomst van een zaak noodzakelijk zijn.\n\
+            * `initiator` - (Initiator) Aanleiding geven tot de start van een zaak\
+            \ ..\n* `klantcontacter` - (Klantcontacter) Het eerste aanspreekpunt zijn\
+            \ voor vragen van burgers en bedrijven ..\n* `zaakcoordinator` - (Zaakco\xF6\
+            rdinator) Er voor zorg dragen dat de behandeling van de zaak in samenhang\
+            \ uitgevoerd wordt conform de daarover gemaakte afspraken.\n* `mede_initiator`\
+            \ - Mede-initiator"
+          title: omschrijving generiek
+        roltoelichting:
+          type: string
+          title: roltoelichting
+          maxLength: 1000
+        registratiedatum:
+          type: string
+          format: date-time
+          readOnly: true
+          description: De datum waarop dit object is geregistreerd.
+          title: registratiedatum
+        indicatieMachtiging:
+          description: 'Indicatie machtiging
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `gemachtigde` - De betrokkene in de rol bij de zaak is door een andere
+            betrokkene bij dezelfde zaak gemachtigd om namens hem of haar te handelen
+
+            * `machtiginggever` - De betrokkene in de rol bij de zaak heeft een andere
+            betrokkene bij dezelfde zaak gemachtigd om namens hem of haar te handelen'
+          title: indicatie machtiging
+          oneOf:
+            - $ref: '#/components/schemas/IndicatieMachtigingEnum'
+            - $ref: '#/components/schemas/BlankEnum'
+        contactpersoonRol:
+          allOf:
+            - $ref: '#/components/schemas/ContactPersoonRol'
+          nullable: true
+          description:
+            De gegevens van de persoon die anderen desgevraagd in contact
+            brengt met medewerkers van de BETROKKENE, een NIET-NATUURLIJK PERSOON
+            of VESTIGING zijnde, of met BETROKKENE zelf, een NATUURLIJK PERSOON zijnde
+            , vanuit het belang van BETROKKENE in haar ROL bij een ZAAK.
+          title: contactpersoonRol
+        statussen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+            minLength: 1
+            maxLength: 1000
+          readOnly: true
+          description:
+            De BETROKKENE die in zijn/haar ROL in een ZAAK heeft geregistreerd
+            dat STATUSsen in die ZAAK bereikt zijn.
+          title: statussen
+          uniqueItems: true
+        _expand:
             $ref: '#/components/schemas/RolEmbedded'
+      required:
+        - betrokkeneType
+        - omschrijving
+        - omschrijvingGeneriek
+        - registratiedatum
+        - roltoelichting
+        - roltype
+        - statussen
+        - url
+        - uuid
+        - zaak
+      discriminator:
+        propertyName: betrokkeneType
+        mapping:
+          medewerker: '#/components/schemas/medewerker_RolExpanded'
+          natuurlijk_persoon: '#/components/schemas/natuurlijk_persoon_RolExpanded'
+          niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_RolExpanded'
+          organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_RolExpanded'
+          vestiging: '#/components/schemas/vestiging_RolExpanded'
+
+    # RolExpanded:
+    #  allOf:
+    #  - $ref: '#/components/schemas/Rol'
+    #  - properties:
+    #       _expand:
+    #         $ref: '#/components/schemas/RolEmbedded'
     RolEmbedded:
       type: object
       properties: 
@@ -14074,11 +14229,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -14155,7 +14305,7 @@ components:
         zaakobjecten:
           type: array
           items: 
-           $ref: '#/components/schemas/ZaakObject'
+           $ref: '#/components/schemas/ZaakObjectExpanded'
         resultaat:
           oneOf:
           - $ref: '#/components/schemas/ResultaatExpanded'
@@ -14557,8 +14707,6 @@ components:
           description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
           title: relatieomschrijving
           maxLength: 80
-        _expand:
-            $ref: '#/components/schemas/ZaakObjectEmbedded'
       required:
         - objectType
         - url
@@ -14599,11 +14747,195 @@ components:
           zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObject'
           overige: '#/components/schemas/overige_ZaakObject'
     ZaakObjectExpanded:
-      allOf:
-      - $ref: '#/components/schemas/ZaakObject'
-      - properties:
-            _expand:
-              $ref: '#/components/schemas/ZaakObjectEmbedded'
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        uuid:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Unieke resource identifier (UUID4)
+          title: uuid
+        zaak:
+          type: string
+          format: uri
+          description: URL-referentie naar de ZAAK.
+          title: zaak
+          minLength: 1
+          maxLength: 1000
+        object:
+          type: string
+          format: uri
+          description: URL-referentie naar de resource die het OBJECT beschrijft.
+          title: object
+          maxLength: 1000
+        zaakobjecttype:
+          type: string
+          format: uri
+          description: URL-referentie naar het ZAAKOBJECTTYPE (in de Catalogi API).
+          title: zaakobjecttype
+          maxLength: 1000
+        objectType:
+          allOf:
+            - $ref: '#/components/schemas/ObjectTypeEnum'
+          description:
+            'Beschrijft het type OBJECT gerelateerd aan de ZAAK. Als er
+            geen passend type is, dan moet het type worden opgegeven onder `objectTypeOverige`.
+
+
+            Uitleg bij mogelijke waarden:
+
+
+            * `adres` - Adres
+
+            * `besluit` - Besluit
+
+            * `buurt` - Buurt
+
+            * `enkelvoudig_document` - Enkelvoudig document
+
+            * `gemeente` - Gemeente
+
+            * `gemeentelijke_openbare_ruimte` - Gemeentelijke openbare ruimte
+
+            * `huishouden` - Huishouden
+
+            * `inrichtingselement` - Inrichtingselement
+
+            * `kadastrale_onroerende_zaak` - Kadastrale onroerende zaak
+
+            * `kunstwerkdeel` - Kunstwerkdeel
+
+            * `maatschappelijke_activiteit` - Maatschappelijke activiteit
+
+            * `medewerker` - Medewerker
+
+            * `natuurlijk_persoon` - Natuurlijk persoon
+
+            * `niet_natuurlijk_persoon` - Niet-natuurlijk persoon
+
+            * `openbare_ruimte` - Openbare ruimte
+
+            * `organisatorische_eenheid` - Organisatorische eenheid
+
+            * `pand` - Pand
+
+            * `spoorbaandeel` - Spoorbaandeel
+
+            * `status` - Status
+
+            * `terreindeel` - Terreindeel
+
+            * `terrein_gebouwd_object` - Terrein gebouwd object
+
+            * `vestiging` - Vestiging
+
+            * `waterdeel` - Waterdeel
+
+            * `wegdeel` - Wegdeel
+
+            * `wijk` - Wijk
+
+            * `woonplaats` - Woonplaats
+
+            * `woz_deelobject` - Woz deel object
+
+            * `woz_object` - Woz object
+
+            * `woz_waarde` - Woz waarde
+
+            * `zakelijk_recht` - Zakelijk recht
+
+            * `overige` - Overige'
+          title: object type
+        objectTypeOverige:
+          type: string
+          description:
+            Beschrijft het type OBJECT als `objectType` de waarde "overige"
+            heeft.
+          title: object type overige
+          pattern: '[a-z\_]+'
+          maxLength: 100
+        objectTypeOverigeDefinitie:
+          allOf:
+            - $ref: '#/components/schemas/ObjectTypeOverigeDefinitie'
+          nullable: true
+          title: definitie object type overige
+          description:
+            'Verwijzing naar het schema van het type OBJECT als `objectType`
+            de waarde "overige" heeft.
+
+
+            * De URL referentie moet naar een JSON endpoint   wijzen waarin het objecttype
+            gedefinieerd is, inclusief het   [JSON-schema](https://json-schema.org/).
+
+            * Gebruik het `schema` attribuut om te verwijzen naar het schema binnen   de
+            objecttype resource (deze gebruikt het   [jq](http://stedolan.github.io/jq/)
+            formaat.
+
+            * Gebruik het `objectData` attribuut om te verwijzen naar de gegevens   binnen
+            het OBJECT. Deze gebruikt ook het   [jq](http://stedolan.github.io/jq/)
+            formaat.
+
+
+            Indien je hier gebruikt van maakt, dan moet je een OBJECT url opgeven
+            en is het gebruik van objectIdentificatie niet mogelijk. De opgegeven
+            OBJECT url wordt gevalideerd tegen het schema van het opgegeven objecttype.'
+        relatieomschrijving:
+          type: string
+          description: Omschrijving van de betrekking tussen de ZAAK en het OBJECT.
+          title: relatieomschrijving
+          maxLength: 80
+        _expand:
+            $ref: '#/components/schemas/ZaakObjectEmbedded'
+      required:
+        - objectType
+        - url
+        - uuid
+        - zaak
+      discriminator:
+        propertyName: objectType
+        mapping:
+          adres: '#/components/schemas/adres_ZaakObjectExpanded'
+          besluit: '#/components/schemas/besluit_ZaakObjectExpanded'
+          buurt: '#/components/schemas/buurt_ZaakObjectExpanded'
+          enkelvoudig_document: '#/components/schemas/enkelvoudig_document_ZaakObjectExpanded'
+          gemeente: '#/components/schemas/gemeente_ZaakObjectExpanded'
+          gemeentelijke_openbare_ruimte: '#/components/schemas/gemeentelijke_openbare_ruimte_ZaakObjectExpanded'
+          huishouden: '#/components/schemas/huishouden_ZaakObjectExpanded'
+          inrichtingselement: '#/components/schemas/inrichtingselement_ZaakObjectExpanded'
+          kadastrale_onroerende_zaak: '#/components/schemas/kadastrale_onroerende_zaak_ZaakObjectExpanded'
+          kunstwerkdeel: '#/components/schemas/kunstwerkdeel_ZaakObjectExpanded'
+          maatschappelijke_activiteit: '#/components/schemas/maatschappelijke_activiteit_ZaakObjectExpanded'
+          medewerker: '#/components/schemas/medewerker_ZaakObjectExpanded'
+          natuurlijk_persoon: '#/components/schemas/natuurlijk_persoon_ZaakObjectExpanded'
+          niet_natuurlijk_persoon: '#/components/schemas/niet_natuurlijk_persoon_ZaakObjectExpanded'
+          openbare_ruimte: '#/components/schemas/openbare_ruimte_ZaakObjectExpanded'
+          organisatorische_eenheid: '#/components/schemas/organisatorische_eenheid_ZaakObjectExpanded'
+          pand: '#/components/schemas/pand_ZaakObjectExpanded'
+          spoorbaandeel: '#/components/schemas/spoorbaandeel_ZaakObjectExpanded'
+          status: '#/components/schemas/status_ZaakObjectExpanded'
+          terreindeel: '#/components/schemas/terreindeel_ZaakObjectExpanded'
+          terrein_gebouwd_object: '#/components/schemas/terrein_gebouwd_object_ZaakObjectExpanded'
+          vestiging: '#/components/schemas/vestiging_ZaakObjectExpanded'
+          waterdeel: '#/components/schemas/waterdeel_ZaakObjectExpanded'
+          wegdeel: '#/components/schemas/wegdeel_ZaakObjectExpanded'
+          wijk: '#/components/schemas/wijk_ZaakObjectExpanded'
+          woonplaats: '#/components/schemas/woonplaats_ZaakObjectExpanded'
+          woz_deelobject: '#/components/schemas/woz_deelobject_ZaakObjectExpanded'
+          woz_object: '#/components/schemas/woz_object_ZaakObjectExpanded'
+          woz_waarde: '#/components/schemas/woz_waarde_ZaakObjectExpanded'
+          zakelijk_recht: '#/components/schemas/zakelijk_recht_ZaakObjectExpanded'
+          overige: '#/components/schemas/overige_ZaakObjectExpanded'
     ZaakObjectEmbedded:
       type: object
       properties: 
@@ -14935,6 +15267,14 @@ components:
               description: Een korte identificatie van de organisatorische eenheid.
               type: string
               example: "123456789"
+            expand:
+              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,` \
+                   \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. 
+                   Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. 
+                   Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
+              title: expand
+              type: string
+              example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype              
             ordering:
               title: Ordering
               description: Het veld waarop de resultaten geordend worden. Het minnetje betekent omgekeerde volgorde.
@@ -14968,6 +15308,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectAdres'
+    adres_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectAdres'
     adres_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -14975,6 +15319,9 @@ components:
     besluit_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+    besluit_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
     besluit_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15017,6 +15364,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectBuurt'
+    buurt_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectBuurt'
     buurt_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15024,12 +15375,19 @@ components:
     enkelvoudig_document_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+    enkelvoudig_document_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
     enkelvoudig_document_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
     gemeente_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectGemeente'
+    gemeente_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectGemeente'
     gemeente_PatchedZaakObject:
       allOf:
@@ -15039,6 +15397,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectGemeentelijkeOpenbareRuimte'
+    gemeentelijke_openbare_ruimte_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectGemeentelijkeOpenbareRuimte'
     gemeentelijke_openbare_ruimte_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15046,6 +15408,10 @@ components:
     huishouden_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectHuishouden'
+    huishouden_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectHuishouden'
     huishouden_PatchedZaakObject:
       allOf:
@@ -15055,6 +15421,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectInrichtingselement'
+    inrichtingselement_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectInrichtingselement'
     inrichtingselement_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15062,6 +15432,10 @@ components:
     kadastrale_onroerende_zaak_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectKadastraleOnroerendeZaak'
+    kadastrale_onroerende_zaak_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectKadastraleOnroerendeZaak'
     kadastrale_onroerende_zaak_PatchedZaakObject:
       allOf:
@@ -15071,6 +15445,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectKunstwerkdeel'
+    kunstwerkdeel_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectKunstwerkdeel'
     kunstwerkdeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15078,6 +15456,10 @@ components:
     maatschappelijke_activiteit_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectMaatschappelijkeActiviteit'
+    maatschappelijke_activiteit_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectMaatschappelijkeActiviteit'
     maatschappelijke_activiteit_PatchedZaakObject:
       allOf:
@@ -15087,9 +15469,17 @@ components:
       allOf:
         - $ref: '#/components/schemas/Rol'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolMedewerker'
+    medewerker_RolExpanded:
+      allOf:
+        - $ref: '#/components/schemas/RolExpanded'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolMedewerker'
     medewerker_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolMedewerker'
+    medewerker_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolMedewerker'
     medewerker_PatchedZaakObject:
       allOf:
@@ -15099,9 +15489,17 @@ components:
       allOf:
         - $ref: '#/components/schemas/Rol'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
+    natuurlijk_persoon_RolExpanded:
+      allOf:
+        - $ref: '#/components/schemas/RolExpanded'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
     natuurlijk_persoon_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
+    natuurlijk_persoon_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon'
     natuurlijk_persoon_PatchedZaakObject:
       allOf:
@@ -15111,9 +15509,17 @@ components:
       allOf:
         - $ref: '#/components/schemas/Rol'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
+    niet_natuurlijk_persoon_RolExpanded:
+      allOf:
+        - $ref: '#/components/schemas/RolExpanded'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
     niet_natuurlijk_persoon_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
+    niet_natuurlijk_persoon_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon'
     niet_natuurlijk_persoon_PatchedZaakObject:
       allOf:
@@ -15319,6 +15725,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectOpenbareRuimte'
+    openbare_ruimte_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectOpenbareRuimte'
     openbare_ruimte_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15327,9 +15737,17 @@ components:
       allOf:
         - $ref: '#/components/schemas/Rol'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
+    organisatorische_eenheid_RolExpanded:
+      allOf:
+        - $ref: '#/components/schemas/RolExpanded'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
     organisatorische_eenheid_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
+    organisatorische_eenheid_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid'
     organisatorische_eenheid_PatchedZaakObject:
       allOf:
@@ -15339,6 +15757,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectOverige'
+    overige_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectOverige'
     overige_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15346,6 +15768,10 @@ components:
     pand_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectPand'
+    pand_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectPand'
     pand_PatchedZaakObject:
       allOf:
@@ -15355,6 +15781,10 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectSpoorbaandeel'
+    spoorbaandeel_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectSpoorbaandeel'
     spoorbaandeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
@@ -15362,32 +15792,51 @@ components:
     status_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+    status_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
     status_PatchedZaakObject:
       allOf:
-        - $ref: '#/components/schemas/PatchedZaakObject'    
+        - $ref: '#/components/schemas/PatchedZaakObject'
     terrein_gebouwd_object_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'
+    terrein_gebouwd_object_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'
     terrein_gebouwd_object_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreinGebouwdObject'
     terreindeel_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'
+    terreindeel_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'
     terreindeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectTerreindeel'
     vestiging_Rol:
       allOf:
         - $ref: '#/components/schemas/Rol'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolVestiging'
+    vestiging_RolExpanded:
+      allOf:
+        - $ref: '#/components/schemas/RolExpanded'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolVestiging'
     vestiging_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/betrokkene_identificatie_RolVestiging'
+    vestiging_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/betrokkene_identificatie_RolVestiging'
     vestiging_PatchedZaakObject:
       allOf:
@@ -15397,37 +15846,57 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'
+    waterdeel_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'
     waterdeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectWaterdeel' 
     wegdeel_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'
+    wegdeel_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'
     wegdeel_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectWegdeel'
     wijk_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectWijk'
+    wijk_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWijk'
     wijk_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWijk'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectWijk'   
     woonplaats_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
+    woonplaats_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
     woonplaats_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectWoonplaats'
     woz_deelobject_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWozDeelobject'
+    woz_deelobject_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectWozDeelobject'
     woz_deelobject_PatchedZaakObject:
       allOf:
@@ -15437,13 +15906,21 @@ components:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
         - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'
+    woz_object_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'
     woz_object_PatchedZaakObject:
       allOf:
         - $ref: '#/components/schemas/PatchedZaakObject'
-        - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'    
+        - $ref: '#/components/schemas/object_identificatie_ObjectWozObject'
     woz_waarde_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectWozWaarde'
+    woz_waarde_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectWozWaarde'
     woz_waarde_PatchedZaakObject:
       allOf:
@@ -15452,6 +15929,10 @@ components:
     zakelijk_recht_ZaakObject:
       allOf:
         - $ref: '#/components/schemas/ZaakObject'
+        - $ref: '#/components/schemas/object_identificatie_ObjectZakelijkRecht'
+    zakelijk_recht_ZaakObjectExpanded:
+      allOf:
+        - $ref: '#/components/schemas/ZaakObjectExpanded'
         - $ref: '#/components/schemas/object_identificatie_ObjectZakelijkRecht'
     zakelijk_recht_PatchedZaakObject:
       allOf:
