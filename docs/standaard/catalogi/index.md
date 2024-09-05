@@ -178,38 +178,31 @@ Dit is de tegenhanger van het attribuut `concept`, dus na publiceren heeft `conc
 Het is dus mogelijk om een nieuwe versie van bijvoorbeeld een zaaktype aan te maken en deze te publiceren met een datum beginGeldigheid in de toekomst. Een dergelijke versie van een zaaktype kan dan niet meer gewijzigd worden (tenzij met een <a name="correctie">([correctie](#correctie))</a>) dus het verdient aanbeveling dit tot een minimum te beperken.. Daarnaast is het van belang de datum eindGeldigheid van de voorgaande versie van het object te zetten met een waarde die 1 dag minder is dan de datum beginGeldigeid van de gepubliceerde versie.
 
 Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden op dit objecttype en gerelateerde objecttype via de API.
+
 * Beperkingen voor objecttypen met `concept=false` **<a name="ztc-009">([ztc-009](#ztc-009))</a>**:
     * Het objecttype mag NIET:
         * geheel bijgewerkt worden (PUT), m.u.v een <a name="correctie">([correctie](#correctie))</a>
         * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid` of een <a name="correctie">([correctie](#correctie))</a>
         * verwijderd worden (DELETE)
 
-* Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
+* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Aangepast in versie 1.2.0</strong></span><br>Beperkingen voor de volgende objecttypen: Roltype, Statustype, Eigenschap, Zaaktype-Informatieobjecttype, Resultaattype en Zaakobjecttype **<a name="ztc-010">([ztc-010](#ztc-010))</a>**. Als een van deze objecttypen, aangeduid met `x`, gerelateerd is aan een ander objecttype `y` met `concept=false`, dan mag objecttype `x` NIET:
 
-    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.2.0</strong>
-    </span><br/>
-    
-    Het objecttype mag NIET:
-        * geheel bijgewerkt worden (PUT) m.u.v een <a name="correctie">([correctie](#correctie))</a>
-        * deels bijgewerkt worden (PATCH) of een <a name="correctie">([correctie](#correctie))</a>
-        * verwijderd worden (DELETE)
-    * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-010)** alleen in het geval waarbij zowel het `ZaakType`
-    als het `InformatieObjectType` `concept=False` hebben
+    * geheel bijgewerkt worden (PUT) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
+    * deels bijgewerkt worden (PATCH) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
+    * verwijderd worden (DELETE).
+    * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-010)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben.
 
-
-    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.3.0</strong>
-    </span><br/>
-    
+* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+        <strong>Aangepast in versie 1.3.0</strong></span><br/> 
 ~~* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
     * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben~~
 
-* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Nieuw in versie 1.3.0</strong>
-    </span><br/>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.3.0</strong>
+</span><br/>
+<br>
 
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
