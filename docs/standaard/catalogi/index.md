@@ -187,6 +187,7 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 
 * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Aangepast in versie 1.2.0</strong></span><br>Beperkingen voor de volgende objecttypen: Roltype, Statustype, Eigenschap, Zaaktype-Informatieobjecttype, Resultaattype en Zaakobjecttype **<a name="ztc-010">([ztc-010](#ztc-010))</a>**. Als een van deze objecttypen, aangeduid met `x`, gerelateerd is aan een `zaaktype` met `concept=false`, dan mag objecttype `x` NIET:
 
+    * aangemaakt worden (POST) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * geheel bijgewerkt worden (PUT) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * deels bijgewerkt worden (PATCH) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * verwijderd worden (DELETE).
