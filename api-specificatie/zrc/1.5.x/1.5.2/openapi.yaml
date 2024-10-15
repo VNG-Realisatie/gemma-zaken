@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Zaken API
-  version: 1.5.1
+  version: 1.5.2
   description: " <b><i>Met expand mechanisme in plain json</i></b>
   
     
