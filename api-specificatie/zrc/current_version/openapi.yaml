@@ -12418,11 +12418,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -14074,11 +14069,6 @@ components:
             Omschrijving van het object, subject of gebeurtenis waarop,
             vanuit archiveringsoptiek, de zaak betrekking heeft.
           maxLength: 200
-        resultaattoelichting:
-          type: string
-          description: Een toelichting op wat het resultaat van de zaak inhoudt.
-          title: resultaattoelichting
-          maxLength: 1000
         startdatumBewaartermijn:
           type: string
           format: date
@@ -14935,6 +14925,12 @@ components:
               description: Een korte identificatie van de organisatorische eenheid.
               type: string
               example: "123456789"
+            expand:
+              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,' \
+            \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
+              title: expand
+              type: string
+              example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype              
             ordering:
               title: Ordering
               description: Het veld waarop de resultaten geordend worden. Het minnetje betekent omgekeerde volgorde.
