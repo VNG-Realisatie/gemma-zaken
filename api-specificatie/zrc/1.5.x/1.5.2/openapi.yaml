@@ -2495,7 +2495,10 @@ paths:
     put:
       operationId: rol_update
       summary: Werk een ROL in zijn geheel bij.
-      description: Werk een ROL in zijn geheel bij.
+      description:
+         "**Er wordt gevalideerd op** \n- De attributen `zaak`, `betrokkene`\
+        \ en `betrokkeneType` mogen niet gewijzigd worden.\n- Indien opgegeven, dan wordt\
+        \ `betrokkeneIdentificatie` gevalideerd tegen de betrokkeneType discriminator."
       parameters:
         - in: path
           name: uuid
