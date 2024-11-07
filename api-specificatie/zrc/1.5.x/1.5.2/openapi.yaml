@@ -14269,7 +14269,8 @@ components:
       properties: 
         zaaktype:
           # Onderstaande $ref is goed maar werkt helaas niet in VSC Redoc Viewer, wel in de VSC Swagger viewer.
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+          # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
