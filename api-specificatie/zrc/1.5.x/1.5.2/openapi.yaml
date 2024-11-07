@@ -14267,7 +14267,7 @@ components:
       description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
         Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
-        zaaktype:
+        zaaktypeRelative:
           # Onderstaande $ref is goed maar werkt helaas niet in VSC Redoc Viewer, wel in de VSC Swagger viewer.
           # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
