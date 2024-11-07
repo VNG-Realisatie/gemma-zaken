@@ -2492,10 +2492,10 @@ paths:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: OK
-    patch:
-      operationId: rol_partial_update
-      summary: Werk een ROL deels bij.
-      description: Werk een ROL deels bij.
+    put:
+      operationId: rol_update
+      summary: Werk een ROL in zijn geheel bij.
+      description: Werk een ROL in zijn geheel bij.
       parameters:
         - in: path
           name: uuid
