@@ -14264,8 +14264,6 @@ components:
             $ref: '#/components/schemas/ZaakEmbedded'
     ZaakEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
         zaaktype:
 
@@ -14453,8 +14451,6 @@ components:
             $ref: '#/components/schemas/ZaakEigenschapEmbedded'
     ZaakEigenschapEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
         zaak:
           oneOf:

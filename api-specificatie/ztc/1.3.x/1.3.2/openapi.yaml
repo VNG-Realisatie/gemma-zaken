@@ -10941,8 +10941,6 @@ components:
               $ref: '#/components/schemas/BesluitTypeEmbedded'
     BesluitTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -11606,8 +11604,6 @@ components:
               $ref: '#/components/schemas/CatalogusEmbedded'
     CatalogusEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         zaaktypen: 
           type: array
@@ -11754,8 +11750,6 @@ components:
               $ref: '#/components/schemas/EigenschapEmbedded'
     EigenschapEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -12028,8 +12022,6 @@ components:
               $ref: '#/components/schemas/InformatieObjectTypeEmbedded'
     InformatieObjectTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -13231,8 +13223,6 @@ components:
               $ref: '#/components/schemas/ResultaatTypeEmbedded'
     ResultaatTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -13773,8 +13763,6 @@ components:
               $ref: '#/components/schemas/RolTypeEmbedded'
     RolTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -13931,8 +13919,6 @@ components:
               $ref: '#/components/schemas/StatusTypeEmbedded'
     StatusTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         catalogus:
           oneOf:
@@ -14116,8 +14102,6 @@ components:
               $ref: '#/components/schemas/ZaakObjectTypeEmbedded'
     ZaakObjectTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         zaaktype:
           oneOf:
@@ -14532,8 +14516,6 @@ components:
               $ref: '#/components/schemas/ZaakTypeEmbedded'
     ZaakTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         zaakobjecttypen: 
           type: array
@@ -15047,8 +15029,6 @@ components:
               $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeEmbedded'
     ZaakTypeInformatieObjectTypeEmbedded:
       type: object
-      description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
-        Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties:
         zaaktype:
           oneOf:
