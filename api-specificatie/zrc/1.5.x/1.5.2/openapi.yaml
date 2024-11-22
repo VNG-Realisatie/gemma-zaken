@@ -12904,7 +12904,7 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ResultaatTypeExpanded'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ResultaatTypeExpanded'
     Rol:
       type: object
       properties:
@@ -13233,7 +13233,7 @@ components:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
         roltype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolTypeExpanded'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolTypeExpanded'
         statussen:
           type: array
           items:
@@ -13519,7 +13519,7 @@ components:
       type: object
       properties:
         statustype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusTypeExpanded'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusTypeExpanded'
         gezetdoor:
           $ref: '#/components/schemas/Rol'
         zaakinformatieobjecten:
@@ -14267,9 +14267,8 @@ components:
       description: "<b>Let op</b>: de definities van onderstaande attributen kunnen recursie bevatten en worden mogelijk niet goed weergegeven in de gegenereerde voorbeeldberichten van Redoc of Swagger. 
         Check altijd de yaml-specificitie voor correcte interpretatie en gebruik de referentie-implementatie om correcte responsberichten te genereren."
       properties: 
-        zaaktypeRelative:
-          # Onderstaande $ref is goed maar werkt helaas niet in VSC Redoc Viewer, wel in de VSC Swagger viewer.
-          # $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+        zaaktype:
+
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
         hoofdzaak:
           oneOf:
@@ -14462,7 +14461,7 @@ components:
           - $ref: '#/components/schemas/ZaakExpanded'
           - $ref: '#/components/schemas/EmptyObject'
         eigenschap:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/EigenschapExpanded'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/EigenschapExpanded'
     ZaakInformatieObject:
       type: object
       properties:
@@ -14959,7 +14958,7 @@ components:
       type: object
       properties: 
         zaakobjecttype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
     ZaakVerzoek:
       type: object
       properties:
