@@ -6526,6 +6526,15 @@ paths:
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       summary: Alle ZAAKen opvragen.
       parameters:
+        - name: countExact
+          required: false
+          in: query
+          description: Geeft aan of de `count` van de resultaten exact moet zijn, of dat deze wegens performance doeleinden niet exact hoeft te worden berekend.
+          schema:
+            type: boolean
+            default: true
+            example: false
+          deprecated: true
         - name: identificatie
           required: false
           in: query
@@ -11987,7 +11996,13 @@ components:
       properties:
         count:
           type: integer
+          deprecated: true
           example: 123
+        countExact:
+          description: Geeft aan of de `count` exact is, of dat deze wegens performance doeleinden niet exact berekend is.
+          type: boolean
+          deprecated: true
+          example: false
         next:
           type: string
           nullable: true
