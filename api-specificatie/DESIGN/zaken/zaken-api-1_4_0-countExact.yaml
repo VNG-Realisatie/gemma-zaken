@@ -6551,6 +6551,7 @@ paths:
             type: boolean
             default: true
             example: false
+          deprecated: true
         - name: identificatie
           required: false
           in: query
@@ -12010,10 +12011,12 @@ components:
       properties:
         count:
           type: integer
+          deprecated: true
           example: 123
         countExact:
           description: Geeft aan of de `count` exact is, of dat deze wegens performance doeleinden niet exact berekend is.
           type: boolean
+          deprecated: true
           example: false
         next:
           type: string
@@ -15388,4 +15391,3 @@ tags:
       Een zaak mag (in principe) niet meer gewijzigd worden als de `archiefstatus`
       een andere status heeft dan "nog_te_archiveren". Voor praktische redenen is er
       geen harde validatie regel aan de provider kant.
-
