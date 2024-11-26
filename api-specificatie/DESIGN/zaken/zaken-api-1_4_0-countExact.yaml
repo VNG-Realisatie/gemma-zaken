@@ -6546,7 +6546,7 @@ paths:
         - name: countExact
           required: false
           in: query
-          description: Geeft aan of de `count` van de resultaten exact moet zijn, of dat deze wegens performance doeleinden niet exact berekend hoeven te worden.
+          description: Geeft aan of de `count` van de resultaten exact moet zijn, of dat deze wegens performance doeleinden niet exact hoeft te worden berekend.
           schema:
             type: boolean
             default: true
