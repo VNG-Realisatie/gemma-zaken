@@ -184,32 +184,25 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
         * deels bijgewerkt worden (PATCH), m.u.v. het bijwerken van enkel het attribuut `eindeGeldigheid` of een <a name="correctie">([correctie](#correctie))</a>
         * verwijderd worden (DELETE)
 
-* Beperkingen voor objecttypen gerelateerd aan een objecttype met `concept=false` **<a name="ztc-010">([ztc-010](#ztc-010))</a>**:
 
-    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.2.0</strong>
-    </span><br/>
-    
-    Het objecttype mag NIET:
-        * geheel bijgewerkt worden (PUT) m.u.v een <a name="correctie">([correctie](#correctie))</a>
-        * deels bijgewerkt worden (PATCH) of een <a name="correctie">([correctie](#correctie))</a>
-        * verwijderd worden (DELETE)
-    * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-010)** alleen in het geval waarbij zowel het `ZaakType`
-    als het `InformatieObjectType` `concept=False` hebben
+* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Aangepast in versie 1.2.0</strong></span><br>Beperkingen voor de volgende objecttypen: Roltype, Statustype, Eigenschap, Zaaktype-Informatieobjecttype, Resultaattype en Zaakobjecttype **<a name="ztc-010">([ztc-010](#ztc-010))</a>**. Als een van deze objecttypen, aangeduid met `x`, gerelateerd is aan een `zaaktype` met `concept=false`, dan mag objecttype `x` NIET:
 
+    * aangemaakt worden (POST) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
+    * geheel bijgewerkt worden (PUT) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
+    * deels bijgewerkt worden (PATCH) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
+    * verwijderd worden (DELETE).
 
-    * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.3.0</strong>
-    </span><br/>
-    
+* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+        <strong>Aangepast in versie 1.3.0</strong></span><br/>
 ~~* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
     * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
     * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
     * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben~~
 
-* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Nieuw in versie 1.3.0</strong>
-    </span><br/>
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.3.0</strong>
+</span><br/>
+<br>
 
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
