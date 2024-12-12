@@ -499,7 +499,7 @@ Indien een verzoek één of meer expand parameters bevat MOET het attribuut onde
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
 
 #### **<a name="zrc-028">Omgang met Accept-Crs en Content-Crs headers([zrc-028](#zrc-028))</a>**
-Zowel voor de Accept-Crs als Content-Crs dient de API-provider minimaal de default waarde "EPSG:4326" te ondersteunen.
+Zowel voor de Accept-Crs als Content-Crs dient de API-provider minimaal de default waarde "EPSG:4326" (Wereld) te ondersteunen.
 
 
 ## Overige documentatie
