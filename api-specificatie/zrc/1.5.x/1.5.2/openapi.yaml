@@ -7195,9 +7195,17 @@ paths:
               - EPSG:4258
               - EPSG:28992 
             default: EPSG:4326
-          description:
-            Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
-            in het antwoord (response body). Als deze header niet wordt meegegeven is "EPSG:4326" (Wereld) de default waarde. De andere twee waarden, "EPSG:4258" (Europa) en EPSG:28992 (Nederland), mogen alleen worden gebruikt als de API-provider deze ondersteund.
+          description: 
+            "Het gewenste Coordinate Reference System (CRS) van de geometrie in het antwoord (response body). Er zijn drie mogelijke coördinatenstelsels: 
+
+             - EPSG:4326 (Wereld), 
+
+             - EPSG:4258 (Europa) en
+
+             - EPSG:28992 (Nederland). 
+             
+
+             Als deze header niet wordt meegegeven, dan is EPSG:4326 (Wereld) de default waarde."
         - in: header
           name: Content-Crs
           schema:
@@ -7208,8 +7216,16 @@ paths:
               - EPSG:28992 
             default: EPSG:4326
           description:
-            Het 'Coordinate Reference System' (CRS) van de geometrie in de
-            vraag (request body). Als deze header niet wordt meegegeven is "EPSG:4326" (WGS84) de default waarde. Als deze header niet wordt meegegeven is "EPSG:4326" (Wereld) de default waarde. De andere twee waarden, "EPSG:4258" (Europa) en EPSG:28992 (Nederland), mogen alleen worden gebruikt als de API-provider deze ondersteund.
+            "Het gewenste Coordinate Reference System (CRS) van de geometrie in het antwoord (response body). Er zijn drie mogelijke coördinatenstelsels: 
+
+             - EPSG:4326 (Wereld), 
+
+             - EPSG:4258 (Europa) en
+
+             - EPSG:28992 (Nederland). 
+             
+
+             Als deze header niet wordt meegegeven, dan is EPSG:4326 (Wereld) de default waarde."
       tags:
         - zaken
       requestBody:
