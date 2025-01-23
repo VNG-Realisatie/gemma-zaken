@@ -1,0 +1,7 @@
+# Normalize line endings to LF for all text files in the repository.
+# This ensures consistency across different operating systems.
+* text=auto eol=lf
+
+# Windows command and batch files require CRLF line endings.
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
