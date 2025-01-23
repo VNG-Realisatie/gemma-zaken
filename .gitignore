@@ -1,6 +1,29 @@
-.idea
-.env
-.vault_password.txt
-infra/env/
-infra/fixtures/
-deploy-bot/env/
+# Local development environment artifacts
+.idea/
+*~
+*.kate-swp
+*.swo
+*.swp
+*.bak
+*.autosave
+
+# Operating system artifacts
+.directory
+.DS_Store
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+build/
+__pycache__/
+*.pyc
+
+# Runtime generated logfiles
+# ...
+
+# Sensitive information
+# ...
