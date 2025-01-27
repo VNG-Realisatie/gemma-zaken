@@ -1,10 +1,6 @@
 API's voor Zaakgericht Werken
 =====
 
-[![Status badge][api-test-fullsuite-status]][api-test-fullsuite]
-[![Build Status][docs-ci-status]][docs-ci]
-![Repo Status][repo-status]
-
 [api-test-fullsuite-status]: https://shields.api-test.nl/endpoint.svg?url=https%3A//api-test.nl/api/v1/provider-latest-badge/9c11a73f-4123-47f0-b767-4312e5e5317a/
 [api-test-fullsuite]: https://api-test.nl/server/1/a779c380-0cd1-49f0-96b3-ecf82c2de651/9c11a73f-4123-47f0-b767-4312e5e5317a/latest/
 [docs-ci-status]: https://travis-ci.org/VNG-Realisatie/gemma-zaken.svg?branch=master
