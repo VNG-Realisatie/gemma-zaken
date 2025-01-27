@@ -32,4 +32,4 @@ VNG Realisatie is niet verantwoordelijk voor (foutief) gebruik, misbruik en/of h
 
 ## Lokaal gebruik van referentie-implementaties
 
-Voor (lokaal) gebruik van een dockercontainer met daarin een referentieimplementatie en/of onderliggende broncode in een andere omgeving is voor elke referentieimplementatie de EUPL Licentie van toepassing. Deze EUPL Licentie is [hier](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/LICENSE-nl) te vinden.
+Voor (lokaal) gebruik van een dockercontainer met daarin een referentieimplementatie en/of onderliggende broncode in een andere omgeving is voor elke referentieimplementatie de EUPL Licentie van toepassing. Deze EUPL Licentie is [hier](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/LICENTIE) te vinden.
