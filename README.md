@@ -88,32 +88,6 @@ Let op, voor de standaard zie [API specs van de standaard bekijken](#api_spec)
 
 ## Licentie
 
-Copyright © VNG Realisatie 2018 - 2021
+Copyright © 2018-2025 VNG Realisatie.
+Licensed under the [European Union Public License (EUPL) v1.2](LICENSE).
 
-[Licensed under the EUPL](LICENCE.md)
-
-[zrc-ci-status]: https://github.com/VNG-Realisatie/zaken-api/workflows/ci-build/badge.svg
-[zrc-ci]: https://github.com/VNG-Realisatie/zaken-api/actions?query=workflow%3Aci-build
-[drc-ci-status]: https://github.com/VNG-Realisatie/documenten-api/workflows/ci-build/badge.svg
-[drc-ci]: https://github.com/VNG-Realisatie/documenten-api/actions?query=workflow%3Aci-build
-[ztc-ci-status]: https://github.com/VNG-Realisatie/catalogi-api/workflows/ci-build/badge.svg
-[ztc-ci]: https://github.com/VNG-Realisatie/catalogi-api/actions?query=workflow%3Aci-build
-[brc-ci-status]: https://github.com/VNG-Realisatie/besluiten-api/workflows/ci-build/badge.svg
-[brc-ci]: https://github.com/VNG-Realisatie/besluiten-api/actions?query=workflow%3Aci-build
-[nrc-ci-status]: https://github.com/VNG-Realisatie/notificaties-api/workflows/ci-build/badge.svg
-[nrc-ci]: https://github.com/VNG-Realisatie/notificaties-api/actions?query=workflow%3Aci-build
-[ac-ci-status]: https://github.com/VNG-Realisatie/autorisaties-api/workflows/ci-build/badge.svg
-[ac-ci]: https://github.com/VNG-Realisatie/autorisaties-api/actions?query=workflow%3Aci-build
-[klanten-ci-status]: https://github.com/VNG-Realisatie/klanten-api/workflows/ci-build/badge.svg
-[klanten-ci]: https://github.com/VNG-Realisatie/klanten-api/actions?query=workflow%3Aci-build
-[contactmomenten-ci-status]: https://github.com/VNG-Realisatie/contactmomenten-api/workflows/ci-build/badge.svg
-[contactmomenten-ci]: https://github.com/VNG-Realisatie/contactmomenten-api/actions?query=workflow%3Aci-build
-[verzoeken-ci-status]: https://github.com/VNG-Realisatie/verzoeken-api/workflows/ci-build/badge.svg
-[verzoeken-ci]: https://github.com/VNG-Realisatie/verzoeken-api/actions?query=workflow%3Aci-build
-
-
-[ref-lijsten-ci-status]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten.svg?branch=master
-[ref-lijsten-ci]:  https://travis-ci.org/VNG-Realisatie/VNG-referentielijsten
-
-[vng-api-common-ci-status]: https://travis-ci.org/VNG-Realisatie/vng-api-common.svg?branch=master
-[vng-api-common]: https://travis-ci.org/VNG-Realisatie/vng-api-common
