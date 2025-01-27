@@ -88,6 +88,7 @@ Let op, voor de standaard zie [API specs van de standaard bekijken](#api_spec)
 
 ## Licentie
 
-Copyright © 2018-2025 VNG Realisatie.
+Copyright © 2018–2025 VNG Realisatie.
+
 Licensed under the [European Union Public License (EUPL) v1.2](LICENSE).
 
