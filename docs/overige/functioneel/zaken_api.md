@@ -84,7 +84,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td><p>Objecttype ZAAK, inclusief relatie naar ZAAKTYPE.<br/>https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/objecttype/zaak</td>
+<td><p>Objecttype ZAAK, inclusief relatie naar ZAAKTYPE.<br/>https://www.gemmaonline.nl/index.php/rgbz_2.0/doc/objecttype/zaak</p></td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>

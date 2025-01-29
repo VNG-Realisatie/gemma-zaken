@@ -23,7 +23,7 @@ Het gaat hier dus om inzicht te verkrijgen in alle (aanpalende) trajecten (zaken
 * In de zaakafhandelcomponent zal een nadere aanduiding plaatsvinden naar relevante zaaktypen en organisatieonderdelen (waarbij bepaald moet worden hoe de verantwoordelijkheid van filtering is verdeeld tussen ZAC, API, component en gegevenslaag).
 * Op lange termijn zou het fijn zijn als deze aanvullende zaakinformatie niet alleen van binnen de grenzen van de enkelvoudige gemeente vandaan komt, maar ook vanuit andere organisaties (andere gemeenten, zorgverleners, provincie, etc.).
 
-Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-informatie') zonder doelbinding opgevraagd worden, maar alleen het bestaan ervan (de 'dat-informatie') aangevuld met contactgegevens van de behandelaar/casusregisseur. <juridische check moet nog gemaakt>
+Vanwege privacywetgeving/-beleid mag er geen inhoudelijke informatie (de 'wat-informatie') zonder doelbinding opgevraagd worden, maar alleen het bestaan ervan (de 'dat-informatie') aangevuld met contactgegevens van de behandelaar/casusregisseur. (juridische check moet nog gemaakt)
 
 * Als primaire bron voor zaken (zaakinformatie en zaakdossiers) wordt binnen Rotterdam op dit moment gebruik gemaakt van de e-Suite (DIMPACT). In realiteit is er sprake van een ‘zs-dms complex’ ipv een enkelvoudige bron. Er zijn in het verleden meerdere, op zichzelf staande, ZRC’s en DRC’s ontstaan. Voor deze userstory is beoogd de e-Suite te gebruiken.
 * De e-Suite kan zelf ook ‘de rol van taakapplicatie’ (zaakafhandelcomponent) hebben, voor processen die volledig in de e-Suite zijn vormgegeven. In deze user story is daar geen sprake van. Er is een afzonderlijke zaakafhandelcomponent (Gidso en Edison).

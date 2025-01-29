@@ -77,7 +77,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td><p>Objecttype ENKELVOUDIGINFORMATIEOBJECT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/objecttype/enkelvoudig_informatieobject</td>
+<td><p>Objecttype ENKELVOUDIGINFORMATIEOBJECT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/objecttype/enkelvoudig_informatieobject</p></td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>

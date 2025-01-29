@@ -8,7 +8,7 @@ layout: page-with-side-nav
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Deze API's zijn niet meer in gebruik</strong>
 </span>
-<br><br>
+<br></br>
 
 # Klantinteracties API
 
@@ -20,7 +20,7 @@ De Klantinteractie API ondersteunt het opslaan en ontsluiten van contactmomenten
 
 He gegevensmodel modelleert zowel Contactmomenten als Verzoeken aangezien deze zijn opgenomen in één API.
 
-[![Gegevensmodel Klantinteracties API](Klantinteracties API 1.0.0.png){:width="1200px"}](Klantinteracties API 1.0.0.png "Klantinteracties gegevensmodel - klik voor groot")
+[![Gegevensmodel Klantinteracties API](Klantinteracties API 1.0.0.png)](Klantinteracties API 1.0.0.png "Klantinteracties gegevensmodel - klik voor groot")
 
 ## Contactmomenten
 
@@ -47,13 +47,13 @@ Een verzoek is een aanvraag of opdracht aan de gemeente (of andere overheid) voo
 Met verzoeken introduceren we een nieuw concept in het zaakgericht werken wat niet betekent dat verzoeken niet ook gebruikt kunnen worden buiten het zaakgericht werken.
 
 Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verzoeken)
- 
+
 ### Relatie met zaken en informatieobjecten
 
 Een verzoek kan resulteren in één of meerdere zaken of andere activiteiten (d.w.z. niet-zaakgericht), dan wel direct worden afgehandeld, bijvoorbeeld door levering van een informatiebrochure na aanvraag daarvan. Bovendien kan een verzoek worden gekoppeld aan een reeds lopende zaak.
- 
-Een verzoek kan bijlagen hebben in de vorm van informatieobjecten. Een informatieobject heeft altijd betrekking op slechts één verzoek. 
- 
+
+Een verzoek kan bijlagen hebben in de vorm van informatieobjecten. Een informatieobject heeft altijd betrekking op slechts één verzoek.
+
 ### Relatie met klanten
 
 Net als bij Contactmomenten is de relatie met klanten optioneel. Denk bijv. aan een Melding Openbare Ruimte.

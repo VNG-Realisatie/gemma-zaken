@@ -44,9 +44,9 @@ Een informatieobject kan tot meer dan één zaak behoren en een zaak kan meer da
 Een zaak, met eventuele deelzaken dan wel de verwijzing naar de hoofdzaak, alle kenmerken, alle daaraan gerelateerde Informatieobjecten en alle andere gerelateerde gegevens (via rol, zaakobject, etc.) vormen gezamenlijk het zaakdossier.
 
 
-[![Gegevensmodel Zaken API 1.0.0](Zaken API.png){:width="1200px"}](Zaken API.png "Zaken gegevensmodel - klik voor groot")
+[![Gegevensmodel Zaken API 1.0.0](Zaken API.png)](Zaken API.png "Zaken gegevensmodel - klik voor groot")
 
-[![Gegevensmodel Zaken API 1.1.0](Zaken API 1.1.0.png){:width="1200px"}](Zaken API 1.1.0.png "Zaken gegevensmodel - klik voor groot")
+[![Gegevensmodel Zaken API 1.1.0](Zaken API 1.1.0.png)](Zaken API 1.1.0.png "Zaken gegevensmodel - klik voor groot")
 
 
 ### Zaakcontactmomenten
@@ -495,7 +495,7 @@ Zaak
 #### **<a name="zrc-026">Expand parameter onderdeel van opgevraagde resource ([zrc-026](#zrc-026))</a>**
 Indien een verzoek één of meer expand parameters bevat MOET het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.
 
-#### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>** 
+#### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>**
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
 
 

@@ -8,7 +8,7 @@ layout: page-with-side-nav
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Deze API is niet meer in gebruik</strong>
 </span>
-<br><br>
+<br></br>
 
 # Contactmomenten API
 
@@ -24,11 +24,11 @@ Voorbeelden van een Contactmoment zijn een baliebezoek en een telefonisch contac
 
 RGBZ bevat een resource/objecttype voor Klantcontact. Omdat de Contactmomenten API is opgezet in de bredere context van Klantinteractie, is voor dit domein een apart informatiemodel gemaakt, wederom geinsireerd op RGBZ. De gebruikte resources/objecttypen en attributen zijn (voor een deel) te herleiden naar RGBZ.
 
-[![Informatiemodel Contactmomenten API](IM Contactmomenten.png){:width="1200px"}](IM Contactmomenten.png "Informatiemodel contactmomenten - klik voor groot")
+[![Informatiemodel Contactmomenten API](IM Contactmomenten.png)](IM Contactmomenten.png "Informatiemodel contactmomenten - klik voor groot")
 
 Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
 
-[![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png){:width="1200px"}](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
+[![Gegevensmodel Contactmomenten API](Contactmomenten API 1.0.0b.png)](Contactmomenten API 1.0.0b.png "Contactmomenten gegevensmodel - klik voor groot")
 
 ## Relatie met zaken
 
@@ -36,7 +36,7 @@ Een contactmoment kan leiden tot één of meer zaken. Daarnaast kan een contactm
 
 ## Relatie met klanten
 
-Eén of meer klanten kunnen een rol hebben bij een contactmoment. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`.  
+Eén of meer klanten kunnen een rol hebben bij een contactmoment. Vooralsnog zijn deze rollen `Belanghebbende` en `Gesprekspartner`.
 
 De relatie is vastgelegd in `klantcontactmoment`.
 
@@ -80,7 +80,7 @@ Bepaalde gedrageningen kunnen niet in een OAS spec uitgedrukt worden omdat ze bu
 
 ### **<a name="cm-001">Valideren attribuut `vorigContactmoment` bij aanmaken of bijwerken van een CONTACTMOMENT ([cm-001](#cm-001))</a>**
 
-Bij het aanmaken (`contactmoment_create`) en bijwerken (`contactmoment_update` en `contactmoment_partial_update`) van een CONTACTMOMENT MOET de URL-referentie naar het vorige CONTACTMOMENT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
+Bij het aanmaken (`contactmoment_create`) en bijwerken (`contactmoment_update` en `contactmoment_partial_update`) van een CONTACTMOMENT MOET de URL-referentie naar het vorige CONTACTMOMENT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht.
 
 ### **<a name="cm-002">Automatisch zetten van het attribuut `volgendContactmoment`in het vorige CONTACTMOMENT ([cm-002](#cm-002))</a>**
 
@@ -88,7 +88,7 @@ Bij het aanmaken (`contactmoment_create`) en bijwerken (`contactmoment_update` e
 
 ### **<a name="cm-003">Valideren attribuut `medewerker` bij aanmaken of bijwerken van een CONTACTMOMENT ([cm-003](#cm-003))</a>**
 
-Bij het aanmaken (`contactmoment_create`) en bijwerken (`contactmoment_update` en `contactmoment_partial_update`) van een CONTACTMOMENT MOET de URL-referentie naar de MEDEWERKER gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
+Bij het aanmaken (`contactmoment_create`) en bijwerken (`contactmoment_update` en `contactmoment_partial_update`) van een CONTACTMOMENT MOET de URL-referentie naar de MEDEWERKER gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht.
 
 ### **<a name="cm-004">Valideren attributen `contactmoment`, `klant` en `rol` bij aanmaken van een KLANT-CONTACTMOMENT relatie ([cm-004](#cm-004))</a>**
 
@@ -100,7 +100,7 @@ Bij het aanmaken van een OBJECT-CONTACTMOMENT-relatie (`objectcontactmoment_crea
 
 ### **<a name="cm-006">Valideren bestaan relatie tussen OBJECT en CONTACTMOMENT in de bron ([cm-006](#cm-006))</a>**
 
-Bij het aanmaken van een relatie tussen OBJECT en CONTACTMOMENT (`objectcontactmoment_create`) MOET gevalideerd worden dat de relatie tussen het OBJECT en het CONTACTMOMENT al bestaat in de bron van het OBJECT. De bron van het OBJECT is bekend door de eerdere validaties op deze URL. 
+Bij het aanmaken van een relatie tussen OBJECT en CONTACTMOMENT (`objectcontactmoment_create`) MOET gevalideerd worden dat de relatie tussen het OBJECT en het CONTACTMOMENT al bestaat in de bron van het OBJECT. De bron van het OBJECT is bekend door de eerdere validaties op deze URL.
 
 
 ### HTTP-Caching

@@ -10,7 +10,7 @@ Deze API maakt het mogelijk notificaties te ontvangen waarop de consumer is geab
 
 ## Gegevensmodel
 
-[![Gegevensmodel Notificaties API](../notificaties/Notificaties API.png){:width="1200px"}](../notificaties/Notificaties API.png "Notificaties gegevensmodel - klik voor groot")
+[![Gegevensmodel Notificaties API](../notificaties/Notificaties API.png)](../notificaties/Notificaties API.png "Notificaties gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Notificaties API

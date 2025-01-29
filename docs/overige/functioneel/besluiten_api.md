@@ -79,7 +79,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td><p>Objecttype BESLUIT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/objecttype/besluit</td>
+<td><p>Objecttype BESLUIT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/objecttype/besluit</p></td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>
@@ -114,7 +114,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td><p>Relatiesoort BESLUIT kan vastgelegd zijn als INFORMATIEOBJECT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/relatiesoort/besluit.kan_vastgelegd_zijn_als_informatieobject</td>
+<td><p>Relatiesoort BESLUIT kan vastgelegd zijn als INFORMATIEOBJECT.<br/>https://www.gemmaonline.nl/index.php/Rgbz_2.0/doc/relatiesoort/besluit.kan_vastgelegd_zijn_als_informatieobject</p></td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>

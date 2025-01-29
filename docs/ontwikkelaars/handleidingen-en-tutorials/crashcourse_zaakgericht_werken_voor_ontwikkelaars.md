@@ -2,8 +2,6 @@
 layout: page-with-side-nav
 ---
 
-![](RackMultipart20210422-4-vuzou2_html_f2cf87d34556e0e2.gif)
-
 _3 december 2020 – versie 1.0_
 
 # Crash course zaakgericht werken
@@ -51,8 +49,6 @@ Hoewel zaakgericht werken een vorm van procesgericht werken is, is het niet de n
 
 De statussen die horen bij groepen van gelijkaardige zaken, worden vastgelegd in zaaktypen. Een zaaktype vormt daarmee de &#39;blauwdruk&#39; voor zaken van een bepaalde soort, waar de karakteristieke eigenschappen daarvan beschreven zijn. Naast statussen kunnen die eigenschappen bijvoorbeeld ook bestaan uit verplicht toe te voegen documenten of mogelijke resultaten van de zaakbehandeling.
 
-![](RackMultipart20210422-4-vuzou2_html_772d9026f859a600.png)
-
 _Figuur_ 1_: Een zaak kent het bedrijfsproces alleen op hoofdlijnen._
 
 ### API-standaarden voor zaakgericht werken
@@ -89,8 +85,6 @@ Figuur 2 laat zien dat de gegevens die de &#39;melding openbare ruimte&#39; bij 
 3. een document dat de klant ter illustratie bij de melding heeft gevoegd, en
 4. de zaak waarbinnen de melding behandeld zal worden.
 
-![](RackMultipart20210422-4-vuzou2_html_b8c7213436f11beb.png)
-
 _Figuur_ 2_: decompositie van een melding openbare ruimte in verschillende &#39;typen&#39; gegevens._
 
 N.B. Het aantal dataobjecten is hier omwille van de leesbaarheid beperkt. Uiteraard zijn diverse voorbeelden te bedenken waarbij meer of andere dataobjecten onderdeel uitmaken van een &#39;melding openbare ruimte&#39;.
@@ -109,15 +103,11 @@ In dit voorbeeld gaan we ervan uit dat de gemeente een app aanbiedt (de &#39;mel
 - de foto van de situatie middels de Documenten API in het documentenregister, en
 - de gegevens die melding beschrijven (locatie, wat is er precies geconstateerd) middels de &#39;Meldingen API&#39; in het &#39;meldingenregister&#39;.
 
-![](RackMultipart20210422-4-vuzou2_html_95318c86b5876bf6.png)
-
 _Figuur_ 3_: Meldinggegevens worden middels API&#39;s verdeeld over registers._
 
 Het bovenstaande is geïllustreerd in Figuur 3. Dit model laat tevens zien dat de zaak fungeert als knooppunt voor, en verwijsindex naar alle gegevens die horen bij de melding en de behandeling daarvan. Hierdoor kunnen de eerder in dit document genoemde doelgroepen de voortgang van de zaak volgen, en hebben zij (mits daartoe gemachtigd) toegang tot alle daarbij horende (object)gegevens en documenten.
 
 Het sequencediagram in Figuur 4 laat zien hoe de hierboven beschreven zaakgegevens middels de API&#39;s voor Zaakgericht werken worden vastgelegd.
-
-![](RackMultipart20210422-4-vuzou2_html_c8a1eeaed0bcd9b3.png)
 
 _Figuur_ 4_: Vereenvoudigd sequencediagram vastleggen zaakgegevens met API&#39;s voor Zaakgericht werken._
 
@@ -135,8 +125,6 @@ Tijdens de behandeling van de zaak kunnen nieuwe gegevens ontstaan of ontvangen 
 1. Het verslag van een telefoongesprek met de indiener om meer gedetailleerde informatie te krijgen over waar precies het grofvuil is aangetroffen. Dit verslag wordt vastgelegd in het Contactmomentenregister.
 2. Een ingeplande opdracht voor de afdeling reiniging om het aangetroffen grofvuil op te halen. De gegevens die deze opdracht beschrijven worden opgeslagen in een &#39;opdrachtenregister&#39;. Alle informatie over deze opdracht is beschreven in een aan de opdracht gerelateerde opdrachtbrief, die is opgeslagen in het documentenregister.
 
-![](RackMultipart20210422-4-vuzou2_html_a43dd6656fe4f645.png)
-
 _Figuur_ 5_: Tijdens de behandeling van de melding kunnen nieuwe gegevens worden toegevoegd._
 
 Als de behandeling van de zaak is afgerond wordt de zaak afgesloten. In veel gevallen kan op basis van het resultaat van de zaak (dus het bereikte resultaattype) bij het zaakdossier een bewaartermijn worden vastgelegd. Bij het verlopen van de bewaartermijn kan de zaak, eventueel met daaraan gekoppelde, in andere registers opgeslagen gegevens, vernietigd worden.
@@ -145,6 +133,5 @@ Als de behandeling van de zaak is afgerond wordt de zaak afgesloten. In veel gev
 
 Dit document passeert het concept &#39;verzoeken&#39; en de rol daarvan binnen het zaakgericht werken. Hiervoor is gekozen omdat uitwerking van dit concept, net als de invulling van de bijbehorende API-standaard nog onderwerp is van discussie. Op het moment dat het concept en de API-standaard zodanig zijn uitgewerkt dat de rol daarvan binnen het zaakgericht werken volledig is bepaald, wordt dit document bijgewerkt.
 
-![](RackMultipart20210422-4-vuzou2_html_da6b4288f80bd662.gif) ![](RackMultipart20210422-4-vuzou2_html_152eb09e054afaeb.gif)
 
 **VNG Realisatie**

@@ -36,7 +36,7 @@ In de figuur hieronder is een overzicht weergegeven van de API's voor Zaakgerich
 
 Naast deze API zijn er nog een aantal API’s ontwikkeld ter ondersteuning, t.w. Notificaties API, Autorisaties API en de Referentielijsten API.
 
-![overzicht API's](apis.png){:width="700px"}
+![overzicht API's](apis.png)
 
 Voor meer informatie over de visie en achtergronden bij deze API's verwijzen we naar de [productvisie](../productvisie/index).
 
@@ -64,7 +64,7 @@ Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de 
 
 ## Overkoepelend gegevensmodel
 
-![Visualisatie ZGW API's](./Visualisatie_ZGW_APIs.png "Visualisatie ZGW API's, klik voor grote versie"){:width="1200px"}
+![Visualisatie ZGW API's](./Visualisatie_ZGW_APIs.png "Visualisatie ZGW API's, klik voor grote versie")
 
 Bovenstaande afbeelding toont de hoe API's voor zaakgericht werken aan elkaar gerelateerd zijn. Per API is aangegeven wat de belangrijkste resource(s) is/zijn en hoe deze relateren aan resources in ander API's. Een stippelijn betekent dat de relatie optioneel is en dat beide resources los van elkaar kunnen bestaan. Een Klant kan contactmomenten hebben of een zaak initieren en klanten, contactmomenten en zaken kunnen los van elkaar bestaan. Een zaak is van een zaaktype, en hoewel zaaktype kan bestaan zonder dat er een zaak van dat type bestaat is het niet mogelijk dat een zaak bestaat zonder onderliggend zaaktype.
 
@@ -82,7 +82,7 @@ Het diagram toont geen resources uit de Autorisatie API en de Notificaties API o
 
 In tegenstelling tot de bovenstaande visualisatie toont dit model alleen de API's en resources die in productie zijn.
 
-[![Overkoepelend gegevensmodel](./ZGW API's.png){:width="1200px"}](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
+[![Overkoepelend gegevensmodel](./ZGW API's.png)](./ZGW API's.png "Gegevensmodel, klik voor grote versie")
 
 In deze [beschrijving van het gegevensmodel](./gegevensmodel/index) vind u meer informatie.
 
@@ -190,7 +190,7 @@ Als een wijziging van de API root URL **wel** invloed heeft op de inhoud van de
 API, ofwel, het betreft een versiewijziging, dan MAG de API op de oude
 `{API root URL}` GEEN HTTP 301 teruggeven naar de nieuwe `{API root URL}`.
 
-Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties) 
+Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/versies-en-migraties)
 
 ### Beschikbaar stellen van de OAS
 

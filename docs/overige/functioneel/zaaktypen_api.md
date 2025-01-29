@@ -81,7 +81,7 @@ Een andere manier om dit te tonen is:
 <li><a href="#resource-statustypen">Statustypen</a></li>
 <li><a href="#resource-zaaktype">Zaaktype</a></li>
 </ul></td>
-<td><img src="./assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" " /></td>
+<td><img src="./assets/Datamodel_Zaaktypen_API_Overview.png" width="818" height="645" border="0" /></td>
 </tr>
 </tbody>
 </table>
@@ -105,7 +105,7 @@ Deze API omvat de navolgende resources (‘bronnen’) en de daarvan beschreven 
 </tr>
 <tr class="odd">
 <td>Gegevens</td>
-<td><p>Objecttype Catalogus, inclusief relatie naar ZAAKTYPE, BESLUITTYPE, INFORMATIEOBJECTTYPE.<br/>https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/catalogus</td>
+<td><p>Objecttype Catalogus, inclusief relatie naar ZAAKTYPE, BESLUITTYPE, INFORMATIEOBJECTTYPE.<br/>https://www.gemmaonline.nl/index.php/Imztc_2.2/doc/objecttype/catalogus</p></td>
 </tr>
 <tr class="even">
 <td>OAS-specificaties</td>

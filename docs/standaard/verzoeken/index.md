@@ -8,13 +8,13 @@ layout: page-with-side-nav
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Deze API is niet meer in gebruik</strong>
 </span>
-<br><br>
+<br></br>
 
 # Verzoeken API
 
 API voor opslag en ontsluiting van verzoeken en daarbij behorende metadata.
 
-De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over verzoeken. 
+De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over verzoeken.
 
 Deze API ondersteunt het verwerken van gegevens van verzoeken inclusief de relatie met eventuele za(a)k(en), informatieobject(en), klant(en) en/of contactmoment(en).
 
@@ -28,13 +28,13 @@ Zie: [Achtergrond informatie bij Verzoeken](/themas/achtergronddocumentatie/verz
 
 # Informatie- en gegevensmodel
 
-Zoals hierboven vermeld bevat RGBZ geen resource/objecttype voor Verzoeken. Omdat de Verzoeken API is opgezet in de bredere context van Klantinteractie, is voor dit domein een aanvullend informatiemodel gemaakt. 
+Zoals hierboven vermeld bevat RGBZ geen resource/objecttype voor Verzoeken. Omdat de Verzoeken API is opgezet in de bredere context van Klantinteractie, is voor dit domein een aanvullend informatiemodel gemaakt.
 
-[![Informatiemodel Verzoeken API](IM Verzoeken.png){:width="1200px"}](IM Verzoeken.png "Informatiemodel Verzoeken - klik voor groot")
+[![Informatiemodel Verzoeken API](IM Verzoeken.png)](IM Verzoeken.png "Informatiemodel Verzoeken - klik voor groot")
 
 Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
 
-[![Gegevensmodel Verzoeken API](Verzoeken API 1.0.0b.png){:width="1200px"}](Verzoeken API 1.0.0b.png "Verzoeken gegevensmodel - klik voor groot")
+[![Gegevensmodel Verzoeken API](Verzoeken API 1.0.0b.png)](Verzoeken API 1.0.0b.png "Verzoeken gegevensmodel - klik voor groot")
 
 ## Relatie met klanten
 
@@ -122,7 +122,7 @@ Bij het aanmaken van een OBJECT-VERZOEK relatie (`objectverzoek_create`) MOETEN 
 
 ### **<a name="vrz-009">Valideren bestaan relatie tussen OBJECT en VERZOEK in de bron ([vrz-009](#vrz-009))</a>**
 
-Er MOET gevalideerd worden dat de relatie tussen het OBJECT en het VERZOEK al bestaat in de bron van het OBJECT. De bron van het OBJECT is bekend door de eerdere validaties op deze URL. 
+Er MOET gevalideerd worden dat de relatie tussen het OBJECT en het VERZOEK al bestaat in de bron van het OBJECT. De bron van het OBJECT is bekend door de eerdere validaties op deze URL.
 
 ### HTTP-Caching
 

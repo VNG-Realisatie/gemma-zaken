@@ -318,7 +318,7 @@ We verwachten dat dit geen probleem wordt, omdat de inhoud van de wijziging
 niet in de notificatie opgenomen is, maar enkel de kennisgeving dat _iets_
 gebeurd is, en het is aan de consumer om de nieuwe state van de betrokken
 resource(s) te bevragen. Dit betekent ook dat snelle, opeenvolgende
-notificaties in principe kunnen geconsolideerd worden (orde van <1s).
+notificaties in principe kunnen geconsolideerd worden (orde van 1 seconde).
 
 ### AMQP vs. webhooks: garantie dat een bericht afgeleverd wordt
 

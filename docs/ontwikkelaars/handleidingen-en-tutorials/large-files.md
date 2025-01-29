@@ -42,9 +42,9 @@ There are three options:
 * file size = 0, i.e. `EnkelvoudigInformatieObject` contains only metadata
   without file content. The `EnkelvoudigInformatieObject` is created using a
   single request to Documenten API.
-* file size <= maximum size. In this case the file content is expected to be
+* file size &le; maximum size. In this case the file content is expected to be
   in the `inhoud` attribute, using a single request.
-* file size > maximum size. Here, the file content should be split into parts
+* file size &gt; maximum size. Here, the file content should be split into parts
   and each part should be uploaded in a separate request.
 
 ## Let's get to work

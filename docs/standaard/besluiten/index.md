@@ -33,7 +33,7 @@ Een besluit kan een uitkomst zijn van een zaak van de zaakbehandelende organisa
 
 Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld degene aan wie de vergunning verleend is. Dit is één van de betrokkenen met een van toepassing zijnde rol bij de zaak waartoe het besluit behoort.
 
-[![Gegevensmodel Besluiten API](Besluiten API.png){:width="1200px"}](Besluiten API.png "Besluiten gegevensmodel - klik voor groot")
+[![Gegevensmodel Besluiten API](Besluiten API.png)](Besluiten API.png "Besluiten gegevensmodel - klik voor groot")
 
 
 ## Specificatie van de Besluiten API

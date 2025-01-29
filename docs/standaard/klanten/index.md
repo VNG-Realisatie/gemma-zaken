@@ -8,13 +8,13 @@ layout: page-with-side-nav
 <span style="padding: 0.2em 0.5em; border: solid 1px #FF6600; border-radius: 3px; background: #FFFF99;">
     <strong>Deze API is niet meer in gebruik</strong>
 </span>
-<br><br>
+<br></br>
 
 # Klanten API
 
 API voor opslag en ontsluiting van klanten en daarbij behorende metadata.
 
-De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over klanten. 
+De API ondersteunt het opslaan en het naar andere applicaties ontsluiten van gegevens over klanten.
 
 Een Klant is een Natuurlijk Persoon, eventueel in de rol van medewerker of vertegenwoordiger van (een Vestiging van) een Niet-Natuurlijk Persoon. De gegevens van deze vertegenwoordiger worden in eerste instantie overgenomen van de contactpersoon van de Vestiging uit het NHR. Deze mogen echter worden overschreven.
 
@@ -26,11 +26,11 @@ De Klanten API bevat resources voor Klant.
 
 RGBZ bevat geen resource/objecttype voor Klant. De Klanten API is opgezet in de bredere context van Klantinteractie. Vopor dit domein een apart informatiemodel gemaakt,  geinspireerd op RGBZ. Klant is hierin een nieuw(e) resource/objecttype.
 
-[![Informatiemodel Klanten API](IM Klanten.png){:width="1200px"}](IM Klanten.png "Informatiemodel klanten - klik voor groot")
+[![Informatiemodel Klanten API](IM Klanten.png)](IM Klanten.png "Informatiemodel klanten - klik voor groot")
 
 Het gegevensmodel is een weergave van de implementatie van het informatiemodel in de API specificatie.
 
-[![Gegevensmodel Klanten API](Klanten API 1.0.0b.png){:width="1200px"}](Klanten API 1.0.0b.png "Klanten gegevensmodel - klik voor groot")
+[![Gegevensmodel Klanten API](Klanten API 1.0.0b.png)](Klanten API 1.0.0b.png "Klanten gegevensmodel - klik voor groot")
 
 ### Relatie met contactmomenten
 
@@ -78,11 +78,11 @@ Indien het `klantnummer` niet door de consumer gestuurd wordt, dan MOET de Klant
 
 ### **<a name="kla-002">Valideren attribuut `subject` bij aanmaken van een KLANT ([kla-002](#kla-002))</a>**
 
-Bij het aanmaken van een KLANT (`klant_create`) MOET de URL-referentie naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht. 
+Bij het aanmaken van een KLANT (`klant_create`) MOET de URL-referentie naar SUBJECT gevalideerd worden op het bestaan indien deze is meegegeven en niet leeg is. Als het ophalen van de objecten niet (uiteindelijk) resulteert in een `HTTP 200` status code, MOET er geantwoord worden met een `HTTP 400` foutbericht.
 
 ### HTTP-Caching
 
-De Klanten API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In de API spec staat beschreven voor welke resources dit van toepassing is. 
+De Klanten API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In de API spec staat beschreven voor welke resources dit van toepassing is.
 
 De `ETag` MOET worden berekend op de JSON-weergave van de resource. Verschillende, maar equivalente weergaves (bijvoorbeeld dezelfde API ontsloten wel/niet via NLX) MOETEN verschillende waarden voor de `ETag` hebben.
 
