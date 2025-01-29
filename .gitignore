@@ -21,6 +21,7 @@ node_modules/
 build/
 __pycache__/
 *.pyc
+.docusaurus/
 
 # Runtime generated logfiles
 # ...
