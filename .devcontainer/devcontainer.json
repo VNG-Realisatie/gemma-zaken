@@ -10,7 +10,8 @@
         "esbenp.prettier-vscode",
         "yzhang.markdown-all-in-one",
         "redhat.vscode-yaml",
-        "stoplight.spectral"
+        "stoplight.spectral",
+        "redocly.openapi-vs-code"
         ]
       }
   },
