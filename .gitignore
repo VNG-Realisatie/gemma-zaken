@@ -6,6 +6,9 @@
 *.swp
 *.bak
 *.autosave
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
 
 # Operating system artifacts
 .directory

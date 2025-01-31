@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node", 
+            "request": "launch",
+            "name": "Launch Docusaurus",
+            "skipFiles": ["<node_internals>/**"],
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [ "start", "--", "--host", "0.0.0.0" ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal"
+        }
+    ]
+}
