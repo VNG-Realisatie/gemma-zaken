@@ -1,10 +1,11 @@
 {
   "recommendations": [
-    "ms-vscode-remote.remote-containers",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "yzhang.markdown-all-in-one",
+    "ms-vscode-remote.remote-containers",
     "redhat.vscode-yaml",
-    "stoplight.spectral"
+    "redocly.openapi-vs-code",
+    "stoplight.spectral",
+    "yzhang.markdown-all-in-one"
   ]
 }

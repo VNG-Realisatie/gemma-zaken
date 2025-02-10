@@ -8,12 +8,12 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "yzhang.markdown-all-in-one",
         "redhat.vscode-yaml",
+        "redocly.openapi-vs-code",
         "stoplight.spectral",
-        "redocly.openapi-vs-code"
-        ]
-      }
+        "yzhang.markdown-all-in-one"
+      ]
+    }
   },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
