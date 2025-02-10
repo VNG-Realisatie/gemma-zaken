@@ -16,7 +16,6 @@
 
   Hiervoor was het geneste expansie-mechanisme textueel beschreven maar niet formeel gemodelleerd in de OAS.
 
-
 ## Catalogi API (`ztc 1.3.2`)
 
 - **Geneste expansion toegevoegd aan Catalogi API**  
@@ -25,10 +24,17 @@
 
 - **Aanscherping specificatie eigenschappen met datumvelden**  
 
-  Regel `zt-015` toegevoegd aan de aanvullende specificatie naar aanleiding van issue #1751 (As a developer, I want to have standardized schema descriptions for eigenschappen).
+  Regel `zt-015` toegevoegd aan de aanvullende specificatie naar aanleiding van het volgende issue:  
 
+      - #1751: As a developer, I want to have standardized schema descriptions for eigenschappen.
+
+- **Verheldering en aanscherping rule ztc-010**  
+
+  Naar aanleiding van issue [#2456](https://github.com/VNG-Realisatie/gemma-zaken/issues/2456) (Business rule ztc-010 herschrijven).
+  
 ## Documenten API (`drc 1.6.0`)
 
 - **Expand toegevoegd aan ObjectInformatieObject**  
   
-  Zie issues #1891 en #2370 waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject".
+  Zie issues #1891 en #2370 waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject".  
+  
