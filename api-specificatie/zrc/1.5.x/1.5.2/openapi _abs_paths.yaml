@@ -12904,7 +12904,7 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatTypeExpanded'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatTypeExpanded'
     Rol:
       type: object
       properties:
@@ -13233,7 +13233,7 @@ components:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
         roltype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolTypeExpanded'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolTypeExpanded'
         statussen:
           type: array
           items:
@@ -13519,7 +13519,7 @@ components:
       type: object
       properties:
         statustype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusTypeExpanded'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusTypeExpanded'
         gezetdoor:
           $ref: '#/components/schemas/Rol'
         zaakinformatieobjecten:
@@ -14267,7 +14267,7 @@ components:
       properties: 
         zaaktype:
 
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
@@ -14457,7 +14457,8 @@ components:
           - $ref: '#/components/schemas/ZaakExpanded'
           - $ref: '#/components/schemas/EmptyObject'
         eigenschap:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/EigenschapExpanded'
+          # $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/EigenschapExpanded'
+           $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/EigenschapExpanded'
     ZaakInformatieObject:
       type: object
       properties:
@@ -14954,7 +14955,8 @@ components:
       type: object
       properties: 
         zaakobjecttype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
+          # $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
+          $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/korver_develop/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType'
     ZaakVerzoek:
       type: object
       properties:
