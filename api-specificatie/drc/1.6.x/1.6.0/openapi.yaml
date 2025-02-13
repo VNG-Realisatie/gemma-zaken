@@ -7270,8 +7270,7 @@ components:
       type: object
       properties:
         informatieobjecttype:
-          $ref: >-
-            https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/InformatieObjectTypeExpanded'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -7571,7 +7570,7 @@ components:
       type: object
       properties:
         informatieobject:
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+          $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
     ObjectInformatieObjectRequest:
       type: object
       properties:
@@ -8357,7 +8356,7 @@ components:
       type: object
       properties:
         informatieobject:
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+          $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
     VerzendingRequest:
       type: object
       description: >-
