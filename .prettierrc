@@ -7,6 +7,13 @@
         "proseWrap": "always",
         "printWidth": 100
       }
-    }
+    },
+    {
+      "files": ["*.md", "*.markdown"],
+      "options": {
+        "proseWrap": "always",
+        "printWidth": 100
+      }
+    }    
   ]
 }
