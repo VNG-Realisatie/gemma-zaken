@@ -1,0 +1,52 @@
+#
+# ZGW-specifieke regels
+#
+# Deze regels controleren op correct gebruik van inheritance patterns en
+# discriminators in de ZGW APIs.
+#
+rules:
+  # Rule 1: Ensures that any schema using a discriminator also uses oneOf
+  # Example:
+  #   discriminator:  # If this exists...
+  #     propertyName: type
+  #   oneOf: []       # ...this must also exist
+  discriminator-requires-oneof:
+    description: Schemas with discriminators must use oneOf for polymorphism
+    message: "When using a discriminator, 'oneOf' must be specified."
+    severity: error
+    given: "$.components.schemas[?(@.discriminator)]"
+    resolved: true
+    then:
+      field: oneOf
+      function: truthy
+
+  # Rule 2: Ensures that any schema using oneOf also uses a discriminator
+  # Example:
+  #   oneOf: []       # If this exists...
+  #   discriminator:  # ...this must also exist
+  #     propertyName: type
+  oneof-requires-discriminator:
+    description: oneOf must use discriminator for proper type selection
+    message: "When using 'oneOf', a 'discriminator' must be specified."
+    severity: error
+    given: "$.components.schemas[?(@.oneOf)]"
+    resolved: true
+    then:
+      field: discriminator
+      function: truthy
+
+  # Rule 3: Ensures that discriminators have proper mappings defined
+  # Example:
+  #   discriminator:
+  #     propertyName: type
+  #     mapping:      # This must exist
+  #       type1: '#/components/schemas/Type1'
+  #       type2: '#/components/schemas/Type2'
+  discriminator-mapping-required:
+    description: Discriminators must include explicit mappings
+    message: "Discriminator must include a 'mapping' object."
+    severity: error
+    given: "$.components.schemas.*.discriminator"
+    then:
+      field: mapping
+      function: truthy
