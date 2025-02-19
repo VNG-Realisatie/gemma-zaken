@@ -4,6 +4,10 @@
 # Deze regels controleren op correct gebruik van inheritance patterns en
 # discriminators in de ZGW APIs.
 #
+functions:
+  - discriminatorPropertyExists
+functionsDir: "./functions"
+
 rules:
   # Rule 1: Ensures that any schema using a discriminator also uses oneOf
   # Example:
@@ -15,7 +19,6 @@ rules:
     message: "When using a discriminator, 'oneOf' must be specified."
     severity: error
     given: "$.components.schemas[?(@.discriminator)]"
-    resolved: true
     then:
       field: oneOf
       function: truthy
@@ -30,7 +33,6 @@ rules:
     message: "When using 'oneOf', a 'discriminator' must be specified."
     severity: error
     given: "$.components.schemas[?(@.oneOf)]"
-    resolved: true
     then:
       field: discriminator
       function: truthy
@@ -50,3 +52,45 @@ rules:
     then:
       field: mapping
       function: truthy
+
+  # Rule 4: Ensures that discriminator propertyName is properly defined
+  # Example:
+  #   discriminator:
+  #     propertyName: myType  # Must exist and not be empty
+  #   properties:
+  #     myType:               # This field must exist
+  #       type: string
+  discriminator-property-exists:
+    description: Discriminator must have a valid propertyName
+    message: "{{error}}"
+    severity: error
+    given: "$.components.schemas[?(@.discriminator)]"
+    then:
+      function: discriminatorPropertyExists
+
+  # Rule 5: Ensures that allOf children are explicitly typed as objects
+  # Example:
+  #   allOf:
+  #     - $ref: "#/components/schemas/BaseType"
+  #     - type: object        # Must explicitly declare type: object
+  #       properties:
+  #         newProperty:
+  #           type: string
+  #
+  # Invalid examples:
+  #   allOf:
+  #     - type: string       # Wrong - must be object
+  #     - properties: {}     # Wrong - missing type: object
+  #
+  allof-children-must-be-objects:
+    description: Children of allOf must be objects
+    message: "allOf children must explicitly declare type: object"
+    severity: error
+    given: "$.components.schemas.*.allOf.*"
+    then:
+      - field: type
+        function: truthy
+      - field: type
+        function: pattern
+        functionOptions:
+          match: "^object$"
