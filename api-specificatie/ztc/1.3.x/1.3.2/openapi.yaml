@@ -3063,9 +3063,8 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: {}
-              description: Unspecified request body
+              $ref: '#/components/schemas/InformatieObjectType'
+        required: true
       security:
         - JWT-Claims:
             - catalogi.schrijven
@@ -3081,9 +3080,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/InformatieObjectType'
           description: OK
         '400':
           headers:

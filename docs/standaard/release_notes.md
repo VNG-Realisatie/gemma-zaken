@@ -12,15 +12,16 @@
 
   In de resources rollen en zaakobjecten komt het attribuut _expand (onterecht) voor. Dit is verwarrend want dit attribuut kan alleen indirect gebruikt worden via de zaken resource. Dit attribuut is verwijderd daar waar het niet van toepassing is. Deze correctie heeft geen functionele gevolgen.
 
-- **Geneste expansion naar ztc expliciet zichtbaar gemaakt in de OAS**  
+- **Referenties naar ztc vervangen door relatieve paden**  
 
-  Hiervoor was het geneste expansie-mechanisme textueel beschreven maar niet formeel gemodelleerd in de OAS.
+  Hiervoor waren de referenties absolute paden wat niet handig is voor het uitrollen van een nieuwe release want dan moeten de paden handmatig worden aangepast.
 
 ## Catalogi API (`ztc 1.3.2`)
 
 - **Geneste expansion toegevoegd aan Catalogi API**  
 
-  Zie ook Zaken API.
+  Geneste expansie objecten toegevoegd aan het schema van de OAS. Deze objecten worden niet gebruikt in de operaties van de OAS omdat de nesting niet dieper mag zijn dan 3 niveaus. Echter deze schema-objecten kunnen wel gebruikt worden om door het hele datamodel van de Catalagi API heen te kunnen browsen door middel van drill down expansie.
+  
 
 - **Aanscherping specificatie eigenschappen met datumvelden**  
 
