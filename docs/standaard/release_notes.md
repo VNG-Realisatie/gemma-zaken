@@ -18,11 +18,6 @@
 
 ## Catalogi API (`ztc 1.3.2`)
 
-- **Geneste expansion toegevoegd aan Catalogi API**  
-
-  Geneste expansie objecten toegevoegd aan het schema van de OAS. Deze objecten worden niet gebruikt in de operaties van de OAS omdat de nesting niet dieper mag zijn dan 3 niveaus. Echter deze schema-objecten kunnen wel gebruikt worden om door het hele datamodel van de Catalagi API heen te kunnen browsen door middel van drill down expansie.
-  
-
 - **Aanscherping specificatie eigenschappen met datumvelden**  
 
   Regel `zt-015` toegevoegd aan de aanvullende specificatie naar aanleiding van het volgende issue:  
