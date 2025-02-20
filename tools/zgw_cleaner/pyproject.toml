@@ -1,0 +1,23 @@
+[project]
+name = "zgw-cleaner"
+version = "0.1.0"
+description = "OpenAPI cleanup tool for ZGW API's"
+authors = [
+    {name = "Rutger ter Borg",email = "rutger.terborg@vng.nl"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml (>=6.0.2,<7.0.0)",
+    "configargparse (>=1.7,<2.0)"
+]
+
+[tool.poetry]
+packages = [{include = "zgw_cleaner", from = "src"}]
+
+[project.scripts]
+zgw-cleaner = "zgw_cleaner.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
