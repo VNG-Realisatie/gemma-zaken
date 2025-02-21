@@ -12904,7 +12904,7 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ResultaatType'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/ResultaatType'
     Rol:
       type: object
       properties:
@@ -13233,7 +13233,7 @@ components:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
         roltype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolType'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/RolType'
         statussen:
           type: array
           items:
@@ -13519,7 +13519,7 @@ components:
       type: object
       properties:
         statustype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusType'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/StatusType'
         gezetdoor:
           $ref: '#/components/schemas/Rol'
         zaakinformatieobjecten:
@@ -14266,7 +14266,7 @@ components:
       type: object
       properties: 
         zaaktype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakType'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/ZaakType'
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
@@ -14456,7 +14456,7 @@ components:
           - $ref: '#/components/schemas/ZaakExpanded'
           - $ref: '#/components/schemas/EmptyObject'
         eigenschap:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/Eigenschap'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/Eigenschap'
     ZaakInformatieObject:
       type: object
       properties:
@@ -14953,7 +14953,7 @@ components:
       type: object
       properties: 
         zaakobjecttype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
+          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/ZaakObjectType'
     ZaakVerzoek:
       type: object
       properties:
