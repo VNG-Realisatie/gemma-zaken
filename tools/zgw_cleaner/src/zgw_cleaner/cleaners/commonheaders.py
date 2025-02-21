@@ -2,6 +2,7 @@ from typing import Dict, Any
 import logging
 from ..core import Cleaner
 from copy import deepcopy
+from caseconverter import pascalcase
 
 class CommonHeadersCleaner(Cleaner):
     """Moves common header definitions to components/headers."""
@@ -12,8 +13,7 @@ class CommonHeadersCleaner(Cleaner):
 
     def _ref_name(self, header_name: str) -> str:
         """Generate reference name for a header."""
-        # Remove special characters, could add more replacements as needed
-        return header_name.replace('-', '')        
+        return pascalcase(header_name.lower().replace('-', '_'))
 
     def _extract_header_def(self, headers: Dict) -> None:
         """Extract header definitions and count occurrences."""

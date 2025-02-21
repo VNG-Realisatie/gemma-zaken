@@ -73,6 +73,7 @@ def main():
 
 
     pipeline = CleanupPipeline()
+    pipeline.add_cleaner(FieldNameCleaner())
     pipeline.add_cleaner(RedundantAllOfCleaner())
     pipeline.add_cleaner(CommonHeadersCleaner())    
     pipeline.add_cleaner(OperationResponsesCleaner())
