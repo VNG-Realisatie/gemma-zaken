@@ -8,9 +8,6 @@ class OperationResponsesCleaner(Cleaner):
     Consolidates response patterns at the operation level following OpenAPI's matching rules.
     Consolidates from specific to unspecific (exact code -> 4xx/5xx -> default).
     """
-    
-    def __init__(self):
-        super().__init__()
 
     def _create_response_key(self, response_def: Dict) -> frozenset:
         """Creates a hashable key from a response definition, ignoring description."""
@@ -62,22 +59,22 @@ class OperationResponsesCleaner(Cleaner):
             # Consolidate based on patterns found
             to_remove = set()
             if len(client_errors) > 1:
-                pattern_copy = deepcopy(pattern)
-                pattern_copy['description'] = 'Client error'
+                pattern_copy = {'description': 'Client error'}
+                pattern_copy.update(pattern)
                 responses['4xx'] = pattern_copy
                 to_remove.update(client_errors)
                 self.stats.counts['4xx_patterns_created'] = self.stats.counts.get('4xx_patterns_created', 0) + 1
 
             if len(server_errors) > 1:
-                pattern_copy = deepcopy(pattern)
-                pattern_copy['description'] = 'Server error'
+                pattern_copy = {'description': 'Server error'}
+                pattern_copy.update(pattern)
                 responses['5xx'] = pattern_copy
                 to_remove.update(server_errors)
                 self.stats.counts['5xx_patterns_created'] = self.stats.counts.get('5xx_patterns_created', 0) + 1
 
             if client_errors and server_errors:
-                pattern_copy = deepcopy(pattern)
-                pattern_copy['description'] = 'Generic error'
+                pattern_copy = {'description': 'Generic error'}
+                pattern_copy.update(pattern)
                 responses['default'] = pattern_copy
                 responses.pop('4xx', None)
                 responses.pop('5xx', None)
