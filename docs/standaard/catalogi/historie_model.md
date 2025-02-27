@@ -93,6 +93,20 @@ Grof gezegd zijn de GET operaties (GET Resource, GET List en HEAD) backwards com
 
 Om deze redenen is besloten versie 1.3.x backwards compatible te laten zijn met eerdere versies. 
 
+=== Voorbeeld 1 Historiemodel toegepast op Zaaktype en Informatiemodeltype
+[![Historiemodel Zaaktype en Informatieobjecttype](hm_zt_iot.jpg)](hm_zt_iot.jpg "Historiemodel Zaaktype en Informatieobjecttype - klik voor groot")
 
+In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het zaaktype verwijst via Zaaktype-Informatieobjecttype versie 1 naar Informatieobjecttype versie 1. Op 1 januari 2024 wordt versie 2 van het zaaktype gepubliceerd waardoor ook een nieuwe versie van het zaaktype-informatieobjecttype wordt gemaakt. Het Informatieobjecttype wordt niet gewijzigd dus Zaaktype-Informatieobjecttype versie 2 verwijst nog steeds naar informatieobject versie 1. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype en Informatieobjecttype gecombineerd door de API.
+
+Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informatieobjecttype gepubliceerd. Versie 1 van het Informatieobjecttype is nog steeds geldig. Wanneer op 1 augustus 2024  versie 2 van het Informatieobjecttype wordt gepubliceerd blijven versie 3 van het Zaaktype en Zaaktype-Informatieobjecttype geldig en hoeft hiervan geen nieuwe versie te worden gepubliceerd. 
+
+
+=== Voorbeeld 2 Historiemodel toegepast op Zaaktype en Besluittype
+[![Historiemodel Zaaktype en Besluittype](hm_zt_bt.jpg)](hm_zt_bt.jpg "Historiemodel Zaaktype en Besluittype - klik voor groot")
+
+In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het zaaktype verwijst rechtstreeks via de Besluittype.omschrijving naar Besluittype versie 1. Op 1 januari 2024 wordt versie 2 van het zaaktype gepubliceerd welke nog steeds via de Besluittype.omschrijving naar Besluittype versie 1 verwijst. 
+
+Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de loose coupling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
+en Besluittype gecombineerd door de API.
 
 
