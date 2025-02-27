@@ -28,7 +28,7 @@ Het historiemodel moet een aantal doelen invullen:
 1. Het beheer van de ZTC eenvoudiger maken
 2. Het gebruik van de ZTC door vak-/taakspecifieke applicaties (TSA's) ongewijzigd te laten
 
-[![Gegevensmodel Catalogi API ImZTC 2.2](ImZTC_2_2.png)](ImZTC_2_2.png "ImZTC versie 2.2 - klik voor groot")
+[![Gegevensmodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "ImZTC versie 2.2 - klik voor groot")
 
 Het historiemodel kent de volgende uitgangspunten:
 
