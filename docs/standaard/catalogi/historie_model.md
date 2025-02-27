@@ -5,7 +5,7 @@ weight: 10
 layout: page-with-side-nav
 ---
 
-= Historiemodel in de Catalogi API
+# Historiemodel in de Catalogi API
 
 Omdat van een Zaak, Informatieobject of Besluit altijd de bijbehorende definities moeten kunnen worden opgevraagd zoals die waren 
 ten tijde van het aanmaken van die Zaak, Informatieobject of Besluit is bij het ontwikkelingen van de ZWG standaard gekozen voor 
@@ -45,7 +45,7 @@ van het hoofdobjecttype. Bij wijzigingen van het hoofdobjecttype worden ook nieu
 
 Deze drie hoofdtypen zijn in bovenstaande afbeelding weergegeven in de kleuren groen (Zaaktype met gerelateerde objecttypen), blauw (Informatieobjecttype) en rood (Besluittype).
 
-=== Datumgeldigheid
+### Datumgeldigheid
 Doordat versies van Zaaktype, Informatieobjecttype en Besluittype niet meer 1 op 1 aan elkaar gekoppeld zijn is het noodzakelijk te weten op welke datum de situatie van de gevraagde objecttypen en hun relaties getoond moeten worden. Met behulp van de (optionele) parameter datumGeldigheid kan 
 de hele constellatie zoals geldig op die specifieke datum opgevraagd worden. Wanneer de datumGeldigheid niet expliciet meegegeven wordt geeft het antwoord de huidige constellatie, dus de situatie op het moment van aanroepen, weer.
 
@@ -55,7 +55,7 @@ informatieobjecttype.omschrijving of besluittype.omschrijving) en de gewenste da
 De datumGeldigheid is vanuit de zaak geredeneerd de registratiedatum van de zaak.
 
 
-=== Gerelateerde objecttypen van Zaaktype
+### Gerelateerde objecttypen van Zaaktype
 Bij een versie van een Zaaktype kan slechts één (1) versie van onderstaande gerelateerde objecttypen worden vastgelegd. 
 
 Zaaktype kent de volgende gerelateerde objecttypen:
@@ -67,7 +67,7 @@ Zaaktype kent de volgende gerelateerde objecttypen:
 - ZaaktypeInformatieobjecttypen
 
 
-=== Relatie Zaaktype heeft relevant Informatieobjecttype
+### Relatie Zaaktype heeft relevant Informatieobjecttype
 - De relatie Zaaktype heeft relevant Informatieobjecttype wordt gelegd vanuit Zaaktype naar Informatieobjecttype
 - De relatie Zaaktype heeft relevant Informatieobjecttype wordt gelegd door in ZaaktypeInformatieobjecttype te verwijzen naar het zaaktype via zaaktype.url en naar het Informatieobjecttype via informatieobjecttype.omschrijving.
 Op deze manier is aan één versie van een zaaktype versieonafhankelijk een Informatieobjecttype gekoppeld. Bij een nieuwe versie van het Informatieobjecttype hoeft de relatie niet aangepast te worden. Het leggen of wijzigen 
@@ -76,13 +76,13 @@ Op deze manier is aan één versie van een zaaktype versieonafhankelijk een Info
 
 
 
-=== Relatie Zaaktype heeft relevant Besluittype
+### Relatie Zaaktype heeft relevant Besluittype
 - De relatie Zaaktype heeft relevant Besluittype wordt gelegd vanuit Zaaktype naar Besluittype
 - De relatie Zaaktype heeft relevant Besluittype wordt gelegd door in Zaaktype.besluittypen een array met Besluittype.omschrijving-en op te nemen. Idealiter zou de relatie gelegd worden met een relatieklasse zoals ZaaktypeInformatieobjecttype maar dat is helaas niet het geval. Ook hier is de relatie tussen (versie van een) Zaaktype en Besluittype onafhankelijk van de versie van het Besluittype.
 - Bij het opvragen van een versie van een Zaaktype worden op basis van de datumGeldigheid de op dat moment geldige gerelateerde Besluittypen weergegeven.
 
 
-=== Is Catalogi API 1.3.x backwards compatible of niet
+### Is Catalogi API 1.3.x backwards compatible of niet
 Op grond van bovenstaande beschrijvingen lijkt Catalogi API versie 1.3.x niet backwards compatible met versie 1.2.x. Voor een deel is dit zo. Namelijk de component waarmee de Zaaktype catalogus (ZTC) beheerd wordt
 zal anders werken. Echter, omdat de ZTC beheercomponent een onderdeel is van het product ZTC is dit geen probleem. Immers, bij een nieuwe versie van een ZTC registercomponent hoort ook een nieuwe versie van de 
 ZTC beheercomponent.
@@ -93,7 +93,7 @@ Grof gezegd zijn de GET operaties (GET Resource, GET List en HEAD) backwards com
 
 Om deze redenen is besloten versie 1.3.x backwards compatible te laten zijn met eerdere versies. 
 
-=== Voorbeeld 1 Historiemodel toegepast op Zaaktype en Informatiemodeltype
+### Voorbeeld 1 Historiemodel toegepast op Zaaktype en Informatiemodeltype
 [![Historiemodel Zaaktype en Informatieobjecttype](hm_zt_iot.jpg)](hm_zt_iot.jpg "Historiemodel Zaaktype en Informatieobjecttype - klik voor groot")
 
 In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst via Zaaktype-Informatieobjecttype versie 1 naar Informatieobjecttype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd waardoor ook een nieuwe versie van het Zaaktype-Informatieobjecttype wordt gemaakt. Het Informatieobjecttype wordt niet gewijzigd dus Zaaktype-Informatieobjecttype versie 2 verwijst nog steeds naar Informatieobject versie 1. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype en Informatieobjecttype gecombineerd door de API.
@@ -101,7 +101,7 @@ In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) 
 Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informatieobjecttype gepubliceerd. Versie 1 van het Informatieobjecttype is nog steeds geldig. Wanneer op 1 augustus 2024  versie 2 van het Informatieobjecttype wordt gepubliceerd blijven versie 3 van het Zaaktype en Zaaktype-Informatieobjecttype geldig en hoeft hiervan geen nieuwe versie te worden gepubliceerd. 
 
 
-=== Voorbeeld 2 Historiemodel toegepast op Zaaktype en Besluittype
+### Voorbeeld 2 Historiemodel toegepast op Zaaktype en Besluittype
 [![Historiemodel Zaaktype en Besluittype](hm_zt_bt.jpg)](hm_zt_bt.jpg "Historiemodel Zaaktype en Besluittype - klik voor groot")
 
 In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst rechtstreeks via de Besluittype.omschrijving naar Besluittype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd welke nog steeds via de Besluittype.omschrijving naar Besluittype versie 1 verwijst. 
