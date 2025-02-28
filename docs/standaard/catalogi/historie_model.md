@@ -28,7 +28,7 @@ Het historiemodel moet een aantal doelen invullen:
 1. Het beheer van de ZTC eenvoudiger maken
 2. Het gebruik van de ZTC door vak-/taakspecifieke applicaties (TSA's) ongewijzigd te laten
 
-[![Gegevensmodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "ImZTC versie 2.2 - klik voor groot")
+[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Catalogi API ImZTC versie 2.2 - klik voor groot")
 
 Het historiemodel kent de volgende uitgangspunten:
 
@@ -109,4 +109,149 @@ In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) 
 Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de loose coupling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het Zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
 en Besluittype gecombineerd door de API.
 
+### Voorbeelden API aanroepen
 
+De hierboven beschreven theorie ziet er in berichten als volgt uit. NB. Dit is een leidraad om eigen berichten vorm te geven. Alleen de voor het historiemodel relevante delen van de berichten staan beschreven. Dat betekent dat verplichte attributen die niet voor het historiemodel relevant zijn weggelaten zijn. De beschreven berichten zijn dus niet 1 op 1 toepasbaar! Ook het publiceren van concept versies wordt buiten beschouwing gelaten.
+
+
+### 1 Maak Besluittype aan
+`POST /Besluittypen
+
+Requestbody:
+{
+   "omschrijving": "Besluit genomen",
+	"beginGeldigheid" : "01-03-2024",
+   ...
+}
+
+Response:
+{
+   "url" : "http://ztc.example.com/besluittypen/Besluittype1111",
+   "omschrijving": "Besluit genomen",
+	"beginGeldigheid" : "01-03-2024",
+   ...
+}`
+
+
+### 2 Maak Zaaktype aan
+`POST /Zaaktypen
+
+Requestbody:
+{
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+	"besluittypen" : [ "Besluit genomen" ],
+	...
+}
+
+
+Response:
+{
+	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	...
+	
+}`
+
+NB. de gerelateerde objecten Roltypen, Statustypen, ResultaatTypen, Eigenschappen, Zaakobjecttypen moeten ook aangemaakt worden maar worden niet beschreven.
+
+### 3 maak Informatieobjecttype aan
+`POST /Informatieobjecttypen
+
+Requestbody:
+{
+	"identificatie": "Paspoort",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+}
+
+Response:
+{
+	"url" : "http://ztc.example.com/informatieobjecttypen/INFORMATIEOBJECTTYPE1111",
+	"identificatie": "Paspoort",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+}`
+
+### 4 Leg relatie tussen Zaaktype en Informatieobjecttype
+`POST /ZaaktypeInformatieobjecttypen
+
+Requestbody:
+{
+  "zaaktype": "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+  "informatieobjecttype": "Paspoort",
+   ...
+}
+
+Response:
+{
+  "url": "http://ztc.example.com/informatieobjecttypen/ZaaktypeInformatieobjecttype1111",
+  "zaaktype": "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+  "zaaktypeIdentificatie": "Vergunningsaanvraag",
+  ...
+  "informatieobjecttype": "Paspoort",
+  ...
+}`
+
+### 5 Vraag Zaaktype op
+`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111
+
+{
+	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE1111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	...
+}`
+
+### 6 maak een nieuwe versie van het Informatieobjecttype
+`POST /Informatieobjecttypen
+
+Requestbody:
+{
+	"identificatie": "Paspoort",
+	"beginGeldigheid" : "28-02-2025",
+	...
+}
+
+Response:
+{
+	"url" : "http://ztc.example.com/informatieobjecttypen/INFORMATIEOBJECTTYPE2222",
+	"identificatie": "Paspoort",
+	"beginGeldigheid" : "28-02-2025",
+	...
+}`
+
+
+### 7 Vraag Zaaktype nogmaals op
+`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111
+
+{
+	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE2222" ],  <= nieuwe versie van het Informatieobjecttype
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	...
+}`
+
+
+### 8 Vraag Zaaktype op in oude situatie
+`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111?datumGeldigheid="31-12-2024"
+
+{
+	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "01-03-2024",	
+	...
+	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE1111" ],  <= oude versie van het Informatieobjecttype
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	...
+}`
