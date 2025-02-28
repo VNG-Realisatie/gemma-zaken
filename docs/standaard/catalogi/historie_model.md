@@ -244,7 +244,7 @@ Response:
 
 
 ### 8 Vraag Zaaktype op in oude situatie
-`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111?datumGeldigheid="31-12-2024"
+`GET http://ztc.example.com/zaaktypen?identificatie="Vergunningsaanvraag"&datumGeldigheid="31-12-2024"
 
 {
 	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
