@@ -10,7 +10,7 @@ apis:
     root: ./api-specificatie/drc/current_version/openapi.yaml
   notificaties:
     root: ./api-specificatie/nrc/openapi.yaml
-  zaaktypen:
+  catalogi:
     root: ./api-specificatie/ztc/current_version/openapi.yaml
   zaken:
     root: ./api-specificatie/zrc/current_version/openapi.yaml
