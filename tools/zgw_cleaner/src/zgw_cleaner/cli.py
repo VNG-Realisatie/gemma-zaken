@@ -2,9 +2,10 @@
 
 from pathlib import Path
 import configargparse
-import yaml, sys
+import sys
 import logging
 
+from ruamel.yaml import YAML
 from .core import CleanupPipeline
 from .cleaners import *
 
@@ -61,16 +62,20 @@ def main():
 
     logging.debug(f"Processing {args.input_file}")
 
-   # Read YAML
+    # Initialize YAML
+    yaml = YAML()
+    yaml.preserve_quotes = True
+    yaml.indent(mapping=2, sequence=4, offset=2)
+
+    # Read YAML
     with open(args.input_file) as f:
         try:
-            spec = yaml.safe_load(f)
+            spec = yaml.load(f)
             if args.verbose:
                 print(f"Successfully loaded YAML from {args.input_file}", file=sys.stderr)
-        except yaml.YAMLError as e:
+        except Exception as e:
             print(f"Error loading YAML: {e}", file=sys.stderr)
             sys.exit(1)
-
 
     pipeline = CleanupPipeline()
     pipeline.add_cleaner(FieldNameCleaner())
@@ -87,7 +92,7 @@ def main():
         logging.debug(f"  {cleaner.stats}")
 
     if not args.stats_only:
-        yaml.dump(cleaned_spec, sys.stdout, sort_keys=False, allow_unicode=True)
+        yaml.dump(cleaned_spec, sys.stdout)
 
 if __name__ == "__main__":
     main()

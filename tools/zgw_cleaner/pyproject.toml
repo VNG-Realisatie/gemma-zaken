@@ -8,9 +8,9 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "pyyaml (>=6.0.2,<7.0.0)",
     "configargparse (>=1.7,<2.0)",
-    "case-converter (>=1.2.0,<2.0.0)"
+    "case-converter (>=1.2.0,<2.0.0)",
+    "ruamel-yaml (>=0.18.10,<0.19.0)"
 ]
 
 [tool.poetry]
