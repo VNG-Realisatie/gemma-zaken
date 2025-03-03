@@ -83,6 +83,7 @@ def main():
     pipeline.add_cleaner(RedundantAllOfCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
     pipeline.add_cleaner(CommonResponsesCleaner())
+    pipeline.add_cleaner(TagsCleaner())
 
     # Process
     cleaned_spec = pipeline.clean(spec)
