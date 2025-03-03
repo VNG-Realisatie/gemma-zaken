@@ -129,7 +129,7 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/Besluittype1111",
+   	"url" : "http://ztc.example.com/besluittypen/1/v1",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid" : "01-03-2024",
    	...
@@ -154,11 +154,11 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"url" : "http://ztc.example.com/zaaktypen/1/v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "01-03-2024",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
 	...
 	
 }
