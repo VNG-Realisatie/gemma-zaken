@@ -4,7 +4,7 @@ from copy import deepcopy
 from ..core import Cleaner
 from ruamel.yaml.scalarstring import SingleQuotedScalarString
 
-class OperationResponsesCleaner(Cleaner):
+class ResponseConsolidationCleaner(Cleaner):
     """
     Consolidates response patterns at the operation level following OpenAPI's matching rules.
     Consolidates from specific to unspecific (exact code -> 4xx/5xx).

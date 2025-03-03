@@ -13,7 +13,7 @@ class CommonHeadersCleaner(Cleaner):
 
     def _ref_name(self, header_name: str) -> str:
         """Generate reference name for a header."""
-        return pascalcase(header_name.lower().replace('-', '_'))
+        return pascalcase(header_name.lower().replace('-', '_')) + 'Header'
 
     def _extract_header_def(self, headers: Dict) -> None:
         """Extract header definitions and count occurrences."""
