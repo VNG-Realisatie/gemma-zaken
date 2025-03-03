@@ -2,11 +2,12 @@ from typing import Dict, Any
 import logging
 from copy import deepcopy
 from ..core import Cleaner
+from ruamel.yaml.scalarstring import SingleQuotedScalarString
 
 class OperationResponsesCleaner(Cleaner):
     """
     Consolidates response patterns at the operation level following OpenAPI's matching rules.
-    Consolidates from specific to unspecific (exact code -> 4xx/5xx -> default).
+    Consolidates from specific to unspecific (exact code -> 4xx/5xx).
     """
 
     def _create_response_key(self, response_def: Dict) -> frozenset:
@@ -61,25 +62,16 @@ class OperationResponsesCleaner(Cleaner):
             if len(client_errors) > 1:
                 pattern_copy = {'description': 'Client error'}
                 pattern_copy.update(pattern)
-                responses['4xx'] = pattern_copy
+                responses[SingleQuotedScalarString('4XX')] = pattern_copy
                 to_remove.update(client_errors)
                 self.stats.counts['4xx_patterns_created'] = self.stats.counts.get('4xx_patterns_created', 0) + 1
 
             if len(server_errors) > 1:
                 pattern_copy = {'description': 'Server error'}
                 pattern_copy.update(pattern)
-                responses['5xx'] = pattern_copy
+                responses[SingleQuotedScalarString('5XX')] = pattern_copy
                 to_remove.update(server_errors)
                 self.stats.counts['5xx_patterns_created'] = self.stats.counts.get('5xx_patterns_created', 0) + 1
-
-            if client_errors and server_errors:
-                pattern_copy = {'description': 'Generic error'}
-                pattern_copy.update(pattern)
-                responses['default'] = pattern_copy
-                responses.pop('4xx', None)
-                responses.pop('5xx', None)
-                to_remove.update(client_errors | server_errors)
-                self.stats.counts['default_patterns_created'] = self.stats.counts.get('default_patterns_created', 0) + 1
 
             # Remove consolidated responses
             for code in to_remove:
