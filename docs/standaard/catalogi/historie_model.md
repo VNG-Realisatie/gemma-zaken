@@ -106,7 +106,7 @@ Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informat
 
 In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst rechtstreeks via de Besluittype.omschrijving naar Besluittype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd welke nog steeds via de Besluittype.omschrijving naar Besluittype versie 1 verwijst. 
 
-Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de loose coupling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het Zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
+Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de losse koppeling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het Zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
 en Besluittype gecombineerd door de API.
 
 ### Voorbeelden API aanroepen
@@ -115,28 +115,33 @@ De hierboven beschreven theorie ziet er in berichten als volgt uit. NB. Dit is e
 
 
 ### 1 Maak Besluittype aan
-`POST /Besluittypen
+`POST /besluittypen`
 
-Requestbody:
+Request:
+```json
 {
-   "omschrijving": "Besluit genomen",
+   	"omschrijving": "Besluit genomen",
 	"beginGeldigheid" : "01-03-2024",
-   ...
+   	...
 }
+```
 
 Response:
+```json
 {
-   "url" : "http://ztc.example.com/besluittypen/Besluittype1111",
-   "omschrijving": "Besluit genomen",
+   	"url" : "http://ztc.example.com/besluittypen/Besluittype1111",
+   	"omschrijving": "Besluit genomen",
 	"beginGeldigheid" : "01-03-2024",
-   ...
-}`
+   	...
+}
+```
 
 
 ### 2 Maak Zaaktype aan
-`POST /Zaaktypen
+`POST /zaaktypen`
 
-Requestbody:
+Request:
+```json
 {
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "01-03-2024",	
@@ -144,9 +149,10 @@ Requestbody:
 	"besluittypen" : [ "Besluit genomen" ],
 	...
 }
-
+```
 
 Response:
+```json
 {
 	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
 	"identificatie": "Vergunningsaanvraag",
@@ -155,103 +161,123 @@ Response:
 	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
 	...
 	
-}`
+}
+```
 
 NB. de gerelateerde objecten Roltypen, Statustypen, ResultaatTypen, Eigenschappen, Zaakobjecttypen moeten ook aangemaakt worden maar worden niet beschreven.
 
 ### 3 maak Informatieobjecttype aan
-`POST /Informatieobjecttypen
+`POST /informatieobjecttypen`
 
 Requestbody:
+```json
 {
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "01-03-2024",	
 	...
 }
+```
 
 Response:
+```json
 {
-	"url" : "http://ztc.example.com/informatieobjecttypen/INFORMATIEOBJECTTYPE1111",
+	"url" : "http://ztc.example.com/informatieobjecttypen/1/v1",
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "01-03-2024",	
 	...
-}`
+}
+```
 
 ### 4 Leg relatie tussen Zaaktype en Informatieobjecttype
-`POST /ZaaktypeInformatieobjecttypen
+`POST /zaaktype-informatieobjecttypen`
 
-Requestbody:
+Request:
+```json
 {
-  "zaaktype": "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+  "zaaktype": "http://ztc.example.com/zaaktypen/1/v1",
   "informatieobjecttype": "Paspoort",
    ...
 }
+```
 
 Response:
+```json
 {
-  "url": "http://ztc.example.com/informatieobjecttypen/ZaaktypeInformatieobjecttype1111",
-  "zaaktype": "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+  "url": "http://ztc.example.com/informatieobjecttypen/1/v1",
+  "zaaktype": "http://ztc.example.com/zaaktypen/1/v1",
   "zaaktypeIdentificatie": "Vergunningsaanvraag",
-  ...
   "informatieobjecttype": "Paspoort",
   ...
-}`
+}
+```
 
 ### 5 Vraag Zaaktype op
-`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111
+`GET http://ztc.example.com/zaaktypen/1/v1`
 
+```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"url" : "http://ztc.example.com/zaaktypen/1/v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "01-03-2024",	
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v1" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
 	...
-	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE1111" ],
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
-	...
-}`
+}
+```
 
 ### 6 maak een nieuwe versie van het Informatieobjecttype
-`POST /Informatieobjecttypen
+`POST /informatieobjecttypen`
 
-Requestbody:
+Request:
+```json
 {
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "28-02-2025",
 	...
 }
+```
 
 Response:
+```json
 {
-	"url" : "http://ztc.example.com/informatieobjecttypen/INFORMATIEOBJECTTYPE2222",
+	"url" : "http://ztc.example.com/informatieobjecttypen/1/v2",
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "28-02-2025",
 	...
-}`
+}
+```
 
 
 ### 7 Vraag Zaaktype nogmaals op
-`GET http://ztc.example.com/zaaktypen/ZAAKTYPE1111
+`GET http://ztc.example.com/zaaktypen/1/v1`
 
+```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"url" : "http://ztc.example.com/zaaktypen/1/v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "01-03-2024",	
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v2" ], 
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
 	...
-	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE2222" ],  <= nieuwe versie van het Informatieobjecttype
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
-	...
-}`
+}
+```
+
+**NB** In de bovenstaande response wordt nu de nieuwe `v2` versie van het informatieobjecttype teruggegeven.
 
 
 ### 8 Vraag Zaaktype op in oude situatie
-`GET http://ztc.example.com/zaaktypen?identificatie="Vergunningsaanvraag"&datumGeldigheid="31-12-2024"
+`GET http://ztc.example.com/zaaktypen?identificatie="Vergunningsaanvraag"&datumGeldigheid="31-12-2024"`
 
+```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/ZAAKTYPE1111",
+	"url" : "http://ztc.example.com/zaaktypen/1/v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "01-03-2024",	
 	...
-	"informatieobjecttypen": [ http://ztc.example.com/zaaktypen/ZAAKTYPE1111" ],  <= oude versie van het Informatieobjecttype
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/Besluittype1111" ],
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v1" ], 
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
 	...
-}`
+}
+```
+
+**NB** In de bovenstaande response wordt nu de oude `v1` versie van het informatieobjecttype teruggegeven vanwege de `datumGeldigheid="31-12-2024` query parameter.
