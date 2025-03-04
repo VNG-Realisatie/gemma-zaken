@@ -4,6 +4,7 @@ from .responseconsolidation import ResponseConsolidationCleaner
 from .fieldname import FieldNameCleaner
 from .commonresponses import CommonResponsesCleaner
 from .tags import TagsCleaner
+from .descriptionformat import DescriptionFormatCleaner
 
 __all__ = [
     'CommonHeadersCleaner',
@@ -11,5 +12,6 @@ __all__ = [
     'RedundantAllOfCleaner',
     'FieldNameCleaner',
     'CommonResponsesCleaner',
-    'TagsCleaner'
+    'TagsCleaner',
+    'DescriptionFormatCleaner',
     ]
