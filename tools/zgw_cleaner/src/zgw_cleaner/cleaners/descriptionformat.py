@@ -38,7 +38,8 @@ class DescriptionFormatCleaner(Cleaner):
         cleaned = description.replace('\\n', '\n')
 
         # Replace too many newlines with fewer newlines
-        cleaned = cleaned.replace('\n\n\n', '\n\n')
+        while '\n\n\n' in cleaned:
+            cleaned = cleaned.replace('\n\n\n', '\n\n')
 
         # Split into paragraphs and trim whitespace
         paragraphs = [p.strip() for p in cleaned.split('\n\n')]
