@@ -1,6 +1,6 @@
 from typing import Dict, Any
 from ..core import Cleaner
-from ruamel.yaml.scalarstring import FoldedScalarString
+from ruamel.yaml.scalarstring import FoldedScalarString, SingleQuotedScalarString, DoubleQuotedScalarString
 
 class DescriptionFormatCleaner(Cleaner):
     """Cleans description fields by removing explicit '\n' newline characters
@@ -14,20 +14,12 @@ class DescriptionFormatCleaner(Cleaner):
         if isinstance(description, FoldedScalarString):
             return False
 
-        if not isinstance(description, str):
-            return False
-            
-        description = description.strip()
+        if len(description) > 80:
+            return True
 
-        if description.count('\n') < 1 and description.count('\\n') < 1:
+        # It should contain at least one newline, either explicit or implicit
+        if '\n' not in description and '\\n' not in description:
             return False
-
-        # Skip if no explicit newlines to clean
-        #if '\\n' not in description:
-        #    return False
-            
-        #print(description)
-        #print("------------------------------------")
 
         return True
 
@@ -57,9 +49,6 @@ class DescriptionFormatCleaner(Cleaner):
             if 'description' in spec and self.needs_cleaning(spec['description']):
                 original = spec['description']
                 cleaned = self.clean_description(original)
-                
-                #print(cleaned)
-
                 spec['description'] = cleaned
                 self.stats.counts['descriptions_cleaned'] = \
                     self.stats.counts.get('descriptions_cleaned', 0) + 1
