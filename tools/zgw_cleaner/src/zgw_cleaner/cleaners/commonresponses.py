@@ -5,7 +5,13 @@ from copy import deepcopy
 from caseconverter import pascalcase
 
 class CommonResponsesCleaner(Cleaner):
-    """Creates reusable response patterns in components/responses."""
+    """
+    Creates reusable response patterns in components/responses.
+    
+    This cleaner identifies common response patterns used across multiple
+    endpoints and moves their definitions to the components/responses section
+    of the OpenAPI specification.
+    """
     
     def __init__(self):
         super().__init__()

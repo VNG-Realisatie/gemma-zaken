@@ -10,6 +10,8 @@ class FieldNameCleaner(Cleaner):
             # Rationale: even though headers are case-insensitive,
             # for consistency, we follow the convention of HTTP headers.
             # (kebab-case with capitalized words)
+            #
+            # Associated Spectral rule: missing-version-header
             'API-version': 'API-Version'
         }
 

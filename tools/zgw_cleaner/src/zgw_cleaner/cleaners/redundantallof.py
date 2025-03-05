@@ -2,7 +2,9 @@ from typing import Dict, Any
 from ..core import Cleaner
 
 class RedundantAllOfCleaner(Cleaner):
-    """Removes redundant allOf constructs with single references."""
+    """Removes redundant allOf constructs with single references.
+    
+       Associated Spectral rule: redundant-allof"""
     
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         if isinstance(spec, dict):

@@ -5,7 +5,13 @@ from copy import deepcopy
 from caseconverter import pascalcase
 
 class CommonHeadersCleaner(Cleaner):
-    """Moves common header definitions to components/headers."""
+    """
+    Moves common header definitions to components/headers.
+    
+    This cleaner identifies common headers used across multiple endpoints
+    and moves their definitions to the components/headers section of the
+    OpenAPI specification.
+    """
     
     def __init__(self):
         super().__init__()
