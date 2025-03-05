@@ -11,4 +11,5 @@
 extends:
   - ./rulesets/nlgov_api_design_rules.yaml
   - ./rulesets/zgw_inheritance_rules.yaml
+  - ./rulesets/zgw_redundancy_rules.yaml
   - ./rulesets/zgw_reference_rules.yaml
