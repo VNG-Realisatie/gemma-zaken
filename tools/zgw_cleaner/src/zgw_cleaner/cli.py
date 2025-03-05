@@ -85,6 +85,7 @@ def main():
     pipeline.add_cleaner(CommonResponsesCleaner())
     pipeline.add_cleaner(TagsCleaner())
     pipeline.add_cleaner(DescriptionFormatCleaner())
+    pipeline.add_cleaner(DiscriminatorToVariantCleaner())
 
     # Process
     cleaned_spec = pipeline.clean(spec)

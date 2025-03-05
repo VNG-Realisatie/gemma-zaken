@@ -5,6 +5,7 @@ from .fieldname import FieldNameCleaner
 from .commonresponses import CommonResponsesCleaner
 from .tags import TagsCleaner
 from .descriptionformat import DescriptionFormatCleaner
+from .discriminatortovariant import DiscriminatorToVariantCleaner
 
 __all__ = [
     'CommonHeadersCleaner',
@@ -14,4 +15,5 @@ __all__ = [
     'CommonResponsesCleaner',
     'TagsCleaner',
     'DescriptionFormatCleaner',
+    'DiscriminatorToVariantCleaner',
     ]
