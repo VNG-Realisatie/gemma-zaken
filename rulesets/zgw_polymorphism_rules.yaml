@@ -67,30 +67,3 @@ rules:
     given: "$.components.schemas[?(@.discriminator)]"
     then:
       function: discriminatorPropertyExists
-
-  # Rule 5: Ensures that allOf children are explicitly typed as objects
-  # Example:
-  #   allOf:
-  #     - $ref: "#/components/schemas/BaseType"
-  #     - type: object        # Must explicitly declare type: object
-  #       properties:
-  #         newProperty:
-  #           type: string
-  #
-  # Invalid examples:
-  #   allOf:
-  #     - type: string       # Wrong - must be object
-  #     - properties: {}     # Wrong - missing type: object
-  #
-  allof-children-must-be-objects:
-    description: Children of allOf must be objects
-    message: "allOf children must explicitly declare type: object"
-    severity: error
-    given: "$.components.schemas.*.allOf.*"
-    then:
-      - field: type
-        function: truthy
-      - field: type
-        function: pattern
-        functionOptions:
-          match: "^object$"
