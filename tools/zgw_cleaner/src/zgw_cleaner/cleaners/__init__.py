@@ -1,5 +1,5 @@
 from .commonheaders import CommonHeadersCleaner
-from .allof import RedundantAllOfCleaner
+from .redundantallof import RedundantAllOfCleaner
 from .responseconsolidation import ResponseConsolidationCleaner
 from .fieldname import FieldNameCleaner
 from .commonresponses import CommonResponsesCleaner
