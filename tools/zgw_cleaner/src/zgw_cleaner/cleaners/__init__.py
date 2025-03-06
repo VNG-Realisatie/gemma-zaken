@@ -8,6 +8,7 @@ from .descriptionformat import DescriptionFormatCleaner
 from .discriminatortovariant import DiscriminatorToVariantCleaner
 from .schemametadataconsolidation import SchemaMetadataConsolidationCleaner
 from .redundanttitle import RedundantTitleCleaner
+from .enumdescriptions import EnumDescriptionsCleaner
 
 __all__ = [
     'CommonHeadersCleaner',
@@ -20,4 +21,5 @@ __all__ = [
     'DiscriminatorToVariantCleaner',
     'SchemaMetadataConsolidationCleaner',
     'RedundantTitleCleaner',
+    'EnumDescriptionsCleaner',
     ]
