@@ -1,0 +1,28 @@
+#
+# ZGW-specifieke regels
+#
+# Deze regels controleren op het niet herhaaldelijk gebruiken
+# van property names en titles in de ZGW APIs.
+#
+functions:
+  - checkRedundantTitle
+functionsDir: "./functions"
+
+rules:
+  # Rule 1: Detects redundant titles that match their property names
+  # Examples:
+  #   applicatieId:
+  #     title: ApplicatieId         # Bad - redundant
+  #   geometrie:
+  #     title: "Geometrie  "        # Bad - redundant
+  #   subAdresBuitenland:
+  #     title: sub_adres_buitenland # Bad - redundant
+  #   name:
+  #     title: Full Name            # Good - adds information
+  no-redundant-titles:
+    description: Title should not be a redundant copy of the property name
+    message: "{{error}}"
+    severity: warn
+    given: "$..properties.*"
+    then:
+      function: checkRedundantTitle
