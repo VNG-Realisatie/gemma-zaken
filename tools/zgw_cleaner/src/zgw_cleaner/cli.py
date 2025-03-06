@@ -79,10 +79,12 @@ def main():
 
     pipeline = CleanupPipeline()
     pipeline.add_cleaner(FieldNameCleaner())
+    pipeline.add_cleaner(RedundantTitleCleaner())
     pipeline.add_cleaner(CommonHeadersCleaner())
-    pipeline.add_cleaner(RedundantAllOfCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
     pipeline.add_cleaner(CommonResponsesCleaner())
+    pipeline.add_cleaner(RedundantAllOfCleaner())
+    pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())
     pipeline.add_cleaner(TagsCleaner())
     pipeline.add_cleaner(DescriptionFormatCleaner())
     pipeline.add_cleaner(DiscriminatorToVariantCleaner())

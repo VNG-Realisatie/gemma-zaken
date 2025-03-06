@@ -8,7 +8,7 @@ class RedundantAllOfCleaner(Cleaner):
     
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         if isinstance(spec, dict):
-            if 'allOf' in spec and len(spec) == 1 and len(spec['allOf']) == 1:
+            if 'allOf' in spec and len(spec['allOf']) == 1:
                 ref = spec['allOf'][0]
                 spec.pop('allOf')
                 spec.update(ref)

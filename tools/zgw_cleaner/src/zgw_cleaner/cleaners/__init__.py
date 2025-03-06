@@ -6,6 +6,8 @@ from .commonresponses import CommonResponsesCleaner
 from .tags import TagsCleaner
 from .descriptionformat import DescriptionFormatCleaner
 from .discriminatortovariant import DiscriminatorToVariantCleaner
+from .schemametadataconsolidation import SchemaMetadataConsolidationCleaner
+from .redundanttitle import RedundantTitleCleaner
 
 __all__ = [
     'CommonHeadersCleaner',
@@ -16,4 +18,6 @@ __all__ = [
     'TagsCleaner',
     'DescriptionFormatCleaner',
     'DiscriminatorToVariantCleaner',
+    'SchemaMetadataConsolidationCleaner',
+    'RedundantTitleCleaner',
     ]
