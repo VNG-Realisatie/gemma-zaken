@@ -9,5 +9,5 @@
 # Gebruik: spectral lint pad/naar/uw/openapi.yaml
 
 extends:
-  - ./rulesets/nlgov-api-design-rules.yaml
-  - ./rulesets/zgw-api-design-rules.yaml
+  - ./tools/spectral/nlgov-api-design-rules.yaml
+  - ./tools/spectral/zgw-api-design-rules.yaml
