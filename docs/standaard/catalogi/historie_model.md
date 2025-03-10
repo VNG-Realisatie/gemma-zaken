@@ -388,7 +388,7 @@ Response:
 ```
 -->
 
-## Voorbeeld 2: Historiemodel toegepast op Zaaktype en Besluittype
+## Historiemodel toegepast op Zaaktype en Besluittype
 
 ###  Maak een besluittype v1 aan
 `POST /besluittypen`
@@ -605,10 +605,103 @@ Response:
 	...
 	"concept": False
 }
+```
+
+## Historiemodel toegepast op Zaaktype en Roltype
+
+### Vraag Roltype op
+`GET http://ztc.example.com/roltypen/rt111`
+
+```json
+{
+	"url" : "http://ztc.example.com/roltypen/rt111",
+	...
+	"zaaktype" : [ "http://ztc.example.com/zaaktypen/zt222" ],
+	...
+}
+```
+
+### Maak een nieuw zaaktype v3 aan
+`POST /zaaktypen`
+
+Request:
+```json
+{
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid": "2025-01-01",	
+	...
+	...
+}
+```
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt333",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2025-01-01",	
+	...
+	"roltypen": [],
+	...
+	"concept": True
+}
+```
+
+### Maak een nieuwe v2 versie van Roltype voor zaaktype versie v3
+`POST /roltypen`
+
+Request:
+```json
+{
+	...
+	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	...
+}
+```
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/roltypen/rt222",
+	...
+	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	...
+	"concept": True
+}
+```
 
 
+### Publiceer zaaktype versie v3
+`POST /zaaktypen/zt333/publish`
 
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt333",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2025-01-01",	
+	...
+	"roltypen": [ "http://ztc.example.com/roltypen/rt222" ],
+	...
+	"concept": False
+}
+```
 
+### Publiceer roltype versie v2
+`POST /roltypen/rt222/publish`
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/roltypen/rt2222",
+	...
+	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	...
+	"concept": False
+}
+```
+
+Het publiceren van het roltype zou eigenlijk automatisch in één transactie moeten plaatsvinden met het publiceren van het zaaktype.
 
 
 
