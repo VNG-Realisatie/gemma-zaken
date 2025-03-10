@@ -390,7 +390,7 @@ Response:
 
 ## Voorbeeld 2: Historiemodel toegepast op Zaaktype en Besluittype
 
-###  Maak een besluittype aan
+###  Maak een besluittype v1 aan
 `POST /besluittypen`
 
 Request:
@@ -414,7 +414,7 @@ Response:
 ```
 
 ### Publiceer besluittype versie v1
-`POST /besluittypen/111/publish`
+`POST /besluittypen/bt111/publish`
 
 Response:
 ```json
@@ -427,7 +427,7 @@ Response:
 }
 ```
 
-### Maak een zaaktype aan
+### Maak een zaaktype v1 aan
 `POST /zaaktypen`
 
 Request:
@@ -469,6 +469,148 @@ Response:
 	"concept": False
 }
 ```
+
+### Maak een zaaktype v2 aan
+`POST /zaaktypen`
+
+Request:
+```json
+{
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid": "2024-01-01",	
+	...	
+	"besluittypen": [ "Besluit genomen" ],
+	...
+}
+```
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	...
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	...
+	"concept": True
+}
+```
+
+### Publiceer zaaktype versie v2
+`POST /zaaktypen/zt222/publish`
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	...
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	...
+	"concept": False
+}
+```
+
+
+###  Maak een besluittype v2 aan
+`POST /besluittypen`
+
+Request:
+```json
+{
+   	"omschrijving": "Besluit genomen",
+	"beginGeldigheid" : "2024-07-01",
+   	...
+}
+```
+
+Response:
+```json
+{
+   	"url" : "http://ztc.example.com/besluittypen/bt222",
+   	"omschrijving": "Besluit genomen",
+	"beginGeldigheid": "2024-07-01",
+	...
+	"concept": True
+}
+```
+
+### Publiceer besluittype versie v2
+`POST /besluittypen/bt222/publish`
+
+Response:
+```json
+{
+   	"url" : "http://ztc.example.com/besluittypen/bt222",
+   	"omschrijving": "Besluit genomen",
+	"beginGeldigheid": "2024-07-01",
+	...
+	"concept": False
+}
+```
+
+###  Bevraag zaaktype v2 op 1-4-2024
+`GET http://ztc.example.com/zaaktypen/zt222?datumGeldigheid=2024-05-01`
+
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	"doorlooptijd": "P1Y"
+	...
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	...
+}
+```
+
+###  Bevraag zaaktype v2 op 1-10-2024
+`GET http://ztc.example.com/zaaktypen/zt222?datumGeldigheid=2024-10-01`
+
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	"doorlooptijd": "P1Y"
+	...
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt222" ],
+	...
+}
+```
+
+### Corrigeer zaaktype v2
+Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
+
+* De consumer  heeft rechten om geforceerd te schrijven.
+* Je vodoet aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) berschreven.
+* 
+`PATCH /zaaktypen/zt222`
+
+Request:
+```json
+{
+	...
+}
+```
+
+Response:
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	...
+	"concept": False
+}
+
+
+
+
+
+
 
 
 
