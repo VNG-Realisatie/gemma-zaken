@@ -10,6 +10,4 @@
 
 extends:
   - ./rulesets/nlgov-api-design-rules.yaml
-  - ./rulesets/zgw-composition-rules.yaml
-  - ./rulesets/zgw-dry-rules.yaml
-  - ./rulesets/zgw-polymorphism-rules.yaml
+  - ./rulesets/zgw-api-design-rules.yaml

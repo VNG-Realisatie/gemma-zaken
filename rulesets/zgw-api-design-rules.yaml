@@ -1,3 +1,11 @@
+#
+# Deze regels controleren op conformiteit met de ZGW API Design Rules.
+#
+functions:
+  - checkRedundantTitle
+  - discriminatorPropertyExists
+functionsDir: "./functions"
+
 rules:
   # Rule 1: Ensures all $refs are local (no http(s) URLs)
   # Examples:
@@ -122,3 +130,86 @@ rules:
               not:
                 required:
                   - type
+
+  # Rule 5: Detects redundant titles that match their property names
+  # Examples:
+  #   applicatieId:
+  #     title: ApplicatieId         # Bad - redundant
+  #   geometrie:
+  #     title: "Geometrie  "        # Bad - redundant
+  #   subAdresBuitenland:
+  #     title: sub_adres_buitenland # Bad - redundant
+  #   name:
+  #     title: Full Name            # Good - adds information
+  no-redundant-titles:
+    description: Title should not be a redundant copy of the property name
+    message: "{{error}}"
+    severity: warn
+    given:
+      # Case 1: Property titles
+      - "$..properties.*"
+      # Case 2: Parameter schema titles
+      - "$..parameters[?(@.schema)]"
+      # Case 3: Component schema titles
+      - "$.components.schemas.*"
+    then:
+      function: checkRedundantTitle
+
+  # Rule 6: Ensures that any schema using a discriminator also uses oneOf
+  # Example:
+  #   discriminator:  # If this exists...
+  #     propertyName: type
+  #   oneOf: []       # ...this must also exist
+  discriminator-requires-oneof:
+    description: Schemas with discriminators must use oneOf for polymorphism
+    message: "When using a discriminator, 'oneOf' must be specified."
+    severity: error
+    given: "$.components.schemas[?(@.discriminator)]"
+    then:
+      field: oneOf
+      function: truthy
+
+  # Rule 7: Ensures that any schema using oneOf also uses a discriminator
+  # Example:
+  #   oneOf: []       # If this exists...
+  #   discriminator:  # ...this must also exist
+  #     propertyName: type
+  oneof-requires-discriminator:
+    description: oneOf must use discriminator for proper type selection
+    message: "When using 'oneOf', a 'discriminator' must be specified."
+    severity: error
+    given: "$.components.schemas[?(@.oneOf)]"
+    then:
+      field: discriminator
+      function: truthy
+
+  # Rule 8: Ensures that discriminators have proper mappings defined
+  # Example:
+  #   discriminator:
+  #     propertyName: type
+  #     mapping:      # This must exist
+  #       type1: '#/components/schemas/Type1'
+  #       type2: '#/components/schemas/Type2'
+  discriminator-mapping-required:
+    description: Discriminators must include explicit mappings
+    message: "Discriminator must include a 'mapping' object."
+    severity: error
+    given: "$.components.schemas.*.discriminator"
+    then:
+      field: mapping
+      function: truthy
+
+  # Rule 9: Ensures that discriminator propertyName is properly defined
+  # Example:
+  #   discriminator:
+  #     propertyName: myType  # Must exist and not be empty
+  #   properties:
+  #     myType:               # This field must exist
+  #       type: string
+  discriminator-property-exists:
+    description: Discriminator must have a valid propertyName
+    message: "{{error}}"
+    severity: error
+    given: "$.components.schemas[?(@.discriminator)]"
+    then:
+      function: discriminatorPropertyExists
