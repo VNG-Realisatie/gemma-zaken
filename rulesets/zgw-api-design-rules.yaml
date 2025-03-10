@@ -213,3 +213,25 @@ rules:
     given: "$.components.schemas[?(@.discriminator)]"
     then:
       function: discriminatorPropertyExists
+
+  # Rule 10: Ensures response schemas are not named after status codes
+  # Example:
+  # components:
+  #   responses:
+  #     '200':  # Bad - should not be named like a status code
+  #       description: OK
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/ResponseSchema'
+  #      UserNotFound:   # OK - valid name for a generic response
+  #
+  response-pascal-case:
+    description: Response names should be PascalCase
+    message: "Response name should be PascalCase in {{property}}"
+    severity: error
+    given: $.components.responses.*~
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
