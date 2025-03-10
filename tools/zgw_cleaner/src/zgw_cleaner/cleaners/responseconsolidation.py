@@ -1,4 +1,4 @@
-from typing import Dict, Any
+from typing import Dict, Any, List
 import logging
 from copy import deepcopy
 from ..core import Cleaner
@@ -80,17 +80,20 @@ class ResponseConsolidationCleaner(Cleaner):
 
         return responses
 
-    def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+    def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
         """Clean the specification by consolidating common response patterns."""
+        if path is None:
+            path = []
+
         if not isinstance(spec, dict):
             return spec
 
-        if 'responses' in spec:
+        if 'responses' in spec and path != ['components']:
             spec['responses'] = self._consolidate_operation_responses(spec['responses'])
 
         # Recurse through nested structures
         for key, value in spec.items():
             if isinstance(value, (dict, list)):
-                spec[key] = self.clean(value)
+                spec[key] = self.clean(value, path + [key])
 
         return spec
