@@ -49,7 +49,7 @@ class RedundantTitleCleaner(Cleaner):
                     self.stats.counts['titles_removed'] = self.stats.counts.get('titles_removed', 0) + 1
 
         # Case 3: Schema name in components matches title
-        if len(path) >= 3 and path[-3:] == ['components', 'schemas'] and 'title' in spec:
+        if len(path) >= 3 and path[-3] == 'components' and path[-2] == 'schemas' and 'title' in spec:
             schema_name = path[-1]
             if self._should_remove_title(schema_name, spec['title']):
                 del spec['title']

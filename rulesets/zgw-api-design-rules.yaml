@@ -149,7 +149,7 @@ rules:
       # Case 1: Property titles
       - "$..properties.*"
       # Case 2: Parameter schema titles
-      - "$..parameters[?(@.schema)]"
+      - "$..parameters[*]"
       # Case 3: Component schema titles
       - "$.components.schemas.*"
     then:

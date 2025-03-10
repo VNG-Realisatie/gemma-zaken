@@ -1,6 +1,6 @@
 from typing import Dict, Any
 from ..core import Cleaner
-from ruamel.yaml.scalarstring import FoldedScalarString, SingleQuotedScalarString, DoubleQuotedScalarString
+from ruamel.yaml.scalarstring import LiteralScalarString, SingleQuotedScalarString, DoubleQuotedScalarString
 
 class DescriptionFormatCleaner(Cleaner):
     """Cleans description fields by removing explicit '\n' newline characters
@@ -11,7 +11,7 @@ class DescriptionFormatCleaner(Cleaner):
 
     def needs_cleaning(self, description: str) -> bool:
         """Determines if a description needs cleaning."""
-        if isinstance(description, FoldedScalarString):
+        if isinstance(description, LiteralScalarString):
             return False
 
         if len(description) > 80:
@@ -39,7 +39,7 @@ class DescriptionFormatCleaner(Cleaner):
         # Remove empty paragraphs and join with double newlines
         cleaned = '\n\n'.join(p for p in paragraphs if p)
 
-        return FoldedScalarString(cleaned)
+        return LiteralScalarString(cleaned)
 
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         """Cleans the OpenAPI spec by reformatting description fields."""
