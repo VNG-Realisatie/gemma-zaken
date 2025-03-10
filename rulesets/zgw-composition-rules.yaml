@@ -86,3 +86,39 @@ rules:
         function: pattern
         functionOptions:
           match: "^object$"
+
+  # Rule 4: Warns against mixin-style patterns where schemas just combine other schemas
+  #
+  # Invalid example:
+  #   allOf:
+  #     - $ref: '#/components/schemas/AutorisatieBase'
+  #     - $ref: '#/components/schemas/zrcAutorisatie'
+  #
+  # Valid example (consolidated):
+  #     allOf:
+  #       - $ref: '#/components/schemas/AutorisatieBase'
+  #       - type: object
+  #         properties:
+  #           zaaktype:
+  #             type: string
+  #           ...
+  no-mixin-patterns:
+    description: Avoid mixin patterns (only $refs in allOf).
+    message: "allOf at {{path}} contains only $refs and might be a mixin pattern."
+    severity: error
+    resolved: false
+    given: "$..allOf"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          not:
+            type: array
+            minItems: 2
+            items:
+              type: object
+              required:
+                - $ref
+              not:
+                required:
+                  - type
