@@ -13,7 +13,7 @@ describe("ZGW Composition Rules", () => {
     spectral = new Spectral();
     const rulesetFilepath = path.join(
       __dirname,
-      "../zgw-composition-rules.yaml",
+      "../zgw-api-design-rules.yaml",
     );
     spectral.setRuleset(
       await bundleAndLoadRuleset(rulesetFilepath, { fs, fetch }),
