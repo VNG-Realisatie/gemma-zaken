@@ -1,0 +1,23 @@
+[project]
+name = "tools-validator"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Rutger ter Borg",email = "rutger.terborg@vng.nl"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ruamel-yaml (>=0.18.10,<0.19.0)",
+    "configargparse (>=1.7,<2.0)"
+]
+
+[tool.poetry]
+packages = [{include = "tools_validator", from = "src"}]
+
+[project.scripts]
+tools-validator = "tools_validator.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,41 @@
+# Example 1: Exact match - only these rules should trigger
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: test-1
+  spectral:
+    exact_match:
+      - oas3-schema
+      - info-contact
+      - info-description
+      - oas3-api-servers
+---
+# Example 2: Contains - these rules must trigger (others may too)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: test-2
+  spectral:
+    contains:
+      - info-contact
+    not_contains:
+      - info-contact
+---
+# Example 3: Not contains - these rules must not trigger
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: test-3
+  spectral:
+    not_contains:
+      - operation-tags-alphabetical
+---
+# Example 4: No spectral config - ignore all rules
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: test-4
