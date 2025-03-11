@@ -134,7 +134,7 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/1/v1",
+   	"url" : "http://ztc.example.com/besluit-genomen-v1",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid" : "2024-03-01",
    	...
@@ -159,11 +159,11 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/1/v1",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-03-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 	
 }
@@ -186,7 +186,7 @@ Requestbody:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/informatieobjecttypen/1/v1",
+	"url" : "http://ztc.example.com/informatieobjecttypen/1/paspoort-v1",
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "2024-03-01",	
 	...
@@ -199,7 +199,7 @@ Response:
 Request:
 ```json
 {
-  "zaaktype": "http://ztc.example.com/zaaktypen/1/v1",
+  "zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
   "informatieobjecttype": "Paspoort",
    ...
 }
@@ -208,8 +208,8 @@ Request:
 Response:
 ```json
 {
-  "url": "http://ztc.example.com/informatieobjecttypen/1/v1",
-  "zaaktype": "http://ztc.example.com/zaaktypen/1/v1",
+  "url": "http://ztc.example.com/informatieobjecttypen/paspoort-v1",
+  "zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
   "zaaktypeIdentificatie": "Vergunningsaanvraag",
   "informatieobjecttype": "Paspoort",
   ...
@@ -217,15 +217,15 @@ Response:
 ```
 
 ### 5 Vraag Zaaktype op
-`GET http://ztc.example.com/zaaktypen/1/v1`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/1/v1",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-03-01",	
-	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v1" ],
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/paspoort-v1" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluitgenomen-v1" ],
 	...
 }
 ```
@@ -245,7 +245,7 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/informatieobjecttypen/1/v2",
+	"url" : "http://ztc.example.com/informatieobjecttypen/paspoort-v2",
 	"identificatie": "Paspoort",
 	"beginGeldigheid" : "2025-02-28",
 	...
@@ -254,15 +254,15 @@ Response:
 
 
 ### 7 Vraag Zaaktype nogmaals op
-`GET http://ztc.example.com/zaaktypen/1/v1`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/1/v1",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-03-01",	
-	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v2" ], 
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/paspoort_v2" ], 
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 }
 ```
@@ -271,7 +271,7 @@ Response:
 
 
 ### 8 Vraag Zaaktype op in oude situatie
-`GET http://ztc.example.com/zaaktypen/1/v1?datumGeldigheid=31-12-2024`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1?datumGeldigheid=31-12-2024`
 
 of equivalent
 
@@ -280,12 +280,12 @@ of equivalent
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/1/v1",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-03-01",	
 	...
-	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/1/v1" ], 
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/1/v1" ],
+	"informatieobjecttypen": [ "http://ztc.example.com/informatieobjecttypen/paspoort-v1" ], 
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 }
 ```
@@ -405,7 +405,7 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/bt111",
+   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v1",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2023-01-01",
 	...
@@ -414,12 +414,12 @@ Response:
 ```
 
 ### Publiceer besluittype versie v1
-`POST /besluittypen/bt111/publish`
+`POST /besluittypen/besluit-genomen-v1/publish`
 
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/bt111",
+   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v1",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2023-01-01",
 	...
@@ -444,27 +444,27 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt111",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag_v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2023-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 	"concept": True
 }
 ```
 
 ### Publiceer zaaktype versie v1
-`POST /zaaktypen/zt111/publish`
+`POST /zaaktypen/vergunningsaanvraag-v1/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt111",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2023-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 	"concept": False
 }
@@ -487,27 +487,27 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 	"concept": True
 }
 ```
 
 ### Publiceer zaaktype versie v2
-`POST /zaaktypen/zt222/publish`
+`POST /zaaktypen/vergunningsaanvraag-v2/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 	"concept": False
 }
@@ -529,7 +529,7 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/bt222",
+   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v2",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
 	...
@@ -538,12 +538,12 @@ Response:
 ```
 
 ### Publiceer besluittype versie v2
-`POST /besluittypen/bt222/publish`
+`POST /besluittypen/besluit-genomen-v2/publish`
 
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/bt222",
+   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v2",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
 	...
@@ -552,31 +552,29 @@ Response:
 ```
 
 ###  Bevraag zaaktype v2 op 1-4-2024
-`GET http://ztc.example.com/zaaktypen/zt222?datumGeldigheid=2024-05-01`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-05-01`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-01-01",	
-	"doorlooptijd": "P1Y"
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt111" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
 }
 ```
 
 ###  Bevraag zaaktype v2 op 1-10-2024
-`GET http://ztc.example.com/zaaktypen/zt222?datumGeldigheid=2024-10-01`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-10-01`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-01-01",	
-	"doorlooptijd": "P1Y"
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/bt222" ],
+	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluitgenomen-v2" ],
 	...
 }
 ```
@@ -587,7 +585,7 @@ Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiew
 * De consumer  heeft rechten om geforceerd te schrijven.
 * Je vodoet aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) berschreven.
 * 
-`PATCH /zaaktypen/zt222`
+`PATCH /zaaktypen/vergunningsaanvraag-v2`
 
 Request:
 ```json
@@ -599,7 +597,7 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt222",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2024-01-01",	
 	...
@@ -610,13 +608,13 @@ Response:
 ## Historiemodel toegepast op Zaaktype en Roltype
 
 ### Vraag Roltype op
-`GET http://ztc.example.com/roltypen/rt111`
+`GET http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v1`
 
 ```json
 {
-	"url" : "http://ztc.example.com/roltypen/rt111",
+	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v1",
 	...
-	"zaaktype" : [ "http://ztc.example.com/zaaktypen/zt222" ],
+	"zaaktype" : [ "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2" ],
 	...
 }
 ```
@@ -637,7 +635,7 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt333",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2025-01-01",	
 	...
@@ -653,8 +651,9 @@ Response:
 Request:
 ```json
 {
+	"omschrijving": "Vergunningsaanvraag initiator",
 	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
 	...
 }
 ```
@@ -662,9 +661,9 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/roltypen/rt222",
+	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2",
 	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
 	...
 	"concept": True
 }
@@ -672,30 +671,30 @@ Response:
 
 
 ### Publiceer zaaktype versie v3
-`POST /zaaktypen/zt333/publish`
+`POST /zaaktypen/vergunningsaanvraag-v3/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/zt333",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2025-01-01",	
 	...
-	"roltypen": [ "http://ztc.example.com/roltypen/rt222" ],
+	"roltypen": [ "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2" ],
 	...
 	"concept": False
 }
 ```
 
 ### Publiceer roltype versie v2
-`POST /roltypen/rt222/publish`
+`POST /roltypen/vergunningsaanvraag-initiator-v2/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/roltypen/rt2222",
+	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2",
 	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/zt333",
+	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
 	...
 	"concept": False
 }
