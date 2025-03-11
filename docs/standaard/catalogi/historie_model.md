@@ -32,7 +32,7 @@ Het historiemodel moet een aantal doelen invullen:
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Catalogi API ImZTC versie 2.2 - klik voor groot")
 
-## Uitgangspunten
+## Theorie van het historiemodel
 
 ### Hoofdtypen en gerelateerde objecttypen
 
@@ -85,7 +85,7 @@ Op deze manier is aan één versie van een zaaktype versie-onafhankelijk een Inf
 - Bij het opvragen van een versie van een Zaaktype worden op basis van de datumGeldigheid de op dat moment geldige gerelateerde Besluittypen weergegeven.
 
 
-## Is Catalogi API 1.3.x backwards compatible of niet
+### Is Catalogi API 1.3.x backwards compatible of niet
 Op grond van bovenstaande beschrijvingen lijkt Catalogi API versie 1.3.x niet backwards compatible met versie 1.2.x. Voor een deel is dit zo. Namelijk de component waarmee de Zaaktype catalogus (ZTC) beheerd wordt
 zal anders werken. Echter, omdat de ZTC beheercomponent een onderdeel is van het product ZTC is dit geen probleem. Immers, bij een nieuwe versie van een ZTC registercomponent hoort ook een nieuwe versie van de 
 ZTC beheercomponent.
@@ -96,17 +96,9 @@ Grof gezegd zijn de GET operaties (GET Resource, GET List en HEAD) backwards com
 
 Om deze redenen is besloten versie 1.3.x backwards compatible te laten zijn met eerdere versies. 
 
-## Voorbeelden
+## Twee toepassingen van het historiemodel
 
-###  Voorbeeld 1: Historiemodel toegepast op Zaaktype en Informatiemodeltype
-[![Historiemodel Zaaktype en Informatieobjecttype](hm_zt_iot.jpg)](hm_zt_iot.jpg "Historiemodel Zaaktype en Informatieobjecttype - klik voor groot")
-
-In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst via Zaaktype-Informatieobjecttype versie 1 naar Informatieobjecttype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd waardoor ook een nieuwe versie van het Zaaktype-Informatieobjecttype wordt gemaakt. Het Informatieobjecttype wordt niet gewijzigd dus Zaaktype-Informatieobjecttype versie 2 verwijst nog steeds naar Informatieobject versie 1. 
-
-Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informatieobjecttype gepubliceerd. Versie 1 van het Informatieobjecttype is nog steeds geldig. Wanneer op 1 augustus 2024  versie 2 van het Informatieobjecttype wordt gepubliceerd blijven versie 3 van het Zaaktype en Zaaktype-Informatieobjecttype geldig en hoeft hiervan geen nieuwe versie te worden gepubliceerd. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype en Informatieobjecttype gecombineerd door de API.
-
-
-### Voorbeeld 2: Historiemodel toegepast op Zaaktype en Besluittype
+### 1. Historiemodel toegepast op Zaaktype en Besluittype
 [![Historiemodel Zaaktype en Besluittype](hm_zt_bt.jpg)](hm_zt_bt.jpg "Historiemodel Zaaktype en Besluittype - klik voor groot")
 
 In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst rechtstreeks via de Besluittype.omschrijving naar Besluittype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd welke nog steeds via de Besluittype.omschrijving naar Besluittype versie 1 verwijst. 
@@ -114,7 +106,15 @@ In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) 
 Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de losse koppeling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het Zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
 en Besluittype gecombineerd door de API.
 
-## Voorbeelden API aanroepen
+###  2. Historiemodel toegepast op Zaaktype en Informatiemodeltype
+[![Historiemodel Zaaktype en Informatieobjecttype](hm_zt_iot.jpg)](hm_zt_iot.jpg "Historiemodel Zaaktype en Informatieobjecttype - klik voor groot")
+
+In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst via Zaaktype-Informatieobjecttype versie 1 naar Informatieobjecttype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd waardoor ook een nieuwe versie van het Zaaktype-Informatieobjecttype wordt gemaakt. Het Informatieobjecttype wordt niet gewijzigd dus Zaaktype-Informatieobjecttype versie 2 verwijst nog steeds naar Informatieobject versie 1. 
+
+Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informatieobjecttype gepubliceerd. Versie 1 van het Informatieobjecttype is nog steeds geldig. Wanneer op 1 augustus 2024  versie 2 van het Informatieobjecttype wordt gepubliceerd blijven versie 3 van het Zaaktype en Zaaktype-Informatieobjecttype geldig en hoeft hiervan geen nieuwe versie te worden gepubliceerd. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype en Informatieobjecttype gecombineerd door de API.
+
+
+## Voorbeelden van API aanroepen
 
 De hierboven beschreven theorie ziet er in berichten als volgt uit. NB. Dit is een leidraad om eigen berichten vorm te geven. Alleen de voor het historiemodel relevante delen van de berichten staan beschreven. Dat betekent dat verplichte attributen die niet voor het historiemodel relevant zijn weggelaten zijn. De beschreven berichten zijn dus niet 1 op 1 toepasbaar! Ook het publiceren van concept versies wordt buiten beschouwing gelaten.
 
@@ -427,7 +427,7 @@ Response:
 }
 ```
 
-### Maak een zaaktype v1 aan
+### Maak een zaaktype v1 aan en relateer het aan besluittype "Besluit genomen"
 `POST /zaaktypen`
 
 Request:
@@ -444,7 +444,7 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag_v1",
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid" : "2023-01-01",	
 	...
@@ -470,7 +470,7 @@ Response:
 }
 ```
 
-### Maak een zaaktype v2 aan
+### Maak een zaaktype v2 aan en relateer het aan het besluittype "Besluit genomen"
 `POST /zaaktypen`
 
 Request:
@@ -552,7 +552,7 @@ Response:
 ```
 
 ###  Bevraag zaaktype v2 op 1-4-2024
-`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-05-01`
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-04-01`
 
 ```json
 {
@@ -562,10 +562,11 @@ Response:
 	...
 	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
 	...
+	"concept": False
 }
 ```
 
-###  Bevraag zaaktype v2 op 1-10-2024
+###  Bevraag zaaktype v2 op 1-10-2024 (na de registratie van besluittype v2 op 1-7-2024)
 `GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-10-01`
 
 ```json
@@ -576,6 +577,7 @@ Response:
 	...
 	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluitgenomen-v2" ],
 	...
+	"concept": False
 }
 ```
 
@@ -583,8 +585,8 @@ Response:
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
 
 * De consumer  heeft rechten om geforceerd te schrijven.
-* Je vodoet aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) berschreven.
-* 
+* Er wordt voldaan aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) beschreven.
+  
 `PATCH /zaaktypen/vergunningsaanvraag-v2`
 
 Request:
@@ -607,7 +609,27 @@ Response:
 
 ## Historiemodel toegepast op Zaaktype en Roltype
 
-### Vraag Roltype op
+De laatste versie van het zaaktype "Vergunningsaanvraag" is v2 en we willen een nieuwe zaaktype v3 aanmaken. Nu blijkt dat dit zaaktype een roltype "Vergunningsaanvraag-initiator" versie v1 heeft, zie onderstaande bevraging.
+
+
+###  Vraag zaaktype v2 op
+`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-04-01`
+
+```json
+{
+	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
+	"identificatie": "Vergunningsaanvraag",
+	"beginGeldigheid" : "2024-01-01",	
+	...
+	"roltypen" : [ "http://ztc.example.com/roltypen/Vergunningsaanvraag-initiator-v1" ],
+	...
+	"concept": False
+}
+```
+
+In de volgende bevraging zien we dat het roltype ook een link naar het betreffende zaaktype heeft.
+
+### Vraag roltype v1 op
 `GET http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v1`
 
 ```json
@@ -620,6 +642,9 @@ Response:
 ```
 
 ### Maak een nieuw zaaktype v3 aan
+
+We maken een nieuw zaaktype v3 aan dat nog geen link naar roltypen heeft.
+
 `POST /zaaktypen`
 
 Request:
@@ -627,7 +652,6 @@ Request:
 {
 	"identificatie": "Vergunningsaanvraag",
 	"beginGeldigheid": "2025-01-01",	
-	...
 	...
 }
 ```
@@ -645,7 +669,10 @@ Response:
 }
 ```
 
-### Maak een nieuwe v2 versie van Roltype voor zaaktype versie v3
+### Maak een nieuwe v2 versie van roltype voor zaaktype versie v3
+
+We maken een nieuw roltype v2 aan waarin de link wordt gelegd naar het nieuwe zaaktype v3.
+
 `POST /roltypen`
 
 Request:
@@ -670,6 +697,7 @@ Response:
 ```
 
 
+
 ### Publiceer zaaktype versie v3
 `POST /zaaktypen/vergunningsaanvraag-v3/publish`
 
@@ -685,6 +713,8 @@ Response:
 	"concept": False
 }
 ```
+
+Als we het zaakttype v3 gepubliceerd hebben dan zien we in de response van de bovenstaande POST-operatie dat de link naar het roltype v2 gelegd is.
 
 ### Publiceer roltype versie v2
 `POST /roltypen/vergunningsaanvraag-initiator-v2/publish`
