@@ -9,10 +9,10 @@ def parse_args():
         description="Validate OpenAPI specs against tools and expected results"
     )
     parser.add_argument(
-        "--specs-dir",
+        "--test-cases-dir",
         required=True,
         type=Path,
-        help="Directory containing YAML files with OpenAPI specs",
+        help="Directory containing YAML files with OpenAPI test cases",
     )
     parser.add_argument(
         "--spectral-ruleset",
@@ -24,12 +24,12 @@ def parse_args():
 def main():
     args = parse_args()
     
-    if not args.specs_dir.is_dir():
-        print(f"Error: {args.specs_dir} is not a directory")
+    if not args.test_cases_dir.is_dir():
+        print(f"Error: {args.test_cases_dir} is not a directory")
         sys.exit(1)
         
     validator = ToolsValidator(
-        specs_dir=args.specs_dir,
+        test_cases_dir=args.test_cases_dir,
         spectral_ruleset=args.spectral_ruleset
     )
     

@@ -5,8 +5,8 @@ from .validators.spectral import SpectralValidator
 from .validators.zgw_cleaner import ZgwCleanerValidator
 
 class ToolsValidator:
-    def __init__(self, specs_dir: Path, spectral_ruleset: Path = None):
-        self.specs_dir = specs_dir
+    def __init__(self, test_cases_dir: Path, spectral_ruleset: Path = None):
+        self.test_cases_dir = test_cases_dir
         self.yaml = YAML()
         self.spectral = SpectralValidator(spectral_ruleset)
         self.cleaner = ZgwCleanerValidator('..')
@@ -19,7 +19,7 @@ class ToolsValidator:
     def validate_all(self) -> bool:
         """Validate all specs in the directory."""
         success = True
-        for yaml_file in self.specs_dir.glob("*.yaml"):
+        for yaml_file in self.test_cases_dir.glob("*.yaml"):
             if not self.validate_file(yaml_file):
                 success = False
         return success
