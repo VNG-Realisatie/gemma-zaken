@@ -8,9 +8,9 @@ import json
 
 @dataclass
 class SpectralValidationConfig:
-    matches: Optional[List[str]] = None
-    including: Optional[List[str]] = None
-    excluding: Optional[List[str]] = None
+    should_equal: Optional[List[str]] = None
+    should_hit: Optional[List[str]] = None
+    should_miss: Optional[List[str]] = None
 
 class SpectralValidator:
     def __init__(self, ruleset_path: Optional[Path] = None):
@@ -73,29 +73,29 @@ class SpectralValidator:
             'modes': {}
         }
 
-        if config.matches is not None:
-            expected_set = set(config.matches)
+        if config.should_equal is not None:
+            expected_set = set(config.should_equal)
             mode_result = {'success': expected_set == actual_set, 'details': []}
             if missing := expected_set - actual_set:
                 mode_result['details'].append(f"Missing rules: {sorted(missing)}")
             if unexpected := actual_set - expected_set:
                 mode_result['details'].append(f"Unexpected rules: {sorted(unexpected)}")
-            results['modes']['spectral-matches  '] = mode_result
+            results['modes']['spectral-should-equal  '] = mode_result
 
-        if config.including is not None:
-            required_set = set(config.including)
+        if config.should_hit is not None:
+            required_set = set(config.should_hit)
             mode_result = {'success': required_set.issubset(actual_set), 'details': []}
             if missing := required_set - actual_set:
                 mode_result['details'].append(f"Missing rules: {sorted(missing)}")
-            results['modes']['spectral-including'] = mode_result
+            results['modes']['spectral-should-hit'] = mode_result
 
-        if config.excluding is not None:
-            forbidden_set = set(config.excluding)
+        if config.should_miss is not None:
+            forbidden_set = set(config.should_miss)
             triggered = forbidden_set & actual_set
             mode_result = {'success': not triggered, 'details': []}
             if triggered:
                 mode_result['details'].append(f"Forbidden rules: {sorted(triggered)}")
-            results['modes']['spectral-excluding'] = mode_result
+            results['modes']['spectral-should-miss'] = mode_result
 
         return results
 
@@ -110,9 +110,9 @@ class SpectralValidator:
             return True
 
         config = SpectralValidationConfig(
-            matches=spectral_config.get('matches'),
-            including=spectral_config.get('including'),
-            excluding=spectral_config.get('excluding')
+            should_equal=spectral_config.get('should-equal'),
+            should_hit=spectral_config.get('should-hit'),
+            should_miss=spectral_config.get('should-miss')
         )
 
         actual_codes = self.run_spectral(spec)

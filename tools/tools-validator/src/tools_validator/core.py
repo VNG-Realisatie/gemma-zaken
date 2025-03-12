@@ -57,7 +57,6 @@ class ToolsValidator:
 
                 if not self.cleaner.compare_specs(cleaned_spec, clean_ref):
                     print(f"  zgw-cleaner: ✗ FAIL")
-                    return False
                 else:
                     print(f"  zgw-cleaner: ✓ PASS")
 

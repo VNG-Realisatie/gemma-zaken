@@ -5,7 +5,7 @@ info:
 x-tools-validator:
   id: test-1
   spectral:
-    matches:
+    should-equal:
       - oas3-schema
       - info-contact
       - info-description
@@ -20,9 +20,9 @@ info:
 x-tools-validator:
   id: test-2
   spectral:
-    including:
+    should-hit:
       - info-contact
-    excluding:
+    should-miss:
       - info-contact
 ---
 # Example 3: Excluding - these rules must not trigger
@@ -32,7 +32,7 @@ info:
 x-tools-validator:
   id: test-3
   spectral:
-    excluding:
+    should-miss:
       - operation-tags-alphabetical
 ---
 # Example 4: No spectral config - ignore all rules
