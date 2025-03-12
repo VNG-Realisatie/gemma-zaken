@@ -1,6 +1,6 @@
 from typing import Dict, Any
 import logging
-from ..core import Cleaner
+from ..cleaner import Cleaner
 from copy import deepcopy
 from caseconverter import pascalcase
 

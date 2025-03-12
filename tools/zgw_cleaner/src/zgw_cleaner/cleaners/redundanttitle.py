@@ -1,5 +1,5 @@
 from typing import Dict, Any, List
-from ..core import Cleaner
+from ..cleaner import Cleaner
 
 class RedundantTitleCleaner(Cleaner):
     """

@@ -112,7 +112,7 @@ optional = false
 python-versions = ">=3.11"
 groups = ["main"]
 files = []
-develop = false
+develop = true
 
 [package.dependencies]
 case-converter = ">=1.2.0,<2.0.0"
@@ -126,4 +126,4 @@ url = "../zgw_cleaner"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "2ff3a9a52ec5f3568b9675d12d866159c3889ba4d2491cfe58e12c41f3739bfd"
+content-hash = "11d3a4cccea1fb53eb486cbde151086fcd49cc9613b04f04bb006a4477d81a9f"

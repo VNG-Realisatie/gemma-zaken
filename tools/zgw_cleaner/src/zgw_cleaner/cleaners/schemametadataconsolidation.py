@@ -1,6 +1,6 @@
 from typing import Dict, Any
 from copy import deepcopy
-from ..core import Cleaner
+from ..cleaner import Cleaner
 import logging
 
 class SchemaMetadataConsolidationCleaner(Cleaner):

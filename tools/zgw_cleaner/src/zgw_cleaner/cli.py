@@ -6,8 +6,7 @@ import sys
 import logging
 
 from ruamel.yaml import YAML
-from .core import CleanupPipeline
-from .cleaners import *
+from .core import create_default_pipeline
 
 def setup_logging(verbose: bool):
     """Configure logging based on verbosity."""
@@ -77,18 +76,7 @@ def main():
             print(f"Error loading YAML: {e}", file=sys.stderr)
             sys.exit(1)
 
-    pipeline = CleanupPipeline()
-    pipeline.add_cleaner(FieldNameCleaner())
-    pipeline.add_cleaner(RedundantTitleCleaner())
-    pipeline.add_cleaner(CommonHeadersCleaner())
-    pipeline.add_cleaner(ResponseConsolidationCleaner())
-    pipeline.add_cleaner(CommonResponsesCleaner())
-    pipeline.add_cleaner(RedundantAllOfCleaner())
-    pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())
-    pipeline.add_cleaner(TagsCleaner())
-    pipeline.add_cleaner(DescriptionFormatCleaner())
-    pipeline.add_cleaner(EnumDescriptionsCleaner())
-    pipeline.add_cleaner(DiscriminatorToVariantCleaner())
+    pipeline = create_default_pipeline()
 
     # Process
     cleaned_spec = pipeline.clean(spec)

@@ -16,6 +16,9 @@ dependencies = [
 [tool.poetry]
 packages = [{include = "tools_validator", from = "src"}]
 
+[tool.poetry.dependencies]
+zgw-cleaner = {develop = true}
+
 [project.scripts]
 tools-validator = "tools_validator.cli:main"
 

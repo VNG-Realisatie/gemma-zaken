@@ -1,5 +1,5 @@
 from typing import Dict, Any, Tuple
-from ..core import Cleaner
+from ..cleaner import Cleaner
 
 class EnumDescriptionsCleaner(Cleaner):
     """Extracts enum descriptions from description fields and moves them to x-enumDescriptions."""

@@ -1,7 +1,7 @@
 from typing import Dict, Any, List
 import logging
 from copy import deepcopy
-from ..core import Cleaner
+from ..cleaner import Cleaner
 from ruamel.yaml.scalarstring import SingleQuotedScalarString
 
 class ResponseConsolidationCleaner(Cleaner):

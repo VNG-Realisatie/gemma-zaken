@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from ..core import Cleaner
+from ..cleaner import Cleaner
 
 class FieldNameCleaner(Cleaner):
     """Removes redundant allOf constructs with single references."""

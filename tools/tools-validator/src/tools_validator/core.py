@@ -9,7 +9,7 @@ class ToolsValidator:
         self.test_cases_dir = test_cases_dir
         self.yaml = YAML()
         self.spectral = SpectralValidator(spectral_ruleset)
-        self.cleaner = ZgwCleanerValidator('..')
+        self.cleaner = ZgwCleanerValidator()
 
     def load_specs(self, yaml_file: Path) -> List[Dict]:
         """Load multiple YAML documents from a file."""
@@ -42,7 +42,7 @@ class ToolsValidator:
                 self.spectral.validate_spec(spec)
 
             # Validate cleaner if linked
-            if cleaner_id := validator_info.get('cleaner-result'):
+            if cleaner_id := validator_info.get('zgw-cleaner'):
                 cleaned_spec = self.cleaner.clean(spec)
                 # TODO: Implement comparison with the referenced clean result
                 

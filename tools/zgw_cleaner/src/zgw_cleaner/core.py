@@ -1,25 +1,8 @@
 from typing import Dict, Any
 from dataclasses import dataclass, field
 from collections import Counter
-
-@dataclass
-class CleanerStats:
-    """Statistics for a cleaning operation."""
-    name: str
-    counts: Counter = field(default_factory=Counter)
-    
-    def __str__(self):
-        if not self.counts:
-            return f"{self.name}: no changes made"
-        return f"{self.name}: " + ", ".join(f"{k}: {v}" for k, v in self.counts.items())
-
-class Cleaner:
-    """Base class for cleanup operations."""
-    def __init__(self):
-        self.stats = CleanerStats(self.__class__.__name__)
-
-    def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
-        raise NotImplementedError
+from .cleaner import Cleaner
+from .cleaners import *
 
 class CleanupPipeline:
     """Pipeline to run multiple cleaners."""
@@ -33,3 +16,18 @@ class CleanupPipeline:
         for cleaner in self.cleaners:
             spec = cleaner.clean(spec)
         return spec
+
+def create_default_pipeline():
+    pipeline = CleanupPipeline()
+    pipeline.add_cleaner(FieldNameCleaner())
+    pipeline.add_cleaner(RedundantTitleCleaner())
+    pipeline.add_cleaner(CommonHeadersCleaner())
+    pipeline.add_cleaner(ResponseConsolidationCleaner())
+    pipeline.add_cleaner(CommonResponsesCleaner())
+    pipeline.add_cleaner(RedundantAllOfCleaner())
+    pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())
+    pipeline.add_cleaner(TagsCleaner())
+    pipeline.add_cleaner(DescriptionFormatCleaner())
+    pipeline.add_cleaner(EnumDescriptionsCleaner())
+    pipeline.add_cleaner(DiscriminatorToVariantCleaner())
+    return pipeline

@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from ..core import Cleaner
+from ..cleaner import Cleaner
 from ruamel.yaml.scalarstring import LiteralScalarString, SingleQuotedScalarString, DoubleQuotedScalarString
 
 class DescriptionFormatCleaner(Cleaner):
