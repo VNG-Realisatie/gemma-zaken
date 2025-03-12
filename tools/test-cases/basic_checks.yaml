@@ -11,7 +11,7 @@ x-tools-validator:
       - info-description
       - oas3-api-servers
   zgw-cleaner:
-    cleaned-id: test-2
+    should-clean-to: test-2
 ---
 # Example 2: Including - these rules must trigger (others may too)
 openapi: 3.0.0

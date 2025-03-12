@@ -47,17 +47,17 @@ class ToolsValidator:
 
             # Validate cleaner if linked
             if 'zgw-cleaner' in validator_info:
-                if not 'cleaned-id' in validator_info['zgw-cleaner']:
-                    print(f"Error: Spec {spec_id} has cleaner but no cleaned-id")
+                if not 'should-clean-to' in validator_info['zgw-cleaner']:
+                    print(f"Error: Spec {spec_id} has cleaner but no should-clean-to")
                     return False
 
-                cleaned_id = validator_info['zgw-cleaner']['cleaned-id']
+                cleaned_id = validator_info['zgw-cleaner']['should-clean-to']
                 cleaned_spec = self.cleaner.clean(spec)
                 clean_ref = specs_map.get(cleaned_id)
 
                 if not self.cleaner.compare_specs(cleaned_spec, clean_ref):
-                    print(f"  zgw-cleaner: ✗ FAIL")
+                    print(f"  zgw-cleaner-should-clean-to {cleaned_id}: ✗ FAIL")
                 else:
-                    print(f"  zgw-cleaner: ✓ PASS")
+                    print(f"  zgw-cleaner-should-clean-to {cleaned_id}: ✓ PASS")
 
         return success
