@@ -28,22 +28,37 @@ class ToolsValidator:
         """Validate a single YAML file."""
         specs = self.load_specs(yaml_file)
         success = True
-        
+
         for spec in specs:
             validator_info = spec.get('x-tools-validator', {})
             spec_id = validator_info.get('id')
-            
             if not spec_id:
-                print(f"Warning: Spec in {yaml_file} missing x-tools-validator.id")
-                continue
-                
+                print(f"Error: Spec in {yaml_file} missing x-tools-validator.id")
+                return False
+
+        specs_map = {spec['x-tools-validator']['id']: spec for spec in specs}
+
+        for spec_id, spec in specs_map.items():
+            validator_info = spec.get('x-tools-validator', {})
+
             # Validate against Spectral
             if 'spectral' in validator_info:
                 self.spectral.validate_spec(spec)
 
             # Validate cleaner if linked
-            if cleaner_id := validator_info.get('zgw-cleaner'):
+            if 'zgw-cleaner' in validator_info:
+                if not 'cleaned-id' in validator_info['zgw-cleaner']:
+                    print(f"Error: Spec {spec_id} has cleaner but no cleaned-id")
+                    return False
+
+                cleaned_id = validator_info['zgw-cleaner']['cleaned-id']
                 cleaned_spec = self.cleaner.clean(spec)
-                # TODO: Implement comparison with the referenced clean result
-                
+                clean_ref = specs_map.get(cleaned_id)
+
+                if not self.cleaner.compare_specs(cleaned_spec, clean_ref):
+                    print(f"  zgw-cleaner: ✗ FAIL")
+                    return False
+                else:
+                    print(f"  zgw-cleaner: ✓ PASS")
+
         return success
