@@ -90,11 +90,6 @@ class CommonResponsesCleaner(Cleaner):
                             else:
                                 self.error_patterns[pattern]['count'] += 1
 
-        # Create components for frequently used patterns
-        if 'components' not in spec:
-            spec['components'] = {}
-        if 'responses' not in spec['components']:
-            spec['components']['responses'] = {}
     
         for pattern_info in self.error_patterns.values():
             if pattern_info['count'] > 1:
@@ -105,7 +100,14 @@ class CommonResponsesCleaner(Cleaner):
                 schema_ref = definition.get('content', {}).get('application/problem+json', {}).get('schema', {}).get('$ref', '')
                 if schema_ref:
                     definition['description'] = self._generate_description(schema_ref)
-            
+
+                # Since we're going to replace the responses with refs, we need to
+                # create a components/responses section if it doesn't exist yet.
+                if 'components' not in spec:
+                    spec['components'] = {}
+                if 'responses' not in spec['components']:
+                    spec['components']['responses'] = {}
+
                 spec['components']['responses'][name] = definition
                 self.stats.counts['response_patterns_created'] = \
                     self.stats.counts.get('response_patterns_created', 0) + 1
