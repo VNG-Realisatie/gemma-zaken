@@ -7,17 +7,23 @@ functions:
 functionsDir: "./functions"
 
 rules:
-  # Rule 1: Ensures all $refs are local (no http(s) URLs)
+  #
+  # Rule 1: Ensures all $refs are not URLs (no http(s) URLs)
+  #
+  # See https://swagger.io/docs/specification/v3_0/using-ref/#ref-syntax for
+  # the nomanclature of $refs (local, remote, URLs).
+  #
   # Examples:
-  #     $ref: "#/components/schemas/User" (good)
-  #     $ref: "https://example.com/schemas/User.yaml" (bad)
+  #     $ref:  "#/components/schemas/User"              (good)
+  #     $ref:  "https://example.com/schemas/User.yaml"  (bad)
   #     oneOf: ["https://example.com/schemas/Pet.yaml"] (bad)
-  #     allOf: ["#/components/schemas/Pet"] (good)
-  #     items: "https://example.com/schemas/Item.yaml" (bad)
-  #     not: "#/components/schemas/Invalid" (good)
-  no-remote-refs:
-    description: References should be local (no HTTP/HTTPS URLs allowed)
-    message: "Remote $ref URLs are not allowed. Use local references only."
+  #     allOf: ["#/components/schemas/Pet"]             (good)
+  #     items: "https://example.com/schemas/Item.yaml"  (bad)
+  #     not:   "#/components/schemas/Invalid"           (good)
+  #
+  no-url-refs:
+    description: References should not be URLs (no HTTP/HTTPS URLs allowed)
+    message: "URL references are not allowed. Use local or remote references only."
     severity: error
     given:
       - "$..$ref"
@@ -48,12 +54,12 @@ rules:
   # Invalid example:
   #   allOf:
   #     - $ref: "#/components/schemas/User"    # single entry not allowed
-  allof-at-least-two:
-    description: Ensures allOf contains at least two schema entries
+  no-singular-allof:
+    description: Suggests using direct reference instead of standalone single-entry allOf
     message:
-      allOf must contain at least two entries. Single-entry allOf should be flattened to its
-      contained schema.
-    severity: error
+      Consider replacing standalone single-entry allOf with a direct reference, as no additional
+      properties are being defined
+    severity: warn
     given: $..*
     then:
       function: schema
@@ -66,6 +72,7 @@ rules:
                 type: array
                 maxItems: 1
             required: [allOf]
+            maxProperties: 1 # This ensures allOf is the only property
           then: false
 
   # Rule 3: Ensures that allOf children are explicitly typed as objects

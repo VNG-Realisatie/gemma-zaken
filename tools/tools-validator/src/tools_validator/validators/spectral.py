@@ -5,12 +5,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from ruamel.yaml import YAML
 import json
-
-@dataclass
-class SpectralValidationConfig:
-    should_equal: Optional[List[str]] = None
-    should_hit: Optional[List[str]] = None
-    should_miss: Optional[List[str]] = None
+from ..validator import ValidationResult, ValidationConfig
 
 class SpectralValidator:
     def __init__(self, ruleset_path: Optional[Path] = None):
@@ -50,11 +45,12 @@ class SpectralValidator:
                 # Parse the output
                 if result.stdout:
                     violations = json.loads(result.stdout)
+                    actual_codes = sorted(set(v['code'] for v in violations))
+                    return ValidationResult(
+                        rules_hit=actual_codes,
+                        success=True  # Base success, will be evaluated against config later
+                    )
 
-                    #print(violations)
-
-                    # Extract unique rule IDs from violations
-                    return sorted(set(v['code'] for v in violations))
                 return []
 
             except subprocess.CalledProcessError as e:
@@ -62,72 +58,3 @@ class SpectralValidator:
             except json.JSONDecodeError as e:
                 raise RuntimeError(f"Failed to parse Spectral output: {e}")
 
-    def compare_results(self, config: SpectralValidationConfig, actual_codes: List[str]) -> dict:
-        """
-        Compare actual results against the validation configuration.
-        Returns dict with results per mode.
-        """
-        actual_set = set(actual_codes)
-        results = {
-            'rules_triggered': sorted(actual_set),
-            'modes': {}
-        }
-
-        if config.should_equal is not None:
-            expected_set = set(config.should_equal)
-            mode_result = {'success': expected_set == actual_set, 'details': []}
-            if missing := expected_set - actual_set:
-                mode_result['details'].append(f"Missing rules: {sorted(missing)}")
-            if unexpected := actual_set - expected_set:
-                mode_result['details'].append(f"Unexpected rules: {sorted(unexpected)}")
-            results['modes']['spectral-should-equal  '] = mode_result
-
-        if config.should_hit is not None:
-            required_set = set(config.should_hit)
-            mode_result = {'success': required_set.issubset(actual_set), 'details': []}
-            if missing := required_set - actual_set:
-                mode_result['details'].append(f"Missing rules: {sorted(missing)}")
-            results['modes']['spectral-should-hit'] = mode_result
-
-        if config.should_miss is not None:
-            forbidden_set = set(config.should_miss)
-            triggered = forbidden_set & actual_set
-            mode_result = {'success': not triggered, 'details': []}
-            if triggered:
-                mode_result['details'].append(f"Forbidden rules: {sorted(triggered)}")
-            results['modes']['spectral-should-miss'] = mode_result
-
-        return results
-
-    def validate_spec(self, spec: Dict) -> bool:
-        validator_info = spec.get('x-tools-validator', {})
-        spec_id = validator_info.get('id', 'unknown')
-    
-        print(f"\nRunning Spectral test: {spec_id}")
-    
-        if not (spectral_config := validator_info.get('spectral')):
-            print("  No spectral configuration specified - skipping")
-            return True
-
-        config = SpectralValidationConfig(
-            should_equal=spectral_config.get('should-equal'),
-            should_hit=spectral_config.get('should-hit'),
-            should_miss=spectral_config.get('should-miss')
-        )
-
-        actual_codes = self.run_spectral(spec)
-        results = self.compare_results(config, actual_codes)
-    
-        # Print rules triggered
-        #print(f"  Rules triggered: {results['rules_triggered']}")
-    
-        # Print results for each mode
-        success = True
-        for mode, result in results['modes'].items():
-            print(f"  {mode}: {'✓ PASS' if result['success'] else '✗ FAIL'}")
-            if not result['success'] and result['details']:
-                for detail in result['details']:
-                    print(f"    {detail}")
-            success = success and result['success']
-    
-        return success

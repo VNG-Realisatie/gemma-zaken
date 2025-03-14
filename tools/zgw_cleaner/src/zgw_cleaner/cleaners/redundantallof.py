@@ -6,6 +6,9 @@ class RedundantAllOfCleaner(Cleaner):
     
        Associated Spectral rule: redundant-allof"""
     
+    def __init__(self):
+        super().__init__('no-singular-allof')
+   
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         if isinstance(spec, dict):
             if 'allOf' in spec and len(spec['allOf']) == 1:

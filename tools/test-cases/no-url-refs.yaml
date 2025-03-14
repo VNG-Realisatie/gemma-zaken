@@ -1,0 +1,102 @@
+--- # Start of test-1 (Should hit on URL ref)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-1
+  spectral:
+    should-hit:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        test:
+          $ref: "https://example.com/test.yaml#/components/schemas/Test"
+--- # Start of test-2 (Should miss on remote ref)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-2
+  spectral:
+    should-miss:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        test:
+          $ref: "../test.yaml#/components/schemas/Test"
+---
+# Test 3: Testing multiple HTTP/HTTPS refs (should hit)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-3
+  spectral:
+    should-hit:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      oneOf:
+        - $ref: "https://example.com/schema1.yaml"
+        - $ref: "http://example.com/schema2.yaml"
+      allOf:
+        - $ref: "https://example.com/schema3.yaml"
+---
+# Test 4: Testing various valid local refs (should miss)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-4
+  spectral:
+    should-miss:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      oneOf:
+        - $ref: "#/components/schemas/Schema1"
+        - $ref: "#/components/schemas/Schema2"
+      allOf:
+        - $ref: "#/components/schemas/Schema3"
+      not:
+        $ref: "#/components/schemas/Invalid"
+---
+# Test 5: Testing items with URL (should hit)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-5
+  spectral:
+    should-hit:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      type: array
+      items:
+        $ref: "https://example.com/item.yaml"
+---
+# Test 6: Testing mixed refs (should hit)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-url-refs-test-6
+  spectral:
+    should-hit:
+      - no-url-refs
+components:
+  schemas:
+    Test:
+      anyOf:
+        - $ref: "#/components/schemas/Valid"
+        - $ref: "https://example.com/invalid.yaml"

@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 from collections import Counter
 from .cleaner import Cleaner
 from .cleaners import *
+from copy import deepcopy
 
 class CleanupPipeline:
     """Pipeline to run multiple cleaners."""
@@ -13,9 +14,10 @@ class CleanupPipeline:
         self.cleaners.append(cleaner)
 
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+        clean_spec = deepcopy(spec)  # Ensure we don't modify the original spec
         for cleaner in self.cleaners:
-            spec = cleaner.clean(spec)
-        return spec
+            clean_spec = cleaner.clean(clean_spec)
+        return clean_spec
 
 def create_default_pipeline():
     pipeline = CleanupPipeline()

@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Dict, Optional
 from ruamel.yaml import YAML
 from zgw_cleaner.api import clean_specification
+from ..validator import ValidationResult
 
 @dataclass
 class ZgwCleanerValidationConfig:
@@ -21,8 +22,13 @@ class ZgwCleanerValidator:
         Returns:
             Dict: The cleaned specification
         """
-        cleaned_spec = clean_specification(spec)
-        return cleaned_spec
+        cleaned_spec, cleaners_hit = clean_specification(spec, return_cleaners_hit=True)
+        actual_codes = sorted(cleaners_hit)
+        result = ValidationResult(
+            rules_hit=actual_codes,
+            success=True  # Base success, will be evaluated against config later
+        )
+        return cleaned_spec, result
 
     def compare_specs(self, cleaned_spec: Dict, target_spec: Dict) -> bool:
         """
@@ -36,6 +42,7 @@ class ZgwCleanerValidator:
         Returns:
             bool: True if specifications match
         """
-        # TODO: Implement proper comparison logic
-        # This is a simple equality check for now
-        return cleaned_spec == target_spec
+        # Filter out x-tools-validator from both specs
+        filtered_dict1 = {k: v for k, v in cleaned_spec.items() if k != 'x-tools-validator'}
+        filtered_dict2 = {k: v for k, v in target_spec.items() if k != 'x-tools-validator'}
+        return filtered_dict1 == filtered_dict2
