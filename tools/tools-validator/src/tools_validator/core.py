@@ -8,7 +8,7 @@ from .validator import ValidationConfig, ValidationResult
 def format_result_line(filename: str, test_id: str, spectral_result: bool, cleaner_result: bool) -> str:
     # Truncate filename and test_id if too long
     short_file = filename[:20] + "..." if len(filename) > 23 else filename.ljust(23)
-    short_id = test_id[:20] + "..." if len(test_id) > 23 else test_id.ljust(23)
+    short_id = test_id[:28] + "..." if len(test_id) > 31 else test_id.ljust(31)
     
     spectral_mark = "✓" if spectral_result else "✗" if spectral_result is not None else "-"
     cleaner_mark = "✓" if cleaner_result else "✗" if cleaner_result is not None else "-"
@@ -17,7 +17,7 @@ def format_result_line(filename: str, test_id: str, spectral_result: bool, clean
 
 def print_validation_header():
     print("=" * 80)
-    print("Filename                | Test ID                 | Spc | Zgw")
+    print("Filename                | Test ID                         | Spc | Zgw")
     print("-" * 80)
 
 def print_validation_details(name: str, details: List[str]):

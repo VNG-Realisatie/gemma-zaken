@@ -60,6 +60,5 @@ class EnumDescriptionsCleaner(Cleaner):
         if not isinstance(spec, dict):
             return spec
 
-        self.stats.counts['enum_descriptions_extracted'] = 0
         self._process_schema(spec)
         return spec

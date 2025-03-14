@@ -26,7 +26,7 @@ def create_default_pipeline():
     pipeline.add_cleaner(CommonHeadersCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
     pipeline.add_cleaner(CommonResponsesCleaner())
-    pipeline.add_cleaner(RedundantAllOfCleaner())
+    pipeline.add_cleaner(StandalonexOfCleaner())
     pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())
     pipeline.add_cleaner(TagsCleaner())
     pipeline.add_cleaner(DescriptionFormatCleaner())

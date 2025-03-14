@@ -1,0 +1,185 @@
+--- # Test 1: Should warn on standalone single-entry allOf
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-1
+  spectral:
+    should-hit:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-1-cleaned
+    should-equal:
+      - no-standalone-xof
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/BaseType"
+--- # Test 1-cleaned: Should not warn on a cleaned version of test-1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-1-cleaned
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-1-cleaned
+    should-equal: []
+components:
+  schemas:
+    Test:
+      $ref: "#/components/schemas/BaseType"
+
+--- # Test 2: Should NOT warn when single-entry allOf has siblings
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-2
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-2
+    should-equal: []
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/BaseType"
+      properties:
+        additionalField:
+          type: string
+
+--- # Test 3: Should NOT warn on multiple-entry allOf
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-3
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-3
+    should-equal: []
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/BaseType"
+        - $ref: "#/components/schemas/OtherType"
+
+--- # Test 4: Should NOT warn when single-entry allOf has type sibling
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-4
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-4
+    should-equal: []
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/BaseType"
+      type: object
+--- # Test 5: Should warn on standalone single-entry allOf with inline schema
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-5
+  spectral:
+    should-hit:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-5-cleaned
+    should-equal:
+      - no-standalone-xof
+components:
+  schemas:
+    Test:
+      allOf:
+        - type: object
+          properties:
+            name:
+              type: string
+
+--- # Test 5-cleaned: Should not warn on a cleaned version of test-5
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-5-cleaned
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-5-cleaned
+    should-equal: []
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        name:
+          type: string
+
+--- # Test 6: Should warn on standalone single-entry oneOf
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-6
+  spectral:
+    should-hit:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-6-cleaned
+    should-equal:
+      - no-standalone-xof
+components:
+  schemas:
+    Test:
+      oneOf:
+        - $ref: "#/components/schemas/BaseType"
+
+--- # Test 6-cleaned: Should not warn on a cleaned version of test-6
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-6-cleaned
+  spectral:
+    should-miss:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-6-cleaned
+    should-equal: []
+components:
+  schemas:
+    Test:
+      $ref: "#/components/schemas/BaseType"
+
+--- # Test 7: Should warn on standalone single-entry anyOf
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-7
+  spectral:
+    should-hit:
+      - no-standalone-xof
+components:
+  schemas:
+    Test:
+      anyOf:
+        - $ref: "#/components/schemas/BaseType"

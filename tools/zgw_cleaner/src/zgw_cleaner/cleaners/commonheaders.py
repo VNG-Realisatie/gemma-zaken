@@ -137,8 +137,6 @@ class CommonHeadersCleaner(Cleaner):
         # First pass: collect headers
         self._collect_headers(spec)
 
-        self.stats.counts['unique_headers'] = len([h for h in self.common_headers.values() if h['count'] == 1])
-
         # Only process headers that appear multiple times
         self.common_headers = {k: v for k, v in self.common_headers.items() if v['count'] > 1}
         if self.common_headers:

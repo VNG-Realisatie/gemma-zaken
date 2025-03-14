@@ -37,7 +37,9 @@ rules:
       functionOptions:
         notMatch: "^https?://"
 
-  # Rule 2: Ensures that allOf contains at least two entries
+  # Rule 2: Ensures that xOf contains at least two entries
+  #         if there is no other scheme info. Otherwise it can
+  #         be replaced by a single $ref.
   #
   # Valid examples:
   #   allOf:
@@ -54,7 +56,7 @@ rules:
   # Invalid example:
   #   allOf:
   #     - $ref: "#/components/schemas/User"    # single entry not allowed
-  no-singular-allof:
+  no-standalone-xof:
     description: Suggests using direct reference instead of standalone single-entry allOf
     message:
       Consider replacing standalone single-entry allOf with a direct reference, as no additional
@@ -67,12 +69,23 @@ rules:
         schema:
           if:
             type: object
-            properties:
-              allOf:
-                type: array
-                maxItems: 1
-            required: [allOf]
-            maxProperties: 1 # This ensures allOf is the only property
+            maxProperties: 1
+            anyOf:
+              - properties:
+                  allOf:
+                    type: array
+                    maxItems: 1
+                required: [allOf]
+              - properties:
+                  oneOf:
+                    type: array
+                    maxItems: 1
+                required: [oneOf]
+              - properties:
+                  anyOf:
+                    type: array
+                    maxItems: 1
+                required: [anyOf]
           then: false
 
   # Rule 3: Ensures that allOf children are explicitly typed as objects

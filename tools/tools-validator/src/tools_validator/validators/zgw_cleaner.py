@@ -23,6 +23,7 @@ class ZgwCleanerValidator:
             Dict: The cleaned specification
         """
         cleaned_spec, cleaners_hit = clean_specification(spec, return_cleaners_hit=True)
+
         actual_codes = sorted(cleaners_hit)
         result = ValidationResult(
             rules_hit=actual_codes,
@@ -43,6 +44,10 @@ class ZgwCleanerValidator:
             bool: True if specifications match
         """
         # Filter out x-tools-validator from both specs
-        filtered_dict1 = {k: v for k, v in cleaned_spec.items() if k != 'x-tools-validator'}
-        filtered_dict2 = {k: v for k, v in target_spec.items() if k != 'x-tools-validator'}
+        filtered_dict1 = {k: v for k, v in target_spec.items() if k != 'x-tools-validator'}
+        filtered_dict2 = {k: v for k, v in cleaned_spec.items() if k != 'x-tools-validator'}
+
+        #print("Target spec: ", filtered_dict1)
+        #print("Cleaned spec:", filtered_dict2)
+
         return filtered_dict1 == filtered_dict2
