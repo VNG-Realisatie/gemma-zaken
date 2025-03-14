@@ -143,7 +143,7 @@ x-tools-validator:
     should-hit:
       - no-standalone-xof
   zgw-cleaner:
-    should-clean-to: no-standalone-xof-6-cleaned
+    should-clean-to: no-standalone-xof-1-cleaned
     should-equal:
       - no-standalone-xof
 components:
@@ -151,23 +151,6 @@ components:
     Test:
       oneOf:
         - $ref: "#/components/schemas/BaseType"
-
---- # Test 6-cleaned: Should not warn on a cleaned version of test-6
-openapi: 3.0.0
-info:
-  title: Test API
-x-tools-validator:
-  id: no-standalone-xof-6-cleaned
-  spectral:
-    should-miss:
-      - no-standalone-xof
-  zgw-cleaner:
-    should-clean-to: no-standalone-xof-6-cleaned
-    should-equal: []
-components:
-  schemas:
-    Test:
-      $ref: "#/components/schemas/BaseType"
 
 --- # Test 7: Should warn on standalone single-entry anyOf
 openapi: 3.0.0
@@ -177,6 +160,10 @@ x-tools-validator:
   id: no-standalone-xof-7
   spectral:
     should-hit:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-1-cleaned
+    should-equal:
       - no-standalone-xof
 components:
   schemas:
