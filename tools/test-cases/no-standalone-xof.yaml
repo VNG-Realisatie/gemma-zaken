@@ -170,3 +170,23 @@ components:
     Test:
       anyOf:
         - $ref: "#/components/schemas/BaseType"
+
+--- # Test 8: Should fully fix nested standalone single-entry oneOf
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-standalone-xof-8
+  spectral:
+    should-hit:
+      - no-standalone-xof
+  zgw-cleaner:
+    should-clean-to: no-standalone-xof-1-cleaned
+    should-equal:
+      - no-standalone-xof
+components:
+  schemas:
+    Test:
+      oneOf:
+        - oneOf:
+            - $ref: "#/components/schemas/BaseType"

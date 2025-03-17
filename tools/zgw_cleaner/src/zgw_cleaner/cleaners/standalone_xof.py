@@ -12,7 +12,7 @@ class StandalonexOfCleaner(Cleaner):
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         if isinstance(spec, dict):
             for xOf in [ 'allOf', 'anyOf', 'oneOf' ]:
-                if xOf in spec and len(spec) == 1 and len(spec[xOf]) == 1:
+                while xOf in spec and len(spec) == 1 and len(spec[xOf]) == 1:
                     ref = spec[xOf][0]
                     spec.pop(xOf)
                     spec.update(ref)
