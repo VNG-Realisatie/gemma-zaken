@@ -10,7 +10,7 @@ x-tools-validator:
     zgw-cleaner:
       should-clean-to: allof-children-must-be-objects-test-1
       should-equal: []
-    components:
+components:
   schemas:
     Test:
       allOf:
