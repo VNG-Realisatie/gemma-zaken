@@ -177,8 +177,8 @@ rules:
 
   # Rule 6: Ensures that discriminators have proper mappings defined
   # Example:
-  #   discriminator:
-  #     propertyName: type   # if this exists
+  #   discriminator:         # if this exists
+  #     propertyName: type
   #     mapping:             # then this must exist
   #       type1: '#/components/schemas/Type1'
   #       type2: '#/components/schemas/Type2'

@@ -1,0 +1,48 @@
+--- # Test 1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-1
+  spectral:
+    should-hit:
+      - discriminator-mapping-required
+    should-miss:
+      - discriminator-property-exists
+components:
+  schemas:
+    ObjectBase:
+      type: object
+      properties:
+        derivedType:
+          type: string
+      discriminator:
+        propertyName: derivedType
+  Object1:
+    type: object
+  Object2:
+    type: object
+--- # Test 2
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-2
+  spectral:
+    should-miss:
+      - discriminator-mapping-required
+    should-hit:
+      - discriminator-property-exists
+components:
+  schemas:
+    ObjectBase:
+      type: object
+      discriminator:
+        propertyName: derivedType
+        mapping:
+          type1: "#/components/schemas/Object1"
+          type2: "#/components/schemas/Object2"
+  Object1:
+    type: object
+  Object2:
+    type: object

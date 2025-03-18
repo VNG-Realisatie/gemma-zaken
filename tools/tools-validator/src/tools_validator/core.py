@@ -13,11 +13,11 @@ def format_result_line(filename: str, test_id: str, spectral_result: bool, clean
     spectral_mark = "✓" if spectral_result else "✗" if spectral_result is not None else "-"
     cleaner_mark = "✓" if cleaner_result else "✗" if cleaner_result is not None else "-"
     
-    return f"{short_file} | {short_id} |  {spectral_mark}  |  {cleaner_mark}"
+    return f"{short_file} | {short_id} |  {spectral_mark}  |  {cleaner_mark}  |"
 
 def print_validation_header():
     print("=" * 80)
-    print("Filename                | Test ID                         | Spc | Zgw")
+    print("Filename                | Test ID                         | Spc | Cln |")
     print("-" * 80)
 
 def print_validation_details(name: str, details: List[str]):

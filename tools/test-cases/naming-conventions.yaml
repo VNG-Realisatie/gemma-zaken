@@ -1,0 +1,83 @@
+--- # Test 1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: naming-conventions-1
+  spectral:
+    should-hit:
+      - missing-version-header
+  zgw-cleaner:
+    should-clean-to: naming-conventions-1-cleaned
+    should-equal:
+      - adr-field-names
+paths:
+  /fieldnames:
+    get:
+      responses:
+        default:
+          headers:
+            API-version:
+              type: string
+              description: Geeft een specifieke API-versie aan.
+--- # Test 1 cleaned
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: naming-conventions-1-cleaned
+  spectral:
+    should-miss:
+      - missing-version-header
+  zgw-cleaner:
+    should-clean-to: naming-conventions-1-cleaned
+    should-equal: []
+paths:
+  /fieldnames:
+    get:
+      responses:
+        default:
+          headers:
+            API-Version:
+              type: string
+              description: Geeft een specifieke API-versie aan.
+--- # Test 2
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: naming-conventions-3
+  spectral:
+    should-hit:
+      - response-pascal-case
+  zgw-cleaner:
+    should-clean-to: naming-conventions-3
+    should-equal: []
+components:
+  responses:
+    "404": # Bad - should not be named like a status code
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+--- # Test 4
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: naming-conventions-4
+  spectral:
+    should-miss:
+      - response-pascal-case
+  zgw-cleaner:
+    should-clean-to: naming-conventions-4
+    should-equal: []
+components:
+  responses:
+    SomeError: # OK - valid name for a generic response
+      description: Some error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
