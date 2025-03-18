@@ -7,7 +7,10 @@ x-tools-validator:
   spectral:
     should-hit:
       - allof-children-must-be-objects
-components:
+    zgw-cleaner:
+      should-clean-to: allof-children-must-be-objects-test-1
+      should-equal: []
+    components:
   schemas:
     Test:
       allOf:
@@ -25,6 +28,9 @@ x-tools-validator:
   spectral:
     should-miss:
       - allof-children-must-be-objects
+  zgw-cleaner:
+    should-clean-to: allof-children-must-be-objects-test-2
+    should-equal: []
 components:
   schemas:
     Test:
@@ -35,5 +41,5 @@ components:
               type: integer
         - type: object
           properties:
-          test:
-            type: integer
+            test:
+              type: integer

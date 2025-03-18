@@ -106,14 +106,17 @@ class ToolsValidator:
                 spectral_result.success if spectral_result else None,
                 cleaner_result.success if cleaner_result else None
             ))
-            
+
             # Print details if there are any validation failures
             if spectral_result and spectral_result.details:
                 print_validation_details('spectral', spectral_result.details)
             if cleaner_result and cleaner_result.details:
                 print_validation_details('cleaner', cleaner_result.details)
                 
-            success = success and (spectral_result or True) and (cleaner_result or True)
+            success = success and \
+                      (spectral_result.success if spectral_result else True) and \
+                      (cleaner_result.success if cleaner_result else True)
+
         return success
 
     def compare_validation_results(self, config: ValidationConfig, result: ValidationResult) -> ValidationResult:
