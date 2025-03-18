@@ -21,15 +21,15 @@ class CleanupPipeline:
 
 def create_default_pipeline():
     pipeline = CleanupPipeline()
-    pipeline.add_cleaner(FieldNameCleaner())
     pipeline.add_cleaner(RedundantTitleCleaner())
     pipeline.add_cleaner(CommonHeadersCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
     pipeline.add_cleaner(CommonResponsesCleaner())
-    pipeline.add_cleaner(StandalonexOfCleaner())
     pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())
     pipeline.add_cleaner(TagsCleaner())
     pipeline.add_cleaner(DescriptionFormatCleaner())
     pipeline.add_cleaner(EnumDescriptionsCleaner())
     pipeline.add_cleaner(DiscriminatorToVariantCleaner())
+    pipeline.add_cleaner(StandalonexOfCleaner())
+    pipeline.add_cleaner(FieldNameCleaner())
     return pipeline

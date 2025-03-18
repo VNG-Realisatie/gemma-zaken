@@ -1,0 +1,63 @@
+--- # Test 1: Example hits mixin pattern (i.e., allOfs with just refs)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-mixin-test-1
+  spectral:
+    should-hit:
+      - no-mixin-patterns
+  zgw-cleaner:
+    should-clean-to: no-mixin-test-1
+    should-equal: []
+components:
+  schemas:
+    Base:
+      type: object
+      properties:
+        - foo:
+          type: string
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/Base"
+        - $ref: "#/components/schemas/Base"
+--- # Test 2: Example misses mixin pattern
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-mixin-test-2
+  spectral:
+    should-miss:
+      - no-mixin-patterns
+  zgw-cleaner:
+    should-clean-to: no-mixin-test-2
+    should-equal: []
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/Base"
+        - type: object
+          properties:
+            someProp:
+              type: string
+--- # Test 3: Example misses mixin pattern
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-mixin-test-3
+  spectral:
+    should-miss:
+      - no-mixin-patterns
+components:
+  schemas:
+    Base:
+      type: object
+      properties:
+        - foo:
+          type: string
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/Base"

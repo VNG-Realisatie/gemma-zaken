@@ -34,6 +34,12 @@ def main():
     )
     
     success = validator.validate_all()
+
+    if success:
+        print("All tests passed!")
+    else:
+        print("Some tests failed.")
+
     sys.exit(0 if success else 1)
 
 if __name__ == "__main__":

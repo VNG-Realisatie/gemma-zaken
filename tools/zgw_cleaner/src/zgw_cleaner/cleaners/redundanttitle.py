@@ -5,6 +5,8 @@ class RedundantTitleCleaner(Cleaner):
     """
     Removes redundant titles that match the property/schema name or add no value.
     """
+    def __init__(self):
+        super().__init__('no-redundant-titles')
     
     def _should_remove_title(self, name: str, title: str) -> bool:
         """Determines if a title should be removed based on its value and context."""

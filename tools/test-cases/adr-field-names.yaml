@@ -1,0 +1,43 @@
+--- # Test 1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: adr-field-names-test-1
+  spectral:
+    should-hit:
+      - missing-version-header
+  zgw-cleaner:
+    should-clean-to: adr-field-names-test-1-cleaned
+    should-equal:
+      - adr-field-names
+paths:
+  /fieldnames:
+    get:
+      responses:
+        default:
+          headers:
+            API-version:
+              type: string
+              description: Geeft een specifieke API-versie aan.
+--- # Test 1 cleaned
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: adr-field-names-test-1-cleaned
+  spectral:
+    should-miss:
+      - missing-version-header
+  zgw-cleaner:
+    should-clean-to: adr-field-names-test-1-cleaned
+    should-equal: []
+paths:
+  /fieldnames:
+    get:
+      responses:
+        default:
+          headers:
+            API-Version:
+              type: string
+              description: Geeft een specifieke API-versie aan.

@@ -1,0 +1,39 @@
+--- # Test 1 (Should hit due to string in allof)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: allof-children-must-be-objects-test-1
+  spectral:
+    should-hit:
+      - allof-children-must-be-objects
+components:
+  schemas:
+    Test:
+      allOf:
+        - type: string
+        - type: object
+          properties:
+            test:
+              type: integer
+--- # Test 2 (Should miss due to all objects in allof)
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: allof-children-must-be-objects-test-2
+  spectral:
+    should-miss:
+      - allof-children-must-be-objects
+components:
+  schemas:
+    Test:
+      allOf:
+        - type: object
+          properties:
+            test:
+              type: integer
+        - type: object
+          properties:
+          test:
+            type: integer

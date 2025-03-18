@@ -5,7 +5,7 @@ class FieldNameCleaner(Cleaner):
     """Removes redundant allOf constructs with single references."""
     
     def __init__(self):
-        super().__init__()
+        super().__init__('adr-field-names')
         self.field_name_mapping = {
             # Rationale: even though headers are case-insensitive,
             # for consistency, we follow the convention of HTTP headers.

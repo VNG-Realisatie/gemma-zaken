@@ -1,0 +1,31 @@
+--- # Test 1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-redundant-titles-test-1
+  spectral:
+    should-hit:
+      - no-redundant-titles
+  zgw-cleaner:
+    should-clean-to: no-redundant-titles-test-1-cleaned
+    should-hit:
+      - no-redundant-titles
+components:
+  schemas:
+    Test:
+      type: object
+      title: test
+--- # Test 1 cleaned
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-redundant-titles-test-1-cleaned
+  spectral:
+    should-miss:
+      - no-redundant-titles
+components:
+  schemas:
+    Test:
+      type: object
