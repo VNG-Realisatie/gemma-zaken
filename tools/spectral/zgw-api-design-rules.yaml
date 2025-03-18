@@ -175,39 +175,11 @@ rules:
     then:
       function: checkRedundantTitle
 
-  # Rule 6: Ensures that any schema using a discriminator also uses oneOf
-  # Example:
-  #   discriminator:  # If this exists...
-  #     propertyName: type
-  #   oneOf: []       # ...this must also exist
-  discriminator-requires-oneof:
-    description: Schemas with discriminators must use oneOf for polymorphism
-    message: "When using a discriminator, 'oneOf' must be specified."
-    severity: error
-    given: "$.components.schemas[?(@.discriminator)]"
-    then:
-      field: oneOf
-      function: truthy
-
-  # Rule 7: Ensures that any schema using oneOf also uses a discriminator
-  # Example:
-  #   oneOf: []       # If this exists...
-  #   discriminator:  # ...this must also exist
-  #     propertyName: type
-  oneof-requires-discriminator:
-    description: oneOf must use discriminator for proper type selection
-    message: "When using 'oneOf', a 'discriminator' must be specified."
-    severity: error
-    given: "$.components.schemas[?(@.oneOf)]"
-    then:
-      field: discriminator
-      function: truthy
-
-  # Rule 8: Ensures that discriminators have proper mappings defined
+  # Rule 6: Ensures that discriminators have proper mappings defined
   # Example:
   #   discriminator:
-  #     propertyName: type
-  #     mapping:      # This must exist
+  #     propertyName: type   # if this exists
+  #     mapping:             # then this must exist
   #       type1: '#/components/schemas/Type1'
   #       type2: '#/components/schemas/Type2'
   discriminator-mapping-required:
@@ -219,7 +191,7 @@ rules:
       field: mapping
       function: truthy
 
-  # Rule 9: Ensures that discriminator propertyName is properly defined
+  # Rule 7: Ensures that discriminator propertyName is properly defined
   # Example:
   #   discriminator:
   #     propertyName: myType  # Must exist and not be empty
@@ -234,7 +206,7 @@ rules:
     then:
       function: discriminatorPropertyExists
 
-  # Rule 10: Ensures response schemas are not named after status codes
+  # Rule 8: Ensures response schemas are not named after status codes
   # Example:
   # components:
   #   responses:
