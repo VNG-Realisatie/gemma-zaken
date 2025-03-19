@@ -1,4 +1,4 @@
-from .commonheaders import CommonHeadersCleaner
+from .componentheaders import ComponentHeadersCleaner
 from .standalone_xof import StandalonexOfCleaner
 from .responseconsolidation import ResponseConsolidationCleaner
 from .fieldname import FieldNameCleaner
@@ -11,7 +11,7 @@ from .redundanttitle import RedundantTitleCleaner
 from .enumdescriptions import EnumDescriptionsCleaner
 
 __all__ = [
-    'CommonHeadersCleaner',
+    'ComponentHeadersCleaner',
     'ResponseConsolidationCleaner',
     'StandalonexOfCleaner',
     'FieldNameCleaner',

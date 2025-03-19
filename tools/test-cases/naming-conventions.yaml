@@ -11,6 +11,7 @@ x-tools-validator:
     should-clean-to: naming-conventions-1-cleaned
     should-equal:
       - adr-field-names
+      - component-headers
 paths:
   /fieldnames:
     get:
@@ -39,8 +40,12 @@ paths:
         default:
           headers:
             API-Version:
-              type: string
-              description: Geeft een specifieke API-versie aan.
+              $ref: "#/components/headers/ApiVersionHeader"
+components:
+  headers:
+    ApiVersionHeader:
+      type: string
+      description: Geeft een specifieke API-versie aan.
 --- # Test 2
 openapi: 3.0.0
 info:

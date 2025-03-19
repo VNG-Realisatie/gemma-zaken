@@ -4,7 +4,7 @@ from ..cleaner import Cleaner
 from copy import deepcopy
 from caseconverter import pascalcase
 
-class CommonHeadersCleaner(Cleaner):
+class ComponentHeadersCleaner(Cleaner):
     """
     Moves common header definitions to components/headers.
     
@@ -14,7 +14,7 @@ class CommonHeadersCleaner(Cleaner):
     """
     
     def __init__(self):
-        super().__init__()
+        super().__init__('component-headers')
         self.common_headers = {}
 
     def _ref_name(self, header_name: str) -> str:
@@ -138,9 +138,9 @@ class CommonHeadersCleaner(Cleaner):
         self._collect_headers(spec)
 
         # Only process headers that appear multiple times
-        self.common_headers = {k: v for k, v in self.common_headers.items() if v['count'] > 1}
+        self.common_headers = {k: v for k, v in self.common_headers.items() if v['count'] > 0}
         if self.common_headers:
-            self.stats.counts['common_headers'] = len([h for h in self.common_headers.values() if h['count'] > 1])
+            self.stats.counts['common_headers'] = len([h for h in self.common_headers.values() if h['count'] > 0])
 
             # Second pass: move common headers to components
             spec = self._add_common_headers_to_components(spec)
