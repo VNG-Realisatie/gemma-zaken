@@ -23,6 +23,7 @@ def create_default_pipeline():
     pipeline = CleanupPipeline()
     pipeline.add_cleaner(RedundantTitleCleaner())
     pipeline.add_cleaner(ComponentHeadersCleaner())
+    pipeline.add_cleaner(ComponentPrefixCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
     pipeline.add_cleaner(CommonResponsesCleaner())
     pipeline.add_cleaner(SchemaMetadataConsolidationCleaner())

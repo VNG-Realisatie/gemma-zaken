@@ -14,14 +14,14 @@ components:
     ObjectBase:
       type: object
       properties:
-        derivedType:
+        objectType:
           type: string
       discriminator:
-        propertyName: derivedType
-  Object1:
-    type: object
-  Object2:
-    type: object
+        propertyName: objectType
+    Object1:
+      type: object
+    Object2:
+      type: object
 --- # Test 2
 openapi: 3.0.0
 info:
@@ -38,11 +38,91 @@ components:
     ObjectBase:
       type: object
       discriminator:
-        propertyName: derivedType
+        propertyName: objectType
         mapping:
           type1: "#/components/schemas/Object1"
           type2: "#/components/schemas/Object2"
-  Object1:
-    type: object
-  Object2:
-    type: object
+    Object1:
+      type: object
+    Object2:
+      type: object
+--- # Test 3
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-3
+  zgw-cleaner:
+    should-clean-to: discriminator-test-3-cleaned
+    should-hit:
+      - discriminator-to-variant
+components:
+  schemas:
+    ObjectBase:
+      type: object
+      properties:
+        objectType:
+          type: string
+      discriminator:
+        propertyName: objectType
+        mapping:
+          type1: "#/components/schemas/Object1"
+          type2: "#/components/schemas/Object2"
+    Object1:
+      type: object
+    Object2:
+      type: object
+--- # Test 4
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-4
+  zgw-cleaner:
+    should-clean-to: discriminator-test-3-cleaned
+    should-hit:
+      - discriminator-to-variant
+components:
+  schemas:
+    ObjectBase:
+      type: object
+      properties:
+        objectType:
+          type: enum
+          enum:
+            - Object1
+            - Object2
+      discriminator:
+        propertyName: objectType
+    Object1:
+      type: object
+    Object2:
+      type: object
+--- # Test 3 cleaned
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-3-cleaned
+components:
+  schemas:
+    ObjectVariant:
+      oneOf:
+        - $ref: "#/components/schemas/Object1"
+        - $ref: "#/components/schemas/Object2"
+    ObjectBase:
+      type: object
+      properties:
+        objectType:
+          type: string
+      discriminator:
+        propertyName: objectType
+        mapping:
+          type1: "#/components/schemas/Object1"
+          type2: "#/components/schemas/Object2"
+      required:
+        - objectType
+    Object1:
+      type: object
+    Object2:
+      type: object

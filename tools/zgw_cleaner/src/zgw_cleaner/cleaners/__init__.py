@@ -9,6 +9,7 @@ from .discriminatortovariant import DiscriminatorToVariantCleaner
 from .schemametadataconsolidation import SchemaMetadataConsolidationCleaner
 from .redundanttitle import RedundantTitleCleaner
 from .enumdescriptions import EnumDescriptionsCleaner
+from .component_prefix import ComponentPrefixCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -22,4 +23,5 @@ __all__ = [
     'SchemaMetadataConsolidationCleaner',
     'RedundantTitleCleaner',
     'EnumDescriptionsCleaner',
+    'ComponentPrefixCleaner',
     ]

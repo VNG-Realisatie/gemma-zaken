@@ -11,60 +11,115 @@ class DiscriminatorToVariantCleaner(Cleaner):
 
     def _create_variant_name(self, original_name: str) -> str:
         name = original_name
-        if name.endswith('Base'):
+        if name.lower().endswith('base'):
             name = name[:-4]
         return "{name}Variant".format(name=name)
 
-    def _extract_variant_parts(self, schema: Dict[str, Any]) -> tuple[Dict[str, Any], Dict[str, Any]]:
+    def _create_property_name(self, original_name: str) -> str:
+        name = original_name
+        if name.lower().endswith('type'):
+            return name[:-4]
+        return name
+
+    def _create_variant_schema(self, schema: Dict[str, Any]) -> Dict[str, Any]:
         """Extract discriminator-related parts into a variant schema.
         Returns (variant_schema, remaining_schema)"""
-        remaining = schema.copy()
         
         # Extract discriminator and its property
-        discriminator = remaining.pop('discriminator')
+        discriminator = schema['discriminator']
+        if not 'mapping' in discriminator:
+            return schema
+
         property_name = discriminator['propertyName']
+        data_name = self._create_property_name(property_name)
         
-        properties = remaining.get('properties', {})
-        discriminator_property = properties.pop(property_name, {})
+        properties = schema.get('properties', {})
+        discriminator_property = properties[property_name]
         
         # Build oneOf and mapping from enum values
-        enum_values = discriminator_property.get('enum', [])
         one_of = []
-        mapping = {}
         
-        for value in enum_values:
-            schema_ref = f"#/components/schemas/{value}"
-            
-            one_of.append({"$ref": schema_ref})
-            mapping[value] = schema_ref
+        # Try to use a mapping if it's available
+        mapping = discriminator.get('mapping', {})
+        for value, ref in mapping.items():
 
-        # Build variant schema
+            one_of_object = {
+                #'type': 'object',
+                'properties': {
+                    'type': {
+                        'type': 'string',
+                        'enum': [value]
+                    },
+                    'value': {
+                        '$ref': ref
+                    }
+                },
+            }
+            one_of.append(one_of_object)
+
         variant = {
             'type': 'object',
+            'required': ['type', 'value'],
+            'additionalProperties': False,
+            # 'discriminator': {
+            #     'propertyName': 'type',
+            #     'mapping': mapping.copy()
+            # },
             'oneOf': one_of,
-            'discriminator': {
-                'propertyName': property_name,
-                'mapping': mapping
-            },
-            'properties': {
-                property_name: discriminator_property
-            },
-            'required': [property_name]
         }
-        
-        # Clean up remaining schema
-        if properties:
-            remaining['properties'] = properties
-        else:
-            remaining.pop('properties', None)
-            
-        if 'required' in remaining and property_name in remaining['required']:
-            remaining['required'].remove(property_name)
-            if not remaining['required']:
-                remaining.pop('required')
 
-        return variant, remaining
-    
+        # Return the variant schema object
+        return variant
+
+    def _add_discriminator_mapping(self, schema: Dict[str, Any]) -> Dict[str, Any]:
+        """Update the original schema to use the variant schema for discriminator"""
+
+        if 'discriminator' not in schema:
+            return schema
+
+        discriminator = schema['discriminator']
+        if 'mapping' in discriminator:
+            return schema
+        
+        if 'propertyName' not in discriminator:
+            return schema
+
+        property_name = discriminator['propertyName']
+        properties = schema.get('properties', {})
+        discriminator_property = properties[property_name]
+
+        if 'enum' not in discriminator_property:
+            return schema
+        
+        enum_values = discriminator_property.get('enum', [])
+        if len(enum_values) == 0:
+            return schema
+
+        discriminator['mapping'] = {}
+
+        for value in enum_values:
+            discriminator['mapping'][value] = f"#/components/schemas/{value}"
+        
+        return schema
+
+    def _add_property_name_to_required(self, schema: Dict[str, Any]) -> Dict[str, Any]:
+
+        if 'discriminator' not in schema:
+            return schema
+        
+        discriminator = schema['discriminator']
+        if 'propertyName' not in discriminator:
+            return schema
+
+        property_name = discriminator['propertyName']
+
+        if 'required' not in schema:
+            schema['required'] = [property_name]
+        elif property_name not in schema['required']:
+            schema['required'].append(property_name)
+
+        return schema
+
     def _should_update_ref(self, parent: Dict[str, Any], ref: str) -> bool:
         """Determine if this reference should be updated to point to variant"""
         # Don't update refs in allOf
@@ -99,14 +154,20 @@ class DiscriminatorToVariantCleaner(Cleaner):
         
         for name, schema in list(schemas.items()):
             if self._has_discriminator_without_variant(schema):
+
+                # Add discriminator mapping to the schema
+                schema = self._add_discriminator_mapping(schema)
+                schema = self._add_property_name_to_required(schema)
+
                 variant_name = self._create_variant_name(name)
-                variant, remaining = self._extract_variant_parts(schema)
-                
+                variant = self._create_variant_schema(schema)
                 schemas[variant_name] = variant
-                schemas[name] = remaining
 
                 # Update refs throughout the spec, except in allOf
                 spec = self._update_refs(spec, name, variant_name)
+
+
+
 
         return spec
     
