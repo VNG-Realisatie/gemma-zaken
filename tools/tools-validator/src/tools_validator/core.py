@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Dict, List
 from ruamel.yaml import YAML
+import sys
 from .validators.spectral import SpectralValidator
 from .validators.zgw_cleaner import ZgwCleanerValidator
 from .validator import ValidationConfig, ValidationResult
@@ -25,8 +26,10 @@ def print_validation_details(name: str, details: List[str]):
         print(f"  → {name} {detail}")
 
 class ToolsValidator:
-    def __init__(self, test_cases_dir: Path, spectral_ruleset: Path = None):
+    def __init__(self, test_cases_dir: Path, test_cases_filter: str = None, print_cleaned: bool = False, spectral_ruleset: Path = None):
         self.test_cases_dir = test_cases_dir
+        self.test_cases_filter = test_cases_filter.split(",") if test_cases_filter else []
+        self.print_cleaned = print_cleaned
         self.yaml = YAML()
         self.spectral = SpectralValidator(spectral_ruleset)
         self.cleaner = ZgwCleanerValidator()
@@ -61,6 +64,15 @@ class ToolsValidator:
         specs_map = {spec['x-tools-validator']['id']: spec for spec in specs}
 
         for spec_id, spec in specs_map.items():
+
+            filter_case = False
+            for case_filter in self.test_cases_filter:
+                if case_filter not in spec_id:
+                    filter_case = True
+                    break
+            if filter_case:
+                continue
+
             validator_info = spec.get('x-tools-validator', {})
 
             spectral_result = None
@@ -99,6 +111,12 @@ class ToolsValidator:
                 if not self.cleaner.compare_specs(cleaned_spec, clean_ref):
                     cleaner_result.success = False
                     cleaner_result.details.append(f"should clean to {cleaned_id}")
+
+                    # Output the cleaned spec as yaml if requested
+                    if self.print_cleaned:
+                        yaml = YAML()
+                        yaml.default_flow_style = False  # for block style output
+                        yaml.dump(cleaned_spec, sys.stdout)                    
 
             print(format_result_line(
                 yaml_file.name,
