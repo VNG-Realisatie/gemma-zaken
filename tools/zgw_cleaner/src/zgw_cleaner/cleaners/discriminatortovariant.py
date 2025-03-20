@@ -42,30 +42,10 @@ class DiscriminatorToVariantCleaner(Cleaner):
         # Try to use a mapping if it's available
         mapping = discriminator.get('mapping', {})
         for value, ref in mapping.items():
-
             one_of_object = {'$ref': ref }
-
-            #     #'type': 'object',
-            #     'properties': {
-            #         'type': {
-            #             'type': 'string',
-            #             'enum': [value]
-            #         },
-            #         'value': {
-            #             '$ref': ref
-            #         }
-            #     },
-            # }
             one_of.append(one_of_object)
 
         variant = {
-            #'type': 'object',
-            #'required': ['type', 'value'],
-            #'additionalProperties': False,
-            # 'discriminator': {
-            #     'propertyName': 'type',
-            #     'mapping': mapping.copy()
-            # },
             'oneOf': one_of,
         }
 
@@ -135,14 +115,6 @@ class DiscriminatorToVariantCleaner(Cleaner):
                     'enum': [variant_name]
                 }}.items()) + 
                 list(schema['properties'].items()))
-
-
-            # schema['properties'][property_name] = \
-            # {
-            #     'type': 'string',
-            #     'enum': [variant_name]
-            # }
-
         return schema
 
     def _should_update_ref(self, parent: Dict[str, Any], ref: str) -> bool:
@@ -199,6 +171,9 @@ class DiscriminatorToVariantCleaner(Cleaner):
                 for variant_id, concrete_ref in schema['discriminator']['mapping'].items():
 
                     concrete_name = concrete_ref.split('/')[-1]
+                    if concrete_name not in schemas:
+                        continue
+
                     concrete_schema = schemas[concrete_name]
 
                     # could be the concrete schema is like a mixin pattern
@@ -219,7 +194,7 @@ class DiscriminatorToVariantCleaner(Cleaner):
 
                     schemas[concrete_name] = self._update_concrete_class(concrete_schema, \
                                 schema['discriminator']['propertyName'], variant_id)
-
+                    
                 # Update refs throughout the spec, except in allOf
                 spec = self._update_refs(spec, name, variant_name)
 
