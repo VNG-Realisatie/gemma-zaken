@@ -56,6 +56,25 @@ class SortCleaner(Cleaner):
         """
         return dict(sorted(responses.items()))
 
+    def _sort_root(self, schema: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Sorts the root of an OpenAPI document
+        """
+        def key_ordering(key: str) -> int:
+            order = {
+                "openapi": 0,
+                "info": 1,
+                "servers": 2,
+                "security": 3,
+                "paths": 4,
+                "components": 5,
+                "tags": 6,
+                "externalDocs": 7
+            }
+            return order.get(key, 100)  # unspecified keys go to the end
+
+        return dict(sorted(schema.items(), key=lambda item: key_ordering(item[0])))
+
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
         if path is None:
             path = []
@@ -67,12 +86,15 @@ class SortCleaner(Cleaner):
         if self._is_schema(spec, path):
             spec = self._sort_schema(spec)
         elif 'responses' in path[-1:]:
-            spec = self._sort_responses(spec)            
+            spec = self._sort_responses(spec)
             
         # Recurse through nested structures
         for key, value in spec.items():
             if isinstance(value, (dict, list)):
                 spec[key] = self.clean(value, path + [key])
-            
+
+        if path == []:
+            spec = self._sort_root(spec)
+
         return spec
 
