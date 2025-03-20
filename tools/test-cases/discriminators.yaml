@@ -69,35 +69,11 @@ components:
           type1: "#/components/schemas/Object1"
           type2: "#/components/schemas/Object2"
     Object1:
-      type: object
+      allOf:
+        - $ref: "#/components/schemas/ObjectBase"
     Object2:
-      type: object
---- # Test 4
-openapi: 3.0.0
-info:
-  title: Test API
-x-tools-validator:
-  id: discriminator-test-4
-  zgw-cleaner:
-    should-clean-to: discriminator-test-3-cleaned
-    should-hit:
-      - discriminator-to-variant
-components:
-  schemas:
-    ObjectBase:
-      type: object
-      properties:
-        objectType:
-          type: enum
-          enum:
-            - Object1
-            - Object2
-      discriminator:
-        propertyName: objectType
-    Object1:
-      type: object
-    Object2:
-      type: object
+      allOf:
+        - $ref: "#/components/schemas/ObjectBase"
 --- # Test 3 cleaned
 openapi: 3.0.0
 info:
@@ -122,6 +98,42 @@ components:
           type2: "#/components/schemas/Object2"
       required:
         - objectType
+    Object1:
+      allOf:
+        - $ref: "#/components/schemas/ObjectBase"
+      properties:
+        objectType:
+          enum:
+            - type1
+    Object2:
+      allOf:
+        - $ref: "#/components/schemas/ObjectBase"
+      properties:
+        objectType:
+          enum:
+            - type2
+--- # Test 4
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: discriminator-test-4
+  zgw-cleaner:
+    should-clean-to: discriminator-test-3-cleaned
+    should-hit:
+      - discriminator-to-variant
+components:
+  schemas:
+    ObjectBase:
+      type: object
+      properties:
+        objectType:
+          type: enum
+          enum:
+            - type1
+            - type2
+      discriminator:
+        propertyName: objectType
     Object1:
       type: object
     Object2:
