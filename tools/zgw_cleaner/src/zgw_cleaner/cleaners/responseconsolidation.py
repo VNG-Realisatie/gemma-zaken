@@ -9,6 +9,40 @@ class ResponseConsolidationCleaner(Cleaner):
     Consolidates response patterns at the operation level following OpenAPI's matching rules.
     Consolidates from specific to unspecific (exact code -> 4xx/5xx).
     """
+    def _revert_consolidation_by_number(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+        """Reverts the consolidation of responses by number."""
+
+        if 'components' not in spec:
+            return spec
+        if 'responses' not in spec['components']:
+            return spec
+        if 'paths' not in spec:
+            return spec
+        
+        response_codes = ['default', '1XX', '2XX', '3XX', '4XX', '5XX', '400', '401', '403',
+                          '404', '405', '406', '409', '410', '412', '415', '429', '500', '501',
+                          '502', '503', '504']
+        
+        responses = spec['components']['responses']
+        response_map = {}
+        for response_key, response_def in responses.items():
+            if str(response_key) in response_codes:
+                response_map[response_key] = response_def
+
+        for path, path_item in spec['paths'].items():
+            for method, operation in path_item.items():
+                if 'responses' not in operation:
+                    continue
+
+                for response_key, response_def in operation['responses'].items():
+                    if str(response_key) in response_map:
+                        operation['responses'][response_key] = response_map[response_key]
+
+        for response_code in response_codes:
+            if response_code in responses:
+                responses.pop(response_code)
+
+        return spec
 
     def _create_response_key(self, response_def: Dict) -> frozenset:
         """Creates a hashable key from a response definition, ignoring description."""
@@ -84,6 +118,7 @@ class ResponseConsolidationCleaner(Cleaner):
         """Clean the specification by consolidating common response patterns."""
         if path is None:
             path = []
+            spec = self._revert_consolidation_by_number(spec)
 
         if not isinstance(spec, dict):
             return spec
