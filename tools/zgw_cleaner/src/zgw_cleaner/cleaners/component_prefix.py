@@ -7,6 +7,7 @@ class ComponentPrefixCleaner(Cleaner):
     """
     def __init__(self):
         super().__init__('merge-prefix-components')
+        self.search_replace = []
 
     def _find_concrete_type(self, name: str, spec: Dict[str, Any]) -> bool:
         """
@@ -18,22 +19,12 @@ class ComponentPrefixCleaner(Cleaner):
             return None
 
         # Should be only allOf
-        only_allof = len(spec) == 2 and 'allOf' in spec and 'type' in spec
-        only_allof = only_allof or len(spec) == 1 and 'allOf' in spec
-        if not only_allof:
-            return None
-
-        # Should have exactly two items in allOf
-        if not isinstance(spec['allOf'], list):
-            return None
-        if len(spec['allOf']) != 2:
+        if not self._is_mixin_schema(spec):
             return None
         
-        # Should be all refs
+        # Collect the refs
         refs = []
         for ref in spec['allOf']:
-            if not isinstance(ref, dict) or '$ref' not in ref:
-                return None
             refs.append(ref['$ref'])
 
         # Check if one ref points to a schema with name's prefix
@@ -45,6 +36,25 @@ class ComponentPrefixCleaner(Cleaner):
 
         return None
 
+    def _search_replace_values(self, spec: Dict[str, Any], search: str, replace: str) -> Dict[str, Any]:
+        """Recursively search and replace in a dictionary."""
+
+        if isinstance(spec, list):
+            for i, item in enumerate(spec):
+                spec[i] = self._search_replace_values(item, search, replace)
+            return spec
+
+        if not isinstance(spec, dict):
+            return spec
+
+        for key, value in spec.items():
+            if isinstance(value, str) and search in value:
+                spec[key] = value.replace(search, replace)
+            else:
+                spec[key] = self._search_replace_values(value, search, replace)
+
+        return spec
+
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
         """Clean the specification by restructuring prefix variants."""
         if path is None:
@@ -55,8 +65,8 @@ class ComponentPrefixCleaner(Cleaner):
 
         # Focus on components/schemas section
         if len(path) >= 2 and path[-2] == 'components' and path[-1] == 'schemas':
-            
-            items_to_pop = []
+
+            names_to_pop = []
             for name, schema in spec.items():
 
                 concrete_name = self._find_concrete_type(name, schema)
@@ -72,10 +82,18 @@ class ComponentPrefixCleaner(Cleaner):
                 for item in schema.get('allOf', []):
                     if item['$ref'] != f"#/components/schemas/{concrete_name}":
                         concrete_schema['allOf'].append(item)
-                            
-                items_to_pop.append(name)
 
-            for item in items_to_pop:
+                if 'type' in concrete_schema and concrete_schema['type'] == 'object':
+                    concrete_schema.pop('type')
+
+                names_to_pop.append(name)
+
+                self.search_replace.append({
+                    'search': f"#/components/schemas/{name}",
+                    'replace': f"#/components/schemas/{concrete_name}"
+                     })
+
+            for item in names_to_pop:
                 self.stats.counts['components_removed'] += 1
                 spec.pop(item)
 
@@ -88,5 +106,14 @@ class ComponentPrefixCleaner(Cleaner):
             elif isinstance(value, list):
                 spec[key] = [self.clean(item, path + [key]) if isinstance(item, dict) else item 
                             for item in value]
+
+        return spec
+
+    def post_clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+
+        for search_replace in self.search_replace:
+           spec = self._search_replace_values(spec, search_replace['search'], search_replace['replace'])
+
+        self.search_replace = []
 
         return spec

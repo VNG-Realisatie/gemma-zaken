@@ -43,24 +43,25 @@ class DiscriminatorToVariantCleaner(Cleaner):
         mapping = discriminator.get('mapping', {})
         for value, ref in mapping.items():
 
-            one_of_object = {
-                #'type': 'object',
-                'properties': {
-                    'type': {
-                        'type': 'string',
-                        'enum': [value]
-                    },
-                    'value': {
-                        '$ref': ref
-                    }
-                },
-            }
+            one_of_object = {'$ref': ref }
+
+            #     #'type': 'object',
+            #     'properties': {
+            #         'type': {
+            #             'type': 'string',
+            #             'enum': [value]
+            #         },
+            #         'value': {
+            #             '$ref': ref
+            #         }
+            #     },
+            # }
             one_of.append(one_of_object)
 
         variant = {
-            'type': 'object',
-            'required': ['type', 'value'],
-            'additionalProperties': False,
+            #'type': 'object',
+            #'required': ['type', 'value'],
+            #'additionalProperties': False,
             # 'discriminator': {
             #     'propertyName': 'type',
             #     'mapping': mapping.copy()
@@ -119,6 +120,30 @@ class DiscriminatorToVariantCleaner(Cleaner):
             schema['required'].append(property_name)
 
         return schema
+    
+    def _update_concrete_class(self, schema: Dict[str, Any], property_name: str, variant_name: str) -> Dict[str, Any]:
+        """Update concrete classes to have a single-item enum"""
+
+        if 'properties' not in schema:
+            schema['properties'] = {}
+
+        if property_name not in schema['properties']:
+
+            schema['properties'] = dict(
+                list({property_name: {
+                    #'type': 'string',      # Since we're overruling, this is already defined
+                    'enum': [variant_name]
+                }}.items()) + 
+                list(schema['properties'].items()))
+
+
+            # schema['properties'][property_name] = \
+            # {
+            #     'type': 'string',
+            #     'enum': [variant_name]
+            # }
+
+        return schema
 
     def _should_update_ref(self, parent: Dict[str, Any], ref: str) -> bool:
         """Determine if this reference should be updated to point to variant"""
@@ -155,19 +180,48 @@ class DiscriminatorToVariantCleaner(Cleaner):
         for name, schema in list(schemas.items()):
             if self._has_discriminator_without_variant(schema):
 
-                # Add discriminator mapping to the schema
+                # Add discriminator mapping to the schema, 
+                # could be based on e.g. an enum or a property
                 schema = self._add_discriminator_mapping(schema)
+
+                # Make sure the discriminator propertyName is required
                 schema = self._add_property_name_to_required(schema)
 
+                # Create a variant schema and add it to the spec
+                # It is a pure oneOf schema, so we the discriminator
+                # could become obsolete.
                 variant_name = self._create_variant_name(name)
                 variant = self._create_variant_schema(schema)
                 schemas[variant_name] = variant
 
+                # Update the concrete classes to redefine the propertyName
+                # as a single-item enum
+                for variant_id, concrete_ref in schema['discriminator']['mapping'].items():
+
+                    concrete_name = concrete_ref.split('/')[-1]
+                    concrete_schema = schemas[concrete_name]
+
+                    # could be the concrete schema is like a mixin pattern
+                    # In that case, try to follow the ref to the concrete schema
+                    if self._is_mixin_schema(concrete_schema):
+                        # Collect the refs
+                        refs = []
+                        for ref in concrete_schema['allOf']:
+                            refs.append(ref['$ref'])
+
+                        # Check if one ref points to a schema with name's prefix
+                        prefix = concrete_name.lower()
+                        for ref in refs:
+                            short_ref = ref.replace('#/components/schemas/', '')
+                            if short_ref.startswith(prefix):
+                                concrete_name = short_ref
+                                concrete_schema = schemas[concrete_name]
+
+                    schemas[concrete_name] = self._update_concrete_class(concrete_schema, \
+                                schema['discriminator']['propertyName'], variant_id)
+
                 # Update refs throughout the spec, except in allOf
                 spec = self._update_refs(spec, name, variant_name)
-
-
-
 
         return spec
     

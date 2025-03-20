@@ -1,6 +1,6 @@
 
 from typing import Dict, Any
-from collections import Counter
+from collections import Counter, OrderedDict
 
 class CleanerStats:
     """Statistics for a cleaning operation."""
@@ -28,4 +28,27 @@ class Cleaner:
 
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
         raise NotImplementedError
+
+    def post_clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+        return spec
+
+    def _is_mixin_schema(self, schema: Dict[str, Any]) -> bool:
+        """
+        Checks if the schema is a mixin schema.
+        """
+        only_allof = len(schema) == 2 and 'allOf' in schema and 'type' in schema and schema['type'] == 'object'
+        only_allof = only_allof or len(schema) == 1 and 'allOf' in schema
+        if not only_allof:
+            return False
+        
+        if not isinstance(schema['allOf'], list):
+            return False
+
+        # Should be all refs
+        for item in schema['allOf']:
+            if not isinstance(item, dict) or '$ref' not in item:
+                return False
+
+        return True
+
 

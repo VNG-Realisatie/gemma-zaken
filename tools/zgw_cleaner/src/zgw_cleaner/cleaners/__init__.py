@@ -10,6 +10,7 @@ from .schemametadataconsolidation import SchemaMetadataConsolidationCleaner
 from .redundanttitle import RedundantTitleCleaner
 from .enumdescriptions import EnumDescriptionsCleaner
 from .component_prefix import ComponentPrefixCleaner
+from .sort import SortCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -24,4 +25,5 @@ __all__ = [
     'RedundantTitleCleaner',
     'EnumDescriptionsCleaner',
     'ComponentPrefixCleaner',
+    'SortCleaner'
     ]
