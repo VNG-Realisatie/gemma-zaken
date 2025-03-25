@@ -7,7 +7,7 @@ from .tags import TagsCleaner
 from .descriptionformat import DescriptionFormatCleaner
 from .discriminatortovariant import DiscriminatorToVariantCleaner
 from .schemametadataconsolidation import SchemaMetadataConsolidationCleaner
-from .redundanttitle import RedundantTitleCleaner
+from .redundant_title import RedundantTitleCleaner
 from .enumdescriptions import EnumDescriptionsCleaner
 from .component_prefix import ComponentPrefixCleaner
 from .sort import SortCleaner

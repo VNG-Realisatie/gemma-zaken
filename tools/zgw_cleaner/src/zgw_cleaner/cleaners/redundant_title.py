@@ -57,6 +57,13 @@ class RedundantTitleCleaner(Cleaner):
                 del spec['title']
                 self.stats.counts['titles_removed'] = self.stats.counts.get('titles_removed', 0) + 1
 
+        # Case 4: Array item title matches parent schema name
+        if len(path) >= 2 and path[-1] == 'items' and 'title' in spec:
+            parent_schema_name = path[-2]
+            if self._should_remove_title(parent_schema_name, spec['title']):
+                del spec['title']
+                self.stats.counts['titles_removed'] = self.stats.counts.get('titles_removed', 0) + 1        
+
         # Recurse through nested structures
         for key, value in spec.items():
             if isinstance(value, dict):
