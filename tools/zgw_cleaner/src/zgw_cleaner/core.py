@@ -35,4 +35,5 @@ def create_default_pipeline():
     pipeline.add_cleaner(StandalonexOfCleaner())
     pipeline.add_cleaner(NamingConventionsCleaner())
     pipeline.add_cleaner(SortCleaner())
+    pipeline.add_cleaner(RemoveDiscriminatorCleaner())
     return pipeline

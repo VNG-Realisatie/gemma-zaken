@@ -11,6 +11,7 @@ from .redundant_title import RedundantTitleCleaner
 from .enum_descriptions import EnumDescriptionsCleaner
 from .component_prefix import ComponentPrefixCleaner
 from .sort import SortCleaner
+from .remove_discriminator import RemoveDiscriminatorCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -25,5 +26,6 @@ __all__ = [
     'RedundantTitleCleaner',
     'EnumDescriptionsCleaner',
     'ComponentPrefixCleaner',
-    'SortCleaner'
+    'SortCleaner',
+    'RemoveDiscriminatorCleaner',
     ]
