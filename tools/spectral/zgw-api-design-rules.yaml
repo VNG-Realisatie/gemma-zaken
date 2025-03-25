@@ -172,6 +172,8 @@ rules:
       - "$..parameters[*]"
       # Case 3: Component schema titles
       - "$.components.schemas.*"
+      # Case 4: Array item titles in relation to the array title
+      - "$..items"
     then:
       function: checkRedundantTitle
 

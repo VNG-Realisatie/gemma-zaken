@@ -38,5 +38,19 @@ export default (schema, _opts, context) => {
     }
   }
 
+  // Case 4: Array item titles match the parent schema name
+  if (schema.title && context.path.includes("items")) {
+    // Get the parent schema name (two levels up from items)
+    const parentSchemaName = context.path[context.path.length - 2];
+
+    if (normalize(parentSchemaName) === normalize(schema.title)) {
+      return [
+        {
+          message: `Array item title "${schema.title}" is redundant with its parent schema name "${parentSchemaName}". Make the title more descriptive.`,
+        },
+      ];
+    }
+  }
+
   return [];
 };
