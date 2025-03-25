@@ -33,6 +33,6 @@ def create_default_pipeline():
     pipeline.add_cleaner(DiscriminatorToVariantCleaner())
     pipeline.add_cleaner(ComponentPrefixCleaner())
     pipeline.add_cleaner(StandalonexOfCleaner())
-    pipeline.add_cleaner(FieldNameCleaner())
+    pipeline.add_cleaner(NamingConventionsCleaner())
     pipeline.add_cleaner(SortCleaner())
     return pipeline

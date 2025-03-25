@@ -51,4 +51,32 @@ class Cleaner:
 
         return True
 
+    def _update_references(self, old_ref: str, new_ref: str, spec: Dict[str, Any]) -> Dict[str, Any]:
+        """Updates all references to a component."""
+        if isinstance(spec, dict):
+            for key, value in spec.items():
+                if value == old_ref:
+                    spec[key] = new_ref
+                    self.stats.counts['reference_updates'] += 1
+                else:
+                    spec[key] = self._update_references(old_ref, new_ref, value)
+        elif isinstance(spec, list):
+            return [self._update_references(old_ref, new_ref, item) for item in spec]
+        return spec
+
+    def _rename_component(self, old_name: str, new_name: str, spec: Dict[str, Any]) -> Dict[str, Any]:
+       
+       """Renames a component and updates all references to it."""
+       if 'components' in spec:
+            components = spec['components']
+            for component_type in components:
+                if component_type in ['schemas', 'parameters', 'headers']:
+                    if old_name in components[component_type]:
+                        components[component_type][new_name] = components[component_type].pop(old_name)
+                        self.stats.counts['component_renames'] += 1
+
+                        old_ref = f'#/components/{component_type}/{old_name}'
+                        new_ref = f'#/components/{component_type}/{new_name}'
+                        spec = self._update_references(old_ref, new_ref, spec)
+       return spec
 

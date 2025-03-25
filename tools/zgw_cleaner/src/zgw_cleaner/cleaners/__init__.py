@@ -1,7 +1,7 @@
 from .componentheaders import ComponentHeadersCleaner
 from .standalone_xof import StandalonexOfCleaner
 from .responseconsolidation import ResponseConsolidationCleaner
-from .fieldname import FieldNameCleaner
+from .naming_conventions import NamingConventionsCleaner
 from .commonresponses import CommonResponsesCleaner
 from .tags import TagsCleaner
 from .descriptionformat import DescriptionFormatCleaner
@@ -16,7 +16,7 @@ __all__ = [
     'ComponentHeadersCleaner',
     'ResponseConsolidationCleaner',
     'StandalonexOfCleaner',
-    'FieldNameCleaner',
+    'NamingConventionsCleaner',
     'CommonResponsesCleaner',
     'TagsCleaner',
     'DescriptionFormatCleaner',

@@ -10,7 +10,7 @@ x-tools-validator:
   zgw-cleaner:
     should-clean-to: naming-conventions-1-cleaned
     should-equal:
-      - adr-field-names
+      - naming-conventions
       - component-headers
 paths:
   /fieldnames:
