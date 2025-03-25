@@ -51,3 +51,19 @@ components:
     TestObject:
       type: object
       title: Test_object
+--- # Test 3
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: no-redundant-titles-test-3
+  spectral:
+    should-hit:
+      - no-redundant-titles
+components:
+  schemas:
+    TestObject:
+      type: array
+      items:
+        type: object
+        title: Test_object
