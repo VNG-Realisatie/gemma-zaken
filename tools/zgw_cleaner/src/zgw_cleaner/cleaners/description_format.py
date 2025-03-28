@@ -37,7 +37,7 @@ class DescriptionFormatCleaner(Cleaner):
         paragraphs = [p.strip() for p in cleaned.split('\n\n')]
         
         # Remove empty paragraphs and join with double newlines
-        cleaned = '\n\n'.join(p for p in paragraphs if p)
+        cleaned = '\n\n'.join(p for p in paragraphs if p) + '\n'
 
         return LiteralScalarString(cleaned)
 

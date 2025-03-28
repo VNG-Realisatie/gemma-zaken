@@ -19,7 +19,7 @@ class SearchReplaceCleaner(Cleaner):
         ]
 
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
-        """Clean the specification by removing redundant titles."""
+        """Clean the specification by searching and replacing exact dictionary keys and values"""
         if path is None:
             path = []
             
