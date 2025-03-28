@@ -12,6 +12,7 @@ from .enum_descriptions import EnumDescriptionsCleaner
 from .component_prefix import ComponentPrefixCleaner
 from .sort import SortCleaner
 from .remove_discriminator import RemoveDiscriminatorCleaner
+from .search_replace import SearchReplaceCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -28,4 +29,5 @@ __all__ = [
     'ComponentPrefixCleaner',
     'SortCleaner',
     'RemoveDiscriminatorCleaner',
+    'SearchReplaceCleaner',
     ]

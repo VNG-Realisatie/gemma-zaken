@@ -22,6 +22,7 @@ class CleanupPipeline:
 
 def create_default_pipeline():
     pipeline = CleanupPipeline()
+    pipeline.add_cleaner(SearchReplaceCleaner())
     pipeline.add_cleaner(RedundantTitleCleaner())
     pipeline.add_cleaner(ComponentHeadersCleaner())
     pipeline.add_cleaner(ResponseConsolidationCleaner())
