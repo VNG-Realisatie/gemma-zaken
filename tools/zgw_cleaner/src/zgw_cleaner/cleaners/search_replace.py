@@ -27,7 +27,13 @@ class SearchReplaceCleaner(Cleaner):
                                             'basePath': { 'default': 'api',
                                                           'description': 'The base path for the API' }
                                          }} ] }	
-            }
+            },
+            { 'search': ['info', 'license'],
+              'replace': { 'license': { 'name': 'European Union Public Licence (EUPL-1.2)',
+                                        'url': 'https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12' } }
+            },
+            { 'search': ['openapi'],
+             'replace': { 'openapi': '3.0.4' } },
         ]
 
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
