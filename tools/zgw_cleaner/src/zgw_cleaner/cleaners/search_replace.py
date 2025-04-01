@@ -17,6 +17,18 @@ class SearchReplaceCleaner(Cleaner):
                                                                  'description': 'Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.' } } } }
             },
         ]
+    
+        self.patterns_by_path = [
+            { 'search': ['servers'],
+              'replace': { 'servers': [ {'url': 'https://{host}/{basePath}/v1',
+                                         'variables': {
+                                             'host': { 'default': 'example.com',
+                                                      'description': 'The host server for the API' },
+                                            'basePath': { 'default': 'api',
+                                                          'description': 'The base path for the API' }
+                                         }} ] }	
+            }
+        ]
 
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:
         """Clean the specification by searching and replacing exact dictionary keys and values"""
@@ -28,6 +40,7 @@ class SearchReplaceCleaner(Cleaner):
         
         for pattern in self.patterns:
             pattern_matched = True
+
             for search_key, search_values in pattern['search'].items():
                 if search_key not in spec:
                     pattern_matched = False
@@ -40,11 +53,19 @@ class SearchReplaceCleaner(Cleaner):
                 if spec[search_key] != search_values:
                     pattern_matched = False
                     break
+
             if not pattern_matched:
                 continue
 
             for search_key in pattern['search'].keys():
                 spec[search_key] = deepcopy(pattern['replace'][search_key])
+
+        for pattern in self.patterns_by_path:
+            if pattern['search'][-1] not in spec:
+                continue
+            if pattern['search'][:-1] != path:
+                continue
+            spec[pattern['search'][-1]] = deepcopy(pattern['replace'][pattern['search'][-1]])
 
         # Recurse through nested structures
         for key, value in spec.items():
