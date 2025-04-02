@@ -16,6 +16,7 @@ class SortCleaner(Cleaner):
         schema_paths = [
             ['components', 'schemas'],
             ['definitions'],  # OpenAPI 2.0
+            ['info']
         ]
         
         # Check if we're in a schema location
@@ -37,13 +38,14 @@ class SortCleaner(Cleaner):
                 'anyOf': 1,
                 'oneOf': 2,
                 'title': 3,
-                'description': 4,
-                'type': 5,
-                'items': 6,
-                'properties': 7,
-                'format': 8,
-                'required': 9,
-                'example': 10,
+                'version': 4,
+                'description': 5,
+                'type': 6,
+                'items': 7,
+                'properties': 8,
+                'format': 9,
+                'required': 10,
+                'example': 11,
             }
             return order.get(key, 100)  # unspecified keys go to the end
 
