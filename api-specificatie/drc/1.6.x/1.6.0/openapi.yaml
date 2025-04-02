@@ -7270,7 +7270,7 @@ components:
       type: object
       properties:
         informatieobjecttype:
-          $ref: '../../../ztc/1.3.x/1.3.1/openapi.yaml#/components/schemas/InformatieObjectType'
+          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/InformatieObjectTypeExpanded'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.

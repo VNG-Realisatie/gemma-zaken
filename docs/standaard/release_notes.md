@@ -2,6 +2,11 @@
 
 ## Zaken API (`zrc 1.5.2`)
 
+- **Geneste expand van catalogi objecten mogelijk gemaakt**
+
+  Via de Zaken API kunnen de catalogi objecten (zaaktype, resultaattype, statustype, etc.) nu op geneste wijze geexpandeerd worden.
+
+
 - **Oplossen fouten in OAS m.b.t. expand**  
 
   N.a.v. de volgende issues:
@@ -18,6 +23,10 @@
 
 ## Catalogi API (`ztc 1.3.2`)
 
+- **Geneste expansion toegevoegd aan Catalogi API**  
+
+  Geneste expansie objecten toegevoegd aan het schema van de OAS. De expand is niet toegevoegd aan de operaties van de Catalogi API  zelf maar de geneste expand kan (indirect) aangeroepen worden vanuit de Zaken API.
+
 - **Aanscherping specificatie eigenschappen met datumvelden**  
 
   Regel `zt-015` toegevoegd aan de aanvullende specificatie naar aanleiding van het volgende issue:  
@@ -30,7 +39,11 @@
   
 ## Documenten API (`drc 1.6.0`)
 
+- **Geneste expand van catalogi objecten mogelijk gemaakt**
+
+In het bijzonder is het nu mogelijk om het attribuut  `informatieobjecttype` te kunnen expanden.
+
 - **Expand toegevoegd aan ObjectInformatieObject**  
   
-  Zie issues #1891 en #2370 waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject".  
+  Zie issues #1891 en #2370 waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject". 
   
