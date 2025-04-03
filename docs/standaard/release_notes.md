@@ -1,6 +1,6 @@
 # Release Notes
 
-## Zaken API (`zrc 1.5.2`)
+## Zaken API (`zrc 1.5.1` -> `zrc 1.5.2`)
 
 - **Geneste expand van catalogi objecten mogelijk gemaakt**
 
@@ -21,7 +21,7 @@
 
   Hiervoor waren de referenties absolute paden wat niet handig is voor het uitrollen van een nieuwe release want dan moeten de paden handmatig worden aangepast.
 
-## Catalogi API (`ztc 1.3.2`)
+## Catalogi API (`ztc 1.3.1` -> `ztc 1.3.2`)
 
 - **Geneste expansion toegevoegd aan Catalogi API**  
 
@@ -37,11 +37,11 @@
 
   Naar aanleiding van issue [#2456](https://github.com/VNG-Realisatie/gemma-zaken/issues/2456) (Business rule ztc-010 herschrijven).
   
-## Documenten API (`drc 1.6.0`)
+## Documenten API (`drc 1.5.0` -> `drc 1.6.0`)
 
 - **Geneste expand van catalogi objecten mogelijk gemaakt**
 
-In het bijzonder is het nu mogelijk om het attribuut  `informatieobjecttype` te kunnen expanden.
+    In het bijzonder is het nu mogelijk om het attribuut  `informatieobjecttype` te kunnen expanden.
 
 - **Expand toegevoegd aan ObjectInformatieObject**  
   
