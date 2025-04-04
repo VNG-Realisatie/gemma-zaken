@@ -7181,24 +7181,42 @@ paths:
           name: Accept-Crs
           schema:
             type: string
-            enum:
+            enum: 
               - EPSG:4326
-          description:
-            Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
-            in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
-            (EPSG:4326 is hetzelfde als WGS84).
-          required: true
+              - EPSG:4258
+              - EPSG:28992 
+            default: EPSG:4326
+          description: 
+            "Het gewenste Coordinate Reference System (CRS) van de geometrie in het antwoord (response body). Er zijn drie mogelijke coördinatenstelsels: 
+
+             - EPSG:4326 (Wereld), 
+
+             - EPSG:4258 (Europa) en
+
+             - EPSG:28992 (Nederland). 
+             
+
+             Als deze header niet wordt meegegeven, dan is EPSG:4326 (Wereld) de default waarde."
         - in: header
           name: Content-Crs
           schema:
             type: string
-            enum:
+            enum: 
               - EPSG:4326
+              - EPSG:4258
+              - EPSG:28992 
+            default: EPSG:4326
           description:
-            Het 'Coordinate Reference System' (CRS) van de geometrie in de
-            vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
-            is hetzelfde als WGS84).
-          required: true
+            "Het gewenste Coordinate Reference System (CRS) van de geometrie in het antwoord (response body). Er zijn drie mogelijke coördinatenstelsels: 
+
+             - EPSG:4326 (Wereld), 
+
+             - EPSG:4258 (Europa) en
+
+             - EPSG:28992 (Nederland). 
+             
+
+             Als deze header niet wordt meegegeven, dan is EPSG:4326 (Wereld) de default waarde."
       tags:
         - zaken
       requestBody:

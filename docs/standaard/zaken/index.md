@@ -495,8 +495,19 @@ Zaak
 #### **<a name="zrc-026">Expand parameter onderdeel van opgevraagde resource ([zrc-026](#zrc-026))</a>**
 Indien een verzoek één of meer expand parameters bevat MOET het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.
 
-#### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>** 
+#### **<a name="zrc-027">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>** 
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
+
+#### **<a name="zrc-028">Omgang met Accept-Crs en Content-Crs headers([zrc-028](#zrc-028))</a>**
+Zowel voor de Accept-Crs als Content-Crs dient de API-provider de volgende drie coördinatenstelsels te ondersteunen: 
+
+- EPSG:4326 (Wereld), 
+
+- EPSG:4258 (Europa) en
+
+- EPSG:28992 (Nederland). 
+
+ Als de header niet wordt meegegeven, dan is EPSG:4326 (Wereld) de default waarde.
 
 
 ## Overige documentatie
