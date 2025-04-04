@@ -23,9 +23,9 @@ class SearchReplaceCleaner(Cleaner):
               'replace': { 'servers': [ {'url': 'https://{host}/{basePath}/v1',
                                          'variables': {
                                              'host': { 'default': 'example.com',
-                                                      'description': 'The host server for the API' },
+                                                      'description': 'De hostserver voor de API' },
                                             'basePath': { 'default': 'api',
-                                                          'description': 'The base path for the API' }
+                                                          'description': 'Het basispad voor de API' }
                                          }} ] }	
             },
             { 'search': ['info', 'license'],
@@ -34,6 +34,10 @@ class SearchReplaceCleaner(Cleaner):
             },
             { 'search': ['openapi'],
              'replace': { 'openapi': '3.0.4' } },
+            { 'search': ['info', 'contact'],
+              'replace': { 'contact': { 'url': 'https://github.com/VNG-Realisatie/gemma-zaken',
+                                       'email': 'standaarden.ondersteuning@vng.nl' } } },
+
         ]
 
     def clean(self, spec: Dict[str, Any], path: List[str] = None) -> Dict[str, Any]:

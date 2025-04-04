@@ -2,7 +2,10 @@
   "name": "Zaakgericht-werken API's",
   "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "forwardPorts": [3000],
-  "postCreateCommand": "npm install",
+  "postCreateCommand": [
+    "npm ci",
+    "go install github.com/oasdiff/oasdiff@latest"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -15,6 +18,8 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/go:1": {},
+    "ghcr.io/devcontainers-extra/features/poetry:2": {}
   }
 }
