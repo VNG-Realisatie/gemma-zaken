@@ -9,28 +9,38 @@ class RemoveDiscriminatorCleaner(Cleaner):
         if 'discriminator' not in spec:
             return spec
 
+        if 'properties' not in spec:
+            return spec
+
         propertyName = spec['discriminator'].get('propertyName', None)
+        if propertyName == None:
+            return spec
+ 
+        discriminator_property = spec['properties'].get(propertyName, None)
+        if discriminator_property == None:
+            return spec
+
         mapping = spec['discriminator'].get('mapping', None)
+        if mapping is None:
+            return spec
 
-        if propertyName != None and 'properties' in spec and propertyName in spec['properties']:
-           discriminator_property = spec['properties'][propertyName]
-           if discriminator_property != None:
-               if 'enum' in discriminator_property:
-                   del discriminator_property['enum']
-               if 'x-enumDescriptions' in discriminator_property:
-                   if mapping != None:
-                       for enum_value, ref in mapping.items():
-                           target_component = root_spec['components']['schemas'][ref.split('/')[-1]]
-                           if 'properties' not in target_component:
-                               continue
-                           if propertyName not in target_component['properties']:
-                               continue
-                           target_component['properties'][propertyName]['x-enumDescriptions'] = { enum_value: discriminator_property['x-enumDescriptions'][enum_value] } 
+        if 'enum' not in discriminator_property:
+            return spec
+        if 'x-enumDescriptions' not in discriminator_property:
+            return spec
 
+        for enum_value, ref in mapping.items():
+            target_component = root_spec['components']['schemas'][ref.split('/')[-1]]
+            if 'properties' not in target_component:
+                continue
+            if propertyName not in target_component['properties']:
+                continue
+            target_component['properties'][propertyName]['x-enumDescriptions'] = { enum_value: discriminator_property['x-enumDescriptions'][enum_value] } 
 
-                   del discriminator_property['x-enumDescriptions']
-
+        del discriminator_property['x-enumDescriptions']
+        del discriminator_property['enum']
         del spec['discriminator']
+
         self.stats.counts['discriminators_removed'] = self.stats.counts.get('discriminators_removed', 0) + 1
         return spec
 
