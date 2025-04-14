@@ -244,6 +244,6 @@ rules:
     description: Enum descriptions should be used 1:1 with the enum values
     message: "Enum descriptions should be used 1:1 with the enum values in {{property}}"
     severity: error
-    given: "$..[?(@.enum && @['x-enumDescriptions'])]"
+    given: "$..[?(@ && @.enum && @['x-enumDescriptions'])]"
     then:
       function: enumDescriptions
