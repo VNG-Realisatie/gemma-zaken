@@ -1,0 +1,72 @@
+--- # Test 1
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: matching-enum-descriptions-1
+  spectral:
+    should-hit:
+      - matching-enum-descriptions
+components:
+  schemas:
+    Test:
+      type: string
+      enum:
+        - test
+        - test2
+      x-enumDescriptions:
+        test: Test
+--- # Test 2
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: matching-enum-descriptions-2
+  spectral:
+    should-miss:
+      - matching-enum-descriptions
+components:
+  schemas:
+    Test:
+      type: string
+      enum:
+        - test
+        - test2
+      x-enumDescriptions:
+        test: Test
+        test2: Test2
+--- # Test 3
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: matching-enum-descriptions-3
+  spectral:
+    should-miss:
+      - matching-enum-descriptions
+components:
+  schemas:
+    Test:
+      type: string
+      enum:
+        - test
+        - test2
+--- # Test 4
+openapi: 3.0.0
+info:
+  title: Test API
+x-tools-validator:
+  id: matching-enum-descriptions-4
+  spectral:
+    should-hit:
+      - matching-enum-descriptions
+components:
+  schemas:
+    Test:
+      type: string
+      enum:
+        - test1
+        - test2
+      x-enumDescriptions:
+        test: Test
+        test2: Test2

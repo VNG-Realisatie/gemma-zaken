@@ -4,6 +4,7 @@
 functions:
   - checkRedundantTitle
   - discriminatorPropertyExists
+  - enumDescriptions
 functionsDir: "./functions"
 
 rules:
@@ -229,3 +230,20 @@ rules:
       function: casing
       functionOptions:
         type: pascal
+
+  # Rule 9: Makes sure that if a x-enumDescriptions is used, it is used 1:1
+  # with the enum values.
+  # Example:
+  # enum:
+  #  - value1
+  #  - value2
+  # x-enumDescriptions:
+  #   value1: Description for value1
+  #   value2: Description for value2
+  matching-enum-descriptions:
+    description: Enum descriptions should be used 1:1 with the enum values
+    message: "Enum descriptions should be used 1:1 with the enum values in {{property}}"
+    severity: error
+    given: "$..[?(@.enum && @['x-enumDescriptions'])]"
+    then:
+      function: enumDescriptions

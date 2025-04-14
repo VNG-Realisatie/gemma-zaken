@@ -29,6 +29,7 @@ def parse_args():
         "--spectral-ruleset",
         type=Path,
         help="Path to Spectral ruleset file",
+        required=True
     )
     return parser.parse_args()
 

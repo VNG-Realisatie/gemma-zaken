@@ -27,7 +27,7 @@ class SpectralValidator:
             temp_spec.flush()
 
             # Build the spectral command
-            cmd = ['npx', 'spectral', 'lint', temp_spec.name, '--format', 'json']
+            cmd = ['npx', 'spectral', 'lint', temp_spec.name, '--format', 'json', '--quiet']
             
             # Add ruleset if specified
             if self.ruleset_path:
