@@ -13,7 +13,7 @@ class SearchReplaceCleaner(Cleaner):
         self.patterns = [
             { 'search': { '204': { 'description': 'No content' }},
               'replace': { '204': { 'description': 'No content',
-                                   'headers': { 'API-version': { 'schema': 'string',
+                                   'headers': { 'API-version': { 'schema': { 'type': 'string' },
                                                                  'description': 'Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.' } } } }
             },
         ]
