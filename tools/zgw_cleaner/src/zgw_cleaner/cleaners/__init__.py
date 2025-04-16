@@ -13,6 +13,8 @@ from .component_prefix import ComponentPrefixCleaner
 from .sort import SortCleaner
 from .remove_discriminator import RemoveDiscriminatorCleaner
 from .search_replace import SearchReplaceCleaner
+from .double_allof_properties import DoubleAllOfPropertiesCleaner
+from .remove_unused import RemoveUnusedCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -30,4 +32,6 @@ __all__ = [
     'SortCleaner',
     'RemoveDiscriminatorCleaner',
     'SearchReplaceCleaner',
+    "DoubleAllOfPropertiesCleaner",
+    "RemoveUnusedCleaner"
     ]

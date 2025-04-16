@@ -29,12 +29,22 @@ class NamingConventionsCleaner(Cleaner):
 
         if path == ['components', 'schemas']:
             rename_to_pascalcase = []
+            rename_to_baseclass = []
+
             for key, value in spec.items():
                 if camelcase(key) == key:
                     rename_to_pascalcase.append(key)
 
+                if key.endswith('Variant'):
+                    base_name = key[:-7]
+                    if base_name in spec:
+                        rename_to_baseclass.append(base_name)
+
             for key in rename_to_pascalcase:
                 root_spec = self._rename_component(key, pascalcase(key), root_spec)
+
+            for key in rename_to_baseclass:
+                root_spec = self._rename_component(key, key + 'Base', root_spec)
 
         if isinstance(spec, dict):
             for old_name, new_name in self.field_name_mapping.items():

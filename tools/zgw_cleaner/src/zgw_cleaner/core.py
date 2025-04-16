@@ -45,4 +45,6 @@ def create_default_pipeline():
     pipeline.add_cleaner(NamingConventionsCleaner())
     pipeline.add_cleaner(SortCleaner())
     pipeline.add_cleaner(RemoveDiscriminatorCleaner())
+    pipeline.add_cleaner(DoubleAllOfPropertiesCleaner())
+    pipeline.add_cleaner(RemoveUnusedCleaner())
     return pipeline
