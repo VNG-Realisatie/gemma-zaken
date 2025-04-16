@@ -1,5 +1,5 @@
 --- # Test 1 (Should hit due to string in allof)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -20,7 +20,7 @@ components:
             test:
               type: integer
 --- # Test 2 (Should miss due to all objects in allof)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:

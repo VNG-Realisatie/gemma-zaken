@@ -1,5 +1,5 @@
 --- # Test 1: Should warn on standalone single-entry allOf
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -17,7 +17,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/BaseType"
 --- # Test 1-cleaned: Should not warn on a cleaned version of test-1
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -34,7 +34,7 @@ components:
       $ref: "#/components/schemas/BaseType"
 
 --- # Test 2: Should NOT warn when single-entry allOf has siblings
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -55,7 +55,7 @@ components:
           type: string
 
 --- # Test 3: Should NOT warn on multiple-entry allOf
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -74,7 +74,7 @@ components:
         - $ref: "#/components/schemas/OtherType"
 
 --- # Test 4: Should NOT warn when single-entry allOf has type sibling
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -92,7 +92,7 @@ components:
         - $ref: "#/components/schemas/BaseType"
       type: object
 --- # Test 5: Should warn on standalone single-entry allOf with inline schema
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -114,7 +114,7 @@ components:
               type: string
 
 --- # Test 5-cleaned: Should not warn on a cleaned version of test-5
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -134,7 +134,7 @@ components:
           type: string
 
 --- # Test 6: Should warn on standalone single-entry oneOf
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -153,7 +153,7 @@ components:
         - $ref: "#/components/schemas/BaseType"
 
 --- # Test 7: Should warn on standalone single-entry anyOf
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -172,7 +172,7 @@ components:
         - $ref: "#/components/schemas/BaseType"
 
 --- # Test 8: Should fully fix nested standalone single-entry oneOf
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:

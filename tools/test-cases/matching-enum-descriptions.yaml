@@ -1,5 +1,5 @@
 --- # Test 1
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -17,7 +17,7 @@ components:
       x-enumDescriptions:
         test: Test
 --- # Test 2
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -36,7 +36,7 @@ components:
         test: Test
         test2: Test2
 --- # Test 3
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -52,7 +52,7 @@ components:
         - test
         - test2
 --- # Test 4
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:

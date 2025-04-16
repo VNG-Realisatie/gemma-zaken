@@ -1,5 +1,5 @@
 --- # Test 1
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -17,7 +17,7 @@ components:
       type: object
       title: testobject
 --- # Test 1 cleaned
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -34,7 +34,7 @@ components:
     TestObject:
       type: object
 --- # Test 2
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -52,7 +52,7 @@ components:
       type: object
       title: Test_object
 --- # Test 3
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:

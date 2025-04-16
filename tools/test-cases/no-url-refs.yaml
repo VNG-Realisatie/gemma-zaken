@@ -1,5 +1,5 @@
 --- # Start of test-1 (Should hit on URL ref)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -15,7 +15,7 @@ components:
         test:
           $ref: "https://example.com/test.yaml#/components/schemas/Test"
 --- # Start of test-2 (Should miss on remote ref)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -32,7 +32,7 @@ components:
           $ref: "../test.yaml#/components/schemas/Test"
 ---
 # Test 3: Testing multiple HTTP/HTTPS refs (should hit)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -50,7 +50,7 @@ components:
         - $ref: "https://example.com/schema3.yaml"
 ---
 # Test 4: Testing various valid local refs (should miss)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -70,7 +70,7 @@ components:
         $ref: "#/components/schemas/Invalid"
 ---
 # Test 5: Testing items with URL (should hit)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -86,7 +86,7 @@ components:
         $ref: "https://example.com/item.yaml"
 ---
 # Test 6: Testing mixed refs (should hit)
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:

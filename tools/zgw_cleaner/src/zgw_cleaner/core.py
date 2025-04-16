@@ -14,10 +14,18 @@ class CleanupPipeline:
         self.cleaners.append(cleaner)
 
     def clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
-        clean_spec = deepcopy(spec)  # Ensure we don't modify the original spec
-        for cleaner in self.cleaners:
-            clean_spec = cleaner.clean(clean_spec)
-            clean_spec = cleaner.post_clean(clean_spec)
+
+        clean_spec = deepcopy(spec)
+        modified_spec = {}
+
+        # Run each cleaner in the pipeline
+        while modified_spec != clean_spec:
+            modified_spec = deepcopy(clean_spec)
+            for cleaner in self.cleaners:
+                modified_spec = cleaner.clean(modified_spec)
+                modified_spec = cleaner.post_clean(modified_spec)
+            clean_spec = deepcopy(modified_spec)
+
         return clean_spec
 
 def create_default_pipeline():

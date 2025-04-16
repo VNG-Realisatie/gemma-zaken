@@ -1,5 +1,5 @@
 --- # Test 1
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -23,7 +23,7 @@ components:
     Object2:
       type: object
 --- # Test 2
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -47,7 +47,7 @@ components:
     Object2:
       type: object
 --- # Test 3
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -75,7 +75,7 @@ components:
       allOf:
         - $ref: "#/components/schemas/ObjectBase"
 --- # Test 3 cleaned
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
@@ -113,7 +113,7 @@ components:
           enum:
             - type2
 --- # Test 4
-openapi: 3.0.0
+openapi: 3.0.4
 info:
   title: Test API
 x-tools-validator:
