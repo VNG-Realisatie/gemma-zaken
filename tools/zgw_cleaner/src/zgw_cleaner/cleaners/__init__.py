@@ -15,6 +15,7 @@ from .remove_discriminator import RemoveDiscriminatorCleaner
 from .search_replace import SearchReplaceCleaner
 from .double_allof_properties import DoubleAllOfPropertiesCleaner
 from .remove_unused import RemoveUnusedCleaner
+from .redundant_patched import RedundantPatchedCleaner
 
 __all__ = [
     'ComponentHeadersCleaner',
@@ -33,5 +34,6 @@ __all__ = [
     'RemoveDiscriminatorCleaner',
     'SearchReplaceCleaner',
     "DoubleAllOfPropertiesCleaner",
-    "RemoveUnusedCleaner"
+    "RemoveUnusedCleaner",
+    "RedundantPatchedCleaner"
     ]
