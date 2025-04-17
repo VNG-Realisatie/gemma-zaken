@@ -109,12 +109,15 @@ rules:
     severity: error
     given: "$.components.schemas.*.allOf.*"
     then:
-      - field: type
-        function: truthy
-      - field: type
-        function: pattern
-        functionOptions:
-          match: "^object$"
+      - field: "$ref"
+        function: falsy
+        then:
+          - field: type
+            function: truthy
+          - field: type
+            function: pattern
+            functionOptions:
+              match: "^object$"
 
   # Rule 4: Warns against mixin-style patterns where schemas just combine other schemas
   #
