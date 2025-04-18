@@ -29,17 +29,6 @@ class NamingConventionsCleaner(Cleaner):
             root_spec = spec
 
         #
-        # objectIdentificatie: $ref: '#/components/schemas/AdresObject'
-        # to 
-        # objectIdentificatie: $ref: '#/components/schemas/AdresIdentificatie'
-        #
-        if len(path)>0 and path[-1] == 'objectIdentificatie' and isinstance(spec, dict) and '$ref' in spec and spec['$ref'].endswith('Object'):
-            key = spec['$ref'].split('/')[-1]
-            if key in root_spec['components']['schemas']:
-                base_name = key[:-6]
-                self.search_replace_list.append([key, base_name + 'Identificatie'])
-
-        #
         # betrokkeneIdentificatie: $ref: '#/components/schemas/RolMedewerker'
         # to 
         # betrokkeneIdentificatie: $ref: '#/components/schemas/MedewerkerIdentificatie'
