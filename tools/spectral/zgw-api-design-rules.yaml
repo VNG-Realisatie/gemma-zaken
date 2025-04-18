@@ -107,17 +107,25 @@ rules:
     description: Children of allOf must be objects
     message: "allOf children must explicitly declare type: object"
     severity: error
-    given: "$.components.schemas.*.allOf.*"
+    resolved: false
+    given: "$.components.schemas.*.allOf[*]"
     then:
-      - field: "$ref"
-        function: falsy
-        then:
-          - field: type
-            function: truthy
-          - field: type
-            function: pattern
-            functionOptions:
-              match: "^object$"
+      function: schema
+      functionOptions:
+        schema:
+          oneOf:
+            - type: object
+              required:
+                - $ref
+              properties:
+                $ref:
+                  type: string
+            - type: object
+              required:
+                - type
+              properties:
+                type:
+                  const: object
 
   # Rule 4: Warns against mixin-style patterns where schemas just combine other schemas
   #

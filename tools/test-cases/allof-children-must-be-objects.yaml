@@ -43,3 +43,23 @@ components:
           properties:
             test:
               type: integer
+--- # Test 3
+openapi: 3.0.4
+info:
+  title: Test API
+x-tools-validator:
+  id: allof-children-must-be-objects-test-3
+  spectral:
+    should-hit:
+      - allof-children-must-be-objects
+    zgw-cleaner:
+      should-clean-to: allof-children-must-be-objects-test-3
+      should-equal: []
+components:
+  schemas:
+    Test:
+      allOf:
+        - $ref: "#/components/schemas/BaseType"
+        - properties:
+            test:
+              type: integer
