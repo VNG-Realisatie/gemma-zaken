@@ -16,6 +16,9 @@ class NamingConventionsCleaner(Cleaner):
             'API-version': 'API-Version'
         }
 
+        self.search_replace_list = []
+
+
     def _pascal_case(self, name: str) -> str:
         return ''.join(word.capitalize() for word in name.split('_'))
 
@@ -25,23 +28,77 @@ class NamingConventionsCleaner(Cleaner):
         if root_spec is None:
             root_spec = spec
 
+        #
+        # objectIdentificatie: $ref: '#/components/schemas/AdresObject'
+        # to 
+        # objectIdentificatie: $ref: '#/components/schemas/AdresIdentificatie'
+        #
+        if len(path)>0 and path[-1] == 'objectIdentificatie' and isinstance(spec, dict) and '$ref' in spec and spec['$ref'].endswith('Object'):
+            key = spec['$ref'].split('/')[-1]
+            if key in root_spec['components']['schemas']:
+                base_name = key[:-6]
+                self.search_replace_list.append([key, base_name + 'Identificatie'])
+
+        #
+        # betrokkeneIdentificatie: $ref: '#/components/schemas/RolMedewerker'
+        # to 
+        # betrokkeneIdentificatie: $ref: '#/components/schemas/MedewerkerIdentificatie'
+        #
+        if len(path)>0 and path[-1] == 'betrokkeneIdentificatie' and isinstance(spec, dict) and '$ref' in spec and spec['$ref'].startswith('#/components/schemas/Rol'):
+            key = spec['$ref'].split('/')[-1]
+            if key in root_spec['components']['schemas']:
+                base_name = key[3:]
+                self.search_replace_list.append([key, base_name + 'Identificatie'])
+
+        #
+        # medewerker_Rol:
+        # to
+        # MedewerkerRol:
+        #
+        if len(path)>0 and path[-1] == 'RolVariant':
+            for item in spec['oneOf']:
+                key = item['$ref'].split('/')[-1]
+                if key.endswith('_Rol'):
+                    base_name = key[:-4].replace('_', ' ')
+                    base_name = pascalcase(base_name) + 'Rol'
+                    self.search_replace_list.append([key, base_name])
+
+        #
+        # adres_ZaakObject:
+        # to
+        # AdresZaakObject:
+        #
+        #print(path)#
+        if len(path)>0 and path[-1] == 'ZaakObjectVariant':
+
+            for item in spec['oneOf']:
+                key = item['$ref'].split('/')[-1]
+                if key.endswith('_ZaakObject'):
+
+
+                    base_name = key[:-11].replace('_', ' ')
+                    base_name = pascalcase(base_name) + 'ZaakObject'
+                    self.search_replace_list.append([key, base_name])
+
+
         if path == ['components', 'schemas']:
 
-            rename_to_pascalcase = []
-            rename_to_baseclass = []
             last_item_to_front_pascalcase = []
             remove_object_prefix = []
-            search_replace_list = []
 
             for key, value in spec.items():
 
                 if camelcase(key) == key:
-                    rename_to_pascalcase.append(key)
+                    self.search_replace_list.append([key, pascalcase(key)])
 
+                # Rationale: in current OpenAPI spec, allOf constructs are used to compose the types
+                # currently in the variants (oneOf-constructs). E.g., a ZaakObject is a base class
+                # for all concrete ZaakObject variants. To make this clear, we rename the base class to
+                # ZaakObjectBase (for example).
                 if key.endswith('Variant'):
                     base_name = key[:-7]
                     if base_name in spec:
-                        rename_to_baseclass.append(base_name)
+                        self.search_replace_list.append([base_name,base_name + 'Base'])
 
                 if key.startswith('Object') and not key.endswith('Base') and not key.endswith('Variant') and key != 'ObjectTypeEnum':
                     if key.endswith('Enum'):
@@ -49,23 +106,6 @@ class NamingConventionsCleaner(Cleaner):
                     else:
                         last_item_to_front_pascalcase.append(key)
 
-                if key.endswith('_PatchedZaakObject'):
-                    concept_snake = key[:-len('_PatchedZaakObject')]
-                    concept_pascal = pascalcase(concept_snake)
-                    new_key = 'PatchedZaak' + concept_pascal + 'Object'
-                    search_replace_list.append([key,new_key])
-
-                if key.endswith('_ZaakObject'):
-                    concept_snake = key[:-len('_ZaakObject')]
-                    concept_pascal = pascalcase(concept_snake)
-                    new_key = 'Zaak' + concept_pascal + 'Object'
-                    search_replace_list.append([key,new_key])
-
-            for key in rename_to_pascalcase:
-                root_spec = self._rename_component(key, pascalcase(key), root_spec)
-
-            for key in rename_to_baseclass:
-                root_spec = self._rename_component(key, key + 'Base', root_spec)
 
             for key in last_item_to_front_pascalcase:
                 new_name = key[len('Object'):] + 'Object'
@@ -74,9 +114,6 @@ class NamingConventionsCleaner(Cleaner):
             for key in remove_object_prefix:
                 new_name = key[len('Object'):]
                 root_spec = self._rename_component(key, new_name, root_spec)
-
-            for kv in search_replace_list:
-                root_spec = self._rename_component(kv[0], kv[1], root_spec)
 
         if isinstance(spec, dict):
             for old_name, new_name in self.field_name_mapping.items():
@@ -95,3 +132,14 @@ class NamingConventionsCleaner(Cleaner):
             return [self.clean(item, root_spec, path) for item in spec]
 
         return spec
+
+
+    def post_clean(self, spec: Dict[str, Any]) -> Dict[str, Any]:
+
+        for item in self.search_replace_list:
+            spec = self._rename_component(item[0], item[1], spec)
+
+        self.search_replace_list = []
+
+        return spec
+

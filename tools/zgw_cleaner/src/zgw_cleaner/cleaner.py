@@ -71,8 +71,9 @@ class Cleaner:
             components = spec['components']
             for component_type in components:
                 if component_type in ['schemas', 'parameters', 'headers']:
+                    # Skip if the name is already present
                     if new_name in components[component_type]:
-                        raise ValueError(f"Can't rename to {new_name}, it already exists in {component_type}")
+                        continue
                     
                     if old_name in components[component_type]:
                         components[component_type][new_name] = components[component_type].pop(old_name)
