@@ -121,30 +121,62 @@ Voor de volgende endpoints in de Zaken API definiëren we de expand-paden door m
 
 ### Expand-paden voor Documenten API
 
-Voor de volgende endpoints in de Documenten API definiëren we de expand-paden door middel van een BNF-grammatica.
+Voor de volgende endpoints in de Documenten API definiëren we de expand-paden door middel van een BNF-grammatica.  
 
 - `GET /enkelvoudiginformatieobjecten?expand=<expand_pad_enkelvoudiginformatieobject>`
 - `GET /enkelvoudiginformatieobjecten/{uuid}?expand=<expand_pad_enkelvoudiginformatieobject>`
 - `GET /gebruiksrechten?expand=<expand_pad_informatieobject>`
-- `GET /gebruiksrechten/{uuid}?expand=<expand_pad_informatieobject>`
-- `GET /objectinformatieobjecten?expand=<expand_pad_informatieobject>`
-- `GET /objectinformatieobjecten/{uuid}?expand=<expand_pad_informatieobject>`
-- `GET /verzendingen?expand=<expand_pad_informatieobject>`
-- `GET /verzendingen/{uuid}?expand=<expand_pad_informatieobject>`
+- `GET /gebruiksrechten/{uuid}?expand=<expand_pad_informatieobject>`  
+- `GET /objectinformatieobjecten?expand=<expand_pad_informatieobject>`  
+- `GET /objectinformatieobjecten/{uuid}?expand=<expand_pad_informatieobject>`  
+- `GET /verzendingen?expand=<expand_pad_informatieobject>`  
+- `GET /verzendingen/{uuid}?expand=<expand_pad_informatieobject>`  
 
 ```ebnf
 <expand_pad_enkelvoudiginformatieobject> ::= 
     "informatieobjecttype"
 
 <expand_pad_informatieobject> ::= 
-    "informatieobject" [ "." <expand_pad_enkelvoudiginformatieobjecten>]
+    "informatieobject" ["." <expand_pad_enkelvoudiginformatieobjecten>]
 
 ```
 
 Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 
 - Op het endpoint `/objectinformatieobjecten` is geen expand gedefiniëerd.
-- Op de endpoints `/gebruiksrechten` en `/verzendingen`kun je niet genest expanden met het veld `informatieobjecttype`.
+- Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanden met het veld `informatieobjecttype`, althans deze geneste expand wordt niet beschreven in het respons-schema
+
+# Volledige nesting
+
+## Expand-paden voor Zaken API
+
+```ebnf
+<zaak> ::= 
+      "zaaktype" ("." <zaaktype>)?
+    | "hoofdzaak" 
+    | "deelzaken" 
+    | "relevanteAndereZaken" 
+    | "eigenschappen" 
+    | "rollen" 
+    | "status" 
+    | "zaakinformatieobjecten" 
+    | "zaakobjecten" 
+    | "resultaat" ;
+
+<zaaktype> ::=
+      "zaakobjecttypen" ("." <zaakobjecttypen>)?
+    | "catalogus" ("." <catalogus>)?
+
+
+
+```
+
+
+# To do
+
+- Vraagtekens ?? gevallen beschrijven in NB of "Let op" sectie.
+- Naast de punt-notatie ook de de grammatica uitschrijven voor komma-notatie (expand=zaaktype,status.statustype)
+- Volledige recursie uitwerken!!!! (LeUK)
 
 
 
