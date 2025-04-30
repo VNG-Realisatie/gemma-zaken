@@ -205,6 +205,36 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
       "zaak" ("." <zaak>)?
     | "object" (* externe expand *)
     | "resultaattype" ("." <resultaattype>)?
+
+<zaakobjecttype> ::=
+      "objecttype" ("." <objecttype>)? (* externe expand, nu nog niet in scope*)
+    | "zaaktype" ("." <zaaktype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "statustypen" ("." <statustype>)?
+    | "catalogus" ("." <catalogus>)?
+
+<catalogus> ::=
+      "zaaktypen" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+<statustypen> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "catalogus" ("." <catalogus>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+<resultaattype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "resultaattypeomschrijving" (* externe expand naar referentielijst, nu nog niet in scope *)
+    | "selectielijstklasse" (* externe expand naar referentielijst, nu nog niet in scope *)
+    | "catalogus" ("." <catalogus>)?
+    | "besluittypen" ("." <besluittypen>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+
+
+
+    
    
 
 
