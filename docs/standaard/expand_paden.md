@@ -207,7 +207,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "resultaattype" ("." <resultaattype>)?
 
 <zaakobjecttype> ::=
-      "objecttype" ("." <objecttype>)? (* externe expand, nu nog niet in scope*)
+      "objecttype" (* externe expand, nu nog niet in scope*)
     | "zaaktype" ("." <zaaktype>)?
     | "resultaattypen" ("." <resultaattype>)?
     | "statustypen" ("." <statustype>)?
@@ -218,7 +218,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "besluittypen" ("." <besluittype>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
 
-<statustypen> ::=
+<statustype> ::=
       "zaaktype" ("." <zaaktype>)?
     | "catalogus" ("." <catalogus>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
@@ -228,7 +228,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "resultaattypeomschrijving" (* externe expand naar referentielijst, nu nog niet in scope *)
     | "selectielijstklasse" (* externe expand naar referentielijst, nu nog niet in scope *)
     | "catalogus" ("." <catalogus>)?
-    | "besluittypen" ("." <besluittypen>)?
+    | "besluittypen" ("." <besluittype>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
 
 <eigenschappen> ::=
@@ -246,13 +246,121 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "catalogus" ("." <catalogus>)?
 
 
-<besluittypen> ::=
+<besluittype> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktypen" ("." <zaaktype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+```
+
+## BNF voor tool
+
+
+```ebnf
+<zaak> ::= 
+      "zaaktype" ("." <zaaktype>)?
+    | "hoofdzaak" ("." <zaak>)?
+    | "deelzaken" ("." <zaak>)?
+    | "relevanteAndereZaken" ("." <zaak>)?
+    | "eigenschappen" ("." <eigenschap>)?
+    | "rollen" ("." <rol>)?
+    | "status" ("." <status>)?
+    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
+    | "zaakobjecten" ("." <zaakobject>)?
+    | "resultaat" ("." <resultaat>)?
+
+<zaaktype> ::=
+      "zaakobjecttypen" ("." <zaakobjecttype>)? 
+    | "catalogus" ("." <catalogus>)?
+    | "statustypen" ("." <statustype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "eigenschappen" ("." <eigenschappen>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "roltypen" ("." <roltype>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "deelzaaktypen" ("." <zaaktype>)?
+    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
+
+<eigenschap> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+
+<rol> ::=
+      "zaak" ("." <zaak>)?
+    | "roltype" ("." <roltype>)?
+    | "statussen" ("." <status>)?
+
+<status> ::=
+      "zaak" ("." <zaak>)?
+    | "statustype" ("." <statustype>)?
+    | "gezetdoor" ("." <rol>)?   
+    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
+
+<zaakinformatieobject> ::=
+      "informatieobject" ("." <enkelvoudiginformatieobject>)?
+    | "zaak" ("." <zaak>)?
+    | "status" ("." <status>)?
+
+<zaakobject> ::=
+      "zaak" ("." <zaak>)?
+    | "object"
+    | "zaakobjecttype" ("." <zaakobjecttype>)?
+
+<resultaat> ::=
+      "zaak" ("." <zaak>)?
+    | "object"
+    | "resultaattype" ("." <resultaattype>)?
+
+<zaakobjecttype> ::=
+      "objecttype"
+    | "zaaktype" ("." <zaaktype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "statustypen" ("." <statustype>)?
+    | "catalogus" ("." <catalogus>)?
+
+<catalogus> ::=
+      "zaaktypen" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+<statustype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "catalogus" ("." <catalogus>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+<resultaattype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "resultaattypeomschrijving"
+    | "selectielijstklasse"
+    | "catalogus" ("." <catalogus>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
+<eigenschappen> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <zaaktype>)?
+    | "statustype" ("." <statustype>)?
+
+<informatieobjecttype> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktypen" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+
+<roltype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "catalogus" ("." <catalogus>)?
+
+
+<besluittype> ::=
       "catalogus" ("." <catalogus>)?
     | "zaaktypen" ("." <zaaktype>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
     | "resultaattypen" ("." <resultaattype>)?
 
-
+<enkelvoudiginformatieobject> ::=
+      "informatieobjecttype" ("." <informatieobjecttype>)?
+    | "bestanddelen"
 ```
 
 
@@ -263,6 +371,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 - Volledige recursie uitwerken!!!! (LeUK)
 - Installeer een VSC extensie voor BNF highlightning
 - https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
+- https://bnfplayground.pauliankline.com/
 - Genereer een plaatje van de grammatica
 - zou gaaf zijn als de bnf klikbaar is zodat je van de ene non-terminal naar de andere kunt springen. Misschien is het gegenereerde plaatje klikbaar?
 - Productie-regels bnf opdelen per api, misschien ook naamgeving aanpassen, bijv <ztc_eigenschappen>, <zrc_zaak>
@@ -271,6 +380,9 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
   - Wat is het langste zinvolle pad zonder recursie. 
   - Kun je een editor maken met intellisense voor de paden: na het intikken van de punt krijg je een lijstje met mogelijke geneste expands.
   - alle paden genereert zonder recursie
+  - verdiepingssessie expand
+- Comments moeten geannoteerd worden buiten de tekst
+- Gebruik yacc en Python om zelf een parser te genereren met comments.
 
 
 
