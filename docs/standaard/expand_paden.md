@@ -164,7 +164,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "resultaat" ("." <resultaat>)? ;
 
 <zaaktype> ::=
-      "zaakobjecttypen" ("." <zaakobjecttype>)?
+      "zaakobjecttypen" ("." <zaakobjecttype>)? 
     | "catalogus" ("." <catalogus>)?
     | "statustypen" ("." <statustype>)?
     | "resultaattypen" ("." <resultaattype>)?
@@ -172,8 +172,8 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
     | "roltypen" ("." <roltype>)?
     | "besluittypen" ("." <besluittype>)?
-    | "deelzaaktypen" ("." <deelzaaktype>)?
-    | "gerelateerdeZaaktypen" ("." <gerelateerdeZaaktype>)?
+    | "deelzaaktypen" ("." <zaaktype>)?
+    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
 
 <eigenschap> ::=
       "catalogus" ("." <catalogus>)?
@@ -231,14 +231,26 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "besluittypen" ("." <besluittypen>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
 
+<eigenschappen> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <zaaktype>)?
+    | "statustype" ("." <statustype>)?
+
+<informatieobjecttype> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktypen" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+
+<roltype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "catalogus" ("." <catalogus>)?
 
 
-
-    
-   
-
-
-
+<besluittypen> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktypen" ("." <zaaktype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "resultaattypen" ("." <resultaattype>)?
 
 
 ```
@@ -252,6 +264,13 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 - Installeer een VSC extensie voor BNF highlightning
 - https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
 - Genereer een plaatje van de grammatica
+- zou gaaf zijn als de bnf klikbaar is zodat je van de ene non-terminal naar de andere kunt springen. Misschien is het gegenereerde plaatje klikbaar?
+- Productie-regels bnf opdelen per api, misschien ook naamgeving aanpassen, bijv <ztc_eigenschappen>, <zrc_zaak>
+- Genereer een Python programma die alle onnodige recursiepaden signaleert, 
+  - bijv. `catalogus.zaaktypen.catalogus`. 
+  - Wat is het langste zinvolle pad zonder recursie. 
+  - Kun je een editor maken met intellisense voor de paden: na het intikken van de punt krijg je een lijstje met mogelijke geneste expands.
+  - alle paden genereert zonder recursie
 
 
 
