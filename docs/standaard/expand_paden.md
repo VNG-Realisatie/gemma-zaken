@@ -153,19 +153,61 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 ```ebnf
 <zaak> ::= 
       "zaaktype" ("." <zaaktype>)?
-    | "hoofdzaak" 
-    | "deelzaken" 
-    | "relevanteAndereZaken" 
-    | "eigenschappen" 
-    | "rollen" 
-    | "status" 
-    | "zaakinformatieobjecten" 
-    | "zaakobjecten" 
-    | "resultaat" ;
+    | "hoofdzaak" ("." <zaak>)?
+    | "deelzaken" ("." <zaak>)?
+    | "relevanteAndereZaken" ("." <zaak>)?
+    | "eigenschappen" ("." <eigenschap>)?
+    | "rollen" ("." <rol>)?
+    | "status" ("." <status>)?
+    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
+    | "zaakobjecten" ("." <zaakobject>)?
+    | "resultaat" ("." <resultaat>)? ;
 
 <zaaktype> ::=
-      "zaakobjecttypen" ("." <zaakobjecttypen>)?
+      "zaakobjecttypen" ("." <zaakobjecttype>)?
     | "catalogus" ("." <catalogus>)?
+    | "statustypen" ("." <statustype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "eigenschappen" ("." <eigenschappen>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "roltypen" ("." <roltype>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "deelzaaktypen" ("." <deelzaaktype>)?
+    | "gerelateerdeZaaktypen" ("." <gerelateerdeZaaktype>)?
+
+<eigenschap> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <zaaktype>)?
+    | "besluittypen" ("." <besluittype>)?
+
+<rol> ::=
+      "zaak" ("." <zaak>)?
+    | "roltype" ("." <roltype>)?
+    | "statussen" ("." <status>)?
+
+<status> ::=
+      "zaak" ("." <zaak>)?
+    | "statustype" ("." <statustype>)?
+    | "gezetdoor" ("." <rol>)?   
+    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
+
+<zaakinformatieobject> ::=
+      "informatieobject" ("." <informatieobject>)?
+    | "zaak" ("." <zaak>)?
+    | "status" ("." <status>)?
+
+<zaakobject> ::=
+      "zaak" ("." <zaak>)?
+    | "object" (* externe expand *)
+    | "zaakobjecttype" ("." <zaakobjecttype>)?
+
+<resultaat> ::=
+      "zaak" ("." <zaak>)?
+    | "object" (* externe expand *)
+    | "resultaattype" ("." <resultaattype>)?
+   
+
+
 
 
 
@@ -177,6 +219,9 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 - Vraagtekens ?? gevallen beschrijven in NB of "Let op" sectie.
 - Naast de punt-notatie ook de de grammatica uitschrijven voor komma-notatie (expand=zaaktype,status.statustype)
 - Volledige recursie uitwerken!!!! (LeUK)
+- Installeer een VSC extensie voor BNF highlightning
+- https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
+- Genereer een plaatje van de grammatica
 
 
 
