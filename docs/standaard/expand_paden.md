@@ -148,113 +148,7 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 
 # Volledige nesting
 
-## Expand-paden voor Zaken API
-
-```ebnf
-<zaak> ::= 
-      "zaaktype" ("." <zaaktype>)?
-    | "hoofdzaak" ("." <zaak>)?
-    | "deelzaken" ("." <zaak>)?
-    | "relevanteAndereZaken" ("." <zaak>)?
-    | "eigenschappen" ("." <eigenschap>)?
-    | "rollen" ("." <rol>)?
-    | "status" ("." <status>)?
-    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
-    | "zaakobjecten" ("." <zaakobject>)?
-    | "resultaat" ("." <resultaat>)? ;
-
-<zaaktype> ::=
-      "zaakobjecttypen" ("." <zaakobjecttype>)? 
-    | "catalogus" ("." <catalogus>)?
-    | "statustypen" ("." <statustype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-    | "eigenschappen" ("." <eigenschappen>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-    | "roltypen" ("." <roltype>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "deelzaaktypen" ("." <zaaktype>)?
-    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
-
-<eigenschap> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktype" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
-
-<rol> ::=
-      "zaak" ("." <zaak>)?
-    | "roltype" ("." <roltype>)?
-    | "statussen" ("." <status>)?
-
-<status> ::=
-      "zaak" ("." <zaak>)?
-    | "statustype" ("." <statustype>)?
-    | "gezetdoor" ("." <rol>)?   
-    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
-
-<zaakinformatieobject> ::=
-      "informatieobject" ("." <informatieobject>)?
-    | "zaak" ("." <zaak>)?
-    | "status" ("." <status>)?
-
-<zaakobject> ::=
-      "zaak" ("." <zaak>)?
-    | "object" (* externe expand *)
-    | "zaakobjecttype" ("." <zaakobjecttype>)?
-
-<resultaat> ::=
-      "zaak" ("." <zaak>)?
-    | "object" (* externe expand *)
-    | "resultaattype" ("." <resultaattype>)?
-
-<zaakobjecttype> ::=
-      "objecttype" (* externe expand, nu nog niet in scope*)
-    | "zaaktype" ("." <zaaktype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-    | "statustypen" ("." <statustype>)?
-    | "catalogus" ("." <catalogus>)?
-
-<catalogus> ::=
-      "zaaktypen" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-
-<statustype> ::=
-      "zaaktype" ("." <zaaktype>)?
-    | "catalogus" ("." <catalogus>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-
-<resultaattype> ::=
-      "zaaktype" ("." <zaaktype>)?
-    | "resultaattypeomschrijving" (* externe expand naar referentielijst, nu nog niet in scope *)
-    | "selectielijstklasse" (* externe expand naar referentielijst, nu nog niet in scope *)
-    | "catalogus" ("." <catalogus>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-
-<eigenschappen> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktype" ("." <zaaktype>)?
-    | "statustype" ("." <statustype>)?
-
-<informatieobjecttype> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktypen" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
-
-<roltype> ::=
-      "zaaktype" ("." <zaaktype>)?
-    | "catalogus" ("." <catalogus>)?
-
-
-<besluittype> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktypen" ("." <zaaktype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-```
-
-## BNF voor tool
-
+## Expand-paden voor ZGW API's
 
 ```ebnf
 <zaak> ::= 
@@ -269,22 +163,9 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "zaakobjecten" ("." <zaakobject>)?
     | "resultaat" ("." <resultaat>)?
 
-<zaaktype> ::=
-      "zaakobjecttypen" ("." <zaakobjecttype>)? 
-    | "catalogus" ("." <catalogus>)?
-    | "statustypen" ("." <statustype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-    | "eigenschappen" ("." <eigenschappen>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-    | "roltypen" ("." <roltype>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "deelzaaktypen" ("." <zaaktype>)?
-    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
-
-<eigenschap> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktype" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
+<zaakeigenschap> ::=
+      "zaak" ("." <zaak>)?
+    | "eigenschap" ("." <eigenschap>)?
 
 <rol> ::=
       "zaak" ("." <zaak>)?
@@ -309,8 +190,24 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 
 <resultaat> ::=
       "zaak" ("." <zaak>)?
-    | "object"
     | "resultaattype" ("." <resultaattype>)?
+
+<zaaktype> ::=
+      "zaakobjecttypen" ("." <zaakobjecttype>)? 
+    | "catalogus" ("." <catalogus>)?
+    | "statustypen" ("." <statustype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "eigenschappen" ("." <eigenschap>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "roltypen" ("." <roltype>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "deelzaaktypen" ("." <zaaktype>)?
+    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
+
+<eigenschap> ::=
+      "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <zaaktype>)?
+    | "statustype" ("." <statustype>)?
 
 <zaakobjecttype> ::=
       "objecttype"
@@ -337,11 +234,6 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
     | "besluittypen" ("." <besluittype>)?
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
 
-<eigenschappen> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktype" ("." <zaaktype>)?
-    | "statustype" ("." <statustype>)?
-
 <informatieobjecttype> ::=
       "catalogus" ("." <catalogus>)?
     | "zaaktypen" ("." <zaaktype>)?
@@ -350,7 +242,6 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 <roltype> ::=
       "zaaktype" ("." <zaaktype>)?
     | "catalogus" ("." <catalogus>)?
-
 
 <besluittype> ::=
       "catalogus" ("." <catalogus>)?
@@ -361,12 +252,56 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 <enkelvoudiginformatieobject> ::=
       "informatieobjecttype" ("." <informatieobjecttype>)?
     | "bestanddelen"
+
+<drc_enkelvoudiginformatieobject> ::=
+      "link"
+    | "informatieobjecttype" ("." <informatieobjecttypen>)?
+    | "bestanddelen"
+
+<drc_gebruiksrechten> ::=
+    | "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+
+
+```
+
+Opmerkingen:
+
+```ebnf
+<zaakobject> ::=
+      "zaak" ("." <zaak>)?
+    | "object" (* externe expand, nu nog niet in standaard? *)
+    | "zaakobjecttype" ("." <zaakobjecttype>)?
+
+<resultaat> ::=
+      "zaak" ("." <zaak>)?
+    | "object" (* externe expand *)
+    | "resultaattype" ("." <resultaattype>)?
+
+<zaakobjecttype> ::=
+      "objecttype" (* externe expand, nu nog niet in scope*)
+    | "zaaktype" ("." <zaaktype>)?
+    | "resultaattypen" ("." <resultaattype>)?
+    | "statustypen" ("." <statustype>)?
+    | "catalogus" ("." <catalogus>)?
+
+<zaakinformatieobject> ::=
+      "informatieobject" ("." <enkelvoudiginformatieobject>)? (* Nu nog niet in scope, maar waarom? Staat niet in Excel en ook niet in OAS*)
+    | "zaak" ("." <zaak>)?
+    | "status" ("." <status>)?
+
+<resultaattype> ::=
+      "zaaktype" ("." <zaaktype>)?
+    | "resultaattypeomschrijving" (* externe expand naar referentielijst, nu nog niet in scope *)
+    | "selectielijstklasse" (* externe expand naar referentielijst, nu nog niet in scope *)
+    | "catalogus" ("." <catalogus>)?
+    | "besluittypen" ("." <besluittype>)?
+    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+
 ```
 
 
 # To do
 
-- Vraagtekens ?? gevallen beschrijven in NB of "Let op" sectie.
 - Naast de punt-notatie ook de de grammatica uitschrijven voor komma-notatie (expand=zaaktype,status.statustype)
 - Volledige recursie uitwerken!!!! (LeUK)
 - Installeer een VSC extensie voor BNF highlightning
@@ -377,12 +312,13 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 - Productie-regels bnf opdelen per api, misschien ook naamgeving aanpassen, bijv <ztc_eigenschappen>, <zrc_zaak>
 - Genereer een Python programma die alle onnodige recursiepaden signaleert, 
   - bijv. `catalogus.zaaktypen.catalogus`. 
-  - Wat is het langste zinvolle pad zonder recursie. 
+  - Wat is het langste zinvolle pad zonder recursie. (bijv. `zaakinformatieobjecten.zaak.resultaat.resultaattype.informatieobjecttypen.zaaktypen.catalogus.zaaktypen.catalogus`)
   - Kun je een editor maken met intellisense voor de paden: na het intikken van de punt krijg je een lijstje met mogelijke geneste expands.
   - alle paden genereert zonder recursie
   - verdiepingssessie expand
 - Comments moeten geannoteerd worden buiten de tekst
 - Gebruik yacc en Python om zelf een parser te genereren met comments.
+- Maar daar een API van en een ook een docker.
 
 
 
