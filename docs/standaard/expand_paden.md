@@ -255,13 +255,24 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 
 <drc_enkelvoudiginformatieobject> ::=
       "link"
-    | "informatieobjecttype" ("." <informatieobjecttypen>)?
+    | "informatieobjecttype" ("." <informatieobjecttype>)?
     | "bestanddelen"
 
 <drc_gebruiksrechten> ::=
+    "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+
+<drc_objectinformatieobjecten> ::=
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+    | "zaaktypen" ("." <zaaktype>)?
+    | "object" ( "." ( <zaak> | <brc_besluit> ) )?
+
+<drc_verzendingen> ::=
+      "betrokkene" ("." <rol>)?
     | "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+    | "contactPersoon" ("." <rol>)?
 
-
+<brc_besluit> ::= 
+      "besluittype" ("." <besluittype>)?
 ```
 
 Opmerkingen:
