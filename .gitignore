@@ -7,3 +7,4 @@ deploy-bot/env/
 zrc-catalogi-1-3-2.yaml
 redocly.yaml
 .spectral.yml
+.vscode/settings.json

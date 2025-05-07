@@ -314,6 +314,7 @@ Opmerkingen:
 # To do
 
 - Naast de punt-notatie ook de de grammatica uitschrijven voor komma-notatie (expand=zaaktype,status.statustype)
+- alle non-terminals voorzien van een prefix: zrc, ztc, brc, drc,  ...
 - Volledige recursie uitwerken!!!! (LeUK)
 - Installeer een VSC extensie voor BNF highlightning
 - https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
@@ -330,6 +331,7 @@ Opmerkingen:
 - Comments moeten geannoteerd worden buiten de tekst
 - Gebruik yacc en Python om zelf een parser te genereren met comments.
 - Maar daar een API van en een ook een docker.
+- In het voorbeeld met diepte 3 grammatica moet de "." losgetrokken worden
 
 
 

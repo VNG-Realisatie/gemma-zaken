@@ -1,0 +1,118 @@
+<zrc_zaak> ::= 
+      "zaaktype" ("." <ztc_zaaktype>)?
+    | "hoofdzaak" ("." <zrc_zaak>)?
+    | "deelzaken" ("." <zrc_zaak>)?
+    | "relevanteAndereZaken" ("." <zrc_zaak>)?
+    | "eigenschappen" ("." <zrc_zaakeigenschap>)?
+    | "rollen" ("." <zrc_rol>)?
+    | "status" ("." <zrc_status>)?
+    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject>)?
+    | "zaakobjecten" ("." <zrc_zaakobject>)?
+    | "resultaat" ("." <zrc_resultaat>)?
+
+<zrc_zaakeigenschap> ::=
+      "zaak" ("." <zrc_zaak>)?
+    | "eigenschap" ("." <ztc_eigenschap>)?
+
+<zrc_rol> ::=
+      "zaak" ("." <zrc_zaak>)?
+    | "roltype" ("." <ztc_roltype>)?
+    | "statussen" ("." <zrc_status>)?
+
+<zrc_status> ::=
+      "zaak" ("." <zrc_zaak>)?
+    | "statustype" ("." <ztc_statustype>)?
+    | "gezetdoor" ("." <zrc_rol>)?   
+    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject>)?
+
+<zrc_zaakinformatieobject> ::=
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+    | "zaak" ("." <zrc_zaak>)?
+    | "status" ("." <zrc_status>)?
+
+<zrc_zaakobject> ::=
+      "zaak" ("." <zrc_zaak>)?
+    | "object"
+    | "zaakobjecttype" ("." <ztc_zaakobjecttype>)?
+
+<zrc_resultaat> ::=
+      "zaak" ("." <zrc_zaak>)?
+    | "resultaattype" ("." <ztc_resultaattype>)?
+
+<ztc_zaaktype> ::=
+      "zaakobjecttypen" ("." <ztc_zaakobjecttype>)? 
+    | "catalogus" ("." <ztc_catalogus>)?
+    | "statustypen" ("." <ztc_statustype>)?
+    | "resultaattypen" ("." <ztc_resultaattype>)?
+    | "eigenschappen" ("." <ztc_eigenschap>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype>)?
+    | "roltypen" ("." <ztc_roltype>)?
+    | "besluittypen" ("." <ztc_besluittype>)?
+    | "deelzaaktypen" ("." <ztc_zaaktype>)?
+    | "gerelateerdeZaaktypen" ("." <ztc_zaaktype>)?
+
+<ztc_eigenschap> ::=
+      "catalogus" ("." <ztc_catalogus>)?
+    | "zaaktype" ("." <ztc_zaaktype>)?
+    | "statustype" ("." <ztc_statustype>)?
+
+<ztc_zaakobjecttype> ::=
+      "objecttype"
+    | "zaaktype" ("." <ztc_zaaktype>)?
+    | "resultaattypen" ("." <ztc_resultaattype>)?
+    | "statustypen" ("." <ztc_statustype>)?
+    | "catalogus" ("." <ztc_catalogus>)?
+
+<ztc_catalogus> ::=
+      "zaaktypen" ("." <ztc_zaaktype>)?
+    | "besluittypen" ("." <ztc_besluittype>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype>)?
+
+<ztc_statustype> ::=
+      "zaaktype" ("." <ztc_zaaktype>)?
+    | "catalogus" ("." <ztc_catalogus>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype>)?
+
+<ztc_resultaattype> ::=
+      "zaaktype" ("." <ztc_zaaktype>)?
+    | "resultaattypeomschrijving"
+    | "selectielijstklasse"
+    | "catalogus" ("." <ztc_catalogus>)?
+    | "besluittypen" ("." <ztc_besluittype>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype>)?
+
+<ztc_informatieobjecttype> ::=
+      "catalogus" ("." <ztc_catalogus>)?
+    | "zaaktypen" ("." <ztc_zaaktype>)?
+    | "besluittypen" ("." <ztc_besluittype>)?
+
+<ztc_roltype> ::=
+      "zaaktype" ("." <ztc_zaaktype>)?
+    | "catalogus" ("." <ztc_catalogus>)?
+
+<ztc_besluittype> ::=
+      "catalogus" ("." <ztc_catalogus>)?
+    | "zaaktypen" ("." <ztc_zaaktype>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype>)?
+    | "resultaattypen" ("." <ztc_resultaattype>)?
+
+<drc_enkelvoudiginformatieobject> ::=
+      "link"
+    | "informatieobjecttype" ("." <ztc_informatieobjecttype>)?
+    | "bestanddelen"
+
+<drc_gebruiksrechten> ::=
+    "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+
+<drc_objectinformatieobjecten> ::=
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+    | "zaaktypen" ("." <ztc_zaaktype>)?
+    | "object" ( "." ( <zrc_zaak> | <brc_besluit> ) )?
+
+<drc_verzendingen> ::=
+      "betrokkene" ("." <zrc_rol>)?
+    | "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+    | "contactPersoon" ("." <zrc_rol>)?
+
+<brc_besluit> ::= 
+      "besluittype" ("." <ztc_besluittype>)?
