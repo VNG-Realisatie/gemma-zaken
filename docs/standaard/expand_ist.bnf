@@ -1,0 +1,58 @@
+<drc_informatieobjecttype_expand> ::=
+      "informatieobjecttype"
+
+<drc_informatieobject_expand> ::=
+      "informatieobject" ("." <drc_informatieobjecttype_expand>)?
+
+<zrc_zaak_expand_list> ::= 
+      <zrc_zaak_expand> ("," <zrc_zaak_expand_list>)?
+
+<zrc_zaak_expand> ::=
+      <zrc_zaak_expand_diepte_1>
+    | <zrc_zaak_expand_diepte_2>
+    | <zrc_zaak_expand_diepte_3>
+
+<zrc_zaak_expand_diepte_1> ::= 
+      "zaaktype" 
+    | "hoofdzaak" 
+    | "deelzaken" 
+    | "relevanteAndereZaken" 
+    | "eigenschappen" 
+    | "rollen" 
+    | "status" 
+    | "zaakinformatieobjecten" 
+    | "zaakobjecten" 
+    | "resultaat"
+
+<zrc_zaak_expand_diepte_2> ::=
+      "hoofdzaak." <zrc_zaak_expand_diepte_1> 
+    | "deelzaken." <zrc_zaak_expand_diepte_1>
+    | "relevanteAndereZaken." <zrc_zaak_expand_diepte_1>
+    | "eigenschappen.eigenschap"
+    | "rollen.roltype"
+    | "rollen.statussen"
+    | "status.statustype"
+    | "status.gezetdoor"
+    | "status.zaakinformatieobjecten"
+    | "zaakinformatieobjecten.informatieobject"
+    | "zaakinformatieobjecten.status"
+    | "zaakobjecten.object"
+    | "zaakobjecten.zaakobjecttype"
+    | "resultaat.resultaattypen"
+
+<zrc_zaak_expand_diepte_3> ::= 
+      "hoofdzaak." <zrc_zaak_expand_diepte_2>
+    | "deelzaken." <zrc_zaak_expand_diepte_2>
+    | "relevanteAndereZaken." <zrc_zaak_expand_diepte_2>
+    | "rollen.statussen.statustype"
+    | "rollen.statussen.gezetdoor"
+    | "rollen.statussen.zaakinformatieobjecten"
+    | "status.gezetdoor.roltype"
+    | "status.zaakinformatieobjecten.informatieobject"
+    | "status.zaakinformatieobjecten.status"
+    | "zaakinformatieobjecten.informatieobject.informatieobjecttype"
+    | "zaakinformatieobjecten.status.statustype"
+    | "zaakinformatieobjecten.status.gezetdoor"
+    | "zaakinformatieobjecten.status.statustype"
+    | "zaakinformatieobjecten.status.zaakinformatieobjecten"
+

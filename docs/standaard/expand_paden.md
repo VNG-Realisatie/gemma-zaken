@@ -151,128 +151,127 @@ Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
 ## Expand-paden voor ZGW API's
 
 ```ebnf
-<zaak> ::= 
-      "zaaktype" ("." <zaaktype>)?
-    | "hoofdzaak" ("." <zaak>)?
-    | "deelzaken" ("." <zaak>)?
-    | "relevanteAndereZaken" ("." <zaak>)?
-    | "eigenschappen" ("." <eigenschap>)?
-    | "rollen" ("." <rol>)?
-    | "status" ("." <status>)?
-    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
-    | "zaakobjecten" ("." <zaakobject>)?
-    | "resultaat" ("." <resultaat>)?
+<zrc_zaak_expand_list> ::= 
+      <zrc_zaak_expand> ("," <zrc_zaak_expand_list>)?
 
-<zaakeigenschap> ::=
-      "zaak" ("." <zaak>)?
-    | "eigenschap" ("." <eigenschap>)?
+<zrc_zaak_expand> ::= 
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "hoofdzaak" ("." <zrc_zaak_expand>)?
+    | "deelzaken" ("." <zrc_zaak_expand>)?
+    | "relevanteAndereZaken" ("." <zrc_zaak_expand>)?
+    | "eigenschappen" ("." <zrc_zaakeigenschap_expand>)?
+    | "rollen" ("." <zrc_rol_expand>)?
+    | "status" ("." <zrc_status_expand>)?
+    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject_expand>)?
+    | "zaakobjecten" ("." <zrc_zaakobject_expand>)?
+    | "resultaat" ("." <zrc_resultaat_expand>)?
 
-<rol> ::=
-      "zaak" ("." <zaak>)?
-    | "roltype" ("." <roltype>)?
-    | "statussen" ("." <status>)?
+<zrc_zaakeigenschap_expand> ::=
+      "zaak" ("." <zrc_zaak_expand>)?
+    | "eigenschap" ("." <ztc_eigenschap_expand>)?
 
-<status> ::=
-      "zaak" ("." <zaak>)?
-    | "statustype" ("." <statustype>)?
-    | "gezetdoor" ("." <rol>)?   
-    | "zaakinformatieobjecten" ("." <zaakinformatieobject>)?
+<zrc_rol_expand> ::=
+      "zaak" ("." <zrc_zaak_expand>)?
+    | "roltype" ("." <ztc_roltype_expand>)?
+    | "statussen" ("." <zrc_status_expand>)?
 
-<zaakinformatieobject> ::=
-      "informatieobject" ("." <enkelvoudiginformatieobject>)?
-    | "zaak" ("." <zaak>)?
-    | "status" ("." <status>)?
+<zrc_status_expand> ::=
+      "zaak" ("." <zrc_zaak_expand>)?
+    | "statustype" ("." <ztc_statustype_expand>)?
+    | "gezetdoor" ("." <zrc_rol_expand>)?   
+    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject_expand>)?
 
-<zaakobject> ::=
-      "zaak" ("." <zaak>)?
+<zrc_zaakinformatieobject_expand> ::=
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
+    | "zaak" ("." <zrc_zaak_expand>)?
+    | "status" ("." <zrc_status_expand>)?
+
+<zrc_zaakobject_expand> ::=
+      "zaak" ("." <zrc_zaak_expand>)?
     | "object"
-    | "zaakobjecttype" ("." <zaakobjecttype>)?
+    | "zaakobjecttype" ("." <ztc_zaakobjecttype_expand>)?
 
-<resultaat> ::=
-      "zaak" ("." <zaak>)?
-    | "resultaattype" ("." <resultaattype>)?
+<zrc_resultaat_expand> ::=
+      "zaak" ("." <zrc_zaak_expand>)?
+    | "resultaattype" ("." <ztc_resultaattype_expand>)?
 
-<zaaktype> ::=
-      "zaakobjecttypen" ("." <zaakobjecttype>)? 
-    | "catalogus" ("." <catalogus>)?
-    | "statustypen" ("." <statustype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-    | "eigenschappen" ("." <eigenschap>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-    | "roltypen" ("." <roltype>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "deelzaaktypen" ("." <zaaktype>)?
-    | "gerelateerdeZaaktypen" ("." <zaaktype>)?
+<ztc_zaaktype_expand> ::=
+      "zaakobjecttypen" ("." <ztc_zaakobjecttype_expand>)? 
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "statustypen" ("." <ztc_statustype_expand>)?
+    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+    | "eigenschappen" ("." <ztc_eigenschap_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+    | "roltypen" ("." <ztc_roltype_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+    | "deelzaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "gerelateerdeZaaktypen" ("." <ztc_zaaktype_expand>)?
 
-<eigenschap> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktype" ("." <zaaktype>)?
-    | "statustype" ("." <statustype>)?
+<ztc_eigenschap_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "statustype" ("." <ztc_statustype_expand>)?
 
-<zaakobjecttype> ::=
+<ztc_zaakobjecttype_expand> ::=
       "objecttype"
-    | "zaaktype" ("." <zaaktype>)?
-    | "resultaattypen" ("." <resultaattype>)?
-    | "statustypen" ("." <statustype>)?
-    | "catalogus" ("." <catalogus>)?
+    | "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+    | "statustypen" ("." <ztc_statustype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
 
-<catalogus> ::=
-      "zaaktypen" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+<ztc_catalogus_expand> ::=
+      "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
 
-<statustype> ::=
-      "zaaktype" ("." <zaaktype>)?
-    | "catalogus" ("." <catalogus>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+<ztc_statustype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
 
-<resultaattype> ::=
-      "zaaktype" ("." <zaaktype>)?
+<ztc_resultaattype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
     | "resultaattypeomschrijving"
     | "selectielijstklasse"
-    | "catalogus" ("." <catalogus>)?
-    | "besluittypen" ("." <besluittype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
 
-<informatieobjecttype> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktypen" ("." <zaaktype>)?
-    | "besluittypen" ("." <besluittype>)?
+<ztc_informatieobjecttype_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
 
-<roltype> ::=
-      "zaaktype" ("." <zaaktype>)?
-    | "catalogus" ("." <catalogus>)?
+<ztc_roltype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
 
-<besluittype> ::=
-      "catalogus" ("." <catalogus>)?
-    | "zaaktypen" ("." <zaaktype>)?
-    | "informatieobjecttypen" ("." <informatieobjecttype>)?
-    | "resultaattypen" ("." <resultaattype>)?
+<ztc_besluittype_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
 
-<enkelvoudiginformatieobject> ::=
-      "informatieobjecttype" ("." <informatieobjecttype>)?
-    | "bestanddelen"
-
-<drc_enkelvoudiginformatieobject> ::=
+<drc_enkelvoudiginformatieobject_expand> ::=
       "link"
-    | "informatieobjecttype" ("." <informatieobjecttype>)?
+    | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
     | "bestanddelen"
 
-<drc_gebruiksrechten> ::=
-    "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
+<drc_gebruiksrechten_expand> ::=
+    "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
 
-<drc_objectinformatieobjecten> ::=
-      "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
-    | "zaaktypen" ("." <zaaktype>)?
-    | "object" ( "." ( <zaak> | <brc_besluit> ) )?
+<drc_objectinformatieobjecten_expand> ::=
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
+    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "object" ( "." ( <zrc_zaak_expand> | <brc_besluit_expand> ) )?
 
-<drc_verzendingen> ::=
-      "betrokkene" ("." <rol>)?
-    | "informatieobject" ("." <drc_enkelvoudiginformatieobject>)?
-    | "contactPersoon" ("." <rol>)?
+<drc_verzendingen_expand> ::=
+      "betrokkene" ("." <zrc_rol_expand>)?
+    | "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
+    | "contactPersoon" ("." <zrc_rol_expand>)?
 
-<brc_besluit> ::= 
-      "besluittype" ("." <besluittype>)?
+<brc_besluit_expand> ::= 
+      "besluittype" ("." <ztc_besluittype_expand>)?
 ```
 
 Opmerkingen:
