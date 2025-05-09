@@ -4,9 +4,9 @@ Gebruik uiteindelijk een BNF_grammatica voor de pad_expressies.
 Maak ook een grammatica voor expand paden met willekeurige diepte.
 Breid het uit met komma notatie voor meerdere paden tegelijk.
 
-## De huidige situatie (IST)
+# De huidige situatie (IST)
 
-### Zaken API 
+## Zaken API 
 
 In de vigerende standaard van de ZGW API kunnen expands uitgevoerd worden op de volgende twee endpoints:
 
@@ -78,7 +78,7 @@ De lijst van expand-paden `<zrc_zaak_expand_list>` wordt gedefiniëerd door de o
     | "zaakinformatieobjecten.status.zaakinformatieobjecten"
 ```
 
-### Expand-paden voor Documenten API
+## Expand-paden voor Documenten API
 
 In de Documenten API kunnen de volgende expands worden uitgevoerd:
 
@@ -111,9 +111,27 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
       "informatieobject" (".informatieobjecttype")?
 ```
 
-# Volledige nesting
+## Expand-paden voor Besluiten API
+In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit lijkt een ommissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn:
 
-## Expand-paden voor ZGW API's
+- `GET /besluiten?expand=<brc_besluit_expand>`
+- `GET /besluiten/{uuid}?expand=<brc_besluitinformatieobjecten_expand>`
+
+```ebnf
+<brc_besluit_expand> ::= 
+      "besluittype"
+    | "zaak"
+
+<brc_besluitinformatieobjecten_expand> ::= 
+      "informatieobject"
+    | "besluit"
+```
+
+
+
+# De gewenste situatie (SOLL)
+
+## Zaken API
 
 ```ebnf
 <zrc_zaak_expand_list> ::= 
@@ -159,7 +177,11 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
 <zrc_resultaat_expand> ::=
       "zaak" ("." <zrc_zaak_expand>)?
     | "resultaattype" ("." <ztc_resultaattype_expand>)?
+```
 
+## Catalogi API (ZTC)
+
+```ebnf
 <ztc_zaaktype_expand> ::=
       "zaakobjecttypen" ("." <ztc_zaakobjecttype_expand>)? 
     | "catalogus" ("." <ztc_catalogus_expand>)?
@@ -216,7 +238,11 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
     | "zaaktypen" ("." <ztc_zaaktype_expand>)?
     | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
     | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+```
 
+# Documenten API
+
+```ebnf
 <drc_enkelvoudiginformatieobject_expand> ::=
       "link"
     | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
@@ -234,11 +260,21 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
       "betrokkene" ("." <zrc_rol_expand>)?
     | "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
     | "contactPersoon" ("." <zrc_rol_expand>)?
-
-<brc_besluit_expand> ::= 
-      "besluittype" ("." <ztc_besluittype_expand>)?
 ```
 
+# Besluiten API
+
+```ebnf
+<brc_besluit_expand> ::= 
+      "besluittype" ("." <ztc_besluittype_expand>)?
+    | "zaak" ("." <zrc_zaak_expand>)?
+
+<brc_besluitinformatieobjecten_expand> ::= 
+      "informatieobject" ("." <drc_informatieobject_expand>)?
+    | "besluit" ("." <brc_besluit_expand>)?
+```
+
+<!--
 Opmerkingen:
 
 ```ebnf
@@ -273,6 +309,8 @@ Opmerkingen:
     | "informatieobjecttypen" ("." <informatieobjecttype>)?
 
 ```
+
+-->
 
 <!--
 

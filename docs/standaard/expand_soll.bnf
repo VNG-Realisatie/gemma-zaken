@@ -119,3 +119,8 @@
 
 <brc_besluit_expand> ::= 
       "besluittype" ("." <ztc_besluittype_expand>)?
+    | "zaak" ("." <zrc_zaak_expand>)?
+
+<brc_besluitinformatieobjecten_expand> ::= 
+      "informatieobject" ("." <drc_informatieobject_expand>)?
+    | "besluit" ("." <brc_besluit_expand>)?
