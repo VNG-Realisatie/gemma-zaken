@@ -1,80 +1,39 @@
-# Expand paden
+# Expand-paden
 
 Gebruik uiteindelijk een BNF_grammatica voor de pad_expressies. 
 Maak ook een grammatica voor expand paden met willekeurige diepte.
 Breid het uit met komma notatie voor meerdere paden tegelijk.
 
-## GET /zaken?expand=XXX
+## De huidige situatie (IST)
 
-### Diepte 1
-```text
-zaaktype
-hoofdzaak
-deelzaken
-relevanteAndereZaken 
-eigenschappen
-rollen
-status
-zaakinformatieobjecten
-zaakobjecten
-resultaat
-```
+### Zaken API 
 
-### Diepte 2
-```text
-hoofdzaak.<pad_diepte_1>
-deelzaken.<pad_diepte_1>
-relevanteAndereZaken.<pad_diepte_1>
-eigenschappen.eigenschappen
-rollen.roltype
-rollen.statussen
-status.statustype
-status.gezetdoor
-status.zaakinformatieobjecten
-zaakinformatieobjecten.informatieobject
-zaakinformatieobjecten.status
-zaakobjecten.object??
-zaakobjecten.zaakobjecttype
-resultaat.resultaattypen
-```
+In de vigerende standaard van de ZGW API kunnen expands uitgevoerd worden op de volgende twee endpoints:
 
+- `GET /zaken`
+- `GET /zaken/{uuid}`
 
+De expand-paden kunnen worden meegegeven door de query parameter `expand`. Bijvoorbeeld:
 
-### Diepte 3
+`GET /zaken?expand=zaaktype,status.statustype,deelzaken.zaaktype,deelzaken.status.statustype`
 
-```text
-hoofdzaak.<pad_diepte_2>
-deelzaken.<pad_diepte_2>
-relevanteAndereZaken.<pad_diepte_2>
-rollen.statussen.statustype
-rollen.statussen.gezetdoor
-rollen.statussen.zaakinformatieobjecten
-status.gezetdoor.roltype
-status.zaakinformatieobjecten.informatieobject
-status.zaakinformatieobjecten.status
-zaakinformatieobjecten.informatieobject.informatieobjecttype?? (niet in Excel) Lost dit het probleem op van Tahir???
-zaakinformatieobjecten.status.statustype
-zaakinformatieobjecten.status.gezetdoor
-zaakinformatieobjecten.status.statustype
-zaakinformatieobjecten.status.zaakinformatieobjecten??
-```
+De syntax van de expand-parameter ziet er zo uit.
 
-## BNF grammatica voor expand-paden
+- `GET /zaken?expand=<zrc_zaak_expand_list>`
+- `GET /zaken/{uuid}?expand=<zrc_zaak_expand_list>`
 
-### Expand-paden voor Zaken API
-
-Voor de volgende endpoints in de Zaken API definiëren we de expand-paden door middel van een BNF-grammatica.
-
-- `GET /zaken?expand=<expand_pad_zaak>`
-- `GET /zaken/{uuid}?expand=<expand_pad_zaak>`
+De lijst van expand-paden `<zrc_zaak_expand_list>` wordt gedefiniëerd door de onderstaande BNF-grammatica.
 
 ```ebnf
-<expand_pad_zaak> ::=
-      <expand_pad_zaak_diepte_1>
-    | <expand_pad_zaak_diepte_2>
-    | <expand_pad_zaak_diepte_3>
+<zrc_zaak_expand_list> ::= 
+      <zrc_zaak_expand> ("," <zrc_zaak_expand_list>)?
 
-<expand_pad_zaak_diepte_1> ::= 
+<zrc_zaak_expand> ::=
+      <zrc_zaak_expand_diepte_1>
+    | <zrc_zaak_expand_diepte_2>
+    | <zrc_zaak_expand_diepte_3>
+
+<zrc_zaak_expand_diepte_1> ::= 
       "zaaktype" 
     | "hoofdzaak" 
     | "deelzaken" 
@@ -86,11 +45,11 @@ Voor de volgende endpoints in de Zaken API definiëren we de expand-paden door m
     | "zaakobjecten" 
     | "resultaat"
 
-<expand_pad_zaak_diepte_2> ::=
-      "hoofdzaak." <expand_pad_zaak_diepte_1> 
-    | "deelzaken." <expand_pad_zaak_diepte_1>
-    | "relevanteAndereZaken." <expand_pad_zaak_diepte_1>
-    | "eigenschappen.eigenschappen"
+<zrc_zaak_expand_diepte_2> ::=
+      "hoofdzaak." <zrc_zaak_expand_diepte_1> 
+    | "deelzaken." <zrc_zaak_expand_diepte_1>
+    | "relevanteAndereZaken." <zrc_zaak_expand_diepte_1>
+    | "eigenschappen.eigenschap"
     | "rollen.roltype"
     | "rollen.statussen"
     | "status.statustype"
@@ -102,10 +61,10 @@ Voor de volgende endpoints in de Zaken API definiëren we de expand-paden door m
     | "zaakobjecten.zaakobjecttype"
     | "resultaat.resultaattypen"
 
-<expand_pad_zaak_diepte_3> ::= 
-      "hoofdzaak." <expand_pad_zaak_diepte_2>
-    | "deelzaken." <expand_pad_zaak_diepte_2>
-    | "relevanteAndereZaken." <expand_pad_zaak_diepte_2>
+<zrc_zaak_expand_diepte_3> ::= 
+      "hoofdzaak." <zrc_zaak_expand_diepte_2>
+    | "deelzaken." <zrc_zaak_expand_diepte_2>
+    | "relevanteAndereZaken." <zrc_zaak_expand_diepte_2>
     | "rollen.statussen.statustype"
     | "rollen.statussen.gezetdoor"
     | "rollen.statussen.zaakinformatieobjecten"
@@ -121,30 +80,36 @@ Voor de volgende endpoints in de Zaken API definiëren we de expand-paden door m
 
 ### Expand-paden voor Documenten API
 
-Voor de volgende endpoints in de Documenten API definiëren we de expand-paden door middel van een BNF-grammatica.  
+In de Documenten API kunnen de volgende expands worden uitgevoerd:
 
-- `GET /enkelvoudiginformatieobjecten?expand=<expand_pad_enkelvoudiginformatieobject>`
-- `GET /enkelvoudiginformatieobjecten/{uuid}?expand=<expand_pad_enkelvoudiginformatieobject>`
-- `GET /gebruiksrechten?expand=<expand_pad_informatieobject>`
-- `GET /gebruiksrechten/{uuid}?expand=<expand_pad_informatieobject>`  
-- `GET /objectinformatieobjecten?expand=<expand_pad_informatieobject>`  
-- `GET /objectinformatieobjecten/{uuid}?expand=<expand_pad_informatieobject>`  
-- `GET /verzendingen?expand=<expand_pad_informatieobject>`  
-- `GET /verzendingen/{uuid}?expand=<expand_pad_informatieobject>`  
+- `GET /enkelvoudiginformatieobjecten?expand=informatieobjecttype`
+- `GET /enkelvoudiginformatieobjecten/{uuid}?expand=informatieobjecttype`
+- `GET /gebruiksrechten?expand=informatieobject`
+- `GET /gebruiksrechten/{uuid}?expand=informatieobject`  
+- `GET /verzendingen?expand=informatieobject`  
+- `GET /verzendingen/{uuid}?expand=informatieobject`  
+
+
+Let op! In de OAS van Documenten API 1.4.3 zijn we vergeten een aantal expands op te nemen die er wel hadden moeten zijn:
+
+- Op het endpoint `/objectinformatieobjecten` is ten onrechte nog geen expand gedefiniëerd. 
+- Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanden met het veld `informatieobjecttype`.
+
+In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig moeten zijn.
+
+- `GET /enkelvoudiginformatieobjecten?expand=informatieobjecttype`
+- `GET /enkelvoudiginformatieobjecten/{uuid}?expand=informatieobjecttype`
+- `GET /objectinformatieobjecten?expand=<drc_informatieobject_expand>`  
+- `GET /objectinformatieobjecten/{uuid}?expand=<drc_informatieobject_expand>`
+- `GET /gebruiksrechten?expand=<drc_informatieobject_expand>`
+- `GET /gebruiksrechten/{uuid}?expand=<drc_informatieobject_expand>`  
+- `GET /verzendingen?expand=<drc_informatieobject_expand>`  
+- `GET /verzendingen/{uuid}?expand=<drc_informatieobject_expand>`
 
 ```ebnf
-<expand_pad_enkelvoudiginformatieobject> ::= 
-    "informatieobjecttype"
-
-<expand_pad_informatieobject> ::= 
-    "informatieobject" ["." <expand_pad_enkelvoudiginformatieobjecten>]
-
+<drc_informatieobject_expand> ::=
+      "informatieobject" (".informatieobjecttype")?
 ```
-
-Let op! De OAS van Documenten API 1.4.3 bevat de volgende fouten:
-
-- Op het endpoint `/objectinformatieobjecten` is geen expand gedefiniëerd.
-- Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanden met het veld `informatieobjecttype`, althans deze geneste expand wordt niet beschreven in het respons-schema
 
 # Volledige nesting
 
@@ -309,6 +274,7 @@ Opmerkingen:
 
 ```
 
+<!--
 
 # To do
 
@@ -331,6 +297,8 @@ Opmerkingen:
 - Gebruik yacc en Python om zelf een parser te genereren met comments.
 - Maar daar een API van en een ook een docker.
 - In het voorbeeld met diepte 3 grammatica moet de "." losgetrokken worden
+
+-->
 
 
 
