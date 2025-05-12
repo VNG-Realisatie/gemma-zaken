@@ -158,13 +158,13 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
 <zrc_zaakinformatieobject_expand_list> ::= 
       <zrc_zaakinformatieobject_expand> ("," <zrc_zaakinformatieobject_expand_list>)?
 
-zrc_zaakobject_expand_list> ::= 
+<zrc_zaakobject_expand_list> ::= 
       <zrc_zaakobject_expand> ("," <zrc_zaakobject_expand_list>)?
 
-zrc_zaak_expand_list> ::= 
+<zrc_zaak_expand_list> ::= 
       <zrc_zaak_expand> ("," <zrc_zaak_expand_list>)?
 
-zrc_zaakeigenschap_expand_list> ::= 
+<zrc_zaakeigenschap_expand_list> ::= 
       <zrc_zaakeigenschap_expand> ("," <zrc_zaakeigenschap_expand_list>)?
 
 <zrc_resultaat_expand> ::=
@@ -212,7 +212,7 @@ zrc_zaakeigenschap_expand_list> ::=
     | "eigenschap" ("." <ztc_eigenschap_expand>)?
 ```
 
-## Catalogi API (ZTC)
+## Catalogi API
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
 |----                               |---                                                        |
@@ -224,11 +224,93 @@ zrc_zaakeigenschap_expand_list> ::=
 | `/roltypen`                       |    `<ztc_roltype_expand_list>`                            |
 | `/statustypen`                    |    `<ztc_statustype_expand>`                              |
 | `/zaakobjecttypen`                |    `<ztc_zaakobjecttype_expand_list>`                     |
-| `/zaaktype-informatieobjecttypen` |    `<ztc_zaaktype_informatieobjecttypen_expand_list>`     |
+| `/zaaktype-informatieobjecttypen` |    `<ztc_zaaktype_informatieobjecttype_expand_list>`      |
 | `/zaaktypen`                      |    `<ztc_zaaktype_expand_list>`                           |
 
 
 ```ebnf
+<ztc_besluittype_expand_list> ::= 
+      <ztc_besluittype_expand> ("," <ztc_besluittype_expand_list>)?
+
+<ztc_catalogus_expand_list> ::= 
+      <ztc_catalogus_expand> ("," <ztc_catalogus_expand_list>)?
+
+<ztc_eigenschap_expand_list> ::= 
+      <ztc_eigenschap_expand> ("," <ztc_eigenschap_expand_list>)?
+
+<ztc_informatieobjecttype_expand_list> ::= 
+      <ztc_informatieobjecttype_expand> ("," <ztc_informatieobjecttype_expand_list>)?
+
+<ztc_resultaattype_expand_list> ::= 
+      <ztc_resultaattype_expand> ("," <ztc_resultaattype_expand_list>)?
+
+<ztc_roltype_expand_list> ::= 
+      <ztc_roltype_expand> ("," <ztc_roltype_expand_list>)?
+
+<ztc_statustype_expand_list> ::= 
+      <ztc_statustype_expand> ("," <ztc_statustype_expand_list>)?
+
+<ztc_zaakobjecttype_expand_list> ::= 
+      <ztc_zaakobjecttype_expand> ("," <ztc_zaakobjecttype_expand_list>)?
+
+<ztc_zaaktype_informatieobjecttype_expand_list> ::= 
+      <ztc_zaaktype_informatieobjecttype_expand> ("," <ztc_zaaktype_informatieobjecttype_expand_list>)?
+
+<ztc_zaaktype_expand_list> ::= 
+      <ztc_zaaktype_expand> ("," <ztc_zaaktype_expand_list>)
+
+<ztc_besluittype_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+
+<ztc_catalogus_expand> ::=
+      "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+
+<ztc_eigenschap_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "statustype" ("." <ztc_statustype_expand>)?
+
+<ztc_informatieobjecttype_expand> ::=
+      "catalogus" ("." <ztc_catalogus_expand>)?
+    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+
+<ztc_resultaattype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "resultaattypeomschrijving"
+    | "selectielijstklasse"
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "besluittypen" ("." <ztc_besluittype_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+
+<ztc_roltype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+
+<ztc_statustype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
+
+
+<ztc_zaakobjecttype_expand> ::=
+      "objecttype"
+    | "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+    | "statustypen" ("." <ztc_statustype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+
+<ztc_zaaktype_informatieobjecttype_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
+    | "statustype" ("." <ztc_statustype_expand>)?
+
 <ztc_zaaktype_expand> ::=
       "zaakobjecttypen" ("." <ztc_zaakobjecttype_expand>)? 
     | "catalogus" ("." <ztc_catalogus_expand>)?
@@ -240,76 +322,44 @@ zrc_zaakeigenschap_expand_list> ::=
     | "besluittypen" ("." <ztc_besluittype_expand>)?
     | "deelzaaktypen" ("." <ztc_zaaktype_expand>)?
     | "gerelateerdeZaaktypen" ("." <ztc_zaaktype_expand>)?
-
-<ztc_eigenschap_expand> ::=
-      "catalogus" ("." <ztc_catalogus_expand>)?
-    | "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "statustype" ("." <ztc_statustype_expand>)?
-
-<ztc_zaakobjecttype_expand> ::=
-      "objecttype"
-    | "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
-    | "statustypen" ("." <ztc_statustype_expand>)?
-    | "catalogus" ("." <ztc_catalogus_expand>)?
-
-<ztc_catalogus_expand> ::=
-      "zaaktypen" ("." <ztc_zaaktype_expand>)?
-    | "besluittypen" ("." <ztc_besluittype_expand>)?
-    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
-
-<ztc_statustype_expand> ::=
-      "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "catalogus" ("." <ztc_catalogus_expand>)?
-    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
-
-<ztc_resultaattype_expand> ::=
-      "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "resultaattypeomschrijving"
-    | "selectielijstklasse"
-    | "catalogus" ("." <ztc_catalogus_expand>)?
-    | "besluittypen" ("." <ztc_besluittype_expand>)?
-    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
-
-<ztc_informatieobjecttype_expand> ::=
-      "catalogus" ("." <ztc_catalogus_expand>)?
-    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
-    | "besluittypen" ("." <ztc_besluittype_expand>)?
-
-<ztc_roltype_expand> ::=
-      "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "catalogus" ("." <ztc_catalogus_expand>)?
-
-<ztc_besluittype_expand> ::=
-      "catalogus" ("." <ztc_catalogus_expand>)?
-    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
-    | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
-    | "resultaattypen" ("." <ztc_resultaattype_expand>)?
-
-<ztc_zaaktype_informatieobjecttypen_expand> ::=
-      "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "catalogus" ("." <ztc_catalogus_expand>)?
-    | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
-    | "statustype" ("." <ztc_statustype_expand>)?
 ```
 
 # Documenten API
 
+| Endpoint                          |  Waarde `expand` query paramater                          |
+|-----------------------------------|-----------------------------------------------------------|      
+| `/enkelvoudiginformatieobjecten`  |    `<drc_enkelvoudiginformatieobject_expand_list>`        |
+| `/gebruiksrechten`                |    `<drc_gebruiksrecht_expand>`                           |
+| `/objectinformatieobjecten`       |    `<drc_objectinformatieobjecten_expand_list>`           |
+| `/verzendingen`                   |    `<drc_verzendingen_expand_list>`                       |
+
+
 ```ebnf
+<drc_enkelvoudiginformatieobject_expand_list> ::= 
+      <drc_enkelvoudiginformatieobject_expand> ("," <drc_enkelvoudiginformatieobject_expand_list>)
+
+<drc_gebruiksrecht_expand_list> ::= 
+      <drc_gebruiksrecht_expand> ("," <drc_gebruiksrecht_expand_list>)
+
+<drc_objectinformatieobject_expand_list> ::= 
+      <drc_objectinformatieobject_expand> ("," <drc_objectinformatieobject_expand_list>)
+
+<drc_verzending_expand_list> ::= 
+      <drc_verzending_expand> ("," <drc_verzending_expand_list>)
+
 <drc_enkelvoudiginformatieobject_expand> ::=
       "link"
     | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
     | "bestanddelen"
 
-<drc_gebruiksrechten_expand> ::=
+<drc_gebruiksrecht_expand> ::=
     "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
 
-<drc_objectinformatieobjecten_expand> ::=
+<drc_objectinformatieobject_expand> ::=
       "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
-    | "zaaktypen" ("." <ztc_zaaktype_expand>)?
     | "object" ( "." ( <zrc_zaak_expand> | <brc_besluit_expand> ) )?
 
-<drc_verzendingen_expand> ::=
+<drc_verzending_expand> ::=
       "betrokkene" ("." <zrc_rol_expand>)?
     | "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
     | "contactPersoon" ("." <zrc_rol_expand>)?
@@ -317,13 +367,25 @@ zrc_zaakeigenschap_expand_list> ::=
 
 # Besluiten API
 
+| Endpoint                          |  Waarde `expand` query paramater                          |
+|-----------------------------------|-----------------------------------------------------------|      
+| `/besluiten`                      |    `<brc_besluit_expand_list>`                            |
+| `/besluitinformatieobjecten`      |    `<brc_besluitinformatieobject_expand_list>`            |
+
+
 ```ebnf
+<brc_besluit_expand_list> ::= 
+      <brc_besluit_expand> ("," <brc_besluit_expand_list>)?
+
+<brc_besluitinformatieobject_expand_list> ::= 
+      <brc_besluitinformatieobject_expand> ("," <brc_besluitinformatieobject_expand_list>)?
+
 <brc_besluit_expand> ::= 
       "besluittype" ("." <ztc_besluittype_expand>)?
     | "zaak" ("." <zrc_zaak_expand>)?
 
-<brc_besluitinformatieobjecten_expand> ::= 
-      "informatieobject" ("." <drc_informatieobject_expand>)?
+<brc_besluitinformatieobject_expand> ::= 
+      "informatieobject" ("." <drc_enkelvoudiginformatieobject_expand>)?
     | "besluit" ("." <brc_besluit_expand>)?
 ```
 
