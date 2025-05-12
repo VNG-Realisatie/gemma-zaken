@@ -1,8 +1,10 @@
 # Expand-paden
 
-Gebruik uiteindelijk een BNF_grammatica voor de pad_expressies. 
-Maak ook een grammatica voor expand paden met willekeurige diepte.
-Breid het uit met komma notatie voor meerdere paden tegelijk.
+Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt precies gespecificeerd welke velden geëxpandeerd kunnen worden. Echter het zou beter zijn als de expand-paden meteen gespecificeerd worden bij de query-parameter definitie van `expand` in het request-schema van het bericht. Om de expand-paden precies te beschrijven maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/).
+
+In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's (de IST-situatie). Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
+
+In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin is de lengte van de expand-paden in principe onbeperkt, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kunnen de objecten van de Catalogi API ook volledig geëxpandeerd worden. In de SOLL-situatie kunnen ook alle resources op directe wijze geëxpandeerd worden. In de huidige situatie kunnen resources zoals `/rollen` of `resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource.
 
 # De huidige situatie (IST)
 
@@ -127,31 +129,47 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
     | "besluit"
 ```
 
-
-
 # De gewenste situatie (SOLL)
 
 ## Zaken API
 
+| Endpoint                          |  Waarde `expand` query paramater              |
+|----                               |---                                            |
+| `/resultaten`                     |    `<zrc_resultaat_expand_list>`              |
+| `/rollen`                         |    `<zrc_rol_expand_list>`                    |
+| `/statusssen`                     |    `<zrc_status_expand_list>`                 |
+| `/zaakinformatieobjecten`         |    `<zrc_zaakinformatieobject_expand_list>`   |
+| `/zaakobjecten`                   |    `<zrc_zaakobject_expand_list>`             |
+| `/zaken`                          |    `<zrc_zaak_expand_list>`                   |
+| `/zaken/{uuid}/besluiten`         |    `<zrc_zaakbesluit_expand>`                 |
+| `/zaken/{uuid}/zaakeigenschappen` |    `<zrc_zaakeigenschap_expand_list>`         |
+
+
 ```ebnf
-<zrc_zaak_expand_list> ::= 
+<zrc_resultaat_expand_list> ::= 
+      <zrc_resultaat_expand> ("," <zrc_resultaat_expand_list>)?
+
+<zrc_rol_expand_list> ::= 
+      <zrc_rol_expand> ("," <zrc_rol_expand_list>)?
+
+<zrc_status_expand_list> ::= 
+      <zrc_status_expand> ("," <zrc_status_expand_list>)?
+
+<zrc_zaakinformatieobject_expand_list> ::= 
+      <zrc_zaakinformatieobject_expand> ("," <zrc_zaakinformatieobject_expand_list>)?
+
+zrc_zaakobject_expand_list> ::= 
+      <zrc_zaakobject_expand> ("," <zrc_zaakobject_expand_list>)?
+
+zrc_zaak_expand_list> ::= 
       <zrc_zaak_expand> ("," <zrc_zaak_expand_list>)?
 
-<zrc_zaak_expand> ::= 
-      "zaaktype" ("." <ztc_zaaktype_expand>)?
-    | "hoofdzaak" ("." <zrc_zaak_expand>)?
-    | "deelzaken" ("." <zrc_zaak_expand>)?
-    | "relevanteAndereZaken" ("." <zrc_zaak_expand>)?
-    | "eigenschappen" ("." <zrc_zaakeigenschap_expand>)?
-    | "rollen" ("." <zrc_rol_expand>)?
-    | "status" ("." <zrc_status_expand>)?
-    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject_expand>)?
-    | "zaakobjecten" ("." <zrc_zaakobject_expand>)?
-    | "resultaat" ("." <zrc_resultaat_expand>)?
+zrc_zaakeigenschap_expand_list> ::= 
+      <zrc_zaakeigenschap_expand> ("," <zrc_zaakeigenschap_expand_list>)?
 
-<zrc_zaakeigenschap_expand> ::=
+<zrc_resultaat_expand> ::=
       "zaak" ("." <zrc_zaak_expand>)?
-    | "eigenschap" ("." <ztc_eigenschap_expand>)?
+    | "resultaattype" ("." <ztc_resultaattype_expand>)?
 
 <zrc_rol_expand> ::=
       "zaak" ("." <zrc_zaak_expand>)?
@@ -174,12 +192,41 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
     | "object"
     | "zaakobjecttype" ("." <ztc_zaakobjecttype_expand>)?
 
-<zrc_resultaat_expand> ::=
+<zrc_zaak_expand> ::= 
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "hoofdzaak" ("." <zrc_zaak_expand>)?
+    | "deelzaken" ("." <zrc_zaak_expand>)?
+    | "relevanteAndereZaken" ("." <zrc_zaak_expand>)?
+    | "eigenschappen" ("." <zrc_zaakeigenschap_expand>)?
+    | "rollen" ("." <zrc_rol_expand>)?
+    | "status" ("." <zrc_status_expand>)?
+    | "zaakinformatieobjecten" ("." <zrc_zaakinformatieobject_expand>)?
+    | "zaakobjecten" ("." <zrc_zaakobject_expand>)?
+    | "resultaat" ("." <zrc_resultaat_expand>)?
+
+<zrc_zaakbesluit_expand> ::=
+      "besluit" ("." <brc_besluit_expand>)?   
+
+<zrc_zaakeigenschap_expand> ::=
       "zaak" ("." <zrc_zaak_expand>)?
-    | "resultaattype" ("." <ztc_resultaattype_expand>)?
+    | "eigenschap" ("." <ztc_eigenschap_expand>)?
 ```
 
 ## Catalogi API (ZTC)
+
+| Endpoint                          |  Waarde `expand` query paramater                          |
+|----                               |---                                                        |
+| `/besluittypen`                   |    `<ztc_besluittype_expand_list>`                        |
+| `/catalogussen`                   |    `<ztc_catalogus_expand_list>`                          |
+| `/eigenschappen`                  |    `<ztc_eigenschap_expand_list>`                         |
+| `/informatieobjecttypen`          |    `<ztc_informatieobjecttype_expand_list>`               |
+| `/resultaattypen`                 |    `<ztc_resultaattype_expand_list>`                      |
+| `/roltypen`                       |    `<ztc_roltype_expand_list>`                            |
+| `/statustypen`                    |    `<ztc_statustype_expand>`                              |
+| `/zaakobjecttypen`                |    `<ztc_zaakobjecttype_expand_list>`                     |
+| `/zaaktype-informatieobjecttypen` |    `<ztc_zaaktype_informatieobjecttypen_expand_list>`     |
+| `/zaaktypen`                      |    `<ztc_zaaktype_expand_list>`                           |
+
 
 ```ebnf
 <ztc_zaaktype_expand> ::=
@@ -238,6 +285,12 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
     | "zaaktypen" ("." <ztc_zaaktype_expand>)?
     | "informatieobjecttypen" ("." <ztc_informatieobjecttype_expand>)?
     | "resultaattypen" ("." <ztc_resultaattype_expand>)?
+
+<ztc_zaaktype_informatieobjecttypen_expand> ::=
+      "zaaktype" ("." <ztc_zaaktype_expand>)?
+    | "catalogus" ("." <ztc_catalogus_expand>)?
+    | "informatieobjecttype" ("." <ztc_informatieobjecttype_expand>)?
+    | "statustype" ("." <ztc_statustype_expand>)?
 ```
 
 # Documenten API
