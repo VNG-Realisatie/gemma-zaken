@@ -1,12 +1,14 @@
 # Expand-paden
 
-Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt precies gespecificeerd welke velden geëxpandeerd kunnen worden. Echter het zou beter zijn als de expand-paden meteen gespecificeerd worden bij de query-parameter definitie van `expand` in het request-schema van het bericht. Om de expand-paden precies te beschrijven maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/).
+Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt  gespecificeerd welke velden geëxpandeerd kunnen worden. Echter het is duidelijker als de expand-paden meteen gespecificeerd worden bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/) die we in deze notitie gaan definiëren.
 
-In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's (de IST-situatie). Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
+In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
 
 In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin is de lengte van de expand-paden in principe onbeperkt, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kunnen de objecten van de Catalogi API ook volledig geëxpandeerd worden. In de SOLL-situatie kunnen ook alle resources op directe wijze geëxpandeerd worden. In de huidige situatie kunnen resources zoals `/rollen` of `resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource.
 
 # De huidige situatie (IST)
+
+De volledige bnf-grammatica van de exand paden in de huidige situatie kan [hier](expand_ist.bnf) worden gedownload.
 
 ## Zaken API 
 
@@ -133,6 +135,8 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
 
 ## Zaken API
 
+### Endpoints
+
 | Endpoint                          |  Waarde `expand` query paramater              |
 |----                               |---                                            |
 | `/resultaten`                     |    `<zrc_resultaat_expand_list>`              |
@@ -144,6 +148,7 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
 | `/zaken/{uuid}/besluiten`         |    `<zrc_zaakbesluit_expand>`                 |
 | `/zaken/{uuid}/zaakeigenschappen` |    `<zrc_zaakeigenschap_expand_list>`         |
 
+### BNF-grammatica
 
 ```ebnf
 <zrc_resultaat_expand_list> ::= 
@@ -431,10 +436,6 @@ Opmerkingen:
 
 # To do
 
-- Naast de punt-notatie ook de de grammatica uitschrijven voor komma-notatie (expand=zaaktype,status.statustype)
-- alle non-terminals voorzien van een prefix: zrc, ztc, brc, drc,  ...
-- Volledige recursie uitwerken!!!! (LeUK)
-- Installeer een VSC extensie voor BNF highlightning
 - https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
 - https://bnfplayground.pauliankline.com/
 - Genereer een plaatje van de grammatica
@@ -450,6 +451,10 @@ Opmerkingen:
 - Gebruik yacc en Python om zelf een parser te genereren met comments.
 - Maar daar een API van en een ook een docker.
 - In het voorbeeld met diepte 3 grammatica moet de "." losgetrokken worden
+- Geef extra niet-context-vrije regels:
+      - expand=zaaktype,zaaktype,status,status.statustype bevat allerlei overtolligheden etc.
+      - De lijst mag niet langer zijn dan alle expand mogelijkheden
+      - In de paden kunnen we een limiet stellen hoe vaak dezelfde stap herhaalt mag worden.
 
 -->
 
