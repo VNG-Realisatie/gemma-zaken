@@ -1,6 +1,6 @@
 # Expand-paden
 
-Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt  gespecificeerd welke velden geëxpandeerd kunnen worden. Echter het is duidelijker als de expand-paden meteen gespecificeerd worden bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/) die we in deze notitie gaan definiëren.
+Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Om het volledig duidelijk te krijgen gaan we de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/) die we in deze notitie gaan definiëren.
 
 In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
 
@@ -8,7 +8,7 @@ In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin is de len
 
 # De huidige situatie (IST)
 
-De volledige bnf-grammatica van de exand paden in de huidige situatie kan [hier](expand_ist.bnf) worden gedownload.
+De volledige bnf-grammatica van de exand paden die in deze sectie worden beschreven kan [hier](expand_ist.bnf) worden gedownload.
 
 ## Zaken API 
 
@@ -132,6 +132,8 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
 ```
 
 # De gewenste situatie (SOLL)
+
+De volledige bnf-grammatica van de exand paden die in deze sectie worden beschreven kan [hier](expand_soll.bnf) worden gedownload.
 
 ## Zaken API
 
