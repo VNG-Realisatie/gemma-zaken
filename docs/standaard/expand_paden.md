@@ -2,11 +2,11 @@
 
 Een aantal versies geleden zijn de ZGW API's uitgebreid met het expand-mechanisme. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Blijkbaar wordt daar niet in eerste instantie naar gekeken. Om het expand-mechanisme volledig duidelijk te krijgen gaan we in deze notitie de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis tools te vinden om de BNF-grammatica's te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/). 
 
-We geven een voorbeeld ter illustratie. Hieronder een bevraging van de Zaken API waarin expand gebruikt.
+We geven een voorbeeld ter illustratie. Hieronder een bevraging van de Zaken API waarin expand wordt gebruikt.
 
 `GET /zaken?expand=zaaktype,status.statustype,deelzaken.zaaktype,deelzaken.status.statustype`
 
-In de onderstaande screenshot zien we dat de gebruikte expand-paden gevalideerd worden door de BNF-grammatica die we hebben gedefinieerd.
+In de onderstaande screenshot zien we dat de gebruikte expand-paden worden gevalideerd worden door de BNF-grammatica. Op deze manier is nu volledige duidelijk in de standaard welke expand-paden wel of niet zijn toegestaan.
 
 <!-- ![alt text](bnf-playground.png) -->
 
@@ -15,13 +15,13 @@ In de onderstaande screenshot zien we dat de gebruikte expand-paden gevalideerd 
 </div>
 
 
-In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
+In de volgende sectie specificeren we de BNF-grammatica van de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
 
-In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin heeft de lengte van de expand-paden geen limiet, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kan in de nieuwe situatie het expand-mechanisme direct worden toegepast op alle resources.  In de huidige situatie kunnen resources zoals `/rollen` of `/resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource. Straks kan het expand-mechsnisme ook direct worden toegepast op `/rollen` en `/resultaten`.
+In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin heeft de lengte van de expand-paden geen limiet, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kan in de nieuwe situatie het expand-mechanisme direct worden toegepast op alle resources.  In de huidige situatie kunnen resources zoals `/rollen` of `/resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource. Straks kan het expand-mechanisme ook direct worden toegepast op `/rollen` en `/resultaten`.
 
 # De huidige situatie (IST)
 
-De volledige bnf-grammatica van de exand paden die in deze sectie worden beschreven kan [hier](expand_ist.bnf) worden gedownload.
+De volledige bnf-grammatica van de expand paden die in deze sectie worden beschreven kan [hier](expand_ist.bnf) worden gedownload.
 
 ## Zaken API 
 
@@ -39,7 +39,7 @@ De syntax van de expand-parameter ziet er zo uit.
 - `GET /zaken?expand=<zrc_zaak_expand_list>`
 - `GET /zaken/{uuid}?expand=<zrc_zaak_expand_list>`
 
-De lijst van expand-paden `<zrc_zaak_expand_list>` wordt gedefiniëerd door de onderstaande BNF-grammatica.
+De lijst van expand-paden `<zrc_zaak_expand_list>` wordt gedefinieerd door de onderstaande BNF-grammatica.
 
 ```ebnf
 <zrc_zaak_expand_list> ::= 
@@ -109,8 +109,8 @@ In de Documenten API kunnen de volgende expands worden uitgevoerd:
 
 Let op! In de OAS van Documenten API 1.4.3 zijn we vergeten een aantal expands op te nemen die er wel hadden moeten zijn:
 
-- Op het endpoint `/objectinformatieobjecten` is ten onrechte nog geen expand gedefiniëerd. 
-- Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanden met het veld `informatieobjecttype`.
+- Op het endpoint `/objectinformatieobjecten` is ten onrechte nog geen expand gedefinieerd. 
+- Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanderen met het veld `informatieobjecttype`.
 
 In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig moeten zijn.
 
@@ -129,7 +129,7 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
 ```
 
 ## Expand-paden voor Besluiten API
-In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit lijkt een ommissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn:
+In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit lijkt een omissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn:
 
 - `GET /besluiten?expand=<brc_besluit_expand>`
 - `GET /besluiten/{uuid}?expand=<brc_besluitinformatieobjecten_expand>`
@@ -146,7 +146,7 @@ In de huidige versie van de Besluiten API zijn geen expands gedefiniëerd, dit l
 
 # De gewenste situatie (SOLL)
 
-De volledige bnf-grammatica van de exand paden die in deze sectie worden beschreven kan [hier](expand_soll.bnf) worden gedownload.
+De volledige bnf-grammatica van de expand paden die in deze sectie worden beschreven kan [hier](expand_soll.bnf) worden gedownload.
 
 ## Zaken API
 
@@ -387,7 +387,7 @@ De volledige bnf-grammatica van de exand paden die in deze sectie worden beschre
 
 # Besluiten API
 
-| Endpoint                          |  Waarde `expand` query paramater                          |
+| Endpoint                          |  Waarde `expand` query parameter                          |
 |-----------------------------------|-----------------------------------------------------------|      
 | `/besluiten`                      |    `<brc_besluit_expand_list>`                            |
 | `/besluitinformatieobjecten`      |    `<brc_besluitinformatieobject_expand_list>`            |
@@ -448,7 +448,6 @@ Opmerkingen:
 -->
 
 <!--
-
 # To do
 
 - https://bnfparser.firebaseapp.com/ voor speciale BNF syntax en sandbox
@@ -470,7 +469,6 @@ Opmerkingen:
       - expand=zaaktype,zaaktype,status,status.statustype bevat allerlei overtolligheden etc.
       - De lijst mag niet langer zijn dan alle expand mogelijkheden
       - In de paden kunnen we een limiet stellen hoe vaak dezelfde stap herhaalt mag worden.
-
 -->
 
 
