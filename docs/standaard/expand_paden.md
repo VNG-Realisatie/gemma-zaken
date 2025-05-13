@@ -25,16 +25,19 @@ De volledige bnf-grammatica van de expand paden die in deze sectie worden beschr
 
 ## Zaken API 
 
-In de vigerende standaard van de ZGW API kunnen expands uitgevoerd worden op de volgende twee endpoints:
+In de huidige standaard van de Zaken API kunnen expands alleen worden uitgevoerd op het volgende endpoint:
 
-- `GET /zaken`
-- `GET /zaken/{uuid}`
+
+| Endpoint                          | Waarde `expand` query paramater               |
+|:----                              |:---                                           |
+| `/zaken`                          |    `<zrc_zaak_expand_list>`                   |
+
 
 De expand-paden kunnen worden meegegeven door de query parameter `expand`. Bijvoorbeeld:
 
 `GET /zaken?expand=zaaktype,status.statustype,deelzaken.zaaktype,deelzaken.status.statustype`
 
-De syntax van de expand-parameter ziet er zo uit.
+De expand parameter mag alleen worden gebruikt in GET-operaties:
 
 - `GET /zaken?expand=<zrc_zaak_expand_list>`
 - `GET /zaken/{uuid}?expand=<zrc_zaak_expand_list>`
@@ -97,22 +100,22 @@ De lijst van expand-paden `<zrc_zaak_expand_list>` wordt gedefinieerd door de on
 
 ## Expand-paden voor Documenten API
 
-In de Documenten API kunnen de volgende expands worden uitgevoerd:
+In de Documenten API kunnen de volgende expands worden uitgevoerd.
 
-- `GET /enkelvoudiginformatieobjecten?expand=informatieobjecttype`
-- `GET /enkelvoudiginformatieobjecten/{uuid}?expand=informatieobjecttype`
-- `GET /gebruiksrechten?expand=informatieobject`
-- `GET /gebruiksrechten/{uuid}?expand=informatieobject`  
-- `GET /verzendingen?expand=informatieobject`  
-- `GET /verzendingen/{uuid}?expand=informatieobject`  
+| Endpoint                          | Waarde `expand` query paramater            |
+|:----------------------------------|:-------------------------------------------|
+| `/enkelvoudiginformatieobjecten`  | `informatieobjecttype`                     |
+| `/gebruiksrechten`                | `informatieobject`                         |
+| `/verzendingen`                   | `informatieobject`                         |
 
 
-Let op! In de OAS van Documenten API 1.4.3 zijn we vergeten een aantal expands op te nemen die er wel hadden moeten zijn:
+Let op! In de OAS van Documenten API 1.4.3 ontbreken een aantal expands die er wel hadden moeten zijn:
 
 - Op het endpoint `/objectinformatieobjecten` is ten onrechte nog geen expand gedefinieerd. 
 - Op de endpoints `/gebruiksrechten` en `/verzendingen` kun je niet genest expanderen met het veld `informatieobjecttype`.
 
 In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig moeten zijn.
+
 
 - `GET /enkelvoudiginformatieobjecten?expand=informatieobjecttype`
 - `GET /enkelvoudiginformatieobjecten/{uuid}?expand=informatieobjecttype`
