@@ -21,7 +21,7 @@ In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin heeft de 
 
 # De huidige situatie (IST)
 
-De volledige bnf-grammatica van de expand paden die in deze sectie worden beschreven kan [hier](expand_ist.bnf) worden gedownload.
+De volledige BNF-grammatica van de expand paden die in deze sectie worden beschreven kan [hier](expand_ist.bnf) worden gedownload.
 
 ## Zaken API 
 
@@ -148,14 +148,14 @@ In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit li
 
 # De gewenste situatie (SOLL)
 
-De volledige bnf-grammatica van de expand paden die in deze sectie worden beschreven kan [hier](expand_soll.bnf) worden gedownload.
+De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschreven kan [hier](expand_soll.bnf) worden gedownload.
 
 ## Zaken API
 
 ### Endpoints
 
 | Endpoint                          |  Waarde `expand` query paramater              |
-|----                               |---                                            |
+|:----                              |:---                                           |
 | `/resultaten`                     |    `<zrc_resultaat_expand_list>`              |
 | `/rollen`                         |    `<zrc_rol_expand_list>`                    |
 | `/statusssen`                     |    `<zrc_status_expand_list>`                 |
@@ -237,7 +237,7 @@ De volledige bnf-grammatica van de expand paden die in deze sectie worden beschr
 ## Catalogi API
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
-|----                               |---                                                        |
+|:----                              |:---                                                       |
 | `/besluittypen`                   |    `<ztc_besluittype_expand_list>`                        |
 | `/catalogussen`                   |    `<ztc_catalogus_expand_list>`                          |
 | `/eigenschappen`                  |    `<ztc_eigenschap_expand_list>`                         |
@@ -349,7 +349,7 @@ De volledige bnf-grammatica van de expand paden die in deze sectie worden beschr
 # Documenten API
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
-|-----------------------------------|-----------------------------------------------------------|      
+|:----------------------------------|:----------------------------------------------------------|      
 | `/enkelvoudiginformatieobjecten`  |    `<drc_enkelvoudiginformatieobject_expand_list>`        |
 | `/gebruiksrechten`                |    `<drc_gebruiksrecht_expand>`                           |
 | `/objectinformatieobjecten`       |    `<drc_objectinformatieobjecten_expand_list>`           |
@@ -390,7 +390,7 @@ De volledige bnf-grammatica van de expand paden die in deze sectie worden beschr
 # Besluiten API
 
 | Endpoint                          |  Waarde `expand` query parameter                          |
-|-----------------------------------|-----------------------------------------------------------|      
+|:----------------------------------|:----------------------------------------------------------|      
 | `/besluiten`                      |    `<brc_besluit_expand_list>`                            |
 | `/besluitinformatieobjecten`      |    `<brc_besluitinformatieobject_expand_list>`            |
 
