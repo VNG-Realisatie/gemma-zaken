@@ -1,10 +1,23 @@
-# Expand-paden
+# Welke expand-paden zijn wel of niet toegestaan?
 
-Een aantal versies geleden is het expand-mechanisme toegevoegd aan de ZGW API's. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Om het volledig duidelijk te krijgen gaan we de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis BNF-parsers te vinden om de expand-paden te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/) die we in deze notitie gaan definiëren.
+Een aantal versies geleden zijn de ZGW API's uitgebreid met het expand-mechanisme. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Blijkbaar wordt daar niet in eerste instantie naar gekeken. Om het expand-mechanisme volledig duidelijk te krijgen gaan we in deze notitie de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis tools te vinden om de BNF-grammatica's te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/). 
+
+We geven een voorbeeld ter illustratie. Hieronder een bevraging van de Zaken API waarin expand gebruikt.
+
+`GET /zaken?expand=zaaktype,status.statustype,deelzaken.zaaktype,deelzaken.status.statustype`
+
+In de onderstaande screenshot zien we dat de gebruikte expand-paden gevalideerd worden door de BNF-grammatica die we hebben gedefinieerd.
+
+<!-- ![alt text](bnf-playground.png) -->
+
+<div style="text-align: center; padding-left: 20px; max-width: 100%;">
+  <img src="bnf-playground.png" alt="alt text" style="width: 80%; border-radius: 8px;" />
+</div>
+
 
 In de volgende sectie beschrijven we met BNF de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
 
-In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin is de lengte van de expand-paden in principe onbeperkt, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kunnen de objecten van de Catalogi API ook volledig geëxpandeerd worden. In de SOLL-situatie kunnen ook alle resources op directe wijze geëxpandeerd worden. In de huidige situatie kunnen resources zoals `/rollen` of `resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource.
+In de sectie daarna beschrijven we de gewenste situatie (SOLL). Hierin heeft de lengte van de expand-paden geen limiet, m.a.w. er kan tot de volledige diepte geëxpandeerd worden. Bovendien kan in de nieuwe situatie het expand-mechanisme direct worden toegepast op alle resources.  In de huidige situatie kunnen resources zoals `/rollen` of `/resultaten` alleen op indirecte wijze geëxpandeerd worden vanuit de `/zaken` resource. Straks kan het expand-mechsnisme ook direct worden toegepast op `/rollen` en `/resultaten`.
 
 # De huidige situatie (IST)
 
