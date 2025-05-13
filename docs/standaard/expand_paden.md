@@ -1,12 +1,12 @@
 # BNF-grammatica's voor expand-paden
 
-Een aantal versies geleden zijn de ZGW API's uitgebreid met het expand-mechanisme. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Blijkbaar wordt daar niet in eerste instantie naar gekeken. Om het expand-mechanisme volledig duidelijk te krijgen gaan we in deze notitie de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis tools te vinden om de BNF-grammatica's te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/). 
+Een aantal versies geleden zijn de ZGW API's uitgebreid met het expand-mechanisme. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Blijkbaar wordt daar niet in eerste instantie naar gekeken. Om het expand-mechanisme volledig duidelijk te krijgen gaan we in deze notitie de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's, omdat het niet mogelijk is om de expand-paden te beschrijven als reguliere expressies. Op het web zijn diverse gratis tools te vinden om de BNF-grammatica's te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/). 
 
-We geven een voorbeeld ter illustratie. Hieronder een bevraging van de Zaken API waarin expand wordt gebruikt.
+Ter illustratie een bevraging van de Zaken API waarin expand wordt gebruikt:
 
 `GET /zaken?expand=zaaktype,status.statustype,deelzaken.zaaktype,deelzaken.status.statustype`
 
-In de onderstaande screenshot zien we dat de gebruikte expand-paden worden gevalideerd worden door de BNF-grammatica. Op deze manier is nu volledige duidelijk in de standaard welke expand-paden wel of niet zijn toegestaan.
+In de onderstaande screenshot zien we dat de gebruikte expand-paden worden gevalideerd door de BNF-grammatica. Op deze manier is nu volledige duidelijk in de standaard welke expand-paden wel of niet zijn toegestaan.
 
 <!-- ![alt text](bnf-playground.png) -->
 
@@ -30,7 +30,7 @@ In de huidige standaard van de Zaken API kunnen expands alleen worden uitgevoerd
 
 | Endpoint                          | Waarde `expand` query paramater               |
 |:----                              |:---                                           |
-| `/zaken`                          |    `<zrc_zaak_expand_list>`                   |
+| `/zaken`                          | `<zrc_zaak_expand_list>`                      |
 
 
 De expand-paden kunnen worden meegegeven door de query parameter `expand`. Bijvoorbeeld:
@@ -128,15 +128,25 @@ In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig mo
       "informatieobject" (".informatieobjecttype")?
 ```
 
-NB: er is hier geen `<drc_informatieobject_expand_list>` nodig omdat er maar één attribuut geëxpandeerd hoeft te worden.
+NB: er is hier geen `<drc_informatieobject_expand_list>` nodig omdat er maar één attribuut kan worden geëxpandeerd.
 
 ## Expand-paden voor Besluiten API
-In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit lijkt een omissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn:
 
-- `GET /besluiten?expand=<brc_besluit_expand>`
-- `GET /besluiten/{uuid}?expand=<brc_besluitinformatieobjecten_expand>`
+In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit lijkt een omissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn.
+
+
+| Endpoint                          | Waarde `expand` query paramater            |
+|:----------------------------------|:-------------------------------------------|
+| `/besluiten`                      | `<brc_besluit_expand_list>`                |
+| `/besluitinformatieobjecten`      | `<brc_besluitinformatieobject_expand_list>`|
 
 ```ebnf
+<brc_besluit_expand_list> ::= 
+      <brc_besluit_expand> ("," <brc_besluit_expand_list>)?
+
+<brc_besluitinformatieobject_expand_list> ::= 
+      <brc_besluitinformatieobject_expand> ("," <brc_besluitinformatieobject_expand_list>)?
+
 <brc_besluit_expand> ::= 
       "besluittype"
     | "zaak"
