@@ -132,6 +132,7 @@ NB: er is hier geen `<drc_informatieobject_expand_list>` nodig omdat er maar Ã©Ã
 
 ## Expand-paden voor Besluiten API
 
+
 In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit lijkt een omissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn.
 
 
@@ -139,6 +140,9 @@ In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit li
 |:----------------------------------|:-------------------------------------------|
 | `/besluiten`                      | `<brc_besluit_expand_list>`                |
 | `/besluitinformatieobjecten`      | `<brc_besluitinformatieobject_expand_list>`|
+
+
+Hieronder de BNF-grammatica voor de expand-paden.
 
 ```ebnf
 <brc_besluit_expand_list> ::= 
@@ -162,7 +166,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 
 ## Zaken API
 
-### Endpoints
+### Endpoints met expand
 
 | Endpoint                          |  Waarde `expand` query paramater              |
 |:----                              |:---                                           |
@@ -175,7 +179,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 | `/zaken/{uuid}/besluiten`         |    `<zrc_zaakbesluit_expand>`                 |
 | `/zaken/{uuid}/zaakeigenschappen` |    `<zrc_zaakeigenschap_expand_list>`         |
 
-### BNF-grammatica
+### BNF-grammatica voor expand-paden
 
 ```ebnf
 <zrc_resultaat_expand_list> ::= 
@@ -246,6 +250,8 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 
 ## Catalogi API
 
+### Endpoints met expand
+
 | Endpoint                          |  Waarde `expand` query paramater                          |
 |:----                              |:---                                                       |
 | `/besluittypen`                   |    `<ztc_besluittype_expand_list>`                        |
@@ -259,6 +265,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 | `/zaaktype-informatieobjecttypen` |    `<ztc_zaaktype_informatieobjecttype_expand_list>`      |
 | `/zaaktypen`                      |    `<ztc_zaaktype_expand_list>`                           |
 
+### BNF-grammatica voor expand-paden
 
 ```ebnf
 <ztc_besluittype_expand_list> ::= 
@@ -356,7 +363,9 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
     | "gerelateerdeZaaktypen" ("." <ztc_zaaktype_expand>)?
 ```
 
-# Documenten API
+## Documenten API
+
+### Endpoints met expand
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
 |:----------------------------------|:----------------------------------------------------------|      
@@ -365,6 +374,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 | `/objectinformatieobjecten`       |    `<drc_objectinformatieobjecten_expand_list>`           |
 | `/verzendingen`                   |    `<drc_verzendingen_expand_list>`                       |
 
+### BNF-grammatica voor expand-paden
 
 ```ebnf
 <drc_enkelvoudiginformatieobject_expand_list> ::= 
@@ -397,13 +407,16 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
     | "contactPersoon" ("." <zrc_rol_expand>)?
 ```
 
-# Besluiten API
+## Besluiten API
+
+### Endpoints met expand
 
 | Endpoint                          |  Waarde `expand` query parameter                          |
 |:----------------------------------|:----------------------------------------------------------|      
 | `/besluiten`                      |    `<brc_besluit_expand_list>`                            |
 | `/besluitinformatieobjecten`      |    `<brc_besluitinformatieobject_expand_list>`            |
 
+### BNF-grammatica voor expand-paden
 
 ```ebnf
 <brc_besluit_expand_list> ::= 
