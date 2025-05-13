@@ -1,4 +1,4 @@
-# Welke expand-paden zijn wel of niet toegestaan?
+# BNF-grammatica's voor expand-paden
 
 Een aantal versies geleden zijn de ZGW API's uitgebreid met het expand-mechanisme. Recentelijk is gebleken dat het niet voor iedereen duidelijk is welke expand-paden wel of niet zijn toegestaan. In principe zijn de paden af te leiden uit de respons-schema's van de OAS want daarin wordt gespecificeerd welke velden geëxpandeerd kunnen worden. Blijkbaar wordt daar niet in eerste instantie naar gekeken. Om het expand-mechanisme volledig duidelijk te krijgen gaan we in deze notitie de expand-paden direct specificeren bij de introductie van de query-parameter `expand` in het request schema van de call. Hierbij maken we gebruik van BNF, een bekend formalisme voor het beschrijven van context-vrije grammatica's. Op het web zijn diverse gratis tools te vinden om de BNF-grammatica's te valideren (bijvoorbeeld: https://bnfplayground.pauliankline.com/). 
 
@@ -116,20 +116,19 @@ Let op! In de OAS van Documenten API 1.4.3 ontbreken een aantal expands die er w
 
 In de volgende versie van de OAS zouden minimaal de volgende expands aanwezig moeten zijn.
 
-
-- `GET /enkelvoudiginformatieobjecten?expand=informatieobjecttype`
-- `GET /enkelvoudiginformatieobjecten/{uuid}?expand=informatieobjecttype`
-- `GET /objectinformatieobjecten?expand=<drc_informatieobject_expand>`  
-- `GET /objectinformatieobjecten/{uuid}?expand=<drc_informatieobject_expand>`
-- `GET /gebruiksrechten?expand=<drc_informatieobject_expand>`
-- `GET /gebruiksrechten/{uuid}?expand=<drc_informatieobject_expand>`  
-- `GET /verzendingen?expand=<drc_informatieobject_expand>`  
-- `GET /verzendingen/{uuid}?expand=<drc_informatieobject_expand>`
+| Endpoint                          | Waarde `expand` query paramater            |
+|:----------------------------------|:-------------------------------------------|
+| `/enkelvoudiginformatieobjecten`  | `informatieobjecttype`                     |
+| `/objectinformatieobjecten`       | `<drc_informatieobject_expand>`            |
+| `/gebruiksrechten`                | `<drc_informatieobject_expand>`            |
+| `/verzendingen`                   | `<drc_informatieobject_expand>`            |
 
 ```ebnf
 <drc_informatieobject_expand> ::=
       "informatieobject" (".informatieobjecttype")?
 ```
+
+NB: er is hier geen `<drc_informatieobject_expand_list>` nodig omdat er maar één attribuut geëxpandeerd hoeft te worden.
 
 ## Expand-paden voor Besluiten API
 In de huidige versie van de Besluiten API zijn geen expands gedefinieerd, dit lijkt een omissie te zijn. In de volgende versie zouden de volgende expands minimaal aanwezig horen te zijn:
