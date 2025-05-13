@@ -8,11 +8,11 @@ Ter illustratie een bevraging van de Zaken API waarin expand wordt gebruikt:
 
 In de onderstaande screenshot zien we dat de gebruikte expand-paden worden gevalideerd door de BNF-grammatica. Op deze manier is nu volledige duidelijk in de standaard welke expand-paden wel of niet zijn toegestaan.
 
-<!-- ![alt text](bnf-playground.png) -->
+<br>
 
-<div style="text-align: center; padding-left: 20px; max-width: 100%;">
-  <img src="bnf-playground.png" alt="alt text" style="width: 80%; border-radius: 8px;" />
-</div>
+![alt text](bnf-playground.png)
+
+<br>
 
 
 In de volgende sectie specificeren we de BNF-grammatica van de expand-paden die zijn toegestaan in de huidige versies van de ZGW API's, de zogenaamde IST-situatie. Hierin hebben de expand-paden een maximale lengte van 3, met andere woorden: er kan niet dieper dan 3 niveau's geëxpandeerd worden. Bovendien is er geen (geneste) expand mogelijk binnen de objecten van de Catalogi API.
@@ -482,26 +482,3 @@ Opmerkingen:
       - De lijst mag niet langer zijn dan alle expand mogelijkheden
       - In de paden kunnen we een limiet stellen hoe vaak dezelfde stap herhaalt mag worden.
 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
