@@ -250,7 +250,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 
 ## Catalogi API
 
-### Endpoints met expand
+### Endpoints
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
 |:----                              |:---                                                       |
@@ -265,7 +265,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 | `/zaaktype-informatieobjecttypen` |    `<ztc_zaaktype_informatieobjecttype_expand_list>`      |
 | `/zaaktypen`                      |    `<ztc_zaaktype_expand_list>`                           |
 
-### BNF-grammatica voor expand-paden
+### BNF-grammatica
 
 ```ebnf
 <ztc_besluittype_expand_list> ::= 
@@ -365,7 +365,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 
 ## Documenten API
 
-### Endpoints met expand
+### Endpoints
 
 | Endpoint                          |  Waarde `expand` query paramater                          |
 |:----------------------------------|:----------------------------------------------------------|      
@@ -374,7 +374,7 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 | `/objectinformatieobjecten`       |    `<drc_objectinformatieobjecten_expand_list>`           |
 | `/verzendingen`                   |    `<drc_verzendingen_expand_list>`                       |
 
-### BNF-grammatica voor expand-paden
+### BNF-grammatica
 
 ```ebnf
 <drc_enkelvoudiginformatieobject_expand_list> ::= 
@@ -409,14 +409,14 @@ De volledige BNF-grammatica van de expand-paden die in deze sectie worden beschr
 
 ## Besluiten API
 
-### Endpoints met expand
+### Endpoints
 
 | Endpoint                          |  Waarde `expand` query parameter                          |
 |:----------------------------------|:----------------------------------------------------------|      
 | `/besluiten`                      |    `<brc_besluit_expand_list>`                            |
 | `/besluitinformatieobjecten`      |    `<brc_besluitinformatieobject_expand_list>`            |
 
-### BNF-grammatica voor expand-paden
+### BNF-grammatica
 
 ```ebnf
 <brc_besluit_expand_list> ::= 
