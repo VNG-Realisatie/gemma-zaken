@@ -568,6 +568,8 @@ Response:
 }
 ```
 
+Als de query parameter `datumGeldigheid` niet meegegeven wordt dan wordt de huidige datum als default genomen. Dus de response zal altijd maar één versie van een zaaktype teruggeven. Als er meerdere zaaktypen geldig zijn op de opgegeven geldigheidsdatum dan worden er meer zaaktypen teruggegeven maar wel van ieder altijd één versie. In de huidige standaard is het helaas niet mogelijk om alle versies van een zaaktype op te vragen. Hoewel in Oneground krijg je op de query `GET {{ztc_url}}/zaaktypen?identificatie=RX-ADVIES` wel twee versies terug????????
+
 ###  Bevraag zaaktype v2 op 1-10-2024 (na de registratie van besluittype v2 op 1-7-2024)
 `GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-10-01`
 
