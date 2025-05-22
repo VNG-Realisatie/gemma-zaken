@@ -603,6 +603,7 @@ To do:
 - We de betekenis van de velden: versiedatum, beginObject, eindObject.
 - Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
 - Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
+- Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
 
 ### Corrigeer zaaktype v2
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
