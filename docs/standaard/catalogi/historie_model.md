@@ -602,6 +602,7 @@ To do:
 - We kunnen Oneground of OpenZaak gebruiken als referentie-implementatie van onze testscripts en de gevallen mocken waar ze niet voldoen aan de standaard.
 - We de betekenis van de velden: versiedatum, beginObject, eindObject.
 - Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
+- Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
 
 ### Corrigeer zaaktype v2
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
