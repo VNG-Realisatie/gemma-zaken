@@ -392,14 +392,15 @@ Response:
 
 ## Historiemodel toegepast op Zaaktype en Besluittype
 
-###  Maak een besluittype v1 aan
-`POST /besluittypen`
+###  Maak het besluittype "Besluittype A" versie 1 aan
+`POST {{ztc_url}}/besluittypen`
 
 Request:
 ```json
 {
-   	"omschrijving": "Besluit genomen",
+   	"omschrijving": "Besluittype A",
 	"beginGeldigheid" : "2023-01-01",
+	"toelichting": "Dit is versie 1 van Besluittype A",
    	...
 }
 ```
@@ -407,38 +408,40 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v1",
-   	"omschrijving": "Besluit genomen",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
+   	"omschrijving": "Besluitype A",
 	"beginGeldigheid": "2023-01-01",
+	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
 	"concept": True
 }
 ```
 
-### Publiceer besluittype versie v1
-`POST /besluittypen/besluit-genomen-v1/publish`
+### Publiceer het besluittype
+`POST {{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}/publish`
 
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v1",
-   	"omschrijving": "Besluit genomen",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
+   	"omschrijving": "Besluitype A",
 	"beginGeldigheid": "2023-01-01",
+	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
 	"concept": False
 }
 ```
 
-### Maak een zaaktype v1 aan en relateer het aan besluittype "Besluit genomen"
-`POST /zaaktypen`
+### Maak het zaaktype "Zaaktype_A" versie 1 aan en relateer het aan besluittype "Besluittype A"
+`POST {{ztc_url}}/zaaktypen`
 
 Request:
 ```json
 {
-	"identificatie": "Vergunningsaanvraag",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid": "2023-01-01",	
 	...	
-	"besluittypen": [ "Besluit genomen" ],
+	"besluittypen": [ "Besluittype A" ],
 	...
 }
 ```
@@ -446,42 +449,43 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2023-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
 	"concept": True
 }
 ```
 
-### Publiceer zaaktype versie v1
-`POST /zaaktypen/vergunningsaanvraag-v1/publish`
+### Publiceer het zaaktype
+`POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v1",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2023-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
 	"concept": False
 }
 ```
 
-### Maak een zaaktype v2 aan en relateer het aan het besluittype "Besluit genomen"
+### Maak versie 2 van zaaktype "Zaaktype_A" aan en relateer het aan besluittype "Besluittype A"
 `POST /zaaktypen`
 
 Request:
 ```json
 {
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid": "2024-01-01",	
+	"identificatie": "Zaaktype_A",
+	"beginGeldigheid": "2024-01-01",
+	"toelichting": "Dit is versie 2 van Zaaktype_A",
 	...	
-	"besluittypen": [ "Besluit genomen" ],
+	"besluittypen": [ "Besluittype A" ],
 	...
 }
 ```
@@ -489,27 +493,27 @@ Request:
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2024-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
 	"concept": True
 }
 ```
 
 ### Publiceer zaaktype versie v2
-`POST /zaaktypen/vergunningsaanvraag-v2/publish`
+`POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}/publish`
 
 Response:
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2024-01-01",	
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
 	"concept": False
 }
@@ -522,8 +526,9 @@ Response:
 Request:
 ```json
 {
-   	"omschrijving": "Besluit genomen",
+   	"omschrijving": "Besluittype A",
 	"beginGeldigheid" : "2024-07-01",
+	"toelichting": "Dit is versie 2 van Besluittype A",
    	...
 }
 ```
@@ -531,9 +536,10 @@ Request:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v2",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
+	"toelichting": "Dit is versie 2 van Besluittype A",
 	...
 	"concept": True
 }
@@ -545,45 +551,57 @@ Response:
 Response:
 ```json
 {
-   	"url" : "http://ztc.example.com/besluittypen/besluit-genomen-v2",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
+	"toelichting": "Dit is versie 2 van Besluittype A",
 	...
 	"concept": False
 }
 ```
 
 ###  Bevraag zaaktype v2 op 1-4-2024
-`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-04-01`
+`GET {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}?datumGeldigheid=2024-04-01`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2024-01-01",	
+	"toelichting": "Dit is versie 2 van Zaaktype_A",
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluit-genomen-v1" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
 	"concept": False
 }
 ```
 
-Als de query parameter `datumGeldigheid` niet meegegeven wordt dan wordt de huidige datum als default genomen. Dus de response zal altijd maar één versie van een zaaktype teruggeven. Als er meerdere zaaktypen geldig zijn op de opgegeven geldigheidsdatum dan worden er meer zaaktypen teruggegeven maar wel van ieder altijd één versie. In de huidige standaard is het helaas niet mogelijk om alle versies van een zaaktype op te vragen. Hoewel in Oneground krijg je op de query `GET {{ztc_url}}/zaaktypen?identificatie=RX-ADVIES` wel twee versies terug????????
+Als de query parameter `datumGeldigheid` niet meegegeven wordt dan wordt de huidige datum als default genomen. Dus de response zal altijd maar één versie van een zaaktype teruggeven. Als er meerdere zaaktypen geldig zijn op de opgegeven geldigheidsdatum dan worden er meer zaaktypen teruggegeven maar wel van ieder altijd één versie. In de huidige standaard is het helaas niet mogelijk om alle versies van een zaaktype op te vragen. Hoewel in Oneground krijg je op de query `GET {{ztc_url}}/zaaktypen?identificatie=RX-ADVIES` wel twee versies terug???????? Zelfs met datumgeldigheid die in de tijd teruggaat. 
 
 ###  Bevraag zaaktype v2 op 1-10-2024 (na de registratie van besluittype v2 op 1-7-2024)
-`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-10-01`
+`GET {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}?datumGeldigheid=2024-10-01`
 
 ```json
 {
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2024-01-01",	
+	"toelichting": "Dit is versie 2 van Zaaktype_A",
 	...
-	"besluittypen" : [ "http://ztc.example.com/besluittypen/besluitgenomen-v2" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}" ],
 	...
 	"concept": False
 }
 ```
+
+To do:
+
+- Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
+- Uitzoeken of je typen kunt corrigeren. Ik heb die rechten blijkbaar niet.
+- Nieuwe release Catalogi API is not niet mogelijk als er nog zoveel vragen zijn. Zie de uitstaande vraag naar Johannes in de email
+- We kunnen Oneground of OpenZaak gebruiken als referentie-implementatie van onze testscripts en de gevallen mocken waar ze niet voldoen aan de standaard.
+- We de betekenis van de velden: versiedatum, beginObject, eindObject.
+- Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
 
 ### Corrigeer zaaktype v2
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
