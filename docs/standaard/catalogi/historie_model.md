@@ -476,7 +476,7 @@ Response:
 ```
 
 ### Maak versie 2 van zaaktype "Zaaktype_A" aan en relateer het aan besluittype "Besluittype A"
-`POST /zaaktypen`
+`POST {{ztc_url}}/zaaktypen`
 
 Request:
 ```json
@@ -626,6 +626,8 @@ To do:
 - Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
 - Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
 - Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
+- Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
+- Je kunt wel de eindgeldigheid aanpassen maar niet de begingeldigheid van een gepubliceerd zaaktype.
 
 ### Corrigeer zaaktype v2
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
