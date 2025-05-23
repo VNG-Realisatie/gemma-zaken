@@ -503,6 +503,28 @@ Response:
 }
 ```
 
+### Geef versie 1 van het zaaktype een eindegeldigheid
+
+Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaaktype een eindegeldigheid van 1 dag voor de begingeldigheid van het nieuwe zaaktype.
+
+`PATCH {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}`
+
+
+Response:
+```json
+{
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
+	"identificatie": "Zaaktype_A",
+	"beginGeldigheid": "2023-01-01",
+	"eindeGeldigheid": "2023-12-31",
+	...
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	...
+	"concept": True
+}
+```
+
+
 ### Publiceer zaaktype versie v2
 `POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}/publish`
 
