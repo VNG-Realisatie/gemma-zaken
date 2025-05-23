@@ -616,6 +616,8 @@ Als de query parameter `datumGeldigheid` niet meegegeven wordt dan wordt de huid
 }
 ```
 
+In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1.
+
 To do:
 
 - Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
@@ -627,13 +629,18 @@ To do:
 - Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
 - Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
 - Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
-- Je kunt wel de eindgeldigheid aanpassen maar niet de begingeldigheid van een gepubliceerd zaaktype.
+- Je kunt wel de eindgeldigheid aanpassen maar niet de begingeldigheid van een gepubliceerd zaaktype. Eindegeldigheid is het enige wat je in Oneground kunt aanpassen. Maar dit staat niet in de standaard.
+
 
 ### Corrigeer zaaktype v2
 Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
 
 * De consumer  heeft rechten om geforceerd te schrijven.
 * Er wordt voldaan aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) beschreven.
+
+To do: 
+
+- Behalve eindegeldigheid veranderen heb ik geen goed voorbeeld gevonden van een correctie op een zaaktype, misschien in de postman collectie van Johannes.
   
 `PATCH /zaaktypen/vergunningsaanvraag-v2`
 
@@ -658,6 +665,11 @@ Response:
 ## Historiemodel toegepast op Zaaktype en Roltype
 
 De laatste versie van het zaaktype "Vergunningsaanvraag" is v2 en we willen een nieuwe zaaktype v3 aanmaken. Nu blijkt dat dit zaaktype een roltype "Vergunningsaanvraag-initiator" versie v1 heeft, zie onderstaande bevraging.
+
+To do:
+
+- Bij roltype kun je in de POST een beginGeldigheid opgeven volgens de OAS maar dat is onzin want die wordt gegenereerd (overgenomen) vanuit het zaaktype waaraan het gerelateerd is. Het is zelfs de vraag of het zin heeft dit te genereren. Vraag dit aan Johannes.
+- Onderstaande uitwerkingen kloppen niet meer. Kijk naar Postman waar ik het wel goed heb uitgewerkt!
 
 
 ###  Vraag zaaktype v2 op
