@@ -629,7 +629,9 @@ To do:
 - Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
 - Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
 - Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
-- Je kunt wel de eindgeldigheid aanpassen maar niet de begingeldigheid van een gepubliceerd zaaktype. Eindegeldigheid is het enige wat je in Oneground kunt aanpassen. Maar dit staat niet in de standaard.
+- Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
+- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden?
+- Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
 
 
 ### Corrigeer zaaktype v2
