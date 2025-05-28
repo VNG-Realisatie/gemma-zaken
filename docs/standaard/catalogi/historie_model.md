@@ -136,6 +136,7 @@ Response:
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
    	"omschrijving": "Besluitype A",
 	"beginGeldigheid": "2023-01-01",
+	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
 	"concept": True
@@ -151,6 +152,7 @@ Response:
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
    	"omschrijving": "Besluitype A",
 	"beginGeldigheid": "2023-01-01",
+	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
 	"concept": False
@@ -164,7 +166,8 @@ Request:
 ```json
 {
 	"identificatie": "Zaaktype_A",
-	"beginGeldigheid": "2023-01-01",	
+	"beginGeldigheid": "2023-01-01",
+	"toelichting": "Dit is versie 1 van Zaaktype_A",	
 	...	
 	"besluittypen": [ "Besluittype A" ],
 	...
@@ -177,6 +180,8 @@ Response:
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2023-01-01",	
+	"eindeGeldigheid": null,
+	"toelichting": "Dit is versie 1 van Zaaktype_A",
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
@@ -192,7 +197,9 @@ Response:
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
-	"beginGeldigheid" : "2023-01-01",	
+	"beginGeldigheid" : "2023-01-01",
+	"eindeGeldigheid": null,	
+	"toelichting": "Dit is versie 1 van Zaaktype_A",
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
@@ -221,6 +228,8 @@ Response:
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
 	"identificatie": "Zaaktype_A",
 	"beginGeldigheid" : "2024-01-01",	
+	"eindeGeldigheid": null,
+	"toelichting": "Dit is versie 2 van Zaaktype_A",
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
@@ -267,7 +276,7 @@ Response:
 ```
 
 
-###  Maak een besluittype v2 aan
+###  Maak een concept besluittype v2 aan
 `POST /besluittypen`
 
 Request:
@@ -345,9 +354,9 @@ Response:
 }
 ```
 
-###  Bevraag zaaktype v2 op 1-4-2024
+###  Bevraag "Zaaktype_A" op 1-4-2024
 
-`GET {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}?datumGeldigheid=2024-04-01`
+`GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A&datumGeldigheid=2024-04-01`
 
 ```json
 {
@@ -362,10 +371,9 @@ Response:
 }
 ```
 
-Als de query parameter `datumGeldigheid` niet meegegeven wordt dan wordt de huidige datum als default genomen. Dus de response zal altijd maar één versie van een zaaktype teruggeven. Als er meerdere zaaktypen geldig zijn op de opgegeven geldigheidsdatum dan worden er meer zaaktypen teruggegeven maar wel van ieder altijd één versie. In de huidige standaard is het helaas niet mogelijk om alle versies van een zaaktype op te vragen. Hoewel in Oneground krijg je op de query `GET {{ztc_url}}/zaaktypen?identificatie=RX-ADVIES` wel twee versies terug???????? Zelfs met datumgeldigheid die in de tijd teruggaat. 
 
-###  Bevraag zaaktype v2 op 1-10-2024 (na de registratie van besluittype v2 op 1-7-2024)
-`GET {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}?datumGeldigheid=2024-10-01`
+###  Bevraag "Zaaktype_A" op 1-10-2024 (na de creatie van de tweede versie van "Besluittype A" op 1-7-2024)
+`GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A?datumGeldigheid=2024-10-01`
 
 ```json
 {
@@ -398,165 +406,6 @@ To do:
 - Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
 
 
-### Corrigeer zaaktype v2
-Een bestaand zaaktype dat gepubliceerd is mag gecorrigeerd worden zonder versiewijziging indien aan de volgende voorwaarden is voldaan:
-
-* De consumer  heeft rechten om geforceerd te schrijven.
-* Er wordt voldaan aan de spelregels zoals [hier](https://vng-realisatie.github.io/gemma-zaken/standaard/catalogi/#correctie) beschreven.
-
-To do: 
-
-- Behalve eindegeldigheid veranderen heb ik geen goed voorbeeld gevonden van een correctie op een zaaktype, misschien in de postman collectie van Johannes.
-  
-`PATCH /zaaktypen/vergunningsaanvraag-v2`
-
-Request:
-```json
-{
-	...
-}
-```
-
-Response:
-```json
-{
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid" : "2024-01-01",	
-	...
-	"concept": False
-}
-```
-
-## Historiemodel toegepast op Zaaktype en Roltype
-
-De laatste versie van het zaaktype "Vergunningsaanvraag" is v2 en we willen een nieuwe zaaktype v3 aanmaken. Nu blijkt dat dit zaaktype een roltype "Vergunningsaanvraag-initiator" versie v1 heeft, zie onderstaande bevraging.
-
-To do:
-
-- Bij roltype kun je in de POST een beginGeldigheid opgeven volgens de OAS maar dat is onzin want die wordt gegenereerd (overgenomen) vanuit het zaaktype waaraan het gerelateerd is. Het is zelfs de vraag of het zin heeft dit te genereren. Vraag dit aan Johannes.
-- Onderstaande uitwerkingen kloppen niet meer. Kijk naar Postman waar ik het wel goed heb uitgewerkt!
-
-
-###  Vraag zaaktype v2 op
-`GET http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2?datumGeldigheid=2024-04-01`
-
-```json
-{
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2",
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid" : "2024-01-01",	
-	...
-	"roltypen" : [ "http://ztc.example.com/roltypen/Vergunningsaanvraag-initiator-v1" ],
-	...
-	"concept": False
-}
-```
-
-In de volgende bevraging zien we dat het roltype ook een link naar het betreffende zaaktype heeft.
-
-### Vraag roltype v1 op
-`GET http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v1`
-
-```json
-{
-	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v1",
-	...
-	"zaaktype" : [ "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v2" ],
-	...
-}
-```
-
-### Maak een nieuw zaaktype v3 aan
-
-We maken een nieuw zaaktype v3 aan dat nog geen link naar roltypen heeft.
-
-`POST /zaaktypen`
-
-Request:
-```json
-{
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid": "2025-01-01",	
-	...
-}
-```
-
-Response:
-```json
-{
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid" : "2025-01-01",	
-	...
-	"roltypen": [],
-	...
-	"concept": True
-}
-```
-
-### Maak een nieuwe v2 versie van roltype voor zaaktype versie v3
-
-We maken een nieuw roltype v2 aan waarin de link wordt gelegd naar het nieuwe zaaktype v3.
-
-`POST /roltypen`
-
-Request:
-```json
-{
-	"omschrijving": "Vergunningsaanvraag initiator",
-	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
-	...
-}
-```
-
-Response:
-```json
-{
-	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2",
-	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
-	...
-	"concept": True
-}
-```
-
-
-
-### Publiceer zaaktype versie v3
-`POST /zaaktypen/vergunningsaanvraag-v3/publish`
-
-Response:
-```json
-{
-	"url" : "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
-	"identificatie": "Vergunningsaanvraag",
-	"beginGeldigheid" : "2025-01-01",	
-	...
-	"roltypen": [ "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2" ],
-	...
-	"concept": False
-}
-```
-
-Als we het zaakttype v3 gepubliceerd hebben dan zien we in de response van de bovenstaande POST-operatie dat de link naar het roltype v2 gelegd is.
-
-### Publiceer roltype versie v2
-`POST /roltypen/vergunningsaanvraag-initiator-v2/publish`
-
-Response:
-```json
-{
-	"url" : "http://ztc.example.com/roltypen/vergunningsaanvraag-initiator-v2",
-	...
-	"zaaktype": "http://ztc.example.com/zaaktypen/vergunningsaanvraag-v3",
-	...
-	"concept": False
-}
-```
-
-Het publiceren van het roltype zou eigenlijk automatisch in één transactie moeten plaatsvinden met het publiceren van het zaaktype.
 
 
 
