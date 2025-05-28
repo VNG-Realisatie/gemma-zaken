@@ -360,14 +360,21 @@ Response:
 
 ```json
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-	"identificatie": "Zaaktype_A",
-	"beginGeldigheid" : "2024-01-01",	
-	"toelichting": "Dit is versie 2 van Zaaktype_A",
-	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
-	...
-	"concept": False
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+		{
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+			"identificatie": "Zaaktype_A",
+			"beginGeldigheid" : "2024-01-01",	
+			"toelichting": "Dit is versie 2 van Zaaktype_A",
+			...
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+			...
+			"concept": False
+		}
+	]
 }
 ```
 
@@ -377,14 +384,21 @@ Response:
 
 ```json
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-	"identificatie": "Zaaktype_A",
-	"beginGeldigheid" : "2024-01-01",	
-	"toelichting": "Dit is versie 2 van Zaaktype_A",
-	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}" ],
-	...
-	"concept": False
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+		{
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
+			"identificatie": "Zaaktype_A",
+			"beginGeldigheid" : "2024-01-01",	
+			"toelichting": "Dit is versie 2 van Zaaktype_A",
+			...
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}" ],
+			...
+			"concept": False
+		}
+	]
 }
 ```
 
