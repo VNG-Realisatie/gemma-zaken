@@ -418,6 +418,7 @@ To do:
 - Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
 - Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden?
 - Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
+- Expand toevoegen aan deze voorbeeldberichten voor de duidelijkheid!
 
 
 
