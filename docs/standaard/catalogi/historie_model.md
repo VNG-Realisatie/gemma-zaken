@@ -416,9 +416,22 @@ To do:
 - Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
 - Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
 - Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
-- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden?
+- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden? Dit bepaalt ook of je de eindGeldigheid zetten kunt automatiseren?
 - Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
 - Expand toevoegen aan deze voorbeeldberichten voor de duidelijkheid!
+- Mag je versies met verlopen geldigheid nog aanpassen? Blijkbaar wel in Oneground
+- Mag je beginGeldigheid in de toekomst zetten?
+- eindGeldigheid vorig record moet 1 dag voor beginGeldigheid huidig record staan. Is dit ergens beschreven?
+- Speelt de huidige tijd en datum een rol in de semantiek?
+- Bila met Johannes:
+  - Zaken kunnen recenter zijn dan de eindGeldigheid van het zaaktype waaraan ze verbonden zijn
+    - Eigenlijk zouden zaken en zaaktypen ook loosly coupled moeten zijn. Dus niet verbinden via url maar via identifier.
+  - Versies van zaaktypen, besluittypen, etc.  pinnen op een url lijkt een design fout.
+  - Issue #2474 gaat over deze problematiek volgens JB.
+  - Je mag oude versies corrigeren zolang het maar toevoegingen zijn.
+  - Als het geen toevoegingen zijn moet je een nieuwe versie aanmaken van het zaaktype etc. Maar waarom maak je niet gewoon een nieuw zaaktype aan en werk je zonder versies?
+  - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
+  - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
 
 
 
