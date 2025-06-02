@@ -404,6 +404,7 @@ Response:
 
 In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1.
 
+<!--
 To do:
 
 - Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
@@ -433,7 +434,7 @@ To do:
   - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
   - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
 - Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
-
+-->
 
 
 
