@@ -139,7 +139,7 @@ Response:
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
-	"concept": True
+	"concept": true
 }
 ```
 
@@ -155,7 +155,7 @@ Response:
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van Besluittype A",
 	...
-	"concept": False
+	"concept": false
 }
 ```
 
