@@ -245,7 +245,7 @@ Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaakty
 
 
 Response:
-```json
+```python
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
