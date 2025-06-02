@@ -432,6 +432,7 @@ To do:
   - Als het geen toevoegingen zijn moet je een nieuwe versie aanmaken van het zaaktype etc. Maar waarom maak je niet gewoon een nieuw zaaktype aan en werk je zonder versies?
   - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
   - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
+- Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
 
 
 
