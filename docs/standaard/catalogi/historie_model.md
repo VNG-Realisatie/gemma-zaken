@@ -131,7 +131,7 @@ Request:
 ```
 
 Response:
-```json
+```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
    	"omschrijving": "Besluitype A",
@@ -147,7 +147,7 @@ Response:
 `POST {{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}/publish`
 
 Response:
-```json
+```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
    	"omschrijving": "Besluitype A",
@@ -163,7 +163,7 @@ Response:
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
-```json
+```
 {
 	"identificatie": "Zaaktype_A",
 	"beginGeldigheid": "2023-01-01",
@@ -175,7 +175,7 @@ Request:
 ```
 
 Response:
-```json
+```
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
@@ -193,7 +193,7 @@ Response:
 `POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}/publish`
 
 Response:
-```json
+```
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
@@ -211,7 +211,7 @@ Response:
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
-```json
+```
 {
 	"identificatie": "Zaaktype_A",
 	"beginGeldigheid": "2024-01-01",
@@ -223,7 +223,7 @@ Request:
 ```
 
 Response:
-```json
+```
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
 	"identificatie": "Zaaktype_A",
@@ -245,7 +245,7 @@ Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaakty
 
 
 Response:
-```json
+```
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
@@ -263,7 +263,7 @@ Response:
 `POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}/publish`
 
 Response:
-```json
+```
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
 	"identificatie": "Zaaktype_A",
@@ -280,7 +280,7 @@ Response:
 `POST /besluittypen`
 
 Request:
-```json
+```
 {
    	"omschrijving": "Besluittype A",
 	"beginGeldigheid" : "2024-07-01",
@@ -290,7 +290,7 @@ Request:
 ```
 
 Response:
-```json
+```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
    	"omschrijving": "Besluit genomen",
@@ -305,7 +305,7 @@ Response:
 `POST /besluittypen/besluit-genomen-v2/publish`
 
 Response:
-```json
+```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
    	"omschrijving": "Besluit genomen",
@@ -320,7 +320,7 @@ Response:
 
 `GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A`
 
-```json
+```
 {
     "count": 2,
     "next": null,
@@ -358,7 +358,7 @@ Response:
 
 `GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A&datumGeldigheid=2024-04-01`
 
-```json
+```
 {
     "count": 1,
     "next": null,
@@ -382,7 +382,7 @@ Response:
 ###  Bevraag "Zaaktype_A" op 1-10-2024 (na de creatie van de tweede versie van "Besluittype A" op 1-7-2024)
 `GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A?datumGeldigheid=2024-10-01`
 
-```json
+```
 {
     "count": 1,
     "next": null,
