@@ -121,7 +121,7 @@ Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informat
 `POST {{ztc_url}}/besluittypen`
 
 Request:
-```json
+```
 {
    	"omschrijving": "Besluittype A",
 	"beginGeldigheid" : "2023-01-01",
@@ -245,7 +245,7 @@ Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaakty
 
 
 Response:
-```python
+```json
 {
 	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
 	"identificatie": "Zaaktype_A",
