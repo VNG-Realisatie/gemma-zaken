@@ -185,7 +185,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
-	"concept": True
+	"concept": true
 }
 ```
 
@@ -203,7 +203,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
-	"concept": False
+	"concept": false
 }
 ```
 
@@ -233,7 +233,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
-	"concept": True
+	"concept": true
 }
 ```
 
@@ -254,7 +254,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
-	"concept": True
+	"concept": true
 }
 ```
 
@@ -271,7 +271,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 	...
-	"concept": False
+	"concept": false
 }
 ```
 
@@ -297,7 +297,7 @@ Response:
 	"beginGeldigheid": "2024-07-01",
 	"toelichting": "Dit is versie 2 van Besluittype A",
 	...
-	"concept": True
+	"concept": true
 }
 ```
 
@@ -312,7 +312,7 @@ Response:
 	"beginGeldigheid": "2024-07-01",
 	"toelichting": "Dit is versie 2 van Besluittype A",
 	...
-	"concept": False
+	"concept": false
 }
 ```
 
@@ -335,7 +335,7 @@ Response:
 			...
 			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 			...
-			"concept": False
+			"concept": false
 		},	
 		{
 			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
@@ -348,7 +348,7 @@ Response:
 				"{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}"
 			],
 			...
-			"concept": False
+			"concept": false
 		}
 	]
 }
@@ -372,7 +372,7 @@ Response:
 			...
 			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
 			...
-			"concept": False
+			"concept": false
 		}
 	]
 }
@@ -396,7 +396,7 @@ Response:
 			...
 			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}" ],
 			...
-			"concept": False
+			"concept": false
 		}
 	]
 }
