@@ -435,12 +435,13 @@ To do:
   - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
 - Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
 - Moet een "GET all" op zaaktypen niet gewoon de Besluitomschrijvingen teruggeven in plaats van urls van de besluiten.
-- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
+- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen???? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
 - Plaatje in dit verhaal aanpassen conform nieuwe plaatje in Powerpoint met paralelle versie-balken
 - In de repons moet bij het koppelen van een zaaktype aan een besluittype  in de repons de omschrijving van het besluittype terugkomen en niet de url('s). Change in de OAS!!! Johannes eens? We maken de urls depricated.
 - Breid de tutorial uit met zaken en besluiten waaraan de types gekoppeld zijn.
 - Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
 - Bij het aanmaken van een nieuwe versie van een zaaktype, wil je eigenlijk een duplicate functie in de API!
+- Bij het maken van een nieuwe versie van een zaaktype wil je een fout herstellen, maar ga je dan ook alle zaaktypen die aan het foute zaaktype verbonden waren koppelen aan de nieuwe versie van het zaaktype. Als je dat niet doet wat voor zin heeft het dan. De wijziging is dan waarschijnlijk geen correctie maar een materiele wijziging die alleen gebruikt zal worden door nieuwe aan te maken zaken. Dus de versionering is alleen maar een groupering van zaaktypen die bij elkaar horen.
 
 -->
 
