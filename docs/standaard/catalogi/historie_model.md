@@ -22,7 +22,7 @@ een eigen identifier (UUID) en eigen waarden. Ditzelfde geldt voor Informatieobj
 
 Nadeel hiervan is echter dat de relaties tussen de verschillende definities gelegd worden middels urls. Deze urls bevatten de UUID
 en wanneer een nieuwe versie van een definitie gemaakt wordt moeten ook alle definities die naar de gewijzigde definitie verwijzen
-aangepast worden. Dit wordt al snel een ingewikkelde kluwen van definities die lastg te beheren is.
+aangepast worden. Dit wordt al snel een ingewikkelde kluwen van definities die lastig te beheren is.
 
 Daarom is in Catalogi API 1.3.0 het zogenaamde historiemodel ingevoerd.
 
@@ -435,6 +435,12 @@ To do:
   - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
 - Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
 - Moet een "GET all" op zaaktypen niet gewoon de Besluitomschrijvingen teruggeven in plaats van urls van de besluiten.
+- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
+- Plaatje in dit verhaal aanpassen conform nieuwe plaatje in Powerpoint met paralelle versie-balken
+- In de repons moet bij het koppelen van een zaaktype aan een besluittype  in de repons de omschrijving van het besluittype terugkomen en niet de url('s). Change in de OAS!!! Johannes eens? We maken de urls depricated.
+- Breid de tutorial uit met zaken en besluiten waaraan de types gekoppeld zijn.
+- Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
+
 -->
 
 
