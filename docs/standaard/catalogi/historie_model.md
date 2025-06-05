@@ -442,6 +442,13 @@ To do:
 - Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
 - Bij het aanmaken van een nieuwe versie van een zaaktype, wil je eigenlijk een duplicate functie in de API!
 - Bij het maken van een nieuwe versie van een zaaktype wil je een fout herstellen, maar ga je dan ook alle zaaktypen die aan het foute zaaktype verbonden waren koppelen aan de nieuwe versie van het zaaktype. Als je dat niet doet wat voor zin heeft het dan. De wijziging is dan waarschijnlijk geen correctie maar een materiele wijziging die alleen gebruikt zal worden door nieuwe aan te maken zaken. Dus de versionering is alleen maar een groupering van zaaktypen die bij elkaar horen.
+- Besluiten kun je vanuit de zaken api opvragen als sub resource: /zaken/{uuid}/besluiten
+  - Ik vraag me af of je deze ook kunt expanden?
+- Als je een zaaktype opvraagt wat moet er dan in het veld "zaaktype.besluittypen" zitten?
+  - Eeen lijst van strings met de omschrijvingen
+  - Eeen lijst met urls met alle besluittypen inclusief hun versies
+  - Lijst met urls met alleeen de laatste versie van de besluittypen
+- Toekomstige zaaktypen maken de semantiet lastiger en dan heb je echt de paraemter datumgeldigheid nodig
 
 -->
 
