@@ -445,10 +445,24 @@ To do:
 - Besluiten kun je vanuit de zaken api opvragen als sub resource: /zaken/{uuid}/besluiten
   - Ik vraag me af of je deze ook kunt expanden?
 - Als je een zaaktype opvraagt wat moet er dan in het veld "zaaktype.besluittypen" zitten?
-  - Eeen lijst van strings met de omschrijvingen
-  - Eeen lijst met urls met alle besluittypen inclusief hun versies
+  - Een lijst van strings met de omschrijvingen. Kun je daarop expanden?
+  - Een lijst met urls met alle besluittypen inclusief hun versies
   - Lijst met urls met alleeen de laatste versie van de besluittypen
-- Toekomstige zaaktypen maken de semantiet lastiger en dan heb je echt de paraemter datumgeldigheid nodig
+  - Eigenlijk wil je meerdere lijsten terugkrijgen:
+    - De lijst met besluittypen versies die door de zaak gebruikt zijn om besluiten te koppelen
+    - De lijst met besluittypen versies die geldig zijn om nieuwe besluiten mee te maken. 
+- Toekomstige zaaktypen maken de semantiek lastiger en dan heb je echt de paraemter datumgeldigheid nodig
+- Versies van Besluittypen begrijp ik want dan kun je een zaaktype losjes koppelen aan nieuwe besluittypen. Maar versies van zaaktypen begrijp ik niet. Er wordt toch nergens losjes gekoppeld aan zaaktypen.
+- Wat gaat er mis als je geen versies van zaaktypen en besluittypen hebt.
+- Wordt de parameter datumGeldigheid ook gebruikt met historische waarden dus niet alleen met vandaag?
+- Zie ook de vragen in de chat: De query parameter /besluittypen?zaaktypen=Zaaktype_A met als waarde een zaaktype identificatie lijkt me niet logisch. Vanuit een zaak gezien ken je alleen de zaaktype url  en wil je daarop bevragen om de besluittypen die voor de zaak in kwestie relevant zijn op te vragen.
+- Door de versies die gegroepeerd zijn door een identificatie of omschrijving veld wil je kunnen expanden/drillen. Maar zo is expand nog niet ingericht.
+- Welke versie van het besluittype wordt teruggegeven als er een toekomstige besluittype is klaargezet? De nu geldige of de laatste (het toekomstige besluittype). JB antwoord: de nu geldige.
+- Misschien eindeGeldigheid toch niet zo slecht dat weet je wanneer ze niet meer geldig waren voor gebruik. Ook voor versies van zaaktypen is dat van belang.
+- Johannes is het eens om de reponse op de bevraging van het zaaktype uit te breiden met extra attributen:
+  - "geldigeBesluittypen": alleen de geldige die nu gebruikt mogen worden
+  - "besluittypen": alle versies
+  - "besluittypenOmschrijvingen": een lijst met omschrijvingen. Het zou leuk zijn als je zou kunnen expanden op de omschrijvingen.
 
 -->
 
