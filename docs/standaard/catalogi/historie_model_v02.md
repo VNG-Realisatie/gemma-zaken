@@ -104,7 +104,10 @@ In dit voorbeeld is de eerste versie v1 van zaaktype ZT1 [gepubliceerd](./index#
 
 Op 1 januari 2024 wordt versie v2 van het zaaktype ZT1  gepubliceerd welke ook wordt gekoppeld aan besluittype BT1.
 
-Op 1 juli 2024 wordt versie v2 van het besluittype BT1 gepubliceerd. Door de losse koppeling (via "Besluittype.omschrijving" in plaats van "Besluittype.url") kan zaaktype ZT1 versie 1 gebruik maken van besluittype v2 hoewel deze later gepubliceerd is.
+Op 1 juli 2024 wordt versie v2 van het besluittype BT1 gepubliceerd. Door de losse koppeling (via "Besluittype.omschrijving" in plaats van "Besluittype.url") kunnen beide versies van zaaktype ZT1 (v1 en v2) beiden gebruik maken van besluittype v2 hoewel deze later gepubliceerd is.
+
+To do:
+ - leg de stippellijn uit.
 
 
 ###  Maak het besluittype "BT1" versie 1 aan
@@ -124,7 +127,7 @@ Response:
 ```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
-   	"omschrijving": "Besluitype A",
+   	"omschrijving": "ZT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van BT1",
@@ -140,7 +143,7 @@ Response:
 ```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
-   	"omschrijving": "Besluitype A",
+   	"omschrijving": "ZT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van BT1",
