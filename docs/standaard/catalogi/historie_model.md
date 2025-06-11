@@ -1,6 +1,6 @@
 ---
 title: "Histormodel Catalogi API"
-date: '25-02-2025'
+date: '11-06-2025'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -96,36 +96,37 @@ Grof gezegd zijn de GET operaties (GET Resource, GET List en HEAD) backwards com
 
 Om deze redenen is besloten versie 1.3.x backwards compatible te laten zijn met eerdere versies. 
 
-## Twee toepassingen van het historiemodel
-
-### 1. Historiemodel toegepast op Zaaktype en Besluittype
-[![Historiemodel Zaaktype en Besluittype](hm_zt_bt.jpg)](hm_zt_bt.jpg "Historiemodel Zaaktype en Besluittype - klik voor groot")
-
-In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst rechtstreeks via de Besluittype.omschrijving naar Besluittype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd welke nog steeds via de Besluittype.omschrijving naar Besluittype versie 1 verwijst. 
-
-Op 1 juli 2024 wordt versie 2 van het Besluittype gepubliceerd. Door de losse koppeling via Besluittype.omschrijving is het niet nodig om een nieuwe versie van het Zaaktype te maken. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype 
-en Besluittype gecombineerd door de API.
-
-###  2. Historiemodel toegepast op Zaaktype en Informatiemodeltype
-[![Historiemodel Zaaktype en Informatieobjecttype](hm_zt_iot.jpg)](hm_zt_iot.jpg "Historiemodel Zaaktype en Informatieobjecttype - klik voor groot")
-
-In dit voorbeeld is van een Zaaktype versie 1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype verwijst via Zaaktype-Informatieobjecttype versie 1 naar Informatieobjecttype versie 1. Op 1 januari 2024 wordt versie 2 van het Zaaktype gepubliceerd waardoor ook een nieuwe versie van het Zaaktype-Informatieobjecttype wordt gemaakt. Het Informatieobjecttype wordt niet gewijzigd dus Zaaktype-Informatieobjecttype versie 2 verwijst nog steeds naar Informatieobject versie 1. 
-
-Op 1 juli 2024 worden versie 3 van het Zaaktype en bijbehorend Zaaktype-Informatieobjecttype gepubliceerd. Versie 1 van het Informatieobjecttype is nog steeds geldig. Wanneer op 1 augustus 2024  versie 2 van het Informatieobjecttype wordt gepubliceerd blijven versie 3 van het Zaaktype en Zaaktype-Informatieobjecttype geldig en hoeft hiervan geen nieuwe versie te worden gepubliceerd. Op basis van de datumGeldigheid worden de juiste versies van het Zaaktype en Informatieobjecttype gecombineerd door de API.
-
-# Gedetailleerde API aanroepen
 
 ## Historiemodel toegepast op Zaaktype en Besluittype
+[![Historiemodel Zaaktype en Besluittype](zt_bt.png)](zt_bt.png "Historiemodel Zaaktype en Besluittype - klik voor groot")
 
-###  Maak het besluittype "Besluittype A" versie 1 aan
+In dit voorbeeld is de eerste versie v1 van zaaktype ZT1 [gepubliceerd](./index#concepten) op 1 januari 2023. Deze versie van het Zaaktype is via het attribuut "Besluittype.omschrijving" gekoppeld met besluittype BT1. Op het moment van verwijzing bestond alleen versie v1 van het besluittype BT1. 
+
+Op 1 januari 2024 wordt versie v2 van het zaaktype ZT1  gepubliceerd welke tevens wordt gekoppeld aan besluittype BT1.
+
+Op 1 juli 2024 wordt versie v2 van het besluittype BT1 gepubliceerd. Door de losse koppeling (via "Besluittype.omschrijving" in plaats van "Besluittype.url") kunnen beide versies van zaaktype ZT1 (v1 en v2) beiden gebruik maken van besluittype v2 hoewel deze later gepubliceerd is.
+
+Het stippelijntje in de v1 versie van zaaktype ZT1 stelt de "eindeGeldigheid" voor: dat is de datum één dag voor de "beginGeldigheid" van het nieuwe zaaktype (v2 in dit geval). Het attribuut "eindeGeldigheid" is hier niet de eindgeldigheid van het zaaktype zelf want dat blijft altijd geldig voor het zaaktype waaraaan het gekoppeld is. Maar het is wel de eindgeldigheid voor nieuwe zaken die eraan gekoppeld kunnen worden. Dus na deze eindgeldigheid mogen er geen nieuwe zaken meer aan het zaaktype gekoppeld worden.
+
+Hetzelfde verhaal voor het stippellijntje in het besluittype v1 van besluittype BT1. Met als toevoeging dat hier voor de "eindeGeldigheid" geldt dat zowel nieuwe besluiten als nieuwe zaaktypen niet meer gerelateerd mogen worden na de eindgeldigheid van het betreffende besluittype.
+
+Om het voorbeeld concreter te maken is in onderstaand plaatje de situatie uitgebreid met "echte" zaken en besluiten die aan zaaktype ZT1 en besluittype BT1 gekoppeld zijn. Op het moment dat zaak Z2 op 1-4-2024 gekoppeld werd aan zaaktype ZT1 bestond er nog geen versie v2 van het besluittype BT1. Pas later op 1-7-2024 werd deze BT1.v2 versie aangemaakt en op 1-9-2024 werd het besluit B2 gekoppeld aan besluittype BT1.v2 en zaak Z2.
+
+[![Historiemodel Zaaktype en Besluittype uitgebreid met Zaken en Besluiten](zt_bt_z_b_v02.png)](zt_bt_z_bv02.png "Klik voor groot")
+
+
+In de volgende secties gaan we met concrete ZGW-berichten de bovenstaande situatie reconstrueren. Voor het gemak beperken we ons tot alleen de zaaktype ZT1 en besluittype BT1 en laten we de zaken, Z1 en Z2, en besluiten, B1 en B2, die gebruik maken van deze typen buiten beschouwing.
+
+
+###  Maak het besluittype "BT1" versie 1 aan
 `POST {{ztc_url}}/besluittypen`
 
 Request:
 ```
 {
-   	"omschrijving": "Besluittype A",
+   	"omschrijving": "BT1",
 	"beginGeldigheid" : "2023-01-01",
-	"toelichting": "Dit is versie 1 van Besluittype A",
+	"toelichting": "Dit is versie 1 van BT1",
    	...
 }
 ```
@@ -133,43 +134,43 @@ Request:
 Response:
 ```
 {
-   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
-   	"omschrijving": "Besluitype A",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
+   	"omschrijving": "ZT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
-	"toelichting": "Dit is versie 1 van Besluittype A",
+	"toelichting": "Dit is versie 1 van BT1",
 	...
 	"concept": true
 }
 ```
 
 ### Publiceer het besluittype
-`POST {{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}/publish`
+`POST {{ztc_url}}/besluittypen/{{uuid_bt1_v1}}/publish`
 
 Response:
 ```
 {
-   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
-   	"omschrijving": "Besluitype A",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
+   	"omschrijving": "ZT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
-	"toelichting": "Dit is versie 1 van Besluittype A",
+	"toelichting": "Dit is versie 1 van BT1",
 	...
 	"concept": false
 }
 ```
 
-### Maak het zaaktype "Zaaktype_A" versie 1 aan en relateer het aan besluittype "Besluittype A"
+### Maak het zaaktype "ZT1" versie 1 aan en relateer het aan besluittype "BT1"
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
 ```
 {
-	"identificatie": "Zaaktype_A",
+	"identificatie": "ZT1",
 	"beginGeldigheid": "2023-01-01",
-	"toelichting": "Dit is versie 1 van Zaaktype_A",	
+	"toelichting": "Dit is versie 1 van ZT1",	
 	...	
-	"besluittypen": [ "Besluittype A" ],
+	"besluittypen": [ "BT1" ],
 	...
 }
 ```
@@ -177,47 +178,47 @@ Request:
 Response:
 ```
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
-	"identificatie": "Zaaktype_A",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}",
+	"identificatie": "ZT1",
 	"beginGeldigheid" : "2023-01-01",	
 	"eindeGeldigheid": null,
-	"toelichting": "Dit is versie 1 van Zaaktype_A",
+	"toelichting": "Dit is versie 1 van ZT1",
 	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
 	"concept": true
 }
 ```
 
 ### Publiceer het zaaktype
-`POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}/publish`
+`POST {{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}/publish`
 
 Response:
 ```
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
-	"identificatie": "Zaaktype_A",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}",
+	"identificatie": "ZT1",
 	"beginGeldigheid" : "2023-01-01",
 	"eindeGeldigheid": null,	
-	"toelichting": "Dit is versie 1 van Zaaktype_A",
+	"toelichting": "Dit is versie 1 van ZT1",
 	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
 	"concept": false
 }
 ```
 
-### Maak versie 2 van zaaktype "Zaaktype_A" aan en relateer het aan besluittype "Besluittype A"
+### Maak versie 2 van zaaktype "ZT1" aan en relateer het aan besluittype "BT1"
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
 ```
 {
-	"identificatie": "Zaaktype_A",
+	"identificatie": "ZT1",
 	"beginGeldigheid": "2024-01-01",
-	"toelichting": "Dit is versie 2 van Zaaktype_A",
+	"toelichting": "Dit is versie 2 van ZT1",
 	...	
-	"besluittypen": [ "Besluittype A" ],
+	"besluittypen": [ "BT1" ],
 	...
 }
 ```
@@ -225,13 +226,13 @@ Request:
 Response:
 ```
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-	"identificatie": "Zaaktype_A",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+	"identificatie": "ZT1",
 	"beginGeldigheid" : "2024-01-01",	
 	"eindeGeldigheid": null,
-	"toelichting": "Dit is versie 2 van Zaaktype_A",
+	"toelichting": "Dit is versie 2 van ZT1",
 	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
 	"concept": true
 }
@@ -241,18 +242,18 @@ Response:
 
 Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaaktype een eindegeldigheid van 1 dag voor de begingeldigheid van het nieuwe zaaktype.
 
-`PATCH {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}`
+`PATCH {{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}`
 
 
 Response:
 ```
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
-	"identificatie": "Zaaktype_A",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}",
+	"identificatie": "ZT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": "2023-12-31",
 	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
 	"concept": true
 }
@@ -260,16 +261,16 @@ Response:
 
 
 ### Publiceer zaaktype versie v2
-`POST {{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}/publish`
+`POST {{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}/publish`
 
 Response:
 ```
 {
-	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-	"identificatie": "Zaaktype_A",
+	"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+	"identificatie": "ZT1",
 	"beginGeldigheid" : "2024-01-01",	
 	...
-	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
 	"concept": false
 }
@@ -282,9 +283,9 @@ Response:
 Request:
 ```
 {
-   	"omschrijving": "Besluittype A",
+   	"omschrijving": "BT1",
 	"beginGeldigheid" : "2024-07-01",
-	"toelichting": "Dit is versie 2 van Besluittype A",
+	"toelichting": "Dit is versie 2 van BT1",
    	...
 }
 ```
@@ -292,10 +293,10 @@ Request:
 Response:
 ```
 {
-   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
-	"toelichting": "Dit is versie 2 van Besluittype A",
+	"toelichting": "Dit is versie 2 van BT1",
 	...
 	"concept": true
 }
@@ -307,18 +308,18 @@ Response:
 Response:
 ```
 {
-   	"url" : "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}",
+   	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}",
    	"omschrijving": "Besluit genomen",
 	"beginGeldigheid": "2024-07-01",
-	"toelichting": "Dit is versie 2 van Besluittype A",
+	"toelichting": "Dit is versie 2 van BT1",
 	...
 	"concept": false
 }
 ```
 
-### Bevraag alle versies van zaaktype "Zaaktype_A"
+### Bevraag alle versies van zaaktype ZT1
 
-`GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A`
+`GET {{ztc_url}}/zaaktypen?identificatie=ZT1`
 
 ```
 {
@@ -327,26 +328,23 @@ Response:
     "previous": null,
     "results": [
 		{
-			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v1}}",
-			"identificatie": "Zaaktype_A",
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}",
+			"identificatie": "ZT1",
 			"beginGeldigheid": "2023-01-01",
 			"eindeGeldigheid": "2023-12-31",
-			"toelichting": "Dit is versie 1 van Zaaktype_A",
+			"toelichting": "Dit is versie 1 van ZT1",
 			...
-			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}" ],
 			...
 			"concept": false
 		},	
 		{
-			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-			"identificatie": "Zaaktype_A",
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+			"identificatie": "ZT1",
 			"beginGeldigheid" : "2024-01-01",	
-			"toelichting": "Dit is versie 2 van Zaaktype_A",
+			"toelichting": "Dit is versie 2 van ZT1",
 			...
-			"besluittypen" : [ 
-				"{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}",
-				"{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}"
-			],
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}" ],
 			...
 			"concept": false
 		}
@@ -354,9 +352,11 @@ Response:
 }
 ```
 
-###  Bevraag "Zaaktype_A" op 1-4-2024
+In het responsbericht wordt alleen de laatste versie van het besluittype teruggegeven (in dit geval versie v2). Omdat we in de bovenstaande query geen "datumgeldigheid" hebben meegegeven hadden we er ook voor kunnen kiezen om alle versies van het besluittype terug te geven, maar daar is niet voor gekozen om de omvang van het bericht zo klein mogelijk te houden. 
 
-`GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A&datumGeldigheid=2024-04-01`
+###  Bevraag zaaktype ZT1 op 1-4-2023 (voor de creatie van versie v2 van het zaaktype)
+
+`GET {{ztc_url}}/zaaktypen?identificatie=ZT1&datumGeldigheid=2023-04-01`
 
 ```
 {
@@ -365,12 +365,13 @@ Response:
     "previous": null,
     "results": [
 		{
-			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-			"identificatie": "Zaaktype_A",
-			"beginGeldigheid" : "2024-01-01",	
-			"toelichting": "Dit is versie 2 van Zaaktype_A",
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}",
+			"identificatie": "ZT1",
+			"beginGeldigheid" : "2023-01-01",	
+			"eindeGeldigheid": "2023-12-31",
+			"toelichting": "Dit is versie 1 van ZT1",
 			...
-			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v1}}" ],
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 			...
 			"concept": false
 		}
@@ -379,8 +380,9 @@ Response:
 ```
 
 
-###  Bevraag "Zaaktype_A" op 1-10-2024 (na de creatie van de tweede versie van "Besluittype A" op 1-7-2024)
-`GET {{ztc_url}}/zaaktypen?identificatie=Zaaktype_A?datumGeldigheid=2024-10-01`
+###  Bevraag zaaktype ZT1 op 1-4-2024 (na de creatie van v2 van het zaaktype)
+
+`GET {{ztc_url}}/zaaktypen?identificatie=ZT1&datumGeldigheid=2024-04-01`
 
 ```
 {
@@ -389,12 +391,13 @@ Response:
     "previous": null,
     "results": [
 		{
-			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zaaktype_a_v2}}",
-			"identificatie": "Zaaktype_A",
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+			"identificatie": "ZT1",
 			"beginGeldigheid" : "2024-01-01",	
-			"toelichting": "Dit is versie 2 van Zaaktype_A",
+			"eindeGeldigheid": null,
+			"toelichting": "Dit is versie 2 van ZT1",
 			...
-			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_besluittype_a_v2}}" ],
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 			...
 			"concept": false
 		}
@@ -402,69 +405,31 @@ Response:
 }
 ```
 
-In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1.
 
-<!--
-To do:
+###  Bevraag zaaktype ZT1 op 1-10-2024 (na de creatie van de tweede versie van besluittype BT1 op 1-7-2024)
+`GET {{ztc_url}}/zaaktypen?identificatie=ZT1?datumGeldigheid=2024-10-01`
 
-- Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
-- Uitzoeken of je typen kunt corrigeren. Ik heb die rechten blijkbaar niet.
-- Nieuwe release Catalogi API is not niet mogelijk als er nog zoveel vragen zijn. Zie de uitstaande vraag naar Johannes in de email
-- We kunnen Oneground of OpenZaak gebruiken als referentie-implementatie van onze testscripts en de gevallen mocken waar ze niet voldoen aan de standaard.
-- We de betekenis van de velden: versiedatum, beginObject, eindObject.
-- Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
-- Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
-- Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
-- Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
-- Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
-- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden? Dit bepaalt ook of je de eindGeldigheid zetten kunt automatiseren?
-- Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
-- Expand toevoegen aan deze voorbeeldberichten voor de duidelijkheid!
-- Mag je versies met verlopen geldigheid nog aanpassen? Blijkbaar wel in Oneground
-- Mag je beginGeldigheid in de toekomst zetten?
-- eindGeldigheid vorig record moet 1 dag voor beginGeldigheid huidig record staan. Is dit ergens beschreven?
-- Speelt de huidige tijd en datum een rol in de semantiek?
-- Bila met Johannes:
-  - Zaken kunnen recenter zijn dan de eindGeldigheid van het zaaktype waaraan ze verbonden zijn
-    - Eigenlijk zouden zaken en zaaktypen ook loosly coupled moeten zijn. Dus niet verbinden via url maar via identifier.
-  - Versies van zaaktypen, besluittypen, etc.  pinnen op een url lijkt een design fout.
-  - Issue #2474 gaat over deze problematiek volgens JB.
-  - Je mag oude versies corrigeren zolang het maar toevoegingen zijn.
-  - Als het geen toevoegingen zijn moet je een nieuwe versie aanmaken van het zaaktype etc. Maar waarom maak je niet gewoon een nieuw zaaktype aan en werk je zonder versies?
-  - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
-  - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
-- Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
-- Moet een "GET all" op zaaktypen niet gewoon de Besluitomschrijvingen teruggeven in plaats van urls van de besluiten.
-- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen???? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
-- Plaatje in dit verhaal aanpassen conform nieuwe plaatje in Powerpoint met paralelle versie-balken
-- In de repons moet bij het koppelen van een zaaktype aan een besluittype  in de repons de omschrijving van het besluittype terugkomen en niet de url('s). Change in de OAS!!! Johannes eens? We maken de urls depricated.
-- Breid de tutorial uit met zaken en besluiten waaraan de types gekoppeld zijn.
-- Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
-- Bij het aanmaken van een nieuwe versie van een zaaktype, wil je eigenlijk een duplicate functie in de API!
-- Bij het maken van een nieuwe versie van een zaaktype wil je een fout herstellen, maar ga je dan ook alle zaaktypen die aan het foute zaaktype verbonden waren koppelen aan de nieuwe versie van het zaaktype. Als je dat niet doet wat voor zin heeft het dan. De wijziging is dan waarschijnlijk geen correctie maar een materiele wijziging die alleen gebruikt zal worden door nieuwe aan te maken zaken. Dus de versionering is alleen maar een groupering van zaaktypen die bij elkaar horen.
-- Besluiten kun je vanuit de zaken api opvragen als sub resource: /zaken/{uuid}/besluiten
-  - Ik vraag me af of je deze ook kunt expanden?
-- Als je een zaaktype opvraagt wat moet er dan in het veld "zaaktype.besluittypen" zitten?
-  - Een lijst van strings met de omschrijvingen. Kun je daarop expanden?
-  - Een lijst met urls met alle besluittypen inclusief hun versies
-  - Lijst met urls met alleeen de laatste versie van de besluittypen
-  - Eigenlijk wil je meerdere lijsten terugkrijgen:
-    - De lijst met besluittypen versies die door de zaak gebruikt zijn om besluiten te koppelen
-    - De lijst met besluittypen versies die geldig zijn om nieuwe besluiten mee te maken. 
-- Toekomstige zaaktypen maken de semantiek lastiger en dan heb je echt de paraemter datumgeldigheid nodig
-- Versies van Besluittypen begrijp ik want dan kun je een zaaktype losjes koppelen aan nieuwe besluittypen. Maar versies van zaaktypen begrijp ik niet. Er wordt toch nergens losjes gekoppeld aan zaaktypen.
-- Wat gaat er mis als je geen versies van zaaktypen en besluittypen hebt.
-- Wordt de parameter datumGeldigheid ook gebruikt met historische waarden dus niet alleen met vandaag?
-- Zie ook de vragen in de chat: De query parameter /besluittypen?zaaktypen=Zaaktype_A met als waarde een zaaktype identificatie lijkt me niet logisch. Vanuit een zaak gezien ken je alleen de zaaktype url  en wil je daarop bevragen om de besluittypen die voor de zaak in kwestie relevant zijn op te vragen.
-- Door de versies die gegroepeerd zijn door een identificatie of omschrijving veld wil je kunnen expanden/drillen. Maar zo is expand nog niet ingericht.
-- Welke versie van het besluittype wordt teruggegeven als er een toekomstige besluittype is klaargezet? De nu geldige of de laatste (het toekomstige besluittype). JB antwoord: de nu geldige.
-- Misschien eindeGeldigheid toch niet zo slecht dat weet je wanneer ze niet meer geldig waren voor gebruik. Ook voor versies van zaaktypen is dat van belang.
-- Johannes is het eens om de reponse op de bevraging van het zaaktype uit te breiden met extra attributen:
-  - "geldigeBesluittypen": alleen de geldige die nu gebruikt mogen worden
-  - "besluittypen": alle versies
-  - "besluittypenOmschrijvingen": een lijst met omschrijvingen. Het zou leuk zijn als je zou kunnen expanden op de omschrijvingen.
+```
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+		{
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+			"identificatie": "ZT1",
+			"beginGeldigheid" : "2024-01-01",	
+			"toelichting": "Dit is versie 2 van ZT1",
+			...
+			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}" ],
+			...
+			"concept": false
+		}
+	]
+}
+```
 
--->
+In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1. Immers op 1-10-2024 is de v1 versie van het besluittype niet meer geldig.
 
 
 
