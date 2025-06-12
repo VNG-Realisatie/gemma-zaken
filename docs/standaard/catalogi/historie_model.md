@@ -1,6 +1,6 @@
 ---
 title: "Histormodel Catalogi API"
-date: '11-06-2025'
+date: '12-06-2025'
 weight: 10
 layout: page-with-side-nav
 ---
@@ -118,7 +118,7 @@ Om het voorbeeld concreter te maken is in onderstaand plaatje de situatie uitgeb
 In de volgende secties gaan we met concrete ZGW-berichten de bovenstaande situatie reconstrueren. Voor het gemak beperken we ons tot alleen de zaaktype ZT1 en besluittype BT1 en laten we de zaken, Z1 en Z2, en besluiten, B1 en B2, die gebruik maken van deze typen buiten beschouwing.
 
 
-###  Maak het besluittype "BT1" versie 1 aan
+###  Maak het besluittype BT1 versie 1 aan
 `POST {{ztc_url}}/besluittypen`
 
 Request:
@@ -160,7 +160,7 @@ Response:
 }
 ```
 
-### Maak het zaaktype "ZT1" versie 1 aan en relateer het aan besluittype "BT1"
+### Maak het zaaktype ZT1 versie 1 aan en relateer het aan besluittype BT1
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
@@ -208,7 +208,7 @@ Response:
 }
 ```
 
-### Maak versie 2 van zaaktype "ZT1" aan en relateer het aan besluittype "BT1"
+### Maak versie 2 van zaaktype ZT1 aan en relateer het aan besluittype BT1
 `POST {{ztc_url}}/zaaktypen`
 
 Request:
@@ -240,7 +240,7 @@ Response:
 
 ### Geef versie 1 van het zaaktype een eindegeldigheid
 
-Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaaktype een eindegeldigheid van 1 dag voor de begingeldigheid van het nieuwe zaaktype.
+Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaaktype een eindgeldigheid van 1 dag voor de begingeldigheid van het nieuwe zaaktype.
 
 `PATCH {{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}`
 
@@ -317,7 +317,7 @@ Response:
 }
 ```
 
-### Bevraag alle versies van zaaktype ZT1
+### Vraag alle versies van zaaktype ZT1 op
 
 `GET {{ztc_url}}/zaaktypen?identificatie=ZT1`
 
@@ -353,6 +353,8 @@ Response:
 }
 ```
 In de bovenstaande query is geen parameter datumGeldigheid meegegeven en daarom krijgen we alle versies van het zaaktype Z1 terug inclusief de versie(s) die niet meer geldig zijn. Voor gerelateerde objecten in het responsbericht worden alleen de versies geretourneerd die geldig zijn op de datum waarop de query is uitgevoerd. In dit geval is de query uitgevoerd op 12-6-2025 en krijgen we versie 2 van het besluittype BT1 terug. Als we dezelfde query op 1-4-2024 hadden uitgevoerd dan was versie 1 van het besluittype BT1 weergegeven.
+
+Let op: `datumGeldigheid={{vandaag}}` is niet de default waarde van bovenstaande query want dan had je maar één versie (de geldige versie) van het zaaktype teruggekregen in plaats van alle versies (twee in dit geval). Zie [dit voorbeeld](#bevraag-zaaktype-zt1-op-1-10-2024-na-de-creatie-van-de-tweede-versie-van-besluittype-bt1-op-1-7-2024) als  de variabele `{{vandaag}}` de waarde `1-10-2024` zou hebben, dan krijg je maar één resultaat terug.
 
 
 ###  Bevraag zaaktype ZT1 op 1-4-2023 (voor de creatie van versie v2 van het zaaktype)
@@ -420,6 +422,7 @@ In de bovenstaande query is geen parameter datumGeldigheid meegegeven en daarom 
 			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
 			"identificatie": "ZT1",
 			"beginGeldigheid" : "2024-01-01",	
+			"eindeGeldigheid": null,
 			"toelichting": "Dit is versie 2 van ZT1",
 			...
 			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}" ],
