@@ -7,6 +7,23 @@ layout: page-with-side-nav
 
 # Historiemodel in de Catalogi API
 
+<!-- 
+
+To do:
+
+- Duplicatie functie feature
+- Zetten van eindgeldigheid niet gespecificeerd en ook niet geautomatiseerd door api
+- Lijst met issues maken en vanuit dit document linken
+- beginGeldigheid, eindgeldigheid, datumGeldigheid niet intuitief en beter documenteren in spec
+- Zaaktype.besluittypen moet eigenlijk een array van omschrijvingen zijn in plaats van url's
+  - Hoe moet je die omschrijvingen expanden?
+- Zelfde verhaal voor Zaaktype.informatieobjecttypen
+-  Groepeer alle issues over historiemodel.
+
+-->
+
+- iss
+
 ## Inleiding
 
 Omdat van een Zaak, Informatieobject of Besluit altijd de bijbehorende definities moeten kunnen worden opgevraagd zoals die waren 
