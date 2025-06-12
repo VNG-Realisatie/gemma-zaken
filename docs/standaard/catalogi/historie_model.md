@@ -357,6 +357,43 @@ In de bovenstaande query is geen parameter datumGeldigheid meegegeven en daarom 
 Let op: `datumGeldigheid={{vandaag}}` is niet de default waarde van bovenstaande query want dan had je maar één versie (de geldige versie) van het zaaktype teruggekregen in plaats van alle versies (twee in dit geval). Zie [dit voorbeeld](#bevraag-zaaktype-zt1-op-1-10-2024-na-de-creatie-van-de-tweede-versie-van-besluittype-bt1-op-1-7-2024) als  de variabele `{{vandaag}}` de waarde `1-10-2024` zou hebben, dan krijg je maar één resultaat terug.
 
 
+### Vraag alle versies van besluittype BT1 op
+
+`GET {{ztc_url}}/besluittypen?omschrijving=BT1`
+
+```
+{
+    "count": 2,
+    "next": null,
+    "previous": null,
+    "results": [
+		{
+			"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
+			"omschrijving": "BT1",
+			"beginGeldigheid": "2023-01-01",
+			"eindeGeldigheid": "2024-06-30",
+			"toelichting": "Dit is versie 1 van BT1",
+			...
+			"zaaktypen" : [ "{{ztc_url}}/besluizaaktypenttypen/{{uuid_zt1_v2}}" ],
+			...
+			"concept": false
+		},	
+		{
+			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
+			"identificatie": "ZT1",
+			"beginGeldigheid" : "2024-07-01",	
+			"eindeGeldigheid": null,
+			"toelichting": "Dit is versie 2 van BT1",
+			...
+			"zaaktypen" : [ "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}" ],
+			...
+			"concept": false
+		}
+	]
+}
+```
+
+
 ###  Bevraag zaaktype ZT1 op 1-4-2023 (voor de creatie van versie v2 van het zaaktype)
 
 `GET {{ztc_url}}/zaaktypen?identificatie=ZT1&datumGeldigheid=2023-04-01`
