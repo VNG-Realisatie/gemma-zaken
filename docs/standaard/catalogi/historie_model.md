@@ -59,7 +59,7 @@ De datumGeldigheid is vanuit de zaak geredeneerd de registratiedatum van de zaak
 
 
 ### Gerelateerde objecttypen van Zaaktype
-Bij een versie van een Zaaktype kan slechts één (1) versie van onderstaande gerelateerde objecttypen worden vastgelegd. 
+Bij een versie van een Zaaktype kan slechts één versie van onderstaande gerelateerde objecttypen worden vastgelegd. 
 
 Zaaktype kent de volgende gerelateerde objecttypen:
 - Statustype
@@ -75,14 +75,14 @@ Zaaktype kent de volgende gerelateerde objecttypen:
 - De relatie Zaaktype heeft relevant Informatieobjecttype wordt gelegd door in ZaaktypeInformatieobjecttype te verwijzen naar het zaaktype via zaaktype.url en naar het Informatieobjecttype via informatieobjecttype.omschrijving.
 Op deze manier is aan één versie van een zaaktype versie-onafhankelijk een Informatieobjecttype gekoppeld. Bij een nieuwe versie van het Informatieobjecttype hoeft de relatie niet aangepast te worden. Het leggen of wijzigen 
 (doorknippen) van de relatie is een wijziging (dus nieuwe versie) van het zaaktype en betekent ook een nieuwe versie van het zaakinformatieobjecttype.
-- Bij het opvragen van een versie van een Zaaktype worden op basis van de datumGeldigheid de op dat moment geldige gerelateerde Informatieobjecttypen weergegeven.
+- Bij het opvragen van een versie van een Zaaktype worden op basis van de huidige datum de op dat moment geldige gerelateerde Informatieobjecttypen weergegeven.
 
 
 
 ### Relatie Zaaktype heeft relevant Besluittype
-- De relatie Zaaktype heeft relevant Besluittype wordt gelegd vanuit Zaaktype naar Besluittype
+- De relatie Zaaktype heeft relevant Besluittype wordt gelegd vanuit Zaaktype naar Besluittype.
 - De relatie Zaaktype heeft relevant Besluittype wordt gelegd door in Zaaktype.besluittypen een array met Besluittype.omschrijving-en op te nemen. Idealiter zou de relatie gelegd worden met een relatieklasse zoals ZaaktypeInformatieobjecttype maar dat is helaas niet het geval. Ook hier is de relatie tussen (versie van een) Zaaktype en Besluittype onafhankelijk van de versie van het Besluittype.
-- Bij het opvragen van een versie van een Zaaktype worden op basis van de datumGeldigheid de op dat moment geldige gerelateerde Besluittypen weergegeven.
+- Bij het opvragen van een versie van een Zaaktype worden op basis van de huidige datum de op dat moment geldige gerelateerde Besluittypen weergegeven.
 
 
 ### Is Catalogi API 1.3.x backwards compatible of niet
@@ -342,6 +342,7 @@ Response:
 			"url" : "{{ztc_url}}/zaaktypen/{{uuid_zt1_v2}}",
 			"identificatie": "ZT1",
 			"beginGeldigheid" : "2024-01-01",	
+			"eindeGeldigheid": null,
 			"toelichting": "Dit is versie 2 van ZT1",
 			...
 			"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v2}}" ],
@@ -351,8 +352,8 @@ Response:
 	]
 }
 ```
+In de bovenstaande query is geen parameter datumGeldigheid meegegeven en daarom krijgen we alle versies van het zaaktype Z1 terug inclusief de versie(s) die niet meer geldig zijn. Voor gerelateerde objecten in het responsbericht worden alleen de versies geretourneerd die geldig zijn op de datum waarop de query is uitgevoerd. In dit geval is de query uitgevoerd op 12-6-2025 en krijgen we versie 2 van het besluittype BT1 terug. Als we dezelfde query op 1-4-2024 hadden uitgevoerd dan was versie 1 van het besluittype BT1 weergegeven.
 
-In het responsbericht wordt alleen de laatste versie van het besluittype teruggegeven (in dit geval versie v2). Omdat we in de bovenstaande query geen "datumgeldigheid" hebben meegegeven hadden we er ook voor kunnen kiezen om alle versies van het besluittype terug te geven, maar daar is niet voor gekozen om de omvang van het bericht zo klein mogelijk te houden. 
 
 ###  Bevraag zaaktype ZT1 op 1-4-2023 (voor de creatie van versie v2 van het zaaktype)
 
@@ -430,9 +431,6 @@ In het responsbericht wordt alleen de laatste versie van het besluittype terugge
 ```
 
 In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1. Immers op 1-10-2024 is de v1 versie van het besluittype niet meer geldig.
-
-
-
 
 
 
