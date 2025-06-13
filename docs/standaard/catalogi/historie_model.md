@@ -22,8 +22,6 @@ To do:
 
 -->
 
-- iss
-
 ## Inleiding
 
 Omdat van een Zaak, Informatieobject of Besluit altijd de bijbehorende definities moeten kunnen worden opgevraagd zoals die waren 
