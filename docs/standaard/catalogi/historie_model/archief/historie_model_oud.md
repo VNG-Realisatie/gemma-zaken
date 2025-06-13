@@ -5,6 +5,68 @@ weight: 10
 layout: page-with-side-nav
 ---
 
+<!--
+To do:
+
+- Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
+- Uitzoeken of je typen kunt corrigeren. Ik heb die rechten blijkbaar niet.
+- Nieuwe release Catalogi API is not niet mogelijk als er nog zoveel vragen zijn. Zie de uitstaande vraag naar Johannes in de email
+- We kunnen Oneground of OpenZaak gebruiken als referentie-implementatie van onze testscripts en de gevallen mocken waar ze niet voldoen aan de standaard.
+- We de betekenis van de velden: versiedatum, beginObject, eindObject.
+- Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
+- Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
+- Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
+- Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
+- Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
+- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden? Dit bepaalt ook of je de eindGeldigheid zetten kunt automatiseren?
+- Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
+- Expand toevoegen aan deze voorbeeldberichten voor de duidelijkheid!
+- Mag je versies met verlopen geldigheid nog aanpassen? Blijkbaar wel in Oneground
+- Mag je beginGeldigheid in de toekomst zetten?
+- eindGeldigheid vorig record moet 1 dag voor beginGeldigheid huidig record staan. Is dit ergens beschreven?
+- Speelt de huidige tijd en datum een rol in de semantiek?
+- Bila met Johannes:
+  - Zaken kunnen recenter zijn dan de eindGeldigheid van het zaaktype waaraan ze verbonden zijn
+    - Eigenlijk zouden zaken en zaaktypen ook loosly coupled moeten zijn. Dus niet verbinden via url maar via identifier.
+  - Versies van zaaktypen, besluittypen, etc.  pinnen op een url lijkt een design fout.
+  - Issue #2474 gaat over deze problematiek volgens JB.
+  - Je mag oude versies corrigeren zolang het maar toevoegingen zijn.
+  - Als het geen toevoegingen zijn moet je een nieuwe versie aanmaken van het zaaktype etc. Maar waarom maak je niet gewoon een nieuw zaaktype aan en werk je zonder versies?
+  - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
+  - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
+- Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
+- Moet een "GET all" op zaaktypen niet gewoon de Besluitomschrijvingen teruggeven in plaats van urls van de besluiten.
+- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen???? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
+- Plaatje in dit verhaal aanpassen conform nieuwe plaatje in Powerpoint met paralelle versie-balken
+- In de repons moet bij het koppelen van een zaaktype aan een besluittype  in de repons de omschrijving van het besluittype terugkomen en niet de url('s). Change in de OAS!!! Johannes eens? We maken de urls depricated.
+- Breid de tutorial uit met zaken en besluiten waaraan de types gekoppeld zijn.
+- Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
+- Bij het aanmaken van een nieuwe versie van een zaaktype, wil je eigenlijk een duplicate functie in de API!
+- Bij het maken van een nieuwe versie van een zaaktype wil je een fout herstellen, maar ga je dan ook alle zaaktypen die aan het foute zaaktype verbonden waren koppelen aan de nieuwe versie van het zaaktype. Als je dat niet doet wat voor zin heeft het dan. De wijziging is dan waarschijnlijk geen correctie maar een materiele wijziging die alleen gebruikt zal worden door nieuwe aan te maken zaken. Dus de versionering is alleen maar een groupering van zaaktypen die bij elkaar horen.
+- Besluiten kun je vanuit de zaken api opvragen als sub resource: /zaken/{uuid}/besluiten
+  - Ik vraag me af of je deze ook kunt expanden?
+- Als je een zaaktype opvraagt wat moet er dan in het veld "zaaktype.besluittypen" zitten?
+  - Een lijst van strings met de omschrijvingen. Kun je daarop expanden?
+  - Een lijst met urls met alle besluittypen inclusief hun versies
+  - Lijst met urls met alleeen de laatste versie van de besluittypen
+  - Eigenlijk wil je meerdere lijsten terugkrijgen:
+    - De lijst met besluittypen versies die door de zaak gebruikt zijn om besluiten te koppelen
+    - De lijst met besluittypen versies die geldig zijn om nieuwe besluiten mee te maken. 
+- Toekomstige zaaktypen maken de semantiek lastiger en dan heb je echt de paraemter datumgeldigheid nodig
+- Versies van Besluittypen begrijp ik want dan kun je een zaaktype losjes koppelen aan nieuwe besluittypen. Maar versies van zaaktypen begrijp ik niet. Er wordt toch nergens losjes gekoppeld aan zaaktypen.
+- Wat gaat er mis als je geen versies van zaaktypen en besluittypen hebt.
+- Wordt de parameter datumGeldigheid ook gebruikt met historische waarden dus niet alleen met vandaag?
+- Zie ook de vragen in de chat: De query parameter /besluittypen?zaaktypen=Zaaktype_A met als waarde een zaaktype identificatie lijkt me niet logisch. Vanuit een zaak gezien ken je alleen de zaaktype url  en wil je daarop bevragen om de besluittypen die voor de zaak in kwestie relevant zijn op te vragen.
+- Door de versies die gegroepeerd zijn door een identificatie of omschrijving veld wil je kunnen expanden/drillen. Maar zo is expand nog niet ingericht.
+- Welke versie van het besluittype wordt teruggegeven als er een toekomstige besluittype is klaargezet? De nu geldige of de laatste (het toekomstige besluittype). JB antwoord: de nu geldige.
+- Misschien eindeGeldigheid toch niet zo slecht dat weet je wanneer ze niet meer geldig waren voor gebruik. Ook voor versies van zaaktypen is dat van belang.
+- Johannes is het eens om de reponse op de bevraging van het zaaktype uit te breiden met extra attributen:
+  - "geldigeBesluittypen": alleen de geldige die nu gebruikt mogen worden
+  - "besluittypen": alle versies
+  - "besluittypenOmschrijvingen": een lijst met omschrijvingen. Het zou leuk zijn als je zou kunnen expanden op de omschrijvingen.
+
+-->
+
 # Historiemodel in de Catalogi API
 
 ## Inleiding
@@ -403,76 +465,6 @@ Response:
 ```
 
 In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1.
-
-<!--
-To do:
-
-- Uitzoeken of je in Oneground gepubliceerde zaaktypen kunt deleten. Nu kan ik geen identificatienamen zoals  "Zaaktype_A" hergebruiken. Bovendien kun je niet een scriptje opnieuw draaien (erg vervelend). Je wilt namelijk te tests kunnen opruimen automatisch.
-- Uitzoeken of je typen kunt corrigeren. Ik heb die rechten blijkbaar niet.
-- Nieuwe release Catalogi API is not niet mogelijk als er nog zoveel vragen zijn. Zie de uitstaande vraag naar Johannes in de email
-- We kunnen Oneground of OpenZaak gebruiken als referentie-implementatie van onze testscripts en de gevallen mocken waar ze niet voldoen aan de standaard.
-- We de betekenis van de velden: versiedatum, beginObject, eindObject.
-- Bestudeer de issues over gevallen waarin eindGeldigheid < beginGeldigheid
-- Gebruik expand voor leesbaarheid in de voorbeeld berichten. O nee helaas zit die nog niet in de ztc.
-- Moet de eindgeldigheid van de vorige versie van het object niet worden aangepast als er een nieuwe versie van bijv. een zaaktype wordt aangemaakt?
-- Want anders krijg je gaten in de aansluiting van geldigheden in de opeenvolgende versies. Je krijgt dan een lege gerelateerde.
-- Kijk hoe versiedatum wordt gebruikt in de postman collectie van Johannes.
-- Is het de bedoeling dat er gaten kunnen zitten in de geldigheidsperioden? Dit bepaalt ook of je de eindGeldigheid zetten kunt automatiseren?
-- Johannes heeft een ander beeld bij één van de diagrammen. Dit moet opgelost worden
-- Expand toevoegen aan deze voorbeeldberichten voor de duidelijkheid!
-- Mag je versies met verlopen geldigheid nog aanpassen? Blijkbaar wel in Oneground
-- Mag je beginGeldigheid in de toekomst zetten?
-- eindGeldigheid vorig record moet 1 dag voor beginGeldigheid huidig record staan. Is dit ergens beschreven?
-- Speelt de huidige tijd en datum een rol in de semantiek?
-- Bila met Johannes:
-  - Zaken kunnen recenter zijn dan de eindGeldigheid van het zaaktype waaraan ze verbonden zijn
-    - Eigenlijk zouden zaken en zaaktypen ook loosly coupled moeten zijn. Dus niet verbinden via url maar via identifier.
-  - Versies van zaaktypen, besluittypen, etc.  pinnen op een url lijkt een design fout.
-  - Issue #2474 gaat over deze problematiek volgens JB.
-  - Je mag oude versies corrigeren zolang het maar toevoegingen zijn.
-  - Als het geen toevoegingen zijn moet je een nieuwe versie aanmaken van het zaaktype etc. Maar waarom maak je niet gewoon een nieuw zaaktype aan en werk je zonder versies?
-  - Nieuwe versies aanmaken van Besluittypen komt nauwelijks voor volgens Johannes, wel Informatieobjecttypen.
-  - Vraag voor JB. Waarom zou je het concept versie voor zaaktypen willen hebben? Zaken hebben namelijk ook geen versies?
-- Zaaktypen en Besluittypen  worden niet gekoppeld via koppelresource maar Zaaktypen en Informatieobjecttypen wel -> inconsistent.
-- Moet een "GET all" op zaaktypen niet gewoon de Besluitomschrijvingen teruggeven in plaats van urls van de besluiten.
-- Speelt eindGeldigheid uberhaupt wel een rol want waarom mag je nieuwe zaken niet aan oude versies van zaaktypen koppelen???? Zijn hier business rules voor? Checkt Oneground daarop? Kan ik zelf uitvinden in  Oneground
-- Plaatje in dit verhaal aanpassen conform nieuwe plaatje in Powerpoint met paralelle versie-balken
-- In de repons moet bij het koppelen van een zaaktype aan een besluittype  in de repons de omschrijving van het besluittype terugkomen en niet de url('s). Change in de OAS!!! Johannes eens? We maken de urls depricated.
-- Breid de tutorial uit met zaken en besluiten waaraan de types gekoppeld zijn.
-- Wel of niet gebruik van cross resource voor koppelen zaaktypen en informatieobjecten? Niet consistent met besluittypen!!!
-- Bij het aanmaken van een nieuwe versie van een zaaktype, wil je eigenlijk een duplicate functie in de API!
-- Bij het maken van een nieuwe versie van een zaaktype wil je een fout herstellen, maar ga je dan ook alle zaaktypen die aan het foute zaaktype verbonden waren koppelen aan de nieuwe versie van het zaaktype. Als je dat niet doet wat voor zin heeft het dan. De wijziging is dan waarschijnlijk geen correctie maar een materiele wijziging die alleen gebruikt zal worden door nieuwe aan te maken zaken. Dus de versionering is alleen maar een groupering van zaaktypen die bij elkaar horen.
-- Besluiten kun je vanuit de zaken api opvragen als sub resource: /zaken/{uuid}/besluiten
-  - Ik vraag me af of je deze ook kunt expanden?
-- Als je een zaaktype opvraagt wat moet er dan in het veld "zaaktype.besluittypen" zitten?
-  - Een lijst van strings met de omschrijvingen. Kun je daarop expanden?
-  - Een lijst met urls met alle besluittypen inclusief hun versies
-  - Lijst met urls met alleeen de laatste versie van de besluittypen
-  - Eigenlijk wil je meerdere lijsten terugkrijgen:
-    - De lijst met besluittypen versies die door de zaak gebruikt zijn om besluiten te koppelen
-    - De lijst met besluittypen versies die geldig zijn om nieuwe besluiten mee te maken. 
-- Toekomstige zaaktypen maken de semantiek lastiger en dan heb je echt de paraemter datumgeldigheid nodig
-- Versies van Besluittypen begrijp ik want dan kun je een zaaktype losjes koppelen aan nieuwe besluittypen. Maar versies van zaaktypen begrijp ik niet. Er wordt toch nergens losjes gekoppeld aan zaaktypen.
-- Wat gaat er mis als je geen versies van zaaktypen en besluittypen hebt.
-- Wordt de parameter datumGeldigheid ook gebruikt met historische waarden dus niet alleen met vandaag?
-- Zie ook de vragen in de chat: De query parameter /besluittypen?zaaktypen=Zaaktype_A met als waarde een zaaktype identificatie lijkt me niet logisch. Vanuit een zaak gezien ken je alleen de zaaktype url  en wil je daarop bevragen om de besluittypen die voor de zaak in kwestie relevant zijn op te vragen.
-- Door de versies die gegroepeerd zijn door een identificatie of omschrijving veld wil je kunnen expanden/drillen. Maar zo is expand nog niet ingericht.
-- Welke versie van het besluittype wordt teruggegeven als er een toekomstige besluittype is klaargezet? De nu geldige of de laatste (het toekomstige besluittype). JB antwoord: de nu geldige.
-- Misschien eindeGeldigheid toch niet zo slecht dat weet je wanneer ze niet meer geldig waren voor gebruik. Ook voor versies van zaaktypen is dat van belang.
-- Johannes is het eens om de reponse op de bevraging van het zaaktype uit te breiden met extra attributen:
-  - "geldigeBesluittypen": alleen de geldige die nu gebruikt mogen worden
-  - "besluittypen": alle versies
-  - "besluittypenOmschrijvingen": een lijst met omschrijvingen. Het zou leuk zijn als je zou kunnen expanden op de omschrijvingen.
-
--->
-
-
-
-
-
-
-
-
 
 
 

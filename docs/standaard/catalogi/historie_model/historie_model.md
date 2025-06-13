@@ -12,7 +12,7 @@ layout: page-with-side-nav
 To do:
 
 - Duplicatie functie feature
-- Zetten van eindgeldigheid niet gespecificeerd en ook niet geautomatiseerd door api
+- roltype, statustype, resultaattype kennen een begin- en eindGeldigheid maar zijn overbodig -> issue
 - Lijst met issues maken en vanuit dit document linken
 - beginGeldigheid, eindgeldigheid, datumGeldigheid niet intuitief en beter documenteren in spec
 - Zaaktype.besluittypen moet eigenlijk een array van omschrijvingen zijn in plaats van url's
