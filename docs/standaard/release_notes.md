@@ -45,5 +45,5 @@
 
 - **Expand toegevoegd aan ObjectInformatieObject**  
   
-  Zie issues #1891 en #2370 waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject". 
+  Zie issue #2370 (met als sub-issues #1891 en #2434) waar de wens wordt geuit om in de Documenten API (DRC) de resource objectinformatiobjecten te kunnen expanden op het veld "informatieobject". 
   
