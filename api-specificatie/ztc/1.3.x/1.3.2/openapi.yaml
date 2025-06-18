@@ -15059,8 +15059,10 @@ components:
           title: catalogus
         informatieobjecttype:
           type: string
-          title: informatieobjecttype
+          title: Informatieobjecttype
           maxLength: 100
+          description: 
+            De waarde van het attribuut "omschrijving" van het INFORMATIEOBJECTTYPE. Deze waarde wordt gebruikt om het informatieobjecttype te identificeren conform het historiemodel. Let op, dit veld is GEEN URL-referentie!
         volgnummer:
           type: integer
           maximum: 999
