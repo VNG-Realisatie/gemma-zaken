@@ -11995,9 +11995,14 @@ components:
             deze API.
           title: concept
         zaaktypen:
-          type: string
+          type: array
+          items: 
+            type: string
+            format: uri
           readOnly: true
           title: zaaktypen
+          description: Lijst van URL-referenties naar de zaaktypen die gebruik maken van dit INFORMATIEOBJECTTYPE.
+          uniqueItems: true
         besluittypen:
           type: array
           items:
