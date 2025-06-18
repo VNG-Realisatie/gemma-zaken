@@ -25,7 +25,7 @@
 
 - **Geneste expansion toegevoegd aan Catalogi API**  
 
-  Geneste expansie objecten toegevoegd aan het schema van de OAS. De expand is niet toegevoegd aan de operaties van de Catalogi API  zelf maar de geneste expand kan (indirect) aangeroepen worden vanuit de Zaken API.
+  Geneste expansie objecten toegevoegd aan het schema van de OAS. De expand is niet zichtbaar in  de operaties van de Catalogi API zelf maar de geneste expand kan (indirect) aangeroepen worden vanuit de Zaken API.
 
 - **Aanscherping specificatie eigenschappen met datumvelden**  
 
