@@ -14461,9 +14461,14 @@ components:
           title: Zaaktype
           uniqueItems: true
         informatieobjecttypen:
-          type: string
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Informatieobjecttype
           readOnly: true
-          title: informatieobjecttypen
+          title: Informatieobjecttypen
+          description: URL-referenties naar de INFORMATIEOBJECTTYPEN die mogelijk zijn binnen dit ZAAKTYPE.
         roltypen:
           type: array
           items:
