@@ -10877,12 +10877,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11066,12 +11068,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11226,12 +11230,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11729,12 +11735,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - catalogus
         - definitie
@@ -11956,12 +11964,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -12398,12 +12408,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedResultaatType:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
@@ -12548,12 +12560,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -12687,12 +12701,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedStatusType:
       type: object
       properties:
@@ -12820,12 +12836,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedZaakObjectType:
       type: object
       properties:
@@ -12864,12 +12882,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         objecttype:
           type: string
           format: uri
@@ -13156,12 +13176,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -13395,12 +13417,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -13609,6 +13633,7 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
@@ -13762,12 +13787,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - omschrijving
         - omschrijvingGeneriek
@@ -13918,12 +13945,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - catalogus
         - isEindstatus
@@ -14044,12 +14073,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         objecttype:
           type: string
           format: uri
@@ -14479,12 +14510,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -14492,6 +14525,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -14527,7 +14561,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
     ZaakTypeExpanded:
@@ -14912,12 +14945,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -14925,6 +14960,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -14961,7 +14997,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
     ZaakTypeInformatieObjectType:
@@ -15401,12 +15436,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -15414,6 +15451,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -15450,7 +15488,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
 
