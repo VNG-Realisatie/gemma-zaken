@@ -4062,6 +4062,13 @@ paths:
           description: zaaktype_identificatie
           schema:
             type: string
+          deprecated: true
+        - name: zaaktypeIdentificatie
+          required: false
+          in: query
+          description: zaaktype_identificatie
+          schema:
+            type: string
         - name: status
           required: false
           in: query
@@ -4069,6 +4076,13 @@ paths:
           schema:
             type: string
         - name: datum_geldigheid
+          required: false
+          in: query
+          description: datum_geldigheid
+          schema:
+            type: string
+          deprecated: true
+        - name: datumGeldigheid
           required: false
           in: query
           description: datum_geldigheid
