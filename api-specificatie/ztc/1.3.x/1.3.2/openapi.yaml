@@ -7263,12 +7263,14 @@ paths:
           description: De datum waarop het is ontstaan.
           schema:
             type: string
+          deprecated: true
         - name: datumEindeGeldigheid
           required: false
           in: query
           description: De datum waarop het is opgeheven.
           schema:
             type: string
+          deprecated: true
         - name: datumGeldigheid
           required: false
           in: query
@@ -11713,12 +11715,14 @@ components:
           nullable: true
           description: De datum waarop de EIGENSCHAP is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de EIGENSCHAP is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -12380,12 +12384,14 @@ components:
           nullable: true
           description: De datum waarop de EIGENSCHAP is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de EIGENSCHAP is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -12528,12 +12534,14 @@ components:
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -12665,12 +12673,14 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -12796,12 +12806,14 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -12838,12 +12850,14 @@ components:
           format: date
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -13128,12 +13142,14 @@ components:
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -13365,12 +13381,14 @@ components:
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -13577,12 +13595,14 @@ components:
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -13728,12 +13748,14 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -13882,12 +13904,14 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -14006,12 +14030,14 @@ components:
           format: date
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
@@ -14082,7 +14108,6 @@ components:
           title: Catalogus
       required:
         - anderObjecttype
-        - beginGeldigheid
         - catalogus
         - objecttype
         - relatieOmschrijving
