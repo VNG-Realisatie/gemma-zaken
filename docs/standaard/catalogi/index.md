@@ -238,12 +238,20 @@ De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gede
   
 </del>
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Regel ztc-012 is komen te vervallen in versie 1.3.2</strong>
+</span><br/>
+<br>
+
+<del>
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
 
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
 <br/>
+
+</del>
 
 
 #### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
