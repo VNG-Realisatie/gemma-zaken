@@ -253,6 +253,12 @@ hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te pub
 
 </del>
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Regel ztc-013 is komen te vervallen in versie 1.3.2</strong>
+</span><br/>
+<br>
+
+<del>
 
 #### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
 
@@ -264,6 +270,8 @@ Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
 `Catalogus` Y. Een `Zaaktype` in `Catalogus` X op endpoint `https://www.foo.bar/`
 mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
+
+</del>
 
 ### Datum beginGeldigheid en eindGeldigheid
 
