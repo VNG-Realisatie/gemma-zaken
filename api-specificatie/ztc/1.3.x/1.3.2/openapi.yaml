@@ -12557,8 +12557,9 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
@@ -12698,8 +12699,9 @@ components:
           type: string
           format: uri
           nullable: true
-          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
@@ -13173,8 +13175,9 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als je het meegeeft dan moet er naar dezelfde catalogus worden verwezen als die van het zaaktype.
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
@@ -13414,8 +13417,9 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
@@ -13784,8 +13788,9 @@ components:
           type: string
           format: uri
           nullable: true
-          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort. Let op, dit veld is verouderd, maar als je het meegeeft dan moet er naar dezelfde catalogus worden verwezen als die van het zaaktype.
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
