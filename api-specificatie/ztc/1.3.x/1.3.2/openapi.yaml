@@ -13632,16 +13632,16 @@ components:
           type: array
           items:
             type: string
-            title: ''
+            title: Besluittype
           title: besluittypen
+          description: Omschrijvingen van de besluittypen die de resultaten van dit resultaattype als gevolg kunnen hebben.
         besluittypeOmschrijving:
           type: array
           items:
             type: string
-            title: ''
           readOnly: true
-          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
-          title: is resultaat van
+          description: Omschrijvingen van de besluittypen die de resultaten van dit resultaattype als gevolg kunnen hebben.
+          title: Besluittype-omschrijving
           uniqueItems: true
         informatieobjecttypen:
           type: array
@@ -13649,9 +13649,8 @@ components:
             type: string
             format: uri
             nullable: true
-            title: ''
           description:
-            De INFORMATIEOBJECTTYPEn die verplicht aanwezig moeten zijn
+            Omschrijvingen van de  INFORMATIEOBJECTTYPEn die verplicht aanwezig moeten zijn
             in het zaakdossier van ZAAKen van dit ZAAKTYPE voordat een resultaat van
             dit RESULTAATTYPE kan worden gezet.
           title: informatieobjecttypen
@@ -13667,7 +13666,6 @@ components:
           uniqueItems: true
       required:
         - besluittypeOmschrijving
-        - besluittypen
         - informatieobjecttypeOmschrijving
         - omschrijving
         - omschrijvingGeneriek
