@@ -207,6 +207,12 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Regels ztc-011a, ztc-011b en ztc-011c zijn komen te vervallen in versie 1.3.2</strong>
+</span><br/>
+<br>
+
+<del>
 Vanwege de aard van de Catalogi API wordt onderscheid gemaakt tussen `lees consumers` en `schrijf consuners`. Onderstaande regels (ztc-11a, ztc-11b en ztc-11c) zijn van toepassing voor zgn `schrijf consumers`. Met een `schrijf consumer` wordt de beheer module voor de Zaaktype Catalogus bedoeld.
 
 De volgende regels gelden voor Zaaktype en daaraan gerelateerde objecttypen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen. Dit betreft het groene gedeelte in bovenstaande afbeelding.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**:
@@ -229,6 +235,8 @@ De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gede
 - Relaties tussen Zaaktype en Informatieobjecttype worden, via ZaaktypInformatieobjecttype, gelegd door de informatieobjecttype.omschrijving op te nemen in het ZaaktypInformatieobjecttype. 
 - Relaties tussen Informatieobjecttype en Besluittype worden gelegd door de informatieobjecttype.omschrijving op te nemen in het Besluittype. 
 - Het is WEL toegestaan relaties naar een Informatieobjecttype met `concept=false` aan te maken vanuit een ZaaktypeInformatieobjecttype of Besluittype.
+  
+</del>
 
 
 #### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
