@@ -280,7 +280,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitType'
+                $ref: '#/components/schemas/BesluitTypePostResponse'
           description: Created
         '400':
           headers:
@@ -10948,6 +10948,170 @@ components:
         - url
         - vastgelegdIn
         - zaaktypen
+    BesluitTypePostResponse:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        catalogus:
+          type: string
+          format: uri
+          description: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
+          title: catalogus
+        zaaktypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          readOnly: true
+          description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE. Let op, dit veld is een bug en zal verwijderd worden in volgende versie. Het kan alleen de waarde [] bevatten.
+          title: zaaktypen
+          uniqueItems: true
+          deprecated: true
+        omschrijving:
+          type: string
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          title: omschrijving
+          maxLength: 80
+        omschrijvingGeneriek:
+          type: string
+          description:
+            Algemeen gehanteerde omschrijving van de aard van BESLUITen
+            van het BESLUITTYPE
+          title: omschrijving generiek
+          maxLength: 80
+        besluitcategorie:
+          type: string
+          description: Typering van de aard van BESLUITen van het BESLUITTYPE.
+          title: besluitcategorie
+          maxLength: 40
+        reactietermijn:
+          type: string
+          nullable: true
+          description:
+            Een tijdsduur in ISO 8601 formaat, gerekend vanaf de verzend-
+            of publicatiedatum, waarbinnen verweer tegen een besluit van het besluittype
+            mogelijk is.
+          title: reactietermijn
+          format: duration
+        publicatieIndicatie:
+          type: boolean
+          description:
+            Aanduiding of BESLUITen van dit BESLUITTYPE gepubliceerd moeten
+            worden.
+          title: publicatie indicatie
+        publicatietekst:
+          type: string
+          description:
+            De generieke tekst van de publicatie van BESLUITen van dit
+            BESLUITTYPE
+          title: publicatietekst
+        publicatietermijn:
+          type: string
+          nullable: true
+          description:
+            Een tijdsduur in ISO 8601 formaat, gerekend vanaf de verzend-
+            of publicatiedatum, dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten
+            blijven.
+          title: publicatietermijn
+          format: duration
+        toelichting:
+          type: string
+          description: Een eventuele toelichting op dit BESLUITTYPE.
+          title: toelichting
+        informatieobjecttypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          description:
+            URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
+            waarin besluiten van dit BESLUITTYPE worden vastgelegd.
+          title: informatieobjecttypen
+          uniqueItems: true
+        beginGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is ontstaan.
+          title: datum begin geldigheid
+        eindeGeldigheid:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop het is opgeheven.
+          title: datum einde geldigheid
+        beginObject:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop de eerst versie van het object ontstaan is.
+          title: datum begin object
+          deprecated: true
+        eindeObject:
+          type: string
+          format: date
+          nullable: true
+          description: De datum van de aller laatste versie van het object.
+          title: datum einde object
+          deprecated: true
+        concept:
+          type: boolean
+          readOnly: true
+          description:
+            Geeft aan of het object een concept betreft. Concepten zijn
+            niet-definitieve versies en zouden niet gebruikt moeten worden buiten
+            deze API.
+          title: concept
+        resultaattypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Is resultaat van
+          readOnly: true
+          title: Is resultaat van
+          description:
+            Het BESLUITTYPE van besluiten die gepaard gaan met resultaten
+            van het RESULTAATTYPE.
+          uniqueItems: true
+        resultaattypenOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van resultaten van het RESULTAATTYPE.
+          title: is resultaat van
+          uniqueItems: true
+        vastgelegdIn:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+          title: informatieobjecttypen
+          uniqueItems: true
+      required:
+        - beginGeldigheid
+        - catalogus
+        - concept
+        - informatieobjecttypen
+        - publicatieIndicatie
+        - resultaattypen
+        - resultaattypenOmschrijving
+        - url
+        - vastgelegdIn
     BesluitTypeExpanded:
       allOf:
       - $ref: '#/components/schemas/BesluitType'
