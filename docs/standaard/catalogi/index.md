@@ -291,6 +291,14 @@ Daarnaast kennen objecten ook nog de datumvelden *beginObject* en *eindObject*. 
 
 Bij het aanmaken van een nieuwe versie van een Roltype, Statustype, ResultaatType, Eigenschap of Zaakobjecttype wordt een meegegeven beginGeldigheid gevalideerd tegen de beginGeldigheid en versieDatum van het bijbehorende Zaaktype. Deze MOETen overeenkomen. Wordt de beginGeldigheid niet meegegeven wordt de beginGeldigheid van het Zaaktype overgenomen.
 
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.3.2</strong>
+</span>
+
+#### <a name="ztc-016"> Gepubliceerde zaaktypen mogen geen overlappende geldigheidsperiode hebben ([ztc-016](#ztc-016))</a>
+
+Gepubliceerde versies van zaaktypes met dezelfde identificatie mogen geen overlappende geldigheidsperiode hebben. De geldigheidsperiode is te definiëren als de reeks van datums waarvoor geldt dat de datum groter of gelijk is aan beginGeldigheid EN kleiner of gelijk aan eindGeldigheid, waarbij een lege waarde voor eindGeldigheid als de hoogst mogelijke waarde telt. 
+
 #### HTTP-Caching
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
