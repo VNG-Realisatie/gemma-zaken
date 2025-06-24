@@ -299,6 +299,35 @@ Bij het aanmaken van een nieuwe versie van een Roltype, Statustype, ResultaatTyp
 
 Gepubliceerde versies van zaaktypes met dezelfde identificatie mogen geen overlappende geldigheidsperiode hebben. De geldigheidsperiode is te definiëren als de reeks van datums waarvoor geldt dat de datum groter of gelijk is aan beginGeldigheid EN kleiner of gelijk aan eindGeldigheid, waarbij een lege waarde voor eindGeldigheid als de hoogst mogelijke waarde telt. 
 
+### De url's die moeten worden teruggegeven van besluittypen, zaaktypen en informatieobjecttypen in GET-reponses
+
+Vanaf versie 3.1 refereren zaaktypes (ZT), besluittypes (BT) en Informatieobjecttypes (IOT) naar elkaar middels benamingen (omschrijving of identificatie) in plaats van url's. In de GET op ZT, BT en IOT worden echter url's teruggegeven in plaats van benamingen, om deze operaties backwards compatible te houden.
+De vraag is nu, welke url's precies moeten worden teruggegeven in de GET responses als er meerdere versies van een type zijn die aan de benaming voldoen.
+
+We beginnen eerst met de definitie van het  attribuut `"besluittypen"` dat wordt geretourneerd in de response op `GET /zaaktypen`. We noteren dit als volgt:
+
+- `GET /zaaktypen -> "besluittypen"`
+
+Het veld `"besluittypen"` heeft als waarde een array van besluittypen. Elk besluittype is deze lijst moet voldoen aan de volgende eisen:
+
+- zaaktype en besluittype zitten in dezelfde catalogus;
+- het zaaktype heeft een relatie met het besluittype;
+- het besluittype heeft concept=false;
+- Begingeldigheid van besluittype <= de dag waarop de GET plaatsvindt;
+- eindegeldigheid van besluittype is leeg of, indien gevuld, groter dan de dag waarop de GET-operatie wordt uitgevoerd. Met als aanvulling dat als datumGeldigheid als filter wordt meegegeven met de GET-operatie dan wordt die datum gebruikt in plaats van de dag waarop de GET plaatsvindt.
+
+Een analoge definitie geldt voor de volgende geretourneerde attributen:
+
+- `GET /zaaktypen -> "informatieobjecttypen"`
+- `GET /zaaktypen -> "gerelateerdezaaktypen"`
+- `GET /zaaktypen -> "deelzaaktypen"`
+- `GET /zaaktype-informatieobjecttypen -> "informatieobjecttype"`
+- `GET /besluittypen -> "informatieobjecttypen"`
+- `GET /besluittypen -> "zaaktypen"`
+- `GET /informatieobjecttypen -> "zaaktypen"`
+- `GET /informatieobjecttypen -> "besluittypen"`
+
+  
 #### HTTP-Caching
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
