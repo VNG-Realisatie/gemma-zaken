@@ -37,13 +37,10 @@ een eigen identifier (UUID) en eigen waarden. Ditzelfde geldt voor Informatieobj
 
 Nadeel hiervan is echter dat de relaties tussen de verschillende definities gelegd worden middels urls. Deze urls bevatten de UUID
 en wanneer een nieuwe versie van een definitie gemaakt wordt moeten ook alle definities die naar de gewijzigde definitie verwijzen
-aangepast worden. Dit wordt al snel een ingewikkelde kluwen van definities die lastig te beheren is.
+aangepast worden. Dit wordt al snel een ingewikkelde kluwen van definities die lastig te beheren is. 
 
-Daarom is in Catalogi API 1.3.0 het zogenaamde historiemodel ingevoerd.
+Om dit probleem het hoofd te bieden is in Catalogi API 1.3.0 het zogenaamde historiemodel ingevoerd. Hiermee zijn we niet meer (in alle gevallen) afhankelijk van harde koppelingen op basis van url's en hoeft één versieverandering van een hoofdtype niet meer te leiden tot een cascade van nieuwe versies van alle gerelateerde objecttypen. 
 
-Het historiemodel moet een aantal doelen invullen:
-1. Het beheer van de ZTC eenvoudiger maken.
-2. Het gebruik van de ZTC door vak-/taakspecifieke applicaties (TSA's) ongewijzigd te laten
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Catalogi API ImZTC versie 2.2 - klik voor groot")
 
@@ -99,7 +96,7 @@ Op deze manier is aan één versie van een zaaktype versie-onafhankelijk een Inf
 - De relatie Zaaktype heeft relevant Besluittype wordt gelegd door in Zaaktype.besluittypen een array met Besluittype.omschrijving-en op te nemen. Idealiter zou de relatie gelegd worden met een relatieklasse zoals ZaaktypeInformatieobjecttype maar dat is helaas niet het geval. Ook hier is de relatie tussen (versie van een) Zaaktype en Besluittype onafhankelijk van de versie van het Besluittype.
 - Bij het opvragen van een versie van een Zaaktype worden op basis van de huidige datum de op dat moment geldige gerelateerde Besluittypen weergegeven.
 
-
+<!--
 ### Is Catalogi API 1.3.x backwards compatible of niet
 Op grond van bovenstaande beschrijvingen lijkt Catalogi API versie 1.3.x niet backwards compatible met versie 1.2.x. Voor een deel is dit zo. Namelijk de component waarmee de Zaaktype catalogus (ZTC) beheerd wordt
 zal anders werken. Echter, omdat de ZTC beheercomponent een onderdeel is van het product ZTC is dit geen probleem. Immers, bij een nieuwe versie van een ZTC registercomponent hoort ook een nieuwe versie van de 
@@ -110,6 +107,7 @@ Consumer applicaties als taakspecifieke applicaties (TSA) of vakapplicaties kunn
 Grof gezegd zijn de GET operaties (GET Resource, GET List en HEAD) backwards compatible. De overige schrijf operaties (POST, PUT, PATCH, DELETE) zijn niet backwards compatible maar slechts door een beperkte set consumer applicaties te gebruiken.
 
 Om deze redenen is besloten versie 1.3.x backwards compatible te laten zijn met eerdere versies. 
+-->
 
 
 ## Historiemodel toegepast op Zaaktype en Besluittype
@@ -121,9 +119,9 @@ Op 1 januari 2024 wordt versie v2 van het zaaktype ZT1  gepubliceerd welke teven
 
 Op 1 juli 2024 wordt versie v2 van het besluittype BT1 gepubliceerd. Door de losse koppeling (via "Besluittype.omschrijving" in plaats van "Besluittype.url") kunnen beide versies van zaaktype ZT1 (v1 en v2) beiden gebruik maken van besluittype v2 hoewel deze later gepubliceerd is.
 
-Het stippelijntje in de v1 versie van zaaktype ZT1 stelt de "eindeGeldigheid" voor: dat is de datum één dag voor de "beginGeldigheid" van het nieuwe zaaktype (v2 in dit geval). Het attribuut "eindeGeldigheid" is hier niet de eindgeldigheid van het zaaktype zelf want dat blijft altijd geldig voor het zaaktype waaraaan het gekoppeld is. Maar het is wel de eindgeldigheid voor nieuwe zaken die eraan gekoppeld kunnen worden. Dus na deze eindgeldigheid mogen er geen nieuwe zaken meer aan het zaaktype gekoppeld worden.
+Het stippelijntje in de v1 versie van zaaktype ZT1 stelt de "eindeGeldigheid" voor: dat is de datum één dag voor de "beginGeldigheid" van het nieuwe zaaktype (v2 in dit geval). Het attribuut "eindeGeldigheid" is hier niet de eindgeldigheid van het zaaktype zelf want dat blijft altijd geldig voor de zaak waaraan het ooit gekoppeld is. Maar het is wel de eindgeldigheid voor nieuwe zaken die eraan gekoppeld kunnen worden. Dus na deze eindgeldigheid mogen er geen nieuwe zaken meer aan het zaaktype gekoppeld worden.
 
-Hetzelfde verhaal voor het stippellijntje in het besluittype v1 van besluittype BT1. Met als toevoeging dat hier voor de "eindeGeldigheid" geldt dat zowel nieuwe besluiten als nieuwe zaaktypen niet meer gerelateerd mogen worden na de eindgeldigheid van het betreffende besluittype.
+Hetzelfde verhaal voor het stippellijntje in het besluittype v1 van besluittype BT1, m.a.w. nieuwe zaken mogen niet gekoppeld worden aan besluittypen die niet meer geldig zijn.
 
 Om het voorbeeld concreter te maken is in onderstaand plaatje de situatie uitgebreid met "echte" zaken en besluiten die aan zaaktype ZT1 en besluittype BT1 gekoppeld zijn. Op het moment dat zaak Z2 op 1-4-2024 gekoppeld werd aan zaaktype ZT1 bestond er nog geen versie v2 van het besluittype BT1. Pas later op 1-7-2024 werd deze BT1.v2 versie aangemaakt en op 1-9-2024 werd het besluit B2 gekoppeld aan besluittype BT1.v2 en zaak Z2.
 
@@ -150,7 +148,7 @@ Response:
 ```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
-   	"omschrijving": "ZT1",
+   	"omschrijving": "BT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van BT1",
@@ -166,7 +164,7 @@ Response:
 ```
 {
    	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
-   	"omschrijving": "ZT1",
+   	"omschrijving": "BT1",
 	"beginGeldigheid": "2023-01-01",
 	"eindeGeldigheid": null,
 	"toelichting": "Dit is versie 1 van BT1",
@@ -259,6 +257,12 @@ Er kunnen niet twee zaaktypen tegelijk geldig zijn. Dus we geven het oude zaakty
 
 `PATCH {{ztc_url}}/zaaktypen/{{uuid_zt1_v1}}`
 
+Request:
+```
+{
+	"eindeGeldigheid": "2023-01-01"
+}
+```
 
 Response:
 ```
@@ -270,7 +274,7 @@ Response:
 	...
 	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
 	...
-	"concept": true
+	"concept": false
 }
 ```
 
@@ -316,6 +320,35 @@ Response:
 	"concept": true
 }
 ```
+
+### Geef versie 1 van het besluittype een eindegeldigheid
+
+Er kunnen niet twee besluittypen tegelijk geldig zijn. Dus we geven het oude besluittype een eindgeldigheid van 1 dag voor de begingeldigheid van het nieuwe besluittype.
+
+`PATCH {{ztc_url}}/besluittypen/{{uuid_bt1_v1}}`
+
+Request:
+```
+{
+	"eindeGeldigheid": "2024-06-30"
+}
+```
+
+Response:
+```
+{
+	"url" : "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}",
+	"omschrijving": "ZT1",
+	"beginGeldigheid": "2023-01-01",
+	"eindeGeldigheid": "2024-06-30",
+	"toelichting": "Dit is versie 1 van BT1",
+	...
+	"besluittypen" : [ "{{ztc_url}}/besluittypen/{{uuid_bt1_v1}}" ],
+	...
+	"concept": false
+}
+```
+
 
 ### Publiceer besluittype versie v2
 `POST /besluittypen/besluit-genomen-v2/publish`
