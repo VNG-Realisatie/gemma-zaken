@@ -9810,6 +9810,7 @@ paths:
           description:
             filter op datumGeldigheid voor het zelf en alle onderliggende
             objecten
+          deprecated: true
       tags:
         - zaaktypen
       security:
