@@ -1820,7 +1820,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -4072,9 +4072,17 @@ paths:
         - name: status
           required: false
           in: query
-          description: status
           schema:
             type: string
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
+
+            * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
+
+            * `concept`: Toon objecten waarvan het attribuut `concept` true is.
+
+            * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
+
+            '
         - name: datum_geldigheid
           required: false
           in: query
@@ -5151,7 +5159,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -6209,7 +6217,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -8371,7 +8379,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
