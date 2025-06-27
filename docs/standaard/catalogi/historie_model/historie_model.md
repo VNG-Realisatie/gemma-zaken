@@ -42,7 +42,8 @@ aangepast worden. Dit wordt al snel een ingewikkelde kluwen van definities die l
 Om dit probleem het hoofd te bieden is in Catalogi API 1.3.0 het zogenaamde historiemodel ingevoerd. Hiermee zijn we niet meer (in alle gevallen) afhankelijk van harde koppelingen op basis van url's en hoeft één versieverandering van een hoofdtype niet meer te leiden tot een cascade van nieuwe versies van alle gerelateerde objecttypen. 
 
 
-[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Catalogi API ImZTC versie 2.2 - klik voor groot")
+[![Historiemodel Catalogi API ImZTC 2.2](../catalogi_history.png)](../catalogi_history.png "Historiemodel Catalogi API ImZTC versie 2.2 - klik voor groot")
+
 
 ## Theorie van het historiemodel
 
