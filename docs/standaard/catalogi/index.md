@@ -165,7 +165,7 @@ afleidingswijze mogelijk zijn. De procestermijn kan voor praktische redenen
 geïnterpreteerd worden als de waarde 0.
 
 
-#### <a name="concepten">Concepten([Concepten](#concepten))</a>
+#### Concepten
 
 De resources `Zaaktype`, `InformatieObjecttype` en `Besluittype` bevatten het veld `concept`,
 indien dit veld aangemerkt is als `true`, dan betreft het een niet-definitieve versie van
@@ -211,6 +211,9 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
         <strong>Nieuw in versie 1.3.0</strong>
     </span><br/>
 
+#### Historiemodel
+
+Voor een snelle introductie in dit onderwerp wordt verwezen naar de notitie [historiemodel](./historie_model/historie_model.md) waar het historiemodel wordt uitgelegd aan de hand van voorbeeldberichten.
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 
