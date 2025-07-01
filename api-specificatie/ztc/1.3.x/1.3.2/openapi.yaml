@@ -103,6 +103,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - besluittypen
       security:
@@ -431,6 +432,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - besluittypen
       security:
@@ -1275,6 +1277,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - catalogussen
       security:
@@ -1603,6 +1606,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - catalogussen
       security:
@@ -1843,6 +1847,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - eigenschappen
       security:
@@ -2173,6 +2178,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - eigenschappen
       security:
@@ -2908,6 +2914,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - informatieobjecttypen
       security:
@@ -3231,6 +3238,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - informatieobjecttypen
       security:
@@ -4102,6 +4110,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - resultaattypen
       security:
@@ -4432,6 +4441,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - resultaattypen
       security:
@@ -5182,6 +5192,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - roltypen
       security:
@@ -5511,6 +5522,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - roltypen
       security:
@@ -6240,6 +6252,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - statustypen
       security:
@@ -6570,6 +6583,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - statustypen
       security:
@@ -7335,6 +7349,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaakobjecttypen
       security:
@@ -7663,6 +7678,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaakobjecttypen
       security:
@@ -8396,6 +8412,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktype-informatieobjecttypen
       security:
@@ -8728,6 +8745,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktype-informatieobjecttypen
       security:
@@ -9475,9 +9493,10 @@ paths:
         - name: page
           required: false
           in: query
-          description: Een pagina binnen de gepagineerde set resultaten.
+          description: Een pagina binnen de gepagineerde set resultaten. XX
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktypen
       security:
@@ -9819,6 +9838,7 @@ paths:
             filter op datumGeldigheid voor het zelf en alle onderliggende
             objecten
           deprecated: true
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktypen
       security:
@@ -10638,6 +10658,13 @@ paths:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
 components:
+  parameters: 
+    expand:
+      name: expand
+      description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+      in: query
+      schema: 
+        type: string
   responses:
     '400':
       headers:
