@@ -455,7 +455,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitType'
+                $ref: '#/components/schemas/BesluitTypeExpanded'
           description: OK
         '401':
           headers:
@@ -1627,7 +1627,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Catalogus'
+                $ref: '#/components/schemas/CatalogusExpanded'
           description: OK
         '401':
           headers:
@@ -2197,7 +2197,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Eigenschap'
+                $ref: '#/components/schemas/EigenschapExpanded'
           description: OK
         '401':
           headers:
@@ -3255,7 +3255,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InformatieObjectType'
+                $ref: '#/components/schemas/InformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -4456,7 +4456,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResultaatType'
+                $ref: '#/components/schemas/ResultaatTypeExpanded'
           description: OK
         '401':
           headers:
@@ -5535,7 +5535,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RolType'
+                $ref: '#/components/schemas/RolTypeExpanded'
           description: OK
         '401':
           headers:
@@ -6594,7 +6594,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatusType'
+                $ref: '#/components/schemas/StatusTypeExpanded'
           description: OK
         '401':
           headers:
@@ -7687,7 +7687,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakObjectType'
+                $ref: '#/components/schemas/ZaakObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -8752,7 +8752,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+                $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -9843,7 +9843,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakType'
+                $ref: '#/components/schemas/ZaakTypeExpanded'
           description: OK
         '401':
           headers:
@@ -12338,7 +12338,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/BesluitType'
+            $ref: '#/components/schemas/BesluitTypeExpanded'
     PaginatedCatalogusList:
       type: object
       properties:
@@ -12358,7 +12358,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Catalogus'
+            $ref: '#/components/schemas/CatalogusExpanded'
     PaginatedEigenschapList:
       type: object
       properties:
@@ -12378,7 +12378,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Eigenschap'
+            $ref: '#/components/schemas/EigenschapExpanded'
     PaginatedResultaatTypeList:
       type: object
       properties:
@@ -12398,7 +12398,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ResultaatType'
+            $ref: '#/components/schemas/ResultaatTypeExpanded'
     PaginatedInformatieObjectTypeList:
       type: object
       properties:
@@ -12418,7 +12418,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/InformatieObjectType'
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded'
     PaginatedRolTypeList:
       type: object
       properties:
@@ -12438,7 +12438,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/RolType'
+            $ref: '#/components/schemas/RolTypeExpanded'
     PaginatedStatusTypeList:
       type: object
       properties:
@@ -12458,7 +12458,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/StatusType'
+            $ref: '#/components/schemas/StatusTypeExpanded'
     PaginatedZaakObjectTypeList:
       type: object
       properties:
@@ -12478,7 +12478,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakObjectType'
+            $ref: '#/components/schemas/ZaakObjectTypeExpanded'
     PaginatedZaakTypeInformatieObjectTypeList:
       type: object
       properties:
@@ -12498,7 +12498,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+            $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeExpanded'
     PaginatedZaakTypeList:
       type: object
       properties:
@@ -12518,7 +12518,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakType'
+            $ref: '#/components/schemas/ZaakTypeExpanded'
     PatchedEigenschap:
       type: object
       properties:
