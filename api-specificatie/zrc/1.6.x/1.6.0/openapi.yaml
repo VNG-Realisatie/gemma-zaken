@@ -8687,7 +8687,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ZaakBesluit'
+                  $ref: '#/components/schemas/ZaakBesluitExpanded'
           description: OK
         '401':
           headers:
@@ -9019,7 +9019,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakBesluit'
+                $ref: '#/components/schemas/ZaakBesluitExpanded'
           description: OK
         '401':
           headers:
@@ -14361,6 +14361,17 @@ components:
         - besluit
         - url
         - uuid
+    ZaakBesluitExpanded:
+     allOf:
+     - $ref: '#/components/schemas/ZaakBesluit'
+     - properties:
+          _expand:
+            $ref: '#/components/schemas/ZaakBesluitEmbedded'
+    ZaakBesluitEmbedded:
+      type: object
+      properties: 
+        besluit:
+          $ref: '../../../brc/1.1.0/openapi.yaml#/components/schemas/Besluit'
     ZaakContactMoment:
       type: object
       properties:
