@@ -8,8 +8,7 @@ vastgelegd bij een zaak en uniform kan worden ontsloten naar alle betrokkenen.
 
 Deze repository bevat alles wat nodig is voor de ontwikkeling van een nieuwe standaard rond
 Zaakgericht Werken, welke in samenwerking tussen verschillende partijen tot stand komt. Concrete
-resultaten zijn meerdere OpenAPI Specificaties ten behoeve van zaakgericht werken en bijbehorende
-referentie-implementaties met persistente data.
+resultaten zijn meerdere OpenAPI Specificaties ten behoeve van zaakgericht werken.
 
 ## Vragen en bijdragen
 
@@ -61,29 +60,6 @@ Het is ook te adviseren om de instructies daar te volgen wanneer je de `zgw-apis
 testen.
 
 ## Snelle links
-
-**Referentie-implementaties van componenten**
-
-Let op, voor de standaard zie [API specs van de standaard bekijken](#api_spec)
-
-- [![Build Status][zrc-ci-status]][zrc-ci] [Zaken API](https://github.com/vng-Realisatie/zaken-api)
-- [![Build Status][drc-ci-status]][drc-ci]
-  [Documenten API](https://github.com/vng-Realisatie/documenten-api)
-- [![Build Status][ztc-ci-status]][ztc-ci]
-  [Catalogi API](https://github.com/vng-Realisatie/catalogi-api)
-- [![Build Status][brc-ci-status]][brc-ci]
-  [Besluiten API](https://github.com/vng-Realisatie/besluiten-api)
-- [![Build Status][nrc-ci-status]][nrc-ci]
-  [Notificatiecomponent](https://github.com/VNG-Realisatie/notificaties-api)
-- [![Build Status][ac-ci-status]][ac-ci]
-  [Autorisaties API](https://github.com/VNG-Realisatie/autorisaties-api)
-
-- [![Build Status][klanten-ci-status]][klanten-ci]
-  [Klanten API](https://github.com/VNG-Realisatie/klanten-api)
-- [![Build Status][contactmomenten-ci-status]][contactmomenten-ci]
-  [Contactmomenten API](https://github.com/VNG-Realisatie/contactmomenten-api)
-- [![Build Status][verzoeken-ci-status]][verzoeken-ci]
-  [Verzoeken API](https://github.com/VNG-Realisatie/verzoeken-api)
 
 **Ondersteunende tooling**
 
