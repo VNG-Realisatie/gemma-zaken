@@ -1,3 +1,8 @@
+| Eigenaar | Ingevuld door |
+| --- | --- |
+| Kennis centrum Architectuur | Rutger ter Borg |
+<hr/>
+
 # API's voor Zaakgericht Werken
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een
