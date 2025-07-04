@@ -13242,6 +13242,8 @@ components:
         zaak:
           $ref: '#/components/schemas/ZaakExpanded'
           example: {}
+        betrokkene:
+          type: object
         roltype:
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolTypeExpanded'
         statussen:
@@ -13528,14 +13530,16 @@ components:
     StatusEmbedded:
       type: object
       properties:
+        zaak:
+          $ref: '#/components/schemas/Zaak'
         statustype:
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusTypeExpanded'
         gezetdoor:
-          $ref: '#/components/schemas/Rol'
+          $ref: '#/components/schemas/RolExpanded'
         zaakinformatieobjecten:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakInformatieObject'
+            $ref: '#/components/schemas/ZaakInformatieObjectExpanded'
     StatusRequestbody:
       type: object
       properties:
@@ -14277,6 +14281,14 @@ components:
       properties: 
         zaaktype:
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakTypeExpanded'
+        communicatiekanaal:
+          type: object
+        productenOfDiensten:
+          type: array
+          items:
+            type: object
+        selectielijstklasse:
+          type: object
         hoofdzaak:
           oneOf:
             - $ref: '#/components/schemas/ZaakExpanded' 
@@ -14304,6 +14316,10 @@ components:
           oneOf:
           - $ref: '#/components/schemas/StatusExpanded'
           - $ref: '#/components/schemas/EmptyObject'
+        zaakinformatieobjecten:
+          type: array
+          items:
+            type: object
         zaakobjecten:
           type: array
           items: 
@@ -14316,12 +14332,6 @@ components:
       type: object
       description: Leeg object. Dit wordt teruggeven indien het te expanderen veld een null waarde heeft.
       example: {}
-    ExpandCatalogusObject:
-      type: object
-      properties:
-        _expand:
-          type: object
-          description: Zie de Catalogus API hoe dit object verder geëxpandeerd kan worden.
     ZaakBesluit:
       type: object
       description:
@@ -14574,6 +14584,10 @@ components:
     ZaakInformatieObjectEmbedded:
       type: object
       properties: 
+        informatieobject:
+          $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+        zaak:
+          $ref: '#/components/schemas/ZaakExpanded'
         status:
           $ref: '#/components/schemas/StatusExpanded'
     ZaakKenmerk:
