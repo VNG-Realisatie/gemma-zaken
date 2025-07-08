@@ -1,5 +1,5 @@
 | Eigenaar                   | Ingevuld door   |
-| -------------------------- | --------------- |
+| :------------------------- | :-------------- |
 | Kenniscentrum Architectuur | Rutger ter Borg |
 
 # API's voor Zaakgericht Werken
