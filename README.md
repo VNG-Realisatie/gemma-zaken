@@ -1,7 +1,3 @@
-| Eigenaar                   | Ingevuld door   |
-| :------------------------- | :-------------- |
-| Kenniscentrum Architectuur | Rutger ter Borg |
-
 # API's voor Zaakgericht Werken
 
 **Zaakgericht werken** is een vorm van procesgericht werken waarbij de informatie die tijdens een
@@ -80,3 +76,7 @@ testen.
 Copyright © 2018–2025 VNG Realisatie.
 
 Licensed under the [European Union Public License (EUPL) v1.2](LICENSE).
+
+| Eigenaar                   | Ingevuld door   |
+| :------------------------- | :-------------- |
+| Kenniscentrum Architectuur | Rutger ter Borg |
