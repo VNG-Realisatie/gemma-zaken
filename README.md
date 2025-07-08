@@ -73,10 +73,10 @@ testen.
 
 ## Licentie
 
-Copyright © 2018–2025 VNG Realisatie.
-
 | Eigenaar                   | Ingevuld door   |
 | :------------------------- | :-------------- |
 | Kenniscentrum Architectuur | Rutger ter Borg |
+
+Copyright © 2018–2025 VNG Realisatie.
 
 Licensed under the [European Union Public License (EUPL) v1.2](LICENSE).
