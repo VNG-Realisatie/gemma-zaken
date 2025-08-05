@@ -5907,6 +5907,7 @@ paths:
       operationId: zaakverzoek_list
       description: Alle ZAAK-VERZOEKen opvragen.
       summary: Alle ZAAK-VERZOEKen opvragen.
+      deprecated: true
       parameters:
         - name: zaak
           required: false
@@ -6066,6 +6067,7 @@ paths:
 
         - geldigheid URL naar de VERZOEK'
       summary: Maak een ZAAK-VERZOEK aan.
+      deprecated: true
       parameters:
         - in: header
           name: Content-Type
@@ -6237,6 +6239,7 @@ paths:
       operationId: zaakverzoek_retrieve
       description: Een specifieke ZAAK-VERZOEK opvragen.
       summary: Een specifieke ZAAK-VERZOEK opvragen.
+      deprecated: true
       parameters:
         - in: path
           name: uuid
@@ -6386,6 +6389,7 @@ paths:
       operationId: zaakverzoek_destroy
       description: Verwijder een ZAAK-VERZOEK.
       summary: Verwijder een ZAAK-VERZOEK.
+      deprecated: true
       parameters:
         - in: path
           name: uuid
@@ -13880,10 +13884,7 @@ components:
         - wplWoonplaatsNaam
     Zaak:
       type: object
-      description: 'Set gegevensgroepdata from validated nested data.
-
-
-        Usage: include the mixin on the ModelSerializer that has gegevensgroepen.'
+      description: Een zaak in de context van zaakgericht werken bij Nederlandse overheden, een afgebakend proces dat wordt uitgevoerd om een bepaald doel te bereiken voor een burger, bedrijf of andere instantie. Denk bijvoorbeeld aan het aanvragen van een paspoort, het doen van een melding openbare ruimte, of het aanvragen van een vergunning.
       properties:
         url:
           type: string
@@ -14319,7 +14320,7 @@ components:
         zaakinformatieobjecten:
           type: array
           items:
-            type: object
+            $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObjectExpanded'
         zaakobjecten:
           type: array
           items: 
@@ -14987,6 +14988,10 @@ components:
     ZaakObjectEmbedded:
       type: object
       properties: 
+        zaak: 
+          $ref: "#/components/schemas/ZaakExpanded"
+        object:
+          type: object
         zaakobjecttype:
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectTypeExpanded'
     ZaakVerzoek:
