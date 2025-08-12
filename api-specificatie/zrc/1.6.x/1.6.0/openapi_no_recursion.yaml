@@ -14586,7 +14586,7 @@ components:
       type: object
       properties: 
         informatieobject:
-          $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+          $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObject'
         zaak:
           $ref: '#/components/schemas/ZaakExpanded'
         status:
