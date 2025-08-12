@@ -14382,7 +14382,7 @@ components:
       type: object
       properties: 
         besluit:
-          $ref: '../../../brc/1.1.0/openapi.yaml#/components/schemas/Besluit'
+          $ref: '../../../brc/1.1.0/openapi.yaml#/components/schemas/BesluitExpanded'
     ZaakContactMoment:
       type: object
       properties:
