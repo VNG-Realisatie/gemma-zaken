@@ -93,12 +93,12 @@ const config: Config = {
           srcDark: "img/vng_logo_alt.svg",
         },
         items: [
-          // {
-          //   type: "doc",
-          //   docId: "gids/index",
-          //   position: "left",
-          //   label: "Gids",
-          // },
+          {
+            type: "doc",
+            docId: "gids/tools",
+            position: "left",
+            label: "Gids",
+          },
           {
             type: "doc",
             docId: "index",
