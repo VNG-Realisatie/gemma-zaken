@@ -1,0 +1,629 @@
+openapi: 3.0.4
+info:
+  title: Autorisaties API
+  version: 1.0.0
+  description: |
+    Een API om een Autorisaties API (AC) te benaderen.
+
+    De `AUTORISATIE` is het kernobject in deze API. Autorisaties worden toegekend
+    aan applicaties. Een applicatie is een representatie van een (web) app die
+    communiceert met de API van (andere) componenten, zoals het ZRC, DRC, ZTC en
+    BRC.
+
+    Deze API laat toe om autorisaties van een (taak)applicatie te beheren en uit
+    te lezen.
+
+    **Afhankelijkheden**
+
+    Deze API is afhankelijk van:
+
+    * Notificaties API
+
+    **Autorisatie**
+
+    Deze API vereist autorisatie. Je kan de
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+    genereren.
+
+    ### Notificaties
+
+    Deze API publiceert notificaties op het kanaal `autorisaties`.
+
+    **Main resource**
+
+    `applicatie`
+
+    **Kenmerken**
+
+    **Resources en acties**
+    - `applicatie`: create, update, destroy
+
+    **Handige links**
+
+    * [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+    * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+  contact:
+    url: https://github.com/VNG-Realisatie/gemma-zaken
+    email: standaarden.ondersteuning@vng.nl
+  license:
+    name: European Union Public Licence (EUPL-1.2)
+    url: https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+servers:
+  - url: https://{host}/{basePath}/v1
+    variables:
+      host:
+        default: example.com
+        description: De hostserver voor de API
+      basePath:
+        default: api
+        description: Het basispad voor de API
+security:
+  - JWT-Claims: []
+paths:
+  /applicaties:
+    get:
+      operationId: applicatie_list
+      summary: Geef een collectie van applicaties, met ingesloten autorisaties.
+      description: |
+        De autorisaties zijn gedefinieerd op een specifieke component, bijvoorbeeld
+        het ZRC, en geven aan welke scopes van toepassing zijn voor dit component.
+        De waarde van de `component` bepaalt ook welke verdere informatie ingesloten
+        is, zoals `zaaktype` en `maxVertrouwelijkheidaanduiding` voor het ZRC.
+
+        In dit voorbeeld gelden er dus zaaktype-specifieke scopes en mogen zaken
+        van het betreffende zaaktype met een striktere vertrouwelijkheidaanduiding
+        dan `maxVertrouwelijkheidaanduiding` niet ontsloten worden.
+
+        De collectie kan doorzocht worden met de ``clientIds`` query parameter.
+      parameters:
+        - name: clientIds
+          in: query
+          description: Multiple values may be separated by commas.
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Een pagina binnen de gepagineerde set resultaten.
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Applicatie'
+                required:
+                  - count
+                  - results
+        '400':
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.lezen
+    post:
+      operationId: applicatie_create
+      summary: Registreer een applicatie met een bepaalde set van autorisaties.
+      description: |
+        Indien `heeftAlleAutorisaties` gezet is, dan moet je
+        `autorisaties` leeg (of weg) laten.
+
+        Indien je `autorisaties` meegeeft, dan moet `heeftAlleAutorisaties` de
+        waarde `false` hebben of weggelaten worden.
+
+        Na het aanmaken wordt een notificatie verstuurd.
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/LocationHeader'
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicatie'
+        '400':
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.bijwerken
+    parameters: []
+  /applicaties/consumer:
+    get:
+      operationId: applicatie_consumer
+      summary: Vraag een applicatie op, op basis van clientId
+      description: |
+        Gegeven een `clientId`, via de query string, zoek de bijbehorende applicatie
+        op. Het antwoord bevat de applicatie met ingesloten autorisaties.
+      parameters:
+        - name: clientId
+          in: query
+          description: Geef het client ID op waarvoor je de applicatie wil opvragen.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Applicatie'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.lezen
+    parameters: []
+  /applicaties/{uuid}:
+    get:
+      operationId: applicatie_read
+      summary: Vraag een applicatie op, met ingesloten autorisaties.
+      description: |
+        De autorisaties zijn gedefinieerd op een specifieke component, bijvoorbeeld
+        het ZRC, en geven aan welke scopes van toepassing zijn voor dit component.
+        De waarde van de `component` bepaalt ook welke verdere informatie ingesloten
+        is, zoals `zaaktype` en `maxVertrouwelijkheidaanduiding` voor het ZRC.
+
+        In dit voorbeeld gelden er dus zaaktype-specifieke scopes en mogen zaken
+        van het betreffende zaaktype met een striktere vertrouwelijkheidaanduiding
+        dan `maxVertrouwelijkheidaanduiding` niet ontsloten worden.
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicatie'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.lezen
+    put:
+      operationId: applicatie_update
+      summary: Werk de applicatie bij.
+      description: |
+        Indien `heeftAlleAutorisaties` gezet is, dan moet je
+        `autorisaties` leeg (of weg) laten.
+
+        Indien je `autorisaties` meegeeft, dan moet `heeftAlleAutorisaties` de
+        waarde `false` hebben of weggelaten worden.
+
+        Na het bijwerken wordt een notificatie verstuurd.
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicatie'
+        '400':
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.bijwerken
+    patch:
+      operationId: applicatie_partial_update
+      summary: Werk (een deel van) de applicatie bij.
+      description: |
+        Indien `autorisaties` meegegeven is, dan worden de bestaande `autorisaties`
+        vervangen met de nieuwe set van `autorisaties`.
+
+        Indien `heeftAlleAutorisaties` gezet is, dan moet je
+        `autorisaties` leeg (of weg) laten.
+
+        Indien je `autorisaties` meegeeft, dan moet `heeftAlleAutorisaties` de
+        waarde `false` hebben of weggelaten worden.
+
+        Na het bijwerken wordt een notificatie verstuurd.
+      requestBody:
+        $ref: '#/components/requestBodies/Applicatie'
+      responses:
+        '200':
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Applicatie'
+        '400':
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.bijwerken
+    delete:
+      operationId: applicatie_delete
+      summary: Verwijder een applicatie met de bijhorende autorisaties.
+      description: Na het verwijderen wordt een notificatie verstuurd.
+      responses:
+        '204':
+          description: No content
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        '500':
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - applicaties
+      security:
+        - JWT-Claims:
+            - autorisaties.bijwerken
+    parameters:
+      - name: uuid
+        in: path
+        description: Unique resource identifier (UUID4)
+        required: true
+        schema:
+          type: string
+          format: uuid
+components:
+  requestBodies:
+    Applicatie:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Applicatie'
+      required: true
+  securitySchemes:
+    JWT-Claims:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    AutorisatieBase:
+      type: object
+      properties:
+        component:
+          description: |-
+            Component waarop autorisatie van toepassing is.
+          type: string
+        componentWeergave:
+          description: Omschrijving van `component`.
+          type: string
+          readOnly: true
+          minLength: 1
+        scopes:
+          description: |
+            Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.
+          type: array
+          items:
+            type: string
+            maxLength: 100
+            minLength: 1
+      required:
+        - component
+        - scopes
+    Applicatie:
+      type: object
+      properties:
+        url:
+          description: |
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        clientIds:
+          description: |
+            Lijst van consumer identifiers (hun 'client_id'). Een `client_id` mag slechts bij één applicatie-object voorkomen.
+          type: array
+          items:
+            type: string
+            maxLength: 50
+            minLength: 1
+        label:
+          description: Een leesbare representatie van de applicatie, voor eindgebruikers.
+          type: string
+          maxLength: 100
+          minLength: 1
+        heeftAlleAutorisaties:
+          description: |
+            Indien alle autorisaties gegeven zijn, dan hoeven deze niet individueel opgegeven te worden. Gebruik dit alleen als je de consumer helemaal vertrouwt.
+          type: boolean
+        autorisaties:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutorisatieVariant'
+      required:
+        - clientIds
+        - label
+    Fout:
+      type: object
+      properties:
+        title:
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        type:
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        status:
+          description: De HTTP status code
+          type: integer
+        detail:
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          description: |
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+      required:
+        - code
+        - title
+        - status
+        - detail
+        - instance
+    FieldValidationError:
+      type: object
+      properties:
+        name:
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+      required:
+        - name
+        - code
+        - reason
+    ValidatieFout:
+      type: object
+      properties:
+        title:
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        type:
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        status:
+          description: De HTTP status code
+          type: integer
+        detail:
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          description: |
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalidParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldValidationError'
+      required:
+        - code
+        - title
+        - status
+        - detail
+        - instance
+        - invalidParams
+    AutorisatieVariant:
+      oneOf:
+        - $ref: '#/components/schemas/AcAutorisatie'
+        - $ref: '#/components/schemas/NrcAutorisatie'
+        - $ref: '#/components/schemas/ZrcAutorisatie'
+        - $ref: '#/components/schemas/ZtcAutorisatie'
+        - $ref: '#/components/schemas/DrcAutorisatie'
+        - $ref: '#/components/schemas/BrcAutorisatie'
+    ZrcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - zrc
+          x-enumDescriptions:
+            zrc: Zaken API
+        zaaktype:
+          description: URL naar het zaaktype waarop de autorisatie van toepassing
+            is.
+          type: string
+          format: uri
+          maxLength: 1000
+        maxVertrouwelijkheidaanduiding:
+          description: Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).
+          type: string
+          enum:
+            - openbaar
+            - beperkt_openbaar
+            - intern
+            - zaakvertrouwelijk
+            - vertrouwelijk
+            - confidentieel
+            - geheim
+            - zeer_geheim
+    DrcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - drc
+          x-enumDescriptions:
+            drc: Documenten API
+        informatieobjecttype:
+          description: URL naar het informatieobjecttype waarop de autorisatie van
+            toepassing is.
+          type: string
+          format: uri
+          maxLength: 1000
+        maxVertrouwelijkheidaanduiding:
+          description: Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).
+          type: string
+          enum:
+            - openbaar
+            - beperkt_openbaar
+            - intern
+            - zaakvertrouwelijk
+            - vertrouwelijk
+            - confidentieel
+            - geheim
+            - zeer_geheim
+    BrcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - brc
+          x-enumDescriptions:
+            brc: Besluiten API
+        besluittype:
+          description: URL naar het besluittype waarop de autorisatie van toepassing
+            is.
+          type: string
+          format: uri
+          maxLength: 1000
+    NrcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - nrc
+          x-enumDescriptions:
+            nrc: Notificaties API
+    ZtcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - ztc
+          x-enumDescriptions:
+            ztc: Catalogi API
+    AcAutorisatie:
+      allOf:
+        - $ref: '#/components/schemas/AutorisatieBase'
+      properties:
+        component:
+          enum:
+            - ac
+          x-enumDescriptions:
+            ac: Autorisaties API
+  headers:
+    ApiVersionHeader:
+      schema:
+        type: string
+      description: |
+        Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.
+    LocationHeader:
+      schema:
+        type: string
+        format: uri
+      description: URL waar de resource leeft.
+  responses:
+    FoutResponse:
+      description: Fout - fout
+      headers:
+        API-Version:
+          $ref: '#/components/headers/ApiVersionHeader'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Fout'
+    ValidatieFoutResponse:
+      description: ValidatieFout - validatiefout
+      headers:
+        API-Version:
+          $ref: '#/components/headers/ApiVersionHeader'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ValidatieFout'
+tags:
+  - name: applicaties
+    description: 'TODO: voeg beschrijving toe'
