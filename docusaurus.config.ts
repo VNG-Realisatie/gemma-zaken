@@ -39,9 +39,9 @@ const config: Config = {
       {
         docs: {
           // id: "default", // ommitted, because it's the default docs instance
-          path: "docs",
+          path: "docs/unversioned",
           routeBasePath: "/",
-          sidebarPath: require.resolve("./sidebars.ts"),
+          sidebarPath: require.resolve("./sidebars/unversioned.ts"),
           remarkPlugins: [
             // [
             // remarkKroki,
@@ -103,7 +103,7 @@ const config: Config = {
           docId: "index",
           position: "left",
           label: "API Suite",
-          docsPluginId: "api",
+          docsPluginId: "v1",
         },
         {
           type: "doc",
@@ -113,7 +113,7 @@ const config: Config = {
         },
         {
           type: "docsVersionDropdown",
-          docsPluginId: "api",
+          docsPluginId: "v1",
           position: "right",
         },
         {
@@ -236,10 +236,10 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "api",
-        path: "api_docs",
-        routeBasePath: "apis/",
-        sidebarPath: "./api_sidebars.ts",
+        id: "v1",
+        path: "docs/v1",
+        routeBasePath: "v1/",
+        sidebarPath: "./sidebars/v1.ts",
         docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
 
         versions: {
@@ -258,11 +258,11 @@ const config: Config = {
       "docusaurus-plugin-openapi-docs",
       {
         id: "openapi",
-        docsPluginId: "api",
+        docsPluginId: "v1",
         config: {
           autorisaties: {
-            specPath: "api_specs/autorisaties/openapi.yaml",
-            outputDir: "api_docs/autorisaties",
+            specPath: "api_specs/v1/autorisaties/openapi.yaml",
+            outputDir: "docs/v1/autorisaties",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
