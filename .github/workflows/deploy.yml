@@ -23,6 +23,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm install --frozen-lockfile --non-interactive
+      - name: Spectral YAML lint
+        run: npm run spectral
       - name: Build
         run: npm run build
       - name: Setup Pages
