@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - documentatie-update
 
 jobs:
   deploy:
