@@ -13,7 +13,9 @@ rules:
       function: pattern
       functionOptions:
         match: "^3.0.*$"
-    message: "/core/doc-openapi: Use OpenAPI Specification for documentation: https://logius-standaarden.github.io/API-Design-Rules/#/core/doc-openapi"
+    message:
+      "/core/doc-openapi: Use OpenAPI Specification for documentation:
+      https://logius-standaarden.github.io/API-Design-Rules/#/core/doc-openapi"
 
   #/core/version-header
   missing-version-header:
@@ -22,7 +24,9 @@ rules:
     then:
       field: API-Version
       function: truthy
-    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+    message:
+      "/core/version-header: Return the full version number in a response header:
+      https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
 
   missing-header:
     severity: error
@@ -30,7 +34,9 @@ rules:
     then:
       field: headers
       function: truthy
-    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+    message:
+      "/core/version-header: Return the full version number in a response header:
+      https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
 
   #/core/uri-version
   include-major-version-in-uri:
@@ -42,7 +48,9 @@ rules:
       functionOptions:
         match: "\\/v[\\d+]"
       field: url
-    message: "/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
+    message:
+      "/core/uri-version: Include the major version number in the URI:
+      https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
 
   #/core/no-trailing-slash
   paths-no-trailing-slash:
@@ -54,7 +62,9 @@ rules:
       functionOptions:
         notMatch: "\\/$"
       field: "@key"
-    message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
+    message:
+      "/core/no-trailing-slash: Leave off trailing slashes from URIs:
+      https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
 
   #/core/http-methods
   http-methods:
@@ -66,7 +76,9 @@ rules:
       functionOptions:
         match: "post|put|get|delete|patch|parameters"
       field: "@key"
-    message: "/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
+    message:
+      "/core/http-methods: Only apply standard HTTP methods:
+      https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
 
   paths-kebab-case:
     severity: warn
@@ -130,7 +142,7 @@ rules:
   property-casing:
     severity: warn
     given:
-    - "$.*.schemas[*].properties."
+      - "$.*.schemas[*].properties."
     then:
       function: casing
       functionOptions:

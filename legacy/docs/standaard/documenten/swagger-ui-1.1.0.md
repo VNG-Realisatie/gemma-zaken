@@ -5,4 +5,5 @@ head_include: swagger-ui-head.html
 body_include: swagger-ui-body.html
 openapi-url: https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.1.x/src/openapi.yaml
 ---
+
 <div id="swagger-ui"></div>

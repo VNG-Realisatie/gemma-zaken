@@ -3,7 +3,7 @@ apiname: "API's voor zaakgericht werken"
 url: "http://localhost:4000"
 # nav is t.b.v. generatie side-navigation menu.
 # Een 'title' zonder path of url genereert slechts een kopje.
-# 'path' vormt tezamen met de baseurl de url waarmee de 'href' wordt gevuld. 
+# 'path' vormt tezamen met de baseurl de url waarmee de 'href' wordt gevuld.
 # Indien een 'url' voorradig dan wordt daarmee de 'href' gevuld en dient het path slechts om te bepalen welke link active is.
 # 'target: blank' zorgt er voor dat de link in een nieuw tabblad wordt geöpend.
 nav:
@@ -25,7 +25,7 @@ nav:
         path: /doorontwikkeling/
       - title: Contact
         path: /contact/
-#  - title: Specificaties v. 1.0.0 
+#  - title: Specificaties v. 1.0.0
 #    subnav:
 #      - title: Getting started
 #        path: /getting-started

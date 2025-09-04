@@ -23,18 +23,13 @@ import Heading from "@theme/Heading";
   as={"h1"}
   className={"openapi__heading"}
   children={"Verwijder een applicatie met de bijhorende autorisaties."}
->
-</Heading>
+></Heading>
 
 <MethodEndpoint
   method={"delete"}
   path={"/applicaties/{uuid}"}
   context={"endpoint"}
->
-  
-</MethodEndpoint>
-
-
+></MethodEndpoint>
 
 Na het verwijderen wordt een notificatie verstuurd.
 
@@ -43,29 +38,131 @@ Na het verwijderen wordt een notificatie verstuurd.
   as={"h2"}
   className={"openapi-tabs__heading"}
   children={"Request"}
->
-</Heading>
+></Heading>
 
 <ParamsDetails
-  parameters={[{"name":"uuid","in":"path","description":"Unique resource identifier (UUID4)","required":true,"schema":{"type":"string","format":"uuid"}}]}
->
-  
-</ParamsDetails>
+  parameters={[
+    {
+      name: "uuid",
+      in: "path",
+      description: "Unique resource identifier (UUID4)",
+      required: true,
+      schema: { type: "string", format: "uuid" },
+    },
+  ]}
+></ParamsDetails>
 
-<RequestSchema
-  title={"Body"}
-  body={undefined}
->
-  
-</RequestSchema>
+<RequestSchema title={"Body"} body={undefined}></RequestSchema>
 
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"204":{"description":"No content","headers":{"API-Version":{"schema":{"type":"string"},"description":"Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n"}}},"500":{"description":"Fout - fout","headers":{"API-Version":{"schema":{"type":"string"},"description":"Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n"}},"content":{"application/problem+json":{"schema":{"type":"object","properties":{"title":{"description":"Generieke titel voor het type fout","type":"string","minLength":1},"type":{"description":"URI referentie naar het type fout, bedoeld voor developers","type":"string"},"code":{"description":"Systeemcode die het type fout aangeeft","type":"string","minLength":1},"status":{"description":"De HTTP status code","type":"integer"},"detail":{"description":"Extra informatie bij de fout, indien beschikbaar","type":"string","minLength":1},"instance":{"description":"URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n","type":"string","minLength":1}},"required":["code","title","status","detail","instance"],"title":"Fout"}}}},"4XX":{"description":"Fout - fout","headers":{"API-Version":{"schema":{"type":"string"},"description":"Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n"}},"content":{"application/problem+json":{"schema":{"type":"object","properties":{"title":{"description":"Generieke titel voor het type fout","type":"string","minLength":1},"type":{"description":"URI referentie naar het type fout, bedoeld voor developers","type":"string"},"code":{"description":"Systeemcode die het type fout aangeeft","type":"string","minLength":1},"status":{"description":"De HTTP status code","type":"integer"},"detail":{"description":"Extra informatie bij de fout, indien beschikbaar","type":"string","minLength":1},"instance":{"description":"URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n","type":"string","minLength":1}},"required":["code","title","status","detail","instance"],"title":"Fout"}}}}}}
->
-  
-</StatusCodes>
-
-
-      
+  responses={{
+    "204": {
+      description: "No content",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+    },
+    "500": {
+      description: "Fout - fout",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/problem+json": {
+          schema: {
+            type: "object",
+            properties: {
+              title: {
+                description: "Generieke titel voor het type fout",
+                type: "string",
+                minLength: 1,
+              },
+              type: {
+                description:
+                  "URI referentie naar het type fout, bedoeld voor developers",
+                type: "string",
+              },
+              code: {
+                description: "Systeemcode die het type fout aangeeft",
+                type: "string",
+                minLength: 1,
+              },
+              status: { description: "De HTTP status code", type: "integer" },
+              detail: {
+                description: "Extra informatie bij de fout, indien beschikbaar",
+                type: "string",
+                minLength: 1,
+              },
+              instance: {
+                description:
+                  "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n",
+                type: "string",
+                minLength: 1,
+              },
+            },
+            required: ["code", "title", "status", "detail", "instance"],
+            title: "Fout",
+          },
+        },
+      },
+    },
+    "4XX": {
+      description: "Fout - fout",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/problem+json": {
+          schema: {
+            type: "object",
+            properties: {
+              title: {
+                description: "Generieke titel voor het type fout",
+                type: "string",
+                minLength: 1,
+              },
+              type: {
+                description:
+                  "URI referentie naar het type fout, bedoeld voor developers",
+                type: "string",
+              },
+              code: {
+                description: "Systeemcode die het type fout aangeeft",
+                type: "string",
+                minLength: 1,
+              },
+              status: { description: "De HTTP status code", type: "integer" },
+              detail: {
+                description: "Extra informatie bij de fout, indien beschikbaar",
+                type: "string",
+                minLength: 1,
+              },
+              instance: {
+                description:
+                  "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n",
+                type: "string",
+                minLength: 1,
+              },
+            },
+            required: ["code", "title", "status", "detail", "instance"],
+            title: "Fout",
+          },
+        },
+      },
+    },
+  }}
+></StatusCodes>

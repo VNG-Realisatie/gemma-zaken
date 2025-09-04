@@ -1,6 +1,6 @@
 ---
 title: "ZDS versus ZGW"
-date: '20-05-2019'
+date: "20-05-2019"
 layout: page-with-side-nav
 ---
 

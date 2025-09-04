@@ -3,27 +3,28 @@ title: "API Guides"
 weight: 90
 layout: page-with-side-nav
 ---
+
 # API Guides
 
-In onderstaande voorbeelden wordt gebruik gemaakt van de door VNG gehoste
-referentie implementaties van de verschillende componenten. Voor het gebruik van de gehoste referentie-implementatie gelden [deze gebruiksvoorwaarden](../../beheer/gebruiksvoorwaarden).
+In onderstaande voorbeelden wordt gebruik gemaakt van de door VNG gehoste referentie implementaties
+van de verschillende componenten. Voor het gebruik van de gehoste referentie-implementatie gelden
+[deze gebruiksvoorwaarden](../../beheer/gebruiksvoorwaarden).
 
 ## Voorbereidingen
 
-
 ### Authorization
 
-To access the ZGW APIs you must be authorized. This could be done through
-a JSON Web Token ([JWT][jwt]) and the Autorisaties API ([AC][ac]).
-The JWT proves that an application is who it claims to be, while the AC
-specifies which authorizations are given for certain APIs and/or API resources.
-the rights for certain APIs and / or API resources.
+To access the ZGW APIs you must be authorized. This could be done through a JSON Web Token
+([JWT][jwt]) and the Autorisaties API ([AC][ac]). The JWT proves that an application is who it
+claims to be, while the AC specifies which authorizations are given for certain APIs and/or API
+resources. the rights for certain APIs and / or API resources.
 
 The JWT must be included to every request to the APIs.
 
 #### Generate the JWT
 
-To generate the JWT follow the instructions described on: https://github.com/VNG-Realisatie/token-issuer
+To generate the JWT follow the instructions described on:
+https://github.com/VNG-Realisatie/token-issuer
 
 #### Use the JWT
 
@@ -42,17 +43,14 @@ Curious as to what the decoded JWT looks like? Paste its value at [jwt.io][jwt].
 [jwt]: https://jwt.io/
 [ac]: https://autorisaties-api.vng.cloud/api/v1/schema/
 
-
 ## Gebruik maken van de APIs
 
-Er zijn vele manieren om verzoeken te doen naar de APIs maar dit kan
-bijvoorbeeld met [cURL][curl-download] of [Postman][postman-download]. De
-voorbeelden maken gebruik van cURL omdat de commando's eenvoudig zijn weer te
-geven.
+Er zijn vele manieren om verzoeken te doen naar de APIs maar dit kan bijvoorbeeld met
+[cURL][curl-download] of [Postman][postman-download]. De voorbeelden maken gebruik van cURL omdat de
+commando's eenvoudig zijn weer te geven.
 
 [curl-download]: https://curl.haxx.se/download
 [postman-download]: https://www.getpostman.com/apps
-
 
 ### Catalogussen ophalen
 
@@ -80,8 +78,8 @@ $ curl
 
 ### Zaken ophalen
 
-Een `GET`-verzoek op de [zaak_read][zaak_read] resource van het ZRC. Hiervoor
-dient de header `Accept-Crs` te worden meegegeven.
+Een `GET`-verzoek op de [zaak_read][zaak_read] resource van het ZRC. Hiervoor dient de header
+`Accept-Crs` te worden meegegeven.
 
 [zaak_read]: https://zaken-api.vng.cloud/api/v1/schema/#operation/zaak_read
 
@@ -117,8 +115,8 @@ Het `zaaktype` moet daadwerkelijk bestaan.
 
 #### Stap 2: Gegevens versturen
 
-Door het gebruik van `--data` wordt automatisch een `POST`-verzoek gedaan in
-plaats van een `GET`-verzoek:
+Door het gebruik van `--data` wordt automatisch een `POST`-verzoek gedaan in plaats van een
+`GET`-verzoek:
 
 ```bash
 $ curl \

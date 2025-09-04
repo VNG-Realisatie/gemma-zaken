@@ -89,11 +89,11 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -112,16 +112,16 @@ paths:
                   results:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Applicatie'
+                      $ref: "#/components/schemas/Applicatie"
                 required:
                   - count
                   - results
-        '400':
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+        "400":
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -139,25 +139,25 @@ paths:
 
         Na het aanmaken wordt een notificatie verstuurd.
       requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
+        $ref: "#/components/requestBodies/Applicatie"
       responses:
-        '201':
+        "201":
           description: Created
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Applicatie'
-        '400':
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+                $ref: "#/components/schemas/Applicatie"
+        "400":
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -179,21 +179,21 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Applicatie'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+                  $ref: "#/components/schemas/Applicatie"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -214,19 +214,19 @@ paths:
         van het betreffende zaaktype met een striktere vertrouwelijkheidaanduiding
         dan `maxVertrouwelijkheidaanduiding` niet ontsloten worden.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Applicatie'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+                $ref: "#/components/schemas/Applicatie"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -244,23 +244,23 @@ paths:
 
         Na het bijwerken wordt een notificatie verstuurd.
       requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
+        $ref: "#/components/requestBodies/Applicatie"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Applicatie'
-        '400':
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+                $ref: "#/components/schemas/Applicatie"
+        "400":
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -281,23 +281,23 @@ paths:
 
         Na het bijwerken wordt een notificatie verstuurd.
       requestBody:
-        $ref: '#/components/requestBodies/Applicatie'
+        $ref: "#/components/requestBodies/Applicatie"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Applicatie'
-        '400':
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+                $ref: "#/components/schemas/Applicatie"
+        "400":
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -308,15 +308,15 @@ paths:
       summary: Verwijder een applicatie met de bijhorende autorisaties.
       description: Na het verwijderen wordt een notificatie verstuurd.
       responses:
-        '204':
+        "204":
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
-        '500':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
+        "500":
+          $ref: "#/components/responses/FoutResponse"
       tags:
         - applicaties
       security:
@@ -336,7 +336,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Applicatie'
+            $ref: "#/components/schemas/Applicatie"
       required: true
   securitySchemes:
     JWT-Claims:
@@ -398,7 +398,7 @@ components:
         autorisaties:
           type: array
           items:
-            $ref: '#/components/schemas/AutorisatieVariant'
+            $ref: "#/components/schemas/AutorisatieVariant"
       required:
         - clientIds
         - label
@@ -482,7 +482,7 @@ components:
         invalidParams:
           type: array
           items:
-            $ref: '#/components/schemas/FieldValidationError'
+            $ref: "#/components/schemas/FieldValidationError"
       required:
         - code
         - title
@@ -492,15 +492,15 @@ components:
         - invalidParams
     AutorisatieVariant:
       oneOf:
-        - $ref: '#/components/schemas/AcAutorisatie'
-        - $ref: '#/components/schemas/NrcAutorisatie'
-        - $ref: '#/components/schemas/ZrcAutorisatie'
-        - $ref: '#/components/schemas/ZtcAutorisatie'
-        - $ref: '#/components/schemas/DrcAutorisatie'
-        - $ref: '#/components/schemas/BrcAutorisatie'
+        - $ref: "#/components/schemas/AcAutorisatie"
+        - $ref: "#/components/schemas/NrcAutorisatie"
+        - $ref: "#/components/schemas/ZrcAutorisatie"
+        - $ref: "#/components/schemas/ZtcAutorisatie"
+        - $ref: "#/components/schemas/DrcAutorisatie"
+        - $ref: "#/components/schemas/BrcAutorisatie"
     ZrcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -508,8 +508,7 @@ components:
           x-enumDescriptions:
             zrc: Zaken API
         zaaktype:
-          description: URL naar het zaaktype waarop de autorisatie van toepassing
-            is.
+          description: URL naar het zaaktype waarop de autorisatie van toepassing is.
           type: string
           format: uri
           maxLength: 1000
@@ -527,7 +526,7 @@ components:
             - zeer_geheim
     DrcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -535,8 +534,7 @@ components:
           x-enumDescriptions:
             drc: Documenten API
         informatieobjecttype:
-          description: URL naar het informatieobjecttype waarop de autorisatie van
-            toepassing is.
+          description: URL naar het informatieobjecttype waarop de autorisatie van toepassing is.
           type: string
           format: uri
           maxLength: 1000
@@ -554,7 +552,7 @@ components:
             - zeer_geheim
     BrcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -562,14 +560,13 @@ components:
           x-enumDescriptions:
             brc: Besluiten API
         besluittype:
-          description: URL naar het besluittype waarop de autorisatie van toepassing
-            is.
+          description: URL naar het besluittype waarop de autorisatie van toepassing is.
           type: string
           format: uri
           maxLength: 1000
     NrcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -578,7 +575,7 @@ components:
             nrc: Notificaties API
     ZtcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -587,7 +584,7 @@ components:
             ztc: Catalogi API
     AcAutorisatie:
       allOf:
-        - $ref: '#/components/schemas/AutorisatieBase'
+        - $ref: "#/components/schemas/AutorisatieBase"
       properties:
         component:
           enum:
@@ -610,20 +607,20 @@ components:
       description: Fout - fout
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
+            $ref: "#/components/schemas/Fout"
     ValidatieFoutResponse:
       description: ValidatieFout - validatiefout
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/ValidatieFout'
+            $ref: "#/components/schemas/ValidatieFout"
 tags:
   - name: applicaties
-    description: 'TODO: voeg beschrijving toe'
+    description: "TODO: voeg beschrijving toe"

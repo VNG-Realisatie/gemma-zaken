@@ -1,7 +1,7 @@
-openapi: '3.0.0'
+openapi: "3.0.0"
 info:
   title: Generieke componenten voor de Zaakgericht-werken API's
-  version: '1.0'
+  version: "1.0"
 #dummy path to avoid error
 # paths:
 #   /ping:
@@ -14,12 +14,14 @@ components:
     API-version:
       schema:
         type: string
-      description: 'Geeft een specifieke API-versie aan in de context van
-        een specifieke aanroep. Voorbeeld: 1.2.1.'
+      description:
+        "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld:
+        1.2.1."
     ETag:
-      description: De ETag berekend op de response body JSON. Indien twee
-        resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-        aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+      description:
+        De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag hebben,
+        dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om caching te
+        implementeren.
       schema:
         type: string
     Location:
@@ -30,15 +32,15 @@ components:
     Warning:
       schema:
         type: string
-      description: Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren
-        van functionaliteit.
+      description:
+        Geeft een endpoint-specifieke waarschuwing, zoals het uitfaseren van functionaliteit.
   parameters:
     Accept-Crs:
       name: Accept-Crs
       in: header
-      description: Het gewenste 'Coordinate Reference System' (CRS) van de geometrie
-        in het antwoord (response body). Volgens de GeoJSON spec is WGS84 de default
-        (EPSG:4326 is hetzelfde als WGS84).
+      description:
+        Het gewenste 'Coordinate Reference System' (CRS) van de geometrie in het antwoord (response
+        body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
       required: true
       schema:
         type: string
@@ -47,27 +49,27 @@ components:
     Content-Crs:
       name: Content-Crs
       in: header
-      description: Het 'Coordinate Reference System' (CRS) van de geometrie in de
-        vraag (request body). Volgens de GeoJSON spec is WGS84 de default (EPSG:4326
-        is hetzelfde als WGS84).
+      description:
+        Het 'Coordinate Reference System' (CRS) van de geometrie in de vraag (request body). Volgens
+        de GeoJSON spec is WGS84 de default (EPSG:4326 is hetzelfde als WGS84).
       required: true
       schema:
         type: string
         enum:
-        - EPSG:4326
+          - EPSG:4326
     X-NLX-Request-Application-Id:
       name: X-NLX-Request-Application-Id
       in: header
-      description: Identificatie van de applicatie die het verzoek stuurt (indien
-        NLX wordt gebruikt).
+      description:
+        Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
       required: false
       schema:
         type: string
     X-NLX-Request-User-Id:
       name: X-NLX-Request-User-Id
       in: header
-      description: Identificatie van de gebruiker die het verzoek stuurt (indien
-        NLX wordt gebruikt).
+      description:
+        Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
       required: false
       schema:
         type: string
@@ -79,149 +81,160 @@ components:
       schema:
         type: string
   responses:
-    '400':
+    "400":
       description: Bad request
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/ValidatieFout'
-    '401':
+            $ref: "#/components/schemas/ValidatieFout"
+    "401":
       description: Unauthorized
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '403':
+            $ref: "#/components/schemas/Fout"
+    "403":
       description: Forbidden
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '404':
+            $ref: "#/components/schemas/Fout"
+    "404":
       description: Not found
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '406':
+            $ref: "#/components/schemas/Fout"
+    "406":
       description: Not acceptable
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '409':
+            $ref: "#/components/schemas/Fout"
+    "409":
       description: Conflict
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '410':
+            $ref: "#/components/schemas/Fout"
+    "410":
       description: Gone
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '412':
+            $ref: "#/components/schemas/Fout"
+    "412":
       description: Precondition failed
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '415':
+            $ref: "#/components/schemas/Fout"
+    "415":
       description: Unsupported media type
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '429':
+            $ref: "#/components/schemas/Fout"
+    "429":
       description: Too many requests
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '500':
+            $ref: "#/components/schemas/Fout"
+    "500":
       description: Internal server error
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van
-            een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
+            $ref: "#/components/schemas/Fout"
   schemas:
     AuditTrail:
       required:
-      - bron
-      - actie
-      - resultaat
-      - hoofdObject
-      - resource
-      - resourceUrl
-      - resourceWeergave
-      - wijzigingen
+        - bron
+        - actie
+        - resultaat
+        - hoofdObject
+        - resource
+        - resourceUrl
+        - resourceWeergave
+        - wijzigingen
       type: object
       properties:
         uuid:
@@ -231,7 +244,7 @@ components:
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan.
+          description: "De naam van het component waar de wijziging in is gedaan.
 
 
             Uitleg bij mogelijke waarden:
@@ -251,21 +264,20 @@ components:
 
             * `cmc` - Contactmomenten API
 
-            * `kc` - Klanten API'
+            * `kc` - Klanten API"
           type: string
           enum:
-          - ac
-          - nrc
-          - zrc
-          - ztc
-          - drc
-          - brc
-          - cmc
-          - kc
+            - ac
+            - nrc
+            - zrc
+            - ztc
+            - drc
+            - brc
+            - cmc
+            - kc
         requestId:
           title: Request id
-          description: Een globaal "request" ID om een verzoek door het netwerk heen
-            te traceren.
+          description: Een globaal "request" ID om een verzoek door het netwerk heen te traceren.
           type: string
           maxLength: 255
         applicatieId:
@@ -280,8 +292,9 @@ components:
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
-          description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon.
+          description:
+            Unieke identificatie van de gebruiker die binnen de organisatie herleid kan worden naar
+            een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
@@ -291,7 +304,7 @@ components:
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling.
+          description: "De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
@@ -311,7 +324,7 @@ components:
 
             * `update` - Object bijgewerkt
 
-            * `partial_update` - Object deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt"
           type: string
           maxLength: 50
           minLength: 1
@@ -363,12 +376,12 @@ components:
           format: date-time
           readOnly: true
         wijzigingen:
-          $ref: '#/components/schemas/Wijzigingen'
+          $ref: "#/components/schemas/Wijzigingen"
     FieldValidationError:
       required:
-      - name
-      - code
-      - reason
+        - name
+        - code
+        - reason
       type: object
       properties:
         name:
@@ -388,11 +401,11 @@ components:
           minLength: 1
     Fout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
+        - code
+        - title
+        - status
+        - detail
+        - instance
       type: object
       properties:
         type:
@@ -420,18 +433,19 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
     ValidatieFout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      - invalidParams
+        - code
+        - title
+        - status
+        - detail
+        - instance
+        - invalidParams
       type: object
       properties:
         type:
@@ -459,22 +473,24 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
         invalidParams:
           type: array
           items:
-            $ref: '#/components/schemas/FieldValidationError'
+            $ref: "#/components/schemas/FieldValidationError"
     Wijzigingen:
       title: Wijzigingen
       type: object
       properties:
         oud:
           title: Oud
-          description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden.
+          description:
+            Volledige JSON body van het object zoals dat bestond voordat de actie heeft
+            plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
@@ -484,22 +500,22 @@ components:
       title: Geometry
       description: GeoJSON geometry
       required:
-      - type
+        - type
       type: object
       properties:
         type:
           description: The geometry type
           type: string
           enum:
-          - Point
-          - MultiPoint
-          - LineString
-          - MultiLineString
-          - Polygon
-          - MultiPolygon
-          - Feature
-          - FeatureCollection
-          - GeometryCollection
+            - Point
+            - MultiPoint
+            - LineString
+            - MultiLineString
+            - Polygon
+            - MultiPolygon
+            - Feature
+            - FeatureCollection
+            - GeometryCollection
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1
     Point2D:
@@ -514,112 +530,112 @@ components:
       description: GeoJSON point geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            $ref: '#/components/schemas/Point2D'
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
+              $ref: "#/components/schemas/Point2D"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.2
     MultiPoint:
       description: GeoJSON multi-point geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              $ref: '#/components/schemas/Point2D'
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
+              type: array
+              items:
+                $ref: "#/components/schemas/Point2D"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.3
     LineString:
       description: GeoJSON line-string geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
-              $ref: '#/components/schemas/Point2D'
-            minItems: 2
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
+              type: array
+              items:
+                $ref: "#/components/schemas/Point2D"
+              minItems: 2
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.4
     MultiLineString:
       description: GeoJSON multi-line-string geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
               type: array
               items:
-                $ref: '#/components/schemas/Point2D'
+                type: array
+                items:
+                  $ref: "#/components/schemas/Point2D"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.5
     Polygon:
       description: GeoJSON polygon geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
               type: array
               items:
-                $ref: '#/components/schemas/Point2D'
+                type: array
+                items:
+                  $ref: "#/components/schemas/Point2D"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.6
     MultiPolygon:
       description: GeoJSON multi-polygon geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - coordinates
-        type: object
-        properties:
-          coordinates:
-            type: array
-            items:
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - coordinates
+          type: object
+          properties:
+            coordinates:
               type: array
               items:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Point2D'
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Point2D"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.7
     GeometryCollection:
       description: GeoJSON multi-polygon geometry
       type: object
       allOf:
-      - $ref: '#/components/schemas/Geometry'
-      - required:
-        - geometries
-        type: object
-        properties:
-          geometries:
-            type: array
-            items:
-              $ref: '#/components/schemas/Geometry'
+        - $ref: "#/components/schemas/Geometry"
+        - required:
+            - geometries
+          type: object
+          properties:
+            geometries:
+              type: array
+              items:
+                $ref: "#/components/schemas/Geometry"
       externalDocs:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.8
     GeoJSONGeometry:
@@ -628,20 +644,20 @@ components:
       discriminator:
         propertyName: type
       oneOf:
-      - $ref: '#/components/schemas/Point'
-      - $ref: '#/components/schemas/MultiPoint'
-      - $ref: '#/components/schemas/LineString'
-      - $ref: '#/components/schemas/MultiLineString'
-      - $ref: '#/components/schemas/Polygon'
-      - $ref: '#/components/schemas/MultiPolygon'
-      - $ref: '#/components/schemas/GeometryCollection'
+        - $ref: "#/components/schemas/Point"
+        - $ref: "#/components/schemas/MultiPoint"
+        - $ref: "#/components/schemas/LineString"
+        - $ref: "#/components/schemas/MultiLineString"
+        - $ref: "#/components/schemas/Polygon"
+        - $ref: "#/components/schemas/MultiPolygon"
+        - $ref: "#/components/schemas/GeometryCollection"
     VerblijfsAdres:
       title: Verblijfsadres
       required:
-      - aoaIdentificatie
-      - wplWoonplaatsNaam
-      - gorOpenbareRuimteNaam
-      - aoaHuisnummer
+        - aoaIdentificatie
+        - wplWoonplaatsNaam
+        - gorOpenbareRuimteNaam
+        - aoaHuisnummer
       type: object
       properties:
         aoaIdentificatie:
@@ -657,8 +673,8 @@ components:
           minLength: 1
         gorOpenbareRuimteNaam:
           title: Gor openbare ruimte naam
-          description: Een door het bevoegde gemeentelijke orgaan aan een OPENBARE
-            RUIMTE toegekende benaming
+          description:
+            Een door het bevoegde gemeentelijke orgaan aan een OPENBARE RUIMTE toegekende benaming
           type: string
           maxLength: 80
           minLength: 1
@@ -686,21 +702,20 @@ components:
     SubVerblijfBuitenland:
       title: Sub verblijf buitenland
       required:
-      - lndLandcode
-      - lndLandnaam
+        - lndLandcode
+        - lndLandnaam
       type: object
       properties:
         lndLandcode:
           title: Lnd landcode
-          description: De code, behorende bij de landnaam, zoals opgenomen in de Land/Gebied-tabel
-            van de BRP.
+          description:
+            De code, behorende bij de landnaam, zoals opgenomen in de Land/Gebied-tabel van de BRP.
           type: string
           maxLength: 4
           minLength: 1
         lndLandnaam:
           title: Lnd landnaam
-          description: De naam van het land, zoals opgenomen in de Land/Gebied-tabel
-            van de BRP.
+          description: De naam van het land, zoals opgenomen in de Land/Gebied-tabel van de BRP.
           type: string
           maxLength: 40
           minLength: 1
@@ -722,14 +737,15 @@ components:
       properties:
         inpBsn:
           title: Inp bsn
-          description: Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet
-            algemene bepalingen burgerservicenummer.
+          description:
+            Het burgerservicenummer, bedoeld in artikel 1.1 van de Wet algemene bepalingen
+            burgerservicenummer.
           type: string
           maxLength: 9
         anpIdentificatie:
           title: Anp identificatie
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NATUURLIJK PERSOON
           type: string
           maxLength: 17
         inpA_nummer:
@@ -749,8 +765,9 @@ components:
           maxLength: 80
         voorletters:
           title: Voorletters
-          description: De verzameling letters die gevormd wordt door de eerste letter
-            van alle in volgorde voorkomende voornamen.
+          description:
+            De verzameling letters die gevormd wordt door de eerste letter van alle in volgorde
+            voorkomende voornamen.
           type: string
           maxLength: 20
         voornamen:
@@ -760,8 +777,8 @@ components:
           maxLength: 200
         geslachtsaanduiding:
           title: Geslachtsaanduiding
-          description: 'Een aanduiding die aangeeft of de persoon een man of een vrouw
-            is, of dat het geslacht nog onbekend is.
+          description: "Een aanduiding die aangeeft of de persoon een man of een vrouw is, of dat
+            het geslacht nog onbekend is.
 
 
             Uitleg bij mogelijke waarden:
@@ -771,41 +788,42 @@ components:
 
             * `v` - Vrouw
 
-            * `o` - Onbekend'
+            * `o` - Onbekend"
           type: string
           enum:
-          - m
-          - v
-          - o
+            - m
+            - v
+            - o
         geboortedatum:
           title: Geboortedatum
           type: string
           maxLength: 18
         verblijfsadres:
-          $ref: '#/components/schemas/VerblijfsAdres'
+          $ref: "#/components/schemas/VerblijfsAdres"
         subVerblijfBuitenland:
-          $ref: '#/components/schemas/SubVerblijfBuitenland'
+          $ref: "#/components/schemas/SubVerblijfBuitenland"
     NietNatuurlijkPersoon:
       title: Niet-Natuurlijk persoon
       type: object
       properties:
         innNnpId:
           title: Inn nnp id
-          description: Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
-            NIET-NATUURLIJK PERSOON
+          description:
+            Het door een kamer toegekend uniek nummer voor de INGESCHREVEN NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 9
         annIdentificatie:
           title: Ann identificatie
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NIET-NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 17
         statutaireNaam:
           title: Statutaire naam
-          description: Naam van de niet-natuurlijke persoon zoals deze is vastgelegd
-            in de statuten (rechtspersoon) of in de vennootschapsovereenkomst is overeengekomen
-            (Vennootschap onder firma of Commanditaire vennootschap).
+          description:
+            Naam van de niet-natuurlijke persoon zoals deze is vastgelegd in de statuten
+            (rechtspersoon) of in de vennootschapsovereenkomst is overeengekomen (Vennootschap onder
+            firma of Commanditaire vennootschap).
           type: string
           maxLength: 500
         innRechtsvorm:
@@ -813,32 +831,32 @@ components:
           description: De juridische vorm van de NIET-NATUURLIJK PERSOON.
           type: string
           enum:
-          - besloten_vennootschap
-          - cooperatie_europees_economische_samenwerking
-          - europese_cooperatieve_venootschap
-          - europese_naamloze_vennootschap
-          - kerkelijke_organisatie
-          - naamloze_vennootschap
-          - onderlinge_waarborg_maatschappij
-          - overig_privaatrechtelijke_rechtspersoon
-          - stichting
-          - vereniging
-          - vereniging_van_eigenaars
-          - publiekrechtelijke_rechtspersoon
-          - vennootschap_onder_firma
-          - maatschap
-          - rederij
-          - commanditaire_vennootschap
-          - kapitaalvennootschap_binnen_eer
-          - overige_buitenlandse_rechtspersoon_vennootschap
-          - kapitaalvennootschap_buiten_eer
+            - besloten_vennootschap
+            - cooperatie_europees_economische_samenwerking
+            - europese_cooperatieve_venootschap
+            - europese_naamloze_vennootschap
+            - kerkelijke_organisatie
+            - naamloze_vennootschap
+            - onderlinge_waarborg_maatschappij
+            - overig_privaatrechtelijke_rechtspersoon
+            - stichting
+            - vereniging
+            - vereniging_van_eigenaars
+            - publiekrechtelijke_rechtspersoon
+            - vennootschap_onder_firma
+            - maatschap
+            - rederij
+            - commanditaire_vennootschap
+            - kapitaalvennootschap_binnen_eer
+            - overige_buitenlandse_rechtspersoon_vennootschap
+            - kapitaalvennootschap_buiten_eer
         bezoekadres:
           title: Bezoekadres
           description: De gegevens over het adres van de NIET-NATUURLIJK PERSOON
           type: string
           maxLength: 1000
         subVerblijfBuitenland:
-          $ref: '#/components/schemas/SubVerblijfBuitenland'
+          $ref: "#/components/schemas/SubVerblijfBuitenland"
     Vestiging:
       title: Vestiging
       type: object
@@ -856,9 +874,9 @@ components:
             type: string
             maxLength: 625
         verblijfsadres:
-          $ref: '#/components/schemas/VerblijfsAdres'
+          $ref: "#/components/schemas/VerblijfsAdres"
         subVerblijfBuitenland:
-          $ref: '#/components/schemas/SubVerblijfBuitenland'
+          $ref: "#/components/schemas/SubVerblijfBuitenland"
     Medewerker:
       title: Medewerker
       type: object
@@ -870,19 +888,20 @@ components:
           maxLength: 24
         achternaam:
           title: Achternaam
-          description: De achternaam zoals de MEDEWERKER die in het dagelijkse verkeer
-            gebruikt.
+          description: De achternaam zoals de MEDEWERKER die in het dagelijkse verkeer gebruikt.
           type: string
           maxLength: 200
         voorletters:
           title: Voorletters
-          description: De verzameling letters die gevormd wordt door de eerste letter
-            van alle in volgorde voorkomende voornamen.
+          description:
+            De verzameling letters die gevormd wordt door de eerste letter van alle in volgorde
+            voorkomende voornamen.
           type: string
           maxLength: 20
         voorvoegselAchternaam:
           title: Voorvoegsel achternaam
-          description: Dat deel van de geslachtsnaam dat voorkomt in Tabel 36 (GBA),
-            voorvoegseltabel, en door een spatie van de geslachtsnaam is
+          description:
+            Dat deel van de geslachtsnaam dat voorkomt in Tabel 36 (GBA), voorvoegseltabel, en door
+            een spatie van de geslachtsnaam is
           type: string
           maxLength: 10

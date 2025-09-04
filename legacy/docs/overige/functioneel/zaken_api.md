@@ -1,6 +1,6 @@
 ---
 title: "Zaken-API"
-date: '1-10-2018'
+date: "1-10-2018"
 layout: page-with-side-nav
 ---
 
@@ -8,9 +8,8 @@ layout: page-with-side-nav
 
 FUNCTIONELE BESCHRIJVING
 
-Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de
-werking van deze API verwijzen wij u naar de OAS-specificatie (zie
-‘link’ hieronder).
+Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de werking van deze API
+verwijzen wij u naar de OAS-specificatie (zie ‘link’ hieronder).
 
 <table>
 <tbody>

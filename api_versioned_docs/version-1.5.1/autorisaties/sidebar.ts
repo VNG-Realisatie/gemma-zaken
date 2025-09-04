@@ -17,13 +17,15 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "autorisaties/applicatie-list",
-          label: "Geef een collectie van applicaties, met ingesloten autorisaties.",
+          label:
+            "Geef een collectie van applicaties, met ingesloten autorisaties.",
           className: "api-method get",
         },
         {
           type: "doc",
           id: "autorisaties/applicatie-create",
-          label: "Registreer een applicatie met een bepaalde set van autorisaties.",
+          label:
+            "Registreer een applicatie met een bepaalde set van autorisaties.",
           className: "api-method post",
         },
         {

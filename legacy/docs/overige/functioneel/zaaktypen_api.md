@@ -1,6 +1,6 @@
 ---
 title: "Zaaktypen-API"
-date: '19-01-2019'
+date: "19-01-2019"
 layout: page-with-side-nav
 ---
 
@@ -8,9 +8,8 @@ layout: page-with-side-nav
 
 FUNCTIONELE BESCHRIJVING
 
-Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de
-werking van deze API verwijzen wij u naar de OAS-specificatie (zie
-‘link’ hieronder).
+Hieronder lichten we de gebruiksmogelijkheden van deze API toe. Voor de werking van deze API
+verwijzen wij u naar de OAS-specificatie (zie ‘link’ hieronder).
 
 <table>
 <tbody>
@@ -57,9 +56,12 @@ werking van deze API verwijzen wij u naar de OAS-specificatie (zie
 </tbody>
 </table>
 
-Hieronder wordt een diagram getoond van de Zaaktypen-API op hoofdlijnen. Boven het diagram kunt u op het betreffende object (resource) klikken voor nadere informatie.
+Hieronder wordt een diagram getoond van de Zaaktypen-API op hoofdlijnen. Boven het diagram kunt u op
+het betreffende object (resource) klikken voor nadere informatie.
 
-[Besluittype](#resource-besluittype), [Catalogussen](#resource-catalogussen), [Eigenschappen](#resource-eigenschappen), [Informatieobjectype](#resource-informatieobjecttype) [Roltypen](#resource-roltypen), [Statustypen](#resource-statustypen), [Zaaktype](#resource-zaaktype)
+[Besluittype](#resource-besluittype), [Catalogussen](#resource-catalogussen),
+[Eigenschappen](#resource-eigenschappen), [Informatieobjectype](#resource-informatieobjecttype)
+[Roltypen](#resource-roltypen), [Statustypen](#resource-statustypen), [Zaaktype](#resource-zaaktype)
 ![Datamodel_Zaaktypen_API_Overview.png](./assets/Datamodel_Zaaktypen_API_Overview.png?raw=true)
 
 Een andere manier om dit te tonen is:
