@@ -1,0 +1,922 @@
+---
+id: applicatie-update
+title: "Werk de applicatie bij."
+description: "Indien `heeftAlleAutorisaties` gezet is, dan moet je"
+sidebar_label: "Werk de applicatie bij."
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: apis//autorisaties/autorisaties-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Werk de applicatie bij."}
+></Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/applicaties/{uuid}"}
+  context={"endpoint"}
+></MethodEndpoint>
+
+Indien `heeftAlleAutorisaties` gezet is, dan moet je
+`autorisaties` leeg (of weg) laten.
+
+Indien je `autorisaties` meegeeft, dan moet `heeftAlleAutorisaties` de
+waarde `false` hebben of weggelaten worden.
+
+Na het bijwerken wordt een notificatie verstuurd.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+></Heading>
+
+<ParamsDetails
+  parameters={[
+    {
+      name: "uuid",
+      in: "path",
+      description: "Unique resource identifier (UUID4)",
+      required: true,
+      schema: { type: "string", format: "uuid" },
+    },
+  ]}
+></ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{
+    content: {
+      "application/json": {
+        schema: {
+          type: "object",
+          properties: {
+            url: {
+              description:
+                "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.\n",
+              type: "string",
+              format: "uri",
+              readOnly: true,
+              maxLength: 1000,
+              minLength: 1,
+            },
+            clientIds: {
+              description:
+                "Lijst van consumer identifiers (hun 'client_id'). Een `client_id` mag slechts bij één applicatie-object voorkomen.\n",
+              type: "array",
+              items: { type: "string", maxLength: 50, minLength: 1 },
+            },
+            label: {
+              description:
+                "Een leesbare representatie van de applicatie, voor eindgebruikers.",
+              type: "string",
+              maxLength: 100,
+              minLength: 1,
+            },
+            heeftAlleAutorisaties: {
+              description:
+                "Indien alle autorisaties gegeven zijn, dan hoeven deze niet individueel opgegeven te worden. Gebruik dit alleen als je de consumer helemaal vertrouwt.\n",
+              type: "boolean",
+            },
+            autorisaties: {
+              type: "array",
+              items: {
+                oneOf: [
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["ac"],
+                        "x-enumDescriptions": { ac: "Autorisaties API" },
+                      },
+                    },
+                    title: "AcAutorisatie",
+                  },
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["nrc"],
+                        "x-enumDescriptions": { nrc: "Notificaties API" },
+                      },
+                    },
+                    title: "NrcAutorisatie",
+                  },
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["zrc"],
+                        "x-enumDescriptions": { zrc: "Zaken API" },
+                      },
+                      zaaktype: {
+                        description:
+                          "URL naar het zaaktype waarop de autorisatie van toepassing is.",
+                        type: "string",
+                        format: "uri",
+                        maxLength: 1000,
+                      },
+                      maxVertrouwelijkheidaanduiding: {
+                        description:
+                          "Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).",
+                        type: "string",
+                        enum: [
+                          "openbaar",
+                          "beperkt_openbaar",
+                          "intern",
+                          "zaakvertrouwelijk",
+                          "vertrouwelijk",
+                          "confidentieel",
+                          "geheim",
+                          "zeer_geheim",
+                        ],
+                      },
+                    },
+                    title: "ZrcAutorisatie",
+                  },
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["ztc"],
+                        "x-enumDescriptions": { ztc: "Catalogi API" },
+                      },
+                    },
+                    title: "ZtcAutorisatie",
+                  },
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["drc"],
+                        "x-enumDescriptions": { drc: "Documenten API" },
+                      },
+                      informatieobjecttype: {
+                        description:
+                          "URL naar het informatieobjecttype waarop de autorisatie van toepassing is.",
+                        type: "string",
+                        format: "uri",
+                        maxLength: 1000,
+                      },
+                      maxVertrouwelijkheidaanduiding: {
+                        description:
+                          "Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).",
+                        type: "string",
+                        enum: [
+                          "openbaar",
+                          "beperkt_openbaar",
+                          "intern",
+                          "zaakvertrouwelijk",
+                          "vertrouwelijk",
+                          "confidentieel",
+                          "geheim",
+                          "zeer_geheim",
+                        ],
+                      },
+                    },
+                    title: "DrcAutorisatie",
+                  },
+                  {
+                    allOf: [
+                      {
+                        type: "object",
+                        properties: {
+                          component: {
+                            description:
+                              "Component waarop autorisatie van toepassing is.",
+                            type: "string",
+                          },
+                          componentWeergave: {
+                            description: "Omschrijving van `component`.",
+                            type: "string",
+                            readOnly: true,
+                            minLength: 1,
+                          },
+                          scopes: {
+                            description:
+                              "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                            type: "array",
+                            items: {
+                              type: "string",
+                              maxLength: 100,
+                              minLength: 1,
+                            },
+                          },
+                        },
+                        required: ["component", "scopes"],
+                        title: "AutorisatieBase",
+                      },
+                    ],
+                    properties: {
+                      component: {
+                        enum: ["brc"],
+                        "x-enumDescriptions": { brc: "Besluiten API" },
+                      },
+                      besluittype: {
+                        description:
+                          "URL naar het besluittype waarop de autorisatie van toepassing is.",
+                        type: "string",
+                        format: "uri",
+                        maxLength: 1000,
+                      },
+                    },
+                    title: "BrcAutorisatie",
+                  },
+                ],
+                title: "AutorisatieVariant",
+              },
+            },
+          },
+          required: ["clientIds", "label"],
+          title: "Applicatie",
+        },
+      },
+    },
+    required: true,
+  }}
+></RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{
+    "200": {
+      description: "OK",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/json": {
+          schema: {
+            type: "object",
+            properties: {
+              url: {
+                description:
+                  "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.\n",
+                type: "string",
+                format: "uri",
+                readOnly: true,
+                maxLength: 1000,
+                minLength: 1,
+              },
+              clientIds: {
+                description:
+                  "Lijst van consumer identifiers (hun 'client_id'). Een `client_id` mag slechts bij één applicatie-object voorkomen.\n",
+                type: "array",
+                items: { type: "string", maxLength: 50, minLength: 1 },
+              },
+              label: {
+                description:
+                  "Een leesbare representatie van de applicatie, voor eindgebruikers.",
+                type: "string",
+                maxLength: 100,
+                minLength: 1,
+              },
+              heeftAlleAutorisaties: {
+                description:
+                  "Indien alle autorisaties gegeven zijn, dan hoeven deze niet individueel opgegeven te worden. Gebruik dit alleen als je de consumer helemaal vertrouwt.\n",
+                type: "boolean",
+              },
+              autorisaties: {
+                type: "array",
+                items: {
+                  oneOf: [
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["ac"],
+                          "x-enumDescriptions": { ac: "Autorisaties API" },
+                        },
+                      },
+                      title: "AcAutorisatie",
+                    },
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["nrc"],
+                          "x-enumDescriptions": { nrc: "Notificaties API" },
+                        },
+                      },
+                      title: "NrcAutorisatie",
+                    },
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["zrc"],
+                          "x-enumDescriptions": { zrc: "Zaken API" },
+                        },
+                        zaaktype: {
+                          description:
+                            "URL naar het zaaktype waarop de autorisatie van toepassing is.",
+                          type: "string",
+                          format: "uri",
+                          maxLength: 1000,
+                        },
+                        maxVertrouwelijkheidaanduiding: {
+                          description:
+                            "Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).",
+                          type: "string",
+                          enum: [
+                            "openbaar",
+                            "beperkt_openbaar",
+                            "intern",
+                            "zaakvertrouwelijk",
+                            "vertrouwelijk",
+                            "confidentieel",
+                            "geheim",
+                            "zeer_geheim",
+                          ],
+                        },
+                      },
+                      title: "ZrcAutorisatie",
+                    },
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["ztc"],
+                          "x-enumDescriptions": { ztc: "Catalogi API" },
+                        },
+                      },
+                      title: "ZtcAutorisatie",
+                    },
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["drc"],
+                          "x-enumDescriptions": { drc: "Documenten API" },
+                        },
+                        informatieobjecttype: {
+                          description:
+                            "URL naar het informatieobjecttype waarop de autorisatie van toepassing is.",
+                          type: "string",
+                          format: "uri",
+                          maxLength: 1000,
+                        },
+                        maxVertrouwelijkheidaanduiding: {
+                          description:
+                            "Maximaal toegelaten vertrouwelijkheidaanduiding (inclusief).",
+                          type: "string",
+                          enum: [
+                            "openbaar",
+                            "beperkt_openbaar",
+                            "intern",
+                            "zaakvertrouwelijk",
+                            "vertrouwelijk",
+                            "confidentieel",
+                            "geheim",
+                            "zeer_geheim",
+                          ],
+                        },
+                      },
+                      title: "DrcAutorisatie",
+                    },
+                    {
+                      allOf: [
+                        {
+                          type: "object",
+                          properties: {
+                            component: {
+                              description:
+                                "Component waarop autorisatie van toepassing is.",
+                              type: "string",
+                            },
+                            componentWeergave: {
+                              description: "Omschrijving van `component`.",
+                              type: "string",
+                              readOnly: true,
+                              minLength: 1,
+                            },
+                            scopes: {
+                              description:
+                                "Lijst van scope labels. Elke scope geeft toegang tot een set van acties/operaties, zoals gedocumenteerd bij de betreffende component.\n",
+                              type: "array",
+                              items: {
+                                type: "string",
+                                maxLength: 100,
+                                minLength: 1,
+                              },
+                            },
+                          },
+                          required: ["component", "scopes"],
+                          title: "AutorisatieBase",
+                        },
+                      ],
+                      properties: {
+                        component: {
+                          enum: ["brc"],
+                          "x-enumDescriptions": { brc: "Besluiten API" },
+                        },
+                        besluittype: {
+                          description:
+                            "URL naar het besluittype waarop de autorisatie van toepassing is.",
+                          type: "string",
+                          format: "uri",
+                          maxLength: 1000,
+                        },
+                      },
+                      title: "BrcAutorisatie",
+                    },
+                  ],
+                  title: "AutorisatieVariant",
+                },
+              },
+            },
+            required: ["clientIds", "label"],
+            title: "Applicatie",
+          },
+        },
+      },
+    },
+    "400": {
+      description: "ValidatieFout - validatiefout",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/problem+json": {
+          schema: {
+            type: "object",
+            properties: {
+              title: {
+                description: "Generieke titel voor het type fout",
+                type: "string",
+                minLength: 1,
+              },
+              type: {
+                description:
+                  "URI referentie naar het type fout, bedoeld voor developers",
+                type: "string",
+              },
+              code: {
+                description: "Systeemcode die het type fout aangeeft",
+                type: "string",
+                minLength: 1,
+              },
+              status: { description: "De HTTP status code", type: "integer" },
+              detail: {
+                description: "Extra informatie bij de fout, indien beschikbaar",
+                type: "string",
+                minLength: 1,
+              },
+              instance: {
+                description:
+                  "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n",
+                type: "string",
+                minLength: 1,
+              },
+              invalidParams: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    name: {
+                      description: "Naam van het veld met ongeldige gegevens",
+                      type: "string",
+                      minLength: 1,
+                    },
+                    code: {
+                      description: "Systeemcode die het type fout aangeeft",
+                      type: "string",
+                      minLength: 1,
+                    },
+                    reason: {
+                      description:
+                        "Uitleg wat er precies fout is met de gegevens",
+                      type: "string",
+                      minLength: 1,
+                    },
+                  },
+                  required: ["name", "code", "reason"],
+                  title: "FieldValidationError",
+                },
+              },
+            },
+            required: [
+              "code",
+              "title",
+              "status",
+              "detail",
+              "instance",
+              "invalidParams",
+            ],
+            title: "ValidatieFout",
+          },
+        },
+      },
+    },
+    "500": {
+      description: "Fout - fout",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/problem+json": {
+          schema: {
+            type: "object",
+            properties: {
+              title: {
+                description: "Generieke titel voor het type fout",
+                type: "string",
+                minLength: 1,
+              },
+              type: {
+                description:
+                  "URI referentie naar het type fout, bedoeld voor developers",
+                type: "string",
+              },
+              code: {
+                description: "Systeemcode die het type fout aangeeft",
+                type: "string",
+                minLength: 1,
+              },
+              status: { description: "De HTTP status code", type: "integer" },
+              detail: {
+                description: "Extra informatie bij de fout, indien beschikbaar",
+                type: "string",
+                minLength: 1,
+              },
+              instance: {
+                description:
+                  "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n",
+                type: "string",
+                minLength: 1,
+              },
+            },
+            required: ["code", "title", "status", "detail", "instance"],
+            title: "Fout",
+          },
+        },
+      },
+    },
+    "4XX": {
+      description: "Fout - fout",
+      headers: {
+        "API-Version": {
+          schema: { type: "string" },
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.\n",
+        },
+      },
+      content: {
+        "application/problem+json": {
+          schema: {
+            type: "object",
+            properties: {
+              title: {
+                description: "Generieke titel voor het type fout",
+                type: "string",
+                minLength: 1,
+              },
+              type: {
+                description:
+                  "URI referentie naar het type fout, bedoeld voor developers",
+                type: "string",
+              },
+              code: {
+                description: "Systeemcode die het type fout aangeeft",
+                type: "string",
+                minLength: 1,
+              },
+              status: { description: "De HTTP status code", type: "integer" },
+              detail: {
+                description: "Extra informatie bij de fout, indien beschikbaar",
+                type: "string",
+                minLength: 1,
+              },
+              instance: {
+                description:
+                  "URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.\n",
+                type: "string",
+                minLength: 1,
+              },
+            },
+            required: ["code", "title", "status", "detail", "instance"],
+            title: "Fout",
+          },
+        },
+      },
+    },
+  }}
+></StatusCodes>

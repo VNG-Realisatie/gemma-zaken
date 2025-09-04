@@ -1,0 +1,124 @@
+---
+id: autorisaties-api
+title: "Autorisaties API"
+description: "Een API om een Autorisaties API (AC) te benaderen."
+sidebar_label: Introduction
+sidebar_position: 0
+hide_title: true
+custom_edit_url: null
+---
+
+import ApiLogo from "@theme/ApiLogo";
+import Heading from "@theme/Heading";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+import Export from "@theme/ApiExplorer/Export";
+
+<span
+  className={"theme-doc-version-badge badge badge--secondary"}
+  children={"Version: 1.0.0"}
+></span>
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Autorisaties API"}
+></Heading>
+
+Een API om een Autorisaties API (AC) te benaderen.
+
+De `AUTORISATIE` is het kernobject in deze API. Autorisaties worden toegekend
+aan applicaties. Een applicatie is een representatie van een (web) app die
+communiceert met de API van (andere) componenten, zoals het ZRC, DRC, ZTC en
+BRC.
+
+Deze API laat toe om autorisaties van een (taak)applicatie te beheren en uit
+te lezen.
+
+**Afhankelijkheden**
+
+Deze API is afhankelijk van:
+
+- Notificaties API
+
+**Autorisatie**
+
+Deze API vereist autorisatie. Je kan de
+[token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+genereren.
+
+### Notificaties
+
+Deze API publiceert notificaties op het kanaal `autorisaties`.
+
+**Main resource**
+
+`applicatie`
+
+**Kenmerken**
+
+**Resources en acties**
+
+- `applicatie`: create, update, destroy
+
+**Handige links**
+
+- [Documentatie](https://zaakgerichtwerken.vng.cloud/standaard)
+- [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
+
+<div style={{ marginBottom: "2rem" }}>
+  <Heading
+    id={"authentication"}
+    as={"h2"}
+    className={"openapi-tabs__heading"}
+    children={"Authentication"}
+  ></Heading>
+  <SchemaTabs className={"openapi-tabs__security-schemes"}>
+    <TabItem label={"HTTP: Bearer Auth"} value={"JWT-Claims"}>
+      <div>
+        <table>
+          <tbody>
+            <tr>
+              <th>Security Scheme Type:</th>
+              <td>http</td>
+            </tr>
+            <tr>
+              <th>HTTP Authorization Scheme:</th>
+              <td>bearer</td>
+            </tr>
+            <tr>
+              <th>Bearer format:</th>
+              <td>JWT</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </TabItem>
+  </SchemaTabs>
+</div>
+<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "var(--ifm-paragraph-margin-bottom)",
+  }}
+>
+  <h3 style={{ marginBottom: "0.25rem" }}>Contact</h3>
+  <span>
+    [standaarden.ondersteuning@vng.nl](mailto:standaarden.ondersteuning@vng.nl)
+  </span>
+  <span>
+    URL:
+    [https://github.com/VNG-Realisatie/gemma-zaken](https://github.com/VNG-Realisatie/gemma-zaken)
+  </span>
+</div>
+<div style={{ marginBottom: "var(--ifm-paragraph-margin-bottom)" }}>
+  <h3 style={{ marginBottom: "0.25rem" }}>License</h3>
+  <a
+    href={
+      "https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12"
+    }
+  >
+    European Union Public Licence (EUPL-1.2)
+  </a>
+</div>
