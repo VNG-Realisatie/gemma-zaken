@@ -30,7 +30,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'nl',
-    locales: ['nl', 'en'],
+    locales: ['nl'],
   },
   
   presets: [
