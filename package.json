@@ -5,7 +5,8 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "prettier --check .",
+    "lint": "prettier --check . && spectral",
+    "spectral": "spectral lint ./api_specs",
     "lint:fix": "prettier --write .",
     "swizzle": "docusaurus swizzle",
     "clear": "docusaurus clear",
