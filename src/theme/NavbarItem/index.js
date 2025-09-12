@@ -6,14 +6,14 @@ export default function NavbarItemWrapper(props) {
   const activePlugin = useActivePlugin();
 
   // Add this console.log to see the new hook in action
-  console.log(
-    "Active Plugin ID:",
-    activePlugin,
-    "| Prop needed:",
-    props.activeWhen,
-    // "| docsversion:",
-    // useDocsVersion,
-  );
+  // console.log(
+  //   "Active Plugin ID:",
+  //   activePlugin,
+  //   "| Prop needed:",
+  //   props.activeWhen,
+  //   // "| docsversion:",
+  //   // useDocsVersion,
+  // );
 
   // If the item has an 'activeWhen' prop, check if it matches the active plugin's ID.
   if (props.activeWhen) {
