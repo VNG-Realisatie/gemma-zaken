@@ -47,6 +47,54 @@ const sidebars: SidebarsConfig = {
           },
           items: require("../docs/v1/api-suite/autorisaties/sidebar.js"),
         },
+        {
+          type: "category",
+          label: "Besluiten API",
+          link: {
+            type: "generated-index",
+            title: "Besluiten API",
+            description:
+              "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+            slug: "/category/besluiten-api",
+          },
+          items: require("../docs/v1/api-suite/besluiten/sidebar.js"),
+        },
+        {
+          type: "category",
+          label: "Documenten API",
+          link: {
+            type: "generated-index",
+            title: "Documenten API",
+            description:
+              "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+            slug: "/category/documenten-api",
+          },
+          items: require("../docs/v1/api-suite/documenten/sidebar.js"),
+        },
+        // {
+        //   type: "category",
+        //   label: "Zaken API",
+        //   link: {
+        //     type: "generated-index",
+        //     title: "Zaken API",
+        //     description:
+        //       "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+        //     slug: "/category/zaken-api",
+        //   },
+        //   items: require("../docs/v1/api-suite/zaken/sidebar.js"),
+        // },
+        // {
+        //   type: "category",
+        //   label: "Catalogi API",
+        //   link: {
+        //     type: "generated-index",
+        //     title: "Catalogi API",
+        //     description:
+        //       "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+        //     slug: "/category/catalogi-api",
+        //   },
+        //   items: require("../docs/v1/api-suite/catalogi/sidebar.js"),
+        // },
       ],
     },
   ],

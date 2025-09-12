@@ -6,6 +6,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import { themes as prismThemes } from "prism-react-renderer";
+import v1ApiConfigs from "./api_specs/v1/api-configs";
 // import { remarkKroki } from 'remark-kroki';
 
 const config: Config = {
@@ -277,16 +278,7 @@ const config: Config = {
       {
         id: "v1-apis",
         docsPluginId: "v1",
-        config: {
-          autorisaties: {
-            specPath: "api_specs/v1/autorisaties/openapi.yaml",
-            outputDir: "docs/v1/api-suite/autorisaties",
-            sidebarOptions: {
-              groupPathsBy: "tag",
-              categoryLinkSource: "tag",
-            },
-          } satisfies OpenApiPlugin.Options,
-        },
+        config: v1ApiConfigs
       } satisfies Plugin.PluginOptions,
     ],
     // [
