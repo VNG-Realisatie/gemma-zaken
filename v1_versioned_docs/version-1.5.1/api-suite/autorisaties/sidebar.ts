@@ -4,57 +4,55 @@ const sidebar: SidebarsConfig = {
   apisidebar: [
     {
       type: "doc",
-      id: "autorisaties/autorisaties-api",
+      id: "api-suite/autorisaties/autorisaties-api",
     },
     {
       type: "category",
       label: "applicaties",
       link: {
         type: "doc",
-        id: "autorisaties/applicaties",
+        id: "api-suite/autorisaties/applicaties",
       },
       items: [
         {
           type: "doc",
-          id: "autorisaties/applicatie-list",
-          label:
-            "Geef een collectie van applicaties, met ingesloten autorisaties.",
+          id: "api-suite/autorisaties/applicatie-list",
+          label: "Geef een collectie van applicaties, met ingesloten autorisaties.",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-create",
-          label:
-            "Registreer een applicatie met een bepaalde set van autorisaties.",
+          id: "api-suite/autorisaties/applicatie-create",
+          label: "Registreer een applicatie met een bepaalde set van autorisaties.",
           className: "api-method post",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-consumer",
+          id: "api-suite/autorisaties/applicatie-consumer",
           label: "Vraag een applicatie op, op basis van clientId",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-read",
+          id: "api-suite/autorisaties/applicatie-read",
           label: "Vraag een applicatie op, met ingesloten autorisaties.",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-update",
+          id: "api-suite/autorisaties/applicatie-update",
           label: "Werk de applicatie bij.",
           className: "api-method put",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-partial-update",
+          id: "api-suite/autorisaties/applicatie-partial-update",
           label: "Werk (een deel van) de applicatie bij.",
           className: "api-method patch",
         },
         {
           type: "doc",
-          id: "autorisaties/applicatie-delete",
+          id: "api-suite/autorisaties/applicatie-delete",
           label: "Verwijder een applicatie met de bijhorende autorisaties.",
           className: "api-method delete",
         },

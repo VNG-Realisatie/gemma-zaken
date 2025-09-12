@@ -94,13 +94,14 @@ const config: Config = {
       items: [
         {
           type: "doc",
-          docId: "gids/tools",
+          docId: "gids/index",
           position: "left",
           label: "Gids",
+          docsPluginId: "v1",
         },
         {
           type: "doc",
-          docId: "index",
+          docId: "api-suite/index",
           position: "left",
           label: "API Suite",
           docsPluginId: "v1",
@@ -110,12 +111,18 @@ const config: Config = {
           docId: "community/index",
           position: "left",
           label: "Community",
+          //activeWhen: "v1",
         },
         {
           type: "docsVersionDropdown",
           docsPluginId: "v1",
           position: "right",
         },
+        // {
+        //   type: "docsVersionDropdown",
+        //   docsPluginId: "v2",
+        //   position: "right",
+        // },
         {
           href: "https://github.com/vng-realisatie/gemma-zaken",
           position: "right",
@@ -240,29 +247,40 @@ const config: Config = {
         path: "docs/v1",
         routeBasePath: "v1/",
         sidebarPath: "./sidebars/v1.ts",
-        docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
-
+        docItemComponent: "@theme/ApiItem",
         versions: {
-          // 'current' is the special key for the docs in your `path` folder ('api_docs').
           current: {
             label: "Next (1.6.0) 🛠️",
-            // You can optionally change the route path for this version too
             path: "/next",
           },
-          // If you had other, older versions, they would be listed here
-          // e.g., "1.0": { label: "v1.0" },
         },
       } satisfies Plugin.PluginOptions,
     ],
+    // [
+    //   "@docusaurus/plugin-content-docs",
+    //   {
+    //     id: "v2",
+    //     path: "docs/v2",
+    //     routeBasePath: "v2/",
+    //     sidebarPath: "./sidebars/v2.ts",
+    //     docItemComponent: "@theme/ApiItem",
+    //     versions: {
+    //       current: {
+    //         label: "Experimenteel (2.0.0) 🛠️",
+    //         path: "/next",
+    //       },
+    //     },
+    //   } satisfies Plugin.PluginOptions,
+    // ],
     [
       "docusaurus-plugin-openapi-docs",
       {
-        id: "openapi",
+        id: "v1-apis",
         docsPluginId: "v1",
         config: {
           autorisaties: {
             specPath: "api_specs/v1/autorisaties/openapi.yaml",
-            outputDir: "docs/v1/autorisaties",
+            outputDir: "docs/v1/api-suite/autorisaties",
             sidebarOptions: {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
@@ -271,6 +289,23 @@ const config: Config = {
         },
       } satisfies Plugin.PluginOptions,
     ],
+    // [
+    //   "docusaurus-plugin-openapi-docs",
+    //   {
+    //     id: "v2-apis",
+    //     docsPluginId: "v2",
+    //     config: {
+    //       autorisaties: {
+    //         specPath: "api_specs/v1/autorisaties/openapi.yaml",
+    //         outputDir: "docs/v2/api-suite/autorisaties",
+    //         sidebarOptions: {
+    //           groupPathsBy: "tag",
+    //           categoryLinkSource: "tag",
+    //         },
+    //       } satisfies OpenApiPlugin.Options,
+    //     },
+    //   } satisfies Plugin.PluginOptions,
+    // ],
   ],
 
   markdown: {
