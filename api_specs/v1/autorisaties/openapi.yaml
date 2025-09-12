@@ -93,7 +93,7 @@ paths:
           description: OK
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
@@ -117,11 +117,11 @@ paths:
                   - count
                   - results
         "400":
-          $ref: "#/components/responses/ValidatieFoutResponse"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -145,19 +145,19 @@ paths:
           description: Created
           headers:
             Location:
-              $ref: "#/components/headers/LocationHeader"
+              $ref: '#/components/headers/LocationHeader'
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Applicatie"
         "400":
-          $ref: "#/components/responses/ValidatieFoutResponse"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -183,17 +183,17 @@ paths:
           description: OK
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: "#/components/schemas/Applicatie"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -218,15 +218,15 @@ paths:
           description: OK
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Applicatie"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -250,17 +250,17 @@ paths:
           description: OK
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Applicatie"
         "400":
-          $ref: "#/components/responses/ValidatieFoutResponse"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -287,17 +287,17 @@ paths:
           description: OK
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
+              $ref: '#/components/headers/ApiVersionHeader'
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Applicatie"
         "400":
-          $ref: "#/components/responses/ValidatieFoutResponse"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -312,11 +312,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: "#/components/headers/ApiVersionHeader"
-        "4XX":
-          $ref: "#/components/responses/FoutResponse"
+              $ref: '#/components/headers/ApiVersionHeader'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
         "500":
-          $ref: "#/components/responses/FoutResponse"
+          $ref: '#/components/responses/FoutResponse'
       tags:
         - applicaties
       security:
@@ -492,12 +492,12 @@ components:
         - invalidParams
     AutorisatieVariant:
       oneOf:
-        - $ref: "#/components/schemas/AcAutorisatie"
-        - $ref: "#/components/schemas/NrcAutorisatie"
-        - $ref: "#/components/schemas/ZrcAutorisatie"
-        - $ref: "#/components/schemas/ZtcAutorisatie"
-        - $ref: "#/components/schemas/DrcAutorisatie"
-        - $ref: "#/components/schemas/BrcAutorisatie"
+        - $ref: '#/components/schemas/AcAutorisatie'
+        - $ref: '#/components/schemas/NrcAutorisatie'
+        - $ref: '#/components/schemas/ZrcAutorisatie'
+        - $ref: '#/components/schemas/ZtcAutorisatie'
+        - $ref: '#/components/schemas/DrcAutorisatie'
+        - $ref: '#/components/schemas/BrcAutorisatie'
     ZrcAutorisatie:
       allOf:
         - $ref: "#/components/schemas/AutorisatieBase"
@@ -508,7 +508,8 @@ components:
           x-enumDescriptions:
             zrc: Zaken API
         zaaktype:
-          description: URL naar het zaaktype waarop de autorisatie van toepassing is.
+          description: URL naar het zaaktype waarop de autorisatie van toepassing
+            is.
           type: string
           format: uri
           maxLength: 1000
@@ -534,7 +535,8 @@ components:
           x-enumDescriptions:
             drc: Documenten API
         informatieobjecttype:
-          description: URL naar het informatieobjecttype waarop de autorisatie van toepassing is.
+          description: URL naar het informatieobjecttype waarop de autorisatie van
+            toepassing is.
           type: string
           format: uri
           maxLength: 1000
@@ -560,7 +562,8 @@ components:
           x-enumDescriptions:
             brc: Besluiten API
         besluittype:
-          description: URL naar het besluittype waarop de autorisatie van toepassing is.
+          description: URL naar het besluittype waarop de autorisatie van toepassing
+            is.
           type: string
           format: uri
           maxLength: 1000
@@ -607,7 +610,7 @@ components:
       description: Fout - fout
       headers:
         API-Version:
-          $ref: "#/components/headers/ApiVersionHeader"
+          $ref: '#/components/headers/ApiVersionHeader'
       content:
         application/problem+json:
           schema:
@@ -616,11 +619,11 @@ components:
       description: ValidatieFout - validatiefout
       headers:
         API-Version:
-          $ref: "#/components/headers/ApiVersionHeader"
+          $ref: '#/components/headers/ApiVersionHeader'
       content:
         application/problem+json:
           schema:
             $ref: "#/components/schemas/ValidatieFout"
 tags:
   - name: applicaties
-    description: "TODO: voeg beschrijving toe"
+    description: 'TODO: voeg beschrijving toe'
