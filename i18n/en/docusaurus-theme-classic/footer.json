@@ -1,0 +1,66 @@
+{
+  "link.title.Standaard": {
+    "message": "Standaard",
+    "description": "The title of the footer links column with title=Standaard in the footer"
+  },
+  "link.title.Project": {
+    "message": "Project",
+    "description": "The title of the footer links column with title=Project in the footer"
+  },
+  "link.title.Context": {
+    "message": "Context",
+    "description": "The title of the footer links column with title=Context in the footer"
+  },
+  "link.item.label.Referentie": {
+    "message": "Referentie",
+    "description": "The label of footer link with label=Referentie linking to /contributing"
+  },
+  "link.item.label.Releases": {
+    "message": "Releases",
+    "description": "The label of footer link with label=Releases linking to https://github.com/vng-realisatie/gemma-zaken/releases"
+  },
+  "link.item.label.Design rules": {
+    "message": "Design rules",
+    "description": "The label of footer link with label=Design rules linking to /contributing"
+  },
+  "link.item.label.Tools": {
+    "message": "Tools",
+    "description": "The label of footer link with label=Tools linking to /contributing"
+  },
+  "link.item.label.Over de ZGW API standaard": {
+    "message": "Over de ZGW API standaard",
+    "description": "The label of footer link with label=Over de ZGW API standaard linking to /contributing"
+  },
+  "link.item.label.Besluitenlogboek": {
+    "message": "Besluitenlogboek",
+    "description": "The label of footer link with label=Besluitenlogboek linking to /adrs"
+  },
+  "link.item.label.Doe mee": {
+    "message": "Doe mee",
+    "description": "The label of footer link with label=Doe mee linking to /contributing"
+  },
+  "link.item.label.Contact": {
+    "message": "Contact",
+    "description": "The label of footer link with label=Contact linking to /contact"
+  },
+  "link.item.label.GEMMA Online": {
+    "message": "GEMMA Online",
+    "description": "The label of footer link with label=GEMMA Online linking to https://www.gemmaonline.nl/wiki/Thema-architectuur_Zaakgericht_werken"
+  },
+  "link.item.label.'Pas toe, leg uit' standaarden": {
+    "message": "'Pas toe, leg uit' standaarden",
+    "description": "The label of footer link with label='Pas toe, leg uit' standaarden linking to https://www.forumstandaardisatie.nl/open-standaarden/verplicht"
+  },
+  "link.item.label.Praktijkvoorbeelden": {
+    "message": "Praktijkvoorbeelden",
+    "description": "The label of footer link with label=Praktijkvoorbeelden linking to /voorbeelden"
+  },
+  "link.item.label.Common Ground": {
+    "message": "Common Ground",
+    "description": "The label of footer link with label=Common Ground linking to https://www.commonground.nl"
+  },
+  "copyright": {
+    "message": "Copyright © 2025 VNG Realisatie",
+    "description": "The footer copyright"
+  }
+}

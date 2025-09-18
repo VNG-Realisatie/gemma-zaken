@@ -31,7 +31,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "nl",
-    locales: ["nl"],
+    locales: ["nl", "en"],
   },
 
   presets: [
@@ -119,6 +119,10 @@ const config: Config = {
           docsPluginId: "v1",
           position: "right",
         },
+        {
+          type: 'localeDropdown',
+          position: 'right',
+        },        
         // {
         //   type: "docsVersionDropdown",
         //   docsPluginId: "v2",

@@ -1,0 +1,278 @@
+{
+  "version.label": {
+    "message": "Next (1.6.0) 🛠️",
+    "description": "The label for version current"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API": {
+    "message": "Autorisaties API",
+    "description": "The label for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API.link.generated-index.title": {
+    "message": "Autorisaties API",
+    "description": "The generated-index page title for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API.link.generated-index.description": {
+    "message": "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+    "description": "The generated-index page description for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.applicaties": {
+    "message": "applicaties",
+    "description": "The label for category applicaties in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Besluiten API": {
+    "message": "Besluiten API",
+    "description": "The label for category Besluiten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Besluiten API.link.generated-index.title": {
+    "message": "Besluiten API",
+    "description": "The generated-index page title for category Besluiten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Besluiten API.link.generated-index.description": {
+    "message": "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+    "description": "The generated-index page description for category Besluiten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.besluiten": {
+    "message": "besluiten",
+    "description": "The label for category besluiten in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.besluitinformatieobjecten": {
+    "message": "besluitinformatieobjecten",
+    "description": "The label for category besluitinformatieobjecten in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Documenten API": {
+    "message": "Documenten API",
+    "description": "The label for category Documenten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Documenten API.link.generated-index.title": {
+    "message": "Documenten API",
+    "description": "The generated-index page title for category Documenten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Documenten API.link.generated-index.description": {
+    "message": "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+    "description": "The generated-index page description for category Documenten API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.enkelvoudiginformatieobjecten": {
+    "message": "enkelvoudiginformatieobjecten",
+    "description": "The label for category enkelvoudiginformatieobjecten in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.gebruiksrechten": {
+    "message": "gebruiksrechten",
+    "description": "The label for category gebruiksrechten in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.objectinformatieobjecten": {
+    "message": "objectinformatieobjecten",
+    "description": "The label for category objectinformatieobjecten in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.verzendingen": {
+    "message": "verzendingen",
+    "description": "The label for category verzendingen in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.bestandsdelen": {
+    "message": "bestandsdelen",
+    "description": "The label for category bestandsdelen in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.doc.Geef een collectie van applicaties, met ingesloten autorisaties.": {
+    "message": "Geef een collectie van applicaties, met ingesloten autorisaties.",
+    "description": "The label for the doc item Geef een collectie van applicaties, met ingesloten autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-list"
+  },
+  "sidebar.apiSidebar.doc.Registreer een applicatie met een bepaalde set van autorisaties.": {
+    "message": "Registreer een applicatie met een bepaalde set van autorisaties.",
+    "description": "The label for the doc item Registreer een applicatie met een bepaalde set van autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-create"
+  },
+  "sidebar.apiSidebar.doc.Vraag een applicatie op, op basis van clientId": {
+    "message": "Vraag een applicatie op, op basis van clientId",
+    "description": "The label for the doc item Vraag een applicatie op, op basis van clientId in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-consumer"
+  },
+  "sidebar.apiSidebar.doc.Vraag een applicatie op, met ingesloten autorisaties.": {
+    "message": "Vraag een applicatie op, met ingesloten autorisaties.",
+    "description": "The label for the doc item Vraag een applicatie op, met ingesloten autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-read"
+  },
+  "sidebar.apiSidebar.doc.Werk de applicatie bij.": {
+    "message": "Werk de applicatie bij.",
+    "description": "The label for the doc item Werk de applicatie bij. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-update"
+  },
+  "sidebar.apiSidebar.doc.Werk (een deel van) de applicatie bij.": {
+    "message": "Werk (een deel van) de applicatie bij.",
+    "description": "The label for the doc item Werk (een deel van) de applicatie bij. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een applicatie met de bijhorende autorisaties.": {
+    "message": "Verwijder een applicatie met de bijhorende autorisaties.",
+    "description": "The label for the doc item Verwijder een applicatie met de bijhorende autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-delete"
+  },
+  "sidebar.apiSidebar.doc.Alle BESLUITen opvragen.": {
+    "message": "Alle BESLUITen opvragen.",
+    "description": "The label for the doc item Alle BESLUITen opvragen. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een BESLUIT aan.": {
+    "message": "Maak een BESLUIT aan.",
+    "description": "The label for the doc item Maak een BESLUIT aan. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-create"
+  },
+  "sidebar.apiSidebar.doc.Alle audit trail regels behorend bij het BESLUIT.": {
+    "message": "Alle audit trail regels behorend bij het BESLUIT.",
+    "description": "The label for the doc item Alle audit trail regels behorend bij het BESLUIT. in sidebar apiSidebar, linking to the doc api-suite/besluiten/audittrail-list"
+  },
+  "sidebar.apiSidebar.doc.Een specifieke audit trail regel opvragen.": {
+    "message": "Een specifieke audit trail regel opvragen.",
+    "description": "The label for the doc item Een specifieke audit trail regel opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/audittrail-retrieve"
+  },
+  "sidebar.apiSidebar.doc.Een specifiek BESLUIT opvragen.": {
+    "message": "Een specifiek BESLUIT opvragen.",
+    "description": "The label for the doc item Een specifiek BESLUIT opvragen. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-read"
+  },
+  "sidebar.apiSidebar.doc.Werk een BESLUIT in zijn geheel bij.": {
+    "message": "Werk een BESLUIT in zijn geheel bij.",
+    "description": "The label for the doc item Werk een BESLUIT in zijn geheel bij. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-update"
+  },
+  "sidebar.apiSidebar.doc.Werk een BESLUIT deels bij.": {
+    "message": "Werk een BESLUIT deels bij.",
+    "description": "The label for the doc item Werk een BESLUIT deels bij. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een BESLUIT.": {
+    "message": "Verwijder een BESLUIT.",
+    "description": "The label for the doc item Verwijder een BESLUIT. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluit-delete"
+  },
+  "sidebar.apiSidebar.doc.Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.": {
+    "message": "Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.",
+    "description": "The label for the doc item Alle BESLUIT-INFORMATIEOBJECT relaties opvragen. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluitinformatieobject-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een BESLUIT-INFORMATIEOBJECT relatie aan.": {
+    "message": "Maak een BESLUIT-INFORMATIEOBJECT relatie aan.",
+    "description": "The label for the doc item Maak een BESLUIT-INFORMATIEOBJECT relatie aan. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluitinformatieobject-create"
+  },
+  "sidebar.apiSidebar.doc.Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.": {
+    "message": "Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.",
+    "description": "The label for the doc item Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluitinformatieobject-read"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een BESLUIT-INFORMATIEOBJECT relatie.": {
+    "message": "Verwijder een BESLUIT-INFORMATIEOBJECT relatie.",
+    "description": "The label for the doc item Verwijder een BESLUIT-INFORMATIEOBJECT relatie. in sidebar apiSidebar, linking to the doc api-suite/besluiten/besluitinformatieobject-delete"
+  },
+  "sidebar.apiSidebar.doc.Alle (ENKELVOUDIGe) INFORMATIEOBJECTen opvragen.": {
+    "message": "Alle (ENKELVOUDIGe) INFORMATIEOBJECTen opvragen.",
+    "description": "The label for the doc item Alle (ENKELVOUDIGe) INFORMATIEOBJECTen opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan.": {
+    "message": "Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan.",
+    "description": "The label for the doc item Maak een (ENKELVOUDIG) INFORMATIEOBJECT aan. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-create"
+  },
+  "sidebar.apiSidebar.doc.Alle audit trail regels behorend bij het INFORMATIEOBJECT.": {
+    "message": "Alle audit trail regels behorend bij het INFORMATIEOBJECT.",
+    "description": "The label for the doc item Alle audit trail regels behorend bij het INFORMATIEOBJECT. in sidebar apiSidebar, linking to the doc api-suite/documenten/audittrail-list"
+  },
+  "sidebar.apiSidebar.doc.Een specifiek (ENKELVOUDIG) INFORMATIEOBJECT opvragen.": {
+    "message": "Een specifiek (ENKELVOUDIG) INFORMATIEOBJECT opvragen.",
+    "description": "The label for the doc item Een specifiek (ENKELVOUDIG) INFORMATIEOBJECT opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-retrieve"
+  },
+  "sidebar.apiSidebar.doc.Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.": {
+    "message": "Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij.",
+    "description": "The label for the doc item Werk een (ENKELVOUDIG) INFORMATIEOBJECT in zijn geheel bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-update"
+  },
+  "sidebar.apiSidebar.doc.Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.": {
+    "message": "Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij.",
+    "description": "The label for the doc item Werk een (ENKELVOUDIG) INFORMATIEOBJECT deels bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT.": {
+    "message": "Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT.",
+    "description": "The label for the doc item Verwijder een (ENKELVOUDIG) INFORMATIEOBJECT. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-destroy"
+  },
+  "sidebar.apiSidebar.doc.De headers voor een specifiek(e) ENKELVOUDIG INFORMATIE OBJECT opvragen ": {
+    "message": "De headers voor een specifiek(e) ENKELVOUDIG INFORMATIE OBJECT opvragen ",
+    "description": "The label for the doc item De headers voor een specifiek(e) ENKELVOUDIG INFORMATIE OBJECT opvragen  in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-headers"
+  },
+  "sidebar.apiSidebar.doc.Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.": {
+    "message": "Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.",
+    "description": "The label for the doc item Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-download"
+  },
+  "sidebar.apiSidebar.doc.Vergrendel een (ENKELVOUDIG) INFORMATIEOBJECT.": {
+    "message": "Vergrendel een (ENKELVOUDIG) INFORMATIEOBJECT.",
+    "description": "The label for the doc item Vergrendel een (ENKELVOUDIG) INFORMATIEOBJECT. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-lock"
+  },
+  "sidebar.apiSidebar.doc.Ontgrendel een (ENKELVOUDIG) INFORMATIEOBJECT.": {
+    "message": "Ontgrendel een (ENKELVOUDIG) INFORMATIEOBJECT.",
+    "description": "The label for the doc item Ontgrendel een (ENKELVOUDIG) INFORMATIEOBJECT. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-unlock"
+  },
+  "sidebar.apiSidebar.doc.Voer een zoekopdracht uit op (ENKELVOUDIG) INFORMATIEOBJECTen.": {
+    "message": "Voer een zoekopdracht uit op (ENKELVOUDIG) INFORMATIEOBJECTen.",
+    "description": "The label for the doc item Voer een zoekopdracht uit op (ENKELVOUDIG) INFORMATIEOBJECTen. in sidebar apiSidebar, linking to the doc api-suite/documenten/enkelvoudiginformatieobject-zoek"
+  },
+  "sidebar.apiSidebar.doc.Alle GEBRUIKSRECHTen opvragen.": {
+    "message": "Alle GEBRUIKSRECHTen opvragen.",
+    "description": "The label for the doc item Alle GEBRUIKSRECHTen opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een GEBRUIKSRECHT aan.": {
+    "message": "Maak een GEBRUIKSRECHT aan.",
+    "description": "The label for the doc item Maak een GEBRUIKSRECHT aan. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-create"
+  },
+  "sidebar.apiSidebar.doc.Een specifieke GEBRUIKSRECHT opvragen.": {
+    "message": "Een specifieke GEBRUIKSRECHT opvragen.",
+    "description": "The label for the doc item Een specifieke GEBRUIKSRECHT opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-retrieve"
+  },
+  "sidebar.apiSidebar.doc.Werk een GEBRUIKSRECHT in zijn geheel bij.": {
+    "message": "Werk een GEBRUIKSRECHT in zijn geheel bij.",
+    "description": "The label for the doc item Werk een GEBRUIKSRECHT in zijn geheel bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-update"
+  },
+  "sidebar.apiSidebar.doc.Werk een GEBRUIKSRECHT relatie deels bij.": {
+    "message": "Werk een GEBRUIKSRECHT relatie deels bij.",
+    "description": "The label for the doc item Werk een GEBRUIKSRECHT relatie deels bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een GEBRUIKSRECHT.": {
+    "message": "Verwijder een GEBRUIKSRECHT.",
+    "description": "The label for the doc item Verwijder een GEBRUIKSRECHT. in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-destroy"
+  },
+  "sidebar.apiSidebar.doc.De headers voor een specifiek(e) GEBRUIKSRECHT INFORMATIEOBJECT opvragen": {
+    "message": "De headers voor een specifiek(e) GEBRUIKSRECHT INFORMATIEOBJECT opvragen",
+    "description": "The label for the doc item De headers voor een specifiek(e) GEBRUIKSRECHT INFORMATIEOBJECT opvragen in sidebar apiSidebar, linking to the doc api-suite/documenten/gebruiksrechten-headers"
+  },
+  "sidebar.apiSidebar.doc.Alle OBJECT-INFORMATIEOBJECT relaties opvragen.": {
+    "message": "Alle OBJECT-INFORMATIEOBJECT relaties opvragen.",
+    "description": "The label for the doc item Alle OBJECT-INFORMATIEOBJECT relaties opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/objectinformatieobject-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een OBJECT-INFORMATIEOBJECT relatie aan.": {
+    "message": "Maak een OBJECT-INFORMATIEOBJECT relatie aan.",
+    "description": "The label for the doc item Maak een OBJECT-INFORMATIEOBJECT relatie aan. in sidebar apiSidebar, linking to the doc api-suite/documenten/objectinformatieobject-create"
+  },
+  "sidebar.apiSidebar.doc.Een specifieke OBJECT-INFORMATIEOBJECT relatie opvragen.": {
+    "message": "Een specifieke OBJECT-INFORMATIEOBJECT relatie opvragen.",
+    "description": "The label for the doc item Een specifieke OBJECT-INFORMATIEOBJECT relatie opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/objectinformatieobject-retrieve"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een OBJECT-INFORMATIEOBJECT relatie.": {
+    "message": "Verwijder een OBJECT-INFORMATIEOBJECT relatie.",
+    "description": "The label for the doc item Verwijder een OBJECT-INFORMATIEOBJECT relatie. in sidebar apiSidebar, linking to the doc api-suite/documenten/objectinformatieobject-destroy"
+  },
+  "sidebar.apiSidebar.doc.De headers voor een specifiek(e) OOBJECT-INFORMATIEOBJECT opvragen ": {
+    "message": "De headers voor een specifiek(e) OOBJECT-INFORMATIEOBJECT opvragen ",
+    "description": "The label for the doc item De headers voor een specifiek(e) OOBJECT-INFORMATIEOBJECT opvragen  in sidebar apiSidebar, linking to the doc api-suite/documenten/objectinformatieobject-headers"
+  },
+  "sidebar.apiSidebar.doc.Alle VERZENDINGen opvragen.": {
+    "message": "Alle VERZENDINGen opvragen.",
+    "description": "The label for the doc item Alle VERZENDINGen opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-list"
+  },
+  "sidebar.apiSidebar.doc.Maak een VERZENDING aan.": {
+    "message": "Maak een VERZENDING aan.",
+    "description": "The label for the doc item Maak een VERZENDING aan. in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-create"
+  },
+  "sidebar.apiSidebar.doc.Een specifieke VERZENDING opvragen.": {
+    "message": "Een specifieke VERZENDING opvragen.",
+    "description": "The label for the doc item Een specifieke VERZENDING opvragen. in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-retrieve"
+  },
+  "sidebar.apiSidebar.doc.Werk een VERZENDING in zijn geheel bij.": {
+    "message": "Werk een VERZENDING in zijn geheel bij.",
+    "description": "The label for the doc item Werk een VERZENDING in zijn geheel bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-update"
+  },
+  "sidebar.apiSidebar.doc.Werk een VERZENDING relatie deels bij.": {
+    "message": "Werk een VERZENDING relatie deels bij.",
+    "description": "The label for the doc item Werk een VERZENDING relatie deels bij. in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een VERZENDING": {
+    "message": "Verwijder een VERZENDING",
+    "description": "The label for the doc item Verwijder een VERZENDING in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-destroy"
+  },
+  "sidebar.apiSidebar.doc.De headers voor een specifiek(e) VERZENDING opvragen ": {
+    "message": "De headers voor een specifiek(e) VERZENDING opvragen ",
+    "description": "The label for the doc item De headers voor een specifiek(e) VERZENDING opvragen  in sidebar apiSidebar, linking to the doc api-suite/documenten/verzending-headers"
+  },
+  "sidebar.apiSidebar.doc.Upload een bestandsdeel.": {
+    "message": "Upload een bestandsdeel.",
+    "description": "The label for the doc item Upload een bestandsdeel. in sidebar apiSidebar, linking to the doc api-suite/documenten/bestandsdeel-update"
+  }
+}

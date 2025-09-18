@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "ZGW API's",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "VNG logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Gids": {
+    "message": "Gids",
+    "description": "Navbar item with label Gids"
+  },
+  "item.label.API Suite": {
+    "message": "API Suite",
+    "description": "Navbar item with label API Suite"
+  },
+  "item.label.Community": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  }
+}
