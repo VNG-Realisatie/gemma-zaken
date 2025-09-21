@@ -1,7 +1,6 @@
 {
   "name": "Zaakgericht-werken API's",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
-  "forwardPorts": [3000],
   "postCreateCommand": "npm ci && go install github.com/oasdiff/oasdiff@latest",
   "customizations": {
     "vscode": {
