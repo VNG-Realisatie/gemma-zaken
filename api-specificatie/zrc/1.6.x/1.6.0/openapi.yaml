@@ -12918,7 +12918,12 @@ components:
         zaak: 
           $ref: '#/components/schemas/ZaakExpanded'
         resultaattype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ResultaatType'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ResultaatType'
+            - $ref: '#/components/schemas/GenesteExpansie'
+    GenesteExpansie:
+      type: object
+      description: Geneste expansie zoals gedefinieerd in de ZTC 1.3.2.
     Rol:
       type: object
       properties:
@@ -13249,7 +13254,9 @@ components:
         betrokkene:
           type: object
         roltype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolType'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/RolType'
+            - $ref: '#/components/schemas/GenesteExpansie'
         statussen:
           type: array
           items:
@@ -13538,6 +13545,9 @@ components:
           $ref: '#/components/schemas/Zaak'
         statustype:
           $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusType'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/StatusType'
+            - $ref: '#/components/schemas/GenesteExpansie'
         gezetdoor:
           $ref: '#/components/schemas/RolExpanded'
         zaakinformatieobjecten:
@@ -14281,7 +14291,9 @@ components:
       type: object
       properties: 
         zaaktype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakType'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakType'
+            - $ref: '#/components/schemas/GenesteExpansie'
         communicatiekanaal:
           type: object
         productenOfDiensten:
@@ -14320,7 +14332,10 @@ components:
         zaakinformatieobjecten:
           type: array
           items:
-            $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObject'
+            oneOf: 
+            - $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObject'
+            - type: object
+              description: Geneste expansie zoals gedefinieerd in de DRC 1.6.0.
         zaakobjecten:
           type: array
           items: 
@@ -14382,7 +14397,10 @@ components:
       type: object
       properties: 
         besluit:
-          $ref: '../../../brc/1.1.0/openapi.yaml#/components/schemas/Besluit'
+          oneOf: 
+            - $ref: '../../../brc/1.1.0/openapi.yaml#/components/schemas/Besluit'
+            - type: object
+              description: Geneste expansie zoals gedefinieerd in de BRC 1.1.0.
     ZaakContactMoment:
       type: object
       properties:
@@ -14488,7 +14506,9 @@ components:
           - $ref: '#/components/schemas/ZaakExpanded'
           - $ref: '#/components/schemas/EmptyObject'
         eigenschap:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/Eigenschap'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/Eigenschap'
+            - $ref: '#/components/schemas/GenesteExpansie'
     ZaakInformatieObject:
       type: object
       properties:
@@ -14586,7 +14606,10 @@ components:
       type: object
       properties: 
         informatieobject:
-          $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObject'
+          oneOf: 
+            -  $ref: '../../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObject'
+            - type: object
+              description: Geneste expansie zoals gedefinieerd in DRC 1.6.0.
         zaak:
           $ref: '#/components/schemas/ZaakExpanded'
         status:
@@ -14993,7 +15016,9 @@ components:
         object:
           type: object
         zaakobjecttype:
-          $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
+          oneOf: 
+            - $ref: '../../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakObjectType'
+            - $ref: '#/components/schemas/GenesteExpansie'
     ZaakVerzoek:
       type: object
       properties:
