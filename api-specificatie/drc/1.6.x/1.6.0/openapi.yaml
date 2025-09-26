@@ -370,6 +370,19 @@ paths:
             eerste in een samenwerkingsketen heeft vastgelegd.
           schema:
             type: string
+        - name: objectinformatieobjecten_object
+          required: false
+          in: query
+          description: URL-referentie naarhet gerelateerde OBJECT (in deze of andere API).
+          schema: 
+            type: string
+            format: uri
+        - name: objectinformatieobjecten_objectType
+          required: false
+          in: query
+          description: Het type van het gerelateerde OBJECT.
+          schema: 
+            $ref: "#/components/schemas/ObjectTypeEnum"
         - name: trefwoorden
           required: false
           in: query
