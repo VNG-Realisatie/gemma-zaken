@@ -29,6 +29,14 @@ const v1ApiConfigs: OpenApiPlugin.Options["config"] = {
       categoryLinkSource: "tag",
     },
   } satisfies OpenApiPlugin.Options,
+  catalogi: {
+    specPath: "api_specs/v1/catalogi/openapi.yaml",
+    outputDir: "docs/v1/api-suite/catalogi",
+    sidebarOptions: {
+      groupPathsBy: "tag",
+      categoryLinkSource: "tag",
+    },
+  } satisfies OpenApiPlugin.Options,
 
   // zaken: {
   //   specPath: "api_specs/v1/zaken/openapi.yaml",
@@ -39,14 +47,6 @@ const v1ApiConfigs: OpenApiPlugin.Options["config"] = {
   //   },
   // } satisfies OpenApiPlugin.Options,
 
-  // catalogi: {
-  //   specPath: "api_specs/v1/catalogi/openapi.yaml",
-  //   outputDir: "docs/v1/api-suite/catalogi",
-  //   sidebarOptions: {
-  //     groupPathsBy: "tag",
-  //     categoryLinkSource: "tag",
-  //   },
-  // } satisfies OpenApiPlugin.Options,
 
 };
 

@@ -3103,7 +3103,7 @@ components:
       properties:
         informatieobjecttype:
           $ref: >-
-            ../catalogi/openapi.yaml#/components/schemas/InformatieObjectType
+            https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType
     FieldValidationError:
       description: Formaat van validatiefouten.
       type: object
