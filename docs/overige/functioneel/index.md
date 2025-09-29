@@ -1,5 +1,0 @@
----
-title: "Functioneel"
-layout: subjects
----
-

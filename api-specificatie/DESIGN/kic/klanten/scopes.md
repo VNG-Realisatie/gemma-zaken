@@ -1,6 +1,7 @@
 # Scopes Klanten API
 
-Scopes worden typisch per component gedefinieerd en geven aan welke rechten er mogelijk zijn en in de context van een JWT geven ze aan welke rechten iemand heeft of wil verkrijgen.
+Scopes worden typisch per component gedefinieerd en geven aan welke rechten er mogelijk zijn en in
+de context van een JWT geven ze aan welke rechten iemand heeft of wil verkrijgen.
 
 ## klanten.aanmaken
 

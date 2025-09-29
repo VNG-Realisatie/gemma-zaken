@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Besluiten API
-  description: 'Een API om een Besluiten API (BRC) te benaderen.
+  description: "Een API om een Besluiten API (BRC) te benaderen.
 
 
     Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet
@@ -68,8 +68,8 @@ info:
     **Kenmerken**
 
 
-    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde
-    de organisatie die het besluit heeft vastgesteld.
+    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
+    die het besluit heeft vastgesteld.
 
     * `besluittype`: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
 
@@ -89,7 +89,7 @@ info:
 
     * [Zaakgericht werken](https://zaakgerichtwerken.vng.cloud)
 
-    '
+    "
   contact:
     url: https://zaakgerichtwerken.vng.cloud
     email: standaarden.ondersteuning@vng.nl
@@ -98,7 +98,7 @@ info:
     url: https://opensource.org/licenses/EUPL-1.2
   version: 1.0.0-rc2
 security:
-- JWT-Claims: []
+  - JWT-Claims: []
 paths:
   /besluiten:
     get:
@@ -106,56 +106,59 @@ paths:
       summary: Alle BESLUITen opvragen.
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
-      - name: identificatie
-        in: query
-        description: Identificatie van het besluit binnen de organisatie die het besluit
-          heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die gegenereerd.
-        required: false
-        schema:
-          type: string
-      - name: verantwoordelijkeOrganisatie
-        in: query
-        description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
-          die het besluit heeft vastgesteld.
-        required: false
-        schema:
-          type: string
-      - name: besluittype
-        in: query
-        description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: zaak
-        in: query
-        description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
-          uitkomst is.
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: page
-        in: query
-        description: Een pagina binnen de gepagineerde set resultaten.
-        required: false
-        schema:
-          type: integer
+        - name: identificatie
+          in: query
+          description:
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld.
+            Indien deze niet opgegeven is, dan wordt die gegenereerd.
+          required: false
+          schema:
+            type: string
+        - name: verantwoordelijkeOrganisatie
+          in: query
+          description:
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft
+            vastgesteld.
+          required: false
+          schema:
+            type: string
+        - name: besluittype
+          in: query
+          description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: zaak
+          in: query
+          description:
+            URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit uitkomst is.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: page
+          in: query
+          description: Een pagina binnen de gepagineerde set resultaten.
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 required:
-                - count
-                - results
+                  - count
+                  - results
                 type: object
                 properties:
                   count:
@@ -171,124 +174,133 @@ paths:
                   results:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Besluit'
-        '400':
+                      $ref: "#/components/schemas/Besluit"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     post:
       operationId: besluit_create
       summary: Maak een BESLUIT aan.
-      description: 'Indien geen identificatie gegeven is, dan wordt deze automatisch
+      description: "Indien geen identificatie gegeven is, dan wordt deze automatisch
 
         gegenereerd.
 
@@ -305,39 +317,40 @@ paths:
 
         - `datum` in het verleden of nu
 
-        - publicatie `besluittype` - `concept` moet `false` zijn'
+        - publicatie `besluittype` - `concept` moet `false` zijn"
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '201':
+        "201":
           description: Created
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
             Location:
               schema:
                 type: string
@@ -346,120 +359,129 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
+                $ref: "#/components/schemas/Besluit"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.aanmaken
+        - JWT-Claims:
+            - besluiten.aanmaken
     parameters: []
   /besluiten/{besluit_uuid}/audittrail:
     get:
@@ -467,503 +489,536 @@ paths:
       summary: Alle audit trail regels behorend bij het BESLUIT.
       description: Alle audit trail regels behorend bij het BESLUIT.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AuditTrail'
-        '401':
+                  $ref: "#/components/schemas/AuditTrail"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - audittrails.lezen
+        - JWT-Claims:
+            - audittrails.lezen
     parameters:
-    - name: besluit_uuid
-      in: path
-      required: true
-      description: Unieke resource identifier (UUID4)
-      schema:
-        type: string
-        format: uuid
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
   /besluiten/{besluit_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_read
       summary: Een specifieke audit trail regel opvragen.
       description: Een specifieke audit trail regel opvragen.
       parameters:
-      - name: If-None-Match
-        in: header
-        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
-          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
-          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
-          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
-          \ voor meer informatie."
-        required: false
-        examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
-          oneValue:
-            summary: "E\xE9n ETag-waarde"
-            value: '"79054025255fb1a26e4bc422aef54eb4"'
-        schema:
-          type: string
+        - name: If-None-Match
+          in: header
+          description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+            n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+            \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+            \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+            \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+            \ voor meer informatie."
+          required: false
+          examples:
+            multipleValues:
+              summary: Meerdere ETag-waardes
+              value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+            oneValue:
+              summary: "E\xE9n ETag-waarde"
+              value: '"79054025255fb1a26e4bc422aef54eb4"'
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             ETag:
-              description: De ETag berekend op de response body JSON. Indien twee
-                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              description:
+                De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag
+                hebben, dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om
+                caching te implementeren.
               schema:
                 type: string
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuditTrail'
-        '401':
+                $ref: "#/components/schemas/AuditTrail"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - audittrails.lezen
+        - JWT-Claims:
+            - audittrails.lezen
     parameters:
-    - name: besluit_uuid
-      in: path
-      required: true
-      description: Unieke resource identifier (UUID4)
-      schema:
-        type: string
-        format: uuid
-    - name: uuid
-      in: path
-      description: Unieke identificatie van de audit regel.
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke identificatie van de audit regel.
+        required: true
+        schema:
+          type: string
+          format: uuid
   /besluiten/{uuid}:
     get:
       operationId: besluit_read
       summary: Een specifiek BESLUIT opvragen.
       description: Een specifiek BESLUIT opvragen.
       parameters:
-      - name: If-None-Match
-        in: header
-        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
-          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
-          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
-          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
-          \ voor meer informatie."
-        required: false
-        examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
-          oneValue:
-            summary: "E\xE9n ETag-waarde"
-            value: '"79054025255fb1a26e4bc422aef54eb4"'
-        schema:
-          type: string
+        - name: If-None-Match
+          in: header
+          description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+            n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+            \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+            \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+            \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+            \ voor meer informatie."
+          required: false
+          examples:
+            multipleValues:
+              summary: Meerdere ETag-waardes
+              value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+            oneValue:
+              summary: "E\xE9n ETag-waarde"
+              value: '"79054025255fb1a26e4bc422aef54eb4"'
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             ETag:
-              description: De ETag berekend op de response body JSON. Indien twee
-                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              description:
+                De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag
+                hebben, dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om
+                caching te implementeren.
               schema:
                 type: string
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '401':
+                $ref: "#/components/schemas/Besluit"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     head:
       operationId: besluit_headers
       summary: De headers voor een specifiek(e) BESLUIT opvragen
       description: Vraag de headers op die je bij een GET request zou krijgen.
       parameters:
-      - name: If-None-Match
-        in: header
-        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
-          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
-          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
-          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
-          \ voor meer informatie."
-        required: false
-        examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
-          oneValue:
-            summary: "E\xE9n ETag-waarde"
-            value: '"79054025255fb1a26e4bc422aef54eb4"'
-        schema:
-          type: string
+        - name: If-None-Match
+          in: header
+          description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+            n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+            \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+            \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+            \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+            \ voor meer informatie."
+          required: false
+          examples:
+            multipleValues:
+              summary: Meerdere ETag-waardes
+              value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+            oneValue:
+              summary: "E\xE9n ETag-waarde"
+              value: '"79054025255fb1a26e4bc422aef54eb4"'
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             ETag:
-              description: De ETag berekend op de response body JSON. Indien twee
-                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              description:
+                De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag
+                hebben, dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om
+                caching te implementeren.
               schema:
                 type: string
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     put:
       operationId: besluit_update
       summary: Werk een BESLUIT in zijn geheel bij.
-      description: 'Er wordt gevalideerd op:
+      description: "Er wordt gevalideerd op:
 
         - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
 
@@ -975,172 +1030,183 @@ paths:
 
         - `datum` in het verleden of nu
 
-        - publicatie `besluittype` - `concept` moet `false` zijn'
+        - publicatie `besluittype` - `concept` moet `false` zijn"
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
+                $ref: "#/components/schemas/Besluit"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.bijwerken
+        - JWT-Claims:
+            - besluiten.bijwerken
     patch:
       operationId: besluit_partial_update
       summary: Werk een BESLUIT deels bij.
-      description: 'Er wordt gevalideerd op:
+      description: "Er wordt gevalideerd op:
 
         - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
 
@@ -1152,479 +1218,510 @@ paths:
 
         - `datum` in het verleden of nu
 
-        - publicatie `besluittype` - `concept` moet `false` zijn'
+        - publicatie `besluittype` - `concept` moet `false` zijn"
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
+                $ref: "#/components/schemas/Besluit"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.bijwerken
+        - JWT-Claims:
+            - besluiten.bijwerken
     delete:
       operationId: besluit_delete
       summary: Verwijder een BESLUIT.
-      description: 'Verwijder een BESLUIT samen met alle gerelateerde resources binnen
-        deze API.
+      description: "Verwijder een BESLUIT samen met alle gerelateerde resources binnen deze API.
 
 
         **De gerelateerde resources zijn**
 
         - `BESLUITINFORMATIEOBJECT`
 
-        - audit trail regels'
+        - audit trail regels"
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       responses:
-        '204':
+        "204":
           description: No content
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-        '401':
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.verwijderen
+        - JWT-Claims:
+            - besluiten.verwijderen
     parameters:
-    - name: uuid
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
   /besluitinformatieobjecten:
     get:
       operationId: besluitinformatieobject_list
       summary: Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
-      - name: besluit
-        in: query
-        description: URL-referentie naar het BESLUIT.
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: informatieobject
-        in: query
-        description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten API)
-          waarin (een deel van) het besluit beschreven is.
-        required: false
-        schema:
-          type: string
-          format: uri
+        - name: besluit
+          in: query
+          description: URL-referentie naar het BESLUIT.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: informatieobject
+          in: query
+          description:
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van)
+            het besluit beschreven is.
+          required: false
+          schema:
+            type: string
+            format: uri
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BesluitInformatieObject'
-        '400':
+                  $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     post:
       operationId: besluitinformatieobject_create
       summary: Maak een BESLUIT-INFORMATIEOBJECT relatie aan.
@@ -1636,41 +1733,42 @@ paths:
         \ wordt ook door het systeem gezet.\n- Bij het aanmaken wordt ook in de Documenten\
         \ API de gespiegelde relatie\n  aangemaakt, echter zonder de relatie-informatie."
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BesluitInformatieObject'
+              $ref: "#/components/schemas/BesluitInformatieObject"
         required: true
       responses:
-        '201':
+        "201":
           description: Created
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
             Location:
               schema:
                 type: string
@@ -1679,120 +1777,129 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitInformatieObject'
-        '400':
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
           description: Bad request
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/ValidatieFout'
-        '401':
+                $ref: "#/components/schemas/ValidatieFout"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.aanmaken
+        - JWT-Claims:
+            - besluiten.aanmaken
     parameters: []
   /besluitinformatieobjecten/{uuid}:
     get:
@@ -1800,363 +1907,386 @@ paths:
       summary: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
       description: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
       parameters:
-      - name: If-None-Match
-        in: header
-        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
-          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
-          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
-          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
-          \ voor meer informatie."
-        required: false
-        examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
-          oneValue:
-            summary: "E\xE9n ETag-waarde"
-            value: '"79054025255fb1a26e4bc422aef54eb4"'
-        schema:
-          type: string
+        - name: If-None-Match
+          in: header
+          description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+            n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+            \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+            \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+            \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+            \ voor meer informatie."
+          required: false
+          examples:
+            multipleValues:
+              summary: Meerdere ETag-waardes
+              value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+            oneValue:
+              summary: "E\xE9n ETag-waarde"
+              value: '"79054025255fb1a26e4bc422aef54eb4"'
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             ETag:
-              description: De ETag berekend op de response body JSON. Indien twee
-                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              description:
+                De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag
+                hebben, dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om
+                caching te implementeren.
               schema:
                 type: string
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitInformatieObject'
-        '401':
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     head:
       operationId: besluitinformatieobject_headers
       summary: De headers voor een specifiek(e) BESLUITINFORMATIEOBJECT opvragen
       description: Vraag de headers op die je bij een GET request zou krijgen.
       parameters:
-      - name: If-None-Match
-        in: header
-        description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
-          n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
-          \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
-          \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
-          \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
-          \ voor meer informatie."
-        required: false
-        examples:
-          multipleValues:
-            summary: Meerdere ETag-waardes
-            value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
-          oneValue:
-            summary: "E\xE9n ETag-waarde"
-            value: '"79054025255fb1a26e4bc422aef54eb4"'
-        schema:
-          type: string
+        - name: If-None-Match
+          in: header
+          description: "Voer een voorwaardelijk verzoek uit. Deze header moet \xE9\xE9\
+            n of meerdere ETag-waardes bevatten van resources die de consumer gecached\
+            \ heeft. Indien de waarde van de ETag van de huidige resource voorkomt in\
+            \ deze set, dan antwoord de provider met een lege HTTP 304 request. Zie\
+            \ [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)\
+            \ voor meer informatie."
+          required: false
+          examples:
+            multipleValues:
+              summary: Meerdere ETag-waardes
+              value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
+            oneValue:
+              summary: "E\xE9n ETag-waarde"
+              value: '"79054025255fb1a26e4bc422aef54eb4"'
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             ETag:
-              description: De ETag berekend op de response body JSON. Indien twee
-                resources exact dezelfde ETag hebben, dan zijn deze resources identiek
-                aan elkaar. Je kan de ETag gebruiken om caching te implementeren.
+              description:
+                De ETag berekend op de response body JSON. Indien twee resources exact dezelfde ETag
+                hebben, dan zijn deze resources identiek aan elkaar. Je kan de ETag gebruiken om
+                caching te implementeren.
               schema:
                 type: string
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     delete:
       operationId: besluitinformatieobject_delete
       summary: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
       description: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
       parameters:
-      - name: X-NLX-Request-Application-Id
-        in: header
-        description: Identificatie van de applicatie die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-NLX-Request-User-Id
-        in: header
-        description: Identificatie van de gebruiker die het verzoek stuurt (indien
-          NLX wordt gebruikt).
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Request-Application-Id
+          in: header
+          description:
+            Identificatie van de applicatie die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-NLX-Request-User-Id
+          in: header
+          description:
+            Identificatie van de gebruiker die het verzoek stuurt (indien NLX wordt gebruikt).
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       responses:
-        '204':
+        "204":
           description: No content
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-        '401':
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
+        "401":
           description: Unauthorized
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '403':
+                $ref: "#/components/schemas/Fout"
+        "403":
           description: Forbidden
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '404':
+                $ref: "#/components/schemas/Fout"
+        "404":
           description: Not found
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '406':
+                $ref: "#/components/schemas/Fout"
+        "406":
           description: Not acceptable
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '409':
+                $ref: "#/components/schemas/Fout"
+        "409":
           description: Conflict
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '410':
+                $ref: "#/components/schemas/Fout"
+        "410":
           description: Gone
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '415':
+                $ref: "#/components/schemas/Fout"
+        "415":
           description: Unsupported media type
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '429':
+                $ref: "#/components/schemas/Fout"
+        "429":
           description: Too many requests
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
-        '500':
+                $ref: "#/components/schemas/Fout"
+        "500":
           description: Internal server error
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Fout'
+                $ref: "#/components/schemas/Fout"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.verwijderen
+        - JWT-Claims:
+            - besluiten.verwijderen
     parameters:
-    - name: uuid
-      in: path
-      description: Unieke resource identifier (UUID4)
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
+        required: true
+        schema:
+          type: string
+          format: uuid
 servers:
-- url: /api/v1
+  - url: /api/v1
 components:
   requestBodies:
     Besluit:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Besluit'
+            $ref: "#/components/schemas/Besluit"
       required: true
   securitySchemes:
     JWT-Claims:
@@ -2166,16 +2296,17 @@ components:
   schemas:
     Besluit:
       required:
-      - verantwoordelijkeOrganisatie
-      - besluittype
-      - datum
-      - ingangsdatum
+        - verantwoordelijkeOrganisatie
+        - besluittype
+        - datum
+        - ingangsdatum
       type: object
       properties:
         url:
           title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit
+            object.
           type: string
           format: uri
           readOnly: true
@@ -2183,15 +2314,16 @@ components:
           minLength: 1
         identificatie:
           title: Identificatie
-          description: Identificatie van het besluit binnen de organisatie die het
-            besluit heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die
-            gegenereerd.
+          description:
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld.
+            Indien deze niet opgegeven is, dan wordt die gegenereerd.
           type: string
           maxLength: 50
         verantwoordelijkeOrganisatie:
           title: Verantwoordelijke organisatie
-          description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
-            die het besluit heeft vastgesteld.
+          description:
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft
+            vastgesteld.
           type: string
           maxLength: 9
           minLength: 1
@@ -2204,8 +2336,8 @@ components:
           minLength: 1
         zaak:
           title: Zaak
-          description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
-            uitkomst is.
+          description:
+            URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit uitkomst is.
           type: string
           format: uri
           maxLength: 200
@@ -2220,9 +2352,10 @@ components:
           type: string
         bestuursorgaan:
           title: Bestuursorgaan
-          description: Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld
-            of een persoon of college, met enig openbaar gezag bekleed onder wiens
-            verantwoordelijkheid het besluit vastgesteld is.
+          description:
+            Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld of een persoon of
+            college, met enig openbaar gezag bekleed onder wiens verantwoordelijkheid het besluit
+            vastgesteld is.
           type: string
           maxLength: 50
         ingangsdatum:
@@ -2238,8 +2371,8 @@ components:
           nullable: true
         vervalreden:
           title: Vervalreden
-          description: 'De omschrijving die aangeeft op grond waarvan het besluit
-            is of komt te vervallen.
+          description: "De omschrijving die aangeeft op grond waarvan het besluit is of komt te
+            vervallen.
 
 
             Uitleg bij mogelijke waarden:
@@ -2249,12 +2382,12 @@ components:
 
             * `ingetrokken_overheid` - Besluit ingetrokken door overheid
 
-            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende'
+            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende"
           type: string
           enum:
-          - tijdelijk
-          - ingetrokken_overheid
-          - ingetrokken_belanghebbende
+            - tijdelijk
+            - ingetrokken_overheid
+            - ingetrokken_belanghebbende
         vervalredenWeergave:
           title: Vervalreden weergave
           type: string
@@ -2280,11 +2413,11 @@ components:
           nullable: true
     Fout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
+        - code
+        - title
+        - status
+        - detail
+        - instance
       type: object
       properties:
         type:
@@ -2312,15 +2445,16 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
     FieldValidationError:
       required:
-      - name
-      - code
-      - reason
+        - name
+        - code
+        - reason
       type: object
       properties:
         name:
@@ -2340,12 +2474,12 @@ components:
           minLength: 1
     ValidatieFout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      - invalidParams
+        - code
+        - title
+        - status
+        - detail
+        - instance
+        - invalidParams
       type: object
       properties:
         type:
@@ -2373,22 +2507,24 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
         invalidParams:
           type: array
           items:
-            $ref: '#/components/schemas/FieldValidationError'
+            $ref: "#/components/schemas/FieldValidationError"
     Wijzigingen:
       title: Wijzigingen
       type: object
       properties:
         oud:
           title: Oud
-          description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden.
+          description:
+            Volledige JSON body van het object zoals dat bestond voordat de actie heeft
+            plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
@@ -2396,14 +2532,14 @@ components:
           type: object
     AuditTrail:
       required:
-      - bron
-      - actie
-      - resultaat
-      - hoofdObject
-      - resource
-      - resourceUrl
-      - resourceWeergave
-      - wijzigingen
+        - bron
+        - actie
+        - resultaat
+        - hoofdObject
+        - resource
+        - resourceUrl
+        - resourceWeergave
+        - wijzigingen
       type: object
       properties:
         uuid:
@@ -2413,7 +2549,7 @@ components:
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan.
+          description: "De naam van het component waar de wijziging in is gedaan.
 
 
             Uitleg bij mogelijke waarden:
@@ -2429,19 +2565,18 @@ components:
 
             * `drc` - Documenten API
 
-            * `brc` - Besluiten API'
+            * `brc` - Besluiten API"
           type: string
           enum:
-          - ac
-          - nrc
-          - zrc
-          - ztc
-          - drc
-          - brc
+            - ac
+            - nrc
+            - zrc
+            - ztc
+            - drc
+            - brc
         requestId:
           title: Request id
-          description: Een globaal "request" ID om een verzoek door het netwerk heen
-            te traceren.
+          description: Een globaal "request" ID om een verzoek door het netwerk heen te traceren.
           type: string
           maxLength: 255
         applicatieId:
@@ -2456,8 +2591,9 @@ components:
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
-          description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon.
+          description:
+            Unieke identificatie van de gebruiker die binnen de organisatie herleid kan worden naar
+            een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
@@ -2467,7 +2603,7 @@ components:
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling.
+          description: "De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
@@ -2487,7 +2623,7 @@ components:
 
             * `update` - Object bijgewerkt
 
-            * `partial_update` - Object deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt"
           type: string
           maxLength: 50
           minLength: 1
@@ -2539,17 +2675,18 @@ components:
           format: date-time
           readOnly: true
         wijzigingen:
-          $ref: '#/components/schemas/Wijzigingen'
+          $ref: "#/components/schemas/Wijzigingen"
     BesluitInformatieObject:
       required:
-      - informatieobject
-      - besluit
+        - informatieobject
+        - besluit
       type: object
       properties:
         url:
           title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit
+            object.
           type: string
           format: uri
           readOnly: true
@@ -2557,8 +2694,9 @@ components:
           minLength: 1
         informatieobject:
           title: Informatieobject
-          description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten
-            API) waarin (een deel van) het besluit beschreven is.
+          description:
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van)
+            het besluit beschreven is.
           type: string
           format: uri
           maxLength: 1000

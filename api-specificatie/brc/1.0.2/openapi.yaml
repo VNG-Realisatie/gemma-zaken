@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Besluiten API
-  description: 'Een API om een besluitregistratiecomponent (BRC) te benaderen.
+  description: "Een API om een besluitregistratiecomponent (BRC) te benaderen.
 
 
     Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet
@@ -68,8 +68,8 @@ info:
     **Kenmerken**
 
 
-    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde
-    de organisatie die het besluit heeft vastgesteld.
+    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
+    die het besluit heeft vastgesteld.
 
     * `besluittype`: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
 
@@ -87,7 +87,7 @@ info:
 
     * [Zaakgericht werken](https://vng-realisatie.github.io/gemma-zaken)
 
-    '
+    "
   contact:
     url: https://vng-realisatie.github.io/gemma-zaken
     email: standaarden.ondersteuning@vng.nl
@@ -96,7 +96,7 @@ info:
     url: https://opensource.org/licenses/EUPL-1.2
   version: 1.0.2
 security:
-- JWT-Claims: []
+  - JWT-Claims: []
 paths:
   /besluiten:
     get:
@@ -104,56 +104,59 @@ paths:
       summary: Alle BESLUITen opvragen.
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
-      - name: identificatie
-        in: query
-        description: Identificatie van het besluit binnen de organisatie die het besluit
-          heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die gegenereerd.
-        required: false
-        schema:
-          type: string
-      - name: verantwoordelijkeOrganisatie
-        in: query
-        description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
-          die het besluit heeft vastgesteld.
-        required: false
-        schema:
-          type: string
-      - name: besluittype
-        in: query
-        description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: zaak
-        in: query
-        description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
-          uitkomst is.
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: page
-        in: query
-        description: Een pagina binnen de gepagineerde set resultaten.
-        required: false
-        schema:
-          type: integer
+        - name: identificatie
+          in: query
+          description:
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld.
+            Indien deze niet opgegeven is, dan wordt die gegenereerd.
+          required: false
+          schema:
+            type: string
+        - name: verantwoordelijkeOrganisatie
+          in: query
+          description:
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft
+            vastgesteld.
+          required: false
+          schema:
+            type: string
+        - name: besluittype
+          in: query
+          description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: zaak
+          in: query
+          description:
+            URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit uitkomst is.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: page
+          in: query
+          description: Een pagina binnen de gepagineerde set resultaten.
+          required: false
+          schema:
+            type: integer
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 required:
-                - count
-                - results
+                  - count
+                  - results
                 type: object
                 properties:
                   count:
@@ -169,30 +172,30 @@ paths:
                   results:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Besluit'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                      $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     post:
       operationId: besluit_create
       summary: Maak een BESLUIT aan.
@@ -205,37 +208,38 @@ paths:
         \ vorm van een ZAAK hebben.\n- `datum` in het verleden of nu\n- publicatie\
         \ `besluittype` - `concept` moet `false` zijn"
       parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '201':
+        "201":
           description: Created
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
             Location:
               schema:
                 type: string
@@ -244,30 +248,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.aanmaken
+        - JWT-Claims:
+            - besluiten.aanmaken
     parameters: []
   /besluiten/{besluit_uuid}/audittrail:
     get:
@@ -275,146 +279,149 @@ paths:
       summary: Alle audit trail regels behorend bij het BESLUIT.
       description: Alle audit trail regels behorend bij het BESLUIT.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AuditTrail'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                  $ref: "#/components/schemas/AuditTrail"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - audittrails.lezen
+        - JWT-Claims:
+            - audittrails.lezen
     parameters:
-    - name: besluit_uuid
-      in: path
-      required: true
-      description: Unieke resource identifier (UUID4)
-      schema:
-        type: string
-        format: uuid
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
   /besluiten/{besluit_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_read
       summary: Een specifieke audit trail regel opvragen.
       description: Een specifieke audit trail regel opvragen.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuditTrail'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/AuditTrail"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - audittrails.lezen
+        - JWT-Claims:
+            - audittrails.lezen
     parameters:
-    - name: besluit_uuid
-      in: path
-      required: true
-      description: Unieke resource identifier (UUID4)
-      schema:
-        type: string
-        format: uuid
-    - name: uuid
-      in: path
-      description: Unieke identificatie van de audit regel.
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke identificatie van de audit regel.
+        required: true
+        schema:
+          type: string
+          format: uuid
   /besluiten/{uuid}:
     get:
       operationId: besluit_read
       summary: Een specifiek BESLUIT opvragen.
       description: Een specifiek BESLUIT opvragen.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/Besluit"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     put:
       operationId: besluit_update
       summary: Werk een BESLUIT in zijn geheel bij.
@@ -425,66 +432,67 @@ paths:
         \ hebben.\n- `datum` in het verleden of nu\n- publicatie `besluittype` - `concept`\
         \ moet `false` zijn"
       parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.bijwerken
+        - JWT-Claims:
+            - besluiten.bijwerken
     patch:
       operationId: besluit_partial_update
       summary: Werk een BESLUIT deels bij.
@@ -495,236 +503,241 @@ paths:
         \ hebben.\n- `datum` in het verleden of nu\n- publicatie `besluittype` - `concept`\
         \ moet `false` zijn"
       parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
-        $ref: '#/components/requestBodies/Besluit'
+        $ref: "#/components/requestBodies/Besluit"
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Besluit'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.bijwerken
+        - JWT-Claims:
+            - besluiten.bijwerken
     delete:
       operationId: besluit_delete
       summary: Verwijder een BESLUIT.
-      description: 'Verwijder een BESLUIT samen met alle gerelateerde resources binnen
-        deze API.
+      description: "Verwijder een BESLUIT samen met alle gerelateerde resources binnen deze API.
 
 
         **De gerelateerde resources zijn**
 
         - `BESLUITINFORMATIEOBJECT`
 
-        - audit trail regels'
+        - audit trail regels"
       parameters:
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       responses:
-        '204':
+        "204":
           description: No content
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluiten
+        - besluiten
       security:
-      - JWT-Claims:
-        - besluiten.verwijderen
+        - JWT-Claims:
+            - besluiten.verwijderen
     parameters:
-    - name: uuid
-      in: path
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
   /besluitinformatieobjecten:
     get:
       operationId: besluitinformatieobject_list
       summary: Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.
       description: Deze lijst kan gefilterd wordt met query-string parameters.
       parameters:
-      - name: besluit
-        in: query
-        description: URL-referentie naar het BESLUIT.
-        required: false
-        schema:
-          type: string
-          format: uri
-      - name: informatieobject
-        in: query
-        description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten API)
-          waarin (een deel van) het besluit beschreven is.
-        required: false
-        schema:
-          type: string
-          format: uri
+        - name: besluit
+          in: query
+          description: URL-referentie naar het BESLUIT.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: informatieobject
+          in: query
+          description:
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van)
+            het besluit beschreven is.
+          required: false
+          schema:
+            type: string
+            format: uri
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/BesluitInformatieObject'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                  $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     post:
       operationId: besluitinformatieobject_create
       summary: Maak een BESLUIT-INFORMATIEOBJECT relatie aan.
       description: "Registreer een INFORMATIEOBJECT bij een BESLUIT. Er worden twee\
         \ types van\nrelaties met andere objecten gerealiseerd:\n\n**Er wordt gevalideerd\
         \ op**\n- geldigheid `besluit` URL\n- geldigheid `informatieobject` URL\n\
-        - de combinatie `informatieobject` en `besluit` moet uniek zijn\n- `informatieobject.informatieobjecttype`\
+        - de combinatie `informatieobject` en `besluit` moet uniek zijn\n-
+        `informatieobject.informatieobjecttype`\
         \ moet in het ZTC gerelateerd zijn\n    aan `besluit.besluittype`\n\n**Opmerkingen**\n\
         - De `registratiedatum` wordt door het systeem op 'NU' gezet. De\n  `aardRelatie`\
         \ wordt ook door het systeem gezet.\n- Bij het aanmaken wordt ook in de Documenten\
         \ API de gespiegelde relatie\n  aangemaakt, echter zonder de relatie-informatie."
       parameters:
-      - name: Content-Type
-        in: header
-        description: Content type van de verzoekinhoud.
-        required: true
-        schema:
-          type: string
-          enum:
-          - application/json
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BesluitInformatieObject'
+              $ref: "#/components/schemas/BesluitInformatieObject"
         required: true
       responses:
-        '201':
+        "201":
           description: Created
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
             Location:
               schema:
                 type: string
@@ -733,30 +746,30 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitInformatieObject'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.aanmaken
+        - JWT-Claims:
+            - besluiten.aanmaken
     parameters: []
   /besluitinformatieobjecten/{uuid}:
     get:
@@ -764,245 +777,258 @@ paths:
       summary: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
       description: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
       responses:
-        '200':
+        "200":
           description: OK
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitInformatieObject'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.lezen
+        - JWT-Claims:
+            - besluiten.lezen
     delete:
       operationId: besluitinformatieobject_delete
       summary: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
       description: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
       parameters:
-      - name: X-NLX-Logrecord-ID
-        in: header
-        description: Identifier of the request, traceable throughout the network
-        required: false
-        schema:
-          type: string
-      - name: X-Audit-Toelichting
-        in: header
-        description: Toelichting waarom een bepaald verzoek wordt gedaan
-        required: false
-        schema:
-          type: string
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
       responses:
-        '204':
+        "204":
           description: No content
           headers:
             API-version:
               schema:
                 type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '406':
-          $ref: '#/components/responses/406'
-        '409':
-          $ref: '#/components/responses/409'
-        '410':
-          $ref: '#/components/responses/410'
-        '415':
-          $ref: '#/components/responses/415'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
+              description:
+                "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+                Voorbeeld: 1.2.1."
+        "401":
+          $ref: "#/components/responses/401"
+        "403":
+          $ref: "#/components/responses/403"
+        "404":
+          $ref: "#/components/responses/404"
+        "406":
+          $ref: "#/components/responses/406"
+        "409":
+          $ref: "#/components/responses/409"
+        "410":
+          $ref: "#/components/responses/410"
+        "415":
+          $ref: "#/components/responses/415"
+        "429":
+          $ref: "#/components/responses/429"
+        "500":
+          $ref: "#/components/responses/500"
       tags:
-      - besluitinformatieobjecten
+        - besluitinformatieobjecten
       security:
-      - JWT-Claims:
-        - besluiten.verwijderen
+        - JWT-Claims:
+            - besluiten.verwijderen
     parameters:
-    - name: uuid
-      in: path
-      description: Unieke resource identifier (UUID4)
-      required: true
-      schema:
-        type: string
-        format: uuid
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
+        required: true
+        schema:
+          type: string
+          format: uuid
 tags:
-- name: besluiten
-  description: ''
-- name: besluitinformatieobjecten
-  description: ''
+  - name: besluiten
+    description: ""
+  - name: besluitinformatieobjecten
+    description: ""
 servers:
-- url: /api/v1
+  - url: /api/v1
 components:
   responses:
-    '400':
+    "400":
       description: Bad request
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/ValidatieFout'
-    '401':
+            $ref: "#/components/schemas/ValidatieFout"
+    "401":
       description: Unauthorized
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '403':
+            $ref: "#/components/schemas/Fout"
+    "403":
       description: Forbidden
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '404':
+            $ref: "#/components/schemas/Fout"
+    "404":
       description: Not found
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '406':
+            $ref: "#/components/schemas/Fout"
+    "406":
       description: Not acceptable
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '409':
+            $ref: "#/components/schemas/Fout"
+    "409":
       description: Conflict
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '410':
+            $ref: "#/components/schemas/Fout"
+    "410":
       description: Gone
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '412':
+            $ref: "#/components/schemas/Fout"
+    "412":
       description: Precondition failed
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '415':
+            $ref: "#/components/schemas/Fout"
+    "415":
       description: Unsupported media type
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '429':
+            $ref: "#/components/schemas/Fout"
+    "429":
       description: Too many requests
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
-    '500':
+            $ref: "#/components/schemas/Fout"
+    "500":
       description: Internal server error
       headers:
         API-version:
           schema:
             type: string
-          description: 'Geeft een specifieke API-versie aan in de context van een
-            specifieke aanroep. Voorbeeld: 1.2.1.'
+          description:
+            "Geeft een specifieke API-versie aan in de context van een specifieke aanroep.
+            Voorbeeld: 1.2.1."
       content:
         application/problem+json:
           schema:
-            $ref: '#/components/schemas/Fout'
+            $ref: "#/components/schemas/Fout"
   requestBodies:
     Besluit:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Besluit'
+            $ref: "#/components/schemas/Besluit"
       required: true
   securitySchemes:
     JWT-Claims:
@@ -1012,16 +1038,17 @@ components:
   schemas:
     Besluit:
       required:
-      - verantwoordelijkeOrganisatie
-      - besluittype
-      - datum
-      - ingangsdatum
+        - verantwoordelijkeOrganisatie
+        - besluittype
+        - datum
+        - ingangsdatum
       type: object
       properties:
         url:
           title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit
+            object.
           type: string
           format: uri
           readOnly: true
@@ -1029,15 +1056,16 @@ components:
           minLength: 1
         identificatie:
           title: Identificatie
-          description: Identificatie van het besluit binnen de organisatie die het
-            besluit heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die
-            gegenereerd.
+          description:
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld.
+            Indien deze niet opgegeven is, dan wordt die gegenereerd.
           type: string
           maxLength: 50
         verantwoordelijkeOrganisatie:
           title: Verantwoordelijke organisatie
-          description: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie
-            die het besluit heeft vastgesteld.
+          description:
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft
+            vastgesteld.
           type: string
           maxLength: 9
           minLength: 1
@@ -1050,8 +1078,8 @@ components:
           minLength: 1
         zaak:
           title: Zaak
-          description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
-            uitkomst is.
+          description:
+            URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit uitkomst is.
           type: string
           format: uri
           maxLength: 200
@@ -1066,9 +1094,10 @@ components:
           type: string
         bestuursorgaan:
           title: Bestuursorgaan
-          description: Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld
-            of een persoon of college, met enig openbaar gezag bekleed onder wiens
-            verantwoordelijkheid het besluit vastgesteld is.
+          description:
+            Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld of een persoon of
+            college, met enig openbaar gezag bekleed onder wiens verantwoordelijkheid het besluit
+            vastgesteld is.
           type: string
           maxLength: 50
         ingangsdatum:
@@ -1084,8 +1113,8 @@ components:
           nullable: true
         vervalreden:
           title: Vervalreden
-          description: 'De omschrijving die aangeeft op grond waarvan het besluit
-            is of komt te vervallen.
+          description: "De omschrijving die aangeeft op grond waarvan het besluit is of komt te
+            vervallen.
 
 
             Uitleg bij mogelijke waarden:
@@ -1095,12 +1124,12 @@ components:
 
             * `ingetrokken_overheid` - Besluit ingetrokken door overheid
 
-            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende'
+            * `ingetrokken_belanghebbende` - Besluit ingetrokken o.v.v. belanghebbende"
           type: string
           enum:
-          - tijdelijk
-          - ingetrokken_overheid
-          - ingetrokken_belanghebbende
+            - tijdelijk
+            - ingetrokken_overheid
+            - ingetrokken_belanghebbende
         vervalredenWeergave:
           title: Vervalreden weergave
           type: string
@@ -1126,11 +1155,11 @@ components:
           nullable: true
     Fout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
+        - code
+        - title
+        - status
+        - detail
+        - instance
       type: object
       properties:
         type:
@@ -1158,15 +1187,16 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
     FieldValidationError:
       required:
-      - name
-      - code
-      - reason
+        - name
+        - code
+        - reason
       type: object
       properties:
         name:
@@ -1186,12 +1216,12 @@ components:
           minLength: 1
     ValidatieFout:
       required:
-      - code
-      - title
-      - status
-      - detail
-      - instance
-      - invalidParams
+        - code
+        - title
+        - status
+        - detail
+        - instance
+        - invalidParams
       type: object
       properties:
         type:
@@ -1219,21 +1249,23 @@ components:
           minLength: 1
         instance:
           title: Instance
-          description: URI met referentie naar dit specifiek voorkomen van de fout.
-            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          description:
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in
+            combinatie met server logs, bijvoorbeeld.
           type: string
           minLength: 1
         invalidParams:
           type: array
           items:
-            $ref: '#/components/schemas/FieldValidationError'
+            $ref: "#/components/schemas/FieldValidationError"
     Wijzigingen:
       type: object
       properties:
         oud:
           title: Oud
-          description: Volledige JSON body van het object zoals dat bestond voordat
-            de actie heeft plaatsgevonden.
+          description:
+            Volledige JSON body van het object zoals dat bestond voordat de actie heeft
+            plaatsgevonden.
           type: object
         nieuw:
           title: Nieuw
@@ -1241,14 +1273,14 @@ components:
           type: object
     AuditTrail:
       required:
-      - bron
-      - actie
-      - resultaat
-      - hoofdObject
-      - resource
-      - resourceUrl
-      - resourceWeergave
-      - wijzigingen
+        - bron
+        - actie
+        - resultaat
+        - hoofdObject
+        - resource
+        - resourceUrl
+        - resourceWeergave
+        - wijzigingen
       type: object
       properties:
         uuid:
@@ -1258,7 +1290,7 @@ components:
           format: uuid
         bron:
           title: Bron
-          description: 'De naam van het component waar de wijziging in is gedaan.
+          description: "De naam van het component waar de wijziging in is gedaan.
 
 
             Uitleg bij mogelijke waarden:
@@ -1280,18 +1312,18 @@ components:
 
             * `kc` - Klanten API
 
-            * `vrc` - Verzoeken API'
+            * `vrc` - Verzoeken API"
           type: string
           enum:
-          - ac
-          - nrc
-          - zrc
-          - ztc
-          - drc
-          - brc
-          - cmc
-          - kc
-          - vrc
+            - ac
+            - nrc
+            - zrc
+            - ztc
+            - drc
+            - brc
+            - cmc
+            - kc
+            - vrc
         applicatieId:
           title: Applicatie id
           description: Unieke identificatie van de applicatie, binnen de organisatie.
@@ -1304,8 +1336,9 @@ components:
           maxLength: 200
         gebruikersId:
           title: Gebruikers id
-          description: Unieke identificatie van de gebruiker die binnen de organisatie
-            herleid kan worden naar een persoon.
+          description:
+            Unieke identificatie van de gebruiker die binnen de organisatie herleid kan worden naar
+            een persoon.
           type: string
           maxLength: 255
         gebruikersWeergave:
@@ -1315,7 +1348,7 @@ components:
           maxLength: 255
         actie:
           title: Actie
-          description: 'De uitgevoerde handeling.
+          description: "De uitgevoerde handeling.
 
 
             De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar
@@ -1335,7 +1368,7 @@ components:
 
             * `update` - Object bijgewerkt
 
-            * `partial_update` - Object deels bijgewerkt'
+            * `partial_update` - Object deels bijgewerkt"
           type: string
           maxLength: 50
           minLength: 1
@@ -1387,17 +1420,18 @@ components:
           format: date-time
           readOnly: true
         wijzigingen:
-          $ref: '#/components/schemas/Wijzigingen'
+          $ref: "#/components/schemas/Wijzigingen"
     BesluitInformatieObject:
       required:
-      - informatieobject
-      - besluit
+        - informatieobject
+        - besluit
       type: object
       properties:
         url:
           title: Url
-          description: URL-referentie naar dit object. Dit is de unieke identificatie
-            en locatie van dit object.
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit
+            object.
           type: string
           format: uri
           readOnly: true
@@ -1405,8 +1439,9 @@ components:
           minLength: 1
         informatieobject:
           title: Informatieobject
-          description: URL-referentie naar het INFORMATIEOBJECT (in de Documenten
-            API) waarin (een deel van) het besluit beschreven is.
+          description:
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van)
+            het besluit beschreven is.
           type: string
           format: uri
           maxLength: 1000

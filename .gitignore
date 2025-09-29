@@ -25,6 +25,7 @@ build/
 __pycache__/
 *.pyc
 .docusaurus/
+docs/v1/api-suite/*/
 
 # Runtime generated logfiles
 # ...

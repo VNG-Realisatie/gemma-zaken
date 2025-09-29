@@ -1,0 +1,62 @@
+{
+  "version.label": {
+    "message": "1.5.1",
+    "description": "The label for version 1.5.1"
+  },
+  "sidebar.apiSidebar.category.API's": {
+    "message": "API's",
+    "description": "The label for category API's in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.API's.link.generated-index.title": {
+    "message": "API Referentie",
+    "description": "The generated-index page title for category API's in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.API's.link.generated-index.description": {
+    "message": "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+    "description": "The generated-index page description for category API's in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API": {
+    "message": "Autorisaties API",
+    "description": "The label for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API.link.generated-index.title": {
+    "message": "Autorisaties API",
+    "description": "The generated-index page title for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.Autorisaties API.link.generated-index.description": {
+    "message": "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
+    "description": "The generated-index page description for category Autorisaties API in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.category.applicaties": {
+    "message": "applicaties",
+    "description": "The label for category applicaties in sidebar apiSidebar"
+  },
+  "sidebar.apiSidebar.doc.Geef een collectie van applicaties, met ingesloten autorisaties.": {
+    "message": "Geef een collectie van applicaties, met ingesloten autorisaties.",
+    "description": "The label for the doc item Geef een collectie van applicaties, met ingesloten autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-list"
+  },
+  "sidebar.apiSidebar.doc.Registreer een applicatie met een bepaalde set van autorisaties.": {
+    "message": "Registreer een applicatie met een bepaalde set van autorisaties.",
+    "description": "The label for the doc item Registreer een applicatie met een bepaalde set van autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-create"
+  },
+  "sidebar.apiSidebar.doc.Vraag een applicatie op, op basis van clientId": {
+    "message": "Vraag een applicatie op, op basis van clientId",
+    "description": "The label for the doc item Vraag een applicatie op, op basis van clientId in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-consumer"
+  },
+  "sidebar.apiSidebar.doc.Vraag een applicatie op, met ingesloten autorisaties.": {
+    "message": "Vraag een applicatie op, met ingesloten autorisaties.",
+    "description": "The label for the doc item Vraag een applicatie op, met ingesloten autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-read"
+  },
+  "sidebar.apiSidebar.doc.Werk de applicatie bij.": {
+    "message": "Werk de applicatie bij.",
+    "description": "The label for the doc item Werk de applicatie bij. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-update"
+  },
+  "sidebar.apiSidebar.doc.Werk (een deel van) de applicatie bij.": {
+    "message": "Werk (een deel van) de applicatie bij.",
+    "description": "The label for the doc item Werk (een deel van) de applicatie bij. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-partial-update"
+  },
+  "sidebar.apiSidebar.doc.Verwijder een applicatie met de bijhorende autorisaties.": {
+    "message": "Verwijder een applicatie met de bijhorende autorisaties.",
+    "description": "The label for the doc item Verwijder een applicatie met de bijhorende autorisaties. in sidebar apiSidebar, linking to the doc api-suite/autorisaties/applicatie-delete"
+  }
+}

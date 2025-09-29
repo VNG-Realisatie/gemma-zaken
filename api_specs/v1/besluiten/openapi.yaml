@@ -1,0 +1,1024 @@
+openapi: 3.0.4
+info:
+  title: Besluiten API
+  version: 1.0.2
+  description: |
+    Een API om een besluitregistratiecomponent (BRC) te benaderen.
+
+    Een BESLUIT wordt veelal schriftelijk vastgelegd maar dit is niet
+    noodzakelijk. Omgekeerd kan het voorkomen dat in een INFORMATIEOBJECT meerdere
+    besluiten vastgelegd zijn. Vandaar de N:M-relatie naar INFORMATIEOBJECT. Een
+    besluit komt voort uit een zaak van de zaakbehandelende organisatie dan wel is
+    een besluit van een andere organisatie dat het onderwerp (object) is van een
+    zaak van de zaakbehandelende organisatie. BESLUIT heeft dan ook een optionele
+    relatie met de ZAAK waarvan het een uitkomst is.
+
+    De typering van BESLUITen is in de Catalogi API (ZTC) ondergebracht in de vorm
+    van BESLUITTYPEn.
+
+    **Afhankelijkheden**
+
+    Deze API is afhankelijk van:
+
+    * Catalogi API
+    * Notificaties API
+    * Documenten API *(optioneel)*
+    * Zaken API *(optioneel)*
+    * Autorisaties API *(optioneel)*
+
+    **Autorisatie**
+
+    Deze API vereist autorisatie. Je kan de
+    [token-tool](https://zaken-auth.vng.cloud/) gebruiken om JWT-tokens te
+    genereren.
+
+    ### Notificaties
+
+    Deze API publiceert notificaties op het kanaal `besluiten`.
+
+    **Main resource**
+
+    `besluit`
+
+    **Kenmerken**
+
+    * `verantwoordelijke_organisatie`: Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft vastgesteld.
+    * `besluittype`: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+
+    **Resources en acties**
+    - `besluit`: create, update, destroy
+
+    **Handige links**
+
+    * [Documentatie](https://vng-realisatie.github.io/gemma-zaken/standaard)
+    * [Zaakgericht werken](https://vng-realisatie.github.io/gemma-zaken)
+  contact:
+    url: https://github.com/VNG-Realisatie/gemma-zaken
+    email: standaarden.ondersteuning@vng.nl
+  license:
+    name: European Union Public Licence (EUPL-1.2)
+    url: https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+servers:
+  - url: https://{host}/{basePath}/v1
+    variables:
+      host:
+        default: example.com
+        description: De hostserver voor de API
+      basePath:
+        default: api
+        description: Het basispad voor de API
+security:
+  - JWT-Claims: []
+paths:
+  /besluiten:
+    get:
+      operationId: besluit_list
+      summary: Alle BESLUITen opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
+      parameters:
+        - name: identificatie
+          in: query
+          description: |
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die gegenereerd.
+          required: false
+          schema:
+            type: string
+        - name: verantwoordelijkeOrganisatie
+          in: query
+          description: |
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft vastgesteld.
+          required: false
+          schema:
+            type: string
+        - name: besluittype
+          in: query
+          description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: zaak
+          in: query
+          description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
+            uitkomst is.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: page
+          in: query
+          description: Een pagina binnen de gepagineerde set resultaten.
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Besluit"
+                required:
+                  - count
+                  - results
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.lezen
+    post:
+      operationId: besluit_create
+      summary: Maak een BESLUIT aan.
+      description: |
+        Indien geen identificatie gegeven is, dan wordt deze automatisch
+        gegenereerd.
+
+        Er wordt gevalideerd op:
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
+        - geldigheid `besluittype` URL - de resource moet opgevraagd kunnen
+          worden uit de Catalogi API en de vorm van een BESLUITTYPE hebben.
+        - geldigheid `zaak` URL - de resource moet opgevraagd kunnen worden
+          uit de Zaken API en de vorm van een ZAAK hebben.
+        - `datum` in het verleden of nu
+        - publicatie `besluittype` - `concept` moet `false` zijn
+      parameters:
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Besluit"
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/LocationHeader'
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.aanmaken
+    parameters: []
+  /besluiten/{besluit_uuid}/audittrail:
+    get:
+      operationId: audittrail_list
+      summary: Alle audit trail regels behorend bij het BESLUIT.
+      description: Alle audit trail regels behorend bij het BESLUIT.
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AuditTrail"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - audittrails.lezen
+    parameters:
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+  /besluiten/{besluit_uuid}/audittrail/{uuid}:
+    get:
+      operationId: audittrail_read
+      summary: Een specifieke audit trail regel opvragen.
+      description: Een specifieke audit trail regel opvragen.
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuditTrail"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - audittrails.lezen
+    parameters:
+      - name: besluit_uuid
+        in: path
+        required: true
+        description: Unieke resource identifier (UUID4)
+        schema:
+          type: string
+          format: uuid
+      - name: uuid
+        in: path
+        description: Unieke identificatie van de audit regel.
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /besluiten/{uuid}:
+    get:
+      operationId: besluit_read
+      summary: Een specifiek BESLUIT opvragen.
+      description: Een specifiek BESLUIT opvragen.
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Besluit"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.lezen
+    put:
+      operationId: besluit_update
+      summary: Werk een BESLUIT in zijn geheel bij.
+      description: |
+        Er wordt gevalideerd op:
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
+        - het `besluittype` mag niet gewijzigd worden
+        - geldigheid `zaak` URL - de resource moet opgevraagd kunnen worden
+          uit de Zaken API en de vorm van een ZAAK hebben.
+        - `datum` in het verleden of nu
+        - publicatie `besluittype` - `concept` moet `false` zijn
+      parameters:
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Besluit"
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.bijwerken
+    patch:
+      operationId: besluit_partial_update
+      summary: Werk een BESLUIT deels bij.
+      description: |
+        Er wordt gevalideerd op:
+        - uniciteit van `verantwoorlijkeOrganisatie` + `identificatie`
+        - geldigheid `verantwoorlijkeOrganisatie` RSIN
+        - het `besluittype` mag niet gewijzigd worden
+        - geldigheid `zaak` URL - de resource moet opgevraagd kunnen worden
+          uit de Zaken API en de vorm van een ZAAK hebben.
+        - `datum` in het verleden of nu
+        - publicatie `besluittype` - `concept` moet `false` zijn
+      parameters:
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Besluit"
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Besluit"
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.bijwerken
+    delete:
+      operationId: besluit_delete
+      summary: Verwijder een BESLUIT.
+      description: |
+        Verwijder een BESLUIT samen met alle gerelateerde resources binnen deze API.
+
+        **De gerelateerde resources zijn**
+        - `BESLUITINFORMATIEOBJECT`
+        - audit trail regels
+      parameters:
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No content
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluiten
+      security:
+        - JWT-Claims:
+            - besluiten.verwijderen
+    parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+  /besluitinformatieobjecten:
+    get:
+      operationId: besluitinformatieobject_list
+      summary: Alle BESLUIT-INFORMATIEOBJECT relaties opvragen.
+      description: Deze lijst kan gefilterd wordt met query-string parameters.
+      parameters:
+        - name: besluit
+          in: query
+          description: URL-referentie naar het BESLUIT.
+          required: false
+          schema:
+            type: string
+            format: uri
+        - name: informatieobject
+          in: query
+          description: |
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van) het besluit beschreven is.
+          required: false
+          schema:
+            type: string
+            format: uri
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluitinformatieobjecten
+      security:
+        - JWT-Claims:
+            - besluiten.lezen
+    post:
+      operationId: besluitinformatieobject_create
+      summary: Maak een BESLUIT-INFORMATIEOBJECT relatie aan.
+      description: |
+        Registreer een INFORMATIEOBJECT bij een BESLUIT. Er worden twee types van
+        relaties met andere objecten gerealiseerd:
+
+        **Er wordt gevalideerd op**
+        - geldigheid `besluit` URL
+        - geldigheid `informatieobject` URL
+        - de combinatie `informatieobject` en `besluit` moet uniek zijn
+        - `informatieobject.informatieobjecttype` moet in het ZTC gerelateerd zijn
+            aan `besluit.besluittype`
+
+        **Opmerkingen**
+        - De `registratiedatum` wordt door het systeem op 'NU' gezet. De
+          `aardRelatie` wordt ook door het systeem gezet.
+        - Bij het aanmaken wordt ook in de Documenten API de gespiegelde relatie
+          aangemaakt, echter zonder de relatie-informatie.
+      parameters:
+        - name: Content-Type
+          in: header
+          description: Content type van de verzoekinhoud.
+          required: true
+          schema:
+            type: string
+            enum:
+              - application/json
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BesluitInformatieObject"
+        required: true
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/LocationHeader'
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        "400":
+          $ref: '#/components/responses/ValidatieFoutResponse'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluitinformatieobjecten
+      security:
+        - JWT-Claims:
+            - besluiten.aanmaken
+    parameters: []
+  /besluitinformatieobjecten/{uuid}:
+    get:
+      operationId: besluitinformatieobject_read
+      summary: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
+      description: Een specifieke BESLUIT-INFORMATIEOBJECT relatie opvragen.
+      responses:
+        "200":
+          description: OK
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BesluitInformatieObject"
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluitinformatieobjecten
+      security:
+        - JWT-Claims:
+            - besluiten.lezen
+    delete:
+      operationId: besluitinformatieobject_delete
+      summary: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
+      description: Verwijder een BESLUIT-INFORMATIEOBJECT relatie.
+      parameters:
+        - name: X-NLX-Logrecord-ID
+          in: header
+          description: Identifier of the request, traceable throughout the network
+          required: false
+          schema:
+            type: string
+        - name: X-Audit-Toelichting
+          in: header
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+          required: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: No content
+          headers:
+            API-Version:
+              $ref: '#/components/headers/ApiVersionHeader'
+        '4XX':
+          $ref: '#/components/responses/FoutResponse'
+        "500":
+          $ref: '#/components/responses/FoutResponse'
+      tags:
+        - besluitinformatieobjecten
+      security:
+        - JWT-Claims:
+            - besluiten.verwijderen
+    parameters:
+      - name: uuid
+        in: path
+        description: Unieke resource identifier (UUID4)
+        required: true
+        schema:
+          type: string
+          format: uuid
+components:
+  responses:
+    FoutResponse:
+      description: Fout - fout
+      headers:
+        API-Version:
+          $ref: '#/components/headers/ApiVersionHeader'
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Fout"
+    ValidatieFoutResponse:
+      description: ValidatieFout - validatiefout
+      headers:
+        API-Version:
+          $ref: '#/components/headers/ApiVersionHeader'
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/ValidatieFout"
+  requestBodies:
+    Besluit:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Besluit"
+      required: true
+  securitySchemes:
+    JWT-Claims:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Besluit:
+      type: object
+      properties:
+        url:
+          description: |
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        identificatie:
+          description: |
+            Identificatie van het besluit binnen de organisatie die het besluit heeft vastgesteld. Indien deze niet opgegeven is, dan wordt die gegenereerd.
+          type: string
+          maxLength: 50
+        verantwoordelijkeOrganisatie:
+          description: |
+            Het RSIN van de niet-natuurlijk persoon zijnde de organisatie die het besluit heeft vastgesteld.
+          type: string
+          maxLength: 9
+          minLength: 1
+        besluittype:
+          description: URL-referentie naar het BESLUITTYPE (in de Catalogi API).
+          type: string
+          format: uri
+          maxLength: 200
+          minLength: 1
+        zaak:
+          description: URL-referentie naar de ZAAK (in de Zaken API) waarvan dit besluit
+            uitkomst is.
+          type: string
+          format: uri
+          maxLength: 200
+        datum:
+          description: De beslisdatum (AWB) van het besluit.
+          type: string
+          format: date
+        toelichting:
+          description: Toelichting bij het besluit.
+          type: string
+        bestuursorgaan:
+          description: |
+            Een orgaan van een rechtspersoon krachtens publiekrecht ingesteld of een persoon of college, met enig openbaar gezag bekleed onder wiens verantwoordelijkheid het besluit vastgesteld is.
+          type: string
+          maxLength: 50
+        ingangsdatum:
+          description: Ingangsdatum van de werkingsperiode van het besluit.
+          type: string
+          format: date
+        vervaldatum:
+          description: Datum waarop de werkingsperiode van het besluit eindigt.
+          type: string
+          format: date
+          nullable: true
+        vervalreden:
+          description: |-
+            De omschrijving die aangeeft op grond waarvan het besluit is of komt te vervallen.
+          type: string
+          enum:
+            - tijdelijk
+            - ingetrokken_overheid
+            - ingetrokken_belanghebbende
+          x-enumDescriptions:
+            tijdelijk: Besluit met tijdelijke werking
+            ingetrokken_overheid: Besluit ingetrokken door overheid
+            ingetrokken_belanghebbende: Besluit ingetrokken o.v.v. belanghebbende
+        vervalredenWeergave:
+          type: string
+          readOnly: true
+          minLength: 1
+        publicatiedatum:
+          description: Datum waarop het besluit gepubliceerd wordt.
+          type: string
+          format: date
+          nullable: true
+        verzenddatum:
+          description: Datum waarop het besluit verzonden is.
+          type: string
+          format: date
+          nullable: true
+        uiterlijkeReactiedatum:
+          description: De datum tot wanneer verweer tegen het besluit mogelijk is.
+          type: string
+          format: date
+          nullable: true
+      required:
+        - verantwoordelijkeOrganisatie
+        - besluittype
+        - datum
+        - ingangsdatum
+    Fout:
+      type: object
+      properties:
+        title:
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        type:
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        status:
+          description: De HTTP status code
+          type: integer
+        detail:
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          description: |
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+      required:
+        - code
+        - title
+        - status
+        - detail
+        - instance
+    FieldValidationError:
+      type: object
+      properties:
+        name:
+          description: Naam van het veld met ongeldige gegevens
+          type: string
+          minLength: 1
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        reason:
+          description: Uitleg wat er precies fout is met de gegevens
+          type: string
+          minLength: 1
+      required:
+        - name
+        - code
+        - reason
+    ValidatieFout:
+      type: object
+      properties:
+        title:
+          description: Generieke titel voor het type fout
+          type: string
+          minLength: 1
+        type:
+          description: URI referentie naar het type fout, bedoeld voor developers
+          type: string
+        code:
+          description: Systeemcode die het type fout aangeeft
+          type: string
+          minLength: 1
+        status:
+          description: De HTTP status code
+          type: integer
+        detail:
+          description: Extra informatie bij de fout, indien beschikbaar
+          type: string
+          minLength: 1
+        instance:
+          description: |
+            URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+          type: string
+          minLength: 1
+        invalidParams:
+          type: array
+          items:
+            $ref: "#/components/schemas/FieldValidationError"
+      required:
+        - code
+        - title
+        - status
+        - detail
+        - instance
+        - invalidParams
+    Wijzigingen:
+      type: object
+      properties:
+        oud:
+          description: |
+            Volledige JSON body van het object zoals dat bestond voordat de actie heeft plaatsgevonden.
+          type: object
+        nieuw:
+          description: Volledige JSON body van het object na de actie.
+          type: object
+    AuditTrail:
+      type: object
+      properties:
+        uuid:
+          description: Unieke identificatie van de audit regel.
+          type: string
+          format: uuid
+        bron:
+          description: |-
+            De naam van het component waar de wijziging in is gedaan.
+          type: string
+          enum:
+            - ac
+            - nrc
+            - zrc
+            - ztc
+            - drc
+            - brc
+            - cmc
+            - kc
+            - vrc
+          x-enumDescriptions:
+            ac: Autorisaties API
+            nrc: Notificaties API
+            zrc: Zaken API
+            ztc: Catalogi API
+            drc: Documenten API
+            brc: Besluiten API
+            cmc: Contactmomenten API
+            kc: Klanten API
+            vrc: Verzoeken API
+        applicatieId:
+          description: Unieke identificatie van de applicatie, binnen de organisatie.
+          type: string
+          maxLength: 100
+        applicatieWeergave:
+          description: Vriendelijke naam van de applicatie.
+          type: string
+          maxLength: 200
+        gebruikersId:
+          description: |
+            Unieke identificatie van de gebruiker die binnen de organisatie herleid kan worden naar een persoon.
+          type: string
+          maxLength: 255
+        gebruikersWeergave:
+          description: Vriendelijke naam van de gebruiker.
+          type: string
+          maxLength: 255
+        actie:
+          description: |
+            De uitgevoerde handeling.
+
+            De bekende waardes voor dit veld zijn hieronder aangegeven,                         maar andere waardes zijn ook toegestaan
+
+            Uitleg bij mogelijke waarden:
+
+            * `create` - Object aangemaakt
+            * `list` - Lijst van objecten opgehaald
+            * `retrieve` - Object opgehaald
+            * `destroy` - Object verwijderd
+            * `update` - Object bijgewerkt
+            * `partial_update` - Object deels bijgewerkt
+          type: string
+          maxLength: 50
+          minLength: 1
+        actieWeergave:
+          description: Vriendelijke naam van de actie.
+          type: string
+          maxLength: 200
+        resultaat:
+          description: HTTP status code van de API response van de uitgevoerde handeling.
+          type: integer
+          maximum: 599
+          minimum: 100
+        hoofdObject:
+          description: De URL naar het hoofdobject van een component.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        resource:
+          description: Het type resource waarop de actie gebeurde.
+          type: string
+          maxLength: 50
+          minLength: 1
+        resourceUrl:
+          description: De URL naar het object.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        toelichting:
+          description: Toelichting waarom de handeling is uitgevoerd.
+          type: string
+        resourceWeergave:
+          description: Vriendelijke identificatie van het object.
+          type: string
+          maxLength: 200
+          minLength: 1
+        aanmaakdatum:
+          description: De datum waarop de handeling is gedaan.
+          type: string
+          format: date-time
+          readOnly: true
+        wijzigingen:
+          $ref: "#/components/schemas/Wijzigingen"
+      required:
+        - bron
+        - actie
+        - resultaat
+        - hoofdObject
+        - resource
+        - resourceUrl
+        - resourceWeergave
+        - wijzigingen
+    BesluitInformatieObject:
+      type: object
+      properties:
+        url:
+          description: |
+            URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+          type: string
+          format: uri
+          readOnly: true
+          maxLength: 1000
+          minLength: 1
+        informatieobject:
+          description: |
+            URL-referentie naar het INFORMATIEOBJECT (in de Documenten API) waarin (een deel van) het besluit beschreven is.
+          type: string
+          format: uri
+          maxLength: 1000
+          minLength: 1
+        besluit:
+          description: URL-referentie naar het BESLUIT.
+          type: string
+          format: uri
+      required:
+        - informatieobject
+        - besluit
+  headers:
+    ApiVersionHeader:
+      schema:
+        type: string
+      description: |
+        Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1.
+    LocationHeader:
+      schema:
+        type: string
+        format: uri
+      description: URL waar de resource leeft.
+tags:
+  - name: besluiten
+    description: ""
+  - name: besluitinformatieobjecten
+    description: ""
