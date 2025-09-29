@@ -1,4 +1,3 @@
-
 from typing import Dict, Any
 import logging
 from ..cleaner import Cleaner
@@ -17,6 +16,46 @@ class DoubleAllOfPropertiesCleaner(Cleaner):
             root_spec = spec
 
         if isinstance(spec, dict):
+
+            # New case: if the schema only has allOf, and one of the allOf items defines schema keywords directly
+            # (e.g., properties, required, description), lift those to the parent schema level and remove that item.
+            if set(spec.keys()) == {'allOf'} and isinstance(spec.get('allOf'), list):
+                allowed_lift_keys = {
+                    'properties', 'required', 'type', 'description', 'title', 'deprecated', 'readOnly', 'writeOnly',
+                    'nullable', 'default', 'example', 'examples', 'format', 'enum', 'multipleOf', 'maximum',
+                    'exclusiveMaximum', 'minimum', 'exclusiveMinimum', 'maxLength', 'minLength', 'pattern', 'maxItems',
+                    'minItems', 'uniqueItems', 'maxProperties', 'minProperties', 'additionalProperties'
+                }
+                lifted_parent: Dict[str, Any] = {}
+                remaining_allof = []
+                for item in spec['allOf']:
+                    if isinstance(item, dict) and set(item.keys()).issubset(allowed_lift_keys):
+                        # Merge properties
+                        if 'properties' in item and isinstance(item['properties'], dict) and item['properties']:
+                            lifted_parent.setdefault('properties', {})
+                            lifted_parent['properties'].update(item['properties'])
+                        # Merge required
+                        if 'required' in item and isinstance(item['required'], list):
+                            lifted_parent.setdefault('required', [])
+                            for r in item['required']:
+                                if r not in lifted_parent['required']:
+                                    lifted_parent['required'].append(r)
+                        # Copy over other scalar/schema keywords if not already set
+                        for key in allowed_lift_keys - {'properties', 'required'}:
+                            if key in item and key not in lifted_parent:
+                                lifted_parent[key] = deepcopy(item[key])
+                        # Count and skip adding this item back to allOf
+                        self.stats.counts['double_allof_properties_merged'] += 1
+                        continue
+                    remaining_allof.append(item)
+
+                if lifted_parent:
+                    for k, v in lifted_parent.items():
+                        spec[k] = deepcopy(v)
+                    if remaining_allof:
+                        spec['allOf'] = remaining_allof
+                    else:
+                        del spec['allOf']
 
             if 'allOf' in spec and len(spec['allOf']) > 1 and 'properties' in spec:
 
