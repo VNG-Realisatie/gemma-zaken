@@ -144,18 +144,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/BestandsDeelResponse"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten:
     get:
       operationId: enkelvoudiginformatieobject_list
@@ -214,18 +214,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedEnkelvoudigInformatieObjectList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: enkelvoudiginformatieobject_create
       description: |-
@@ -268,20 +268,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/EnkelvoudigInformatieObjectCreateLock"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail:
     get:
       operationId: audittrail_list
@@ -303,7 +303,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -311,10 +311,10 @@ paths:
                 items:
                   $ref: "#/components/schemas/AuditTrail"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_retrieve
@@ -343,16 +343,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/AuditTrail"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/{uuid}:
     get:
       operationId: enkelvoudiginformatieobject_retrieve
@@ -408,18 +408,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/EnkelvoudigInformatieObjectExpanded"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: enkelvoudiginformatieobject_update
       description: |
@@ -470,18 +470,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/EnkelvoudigInformatieObjectWithLock"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: enkelvoudiginformatieobject_partial_update
       description: |
@@ -531,18 +531,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/EnkelvoudigInformatieObjectWithLock"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: enkelvoudiginformatieobject_destroy
       description: |
@@ -580,11 +580,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: enkelvoudiginformatieobject_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -617,9 +617,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /enkelvoudiginformatieobjecten/{uuid}/download:
     get:
@@ -654,17 +654,17 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/octet-stream:
               schema:
                 type: string
                 format: binary
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/{uuid}/lock:
     post:
       operationId: enkelvoudiginformatieobject_lock
@@ -696,18 +696,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/LockEnkelvoudigInformatieObject"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/{uuid}/unlock:
     post:
       operationId: enkelvoudiginformatieobject_unlock
@@ -744,14 +744,14 @@ paths:
         "204":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: No content
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /enkelvoudiginformatieobjecten/_zoek:
     post:
       operationId: enkelvoudiginformatieobject__zoek
@@ -787,18 +787,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedEnkelvoudigInformatieObjectList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /gebruiksrechten:
     get:
       operationId: gebruiksrechten_list
@@ -844,32 +844,28 @@ paths:
           required: false
           in: query
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           schema:
             type: string
         - name: einddatum__lte
           required: false
           in: query
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           schema:
             type: string
         - name: einddatum__gt
           required: false
           in: query
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           schema:
             type: string
         - name: einddatum__gte
           required: false
           in: query
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           schema:
             type: string
         - name: expand
@@ -888,7 +884,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -897,11 +893,11 @@ paths:
                   $ref: "#/components/schemas/GebruiksrechtenExpanded"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: gebruiksrechten_create
       description: |-
@@ -943,20 +939,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Gebruiksrechten"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /gebruiksrechten/{uuid}:
     get:
       operationId: gebruiksrechten_retrieve
@@ -1000,18 +996,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/GebruiksrechtenExpanded"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: gebruiksrechten_update
       description: Werk een GEBRUIKSRECHT in zijn geheel bij.
@@ -1057,18 +1053,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Gebruiksrechten"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: gebruiksrechten_partial_update
       description: Werk een GEBRUIKSRECHT relatie deels bij.
@@ -1113,18 +1109,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Gebruiksrechten"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: gebruiksrechten_destroy
       description: |2-
@@ -1160,11 +1156,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: gebruiksrechten_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1198,9 +1194,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /objectinformatieobjecten:
     get:
@@ -1232,7 +1228,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -1241,11 +1237,11 @@ paths:
                   $ref: "#/components/schemas/InformatieObjectObject"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: objectinformatieobject_create
       description: |
@@ -1275,20 +1271,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/InformatieObjectObject"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /objectinformatieobjecten/{uuid}:
     get:
       operationId: objectinformatieobject_retrieve
@@ -1325,18 +1321,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/InformatieObjectObject"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: objectinformatieobject_destroy
       description: |
@@ -1360,11 +1356,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: objectinformatieobject_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1397,9 +1393,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /verzendingen:
     get:
@@ -1452,18 +1448,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedVerzendingList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: verzending_create
       description: Voeg VERZENDINGen toe voor een INFORMATIEOBJECT en een BETROKKENE.
@@ -1489,20 +1485,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Verzending"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /verzendingen/{uuid}:
     get:
       operationId: verzending_retrieve
@@ -1543,18 +1539,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/VerzendingExpanded"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: verzending_update
       description: Werk een VERZENDING in zijn geheel bij.
@@ -1587,18 +1583,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Verzending"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: verzending_partial_update
       description: Werk een VERZENDING relatie deels bij.
@@ -1630,18 +1626,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Verzending"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: verzending_destroy
       description: Verwijder een VERZENDING.
@@ -1661,11 +1657,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: verzending_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1698,16 +1694,16 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
 components:
   responses:
     FoutResponse:
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
@@ -1716,7 +1712,7 @@ components:
     ValidatieFoutResponse:
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
@@ -2309,8 +2305,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -2347,8 +2342,7 @@ components:
             - $ref: "#/components/schemas/Integriteit"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           maxLength: 200
@@ -2498,8 +2492,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -2536,8 +2529,7 @@ components:
             - $ref: "#/components/schemas/Integriteit"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           maxLength: 200
@@ -2677,8 +2669,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -2715,8 +2706,7 @@ components:
             - $ref: "#/components/schemas/IntegriteitRequest"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           minLength: 1
@@ -2852,8 +2842,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -2890,8 +2879,7 @@ components:
             - $ref: "#/components/schemas/Integriteit"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           maxLength: 200
@@ -3025,8 +3013,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -3063,8 +3050,7 @@ components:
             - $ref: "#/components/schemas/IntegriteitRequest"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           minLength: 1
@@ -3095,7 +3081,8 @@ components:
     EnkelvoudigInformatieObjectExpanded:
       allOf:
         - $ref: "#/components/schemas/EnkelvoudigInformatieObject"
-        - properties:
+        - type: object
+          properties:
             _expand:
               $ref: "#/components/schemas/EnkelvoudigInformatieObjectEmbedded"
     EnkelvoudigInformatieObjectEmbedded:
@@ -3103,7 +3090,7 @@ components:
       properties:
         informatieobjecttype:
           $ref: >-
-            https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType
+            ../catalogi/openapi.yaml#/components/schemas/InformatieObjectType
     FieldValidationError:
       description: Formaat van validatiefouten.
       type: object
@@ -3173,8 +3160,7 @@ components:
         einddatum:
           title: Startdatum
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           type: string
           format: date-time
           nullable: true
@@ -3213,8 +3199,7 @@ components:
         einddatum:
           title: Startdatum
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           type: string
           format: date-time
           nullable: true
@@ -3468,8 +3453,7 @@ components:
           minimum: 0
           nullable: true
         link:
-          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
-            is.
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
           type: string
           format: uri
           maxLength: 200
@@ -3506,8 +3490,7 @@ components:
             - $ref: "#/components/schemas/IntegriteitRequest"
           nullable: true
         informatieobjecttype:
-          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
-            API).
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API).
           type: string
           format: uri
           minLength: 1
@@ -3533,8 +3516,7 @@ components:
         einddatum:
           title: Startdatum
           description: >-
-            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing
-            zijn.
+            Einddatum van de periode waarin de gebruiksrechtvoorwaarden van toepassing zijn.
           type: string
           format: date-time
           nullable: true
@@ -3991,4 +3973,4 @@ tags:
   - name: verzendingen
     description: Opvragen en bewerken van VERZENDINGen.
   - name: bestandsdelen
-    description: 'TODO: voeg beschrijving toe'
+    description: "TODO: voeg beschrijving toe"

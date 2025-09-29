@@ -109,18 +109,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedKlantContactList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: klantcontact_create
       description: |
@@ -163,20 +163,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/KlantContact"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /klantcontacten/{uuid}:
     get:
       operationId: klantcontact_retrieve
@@ -203,16 +203,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/KlantContact"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /resultaten:
     get:
       operationId: resultaat_list
@@ -248,18 +248,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedResultaatList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: resultaat_create
       description: |
@@ -301,20 +301,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Resultaat"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /resultaten/{uuid}:
     get:
       operationId: resultaat_retrieve
@@ -350,18 +350,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Resultaat"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: resultaat_update
       description: |
@@ -410,18 +410,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Resultaat"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: resultaat_partial_update
       description: |
@@ -469,18 +469,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Resultaat"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: resultaat_destroy
       description: Verwijder een RESULTAAT van een ZAAK.
@@ -513,11 +513,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: resultaat_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -549,9 +549,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /rollen:
     get:
@@ -595,8 +595,8 @@ paths:
         - name: betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie
           required: false
           in: query
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NATUURLIJK PERSOON
           schema:
             type: string
         - name: betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer
@@ -640,8 +640,7 @@ paths:
         - name: roltype
           required: false
           in: query
-          description: URL-referentie naar een roltype binnen het ZAAKTYPE van de
-            ZAAK.
+          description: URL-referentie naar een roltype binnen het ZAAKTYPE van de ZAAK.
           schema:
             type: string
             format: uri
@@ -654,8 +653,8 @@ paths:
         - name: omschrijvingGeneriek
           required: false
           in: query
-          description: Algemeen gehanteerde benaming van de aard van de ROL, afgeleid
-            uit het ROLTYPE.
+          description:
+            Algemeen gehanteerde benaming van de aard van de ROL, afgeleid uit het ROLTYPE.
           schema:
             type: string
             enum:
@@ -682,18 +681,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedRolList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: rol_create
       description: Maak een ROL aan bij een ZAAK.
@@ -732,20 +731,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/RolVariant"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /rollen/{uuid}:
     get:
       operationId: rol_retrieve
@@ -781,18 +780,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/RolVariant"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: rol_destroy
       description: Verwijder een ROL van een ZAAK.
@@ -825,11 +824,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: rol_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -861,9 +860,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /statussen:
     get:
@@ -907,18 +906,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedStatusList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: status_create
       description: |
@@ -964,20 +963,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/StatusRequestbody"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /statussen/{uuid}:
     get:
       operationId: status_retrieve
@@ -1013,18 +1012,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Status"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: status_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1056,9 +1055,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /zaakcontactmomenten:
     get:
@@ -1076,8 +1075,7 @@ paths:
         - name: contactmoment
           required: false
           in: query
-          description: URL-referentie naar het CONTACTMOMENT (in de Klantinteractie
-            API)
+          description: URL-referentie naar het CONTACTMOMENT (in de Klantinteractie API)
           schema:
             type: string
             format: uri
@@ -1090,7 +1088,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -1099,11 +1097,11 @@ paths:
                   $ref: "#/components/schemas/ZaakContactMoment"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakcontactmoment_create
       description: |
@@ -1144,20 +1142,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakContactMoment"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaakcontactmomenten/{uuid}:
     get:
       operationId: zaakcontactmoment_retrieve
@@ -1180,16 +1178,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakContactMoment"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakcontactmoment_destroy
       description: Verwijder een ZAAKCONTACTMOMENT.
@@ -1222,11 +1220,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaakinformatieobjecten:
     get:
       operationId: zaakinformatieobject_list
@@ -1257,7 +1255,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -1266,11 +1264,11 @@ paths:
                   $ref: "#/components/schemas/ZaakInformatieObject"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakinformatieobject_create
       description: |
@@ -1320,20 +1318,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakInformatieObject"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaakinformatieobjecten/{uuid}:
     get:
       operationId: zaakinformatieobject_retrieve
@@ -1369,18 +1367,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakInformatieObject"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: zaakinformatieobject_update
       description: |
@@ -1430,18 +1428,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakInformatieObject"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: zaakinformatieobject_partial_update
       description: |
@@ -1490,18 +1488,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakInformatieObject"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakinformatieobject_destroy
       description: |
@@ -1535,11 +1533,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: zaakinformatieobject_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1571,9 +1569,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /zaakobjecten:
     get:
@@ -1649,18 +1647,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedZaakObjectList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakobject_create
       description: |
@@ -1704,20 +1702,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakObjectVariant"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaakobjecten/{uuid}:
     get:
       operationId: zaakobject_retrieve
@@ -1753,18 +1751,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakObjectVariant"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: zaakobject_update
       description: |
@@ -1803,18 +1801,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakObjectVariant"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: zaakobject_partial_update
       description: |
@@ -1852,18 +1850,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakObjectVariant"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakobject_destroy
       description: |
@@ -1887,11 +1885,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: zaakobject_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -1923,9 +1921,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /zaakverzoeken:
     get:
@@ -1956,7 +1954,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -1965,11 +1963,11 @@ paths:
                   $ref: "#/components/schemas/ZaakVerzoek"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakverzoek_create
       description: |
@@ -2010,20 +2008,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakVerzoek"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaakverzoeken/{uuid}:
     get:
       operationId: zaakverzoek_retrieve
@@ -2046,16 +2044,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakVerzoek"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakverzoek_destroy
       description: Verwijder een ZAAK-VERZOEK.
@@ -2088,11 +2086,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken:
     get:
       operationId: zaak_list
@@ -2307,8 +2305,8 @@ paths:
         - name: einddatumGepland
           required: false
           in: query
-          description: De datum waarop volgens de planning verwacht wordt dat de zaak
-            afgerond wordt.
+          description:
+            De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.
           schema:
             type: string
             example: "2022-01-02"
@@ -2337,16 +2335,14 @@ paths:
         - name: uiterlijkeEinddatumAfdoening__gt
           required: false
           in: query
-          description: De uiterlijke einddatumafdoening is groter dan de opgegeven
-            datum.
+          description: De uiterlijke einddatumafdoening is groter dan de opgegeven datum.
           schema:
             type: string
             example: "2023-01-02"
         - name: uiterlijkeEinddatumAfdoening__lt
           required: false
           in: query
-          description: De uiterlijke einddatumafdoening is kleiner dan de opgegeven
-            datum.
+          description: De uiterlijke einddatumafdoening is kleiner dan de opgegeven datum.
           schema:
             type: string
             example: "2025-01-02"
@@ -2374,8 +2370,8 @@ paths:
         - name: rol__omschrijvingGeneriek
           required: false
           in: query
-          description: Algemeen gehanteerde benaming van de aard van de ROL, afgeleid
-            uit het ROLTYPE.
+          description:
+            Algemeen gehanteerde benaming van de aard van de ROL, afgeleid uit het ROLTYPE.
           schema:
             type: string
             enum:
@@ -2417,8 +2413,8 @@ paths:
         - name: rol__betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie
           required: false
           in: query
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NATUURLIJK PERSOON
           schema:
             type: string
             maxLength: 17
@@ -2477,7 +2473,8 @@ paths:
             Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
           schema:
             type: string
-            example: zaaktype, status, status.statustype, hoofdzaak.status.statustype,
+            example:
+              zaaktype, status, status.statustype, hoofdzaak.status.statustype,
               hoofdzaak.deelzaken.status.statustype
         - name: ordering
           required: false
@@ -2538,20 +2535,20 @@ paths:
         "200":
           headers:
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedZaakList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaak_create
       description: |
@@ -2618,22 +2615,22 @@ paths:
         "201":
           headers:
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Zaak"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{uuid}:
     get:
       operationId: zaak_retrieve
@@ -2684,7 +2681,8 @@ paths:
             Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
           schema:
             type: string
-            example: zaaktype, status, status.statustype, hoofdzaak.status.statustype,
+            example:
+              zaaktype, status, status.statustype, hoofdzaak.status.statustype,
               hoofdzaak.deelzaken.status.statustype
       tags:
         - zaken
@@ -2695,20 +2693,20 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakExpanded"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: zaak_update
       description: |
@@ -2789,20 +2787,20 @@ paths:
         "200":
           headers:
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Zaak"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: zaak_partial_update
       description: |
@@ -2882,20 +2880,20 @@ paths:
         "200":
           headers:
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Zaak"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaak_destroy
       description: |
@@ -2956,11 +2954,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: zaak_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -3010,11 +3008,11 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /zaken/{zaak_uuid}/audittrail:
     get:
@@ -3038,7 +3036,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -3046,10 +3044,10 @@ paths:
                 items:
                   $ref: "#/components/schemas/AuditTrail"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{zaak_uuid}/audittrail/{uuid}:
     get:
       operationId: audittrail_retrieve
@@ -3079,16 +3077,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/AuditTrail"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{zaak_uuid}/besluiten:
     get:
       operationId: zaakbesluit_list
@@ -3111,7 +3109,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -3119,10 +3117,10 @@ paths:
                 items:
                   $ref: "#/components/schemas/ZaakBesluit"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakbesluit_create
       description: |
@@ -3174,20 +3172,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakBesluit"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{zaak_uuid}/besluiten/{uuid}:
     get:
       operationId: zaakbesluit_retrieve
@@ -3217,16 +3215,16 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakBesluit"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakbesluit_destroy
       description: |
@@ -3269,11 +3267,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{zaak_uuid}/zaakeigenschappen:
     get:
       operationId: zaakeigenschap_list
@@ -3296,7 +3294,7 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
@@ -3304,10 +3302,10 @@ paths:
                 items:
                   $ref: "#/components/schemas/ZaakEigenschap"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     post:
       operationId: zaakeigenschap_create
       description: |
@@ -3358,20 +3356,20 @@ paths:
         "201":
           headers:
             Location:
-              $ref: '#/components/headers/LocationHeader'
+              $ref: "#/components/headers/LocationHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakEigenschap"
           description: Created
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
   /zaken/{zaak_uuid}/zaakeigenschappen/{uuid}:
     get:
       operationId: zaakeigenschap_retrieve
@@ -3414,18 +3412,18 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakEigenschap"
           description: OK
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     put:
       operationId: zaakeigenschap_update
       description: |
@@ -3470,18 +3468,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakEigenschap"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     patch:
       operationId: zaakeigenschap_partial_update
       description: |
@@ -3525,18 +3523,18 @@ paths:
         "200":
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ZaakEigenschap"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     delete:
       operationId: zaakeigenschap_destroy
       description: Verwijder een ZAAKEIGENSCHAP
@@ -3566,11 +3564,11 @@ paths:
           description: No content
           headers:
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+              $ref: "#/components/headers/ApiVersionHeader"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
     head:
       operationId: zaakeigenschap_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -3609,9 +3607,9 @@ paths:
         "200":
           headers:
             ETag:
-              $ref: '#/components/headers/EtagHeader'
+              $ref: "#/components/headers/EtagHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           description: OK
   /zaken/_zoek:
     post:
@@ -3665,26 +3663,26 @@ paths:
         "200":
           headers:
             Content-Crs:
-              $ref: '#/components/headers/ContentCrsHeader'
+              $ref: "#/components/headers/ContentCrsHeader"
             API-Version:
-              $ref: '#/components/headers/ApiVersionHeader'
+              $ref: "#/components/headers/ApiVersionHeader"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/PaginatedZaakList"
           description: OK
         "400":
-          $ref: '#/components/responses/ValidatieFoutResponse'
-        '4XX':
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/ValidatieFoutResponse"
+        "4XX":
+          $ref: "#/components/responses/FoutResponse"
         "500":
-          $ref: '#/components/responses/FoutResponse'
+          $ref: "#/components/responses/FoutResponse"
 components:
   responses:
     FoutResponse:
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
@@ -3693,7 +3691,7 @@ components:
     ValidatieFoutResponse:
       headers:
         API-Version:
-          $ref: '#/components/headers/ApiVersionHeader'
+          $ref: "#/components/headers/ApiVersionHeader"
       content:
         application/problem+json:
           schema:
@@ -3709,12 +3707,11 @@ components:
         - onderwerp
         - bijdrage
       x-enumDescriptions:
-        vervolg: De andere zaak gaf aanleiding tot het starten van de onderhanden
-          zaak.
-        onderwerp: De andere zaak is relevant voor cq. is onderwerp van de onderhanden
-          zaak.
-        bijdrage: Aan het bereiken van de uitkomst van de andere zaak levert de onderhanden
-          zaak een bijdrage.
+        vervolg: De andere zaak gaf aanleiding tot het starten van de onderhanden zaak.
+        onderwerp: De andere zaak is relevant voor cq. is onderwerp van de onderhanden zaak.
+        bijdrage:
+          Aan het bereiken van de uitkomst van de andere zaak levert de onderhanden zaak een
+          bijdrage.
     AardRelatieWeergaveEnum:
       type: string
       enum:
@@ -3736,11 +3733,10 @@ components:
         - overgedragen
       x-enumDescriptions:
         nog_te_archiveren: De zaak cq. het zaakdossier is nog niet als geheel gearchiveerd.
-        gearchiveerd: De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar
-          gemaakt.
-        gearchiveerd_procestermijn_onbekend: De zaak cq. het zaakdossier is als geheel
-          niet-wijzigbaar bewaarbaar gemaakt maar de vernietigingsdatum kan nog niet
-          bepaald worden.
+        gearchiveerd: De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt.
+        gearchiveerd_procestermijn_onbekend:
+          De zaak cq. het zaakdossier is als geheel niet-wijzigbaar bewaarbaar gemaakt maar de
+          vernietigingsdatum kan nog niet bepaald worden.
         overgedragen: De zaak cq. het zaakdossier is overgebracht naar een archiefbewaarplaats.
     AuditTrail:
       type: object
@@ -3888,8 +3884,7 @@ components:
       properties:
         emailadres:
           title: Email
-          description: Elektronich postadres waaronder de contactpersoon in de regel
-            bereikbaar is.
+          description: Elektronich postadres waaronder de contactpersoon in de regel bereikbaar is.
           type: string
           format: email
           maxLength: 254
@@ -3899,8 +3894,7 @@ components:
           type: string
           maxLength: 50
         telefoonnummer:
-          description: Telefoonnummer waaronder de contactpersoon in de regel bereikbaar
-            is.
+          description: Telefoonnummer waaronder de contactpersoon in de regel bereikbaar is.
           type: string
           maxLength: 20
         naam:
@@ -4165,7 +4159,7 @@ components:
         url: https://tools.ietf.org/html/rfc7946#section-3.1.7
     NullEnum:
       enum:
-        - 
+        -
     ObjectTypeEnum:
       description: |-
         Beschrijft het type OBJECT gerelateerd aan de ZAAK. Als er geen passend type is, dan moet het type worden opgegeven onder `objectTypeOverige`.
@@ -4235,8 +4229,7 @@ components:
         zakelijk_recht: Zakelijk recht
         overige: Overige
     Opschorting:
-      description: Gegevens omtrent het tijdelijk opschorten van de behandeling van
-        de ZAAK
+      description: Gegevens omtrent het tijdelijk opschorten van de behandeling van de ZAAK
       type: object
       properties:
         indicatie:
@@ -4245,8 +4238,7 @@ components:
           type: boolean
         reden:
           title: reden opschorting
-          description: Omschrijving van de reden voor het opschorten van de behandeling
-            van de zaak.
+          description: Omschrijving van de reden voor het opschorten van de behandeling van de zaak.
           type: string
           maxLength: 200
       required:
@@ -4469,8 +4461,8 @@ components:
           readOnly: true
           nullable: true
         einddatumGepland:
-          description: De datum waarop volgens de planning verwacht wordt dat de zaak
-            afgerond wordt.
+          description:
+            De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.
           type: string
           format: date
           nullable: true
@@ -4738,13 +4730,12 @@ components:
             - $ref: "#/components/schemas/AardRelatieWeergaveEnum"
           readOnly: true
         titel:
-          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
-            is.
+          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend is.
           type: string
           maxLength: 200
         beschrijving:
-          description: Een op het object gerichte beschrijving van de inhoud vanhet
-            INFORMATIEOBJECT.
+          description:
+            Een op het object gerichte beschrijving van de inhoud vanhet INFORMATIEOBJECT.
           type: string
         registratiedatum:
           description: |
@@ -4753,8 +4744,8 @@ components:
           format: date-time
           readOnly: true
         vernietigingsdatum:
-          description: De datum waarop het informatieobject uit het zaakdossier verwijderd
-            moet worden.
+          description:
+            De datum waarop het informatieobject uit het zaakdossier verwijderd moet worden.
           type: string
           format: date-time
           nullable: true
@@ -4821,8 +4812,7 @@ components:
           type: string
           maxLength: 250
         registratie:
-          description: De naam van de registratie waarvan het procesobject deel uit
-            maakt.
+          description: De naam van de registratie waarvan het procesobject deel uit maakt.
           type: string
           maxLength: 250
       required:
@@ -4883,22 +4873,22 @@ components:
     ResultaatExpanded:
       allOf:
         - $ref: "#/components/schemas/Resultaat"
-        - properties:
-            _expand:
-              $ref: "#/components/schemas/ResultaatEmbedded"
+      properties:
+        _expand:
+          $ref: "#/components/schemas/ResultaatEmbedded"
     ResultaatEmbedded:
       type: object
       properties:
         zaak:
           $ref: "#/components/schemas/ZaakExpanded"
         resultaattype:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ResultaatType"
+          $ref: "../catalogi/openapi.yaml#/components/schemas/ResultaatType"
     RolExpanded:
       allOf:
         - $ref: "#/components/schemas/RolBase"
-        - properties:
-            _expand:
-              $ref: "#/components/schemas/RolEmbedded"
+      properties:
+        _expand:
+          $ref: "#/components/schemas/RolEmbedded"
     RolEmbedded:
       type: object
       properties:
@@ -4906,7 +4896,7 @@ components:
           example: {}
           $ref: "#/components/schemas/ZaakExpanded"
         roltype:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/RolType"
+          $ref: "../catalogi/openapi.yaml#/components/schemas/RolType"
         statussen:
           type: array
           items:
@@ -4986,7 +4976,7 @@ components:
       type: object
       properties:
         statustype:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/StatusType"
+          $ref: "../catalogi/openapi.yaml#/components/schemas/StatusType"
         gezetdoor:
           $ref: "#/components/schemas/RolVariant"
         zaakinformatieobjecten:
@@ -5057,8 +5047,7 @@ components:
           type: string
           maxLength: 4
         lndLandnaam:
-          description: De naam van het land, zoals opgenomen in de Land/Gebied-tabel
-            van de BRP.
+          description: De naam van het land, zoals opgenomen in de Land/Gebied-tabel van de BRP.
           type: string
           maxLength: 40
         subAdresBuitenland_1:
@@ -5215,8 +5204,7 @@ components:
       properties:
         reden:
           title: reden verlenging
-          description: Omschrijving van de reden voor het verlengen van de behandeling
-            van de zaak.
+          description: Omschrijving van de reden voor het verlengen van de behandeling van de zaak.
           type: string
           maxLength: 200
         duur:
@@ -5361,8 +5349,8 @@ components:
           readOnly: true
           nullable: true
         einddatumGepland:
-          description: De datum waarop volgens de planning verwacht wordt dat de zaak
-            afgerond wordt.
+          description:
+            De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.
           type: string
           format: date
           nullable: true
@@ -5591,7 +5579,7 @@ components:
       type: object
       properties:
         zaaktype:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakType"
+          $ref: "../catalogi/openapi.yaml#/components/schemas/ZaakType"
         hoofdzaak:
           oneOf:
             - $ref: "#/components/schemas/ZaakExpanded"
@@ -5687,8 +5675,7 @@ components:
           minLength: 1
           maxLength: 1000
         contactmoment:
-          description: URL-referentie naar het CONTACTMOMENT (in de Klantinteractie
-            API)
+          description: URL-referentie naar het CONTACTMOMENT (in de Klantinteractie API)
           type: string
           format: uri
           maxLength: 1000
@@ -5771,13 +5758,12 @@ components:
             - $ref: "#/components/schemas/AardRelatieWeergaveEnum"
           readOnly: true
         titel:
-          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend
-            is.
+          description: De naam waaronder het INFORMATIEOBJECT binnen het OBJECT bekend is.
           type: string
           maxLength: 200
         beschrijving:
-          description: Een op het object gerichte beschrijving van de inhoud vanhet
-            INFORMATIEOBJECT.
+          description:
+            Een op het object gerichte beschrijving van de inhoud vanhet INFORMATIEOBJECT.
           type: string
         registratiedatum:
           description: |
@@ -5786,8 +5772,8 @@ components:
           format: date-time
           readOnly: true
         vernietigingsdatum:
-          description: De datum waarop het informatieobject uit het zaakdossier verwijderd
-            moet worden.
+          description:
+            De datum waarop het informatieobject uit het zaakdossier verwijderd moet worden.
           type: string
           format: date-time
           nullable: true
@@ -5841,7 +5827,7 @@ components:
       type: object
       properties:
         zaakobjecttype:
-          $ref: "https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/ZaakObjectType"
+          $ref: "../catalogi/openapi.yaml#/components/schemas/ZaakObjectType"
     ZaakVerzoek:
       type: object
       properties:
@@ -6026,8 +6012,8 @@ components:
           example: "2023-01-02"
           minLength: 1
         einddatumGepland:
-          description: De datum waarop volgens de planning verwacht wordt dat de zaak
-            afgerond wordt.
+          description:
+            De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt.
           type: string
           example: "2022-01-02"
         einddatumGepland__gt:
@@ -6067,8 +6053,8 @@ components:
           type: string
           example: "https://example.com"
         rol__omschrijvingGeneriek:
-          description: Algemeen gehanteerde benaming van de aard van de ROL, afgeleid
-            uit het ROLTYPE.
+          description:
+            Algemeen gehanteerde benaming van de aard van de ROL, afgeleid uit het ROLTYPE.
           type: string
           example: "initiator"
           enum:
@@ -6100,8 +6086,8 @@ components:
           type: string
           example: "123456789"
         rol__betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie:
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NATUURLIJK PERSOON
           type: string
           example: "123456789"
         rol__betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer:
@@ -6157,19 +6143,19 @@ components:
           $ref: "#/components/schemas/NietNatuurlijkPersoonIdentificatie"
     PatchedZaakObjectVariant:
       allOf:
-        - $ref: '#/components/schemas/ZaakObjectVariantBase'
+        - $ref: "#/components/schemas/ZaakObjectVariantBase"
       required:
         - objectType
     RolVariant:
       oneOf:
-        - $ref: '#/components/schemas/MedewerkerRol'
-        - $ref: '#/components/schemas/NatuurlijkPersoonRol'
-        - $ref: '#/components/schemas/NietNatuurlijkPersoonRol'
-        - $ref: '#/components/schemas/OrganisatorischeEenheidRol'
-        - $ref: '#/components/schemas/VestigingRol'
+        - $ref: "#/components/schemas/MedewerkerRol"
+        - $ref: "#/components/schemas/NatuurlijkPersoonRol"
+        - $ref: "#/components/schemas/NietNatuurlijkPersoonRol"
+        - $ref: "#/components/schemas/OrganisatorischeEenheidRol"
+        - $ref: "#/components/schemas/VestigingRol"
     ZaakObjectVariant:
       allOf:
-        - $ref: '#/components/schemas/ZaakObjectVariantBase'
+        - $ref: "#/components/schemas/ZaakObjectVariantBase"
       required:
         - objectType
         - url
@@ -6223,8 +6209,8 @@ components:
           type: string
           maxLength: 40
         gemGemeenteCode:
-          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
-            wordt aangeduid
+          description:
+            Een numerieke aanduiding waarmee een Nederlandse gemeente uniek wordt aangeduid
           type: string
           maxLength: 4
         wykWijkCode:
@@ -6244,8 +6230,8 @@ components:
           type: string
           maxLength: 80
         gemeenteCode:
-          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
-            wordt aangeduid
+          description:
+            Een numerieke aanduiding waarmee een Nederlandse gemeente uniek wordt aangeduid
           type: string
           maxLength: 4
       required:
@@ -6504,8 +6490,8 @@ components:
           type: string
           maxLength: 40
         gemGemeenteCode:
-          description: Een numerieke aanduiding waarmee een Nederlandse gemeente uniek
-            wordt aangeduid
+          description:
+            Een numerieke aanduiding waarmee een Nederlandse gemeente uniek wordt aangeduid
           type: string
           maxLength: 4
       required:
@@ -6693,8 +6679,7 @@ components:
           type: string
           maxLength: 625
         roltype:
-          description: URL-referentie naar een roltype binnen het ZAAKTYPE van de
-            ZAAK.
+          description: URL-referentie naar een roltype binnen het ZAAKTYPE van de ZAAK.
           type: string
           format: uri
           maxLength: 1000
@@ -6809,8 +6794,7 @@ components:
         objectType:
           $ref: "#/components/schemas/ObjectTypeEnum"
         objectTypeOverige:
-          description: Beschrijft het type OBJECT als `objectType` de waarde "overige"
-            heeft.
+          description: Beschrijft het type OBJECT als `objectType` de waarde "overige" heeft.
           type: string
           pattern: '[a-z\_]+'
           maxLength: 100
@@ -6864,8 +6848,7 @@ components:
           type: string
           maxLength: 24
         achternaam:
-          description: De achternaam zoals de MEDEWERKER die in het dagelijkse verkeer
-            gebruikt.
+          description: De achternaam zoals de MEDEWERKER die in het dagelijkse verkeer gebruikt.
           type: string
           maxLength: 200
         voorletters:
@@ -6887,8 +6870,8 @@ components:
           type: string
           maxLength: 9
         anpIdentificatie:
-          description: Het door de gemeente uitgegeven unieke nummer voor een ANDER
-            NATUURLIJK PERSOON
+          description:
+            Het door de gemeente uitgegeven unieke nummer voor een ANDER NATUURLIJK PERSOON
           type: string
           maxLength: 17
         inpA_nummer:
@@ -7325,37 +7308,37 @@ components:
           $ref: "#/components/schemas/OverigeObject"
     ZaakObjectVariantBase:
       oneOf:
-        - $ref: '#/components/schemas/AdresZaakObject'
-        - $ref: '#/components/schemas/BesluitZaakObject'
-        - $ref: '#/components/schemas/BuurtZaakObject'
-        - $ref: '#/components/schemas/EnkelvoudigDocumentZaakObject'
-        - $ref: '#/components/schemas/GemeenteZaakObject'
-        - $ref: '#/components/schemas/GemeentelijkeOpenbareRuimteZaakObject'
-        - $ref: '#/components/schemas/HuishoudenZaakObject'
-        - $ref: '#/components/schemas/InrichtingselementZaakObject'
-        - $ref: '#/components/schemas/KadastraleOnroerendeZaakZaakObject'
-        - $ref: '#/components/schemas/KunstwerkdeelZaakObject'
-        - $ref: '#/components/schemas/MaatschappelijkeActiviteitZaakObject'
-        - $ref: '#/components/schemas/MedewerkerZaakObject'
-        - $ref: '#/components/schemas/NatuurlijkPersoonZaakObject'
-        - $ref: '#/components/schemas/NietNatuurlijkPersoonZaakObject'
-        - $ref: '#/components/schemas/OpenbareRuimteZaakObject'
-        - $ref: '#/components/schemas/OrganisatorischeEenheidZaakObject'
-        - $ref: '#/components/schemas/PandZaakObject'
-        - $ref: '#/components/schemas/SpoorbaandeelZaakObject'
-        - $ref: '#/components/schemas/StatusZaakObject'
-        - $ref: '#/components/schemas/TerreindeelZaakObject'
-        - $ref: '#/components/schemas/TerreinGebouwdObjectZaakObject'
-        - $ref: '#/components/schemas/VestigingZaakObject'
-        - $ref: '#/components/schemas/WaterdeelZaakObject'
-        - $ref: '#/components/schemas/WegdeelZaakObject'
-        - $ref: '#/components/schemas/WijkZaakObject'
-        - $ref: '#/components/schemas/WoonplaatsZaakObject'
-        - $ref: '#/components/schemas/WozDeelobjectZaakObject'
-        - $ref: '#/components/schemas/WozObjectZaakObject'
-        - $ref: '#/components/schemas/WozWaardeZaakObject'
-        - $ref: '#/components/schemas/ZakelijkRechtZaakObject'
-        - $ref: '#/components/schemas/OverigeZaakObject'
+        - $ref: "#/components/schemas/AdresZaakObject"
+        - $ref: "#/components/schemas/BesluitZaakObject"
+        - $ref: "#/components/schemas/BuurtZaakObject"
+        - $ref: "#/components/schemas/EnkelvoudigDocumentZaakObject"
+        - $ref: "#/components/schemas/GemeenteZaakObject"
+        - $ref: "#/components/schemas/GemeentelijkeOpenbareRuimteZaakObject"
+        - $ref: "#/components/schemas/HuishoudenZaakObject"
+        - $ref: "#/components/schemas/InrichtingselementZaakObject"
+        - $ref: "#/components/schemas/KadastraleOnroerendeZaakZaakObject"
+        - $ref: "#/components/schemas/KunstwerkdeelZaakObject"
+        - $ref: "#/components/schemas/MaatschappelijkeActiviteitZaakObject"
+        - $ref: "#/components/schemas/MedewerkerZaakObject"
+        - $ref: "#/components/schemas/NatuurlijkPersoonZaakObject"
+        - $ref: "#/components/schemas/NietNatuurlijkPersoonZaakObject"
+        - $ref: "#/components/schemas/OpenbareRuimteZaakObject"
+        - $ref: "#/components/schemas/OrganisatorischeEenheidZaakObject"
+        - $ref: "#/components/schemas/PandZaakObject"
+        - $ref: "#/components/schemas/SpoorbaandeelZaakObject"
+        - $ref: "#/components/schemas/StatusZaakObject"
+        - $ref: "#/components/schemas/TerreindeelZaakObject"
+        - $ref: "#/components/schemas/TerreinGebouwdObjectZaakObject"
+        - $ref: "#/components/schemas/VestigingZaakObject"
+        - $ref: "#/components/schemas/WaterdeelZaakObject"
+        - $ref: "#/components/schemas/WegdeelZaakObject"
+        - $ref: "#/components/schemas/WijkZaakObject"
+        - $ref: "#/components/schemas/WoonplaatsZaakObject"
+        - $ref: "#/components/schemas/WozDeelobjectZaakObject"
+        - $ref: "#/components/schemas/WozObjectZaakObject"
+        - $ref: "#/components/schemas/WozWaardeZaakObject"
+        - $ref: "#/components/schemas/ZakelijkRechtZaakObject"
+        - $ref: "#/components/schemas/OverigeZaakObject"
   securitySchemes:
     JWT-Claims:
       type: http
