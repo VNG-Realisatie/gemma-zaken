@@ -98,7 +98,6 @@ const config: Config = {
           docId: "gids/index",
           position: "left",
           label: "Gids",
-          docsPluginId: "v1",
         },
         {
           type: "doc",
