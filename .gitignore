@@ -9,7 +9,6 @@
 .vscode/
 !.vscode/extensions.json
 !.vscode/launch.json
-.spectral.yml
 
 # Operating system artifacts
 .directory
