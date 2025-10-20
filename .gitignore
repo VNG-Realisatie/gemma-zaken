@@ -30,7 +30,9 @@ __pycache__/
 _site
 .jekyll-cache
 tmp
+Gemfile
 Gemfile.lock
+
 
 
 # Runtime generated logfiles
