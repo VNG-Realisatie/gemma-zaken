@@ -1,10 +1,41 @@
-.idea
-.env
-.vault_password.txt
-infra/env/
-infra/fixtures/
-deploy-bot/env/
-zrc-catalogi-1-3-2.yaml
-redocly.yaml
-.spectral.yml
-.vscode/settings.json
+# Local development environment artifacts
+.idea/
+*~
+*.kate-swp
+*.swo
+*.swp
+*.bak
+*.autosave
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# Operating system artifacts
+.directory
+.DS_Store
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+build/
+__pycache__/
+*.pyc
+.docusaurus/
+
+# Build artifacts Jekyll
+_site
+.jekyll-cache
+tmp
+Gemfile.lock
+
+
+# Runtime generated logfiles
+# ...
+
+# Sensitive information
+# ...
+
