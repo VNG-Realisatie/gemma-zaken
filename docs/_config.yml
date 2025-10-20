@@ -58,7 +58,7 @@ remote_theme: VNG-Realisatie/jekyll-theme-vng-realisatie
 
 github: VNG-Realisatie/gemma-zaken
 
-theme: jekyll-theme-time-machine
+# theme: jekyll-theme-time-machine
 
 project_name: /gemma-zaken
 
