@@ -26,6 +26,13 @@ __pycache__/
 *.pyc
 .docusaurus/
 
+# Build artifacts Jekyll
+_site
+.jekyll-cache
+tmp
+Gemfile.lock
+
+
 # Runtime generated logfiles
 # ...
 
