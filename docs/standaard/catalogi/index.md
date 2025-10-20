@@ -31,6 +31,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 Versie          | Release datum | API specificatie
 --------------- | ------------- | ----------------
+1.3.2 (draft)   | 20-10-2025    | <a href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml" target="_blank" rel="noopener noreferrer">ReDoc (open in nieuw venster)</a>
 1.3.2 (draft)   | 20-10-2025    | [ReDoc][catalogi-1.3.2-redoc], [Swagger][catalogi-1.3.2-swagger]
 1.3.1           | 26-09-2023    | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger]
 1.2.1           | 26-09-2023    | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger]
@@ -63,7 +64,9 @@ Versie          | Release datum | API specificatie
 [catalogi-1.3.1-redoc]: ./redoc-1.3.1
 [catalogi-1.3.1-swagger]: ./swagger-ui-1.3.1
 
-[catalogi-1.3.2-redoc]: ./redoc-1.3.2
+<!-- 
+[catalogi-1.3.2-redoc]: ./redoc-1.3.2 -->
+[catalogi-1.3.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml
 [catalogi-1.3.2-swagger]: ./swagger-ui-1.3.2
 
 
