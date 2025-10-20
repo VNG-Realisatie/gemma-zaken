@@ -3,3 +3,4 @@ _site/
 /api-specificatie/*
 /vendor/
 /.bundle/
+Gemfile
