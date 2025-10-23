@@ -8,4 +8,4 @@ body_include: redoc-body.html
 ---
 
 <!-- <redoc spec-url='../../../api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml'></redoc> -->
-<redoc spec-url='../openapi.yaml'></redoc>
+<redoc spec-url='ztc/1.3.x/1.3.2/openapi.yaml'></redoc>
