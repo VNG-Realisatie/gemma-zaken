@@ -64,9 +64,9 @@ Versie          | Release datum | API specificatie
 [catalogi-1.3.1-redoc]: ./redoc-1.3.1
 [catalogi-1.3.1-swagger]: ./swagger-ui-1.3.1
 
-<!-- 
-[catalogi-1.3.2-redoc]: ./redoc-1.3.2 -->
-[catalogi-1.3.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml
+
+[catalogi-1.3.2-redoc]: ./redoc-1.3.2
+<!-- [catalogi-1.3.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml -->
 [catalogi-1.3.2-swagger]: ./swagger-ui-1.3.2
 
 
