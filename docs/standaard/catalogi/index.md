@@ -29,16 +29,17 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 ### Releases
 
-Versie          | Release datum | API specificatie
---------------- | ------------- | ----------------
-1.3.2 (draft)   | 20-10-2025    | <a href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml" target="_blank" rel="noopener noreferrer">ReDoc (open in nieuw venster)</a>
-1.3.2 (draft)   | 20-10-2025    | [ReDoc][catalogi-1.3.2-redoc], [Swagger][catalogi-1.3.2-swagger]
-1.3.1           | 26-09-2023    | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger]
-1.2.1           | 26-09-2023    | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger]
-1.3.0           | 22-08-2023    | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger]
-1.2.0           | 19-12-2022    | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger]
-1.1.0           | 24-05-2021    | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger]
-1.0.0           | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]
+<!-- 1.3.2 (draft)   | 20-10-2025    | <a href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml" target="_blank" rel="noopener noreferrer">ReDoc (open in nieuw venster)</a> -->
+
+| Versie   | Familie     | Release datum | API specificatie                                                                                     |
+| :---     | :---:       | :---          | :---                                                                                                 |
+| _1.3.2_  | _zgw 1.6_   | _draft_       | _[ReDoc][catalogi-1.3.2-redoc], [Swagger][catalogi-1.3.2-swagger]_                                   |
+| 1.3.1    | -           | 26-09-2023    | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger]                                     |
+| 1.2.1    | -           | 26-09-2023    | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger]                                     |
+| 1.3.0    | -           | 22-08-2023    | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger]                                     |
+| 1.2.0    | -           | 19-12-2022    | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger]                                     |
+| 1.1.0    | -           | 24-05-2021    | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger]                                     |
+| 1.0.0    | -           | 2019-11-18    | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger]                                     |
 
 [catalogi-1.0.1-redoc]: ./redoc-1.0.1
 [catalogi-1.0.1-swagger]: ./swagger-ui-1.0.1
