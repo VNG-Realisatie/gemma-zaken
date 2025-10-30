@@ -201,11 +201,11 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
     * verwijderd worden (DELETE).
 
 * <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.3.0</strong></span><br/>
-~~* Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:
-    * Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)
-    * Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)
-    * Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben~~
+        <strong>Aangepast in versie 1.3.0</strong></span><br/>~~Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:~~
+
+    * ~~Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)~~
+    * ~~Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)~~
+    * ~~Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben~~
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.3.0</strong>
@@ -248,7 +248,7 @@ De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gede
     <strong>Regel ztc-012 is komen te vervallen in versie 1.3.2</strong>
 </span><br/>
 
-~~#### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**~~
+#### <del><a name="ztc-012">Publiceren van ZaakType ([ztc-012](#ztc-012))</a></del>
 
 <div style="text-decoration: line-through;">
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
@@ -259,7 +259,7 @@ hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te pub
     <strong>Regel ztc-013 is komen te vervallen in versie 1.3.2</strong>
 </span><br/>
 
-~~#### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>~~
+#### <del><a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a></del>
 
 <div style="text-decoration: line-through;">
 Het is NIET TOEGESTAAN dat objecttypen relaties hebben over verschillende catalogi
