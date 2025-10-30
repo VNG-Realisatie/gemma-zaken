@@ -218,9 +218,8 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Regels ztc-011a, ztc-011b en ztc-011c zijn komen te vervallen in versie 1.3.2</strong>
 </span><br/>
-<br>
 
-<div style="text-decoration: line-through; text-decoration-color: red;">
+<div style="text-decoration: line-through;">
 Vanwege de aard van de Catalogi API wordt onderscheid gemaakt tussen `lees consumers` en `schrijf consuners`. Onderstaande regels (ztc-11a, ztc-11b en ztc-11c) zijn van toepassing voor zgn `schrijf consumers`. Met een `schrijf consumer` wordt de beheer module voor de Zaaktype Catalogus bedoeld.
 
 De volgende regels gelden voor Zaaktype en daaraan gerelateerde objecttypen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen. Dit betreft het groene gedeelte in bovenstaande afbeelding.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**: 
@@ -243,29 +242,26 @@ De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gede
 - Relaties tussen Zaaktype en Informatieobjecttype worden, via ZaaktypInformatieobjecttype, gelegd door de informatieobjecttype.omschrijving op te nemen in het ZaaktypInformatieobjecttype. 
 - Relaties tussen Informatieobjecttype en Besluittype worden gelegd door de informatieobjecttype.omschrijving op te nemen in het Besluittype. 
 - Het is WEL toegestaan relaties naar een Informatieobjecttype met `concept=false` aan te maken vanuit een ZaaktypeInformatieobjecttype of Besluittype.
-</div>
+</div><br/>
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Regel ztc-012 is komen te vervallen in versie 1.3.2</strong>
 </span><br/>
-<br>
 
-<div style="text-decoration: line-through; text-decoration-color: red;">
-#### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**
+~~#### Publiceren van `ZaakType` **<a name="ztc-012">([ztc-012](#ztc-012))</a>**~~
 
+<div style="text-decoration: line-through;">
 Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
 hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
-<br/>
-</div>
+</div><br/>
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Regel ztc-013 is komen te vervallen in versie 1.3.2</strong>
 </span><br/>
-<br>
 
-<div style="text-decoration: line-through; text-decoration-color: red;">
-#### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>
+~~#### <a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a>~~
 
+<div style="text-decoration: line-through;">
 Het is NIET TOEGESTAAN dat objecttypen relaties hebben over verschillende catalogi
 heen. Zelfs als de catalogi hetzelfde zijn maar op verschillende endpoints
 worden aangeboden mogen de relaties niet door elkaar gelegd worden.
@@ -274,7 +270,7 @@ Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
 `Catalogus` Y. Een `Zaaktype` in `Catalogus` X op endpoint `https://www.foo.bar/`
 mag geen `Statustype` hebben uit `Catalogus` X op endpoint
 `https://www.example.com`.
-</div>
+</div><br/>
 
 ### Datum beginGeldigheid en eindGeldigheid
 
@@ -293,6 +289,7 @@ De versie van het object is dus geldig van beginGeldigheid *tot en met* eindGeld
 Daarnaast kennen objecten ook nog de datumvelden *beginObject* en *eindObject*. Dit zijn respectievelijk de geboortedatum en overlijdensdatum van het object. Oftewel de datum waarop het object voor het eerst gebruikt kon worden en de datum waarom het object voor het laatst gebruikt kon worden.
 
 Bij het aanmaken van een nieuwe versie van een Roltype, Statustype, ResultaatType, Eigenschap of Zaakobjecttype wordt een meegegeven beginGeldigheid gevalideerd tegen de beginGeldigheid en versieDatum van het bijbehorende Zaaktype. Deze MOETen overeenkomen. Wordt de beginGeldigheid niet meegegeven wordt de beginGeldigheid van het Zaaktype overgenomen.
+<br/>
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.3.2</strong>
