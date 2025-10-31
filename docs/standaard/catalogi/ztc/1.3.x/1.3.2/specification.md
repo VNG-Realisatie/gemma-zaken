@@ -144,8 +144,11 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 </span><br/>
 <br>
 
+#### Historiemodel
 
-[![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
+Voor een snelle introductie in dit onderwerp wordt verwezen naar de notitie [historiemodel](./historie_model/historie_model.md) waar het historiemodel wordt uitgelegd aan de hand van voorbeeldberichten.
+
+[![Historiemodel Catalogi API ImZTC 2.2](../../../catalogi_history.png)](../../../catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Regels ztc-011a, ztc-011b en ztc-011c zijn komen te vervallen in versie 1.3.2</strong>
