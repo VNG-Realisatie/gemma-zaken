@@ -4,76 +4,8 @@ date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
-# Catalogi API
 
-API voor opslag en ontsluiting van zaaktype-catalogi, zaaktypen en onderliggende typen.
-
-De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktype-catalogi met zaaktypen. Deze gegevens kunnen door applicaties worden gebruikt om voor zaken van een bepaald type de juiste gegevens (statustypen, resultaattypen, informatieobjecttypen, etc.) te bepalen. Applicaties die gebruik maken van deze zaaktypegegevens zijn bijvoorbeeld een zaakafhandelcomponent, een VTH-applicatie of een subsidie-applicatie. Opslag van zaaktypegegevens vindt plaats conform het informatiemodel ZTC.
-
-
-## Gegevensmodel
-De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer informatie over het ImZTC versie 2.2 zie [GEMMA Online](https://www.gemmaonline.nl/index.php/ImZTC_2.2_in_ontwikkeling)
-
-[![Gegevensmodel Catalogi API ImZTC 2.2](ImZTC_2_2.png)](ImZTC_2_2.png "ImZTC versie 2.2 - klik voor groot")
-
-
-## Specificatie van de Catalogi API
-
-[Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
-
-### Release Notes
-De [release notes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md).
-
-### Known Issues
-De [known issues](./known_issues.md) van de versies staan beschreven op deze [pagina](./known_issues.md).
-
-### Releases
-
-<!-- 1.3.2 (draft)   | 20-10-2025    | <a href="https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml" target="_blank" rel="noopener noreferrer">ReDoc (open in nieuw venster)</a> -->
-
-| Versie         | Familie   | Release datum     | Open API Specificatie                                            | Gedrag en regels                                       |
-|:---------------|:---------:|:----------------- |:---------------------------------------------------------------- |:-------------------------------------------------------|
-| 1.3.2 (draft)  | zgw 1.6   | nader te bepalen  | [ReDoc][catalogi-1.3.2-redoc], [Swagger][catalogi-1.3.2-swagger] | [spec 1.0.0 - 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
-| 1.3.1          | -         | 26-09-2023        | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.2.1          | -         | 26-09-2023        | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.3.0          | -         | 22-08-2023        | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.2.0          | -         | 19-12-2022        | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.1.0          | -         | 24-05-2021        | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.0.0          | -         | 2019-11-18        | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-
-[catalogi-1.0.1-redoc]: ./redoc-1.0.1
-[catalogi-1.0.1-swagger]: ./swagger-ui-1.0.1
-[catalogi-1.0.1-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
-
-[catalogi-1.0.0-redoc]: ./redoc-1.0.0
-[catalogi-1.0.0-swagger]: ./swagger-ui-1.0.0
-
-[catalogi-1.1.0-redoc]: ./redoc-1.1.0
-[catalogi-1.1.0-swagger]: ./swagger-ui-1.1.0
-[catalogi-1.1.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.0.x...stable/1.1.x
-
-[catalogi-1.2.0-redoc]: ./redoc-1.2.0
-[catalogi-1.2.0-swagger]: ./swagger-ui-1.2.0
-[catalogi-1.2.0-diff]: https://github.com/VNG-Realisatie/catalogi-api/compare/stable/1.1.x...stable/1.2.x
-
-[catalogi-1.3.0-redoc]: ./redoc-1.3.0
-[catalogi-1.3.0-swagger]: ./swagger-ui-1.3.0
- 
-[catalogi-1.2.1-redoc]: ./redoc-1.2.1
-[catalogi-1.2.1-swagger]: ./swagger-ui-1.2.1
-
-[catalogi-1.3.1-redoc]: ./redoc-1.3.1
-[catalogi-1.3.1-swagger]: ./swagger-ui-1.3.1
-
-
-[catalogi-1.3.2-redoc]: ./redoc-1.3.2
-<!-- [catalogi-1.3.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml -->
-[catalogi-1.3.2-swagger]: ./swagger-ui-1.3.2
-
-
-
-
-## Specificatie van gedrag
+# Specificatie van de Catalogi API
 
 Zaaktypecatalogi (ZTC) MOETEN aan twee aspecten voldoen:
 
