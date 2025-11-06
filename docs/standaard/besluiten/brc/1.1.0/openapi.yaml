@@ -1147,9 +1147,9 @@ components:
       type: object
       properties: 
         besluittype:
-          $ref: '../../ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/BesluitTypeExpanded'
+          $ref: '../../../catalogi/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/BesluitTypeExpanded'
         zaak:
-          $ref: '../../zrc/1.5.x/1.5.2/openapi.yaml#/components/schemas/ZaakExpanded'
+          $ref: '../../../zaken/zrc/1.6.x/1.6.0/openapi.yaml#/components/schemas/ZaakExpanded'
     Fout:
       required:
       - code
@@ -1452,7 +1452,7 @@ components:
       type: object
       properties: 
         informatieobject:
-          $ref: '../../drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObjectExpanded'
+          $ref: '../../../documenten/drc/1.6.x/1.6.0/openapi.yaml#/components/schemas/EnkelvoudigInformatieObjectExpanded'
         besluit:
           oneOf:
             - $ref: '#/components/schemas/BesluitExpanded' 

@@ -7283,7 +7283,6 @@ components:
       type: object
       properties:
         informatieobjecttype:
-          # type: string
           $ref: '../../../../catalogi/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/InformatieObjectTypeExpanded'
     FieldValidationError:
       type: object
