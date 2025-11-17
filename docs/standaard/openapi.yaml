@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Catalogi API
-  version: 1.3.2
+  version: 1.3.4
   description:
     "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
     \ helpt gemeenten om het proces vanuit de 'vraag van een\nklant' (productaanvraag,\
@@ -103,6 +103,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - besluittypen
       security:
@@ -280,7 +281,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitType'
+                $ref: '#/components/schemas/BesluitTypePostResponse'
           description: Created
         '400':
           headers:
@@ -431,6 +432,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - besluittypen
       security:
@@ -455,7 +457,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BesluitType'
+                $ref: '#/components/schemas/BesluitTypeExpanded'
           description: OK
         '401':
           headers:
@@ -1275,6 +1277,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - catalogussen
       security:
@@ -1603,6 +1606,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - catalogussen
       security:
@@ -1627,7 +1631,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Catalogus'
+                $ref: '#/components/schemas/CatalogusExpanded'
           description: OK
         '401':
           headers:
@@ -1820,7 +1824,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -1843,6 +1847,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - eigenschappen
       security:
@@ -2173,6 +2178,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - eigenschappen
       security:
@@ -2197,7 +2203,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Eigenschap'
+                $ref: '#/components/schemas/EigenschapExpanded'
           description: OK
         '401':
           headers:
@@ -2908,6 +2914,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - informatieobjecttypen
       security:
@@ -3063,9 +3070,8 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties: {}
-              description: Unspecified request body
+              $ref: '#/components/schemas/InformatieObjectType'
+        required: true
       security:
         - JWT-Claims:
             - catalogi.schrijven
@@ -3081,9 +3087,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
+                $ref: '#/components/schemas/InformatieObjectType'
           description: OK
         '400':
           headers:
@@ -3234,6 +3238,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - informatieobjecttypen
       security:
@@ -3258,7 +3263,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InformatieObjectType'
+                $ref: '#/components/schemas/InformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -4065,13 +4070,35 @@ paths:
           description: zaaktype_identificatie
           schema:
             type: string
+          deprecated: true
+        - name: zaaktypeIdentificatie
+          required: false
+          in: query
+          description: zaaktype_identificatie
+          schema:
+            type: string
         - name: status
           required: false
           in: query
-          description: status
           schema:
             type: string
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
+
+            * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
+
+            * `concept`: Toon objecten waarvan het attribuut `concept` true is.
+
+            * `definitief`: Toon objecten waarvan het attribuut `concept` false is (standaard).
+
+            '
         - name: datum_geldigheid
+          required: false
+          in: query
+          description: datum_geldigheid
+          schema:
+            type: string
+          deprecated: true
+        - name: datumGeldigheid
           required: false
           in: query
           description: datum_geldigheid
@@ -4083,6 +4110,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - resultaattypen
       security:
@@ -4413,6 +4441,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - resultaattypen
       security:
@@ -4437,7 +4466,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResultaatType'
+                $ref: '#/components/schemas/ResultaatTypeExpanded'
           description: OK
         '401':
           headers:
@@ -5140,7 +5169,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -5163,6 +5192,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - roltypen
       security:
@@ -5492,6 +5522,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - roltypen
       security:
@@ -5516,7 +5547,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RolType'
+                $ref: '#/components/schemas/RolTypeExpanded'
           description: OK
         '401':
           headers:
@@ -6198,7 +6229,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -6221,6 +6252,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - statustypen
       security:
@@ -6551,6 +6583,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - statustypen
       security:
@@ -6575,7 +6608,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StatusType'
+                $ref: '#/components/schemas/StatusTypeExpanded'
           description: OK
         '401':
           headers:
@@ -7266,12 +7299,14 @@ paths:
           description: De datum waarop het is ontstaan.
           schema:
             type: string
+          deprecated: true
         - name: datumEindeGeldigheid
           required: false
           in: query
           description: De datum waarop het is opgeheven.
           schema:
             type: string
+          deprecated: true
         - name: datumGeldigheid
           required: false
           in: query
@@ -7314,6 +7349,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaakobjecttypen
       security:
@@ -7642,6 +7678,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaakobjecttypen
       security:
@@ -7666,7 +7703,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakObjectType'
+                $ref: '#/components/schemas/ZaakObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -8358,7 +8395,7 @@ paths:
         - name: status
           required: false
           in: query
-          description: 'filter objects depending on their concept status:
+          description: 'filter de resultaten op basis van de waarde van het boolean attribuut `concept` van het gerelateerde zaaktype:
 
             * `alles`: Toon objecten waarvan het attribuut `concept` true of false is.
 
@@ -8375,6 +8412,7 @@ paths:
           description: Een pagina binnen de gepagineerde set resultaten.
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktype-informatieobjecttypen
       security:
@@ -8707,6 +8745,7 @@ paths:
             MultipleValues:
               value: '"79054025255fb1a26e4bc422aef54eb4", "e4d909c290d0fb1ca068ffaddf22cbd0"'
               summary: Meerdere ETag-waardes
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktype-informatieobjecttypen
       security:
@@ -8731,7 +8770,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+                $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeExpanded'
           description: OK
         '401':
           headers:
@@ -9454,9 +9493,10 @@ paths:
         - name: page
           required: false
           in: query
-          description: Een pagina binnen de gepagineerde set resultaten.
+          description: Een pagina binnen de gepagineerde set resultaten. XX
           schema:
             type: integer
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktypen
       security:
@@ -9797,6 +9837,8 @@ paths:
           description:
             filter op datumGeldigheid voor het zelf en alle onderliggende
             objecten
+          deprecated: true
+        - $ref: '#/components/parameters/expand'
       tags:
         - zaaktypen
       security:
@@ -9821,7 +9863,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ZaakType'
+                $ref: '#/components/schemas/ZaakTypeExpanded'
           description: OK
         '401':
           headers:
@@ -10616,6 +10658,13 @@ paths:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
 components:
+  parameters: 
+    expand:
+      name: expand
+      description: Haal details van gelinkte resources direct op. Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt.
+      in: query
+      schema: 
+        type: string
   responses:
     '400':
       headers:
@@ -10878,12 +10927,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -10933,6 +10984,170 @@ components:
         - url
         - vastgelegdIn
         - zaaktypen
+    BesluitTypePostResponse:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        catalogus:
+          type: string
+          format: uri
+          description: URL-referentie naar de CATALOGUS waartoe dit BESLUITTYPE behoort.
+          title: catalogus
+        zaaktypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          readOnly: true
+          description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE. Let op, dit veld is een bug en zal verwijderd worden in volgende versie. Het kan alleen de waarde [] bevatten.
+          title: zaaktypen
+          uniqueItems: true
+          deprecated: true
+        omschrijving:
+          type: string
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          title: omschrijving
+          maxLength: 80
+        omschrijvingGeneriek:
+          type: string
+          description:
+            Algemeen gehanteerde omschrijving van de aard van BESLUITen
+            van het BESLUITTYPE
+          title: omschrijving generiek
+          maxLength: 80
+        besluitcategorie:
+          type: string
+          description: Typering van de aard van BESLUITen van het BESLUITTYPE.
+          title: besluitcategorie
+          maxLength: 40
+        reactietermijn:
+          type: string
+          nullable: true
+          description:
+            Een tijdsduur in ISO 8601 formaat, gerekend vanaf de verzend-
+            of publicatiedatum, waarbinnen verweer tegen een besluit van het besluittype
+            mogelijk is.
+          title: reactietermijn
+          format: duration
+        publicatieIndicatie:
+          type: boolean
+          description:
+            Aanduiding of BESLUITen van dit BESLUITTYPE gepubliceerd moeten
+            worden.
+          title: publicatie indicatie
+        publicatietekst:
+          type: string
+          description:
+            De generieke tekst van de publicatie van BESLUITen van dit
+            BESLUITTYPE
+          title: publicatietekst
+        publicatietermijn:
+          type: string
+          nullable: true
+          description:
+            Een tijdsduur in ISO 8601 formaat, gerekend vanaf de verzend-
+            of publicatiedatum, dat BESLUITen van dit BESLUITTYPE gepubliceerd moeten
+            blijven.
+          title: publicatietermijn
+          format: duration
+        toelichting:
+          type: string
+          description: Een eventuele toelichting op dit BESLUITTYPE.
+          title: toelichting
+        informatieobjecttypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          description:
+            URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
+            waarin besluiten van dit BESLUITTYPE worden vastgelegd.
+          title: informatieobjecttypen
+          uniqueItems: true
+        beginGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is ontstaan.
+          title: datum begin geldigheid
+        eindeGeldigheid:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop het is opgeheven.
+          title: datum einde geldigheid
+        beginObject:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop de eerst versie van het object ontstaan is.
+          title: datum begin object
+          deprecated: true
+        eindeObject:
+          type: string
+          format: date
+          nullable: true
+          description: De datum van de aller laatste versie van het object.
+          title: datum einde object
+          deprecated: true
+        concept:
+          type: boolean
+          readOnly: true
+          description:
+            Geeft aan of het object een concept betreft. Concepten zijn
+            niet-definitieve versies en zouden niet gebruikt moeten worden buiten
+            deze API.
+          title: concept
+        resultaattypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Is resultaat van
+          readOnly: true
+          title: Is resultaat van
+          description:
+            Het BESLUITTYPE van besluiten die gepaard gaan met resultaten
+            van het RESULTAATTYPE.
+          uniqueItems: true
+        resultaattypenOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van resultaten van het RESULTAATTYPE.
+          title: is resultaat van
+          uniqueItems: true
+        vastgelegdIn:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+          title: informatieobjecttypen
+          uniqueItems: true
+      required:
+        - beginGeldigheid
+        - catalogus
+        - concept
+        - informatieobjecttypen
+        - publicatieIndicatie
+        - resultaattypen
+        - resultaattypenOmschrijving
+        - url
+        - vastgelegdIn
     BesluitTypeExpanded:
       allOf:
       - $ref: '#/components/schemas/BesluitType'
@@ -11067,12 +11282,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11227,12 +11444,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11716,24 +11935,28 @@ components:
           nullable: true
           description: De datum waarop de EIGENSCHAP is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de EIGENSCHAP is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - catalogus
         - definitie
@@ -11955,12 +12178,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -11970,9 +12195,14 @@ components:
             deze API.
           title: concept
         zaaktypen:
-          type: string
+          type: array
+          items: 
+            type: string
+            format: uri
           readOnly: true
           title: zaaktypen
+          description: Lijst van URL-referenties naar de zaaktypen die gebruik maken van dit INFORMATIEOBJECTTYPE.
+          uniqueItems: true
         besluittypen:
           type: array
           items:
@@ -12135,7 +12365,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/BesluitType'
+            $ref: '#/components/schemas/BesluitTypeExpanded'
     PaginatedCatalogusList:
       type: object
       properties:
@@ -12155,7 +12385,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Catalogus'
+            $ref: '#/components/schemas/CatalogusExpanded'
     PaginatedEigenschapList:
       type: object
       properties:
@@ -12175,7 +12405,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Eigenschap'
+            $ref: '#/components/schemas/EigenschapExpanded'
     PaginatedResultaatTypeList:
       type: object
       properties:
@@ -12195,7 +12425,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ResultaatType'
+            $ref: '#/components/schemas/ResultaatTypeExpanded'
     PaginatedInformatieObjectTypeList:
       type: object
       properties:
@@ -12215,7 +12445,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/InformatieObjectType'
+            $ref: '#/components/schemas/InformatieObjectTypeExpanded'
     PaginatedRolTypeList:
       type: object
       properties:
@@ -12235,7 +12465,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/RolType'
+            $ref: '#/components/schemas/RolTypeExpanded'
     PaginatedStatusTypeList:
       type: object
       properties:
@@ -12255,7 +12485,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/StatusType'
+            $ref: '#/components/schemas/StatusTypeExpanded'
     PaginatedZaakObjectTypeList:
       type: object
       properties:
@@ -12275,7 +12505,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakObjectType'
+            $ref: '#/components/schemas/ZaakObjectTypeExpanded'
     PaginatedZaakTypeInformatieObjectTypeList:
       type: object
       properties:
@@ -12295,7 +12525,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakTypeInformatieObjectType'
+            $ref: '#/components/schemas/ZaakTypeInformatieObjectTypeExpanded'
     PaginatedZaakTypeList:
       type: object
       properties:
@@ -12315,7 +12545,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/ZaakType'
+            $ref: '#/components/schemas/ZaakTypeExpanded'
     PatchedEigenschap:
       type: object
       properties:
@@ -12383,24 +12613,28 @@ components:
           nullable: true
           description: De datum waarop de EIGENSCHAP is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de EIGENSCHAP is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedResultaatType:
       type: object
       description: 'Set gegevensgroepdata from validated nested data.
@@ -12523,32 +12757,37 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -12660,32 +12899,37 @@ components:
           type: string
           format: uri
           nullable: true
-          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedStatusType:
       type: object
       properties:
@@ -12799,24 +13043,28 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
     PatchedZaakObjectType:
       type: object
       properties:
@@ -12841,24 +13089,28 @@ components:
           format: date
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         objecttype:
           type: string
           format: uri
@@ -13123,32 +13375,37 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als je het meegeeft dan moet er naar dezelfde catalogus worden verwezen als die van het zaaktype.
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -13360,32 +13617,37 @@ components:
           nullable: true
           description:
             URL-referentie naar de CATALOGUS waartoe dit RESULTAATTYPE
-            behoort.
+            behoort. Let op, dit veld is verouderd, maar als het wordt meegegeven dan moet de url refereren naar dezelfde catalogus als dat van het zaaktype!
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         indicatieSpecifiek:
           type: boolean
           nullable: true
@@ -13406,16 +13668,16 @@ components:
           type: array
           items:
             type: string
-            title: ''
+            title: Besluittype
           title: besluittypen
+          description: Omschrijvingen van de besluittypen die de resultaten van dit resultaattype als gevolg kunnen hebben.
         besluittypeOmschrijving:
           type: array
           items:
             type: string
-            title: ''
           readOnly: true
-          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
-          title: is resultaat van
+          description: Omschrijvingen van de besluittypen die de resultaten van dit resultaattype als gevolg kunnen hebben.
+          title: Besluittype-omschrijving
           uniqueItems: true
         informatieobjecttypen:
           type: array
@@ -13423,9 +13685,8 @@ components:
             type: string
             format: uri
             nullable: true
-            title: ''
           description:
-            De INFORMATIEOBJECTTYPEn die verplicht aanwezig moeten zijn
+            Omschrijvingen van de  INFORMATIEOBJECTTYPEn die verplicht aanwezig moeten zijn
             in het zaakdossier van ZAAKen van dit ZAAKTYPE voordat een resultaat van
             dit RESULTAATTYPE kan worden gezet.
           title: informatieobjecttypen
@@ -13441,7 +13702,6 @@ components:
           uniqueItems: true
       required:
         - besluittypeOmschrijving
-        - besluittypen
         - informatieobjecttypeOmschrijving
         - omschrijving
         - omschrijvingGeneriek
@@ -13580,18 +13840,21 @@ components:
           nullable: true
           description: De datum waarop de RESULTAATTYPE is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop de RESULTAATTYPE is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
@@ -13723,32 +13986,37 @@ components:
           type: string
           format: uri
           nullable: true
-          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort.
+          description: URL-referentie naar de CATALOGUS waartoe dit ROLTYPE behoort. Let op, dit veld is verouderd, maar als je het meegeeft dan moet er naar dezelfde catalogus worden verwezen als die van het zaaktype.
           title: catalogus
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - omschrijving
         - omschrijvingGeneriek
@@ -13885,24 +14153,28 @@ components:
           nullable: true
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
       required:
         - catalogus
         - isEindstatus
@@ -14009,24 +14281,28 @@ components:
           format: date
           description: De datum waarop het is ontstaan.
           title: datum begin geldigheid
+          deprecated: true
         eindeGeldigheid:
           type: string
           format: date
           nullable: true
           description: De datum waarop het is opgeheven.
           title: datum einde geldigheid
+          deprecated: true
         beginObject:
           type: string
           format: date
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         objecttype:
           type: string
           format: uri
@@ -14085,7 +14361,6 @@ components:
           title: Catalogus
       required:
         - anderObjecttype
-        - beginGeldigheid
         - catalogus
         - objecttype
         - relatieOmschrijving
@@ -14394,9 +14669,14 @@ components:
           title: Zaaktype
           uniqueItems: true
         informatieobjecttypen:
-          type: string
+          type: array
+          items:
+            type: string
+            format: uri
+            title: Informatieobjecttype
           readOnly: true
-          title: informatieobjecttypen
+          title: Informatieobjecttypen
+          description: URL-referenties naar de INFORMATIEOBJECTTYPEN die mogelijk zijn binnen dit ZAAKTYPE.
         roltypen:
           type: array
           items:
@@ -14457,12 +14737,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -14470,6 +14752,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -14505,7 +14788,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
     ZaakTypeExpanded:
@@ -14890,12 +15172,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -14903,6 +15187,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -14939,7 +15224,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
     ZaakTypeInformatieObjectType:
@@ -14978,8 +15262,10 @@ components:
           title: catalogus
         informatieobjecttype:
           type: string
-          title: informatieobjecttype
+          title: Informatieobjecttype
           maxLength: 100
+          description: 
+            De waarde van het attribuut "omschrijving" van het INFORMATIEOBJECTTYPE. Deze waarde wordt gebruikt om het informatieobjecttype te identificeren conform het historiemodel. Let op, dit veld is GEEN URL-referentie!
         volgnummer:
           type: integer
           maximum: 999
@@ -15379,12 +15665,14 @@ components:
           nullable: true
           description: De datum waarop de eerst versie van het object ontstaan is.
           title: datum begin object
+          deprecated: true
         eindeObject:
           type: string
           format: date
           nullable: true
           description: De datum van de aller laatste versie van het object.
           title: datum einde object
+          deprecated: true
         versiedatum:
           type: string
           format: date
@@ -15392,6 +15680,7 @@ components:
             De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
             geldig zijn geworden
           title: versiedatum
+          deprecated: true
         concept:
           type: boolean
           readOnly: true
@@ -15428,7 +15717,6 @@ components:
         - url
         - verantwoordelijke
         - verlengingMogelijk
-        - versiedatum
         - vertrouwelijkheidaanduiding
         - zaakobjecttypen
 

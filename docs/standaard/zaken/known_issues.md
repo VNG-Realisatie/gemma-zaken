@@ -16,7 +16,7 @@ Versie   | Release datum
 
 **Issue**: Het is niet geheel duidelijk welke expand precies ondersteund moeten worden (zie [#2397](https://github.com/VNG-Realisatie/gemma-zaken/issues/2397)).
 
-**Workaround**: In de spreadsheet [expand.xlsx](https://github.com/VNG-Realisatie/gemma-zaken/files/14162505/expand.1.xlsx) wordt precies beschreven welke expands ondersteund moet worden.
+**Workaround**: In de spreadsheet [expand.xlsx](expand.xlsx) wordt precies beschreven welke expands ondersteund moet worden.
 
 **Fix**: Alle expands die ondersteund moeten worden specificeren in de OAS zoals voorgesteld in [PR #2377](https://github.com/VNG-Realisatie/gemma-zaken/pull/2377).
 

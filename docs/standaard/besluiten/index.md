@@ -50,6 +50,7 @@ NB: Op dit moment zijn de versienummers van de referentieimplementaties hard gek
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
+1.1.0 (concept)    | nader te bepalen       | [ReDoc][besluiten-1.1.0-redoc]
 1.0.2    | 22-08-2023    | [ReDoc][besluiten-1.0.2-redoc], [Swagger][besluiten-1.0.2-swagger]
 1.0.1    | 16-12-2019    | [ReDoc][besluiten-1.0.1-redoc], [Swagger][besluiten-1.0.1-swagger], [Diff][besluiten-1.0.1-diff]
 1.0.0    | 18-11-2019    | [ReDoc][besluiten-1.0.0-redoc], [Swagger][besluiten-1.0.0-swagger]
@@ -63,6 +64,9 @@ Versie   | Release datum | API specificatie
 
 [besluiten-1.0.2-redoc]: ./redoc-1.0.2
 [besluiten-1.0.2-swagger]: ./swagger-ui-1.0.2
+
+[besluiten-1.1.0-redoc]: ./redoc-1.1.0
+[besluiten-1.1.0-swagger]: ./swagger-ui-1.1.0
 
 
 ## Specificatie van gedrag

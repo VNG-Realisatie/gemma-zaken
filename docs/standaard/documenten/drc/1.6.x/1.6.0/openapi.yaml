@@ -370,6 +370,19 @@ paths:
             eerste in een samenwerkingsketen heeft vastgelegd.
           schema:
             type: string
+        - name: objectinformatieobjecten_object
+          required: false
+          in: query
+          description: URL-referentie naarhet gerelateerde OBJECT (in deze of andere API).
+          schema: 
+            type: string
+            format: uri
+        - name: objectinformatieobjecten_objectType
+          required: false
+          in: query
+          description: Het type van het gerelateerde OBJECT.
+          schema: 
+            $ref: "#/components/schemas/ObjectTypeEnum"
         - name: trefwoorden
           required: false
           in: query
@@ -7270,8 +7283,7 @@ components:
       type: object
       properties:
         informatieobjecttype:
-          $ref: >-
-            https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/current_version/openapi.yaml#/components/schemas/InformatieObjectType
+          $ref: '../../../../catalogi/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/InformatieObjectTypeExpanded'
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -7571,7 +7583,7 @@ components:
       type: object
       properties:
         informatieobject:
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+          $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
     ObjectInformatieObjectRequest:
       type: object
       properties:
@@ -8357,7 +8369,7 @@ components:
       type: object
       properties:
         informatieobject:
-          $ref: '#/components/schemas/EnkelvoudigInformatieObject'
+          $ref: '#/components/schemas/EnkelvoudigInformatieObjectExpanded'
     VerzendingRequest:
       type: object
       description: >-
