@@ -33,13 +33,13 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 | Versie         | Release datum     | Open API Specificatie                                            | Gedrag en regels                                       |
 |:---------------|:----------------- |:---------------------------------------------------------------- |:-------------------------------------------------------|
-| 1.3.2          | _(concept)_       | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.0.0 - 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
-| 1.3.1          | 26-09-2023        | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.2.1          | 26-09-2023        | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.3.0          | 22-08-2023        | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.2.0          | 19-12-2022        | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.1.0          | 24-05-2021        | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
-| 1.0.0          | 2019-11-18        | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
+| 1.3.2          | _(concept)_       | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
+| 1.3.1          | 26-09-2023        | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.3.1](#specificatie-van-gedrag)         |
+| 1.2.1          | 26-09-2023        | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger] | [spec 1.2.1](#specificatie-van-gedrag)         |
+| 1.3.0          | 22-08-2023        | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger] | [spec 1.3.0](#specificatie-van-gedrag)         |
+| 1.2.0          | 19-12-2022        | [ReDoc][catalogi-1.2.0-redoc], [Swagger][catalogi-1.2.0-swagger] | [spec 1.2.0](#specificatie-van-gedrag)         |
+| 1.1.0          | 24-05-2021        | [ReDoc][catalogi-1.1.0-redoc], [Swagger][catalogi-1.1.0-swagger] | [spec 1.1.0](#specificatie-van-gedrag)         |
+| 1.0.0          | 2019-11-18        | [ReDoc][catalogi-1.0.0-redoc], [Swagger][catalogi-1.0.0-swagger] | [spec 1.0.0](#specificatie-van-gedrag)         |
 
 [catalogi-1.0.1-redoc]: ./redoc-1.0.1
 [catalogi-1.0.1-swagger]: ./swagger-ui-1.0.1
