@@ -33,7 +33,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 | Versie         | Release datum     | Open API Specificatie                                            | Gedrag en regels                                       |
 |:---------------|:----------------- |:---------------------------------------------------------------- |:-------------------------------------------------------|
-| 1.3.2 (concept)  | nader te bepalen  | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.0.0 - 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
+| 1.3.2          | _(concept)_       | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.0.0 - 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
 | 1.3.1          | 26-09-2023        | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
 | 1.2.1          | 26-09-2023        | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
 | 1.3.0          | 22-08-2023        | [ReDoc][catalogi-1.3.0-redoc], [Swagger][catalogi-1.3.0-swagger] | [spec 1.0.0 - 1.3.1](#specificatie-van-gedrag)         |
