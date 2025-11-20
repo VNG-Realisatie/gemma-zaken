@@ -15059,6 +15059,48 @@ components:
     ZaakZoek:
           type: object
           properties:
+            fields:
+              title: Fields
+              description: De elementen (fields) die worden teruggegeven in de repons conform het expand-mechanisme.
+              type: object  
+              example: {
+                    "fields": [
+                        "url",
+                        "uuid",
+                        "identificatie",
+                        "bronorganisatie",
+                        {
+                            "zaaktype": [
+                                "identificatie",
+                                "omschrijving",
+                                {
+                                    "catalogus": [
+                                        "domein"
+                                    ]
+                                }
+                            ],
+                            "status": [
+                                "volgnummer",
+                                "datumstatusgezet"
+                            ],
+                            "resultaat": [
+                                "*"
+                            ],
+                            "zaakinformatieobjecten": [
+                                {
+                                    "informatieobject": [
+                                        "inhoud",
+                                        "bestandsnaam",
+                                        "bestandsomvang"
+                                    ]
+                                }
+                            ],
+                            "processobject": [
+                                "identificatie"
+                            ]
+                        }
+                    ]
+                }
             zaakgeometrie:
               $ref: '#/components/schemas/GeoWithin'
             uuid__in:
