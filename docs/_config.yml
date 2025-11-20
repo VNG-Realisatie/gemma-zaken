@@ -54,11 +54,17 @@ plugins:
   - jekyll-redirect-from
   - jekyll-remote-theme
 
+# Markdown processor configuration
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+  hard_wrap: false
+
 remote_theme: VNG-Realisatie/jekyll-theme-vng-realisatie
 
 github: VNG-Realisatie/gemma-zaken
 
-theme: jekyll-theme-time-machine
+# theme: jekyll-theme-time-machine
 
 project_name: /gemma-zaken
 
