@@ -15063,8 +15063,8 @@ components:
               title: Fields
               description: De elementen (fields) die worden teruggegeven in de repons conform het expand-mechanisme.
               type: object  
-              example: {
-                    "fields": [
+              example: 
+                    [
                         "url",
                         "uuid",
                         "identificatie",
@@ -15100,7 +15100,6 @@ components:
                             ]
                         }
                     ]
-                }
             zaakgeometrie:
               $ref: '#/components/schemas/GeoWithin'
             uuid__in:
