@@ -15061,8 +15061,8 @@ components:
           properties:
             fields:
               title: Fields
-              description: De elementen (fields) die worden teruggegeven in de repons conform het expand-mechanisme.
-              type: object  
+              description: 'De elementen (fields) die worden teruggegeven in de repons conform het expand-mechanisme. Het voorbeeld geeft aan hoe het werkt. Hierin betekent "*" dat alle elementen van een resource worden teruggegeven. <br><br> <b>Let op:</b> Het gebruik van het "fields" en "expand" element is mutual exclusive. Of je gebruikt de één of de ander maar nooit te gelijk.'
+              type: array   
               example: 
                     [
                         "url",
@@ -15387,12 +15387,13 @@ components:
               type: string
               example: "123456789"
             expand:
-              description: "Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,` \
+              description: "Gebruik liever het nieuwe field-element voor expand. <br><br>Examples: \n`expand=zaaktype, status, status.statustype, hoofdzaak.status.statustype,` \
                    \ hoofdzaak.deelzaken.status.statustype`Haal details van gelinkte resources direct op. 
                    Als je meerdere resources tegelijk wilt ophalen kun je deze scheiden met een komma. 
                    Voor het ophalen van resources die een laag dieper genest zijn wordt de punt-notatie gebruikt."
               title: expand
               type: string
+              deprecated: true
               example: zaaktype, status, status.statustype, hoofdzaak.status.statustype, hoofdzaak.deelzaken.status.statustype              
             ordering:
               title: Ordering
