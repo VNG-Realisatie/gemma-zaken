@@ -1,0 +1,66 @@
+# Spectral configuratie voor API specificaties
+#
+# De Nederlandse API Design Rules zijn gebaseerd op de Logius standaard:
+# https://gitdocumentatie.logius.nl/publicatie/api/adr/
+#
+# De onderstaande rulesets breiden de Nederlandse API Design Rules uit met
+# regels die specifiek zijn voor de ZGW API's.
+#
+# Gebruik: spectral lint pad/naar/uw/openapi.yaml
+
+extends:
+  - ./tools/spectral/nlgov-api-design-rules.yaml
+  # - ./tools/spectral/zgw-api-design-rules.yaml
+
+# rules:
+#   # Schakel ALLE standaard Spectral regels uit
+#   oas2-api-host: off
+#   oas2-api-schemes: off
+#   oas2-discriminator: off
+#   oas2-host-not-example: off
+#   oas2-host-trailing-slash: off
+#   oas2-parameter-description: off
+#   oas2-operation-formData-consume-check: off
+#   oas2-operation-security-defined: off
+#   oas2-valid-schema-example: off
+#   oas2-valid-media-example: off
+#   oas2-anyOf: off
+#   oas2-oneOf: off
+#   oas2-schema: off
+#   oas2-unused-definition: off
+#   oas3-api-servers: off
+#   oas3-examples-value-or-externalValue: off
+#   oas3-operation-security-defined: off
+#   oas3-parameter-description: off
+#   oas3-schema: off
+#   oas3-server-trailing-slash: off
+#   oas3-unused-component: off
+#   oas3-valid-media-example: off
+#   oas3-valid-schema-example: off
+#   openapi-tags: off
+#   openapi-tags-alphabetical: off
+#   openapi-tags-uniqueness: off
+#   operation-description: off
+#   operation-operationId: off
+#   operation-operationId-unique: off
+#   operation-operationId-valid-in-url: off
+#   operation-parameters: off
+#   operation-success-response: off
+#   operation-tags: off
+#   operation-tag-defined: off
+#   path-keys-no-trailing-slash: off
+#   path-not-include-query: off
+#   path-params: off
+#   path-declarations-must-exist: off
+#   path-keys-kebab-case: off
+#   no-$ref-siblings: off
+#   no-eval-in-markdown: off
+#   no-script-tags-in-markdown: off
+#   typed-enum: off
+#   duplicated-entry-in-enum: off
+#   contact-properties: off
+#   info-contact: off
+#   info-description: off
+#   info-license: off
+#   license-url: off
+#   tag-description: off

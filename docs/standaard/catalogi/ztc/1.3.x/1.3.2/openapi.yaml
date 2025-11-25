@@ -2700,6 +2700,13 @@ paths:
       responses:
         '204':
           description: No content
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
         '401':
           headers:
             API-version:

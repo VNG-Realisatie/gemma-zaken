@@ -1,13 +1,3 @@
-# Spectral configuratie voor API specificaties
-#
-# De Nederlandse API Design Rules zijn gebaseerd op de Logius standaard:
-# https://gitdocumentatie.logius.nl/publicatie/api/adr/
-#
-# De onderstaande rulesets breiden de Nederlandse API Design Rules uit met
-# regels die specifiek zijn voor de ZGW API's.
-#
-# Gebruik: spectral lint pad/naar/uw/openapi.yaml
-
 extends:
-  - ./tools/spectral/nlgov-api-design-rules.yaml
+  - ./tools/spectral/nlgov-api-design-rules2.yaml
   # - ./tools/spectral/zgw-api-design-rules.yaml

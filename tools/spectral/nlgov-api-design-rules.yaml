@@ -1,9 +1,10 @@
 # spectral lint -r https://developer.overheid.nl/static/adr/ruleset.yaml $OAS_URL_OR_FILE
 # curl https://developer.overheid.nl/static/adr/ruleset.yaml > .spectral.yml
 
-extends: spectral:oas
+# extends: spectral:oas
 
 rules:
+
   #/core/doc-openapi
   openapi3:
     severity: error
@@ -18,15 +19,39 @@ rules:
   #/core/version-header
   missing-version-header:
     severity: error
-    given: $..[responses][*][headers]
+    given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
     then:
-      field: API-Version
-      function: truthy
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ['API-Version']
+            - required: ['API-version']
+            - required: ['Api-Version']
+            - required: ['api-version']
     message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+
+# #/core/version-header
+#   nlgov:missing-version-header:
+#     severity: error
+#     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
+#     then:
+#       function: or
+#       functionOptions:
+#         properties:
+#           - API-Version
+#           - Api-Version
+#           - Api-version
+#           - api-version
+#           - API-version
+#     message: "Return the full version number in a response header."
+#     documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
+
 
   missing-header:
     severity: error
-    given: $..[responses][*]
+    given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))]
     then:
       field: headers
       function: truthy
@@ -60,7 +85,7 @@ rules:
   http-methods:
     severity: error
     given:
-      - "$.paths[*]"
+      - "$.paths[?(@property && @property.match(/(description|summary)/i))]"
     then:
       function: pattern
       functionOptions:
@@ -130,7 +155,7 @@ rules:
   property-casing:
     severity: warn
     given:
-    - "$.*.schemas[*].properties."
+      - "$.*.schemas[*].properties.[?(@property && @property.match(/_links/i))]"
     then:
       function: casing
       functionOptions:
