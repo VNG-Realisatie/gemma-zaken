@@ -1,3 +1,5 @@
 extends:
-  - ./tools/spectral/nlgov-api-design-rules2.yaml
-  # - ./tools/spectral/zgw-api-design-rules.yaml
+  # - ./tools/spectral/adr_kpa_corrected.yaml
+  # - ./tools/spectral/adr_kpa.yaml
+  # - ./tools/spectral/adr_don.yaml
+  # - ./tools/spectral/zgw-api-design-rules.yaml 

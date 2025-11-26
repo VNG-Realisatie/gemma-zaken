@@ -1,0 +1,12 @@
+extends: spectral:oas
+
+rules:
+  openapi3:
+    severity: error
+    given:
+      - "$.['openapi']"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3.0.*$"
+    message: "Use OpenAPI 3.0"

@@ -21,33 +21,9 @@ rules:
     severity: error
     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
     then:
-      function: schema
-      functionOptions:
-        schema:
-          type: object
-          anyOf:
-            - required: ['API-Version']
-            - required: ['API-version']
-            - required: ['Api-Version']
-            - required: ['api-version']
+      field: API-Version
+      function: truthy
     message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
-
-# #/core/version-header
-#   nlgov:missing-version-header:
-#     severity: error
-#     given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
-#     then:
-#       function: or
-#       functionOptions:
-#         properties:
-#           - API-Version
-#           - Api-Version
-#           - Api-version
-#           - api-version
-#           - API-version
-#     message: "Return the full version number in a response header."
-#     documentationUrl: "https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header"
-
 
   missing-header:
     severity: error
