@@ -47,24 +47,24 @@ def replace_4xx(match):
 
 content = re.sub(pattern_4xx, replace_4xx, content)
 
-# Pattern voor 500 responses
-pattern_500 = r"""        '500':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description:
-                'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep\. Voorbeeld: 1\.2\.1\.'
-          content:
-            application/problem\+json:
-              schema:
-                \$ref: '#/components/schemas/Fout'
-          description: Internal server error"""
+# # Pattern voor 500 responses
+# pattern_500 = r"""        '500':
+#           headers:
+#             API-version:
+#               schema:
+#                 type: string
+#               description:
+#                 'Geeft een specifieke API-versie aan in de context van
+#                 een specifieke aanroep\. Voorbeeld: 1\.2\.1\.'
+#           content:
+#             application/problem\+json:
+#               schema:
+#                 \$ref: '#/components/schemas/Fout'
+#           description: Internal server error"""
 
-replacement_500 = "        '500':\n          $ref: '#/components/responses/FoutResponse'"
+# replacement_500 = "        '500':\n          $ref: '#/components/responses/FoutResponse'"
 
-content = re.sub(pattern_500, replacement_500, content)
+# content = re.sub(pattern_500, replacement_500, content)
 
 # Schrijf terug
 with open(file_path, 'w') as f:
