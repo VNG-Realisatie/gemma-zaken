@@ -1,0 +1,140 @@
+# spectral lint -r https://developer.overheid.nl/static/adr/ruleset.yaml $OAS_URL_OR_FILE
+# curl https://developer.overheid.nl/static/adr/ruleset.yaml > .spectral.yml
+
+extends: spectral:oas
+
+rules:
+
+  #/core/doc-openapi
+  openapi3:
+    severity: error
+    given:
+      - "$.['openapi']"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^3.0.*$"
+    message: "/core/doc-openapi: Use OpenAPI Specification for documentation: https://logius-standaarden.github.io/API-Design-Rules/#/core/doc-openapi"
+
+  #/core/version-header
+  missing-version-header:
+    severity: error
+    given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))][headers]
+    then:
+      field: API-Version
+      function: truthy
+    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+
+  missing-header:
+    severity: error
+    given: $..[responses][?(@property && @property.match(/(2|3)\d\d/))]
+    then:
+      field: headers
+      function: truthy
+    message: "/core/version-header: Return the full version number in a response header: https://logius-standaarden.github.io/API-Design-Rules/#/core/version-header"
+
+  #/core/uri-version
+  include-major-version-in-uri:
+    severity: error
+    given:
+      - "$.servers[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\/v[\\d+]"
+      field: url
+    message: "/core/uri-version: Include the major version number in the URI: https://logius-standaarden.github.io/API-Design-Rules/#/core/uri-version"
+
+  #/core/no-trailing-slash
+  paths-no-trailing-slash:
+    severity: error
+    given:
+      - "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "\\/$"
+      field: "@key"
+    message: "/core/no-trailing-slash: Leave off trailing slashes from URIs: https://logius-standaarden.github.io/API-Design-Rules/#/core/no-trailing-slash"
+
+  #/core/http-methods
+  http-methods:
+    severity: error
+    given:
+      - "$.paths[?(@property && @property.match(/(description|summary)/i))]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "post|put|get|delete|patch|parameters"
+      field: "@key"
+    message: "/core/http-methods: Only apply standard HTTP methods: https://logius-standaarden.github.io/API-Design-Rules/#http-methods"
+
+  paths-kebab-case:
+    severity: warn
+    message: "{{property}} is not kebab-case."
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(\/[a-z0-9-.]+|\/{[a-zA-Z0-9_]+})+$"
+
+  schema-camel-case:
+    severity: warn
+    message: "Schema name should be CamelCase in {{path}}"
+    given: >-
+      $.components.schemas[*]~
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
+        separator:
+          char: ""
+
+  servers-use-https:
+    severity: warn
+    message: "Server URL {{value}} {{error}}."
+    given:
+      - $.servers[*]
+      - $.paths..servers[*]
+    then:
+      field: url
+      function: pattern
+      functionOptions:
+        match: ^https://.*
+
+  use-problem-schema:
+    severity: warn
+    message: Your schema doesn't seem to match RFC7807. Are you sure it is ok? {{path}}
+    given: $..[responses][?(@property && @property.match(/^(4|5|default)/))][[schema]].properties
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - type: object
+              required:
+                - title
+                - status
+            - type: object
+              required:
+                - title
+                - type
+            - type: object
+              required:
+                - type
+                - status
+            - type: object
+              required:
+                - title
+                - detail
+
+  property-casing:
+    severity: warn
+    given:
+      - "$.*.schemas[*].properties.[?(@property && @property.match(/_links/i))]"
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+      field: "@key"
+    message: Properties must be lowerCamelCase.
