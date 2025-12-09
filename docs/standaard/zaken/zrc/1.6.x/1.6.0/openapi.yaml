@@ -7126,6 +7126,7 @@ components:
           maxLength: 80
       discriminator:
         propertyName: objectType
+        # Explicit mapping required due to schema naming convention: {objectType}_PatchedZaakObject
         mapping:
           adres: '#/components/schemas/adres_PatchedZaakObject'
           besluit: '#/components/schemas/besluit_PatchedZaakObject'
@@ -7479,6 +7480,7 @@ components:
         - zaak
       discriminator:
         propertyName: betrokkeneType
+        # Mapping follows pattern: {betrokkeneType}_Rol
         mapping:
           medewerker: '#/components/schemas/medewerker_Rol'
           natuurlijk_persoon: '#/components/schemas/natuurlijk_persoon_Rol'
@@ -7640,6 +7642,7 @@ components:
         - zaak
       discriminator:
         propertyName: betrokkeneType
+        # Mapping follows pattern: {betrokkeneType}_RolExpanded
         mapping:
           medewerker: '#/components/schemas/medewerker_RolExpanded'
           natuurlijk_persoon: '#/components/schemas/natuurlijk_persoon_RolExpanded'
@@ -9188,6 +9191,7 @@ components:
         - zaak
       discriminator:
         propertyName: objectType
+        # Mapping follows pattern: {objectType}_ZaakObject
         mapping:
           adres: '#/components/schemas/adres_ZaakObject'
           besluit: '#/components/schemas/besluit_ZaakObject'
@@ -9378,6 +9382,7 @@ components:
         - zaak
       discriminator:
         propertyName: objectType
+        # Mapping follows pattern: {objectType}_ZaakObjectExpanded
         mapping:
           adres: '#/components/schemas/adres_ZaakObjectExpanded'
           besluit: '#/components/schemas/besluit_ZaakObjectExpanded'
