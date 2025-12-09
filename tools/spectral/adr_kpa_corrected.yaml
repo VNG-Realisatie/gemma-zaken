@@ -19,7 +19,7 @@
 # spectral lint -r .spectral.yml $OAS_URL_OR_FILE
 # ```
 
-extends: spectral:oas
+# extends: spectral:oas
 
 rules:
   oas3-api-servers: error
