@@ -6010,6 +6010,13 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        tonenAanInitiator:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
+            initiator van de zaak waarin het INFORMATIEOBJECT is
+            opgenomen.
+          type: boolean
+          default: False
         auteur:
           type: string
           description: >-
@@ -6291,6 +6298,13 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        tonenAanInitiator:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
+            initiator van de zaak waarin het INFORMATIEOBJECT is
+            opgenomen.
+          type: boolean
+          default: False
         auteur:
           type: string
           description: >-
@@ -6570,6 +6584,13 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        tonenAanInitiator:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
+            initiator van de zaak waarin het INFORMATIEOBJECT is
+            opgenomen.
+          type: boolean
+          default: False
         auteur:
           type: string
           minLength: 1
@@ -6817,6 +6838,13 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        tonenAanInitiator:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
+            initiator van de zaak waarin het INFORMATIEOBJECT is
+            opgenomen.
+          type: boolean
+          default: False
         auteur:
           type: string
           description: >-
@@ -7087,6 +7115,13 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        tonenAanInitiator:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
+            initiator van de zaak waarin het INFORMATIEOBJECT is
+            opgenomen.
+          type: boolean
+          default: False
         auteur:
           type: string
           minLength: 1
