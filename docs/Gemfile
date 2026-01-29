@@ -12,4 +12,7 @@
 
 # gem "webrick", "~> 1.8"
 
+# cd /home/henri_k/github/vng/gemma-zaken/docs
+# bundle exec jekyll serve --livereload
+
 gem "github-pages", group: :jekyll_plugins
