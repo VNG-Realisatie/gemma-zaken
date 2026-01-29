@@ -28,7 +28,7 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 Hieronder een kort overzicht van de belangrijkste versies van de ZGW API's.
 
-| ZGW API               | Huidige versie &nbsp; &nbsp;                                   | Concept-versie                          |
+| ZGW API               | Huidige versie &nbsp; &nbsp;                                   | Conceptversie                          |
 |-----------------------|----------------------------------------------------------------|-----------------------------------------|
 | Zaken API             | [1.5.1](./zaken/#version-1.5.1)                                | [1.6.0](./zaken/#version-1.6.0)         |
 | Catalogi API          | [1.3.1](./catalogi/#version-1.3.1)                             | [1.3.2](./catalogi/#version-1.3.2)      |
