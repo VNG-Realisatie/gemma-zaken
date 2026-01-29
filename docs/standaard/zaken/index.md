@@ -75,8 +75,8 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 Versie   | Release datum | API specificatie
 -------- | ------------- | ----------------
-1.6.0  | _(concept)_   | [ReDoc][zaken-1.6.0-redoc]
-1.5.1    | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger]
+<a name="version-1.6.0">1.6.0  | _(concept)_   | [ReDoc][zaken-1.6.0-redoc]
+<a name="version-1.5.1">1.5.1    | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger]
 1.4.1    | 26-09-2023    | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger]
 1.3.1    | 26-09-2022    | [ReDoc][zaken-1.3.1-redoc], [Swagger][zaken-1.3.1-swagger]
 1.5.0    | 22-08-2023    | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger]

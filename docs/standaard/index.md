@@ -8,7 +8,7 @@ layout: page-with-side-nav
 
 ## API-specificaties
 
-Hieronder de directe links naar de specificatie en documentatie van de API's:
+Hieronder de links naar de specificatie en documentatie van de API's:
 
 * [Catalogi API specificatie](catalogi/)
 * [Zaken API specificatie](zaken/)
@@ -23,6 +23,19 @@ Hieronder de directe links naar de specificatie en documentatie van de API's:
 * [Referentielijsten en Selectielijst API][referentielijsten-1.0.0-redoc]
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
+
+### Kort overzicht
+
+Hieronder een kort overzicht van de belangrijkste versies van de ZGW API's.
+
+| ZGW API               | Huidige versie &nbsp; &nbsp;                                   | Concept-versie                          |
+|-----------------------|----------------------------------------------------------------|-----------------------------------------|
+| Zaken API             | [1.5.1](./zaken/#version-1.5.1)                                | [1.6.0](./zaken/#version-1.6.0)         |
+| Catalogi API          | [1.3.1](./catalogi/#version-1.3.1)                             | [1.3.2](./catalogi/#version-1.3.2)      |
+| Documenten API &nbsp; | [1.5.0](./documenten/#version-1.5.0)                           | [1.6.0](./documenten/#version-1.6.0)    |
+| Besluiten API         | [1.0.2](./besluiten/#version-1.0.2)                            | [1.1.0](./besluiten/#version-1.1.0)     |
+| Autorisaties API      | [1.0.0](./autorisaties/#specificatie-van-de-autorisaties-api)  | –                                       |
+| Notificaties API      | [1.0.0](./notificaties/#specificatie-van-de-notificaties-api)  | –                                       |
 
 ## Algemeen
 
