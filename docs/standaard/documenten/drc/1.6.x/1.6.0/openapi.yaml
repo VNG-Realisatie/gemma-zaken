@@ -8083,8 +8083,7 @@ components:
             voorbehouden aan documenten die van of naar andere personen
             ontvangen of verzonden zijn waarbij die personen niet deel uit maken
             van de behandeling van de zaak waarin het document een rol speelt.
-            Vervangt het gelijknamige attribuut uit Informatieobject. Verplicht
-            gevuld wanneer aardRelatie de waarde 'geadresseerde' heeft.
+            Vervangt het gelijknamige attribuut uit Informatieobject.
           title: verzenddatum
         contactPersoon:
           type: string
@@ -8314,8 +8313,7 @@ components:
             voorbehouden aan documenten die van of naar andere personen
             ontvangen of verzonden zijn waarbij die personen niet deel uit maken
             van de behandeling van de zaak waarin het document een rol speelt.
-            Vervangt het gelijknamige attribuut uit Informatieobject. Verplicht
-            gevuld wanneer aardRelatie de waarde 'geadresseerde' heeft.
+            Vervangt het gelijknamige attribuut uit Informatieobject.
           title: verzenddatum
         contactPersoon:
           type: string
@@ -8468,8 +8466,7 @@ components:
             voorbehouden aan documenten die van of naar andere personen
             ontvangen of verzonden zijn waarbij die personen niet deel uit maken
             van de behandeling van de zaak waarin het document een rol speelt.
-            Vervangt het gelijknamige attribuut uit Informatieobject. Verplicht
-            gevuld wanneer aardRelatie de waarde 'geadresseerde' heeft.
+            Vervangt het gelijknamige attribuut uit Informatieobject.
           title: verzenddatum
         contactPersoon:
           type: string
