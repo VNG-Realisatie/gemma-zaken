@@ -1928,6 +1928,183 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: Internal server error
+    patch:
+      operationId: catalogus_partial_update
+      description:
+        "Werk een CATALOGUS deels bij. Dit kan alleen als het een concept\
+        \ betreft."
+      summary: Werk een CATALOGUS deels bij.
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+            format: uuid
+            description: Unieke resource identifier (UUID4)
+            title: uuid
+          required: true
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+            enum:
+              - application/json
+          description: Content type van de verzoekinhoud.
+          required: true
+      tags:
+        - catalogussen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCatalogus'
+      security:
+        - JWT-Claims:
+            - (catalogi.schrijven | catalogi.geforceerd-schrijven)
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalogus'
+          description: OK
+        '400':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidatieFout'
+          description: Bad request
+        '401':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Unauthorized
+        '403':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Forbidden
+        '404':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Not found
+        '406':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Not acceptable
+        '409':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Conflict
+        '410':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Gone
+        '415':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Unsupported media type
+        '429':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Too many requests
+        '500':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: Internal server error
     head:
       operationId: catalogus_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
@@ -12056,6 +12233,111 @@ components:
         - contactpersoonBeheerNaam
         - domein
         - rsin
+    PatchedCatalogus:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+          title: url
+          description:
+            URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+          minLength: 1
+          maxLength: 1000
+        domein:
+          type: string
+          description:
+            Een afkorting waarmee wordt aangegeven voor welk domein in
+            een CATALOGUS ZAAKTYPEn zijn uitgewerkt.
+          title: domein
+          maxLength: 5
+        rsin:
+          type: string
+          description:
+            Het door een kamer toegekend uniek nummer voor de INGESCHREVEN
+            NIET-NATUURLIJK PERSOON die de eigenaar is van een CATALOGUS.
+          title: rsin
+          maxLength: 9
+        contactpersoonBeheerNaam:
+          type: string
+          title: Naam contactpersoon
+          description:
+            De naam van de contactpersoon die verantwoordelijk is voor
+            het beheer van de CATALOGUS.
+          maxLength: 40
+        contactpersoonBeheerTelefoonnummer:
+          type: string
+          title: Telefoonnummer
+          description:
+            Het telefoonnummer van de contactpersoon die verantwoordelijk
+            is voor het beheer van de CATALOGUS.
+          maxLength: 20
+        contactpersoonBeheerEmailadres:
+          type: string
+          format: email
+          title: Emailadres
+          description:
+            Het emailadres van de contactpersoon die verantwoordelijk is
+            voor het beheer van de CATALOGUS.
+          maxLength: 254
+        zaaktypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          readOnly: true
+          description:
+            URL-referenties naar ZAAKTYPEn die in deze CATALOGUS worden
+            ontsloten.
+          title: Catalogus
+          uniqueItems: true
+        besluittypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          readOnly: true
+          description:
+            URL-referenties naar BESLUITTYPEn die in deze CATALOGUS worden
+            ontsloten.
+          title: catalogus
+          uniqueItems: true
+        informatieobjecttypen:
+          type: array
+          items:
+            type: string
+            format: uri
+            title: ''
+          readOnly: true
+          description:
+            URL-referenties naar INFORMATIEOBJECTTYPEn die in deze CATALOGUS
+            worden ontsloten.
+          title: Catalogus
+          uniqueItems: true
+        naam:
+          type: string
+          nullable: true
+          description: De benaming die is gegeven aan de zaaktypecatalogus.
+          title: naam
+          maxLength: 200
+        versie:
+          type: string
+          nullable: true
+          description: Versie-aanduiding van de van toepassing zijnde zaaktypecatalogus.
+          title: versie
+          maxLength: 20
+        begindatumVersie:
+          type: string
+          format: date
+          nullable: true
+          description:
+            Datum waarop de versie van de zaaktypecatalogus van toepassing
+            is geworden.
+          title: begindatum versie
     CatalogusExpanded:
       allOf:
       - $ref: '#/components/schemas/Catalogus'
