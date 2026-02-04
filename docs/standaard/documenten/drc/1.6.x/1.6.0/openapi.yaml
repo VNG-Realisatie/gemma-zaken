@@ -7989,6 +7989,15 @@ components:
             veld opgegeven worden. Bij het aanmaken (POST) mag het geen waarde
             hebben.
           title: lock
+        trefwoorden:
+          description: Een lijst van één of meer trefwoorden.
+          type: array
+          items:
+            type: string
+          example:
+            - bouwtekening
+            - vergunning
+            - aanvraag
     PatchedGebruiksrechtenRequest:
       type: object
       properties:
