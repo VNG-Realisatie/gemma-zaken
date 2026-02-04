@@ -5505,7 +5505,8 @@ components:
       enum:
         - besloten_vennootschap
         - cooperatie_europees_economische_samenwerking
-        - europese_cooperatieve_venootschap
+        - europese_cooperatieve_venootschap  # deprecated: true
+        - europese_cooperatieve_vennootschap
         - europese_naamloze_vennootschap
         - kerkelijke_organisatie
         - naamloze_vennootschap
@@ -5523,6 +5524,7 @@ components:
         - overige_buitenlandse_rechtspersoon_vennootschap
         - kapitaalvennootschap_buiten_eer
       type: string
+      description: De rechtsvorm `europese_cooperatieve_venootschap` bevat een spelfout en is deprecated. Gebruik in plaats daarvan `europese_cooperatieve_vennootschap`.
     KlantContact:
       type: object
       properties:
