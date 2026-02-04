@@ -8070,9 +8070,15 @@ components:
           maxLength: 100
         oaoIdentificatie:
           type: string
-          description: De unieke identificatie van het OBJECT
+          description: De unieke identificatie van het OBJECT. Dit veld is verkeerd gespeld en is daarom deprecated. Het wordt vervangen door `aoaIdentificatie`. Als `aoaIdentificatie` nog niet wordt gebruikt dan is dit veld nog steeds verplicht voor backwards compatibility.
           title: identificatie
           maxLength: 100
+          deprecated: true
+        aoaIdentificatie:
+          type: string
+          description: De unieke identificatie van het OBJECT. Als `oaoIdentificatie` niet meer wordt gebruikt dan is dit veld verplicht.
+          title: identificatie
+          maxLength: 100  
         wplWoonplaatsNaam:
           type: string
           title: wpl woonplaats naam
@@ -8108,7 +8114,6 @@ components:
       required:
         - aoaHuisnummer
         - gorOpenbareRuimteNaam
-        - oaoIdentificatie
         - wplWoonplaatsNaam
     TypeWaterdeelEnum:
       enum:
