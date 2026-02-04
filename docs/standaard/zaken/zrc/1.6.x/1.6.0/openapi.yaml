@@ -3284,11 +3284,11 @@ paths:
         - name: rol__betrokkeneIdentificatie__medewerker__identificatie
           required: false
           in: query
-          description: Een korte unieke aanduiding van de MEDEWERKER.
+          description: Een unieke aanduiding van de MEDEWERKER.
           schema:
             type: string
-            maxLength: 24
-            example: "123456789"
+            maxLength: 254
+            example: "medewerker-12345"
         - name: rol__betrokkeneIdentificatie__organisatorischeEenheid__identificatie
           required: false
           in: query
@@ -7671,9 +7671,10 @@ components:
       properties:
         identificatie:
           type: string
-          description: Een korte unieke aanduiding van de MEDEWERKER.
+          description: Een unieke aanduiding van de MEDEWERKER.
           title: identificatie
-          maxLength: 24
+          maxLength: 254
+          example: "medewerker-12345"
         achternaam:
           type: string
           description:
