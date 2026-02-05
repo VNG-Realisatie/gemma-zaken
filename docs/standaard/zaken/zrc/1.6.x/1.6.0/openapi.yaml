@@ -3425,7 +3425,10 @@ paths:
 
         - `archiefstatus` kan alleen een waarde anders dan "nog_te_archiveren" hebben
         indien van alle gerelateeerde INFORMATIEOBJECTen het attribuut `status` de
-        waarde "gearchiveerd" heeft.'
+        waarde "gearchiveerd" heeft.
+
+        - `datumStatusGezet` mag niet voor de `startdatum` van de zaak liggen.'
+
       summary: Maak een ZAAK aan.
       parameters:
         - in: header
