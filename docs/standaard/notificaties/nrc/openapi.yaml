@@ -81,7 +81,7 @@ info:
   license:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
-  version: 1.0.0
+  version: 1.0.1
 security:
 - JWT-Claims: []
 paths:
@@ -1403,14 +1403,12 @@ components:
             op te ontvangen.
           type: string
           format: uri
-          maxLength: 200
           minLength: 1
         auth:
           title: Autorisatie header
           description: 'Autorisatie header invulling voor het vesturen naar de "Callback
             URL". Voorbeeld: Bearer a4daa31...'
           type: string
-          maxLength: 1000
           minLength: 1
         kanalen:
           description: Een lijst van kanalen en filters waarop het ABONNEMENT wordt
