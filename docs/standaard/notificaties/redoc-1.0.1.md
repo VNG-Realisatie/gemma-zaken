@@ -1,7 +1,6 @@
 ---
-layout: page-with-side-nav
+layout: default
 title: redoc
 body_include: redoc-body.html
-spec-url: https://raw.githubusercontent.com/VNG-Realisatie/notificaties-api/1.0.1/src/openapi.yaml
 ---
-<redoc spec-url='{{ page.spec-url}}'></redoc>
+<redoc spec-url='nrc/1.0.1/openapi.yaml'></redoc>

@@ -25,15 +25,24 @@ De API ondersteunt:
 
 ## Specificatie van de Notificaties API
 
-* [Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
-* API specificatie (OAS3) in
+[Referentie-implementatie Notificaties API](https://notificaties-api.vng.cloud)
+
+<!-- * API specificatie (OAS3) in
   [ReDoc][notificaties-1.0.0-redoc],
   [Swagger][notificaties-1.0.0-swagger],
   [YAML](https://notificaties-api.vng.cloud/api/v1/schema/openapi.yaml) of
   [JSON](https://notificaties-api.vng.cloud/api/v1/schema/openapi.json)
 
 [notificaties-1.0.0-redoc]: redoc-1.0.0
-[notificaties-1.0.0-swagger]: swagger-ui-1.0.0
+[notificaties-1.0.0-swagger]: swagger-ui-1.0.0 -->
+
+Versie   | Releasedatum | API specificatie
+-------- | ------------- | ----------------
+<a name="version-1.0.1"></a>1.0.1    | _(concept)_        | [ReDoc][notificaties-1.0.1-redoc]
+<a name="version-1.0.0"></a>1.0.0    |       2019-11-18   | [ReDoc][notificaties-1.0.0-redoc]
+
+[notificaties-1.0.1-redoc]: redoc-1.0.1
+[notificaties-1.0.0-redoc]: redoc-1.0.0
 
 ## Specificatie van gedrag
 
