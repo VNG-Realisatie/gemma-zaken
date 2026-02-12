@@ -6,12 +6,14 @@ To do:
 
 - Uitleggen OneOf-constructie expand.
 
+- Issues voorzien van hyperlinks en soms vooraan zetten
+
 
 ## Expand-mechanisme
 
 ### Expand beschikbaar voor alle relevante endpoints
 
-Voorheen kon de expand alleen maar gebruikt worden op het endpoint `/zaken`, maar nu kan de expand ook worden toegepast op de andere resources (rollen, statussen, zaakinformatieobjecten, etc.). Dit is consistenter, gebruikersvriendelijker en biedt ook meer functionaliteit.
+Voorheen kon de expand alleen maar gebruikt worden op het endpoint `/zaken`, maar nu kan de expand ook worden toegepast op de andere resources (rollen, statussen, zaakinformatieobjecten, etc.). Dit is consistenter, gebruikersvriendelijker en biedt in sommige gevallen meer functionaliteit.
 
 Gerelateerde issues:
 
@@ -51,7 +53,7 @@ Gerelateerde issues:
 
 - #2559. ZRC: reduce expand results.
 
-### Diverse bugs omtrent expand opgelost
+### Diverse bugs fixes
 
 - Expansion bij zaken mist het attribuut zaakinformatieobjecten in de OAS #2515
 
