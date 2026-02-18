@@ -1,4 +1,4 @@
-# Release Notes Zaken 1.6.0
+# Release Notes Zaken API 1.6.0
 
 To do:
 
