@@ -69,3 +69,27 @@ Gerelateerde issues:
 
 - ZTC: problemen relatie resultaattype-besluittype en resultaattype-informatieobjecttype oplossen  #2467
 
+### Business rule ztc-010 herschreven
+
+Business rule ztc-010 was onduidelijk en is herschreven (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/713d1442b5c5aa87f55739007454ea61ead3a486))
+
+Gerelateerde issues:
+
+- Business rule ztc-010 herschrijven #2456
+
+### Per abuis verdwenen attribuut weer toegevoegd aan specificatie
+
+In de berichten van operatie `POST /besluittypen` was het attribuut "zaaktypen" per ongeluk weggevallen. Dit element in deze versie weer toegevoegd.
+
+Gerelateerde issues:
+
+- ZTC 1.3 POST besluittype: wat is er met zaaktypen gebeurd #2437
+
+### Datum/tijd formaat voor eigenschappen duidelijk gespecificeerd
+
+Het formaat van datum/tijd waren niet scherp gespecificeerd in de beschrijvingen voor eigenschappen. Dat is nu strak getrokken.
+
+Gerelateerde issues:
+
+- As a developer, I want to have standardized schema descriptions for eigenschappen #1751
+
