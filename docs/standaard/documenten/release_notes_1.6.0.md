@@ -26,7 +26,7 @@ Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoint
 
 ## Veld voor bekendmaking aan initiatiefnemer toegevoegd
 
-![alt text](image.png)
+Boolean veld "tonenAanInitiator" toegevoegd (default: false) om aan te geven of het document getoond mag worden aan de initiator van de zaak waarin het document is opgenomen.
 
 ### Gerelateerde issues:
 
