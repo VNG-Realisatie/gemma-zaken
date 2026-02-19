@@ -35,7 +35,7 @@ Hieronder een kort overzicht van de belangrijkste versies van de ZGW API's.
 | Documenten API &nbsp; | [1.5.0](./documenten/#version-1.5.0)                           | [1.6.0](./documenten/#version-1.6.0)    |
 | Besluiten API         | [1.0.2](./besluiten/#version-1.0.2)                            | [1.1.0](./besluiten/#version-1.1.0)     |
 | Autorisaties API      | [1.0.0](./autorisaties/#specificatie-van-de-autorisaties-api)  | –                                       |
-| Notificaties API      | [1.0.0](./notificaties/#version-1.0.0)                         | [1.1.0](./notificaties/#version-1.0.1)  |
+| Notificaties API      | [1.0.0](./notificaties/#version-1.0.0)                         | [1.0.1](./notificaties/#version-1.0.1)  |
 
 ## Algemeen
 

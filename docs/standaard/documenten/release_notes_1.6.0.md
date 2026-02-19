@@ -1,8 +1,8 @@
-# Release Notes Documenten API
+# Release notes Documenten API
 
 ## Expand-mechanisme toegevoegd
 
-In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Catalagi API.
+In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Documenten API.
 
 - Documenten API
 
