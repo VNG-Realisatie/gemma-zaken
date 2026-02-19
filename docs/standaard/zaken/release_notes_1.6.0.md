@@ -6,13 +6,17 @@ layout: page-with-side-nav
 
 # Release Notes Zaken API 1.6.0
 
-To do:
+<!-- To do:
 
 - [#2398](https://github.com/VNG-Realisatie/gemma-zaken/issues/2398): Expand: moeten alle geledingen van de expandparameter worden geexpandeerd of alleen de laatste?
 
 - Uitleggen OneOf-constructie expand.
 
-- Issues voorzien van hyperlinks en soms vooraan zetten
+- Issues voorzien van hyperlinks en soms vooraan zetten 
+
+- Issue met url's oplossen in Historie document.
+
+-->
 
 
 ## Expand-mechanisme

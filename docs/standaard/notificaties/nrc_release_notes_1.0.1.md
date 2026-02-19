@@ -1,3 +1,9 @@
+---
+title: "Notificaties API"
+weight: 10
+layout: page-with-side-nav
+---
+
 # Release notes Notificaties API 1.0.1
 
 ## MaxLength restrictie verwijderd van twee velden
