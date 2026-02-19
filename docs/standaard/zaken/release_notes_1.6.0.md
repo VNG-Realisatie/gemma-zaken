@@ -16,6 +16,12 @@ layout: page-with-side-nav
 
 - Issue met url's oplossen in Historie document.
 
+- spellings checker
+
+- Feedback Johannes verwerken over patch lock
+
+- per onderwerp een issue-lijst toevoegen (expand, historiemodel, etc.)
+
 -->
 
 
