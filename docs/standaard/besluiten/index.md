@@ -4,6 +4,7 @@ date: '10-7-2019'
 weight: 10
 layout: page-with-side-nav
 ---
+
 # Besluiten API
 
 API voor opslag en ontsluiting van besluiten en daarbij behorende metadata.
@@ -41,6 +42,12 @@ Indien het besluit een beschikking is, is er een beschikkinghouder, bijvoorbeeld
 [Referentie-implementatie Besluiten API](https://besluiten-api.vng.cloud)
 
 ### Releases
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.1.0</strong>
+</span>
+
+Klik [hier](./release_notes_1.1.0.md) voor de release notes van versie 1.1.0 van de Besluiten API.
 
 <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
     <strong>Nieuw in versie 1.0.2</strong>

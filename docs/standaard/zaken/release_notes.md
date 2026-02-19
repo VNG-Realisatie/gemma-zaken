@@ -4,7 +4,11 @@ date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
-# Release Notes Zaken API
+# Release notes Zaken API
+
+## Versie 1.6.0
+
+Klik [hier](./release_notes_1.6.0.md) voor de release notes van versie 1.6.0 van de Zaken API.
 
 ## Versies 1.5.1 / 1.4.1 / 1.3.1
 

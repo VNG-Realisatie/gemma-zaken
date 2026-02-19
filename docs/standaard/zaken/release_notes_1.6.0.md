@@ -1,3 +1,9 @@
+---
+title: "Release Notes Zaken API 1.6.0"
+weight: 10
+layout: page-with-side-nav
+---
+
 # Release Notes Zaken API 1.6.0
 
 To do:

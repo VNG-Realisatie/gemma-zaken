@@ -6,6 +6,10 @@ layout: page-with-side-nav
 ---
 # Release Notes Catalogi API
 
+## Versie 1.3.2
+
+Klik [hier](./release_notes_1.3.2.md) voor de release notes.
+
 ## Versies 1.3.1 / 1.2.1
 
 Versie   | Release datum 

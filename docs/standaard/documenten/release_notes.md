@@ -6,6 +6,10 @@ layout: page-with-side-nav
 ---
 # Release Notes Documenten API
 
+## Versie 1.6.0
+
+Klik [hier](./release_notes_1.6.0.md) voor versie 1.6.0 van de Documenten API.
+
 ## Versie 1.5.0
 
 Versie   | Releasedatum 

@@ -1,21 +1,24 @@
-# Release Notes Catalogi API 1.3.2
+---
+title: "Release notes Catalogi API 1.3.2"
+weight: 10
+layout: page-with-side-nav
+---
+
+# Release notes Catalogi API 1.3.2
 
 ## Expand-mechanisme toegevoegd
 
 In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Catalagi API.
 
 - Documenten API
-
 - Besluiten API
-
 - Catalogi API
 
 Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
 
-Gerelateerde issues:
+### Gerelateerde issues:
 
 - Zou het expand-mechanisme ook niet in de Catalogi API zelf bruikbaar moeten zijn? #2487
-
 - Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC #2507
 
 
@@ -31,11 +34,11 @@ In de vorige release van de Catalogi API bleek het nieuwe historiemodel nog niet
 
 ## Allerhande issues opgelost
 
-### PUT en PATCH toegevoegd aan endpoint `/catalogussen/{uuid}`
+### PUT en PATCH toegevoegd voor catalogussen
 
 Deze essentiële operaties ontbraken in de OAS-specificatie en zijn nu toegevoegd.
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - ZTC: update method for catalog #2560
 
@@ -44,7 +47,7 @@ Gerelateerde issues:
 In de POST/PUT/PATCH voor Resultaattype en Roltype kan een catalogus worden meegegeven in de request.
 Dit is overbodig want je geeft al een zaaktype mee die een catalogus heeft. Naar aanleiding van dit inzicht is tevens de business rule ztc-013 verwijderd.
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - ZTC: onterecht catalogus in POST/PUT/PATCH voor Resultaattype en Roltype #2468
 
@@ -56,7 +59,7 @@ Gerelateerde issues:
 Beschrijvingen van de query parameters aangespast (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/016e46987430ba9ae2c0a6efc2821cf6d9580970))
 
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - ZTC 1.3 filter op status bij objecttypes zonder status onduidelijk #2479
 
@@ -65,7 +68,7 @@ Gerelateerde issues:
 
 Problemen omtrennt de relaties resultaattype-besluittype en resultaattype-informatieobjecttype opgelost door beschrijvingen aan te passen en het veld "besluittypen" optioneel te maken (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/30d6b8e830e721d450ead1925b5acad1f612ce71))
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - ZTC: problemen relatie resultaattype-besluittype en resultaattype-informatieobjecttype oplossen  #2467
 
@@ -73,7 +76,7 @@ Gerelateerde issues:
 
 Business rule ztc-010 was onduidelijk en is herschreven (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/713d1442b5c5aa87f55739007454ea61ead3a486))
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - Business rule ztc-010 herschrijven #2456
 
@@ -81,7 +84,7 @@ Gerelateerde issues:
 
 In de berichten van operatie `POST /besluittypen` was het attribuut "zaaktypen" per ongeluk weggevallen. Dit element in deze versie weer toegevoegd.
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - ZTC 1.3 POST besluittype: wat is er met zaaktypen gebeurd #2437
 
@@ -89,7 +92,7 @@ Gerelateerde issues:
 
 Het formaat van datum/tijd waren niet scherp gespecificeerd in de beschrijvingen voor eigenschappen. Dat is nu strak getrokken.
 
-Gerelateerde issues:
+#### Gerelateerde issues:
 
 - As a developer, I want to have standardized schema descriptions for eigenschappen #1751
 
