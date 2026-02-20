@@ -10,9 +10,7 @@ layout: page-with-side-nav
 
 - [#2398](https://github.com/VNG-Realisatie/gemma-zaken/issues/2398): Expand: moeten alle geledingen van de expandparameter worden geexpandeerd of alleen de laatste?
 
-- Uitleggen OneOf-constructie expand.
-
-- Issues voorzien van hyperlinks en soms vooraan zetten 
+- Uitleggen OneOf-constructie expand. Uitleggen als een business rule.
 
 - Issue met url's oplossen in Historie document.
 
