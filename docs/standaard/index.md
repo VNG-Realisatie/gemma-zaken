@@ -28,14 +28,14 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 Hieronder een kort overzicht van de belangrijkste versies van de ZGW API's.
 
-| ZGW API               | Huidige 1.5 versie &nbsp; &nbsp;                                   | Concept 1.6 versie    &nbsp; &nbsp;          | Release notes                                   |
-|-----------------------|----------------------------------------------------------------|-----------------------------------------|--------------------------------------------------|
-| Zaken API             | [1.5.1](./zaken/#version-1.5.1)                                | [1.6.0](./zaken/#version-1.6.0)         | [1.6.0](./zaken/release_notes_1.6.0.md)         |
-| Catalogi API          | [1.3.1](./catalogi/#version-1.3.1)                             | [1.3.2](./catalogi/#version-1.3.2)      | [1.3.2](./catalogi/release_notes_1.3.2.md)        |
-| Documenten API &nbsp; | [1.5.0](./documenten/#version-1.5.0)                           | [1.6.0](./documenten/#version-1.6.0)    | [1.6.0](./documenten/release_notes_1.6.0.md)      |
-| Besluiten API         | [1.0.2](./besluiten/#version-1.0.2)                            | [1.1.0](./besluiten/#version-1.1.0)     | [1.1.0](./besluiten/release_notes_1.1.0.md)       |
-| Autorisaties API      | [1.0.0](./autorisaties/#specificatie-van-de-autorisaties-api)  | –                                       | –                                                  |
-| Notificaties API      | [1.0.0](./notificaties/#version-1.0.0)                         | [1.0.1](./notificaties/#version-1.0.1)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md)    |
+| ZGW API          | Huidige 1.5 versie                     | Concept 1.6 versie                       | Aanvullende spec                                         | Release notes                                      |
+| :---             | :---                                   | :---                                    | :---                                                      | :---                                               |
+| Zaken API        | [1.5.1](./zaken/#version-1.5.1)        | [1.6.0](./zaken/#version-1.6.0)         | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)         | [1.6.0](./zaken/release_notes_1.6.0.md)            |
+| Catalogi API     | [1.3.1](./catalogi/#version-1.3.1)     | [1.3.2](./catalogi/#version-1.3.2)      | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)      | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
+| Documenten API   | [1.5.0](./documenten/#version-1.5.0)   | [1.6.0](./documenten/#version-1.6.0)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
+| Besluiten API    | [1.0.2](./besluiten/#version-1.0.2)    | [1.1.0](./besluiten/#version-1.1.0)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)     | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
+| Autorisaties API | [1.0.0](./autorisaties/#version-1.0.0) | –                                       | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag)  | -                                                  |
+| Notificaties API | [1.0.0](./notificaties/#version-1.0.0) | [1.0.1](./notificaties/#version-1.0.1)  | [1.0.1](./notificaties/index.md#specificatie-van-gedrag)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
 
 ## Algemeen
 
