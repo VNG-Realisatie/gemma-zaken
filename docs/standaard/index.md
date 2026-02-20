@@ -24,9 +24,9 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
-### Huidige versie en de nieuwe concept ZGW 1.6 versie
+### Concept ZGW 1.6 versie
 
-Hieronder een kort overzicht van de belangrijkste versies van de ZGW API's.
+Hieronder een overzicht met de huidige ZGW 1.5 API's en de concept ZGW 1.6 versie. 
 
 | ZGW API          | Huidige 1.5 versie                     | Concept 1.6 versie                       | Aanvullende spec                                         | Release notes                                      |
 | :---             | :---                                   | :---                                    | :---                                                      | :---                                               |
@@ -41,7 +41,7 @@ In de concept ZGW 1.6 versie zijn de volgende issues verwerkt:
 
  - [Issuelijst "Milestone ZGW 1.6"](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.6%22)
  
-In de release notes worden naar deze issues gerefereerd.
+In de release notes van de ZGW 1.6 API's wordt er naar deze issues gerefereerd.
 
 ## Algemeen
 
