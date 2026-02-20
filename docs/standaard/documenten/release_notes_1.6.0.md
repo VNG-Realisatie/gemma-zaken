@@ -1,10 +1,14 @@
 ---
-title: "Release Notes Documenten API"
+title: "Release Notes Documenten API 1.6.0"
 weight: 10
 layout: page-with-side-nav
 ---
 
-# Release notes Documenten API
+# Release notes Documenten API 1.6.0
+
+In de Documenten API 1.6.0 zijn de volgende issues verwerkt:
+
+- [Issuelijst Milestone "ZGW 1.6.0" voor Documenten API 1.6.0](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.6%22%20label%3Adocumenten-api)
 
 ## Expand-mechanisme toegevoegd
 

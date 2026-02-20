@@ -6,6 +6,10 @@ layout: page-with-side-nav
 
 # Release notes Catalogi API 1.3.2
 
+In de Catalogi API 1.3.2 zijn de volgende issues verwerkt:
+
+- [Issuelijst Milestone "ZGW 1.6.0" voor Catalogi API 1.3.2](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.6%22%20label%3Acatalogi-api)
+
 ## Expand-mechanisme toegevoegd
 
 In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Catalagi API.

@@ -6,6 +6,10 @@ layout: page-with-side-nav
 
 # Release Notes Zaken API 1.6.0
 
+In de Zaken API 1.6.0 zijn de volgende issues verwerkt:
+
+- [Issuelijst Milestone "ZGW 1.6.0" voor Zaken API 1.6.0](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.6%22%20label%3Azaken-api)
+
 <!-- To do:
 
 - [#2398](https://github.com/VNG-Realisatie/gemma-zaken/issues/2398): Expand: moeten alle geledingen van de expandparameter worden geexpandeerd of alleen de laatste?
