@@ -12,4 +12,4 @@ De maximale lengte restrictie verwijderd van "auth" en "callbackUrl" omdat deze 
 
 Gerelateerde issues:
 
-- NRC: grootte van het auth-veld (abonnement_create) met 1000 characters is te klein [#2571](https://github.com/VNG-Realisatie/gemma-zaken/issues/2571)
+- [#2571](https://github.com/VNG-Realisatie/gemma-zaken/issues/2571) NRC: grootte van het auth-veld (abonnement_create) met 1000 characters is te klein.

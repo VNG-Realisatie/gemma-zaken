@@ -18,11 +18,11 @@ Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoint
 
 ### Gerelateerde issues:
 
-- Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC #2507
-- In de OAS van de Documenten API worden de geneste expands in het informatieobjecttype niet weergegeven. #2485
-- DRC: is er nu wel of geen expand op objectinformatieobjecten? #2469
-- ZRC 1.5/DRC 1.4 Expand op lijst documenten bij de zaak, [#2405](https://github.com/VNG-Realisatie/gemma-zaken/issues/2405)
-- Documenten API: Als ontwikkelaar wil ik expand op ObjectInformatieObjecten [#2370](https://github.com/VNG-Realisatie/gemma-zaken/issues/2370)
+- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC.
+- [#2485](https://github.com/VNG-Realisatie/gemma-zaken/issues/2485) In de OAS van de Documenten API worden de geneste expands in het informatieobjecttype niet weergegeven.
+- [#2469](https://github.com/VNG-Realisatie/gemma-zaken/issues/2469) DRC: is er nu wel of geen expand op objectinformatieobjecten?
+- [#2405](https://github.com/VNG-Realisatie/gemma-zaken/issues/2405) ZRC 1.5/DRC 1.4 Expand op lijst documenten bij de zaak.
+- [#2370](https://github.com/VNG-Realisatie/gemma-zaken/issues/2370) Documenten API: Als ontwikkelaar wil ik expand op ObjectInformatieObjecten.
 
 ## Veld voor bekendmaking aan initiatiefnemer toegevoegd
 
@@ -30,14 +30,14 @@ Boolean veld "tonenAanInitiator" toegevoegd (default: false) om aan te geven of 
 
 ### Gerelateerde issues:
 
-- DRC: veld voor bekendmaking aan initiatiefnemer, [#2546](https://github.com/VNG-Realisatie/gemma-zaken/issues/2546)
+- [#2546](https://github.com/VNG-Realisatie/gemma-zaken/issues/2546) DRC: veld voor bekendmaking aan initiatiefnemer
 
 
 ## Trefwoorden toegevoegd aan PATCH-operatie
 
 Trefwoorden zaten wel in de POST en PUT maar niet in de PATCH. Nu ook aan de PATCH toegevoegd (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/fe9f85f039637a678986473df03a1e592c75e8aa)).
 
-- DRC 1.5: PATCH op EIO heeft geen trefwoorden, [#2449](https://github.com/VNG-Realisatie/gemma-zaken/issues/2449)
+- [#2449](https://github.com/VNG-Realisatie/gemma-zaken/issues/2449) DRC 1.5: PATCH op EIO heeft geen trefwoorden.
 
 ## Verzenddatum niet meer verplicht bij uitgaande documenten
 
@@ -45,4 +45,4 @@ Bij uitgaande documenten is het niet meer verplicht om de verzenddatum op te gev
 
 ### Gerelateerde issues:
 
-- DRC: Als zaakbehandelaar wil ik een uitgaand document opstellen met een geadresseerde, voordat ik de verzenddatum weet #2188
+- [#2188](https://github.com/VNG-Realisatie/gemma-zaken/issues/2188) DRC: Als zaakbehandelaar wil ik een uitgaand document opstellen met een geadresseerde, voordat ik de verzenddatum weet.

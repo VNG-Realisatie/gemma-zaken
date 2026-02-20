@@ -18,8 +18,8 @@ Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoint
 
 ### Gerelateerde issues:
 
-- Zou het expand-mechanisme ook niet in de Catalogi API zelf bruikbaar moeten zijn? #2487
-- Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC #2507
+- [#2487](https://github.com/VNG-Realisatie/gemma-zaken/issues/2487) Zou het expand-mechanisme ook niet in de Catalogi API zelf bruikbaar moeten zijn?
+- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC
 
 
 ## Historiemodel
@@ -40,7 +40,7 @@ Deze essentiële operaties ontbraken in de OAS-specificatie en zijn nu toegevoeg
 
 #### Gerelateerde issues:
 
-- ZTC: update method for catalog #2560
+- [#2560](https://github.com/VNG-Realisatie/gemma-zaken/issues/2560) ZTC: update method for catalog
 
 ### Het veld "catalogus" deprecated gemaakt in de POST/PUT/PATCH en business rule ztc-013 verwijderd
 
@@ -49,9 +49,8 @@ Dit is overbodig want je geeft al een zaaktype mee die een catalogus heeft. Naar
 
 #### Gerelateerde issues:
 
-- ZTC: onterecht catalogus in POST/PUT/PATCH voor Resultaattype en Roltype #2468
-
-- ZTC: business rule ztc-013 is vaag en moet aangescherpt #2482
+- [#2468](https://github.com/VNG-Realisatie/gemma-zaken/issues/2468) ZTC: onterecht catalogus in POST/PUT/PATCH voor Resultaattype en Roltype
+- [#2482](https://github.com/VNG-Realisatie/gemma-zaken/issues/2482) ZTC: business rule ztc-013 is vaag en moet aangescherpt
 
 
 ### Filtering op objecttypen verduidelijkt
@@ -61,7 +60,7 @@ Beschrijvingen van de query parameters aangespast (zie deze [commit](https://git
 
 #### Gerelateerde issues:
 
-- ZTC 1.3 filter op status bij objecttypes zonder status onduidelijk #2479
+- [#2479](https://github.com/VNG-Realisatie/gemma-zaken/issues/2479) ZTC 1.3 filter op status bij objecttypes zonder status onduidelijk
 
 
 ### Problemen met relatie resultaattype-besluittype en resultaattype-informatieobjecttype opgelost
@@ -70,7 +69,7 @@ Problemen omtrennt de relaties resultaattype-besluittype en resultaattype-inform
 
 #### Gerelateerde issues:
 
-- ZTC: problemen relatie resultaattype-besluittype en resultaattype-informatieobjecttype oplossen  #2467
+- [#2467](https://github.com/VNG-Realisatie/gemma-zaken/issues/2467) ZTC: problemen relatie resultaattype-besluittype en resultaattype-informatieobjecttype oplossen
 
 ### Business rule ztc-010 herschreven
 
@@ -78,7 +77,7 @@ Business rule ztc-010 was onduidelijk en is herschreven (zie deze [commit](https
 
 #### Gerelateerde issues:
 
-- Business rule ztc-010 herschrijven #2456
+- [#2456](https://github.com/VNG-Realisatie/gemma-zaken/issues/2456) Business rule ztc-010 herschrijven
 
 ### Per abuis verdwenen attribuut weer toegevoegd aan specificatie
 
@@ -86,7 +85,7 @@ In de berichten van operatie `POST /besluittypen` was het attribuut "zaaktypen" 
 
 #### Gerelateerde issues:
 
-- ZTC 1.3 POST besluittype: wat is er met zaaktypen gebeurd #2437
+- [#2437](https://github.com/VNG-Realisatie/gemma-zaken/issues/2437) ZTC 1.3 POST besluittype: wat is er met zaaktypen gebeurd.
 
 ### Datum/tijd formaat voor eigenschappen duidelijk gespecificeerd
 
@@ -94,5 +93,4 @@ Het formaat van datum/tijd waren niet scherp gespecificeerd in de beschrijvingen
 
 #### Gerelateerde issues:
 
-- As a developer, I want to have standardized schema descriptions for eigenschappen #1751
-
+- [#1751](https://github.com/VNG-Realisatie/gemma-zaken/issues/1751) As a developer, I want to have standardized schema descriptions for eigenschappen.
