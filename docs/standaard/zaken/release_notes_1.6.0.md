@@ -1,10 +1,10 @@
 ---
-title: "Release Notes Zaken API 1.6.0"
+title: "Release notes Zaken API 1.6.0"
 weight: 10
 layout: page-with-side-nav
 ---
 
-# Release Notes Zaken API 1.6.0
+# Release notes Zaken API 1.6.0
 
 In de Zaken API 1.6.0 zijn de volgende issues verwerkt:
 
