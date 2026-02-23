@@ -579,8 +579,7 @@ paths:
     put:
       operationId: besluittype_update
       description:
-        Werk een BESLUITTYPE in zijn geheel bij. Dit kan alleen als het
-        een concept betreft.
+        Werk een BESLUITTYPE in zijn geheel bij. 
       summary: Werk een BESLUITTYPE in zijn geheel bij.
       parameters:
         - in: path
@@ -757,7 +756,7 @@ paths:
     patch:
       operationId: besluittype_partial_update
       description:
-        Werk een BESLUITTYPE deels bij. Dit kan alleen als het een concept
+        Werk een BESLUITTYPE deels bij.
         betreft.
       summary: Werk een BESLUITTYPE deels bij.
       parameters:
@@ -937,7 +936,7 @@ paths:
           description: Internal server error
     delete:
       operationId: besluittype_destroy
-      description: Verwijder een BESLUITTYPE. Dit kan alleen als het een concept betreft.
+      description: Verwijder een BESLUITTYPE.
       summary: Verwijder een BESLUITTYPE.
       parameters:
         - in: path
@@ -1753,8 +1752,7 @@ paths:
     put:
       operationId: catalogus_update
       description:
-        "Werk een CATALOGUS in zijn geheel bij. Dit kan alleen als het een\
-        \ concept betreft."
+        "Werk een CATALOGUS in zijn geheel bij."
       summary: Werk een CATALOGUS in zijn geheel bij.
       parameters:
         - in: path
@@ -1931,8 +1929,7 @@ paths:
     patch:
       operationId: catalogus_partial_update
       description:
-        "Werk een CATALOGUS deels bij. Dit kan alleen als het een concept\
-        \ betreft."
+        "Werk een CATALOGUS deels bij."
       summary: Werk een CATALOGUS deels bij.
       parameters:
         - in: path
@@ -3921,8 +3918,7 @@ paths:
     patch:
       operationId: informatieobjecttype_partial_update
       description:
-        Werk een INFORMATIEOBJECTTYPE deels bij. Dit kan alleen als het
-        een concept betreft.
+        Werk een INFORMATIEOBJECTTYPE deels bij. 
       summary: '     Werk een INFORMATIEOBJECTTYPE deels bij.'
       parameters:
         - in: path
@@ -4102,8 +4098,7 @@ paths:
     delete:
       operationId: informatieobjecttype_destroy
       description:
-        Verwijder een INFORMATIEOBJECTTYPE. Dit kan alleen als het een
-        concept betreft.
+        Verwijder een INFORMATIEOBJECTTYPE.
       summary: Verwijder een INFORMATIEOBJECTTYPE.
       parameters:
         - in: path
@@ -6024,8 +6019,7 @@ paths:
     put:
       operationId: roltype_update
       description:
-        Werk een ROLTYPE in zijn geheel bij. Dit kan alleen als het een
-        concept betreft.
+        Werk een ROLTYPE in zijn geheel bij.
       summary: Werk een ROLTYPE in zijn geheel bij.
       parameters:
         - in: path
@@ -6201,8 +6195,7 @@ paths:
     patch:
       operationId: roltype_partial_update
       description:
-        Werk een ROLTYPE deels bij. Dit kan alleen als het een concept
-        betreft.
+        Werk een ROLTYPE deels bij. 
       summary: Werk een ROLTYPE deels bij.
       parameters:
         - in: path
@@ -6376,7 +6369,7 @@ paths:
           description: Internal server error
     delete:
       operationId: roltype_destroy
-      description: Verwijder een ROLTYPE. Dit kan alleen als het een concept betreft.
+      description: Verwijder een ROLTYPE.
       summary: Verwijder een ROLTYPE.
       parameters:
         - in: path
@@ -10700,7 +10693,7 @@ paths:
           description: Internal server error
     delete:
       operationId: zaaktype_destroy
-      description: Verwijder een ZAAKTYPE. Dit kan alleen als het een concept betreft.
+      description: Verwijder een ZAAKTYPE.
       summary: Verwijder een ZAAKTYPE.
       parameters:
         - in: path
