@@ -220,7 +220,7 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
 
 #### Historiemodel
 
-Voor een snelle introductie in dit onderwerp wordt verwezen naar de notitie [historiemodel](./historie_model/historie_model.md) waar het historiemodel wordt uitgelegd aan de hand van voorbeeldberichten.
+Voor een snelle introductie in dit onderwerp wordt verwezen naar de notitie [historiemodel](https://github.com/VNG-Realisatie/gemma-zaken/blob/master/docs/standaard/catalogi/historie_model/historie_model.md) waar het historiemodel wordt uitgelegd aan de hand van voorbeeldberichten.
 
 [![Historiemodel Catalogi API ImZTC 2.2](catalogi_history.png)](catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 

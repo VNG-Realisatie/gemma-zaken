@@ -5,6 +5,8 @@ weight: 10
 layout: page-with-side-nav
 ---
 
+{% raw %}
+
 # Historiemodel in de Catalogi API
 
 <!-- 
@@ -520,6 +522,8 @@ Let op: `datumGeldigheid={{vandaag}}` is niet de default waarde van bovenstaande
 ```
 
 In dit geval wordt versie v2 van het besluittype teruggegeven in plaats van versie v1. Immers op 1-10-2024 is de v1 versie van het besluittype niet meer geldig.
+
+{% endraw %}
 
 
 

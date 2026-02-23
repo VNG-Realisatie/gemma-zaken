@@ -20,10 +20,7 @@ In de Zaken API 1.6.0 zijn de volgende issues verwerkt:
 
 - spellings checker
 
-- Feedback Johannes verwerken over patch lock
-
 - per onderwerp een issue-lijst toevoegen (expand, historiemodel, etc.)
-
 -->
 
 ## Expand-mechanisme
