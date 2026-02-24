@@ -12,13 +12,13 @@ In de Catalogi API 1.3.2 zijn de volgende issues verwerkt:
 
 ## Expand-mechanisme toegevoegd
 
-In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Catalagi API.
+In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikbaar in de Zaken API. In de nieuwe release is dit mechanisme ook mogelijk gemaakt voor de hieronder genoemde andere API's in de ZGW-familie waaronder dus ook de Catalogi API.
 
 - Documenten API
 - Besluiten API
 - Catalogi API
 
-Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
+Net zoals bij de Zaken API is de expand gedefinieerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
 
 Gerelateerde issues:
 
@@ -34,7 +34,7 @@ Sinds de release van de vorige versie van de Catalogi API is er veel onduidelijk
 
 ### Diverse bug fixes
 
-In de vorige release van de Catalogi API bleek het nieuwe historiemodel nog niet helemaal volwassen te zijn en kwamen er diverse bugs naar boven tijdens de implementaties. Zie [hier](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20label%3AHistoriemodel%20milestone%3A%22ZGW%201.6%22) de lijst met bugs fixes die we in deze versie hebben doorgevoerd.
+In de vorige release van de Catalogi API bleek het nieuwe historiemodel nog niet helemaal volwassen te zijn en kwamen er diverse bugs naar boven tijdens de implementaties. Zie [hier](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20label%3AHistoriemodel%20milestone%3A%22ZGW%201.6%22) de lijst met bugfixes die we in deze versie hebben doorgevoerd.
 
 ## Allerhande issues opgelost
 
@@ -59,7 +59,7 @@ Gerelateerde issues:
 
 ### Filtering op objecttypen verduidelijkt
 
-Beschrijvingen van de query parameters aangespast (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/016e46987430ba9ae2c0a6efc2821cf6d9580970))
+Beschrijvingen van de query parameters aangepast (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/016e46987430ba9ae2c0a6efc2821cf6d9580970))
 
 
 Gerelateerde issues:
@@ -69,7 +69,7 @@ Gerelateerde issues:
 
 ### Problemen met relatie resultaattype-besluittype en resultaattype-informatieobjecttype opgelost
 
-Problemen omtrennt de relaties resultaattype-besluittype en resultaattype-informatieobjecttype opgelost door beschrijvingen aan te passen en het veld "besluittypen" optioneel te maken (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/30d6b8e830e721d450ead1925b5acad1f612ce71))
+Problemen omtrent de relaties resultaattype-besluittype en resultaattype-informatieobjecttype opgelost door beschrijvingen aan te passen en het veld "besluittypen" optioneel te maken (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/30d6b8e830e721d450ead1925b5acad1f612ce71))
 
 Gerelateerde issues:
 

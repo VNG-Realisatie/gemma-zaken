@@ -37,7 +37,7 @@ Gerelateerde issues:
 
 ###  Expand tot willekeurige diepte
 
-Voorheen mocht de expand maar tot drie niveau's diep worden genest. In deze versie kan de expand tot willekeurige diepte worden uitgevoerd.
+Voorheen mocht de expand maar tot drie niveaus diep worden genest. In deze versie kan de expand tot willekeurige diepte worden uitgevoerd.
 
 Gerelateerde issues:
 
@@ -52,18 +52,18 @@ Voorheen was de expand naar de Catalogi API de enige cross-over expand die werd 
 
 Gerelateerde issues:
 
-- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegast en niet alleen voor de ZRC.
+- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC.
 - [#2443](https://github.com/VNG-Realisatie/gemma-zaken/issues/2443) Ontbrekende functionaliteiten met expand voor veel gebruikte informatiebehoeften.
 
 ### Functionaliteit om de omvang van responses te reduceren
 
-Expand kan leiden tot extreem grote responses. Om dit probleem het hoofd te bieden is het "fields"-element toegevoegd aan het endpoint `POST /zaken/_zoek`. Daarmee kun je zowel de velden specificeren die je wilt expanden als ook de velden die je (in een expand) terug wilt krijgen zodat de respons niet te groot wordt. Deze oplossing is geinspireerd door de manier waarop GraphQL met expands omgaat. 
+Expand kan leiden tot extreem grote responses. Om dit probleem het hoofd te bieden is het "fields"-element toegevoegd aan het endpoint `POST /zaken/_zoek`. Daarmee kun je zowel de velden specificeren die je wilt expanden als ook de velden die je (in een expand) terug wilt krijgen zodat de respons niet te groot wordt. Deze oplossing is geïnspireerd door de manier waarop GraphQL met expands omgaat. 
 
 Gerelateerde issues:
 
 - [#2559](https://github.com/VNG-Realisatie/gemma-zaken/issues/2559) ZRC: reduce expand results.
 
-### Diverse bugs fixes
+### Diverse bugfixes
 
 - [#2515](https://github.com/VNG-Realisatie/gemma-zaken/issues/2515) Expansion bij zaken mist het attribuut zaakinformatieobjecten in de OAS
 - [#2414](https://github.com/VNG-Realisatie/gemma-zaken/issues/2414) ZRC 1.5 laat (onterecht) _expand zien op rol
