@@ -63,7 +63,7 @@ Gerelateerde issues:
 
 - [#2559](https://github.com/VNG-Realisatie/gemma-zaken/issues/2559) ZRC: reduce expand results.
 
-### Diverse bugfixes
+### Diverse bug fixes
 
 - [#2515](https://github.com/VNG-Realisatie/gemma-zaken/issues/2515) Expansion bij zaken mist het attribuut zaakinformatieobjecten in de OAS
 - [#2414](https://github.com/VNG-Realisatie/gemma-zaken/issues/2414) ZRC 1.5 laat (onterecht) _expand zien op rol

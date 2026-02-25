@@ -18,9 +18,9 @@ In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikba
 - Besluiten API
 - Catalogi API
 
-Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
+Net zoals bij de Zaken API is de expand gedefinieerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
 
-### Gerelateerde issues:
+Gerelateerde issues:
 
-- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegast en niet alleen voor de ZRC.
+- [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC.
 - [#2472](https://github.com/VNG-Realisatie/gemma-zaken/issues/2472) BRC: expand op besluit.

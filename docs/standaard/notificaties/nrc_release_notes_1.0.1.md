@@ -12,7 +12,7 @@ In de Notificaties API 1.0.1 zijn de volgende issues verwerkt:
 
 ## MaxLength restrictie verwijderd van twee velden
 
-De maximale lengte restrictie verwijderd van "auth" en "callbackUrl" omdat deze velden te klein zijn (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/d074f5f92d19072cde88358f4e4f5f45247cdf7f)).
+De maximale lengte restrictie is verwijderd van "auth" en "callbackUrl" omdat deze velden te klein zijn (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/d074f5f92d19072cde88358f4e4f5f45247cdf7f)).
 
 Gerelateerde issues:
 

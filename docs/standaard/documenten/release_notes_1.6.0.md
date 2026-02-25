@@ -18,9 +18,9 @@ In de vorige release van de ZGW API's was het expand-mechanisme alleen beschikba
 - Besluiten API
 - Catalogi API
 
-Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
+Net zoals bij de Zaken API is de expand gedefinieerd op alle relevante endpoints en kan de expand tot willekeurige diepte worden uitgevoerd.
 
-### Gerelateerde issues:
+Gerelateerde issues:
 
 - [#2507](https://github.com/VNG-Realisatie/gemma-zaken/issues/2507) Ik wil graag dat de Expand overal wordt toegepast en niet alleen voor de ZRC.
 - [#2485](https://github.com/VNG-Realisatie/gemma-zaken/issues/2485) In de OAS van de Documenten API worden de geneste expands in het informatieobjecttype niet weergegeven.
@@ -32,7 +32,7 @@ Net zoals bij de Zaken API is de expand gedefiniëerd op alle relevante endpoint
 
 Boolean veld "tonenAanInitiator" toegevoegd (default: false) om aan te geven of het document getoond mag worden aan de initiator van de zaak waarin het document is opgenomen.
 
-### Gerelateerde issues:
+Gerelateerde issues:
 
 - [#2546](https://github.com/VNG-Realisatie/gemma-zaken/issues/2546) DRC: veld voor bekendmaking aan initiatiefnemer
 
@@ -47,6 +47,6 @@ Trefwoorden zaten wel in de POST en PUT maar niet in de PATCH. Nu ook aan de PAT
 
 Bij uitgaande documenten is het niet meer verplicht om de verzenddatum op te geven, zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/943bad2199a4b942cd99fd8160c1a68f338e4dff).
 
-### Gerelateerde issues:
+Gerelateerde issues:
 
 - [#2188](https://github.com/VNG-Realisatie/gemma-zaken/issues/2188) DRC: Als zaakbehandelaar wil ik een uitgaand document opstellen met een geadresseerde, voordat ik de verzenddatum weet.

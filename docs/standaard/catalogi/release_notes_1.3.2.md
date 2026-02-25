@@ -49,27 +49,27 @@ Gerelateerde issues:
 ### Het veld "catalogus" deprecated gemaakt in de POST/PUT/PATCH en business rule ztc-013 verwijderd
 
 In de POST/PUT/PATCH voor Resultaattype en Roltype kan een catalogus worden meegegeven in de request.
-Dit is overbodig want je geeft al een zaaktype mee die een catalogus heeft. Naar aanleiding van dit inzicht is tevens de business rule ztc-013 verwijderd.
+Dit is overbodig want je geeft al een zaaktype mee dat een catalogus heeft. Naar aanleiding van dit inzicht is tevens de business rule ztc-013 verwijderd.
 
 Gerelateerde issues:
 
-- [#2468](https://github.com/VNG-Realisatie/gemma-zaken/issues/2468) ZTC: onterecht catalogus in POST/PUT/PATCH voor Resultaattype en Roltype
-- [#2482](https://github.com/VNG-Realisatie/gemma-zaken/issues/2482) ZTC: business rule ztc-013 is vaag en moet aangescherpt
+- [#2468](https://github.com/VNG-Realisatie/gemma-zaken/issues/2468) ZTC: onterecht catalogus in POST/PUT/PATCH voor Resultaattype en Roltype.
+- [#2482](https://github.com/VNG-Realisatie/gemma-zaken/issues/2482) ZTC: business rule ztc-013 is vaag en moet aangescherpt.
 
 
 ### Filtering op objecttypen verduidelijkt
 
-Beschrijvingen van de query parameters aangepast (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/016e46987430ba9ae2c0a6efc2821cf6d9580970))
+Beschrijvingen van de query parameters aangepast (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/016e46987430ba9ae2c0a6efc2821cf6d9580970)).
 
 
 Gerelateerde issues:
 
-- [#2479](https://github.com/VNG-Realisatie/gemma-zaken/issues/2479) ZTC 1.3 filter op status bij objecttypes zonder status onduidelijk
+- [#2479](https://github.com/VNG-Realisatie/gemma-zaken/issues/2479) ZTC 1.3 filter op status bij objecttypes zonder status onduidelijk.
 
 
 ### Problemen met relatie resultaattype-besluittype en resultaattype-informatieobjecttype opgelost
 
-Problemen omtrent de relaties resultaattype-besluittype en resultaattype-informatieobjecttype opgelost door beschrijvingen aan te passen en het veld "besluittypen" optioneel te maken (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/30d6b8e830e721d450ead1925b5acad1f612ce71))
+Problemen omtrent de relaties resultaattype-besluittype en resultaattype-informatieobjecttype opgelost door beschrijvingen aan te passen en het veld "besluittypen" optioneel te maken (zie [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/30d6b8e830e721d450ead1925b5acad1f612ce71)).
 
 Gerelateerde issues:
 
@@ -77,7 +77,7 @@ Gerelateerde issues:
 
 ### Business rule ztc-010 herschreven
 
-Business rule ztc-010 was onduidelijk en is herschreven (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/713d1442b5c5aa87f55739007454ea61ead3a486))
+Business rule ztc-010 was onduidelijk en is herschreven (zie deze [commit](https://github.com/VNG-Realisatie/gemma-zaken/commit/713d1442b5c5aa87f55739007454ea61ead3a486)).
 
 Gerelateerde issues:
 
@@ -85,7 +85,7 @@ Gerelateerde issues:
 
 ### Per abuis verdwenen attribuut weer toegevoegd aan specificatie
 
-In de berichten van operatie `POST /besluittypen` was het attribuut "zaaktypen" per ongeluk weggevallen. Dit element in deze versie weer toegevoegd.
+In de berichten van operatie `POST /besluittypen` was het attribuut "zaaktypen" per ongeluk weggevallen. Dit element is in deze versie weer toegevoegd.
 
 Gerelateerde issues:
 
@@ -93,7 +93,7 @@ Gerelateerde issues:
 
 ### Datum/tijd formaat voor eigenschappen duidelijk gespecificeerd
 
-Het formaat van datum/tijd waren niet scherp gespecificeerd in de beschrijvingen voor eigenschappen. Dat is nu strak getrokken.
+Het formaat van datum/tijd was niet scherp gespecificeerd in de beschrijvingen voor eigenschappen. Dat is nu strak getrokken.
 
 Gerelateerde issues:
 
