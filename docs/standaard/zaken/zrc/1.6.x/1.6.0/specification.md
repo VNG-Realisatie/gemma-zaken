@@ -355,11 +355,86 @@ Indien een verzoek één of meer expand parameters bevat MOET deze parameter all
 
 De expand mag tot willekeurige diepte worden uitgevoerd. 
 
-#### **<a name="zrc-026">Expand parameter onderdeel van opgevraagde resource ([zrc-026](#zrc-026))</a>**
+Let op: In de OAS van de Zaken API lijkt het in sommige gevallen zoals bij "zaaktype" alsof de expand niet verder gaat dan diepte 1, maar door het gebruik van de "oneOf" constructie mag de expansie tot willekeurige diepte worden genest. Dit is gedaan om performance problemen bij het laden van het OAS-schema te voorkomen.
+
+```yaml
+ZaakEmbedded:
+      type: object
+      properties: 
+        zaaktype:
+          oneOf: 
+            - $ref: '../../../../catalogi/ztc/1.3.x/1.3.2/openapi.yaml#/components/schemas/ZaakType'
+            - $ref: '#/components/schemas/GenesteExpansie'
+        ...
+
+GenesteExpansie:
+      type: object
+      description: Geneste expansie zoals gedefinieerd in de ZTC 1.3.2.
+      additionalProperties: true
+```
+
+#### **<a name="zrc-027">Expand parameter onderdeel van opgevraagde resource ([zrc-027](#zrc-027))</a>**
 Indien een verzoek één of meer expand parameters bevat MOET het attribuut onderdeel zijn van de opgevraagde resource. Indien een expand parameter geen geldig attribuut is van de opgevraagde resource moet een foutmelding (http 404) worden teruggegeven.
 
-#### **<a name="zrc-026">Gedrag bij fouten in expand parameters ([zrc-027](#zrc-027))</a>**
+#### **<a name="zrc-028">Gedrag bij fouten in expand parameters ([zrc-028](#zrc-028))</a>**
 Op een verzoek MOET een geldige response zoals deze opgevraagd is opleveren. Indien een verzoek één of meer expand parameters bevat MOET ook de te expanderen informatie opgehaald en teruggegeven kunnen worden. Indien geen geldige response kan worden teruggegeven moet een foutmelding (http 404) worden teruggegeven.
+
+
+<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
+    <strong>Nieuw in versie 1.6.0</strong>
+</span>
+
+#### **<a name="zrc-029">Gedrag "fields" element in _zoek operatie ([zrc-029](#zrc-029))</a>**
+Het request-bericht van de `POST /zaken/_zoek` operatie is uitgebreid met het "fields" element, zie onderstaand voorbeeld. Daarmee kun je zowel de velden specificeren die je wilt expanden als ook de velden die je (in een expand) terug wilt krijgen zodat het repons-bericht niet te groot wordt. Het symbool "*" betekent dat je alle velden (van een expand) wilt opvragen.
+
+Let op:
+
+- Het element "processobject" vereist speciale aandacht. Dit is een groepselement met subelementen. Het selecteren van de subelementen werkt op dezelfde manier als bij de expand.
+- Het gebruik van het "fields" en "expand" element is mutual exclusive. Of je gebruikt de één of de ander, maar nooit te gelijk.
+
+Het gedrag van het "fields" attribuut is geïnspireerd op de manier hoe GraphQL met expands omgaat.
+
+```json
+{
+    ...,
+    "fields": [
+        "url",
+        "uuid",
+        "identificatie",
+        "bronorganisatie",
+        {
+            "zaaktype": [
+                "identificatie",
+                "omschrijving",
+                {
+                    "catalogus": [
+                        "domein"
+                    ]
+                }
+            ],
+            "status": [
+                "volgnummer",
+                "datumstatusgezet"
+            ],
+            "resultaat": [
+                "*"
+            ],
+            "zaakinformatieobjecten": [
+                {
+                    "informatieobject": [
+                        "inhoud",
+                        "bestandsnaam",
+                        "bestandsomvang"
+                    ]
+                }
+            ],
+            "processobject": [
+                "identificatie"
+            ]
+        }
+    ]
+}
+```
 
 
 ## Overige documentatie
