@@ -26,16 +26,20 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 ### Concept ZGW 1.6 versie
 
-Hieronder een overzicht met de huidige ZGW 1.5 API's en de concept ZGW 1.6 versie. 
+Hieronder een overzicht met de huidige ZGW 1.5 API's en de concept ZGW 1.6 versie.
 
 | ZGW API          | Huidige 1.5 versie                     | Concept 1.6 versie                       | Aanvullende spec                                         | Release notes                                      |
 | :---             | :---                                   | :---                                    | :---                                                      | :---                                               |
-| Zaken API        | [1.5.1](./zaken/#version-1.5.1)        | [1.6.0](./zaken/#version-1.6.0)         | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)         | [1.6.0](./zaken/release_notes_1.6.0.md)            |
-| Catalogi API     | [1.3.1](./catalogi/#version-1.3.1)     | [1.3.2](./catalogi/#version-1.3.2)      | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)      | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
-| Documenten API   | [1.5.0](./documenten/#version-1.5.0)   | [1.6.0](./documenten/#version-1.6.0)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
-| Besluiten API    | [1.0.2](./besluiten/#version-1.0.2)    | [1.1.0](./besluiten/#version-1.1.0)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)     | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
-| Autorisaties API | [1.0.0](./autorisaties/#version-1.0.0) | –                                       | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag)  | -                                                  |
-| Notificaties API | [1.0.0](./notificaties/#version-1.0.0) | [1.0.1](./notificaties/#version-1.0.1)  | [1.0.1](./notificaties/index.md#specificatie-van-gedrag)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
+| Zaken API        | [1.5.1](./zaken/redoc-1.5.1.md)        | [1.6.0](./zaken/redoc-1.6.0.md)         | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)         | [1.6.0](./zaken/release_notes_1.6.0.md)            |
+| Catalogi API     | [1.3.1](./catalogi/redoc-1.3.1.md)     | [1.3.2](./catalogi/redoc-1.3.2.md)      | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)      | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
+| Documenten API   | [1.5.0](./documenten/redoc-1.5.0)      | [1.6.0](./documenten/redoc-1.6.0.md)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
+| Besluiten API    | [1.0.2](./besluiten/redoc1.0.2)        | [1.1.0](./besluiten/redoc-1.1.0.md)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)     | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
+| Autorisaties API | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.0.0](./autorisaties/redoc-1.0.0)     | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag)  | -                                                  |
+| Notificaties API | [1.0.0](./notificaties/redoc-1.0.0)    | [1.0.1](./notificaties/redoc-1.0.1.md)  | [1.0.1](./notificaties/index.md#specificatie-van-gedrag)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
+
+Let op:
+
+- De Autorisaties API is als enige niet aangepast en heeft dus dezelfde versie gehouden. Daarom zijn de release notes voor deze API niet van toepassing.
 
 In de concept ZGW 1.6 versie zijn de volgende issues verwerkt:
 
