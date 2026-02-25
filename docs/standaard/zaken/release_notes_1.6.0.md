@@ -57,7 +57,7 @@ Gerelateerde issues:
 
 ### Functionaliteit om de omvang van responses te reduceren
 
-Expand kan leiden tot extreem grote responses. Om dit probleem het hoofd te bieden is het "fields"-element toegevoegd aan het endpoint `POST /zaken/_zoek`. Daarmee kun je zowel de velden specificeren die je wilt expanden als ook de velden die je (in een expand) terug wilt krijgen zodat de respons niet te groot wordt. Deze oplossing is geïnspireerd door de manier waarop GraphQL met expands omgaat. 
+Expand kan leiden tot extreem grote responses. Om dit probleem het hoofd te bieden is het "fields" element toegevoegd aan het endpoint `POST /zaken/_zoek`. Daarmee kun je zowel de velden specificeren die je wilt expanden als ook de velden die je (in een expand) terug wilt krijgen zodat de respons niet te groot wordt. Deze oplossing is geïnspireerd door de manier waarop GraphQL met expands omgaat.  Het gedrag van het "fields" element is beschreven in rule [zrc-029](zrc/1.6.x/1.6.0/specification.md#gedrag-fields-element-in-_zoek-operatie-zrc-029).
 
 Gerelateerde issues:
 
