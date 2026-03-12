@@ -218,17 +218,18 @@ Zie: achtergrond bij [versies en migraties](../themas/achtergronddocumentatie/ve
 ### Beschikbaar stellen van de OAS
 
 Iedere component MOET het OAS schema serveren, onder
-`{API root URL}/schema/openapi.yaml`.
 
-Voorbeelden van geldige URLs:
+`{API root URL}/openapi.json`
 
-- `https://ref.tst.vng.cloud/zrc/api/v1/schema/openapi.yaml`
-- `https://zrc.nl/api/v1/schema/openapi.yaml`
-- `https://api.zrc.nl/v1/schema/openapi.yaml`
-- `https://v1.api.zrc.nl/schema/openapi.yaml`
+Optioneel mag dezelfde OAS ook geserveerd worden in YAML-formaat:
 
-De service-naar-service communicatie MOET het schema opvragen om operaties op
-resources uit te voeren.
+`{API root URL}/openapi.yaml`
+
+Voorbeelden van geldige URL's:
+
+`https://api.example.org/v1/openapi.json`
+
+`https://api.example.org/v1/openapi.yaml`
 
 ### Gegevensformaten
 
