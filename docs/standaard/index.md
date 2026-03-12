@@ -227,9 +227,8 @@ Optioneel mag dezelfde OAS ook geserveerd worden in YAML-formaat:
 
 Voorbeelden van geldige URL's:
 
-`https://api.example.org/v1/openapi.json`
-
-`https://api.example.org/v1/openapi.yaml`
+- `https://api.example.org/v1/openapi.json`
+- `https://api.example.org/v1/openapi.yaml`
 
 ### Gegevensformaten
 
