@@ -14187,6 +14187,7 @@ components:
             title: Besluittype
           title: besluittypen
           description: Omschrijvingen van de besluittypen die de resultaten van dit resultaattype als gevolg kunnen hebben.
+          uniqueItems: true
         besluittypeOmschrijving:
           type: array
           items:
@@ -14199,8 +14200,6 @@ components:
           type: array
           items:
             type: string
-            format: uri
-            nullable: true
           description:
             Omschrijvingen van de  INFORMATIEOBJECTTYPEn die verplicht aanwezig moeten zijn
             in het zaakdossier van ZAAKen van dit ZAAKTYPE voordat een resultaat van
