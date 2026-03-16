@@ -26,7 +26,7 @@
     "@redocly/cli": "^1.34.5",
     "@stoplight/spectral-cli": "^6.15.0",
     "clsx": "^2.1.1",
-    "docusaurus-plugin-openapi-docs": "^4.4.0",
+    "docusaurus-plugin-openapi-docs": "^4.7.1",
     "docusaurus-theme-openapi-docs": "^4.4.0",
     "npm-check-updates": "^18.0.1",
     "openapi-format": "^1.26.0",
