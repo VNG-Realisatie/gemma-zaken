@@ -349,8 +349,7 @@ paths:
 
         De objecten bevatten metadata over de documenten en de downloadlink
         (`inhoud`) naar de binary data. Alleen de laatste versie van
-        elk(ENKELVOUDIG) INFORMATIEOBJECT wordt getoond. Specifieke versies
-        kunnen alleen
+        elk (ENKELVOUDIG) INFORMATIEOBJECT wordt getoond.
       summary: Alle (ENKELVOUDIGe) INFORMATIEOBJECTen opvragen.
       parameters:
         - name: identificatie
