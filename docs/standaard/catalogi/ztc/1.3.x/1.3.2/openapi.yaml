@@ -11423,6 +11423,14 @@ components:
             waarin besluiten van dit BESLUITTYPE worden vastgelegd.
           title: informatieobjecttypen
           uniqueItems: true
+        informatieobjecttypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+          title: Informatieobjecttype omschrijving
         beginGeldigheid:
           type: string
           format: date
@@ -11484,7 +11492,7 @@ components:
             title: ''
           readOnly: true
           description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
-          title: informatieobjecttypen
+          title: Vastgelegd in
           uniqueItems: true
       required:
         - beginGeldigheid
@@ -11496,6 +11504,7 @@ components:
         - resultaattypenOmschrijving
         - url
         - vastgelegdIn
+        - informatieobjecttypeOmschrijving
     BesluitTypeExpanded:
       allOf:
       - $ref: '#/components/schemas/BesluitType'
@@ -12123,6 +12132,15 @@ components:
             ontsloten.
           title: catalogus
           uniqueItems: true
+        besluittypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          title: Besluittype omschrijving
+          uniqueItems: true
         informatieobjecttypen:
           type: array
           items:
@@ -12134,6 +12152,15 @@ components:
             URL-referenties naar INFORMATIEOBJECTTYPEn die in deze CATALOGUS
             worden ontsloten.
           title: Catalogus
+          uniqueItems: true
+        informatieobjecttypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+          title: informatieobjecttypen
           uniqueItems: true
         naam:
           type: string
@@ -12157,9 +12184,11 @@ components:
           title: begindatum versie
       required:
         - besluittypen
+        - besluittypeOmschrijving
         - contactpersoonBeheerNaam
         - domein
         - informatieobjecttypen
+        - informatieobjecttypeOmschrijving
         - rsin
         - url
         - zaaktypen
@@ -12731,6 +12760,15 @@ components:
             waarin besluiten van dit BESLUITTYPE worden vastgelegd.
           title: informatieobjecttypen
           uniqueItems: true
+        besluittypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          title: Besluittype omschrijving
+          uniqueItems: true
         informatieobjectcategorie:
           type: string
           title: Categorie
@@ -12760,6 +12798,7 @@ components:
         - url
         - vertrouwelijkheidaanduiding
         - zaaktypen
+        - besluittypeOmschrijving
     InformatieObjectTypeExpanded:
       allOf:
       - $ref: '#/components/schemas/InformatieObjectType'
@@ -13979,8 +14018,6 @@ components:
           title: informatieobjecttypen
           uniqueItems: true
       required:
-        - besluittypeOmschrijving
-        - informatieobjecttypeOmschrijving
         - omschrijving
         - omschrijvingGeneriek
         - resultaattypeomschrijving
@@ -14855,7 +14892,16 @@ components:
             title: ''
           readOnly: true
           description: URL-referenties naar de RESULTAATTYPEN.
-          title: Zaakobjecttypen
+          title: resultaattypen
+          uniqueItems: true
+        resultaattypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van RESULTAATen van het RESULTAATTYPE.
+          title: Resultaattype omschrijving
           uniqueItems: true
         statustypen:
           type: array
@@ -14865,7 +14911,7 @@ components:
             title: ''
           readOnly: true
           description: URL-referenties naar de STATUSTYPEN.
-          title: Zaakobjecttypen
+          title: Statustypen
           uniqueItems: true
         catalogus:
           type: string
@@ -15171,6 +15217,15 @@ components:
             dit ZAAKTYPE.
           title: is relevant voor
           uniqueItems: true
+        resultaattypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van RESULTAATen van het RESULTAATTYPE.
+          title: Resultaattype omschrijving
+          uniqueItems: true
         eigenschappen:
           type: array
           items:
@@ -15192,6 +15247,15 @@ components:
           readOnly: true
           title: Informatieobjecttypen
           description: URL-referenties naar de INFORMATIEOBJECTTYPEN die mogelijk zijn binnen dit ZAAKTYPE.
+        informatieobjecttypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+          title: Informatieobjecttype omschrijving
+          uniqueItems: true
         roltypen:
           type: array
           items:
@@ -15202,7 +15266,7 @@ components:
           description:
             URL-referenties naar de ROLTYPEN die mogelijk zijn binnen dit
             ZAAKTYPE.
-          title: Zaaktype
+          title: Roltypen
           uniqueItems: true
         besluittypen:
           type: array
@@ -15214,6 +15278,15 @@ components:
           description:
             URL-referenties naar de BESLUITTYPEN die mogelijk zijn binnen
             dit ZAAKTYPE.
+          uniqueItems: true
+        besluittypeOmschrijving:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
+          title: Besluittype omschrijving
           uniqueItems: true
         deelzaaktypen:
           type: array
@@ -15280,6 +15353,7 @@ components:
         - aanleiding
         - beginGeldigheid
         - besluittypen
+        - besluittypeOmschrijving
         - catalogus
         - concept
         - doel
@@ -15291,6 +15365,7 @@ components:
         - identificatie
         - indicatieInternOfExtern
         - informatieobjecttypen
+        - informatieobjecttypeOmschrijving
         - omschrijving
         - onderwerp
         - opschortingEnAanhoudingMogelijk
@@ -15298,6 +15373,7 @@ components:
         - publicatieIndicatie
         - referentieproces
         - resultaattypen
+        - resultaattypeOmschrijving
         - roltypen
         - statustypen
         - url
