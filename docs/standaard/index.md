@@ -24,15 +24,15 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
-### Concept ZGW 1.6 versie
+### ZGW 1.6 release
 
-Hieronder een overzicht met de huidige ZGW 1.5 API's en de concept ZGW 1.6 versie.
+Hieronder een overzicht met directe links naar de onderdelen van de nieuwe ZGW 1.6 release die op 20-03-2026 is uitgebracht. Om goed de verschillen te zien met de vorige ZGW 1.5 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
 
-| ZGW API          | Huidige 1.5 versie                     | Concept 1.6 versie                       | Aanvullende spec                                         | Release notes                                      |
+| Onderdeel        | ZGW 1.5 release &nbsp;                         | ZGW 1.6 release &nbsp;                             | Aanvullende spec &nbsp;                                          | Release notes  &nbsp;                                    |
 | :---             | :---                                   | :---                                    | :---                                                      | :---                                               |
 | Zaken API        | [1.5.1](./zaken/redoc-1.5.1.md)        | [1.6.0](./zaken/redoc-1.6.0.md)         | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)         | [1.6.0](./zaken/release_notes_1.6.0.md)            |
 | Catalogi API     | [1.3.1](./catalogi/redoc-1.3.1.md)     | [1.3.2](./catalogi/redoc-1.3.2.md)      | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)      | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
-| Documenten API   | [1.5.0](./documenten/redoc-1.5.0)      | [1.6.0](./documenten/redoc-1.6.0.md)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
+| Documenten API  &nbsp; | [1.5.0](./documenten/redoc-1.5.0)      | [1.6.0](./documenten/redoc-1.6.0.md)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
 | Besluiten API    | [1.0.2](./besluiten/redoc1.0.2)        | [1.1.0](./besluiten/redoc-1.1.0.md)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)     | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
 | Autorisaties API | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.0.0](./autorisaties/redoc-1.0.0)     | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag)  | -                                                  |
 | Notificaties API | [1.0.0](./notificaties/redoc-1.0.0)    | [1.0.1](./notificaties/redoc-1.0.1.md)  | [1.0.1](./notificaties/index.md#specificatie-van-gedrag)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
@@ -41,7 +41,7 @@ Let op:
 
 - De Autorisaties API is als enige niet aangepast en heeft dus dezelfde versie gehouden. Daarom zijn de release notes voor deze API niet van toepassing.
 
-In de concept ZGW 1.6 versie zijn de volgende issues verwerkt:
+In de ZGW 1.6 versie zijn de volgende issues verwerkt:
 
  - [Issuelijst "Milestone ZGW 1.6"](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.6%22)
  
