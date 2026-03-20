@@ -15217,15 +15217,6 @@ components:
             dit ZAAKTYPE.
           title: is relevant voor
           uniqueItems: true
-        resultaattypeOmschrijving:
-          type: array
-          items:
-            type: string
-            title: ''
-          readOnly: true
-          description: Omschrijving van de aard van RESULTAATen van het RESULTAATTYPE.
-          title: Resultaattype omschrijving
-          uniqueItems: true
         eigenschappen:
           type: array
           items:
