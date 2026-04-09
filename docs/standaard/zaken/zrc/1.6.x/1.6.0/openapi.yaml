@@ -709,6 +709,13 @@ paths:
             - (zaken.bijwerken | zaken.geforceerd-bijwerken)
       responses:
         '204':
+          headers: 
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -1118,6 +1125,13 @@ paths:
             - (zaken.bijwerken | zaken.geforceerd-bijwerken)
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -1685,6 +1699,13 @@ paths:
             - zaken.bijwerken
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -2110,6 +2131,13 @@ paths:
             - (zaken.bijwerken | zaken.geforceerd-bijwerken | zaken.verwijderen)
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -2599,6 +2627,13 @@ paths:
             - (zaken.bijwerken | zaken.geforceerd-bijwerken | zaken.verwijderen)
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -2885,6 +2920,13 @@ paths:
             - zaken.bijwerken
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -3952,6 +3994,13 @@ paths:
             - zaken.verwijderen
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -4405,6 +4454,13 @@ paths:
             - zaken.bijwerken
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
@@ -4819,6 +4875,13 @@ paths:
             - (zaken.bijwerken | zaken.geforceerd-bijwerken)
       responses:
         '204':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No content
         '401':
           $ref: '#/components/responses/401'
