@@ -75,6 +75,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 | Versie    | Release datum | API specificatie | Specificatie van gedrag |
 |-----------|---------------|------------------|--------------------------|
+| <a name="version-1.7.0">1.7.0</a>   | Concept    | [ReDoc][zaken-1.7.0-redoc] | |
 | <a name="version-1.6.0">1.6.0</a>   | 20-03-2026    | [ReDoc][zaken-1.6.0-redoc] | [spec 1.6.0](./zrc/1.6.x/1.6.0/specification.md)|
 | <a name="version-1.5.1">1.5.1</a>   | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger] | [spec 1.5.1](#specificatie-van-gedrag) |
 | 1.4.1     | 26-09-2023    | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger] | [spec 1.4.1](#specificatie-van-gedrag) |
@@ -89,6 +90,8 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 | 1.0.1     | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff] | [spec 1.0.1](#specificatie-van-gedrag)|
 | 1.0.0     | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger] | [spec 1.0.0](#specificatie-van-gedrag) |
 
+
+[zaken-1.7.0-redoc]: redoc-1.7.0
 
 [zaken-1.6.0-redoc]: redoc-1.6.0
 
