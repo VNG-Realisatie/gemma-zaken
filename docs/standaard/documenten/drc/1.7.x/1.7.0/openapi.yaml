@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.6.0
+  version: 1.7.0
   description: >
     Een API om een documentregistratiecomponent (DRC) te benaderen.
 
@@ -6009,6 +6009,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         tonenAanInitiator:
           description: >-
             Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
@@ -6297,6 +6305,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         tonenAanInitiator:
           description: >-
             Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
@@ -6583,6 +6599,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         tonenAanInitiator:
           description: >-
             Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
@@ -6837,6 +6861,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         tonenAanInitiator:
           description: >-
             Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
@@ -7114,6 +7146,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         tonenAanInitiator:
           description: >-
             Geeft aan of het INFORMATIEOBJECT getoond mag worden aan de
@@ -7819,6 +7859,14 @@ components:
           oneOf:
             - $ref: '#/components/schemas/VertrouwelijkheidaanduidingEnum'
             - $ref: '#/components/schemas/BlankEnum'
+        isGereedVoorPublicatie:
+          description: >-
+            Geeft aan of het INFORMATIEOBJECT gereed is voor publicatie. Dit
+            veld mag `null` zijn om aan te geven dat de gereedheid voor
+            publicatie nog niet bekend is.
+          title: Is gereed voor publicatie
+          type: boolean
+          nullable: true
         auteur:
           type: string
           minLength: 1
