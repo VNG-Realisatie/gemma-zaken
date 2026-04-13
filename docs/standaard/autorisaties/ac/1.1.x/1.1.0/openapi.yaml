@@ -1340,6 +1340,11 @@ components:
             individueel opgegeven te worden. Gebruik dit alleen als je de consumer
             helemaal vertrouwt.
           type: boolean
+        alleenIsGereedVoorPublicatie:
+          title: Alleen is gereed voor publicatie
+          description: Indien `true` mag de betreffende  applicatie alleen documenten lezen met waarde `true` voor `isGereedVoorPublicatie`.  
+          type: boolean
+          default: false
         autorisaties:
           type: array
           items:
