@@ -105,6 +105,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Releasedatum | API specificatie
 -------- | ------------- | ----------------
+<a name="version-1.7.0"></a>1.7.0    | 20-03-2026   | [ReDoc][documenten-1.7.0-redoc]
 <a name="version-1.6.0"></a>1.6.0    | 20-03-2026   | [ReDoc][documenten-1.6.0-redoc]
 <a name="version-1.5.0"></a>1.5.0    | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
 1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
@@ -121,6 +122,7 @@ Versie   | Releasedatum | API specificatie
 1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
 1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
+[documenten-1.7.0-redoc]: redoc-1.7.0
 
 [documenten-1.6.0-redoc]: redoc-1.6.0
 
