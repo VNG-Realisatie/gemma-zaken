@@ -33,6 +33,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 | Versie         | Release datum     | Open API Specificatie                                            | Gedrag en regels                                       |
 |:---------------|:----------------- |:---------------------------------------------------------------- |:-------------------------------------------------------|
+| 1.3.3          | *Concept*      | [ReDoc][catalogi-1.3.3-redoc]                                    |  |
 | <a name="version-1.3.2">1.3.2          | 20-03-2026       | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
 | <a name="version-1.3.1">1.3.1          | 26-09-2023        | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.3.1](#specificatie-van-gedrag)         |
 | 1.2.1          | 26-09-2023        | [ReDoc][catalogi-1.2.1-redoc], [Swagger][catalogi-1.2.1-swagger] | [spec 1.2.1](#specificatie-van-gedrag)         |
@@ -70,6 +71,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 <!-- [catalogi-1.3.2-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/full_expand_jekyll/api-specificatie/ztc/1.3.x/1.3.2/openapi.yaml -->
 [catalogi-1.3.2-swagger]: ./swagger-ui-1.3.2
 
+[catalogi-1.3.3-redoc]: ./redoc-1.3.3
 
 
 ## Specificatie van gedrag
