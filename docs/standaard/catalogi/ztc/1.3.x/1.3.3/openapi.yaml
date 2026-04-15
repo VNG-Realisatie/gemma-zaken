@@ -15389,6 +15389,7 @@ components:
         - besluittypeOmschrijving
         - catalogus
         - concept
+        - deelzaaktypen
         - doel
         - doorlooptijd
         - eigenschappen
@@ -15826,7 +15827,6 @@ components:
         - besluittypen
         - catalogus
         - concept
-        - deelzaaktypen
         - doel
         - doorlooptijd
         - eigenschappen
