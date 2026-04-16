@@ -11238,6 +11238,16 @@ components:
           description: ZAAKTYPE met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE
           title: zaaktypen
           uniqueItems: true
+        zaaktypeIdentificaties:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description:
+            De identificaties van ZAAKTYPEs met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE.
+          title: zaaktype identificaties
+          uniqueItems: true
         omschrijving:
           type: string
           description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
@@ -11299,6 +11309,15 @@ components:
             URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
             waarin besluiten van dit BESLUITTYPE worden vastgelegd.
           title: informatieobjecttypen
+          uniqueItems: true
+        informatieobjecttypeOmschrijvingen:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: De omschrijvingen van INFORMATIEOBJECTTYPEs van informatieobjecten waarin besluiten van dit BESLUITTYPE worden vastgelegd.
+          title: Informatieobjecttype omschrijvingen
           uniqueItems: true
         beginGeldigheid:
           type: string
@@ -11403,6 +11422,15 @@ components:
           title: zaaktypen
           uniqueItems: true
           deprecated: true
+        zaaktypeIdentificaties:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: De identificaties van ZAAKTYPEs met ZAAKen die relevant kunnen zijn voor dit BESLUITTYPE.
+          title: Zaaktype identificaties
+          uniqueItems: true
         omschrijving:
           type: string
           description: Omschrijving van de aard van BESLUITen van het BESLUITTYPE.
@@ -11464,6 +11492,15 @@ components:
             URL-referenties naar het INFORMATIEOBJECTTYPE van informatieobjecten
             waarin besluiten van dit BESLUITTYPE worden vastgelegd.
           title: informatieobjecttypen
+          uniqueItems: true
+        informatieobjecttypeOmschrijvingen:
+          type: array
+          items:
+            type: string
+            title: ''
+          readOnly: true
+          description: De omschrijvingen van INFORMATIEOBJECTTYPEs van informatieobjecten waarin besluiten van dit BESLUITTYPE worden vastgelegd.
+          title: Informatieobjecttype omschrijvingen
           uniqueItems: true
         informatieobjecttypeOmschrijving:
           type: array
@@ -12790,6 +12827,17 @@ components:
           title: zaaktypen
           description: Lijst van URL-referenties naar de zaaktypen die gebruik maken van dit INFORMATIEOBJECTTYPE.
           uniqueItems: true
+        zaaktypeIdentificaties:
+          type: array
+          items:
+            type: string
+            readOnly: true
+            title: ''
+          description:
+            Unieke identificaties van de ZAAKTYPEn binnen de CATALOGUS waarin
+            het ZAAKTYPE voorkomt, die gebruik maken van dit INFORMATIEOBJECTTYPE.
+          title: zaaktypeIdentificaties
+          uniqueItems: true
         besluittypen:
           type: array
           items:
@@ -12840,6 +12888,7 @@ components:
         - url
         - vertrouwelijkheidaanduiding
         - zaaktypen
+        - zaaktypeIdentificaties
         - besluittypeOmschrijving
     InformatieObjectTypeExpanded:
       allOf:
@@ -15333,6 +15382,16 @@ components:
             bij ZAAKen van dit ZAAKTYPE.
           title: deelzaaktypen
           uniqueItems: true
+        deelzaaktypeIdentificaties:
+          type: array
+          items:
+            type: string
+            readOnly: true
+            title: ''
+          description:
+            Unieke identificaties van de ZAAKTYPE(n) waaronder ZAAKen als deelzaak kunnen voorkomen bij ZAAKen van dit ZAAKTYPE.
+          title: Deelzaaktype identificaties
+          uniqueItems: true
         gerelateerdeZaaktypen:
           type: array
           items:
@@ -15340,7 +15399,7 @@ components:
           description:
             De ZAAKTYPEn van zaken die relevant zijn voor zaken van dit
             ZAAKTYPE.
-          title: zaaktype van
+          title: Gerelateerde zaaktypen
         beginGeldigheid:
           type: string
           format: date
@@ -15390,6 +15449,7 @@ components:
         - catalogus
         - concept
         - deelzaaktypen
+        - deelzaaktypeIdentificaties
         - doel
         - doorlooptijd
         - eigenschappen
@@ -16355,6 +16415,12 @@ components:
             een extern ZTC.
           title: gerelateerd zaaktype
           maxLength: 200
+        zaaktypeIdentificatie:
+          type: string
+          readOnly: true
+          description:
+            Identificatie van het gerelateerde zaaktype.
+          title: Zaaktype identificatie
         aardRelatie:
           allOf:
             - $ref: '#/components/schemas/AardRelatieEnum'
@@ -16380,6 +16446,7 @@ components:
       required:
         - aardRelatie
         - zaaktype
+        - zaaktypeIdentificatie
     ZaakTypenRelatieCreate:
       type: object
       properties:
