@@ -11387,12 +11387,14 @@ components:
         - catalogus
         - concept
         - informatieobjecttypen
+        - informatieobjecttypeOmschrijvingen
         - publicatieIndicatie
         - resultaattypen
         - resultaattypenOmschrijving
         - url
         - vastgelegdIn
         - zaaktypen
+        - zaaktypeIdentificaties
     BesluitTypePostResponse:
       type: object
       properties:
@@ -11510,6 +11512,7 @@ components:
           readOnly: true
           description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
           title: Informatieobjecttype omschrijving
+          deprecated: true
         beginGeldigheid:
           type: string
           format: date
@@ -11578,12 +11581,12 @@ components:
         - catalogus
         - concept
         - informatieobjecttypen
+        - informatieobjecttypeOmschrijvingen
         - publicatieIndicatie
         - resultaattypen
         - resultaattypenOmschrijving
         - url
         - vastgelegdIn
-        - informatieobjecttypeOmschrijving
     BesluitTypeExpanded:
       allOf:
       - $ref: '#/components/schemas/BesluitType'
