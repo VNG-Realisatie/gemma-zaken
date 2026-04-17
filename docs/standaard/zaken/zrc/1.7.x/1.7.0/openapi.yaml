@@ -3455,6 +3455,7 @@ paths:
             type: string
             maxLength: 9
             example: "123456789"
+          deprecated: true
         - name: rol__betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie
           required: false
           in: query
