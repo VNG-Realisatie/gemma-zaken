@@ -5730,7 +5730,11 @@ paths:
         - geldigheid `eigenschap` URL - de resource moet opgevraagd kunnen worden
         uit de Catalogi API en de vorm van een EIGENSCHAP hebben.
 
-        - de `eigenschap` moet bij het `ZAAK.zaaktype` horen'
+        - de `eigenschap` moet bij het `ZAAK.zaaktype` horen
+        
+        
+        Als de `waarde` niet voldoet aan de specificatie zoals gedefinieerd in de Catalogi API, dan wordt de zaakeigenschap wel opgeslagen, maar krijg je een waarschuwing terug in de `X-Warning` header van de response.'
+
       summary: Maak een ZAAKEIGENSCHAP aan.
       parameters:
         - in: header
@@ -5783,6 +5787,11 @@ paths:
               description:
                 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
+            X-Warning:
+              schema:
+                type: string
+              description:
+                'Waarschuwing dat de zaakeigenschap niet voldoet aan de specificatie zoals gedefinieerd in de Catalogi API. De zaakeigenschap is wel opgeslagen, maar er kunnen problemen ontstaan bij het gebruik ervan.'
           content:
             application/json:
               schema:
