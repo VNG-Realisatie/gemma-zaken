@@ -9,26 +9,30 @@
 # Gebruik: spectral lint pad/naar/uw/openapi.yaml
 
 extends:
-  # - [tools/spectral/adr-2.1.0-logius.yaml, off]
-  - [tools/spectral/adr_don_corrected.yaml, off]
-  # - [tools/spectral/adr_kpa_corrected.yaml, off]
+  # - tools/spectral/adr-2.1.0-logius.yaml
+ - [tools/spectral/adr-2.1.0-logius.yaml, off]
+  # [tools/spectral/adr_don_corrected.yaml, off]
+  #  - [tools/spectral/adr_kpa_corrected.yaml, off]
   # - [./tools/spectral/nlgov-api-design-rules.yaml, off]
   # - [./tools/spectral/zgw-api-design-rules.yaml, off]
 
 # Alleen de eigen custom rules worden actief gehouden; alle ingebouwde
 # spectral:oas rules zijn uitgeschakeld via de [ruleset, off] syntax.
+
 rules:
-  openapi3: error
-  missing-version-header: error
-  missing-header: error
-  include-major-version-in-uri: error
-  paths-no-trailing-slash: error
-  http-methods: error
-  paths-kebab-case: warn
-  schema-camel-case: warn
-  servers-use-https: warn
-  use-problem-schema: warn
-  property-casing: warn
+  oas3-api-servers: error
+  nlgov:openapi3: error
+  nlgov:openapi-root-exists: error
+  nlgov:missing-version-header: error
+  nlgov:missing-header: error
+  nlgov:include-major-version-in-uri: error
+  nlgov:paths-no-trailing-slash: error
+  nlgov:http-methods: error
+  nlgov:paths-kebab-case: error
+  nlgov:query-keys-camel-case: error
+  nlgov:schema-camel-case: warn
+  nlgov:servers-use-https: warn
+  nlgov:use-problem-schema: warn
 
 
 # De truc zit in `[tools/spectral/adr_don_corrected.yaml, off]` — dit laadt de ruleset (inclusief de ingebouwde `spectral:oas` regels die erin zitten) maar zet alles standaard op `off`. 
