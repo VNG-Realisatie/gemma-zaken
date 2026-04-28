@@ -10,11 +10,7 @@
 
 extends:
   # - tools/spectral/adr-2.1.0-logius.yaml
- - [tools/spectral/adr-2.1.0-logius.yaml, off]
-  # [tools/spectral/adr_don_corrected.yaml, off]
-  #  - [tools/spectral/adr_kpa_corrected.yaml, off]
-  # - [./tools/spectral/nlgov-api-design-rules.yaml, off]
-  # - [./tools/spectral/zgw-api-design-rules.yaml, off]
+  - [tools/spectral/adr-2.1.0-logius.yaml, off]
 
 # Alleen de eigen custom rules worden actief gehouden; alle ingebouwde
 # spectral:oas rules zijn uitgeschakeld via de [ruleset, off] syntax.
