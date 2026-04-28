@@ -11,6 +11,7 @@ Bevindingen:
 - Er zit een bug in de linter van Spectral-extensie in vscode waardoor er toch nog interne meldingen doorsijpelen.
 - Aanroepen van spectral met `npx` gaat niet goed. Je moet het echt lokaal installeren met `npm`. Anders werkt de or-functie niet.
 - Je moet de [ ..., off] truuk uitvoeren in de `.spectral.yaml` configuratie file om interne meldingen te onderdrukken. In de linter van de extensie worden helaas nog niet alle interne meldingen onderdrukt.
-- Deze setting is belangrijk om de linter van vscode werkend te krijgen (`${workspaceFolder}/.spectral.yaml`):
+- De bovendgenoemde truuk is nodig omdat één van de interne meldingen (` oas3-api-servers: error`) onderdeel is van de nl api design rules. Misschien beter om de code van die regel te kopieren en de extends weg te halen.
+- De volgende setting is belangrijk om de linter van vscode werkend te krijgen (`${workspaceFolder}/.spectral.yaml`):
 
 ![alt text](image.png)
