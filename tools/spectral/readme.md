@@ -16,3 +16,8 @@ Bevindingen:
 - De volgende setting is belangrijk om de linter van vscode werkend te krijgen (`${workspaceFolder}/.spectral.yaml`):
 
 ![alt text](image.png)
+
+Relevante links:
+
+- https://github.com/Logius-standaarden/API-Design-Rules/issues/315
+- https://github.com/developer-overheid-nl/don-site/issues/526
