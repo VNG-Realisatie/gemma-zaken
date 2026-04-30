@@ -24,18 +24,41 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
+### ZGW 1.7 concept
+
+Hieronder een overzicht met directe links naar de onderdelen van de ZGW 1.7 concept-versie voor de consultatie. Om goed de verschillen te zien met de vorige ZGW 1.6 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
+
+| Onderdeel              | ZGW 1.6 release &nbsp;                 | ZGW 1.7 concept &nbsp;              | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
+| :--------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------- | :------------------------------------- |
+| Zaken API              | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.7.0](./zaken/redoc-1.7.0.md)     | [1.7.0](./zaken/zrc/1.7.x/1.7.0/specification.md)        | [1.7.0](./zaken/release_notes.md)      |
+| Catalogi API           | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.3](./catalogi/redoc-1.3.3.md)  | [1.3.3](./catalogi/ztc/1.3.x/1.3.3/specification.md)     | [1.3.3](./catalogi/release_notes.md)   |
+| Documenten API  &nbsp; | [1.6.0](./documenten/redoc-1.6.0.md)   | [1.7.0](./documenten/redoc-1.7.0)   | [1.7.0](./documenten/index.md#specificatie-van-gedrag)   | [1.7.0](./documenten/release_notes.md) |
+| Besluiten API          | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/redoc1.0.2)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | -                                      |
+| Autorisaties API       | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.1.0](./autorisaties/redoc-1.1.0) | [1.1.0](./autorisaties/index.md#specificatie-van-gedrag) | [1.1.0](./autorisaties/index.md)       |
+| Notificaties API       | [1.0.1](./notificaties/redoc-1.0.1.md) | [1.0.1](./notificaties/redoc-1.0.1) | [1.0.1](./notificaties/index.md#specificatie-van-gedrag) | -                                      |
+
+Let op:
+
+- De Besluiten API en de Notificaties API zijn als enige niet aangepast en hebben dus dezelfde versie gehouden. Daarom zijn de release notes voor deze API's niet van toepassing.
+
+In de ZGW 1.7 conceptversie zijn de volgende issues verwerkt:
+
+ - [Issuelijst "Milestone ZGW 1.7"](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.7%22)
+ 
+In de release notes worden er naar deze issues gerefereerd.
+
 ### ZGW 1.6 release
 
 Hieronder een overzicht met directe links naar de onderdelen van de nieuwe ZGW 1.6 release die op 20-03-2026 is uitgebracht. Om goed de verschillen te zien met de vorige ZGW 1.5 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
 
-| Onderdeel        | ZGW 1.5 release &nbsp;                         | ZGW 1.6 release &nbsp;                             | Aanvullende spec &nbsp;                                          | Release notes  &nbsp;                                    |
-| :---             | :---                                   | :---                                    | :---                                                      | :---                                               |
-| Zaken API        | [1.5.1](./zaken/redoc-1.5.1.md)        | [1.6.0](./zaken/redoc-1.6.0.md)         | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)         | [1.6.0](./zaken/release_notes_1.6.0.md)            |
-| Catalogi API     | [1.3.1](./catalogi/redoc-1.3.1.md)     | [1.3.2](./catalogi/redoc-1.3.2.md)      | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)      | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
-| Documenten API  &nbsp; | [1.5.0](./documenten/redoc-1.5.0)      | [1.6.0](./documenten/redoc-1.6.0.md)    | [1.6.0](./documenten/index.md#specificatie-van-gedrag)    | [1.6.0](./documenten/release_notes_1.6.0.md)       |
-| Besluiten API    | [1.0.2](./besluiten/redoc1.0.2)        | [1.1.0](./besluiten/redoc-1.1.0.md)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)     | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
-| Autorisaties API | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.0.0](./autorisaties/redoc-1.0.0)     | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag)  | -                                                  |
-| Notificaties API | [1.0.0](./notificaties/redoc-1.0.0)    | [1.0.1](./notificaties/redoc-1.0.1.md)  | [1.0.1](./notificaties/index.md#specificatie-van-gedrag)  | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
+| Onderdeel              | ZGW 1.5 release &nbsp;              | ZGW 1.6 release &nbsp;                 | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                              |
+| :--------------------- | :---------------------------------- | :------------------------------------- | :------------------------------------------------------- | :------------------------------------------------- |
+| Zaken API              | [1.5.1](./zaken/redoc-1.5.1.md)     | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)        | [1.6.0](./zaken/release_notes_1.6.0.md)            |
+| Catalogi API           | [1.3.1](./catalogi/redoc-1.3.1.md)  | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)     | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
+| Documenten API  &nbsp; | [1.5.0](./documenten/redoc-1.5.0)   | [1.6.0](./documenten/redoc-1.6.0.md)   | [1.6.0](./documenten/index.md#specificatie-van-gedrag)   | [1.6.0](./documenten/release_notes_1.6.0.md)       |
+| Besluiten API          | [1.0.2](./besluiten/redoc1.0.2)     | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
+| Autorisaties API       | [1.0.0](./autorisaties/redoc-1.0.0) | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag) | -                                                  |
+| Notificaties API       | [1.0.0](./notificaties/redoc-1.0.0) | [1.0.1](./notificaties/redoc-1.0.1.md) | [1.0.1](./notificaties/index.md#specificatie-van-gedrag) | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
 
 Let op:
 
@@ -70,18 +93,18 @@ Het is niet verplicht alle API's te implementeren, maar er zijn wel afhankelijkh
 
 De afhankelijkheden tussen de API's is als volgt (te lezen als rij is afhankelijk van kolom):
 
-|                                | Catalogi | Zaken     | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Contactmomenten | Klanten | Verzoeken | Gemeentelijke selectielijst API |
-|--------------------------------|:----------:|:----------:|:------------:|:-----------:|:--------------:|:--------------:|:-----------------:|:---------------:|:-----:|:-------:|:-----------------------------:|
-| Catalogi                       |          |           |            |           | X |   |  |           |           |           | X |
-| Zaken                          |    X     |           | optioneel  | optioneel | X | X |  |           |           |           |   |
-| Documenten                     |    X     | optioneel |            | optioneel | X | X |  | optioneel |           | optioneel |   |
-| Besluiten                      |    X     |           | optioneel  | optioneel | X | X |  |           |           |           |   |
-| Autorisaties                   |          |           |            |           | X | X |  |           |           |           |   |
-| Notificaties                   |          |           |            |           | X |   |  |           |           |           |   |
-| Notificaties   voor consumers  |          |           |            |           |   |   |  |           |           |           |   |
-| Contactmomenten                |          | optioneel | optioneel  |           | X | X |  |           | optioneel | optioneel |   |
-| Klanten                        |          |           | optioneel  |           | X | X |  | optioneel |           | optioneel |   |
-| Verzoeken                      |          | optioneel |            |           | X | X |  | optioneel | optioneel |           |   |
+|                               | Catalogi |   Zaken   | Documenten | Besluiten | Autorisaties | Notificaties | Notificaties  voor consumers | Contactmomenten |  Klanten  | Verzoeken | Gemeentelijke selectielijst API |
+| ----------------------------- | :------: | :-------: | :--------: | :-------: | :----------: | :----------: | :--------------------------: | :-------------: | :-------: | :-------: | :-----------------------------: |
+| Catalogi                      |          |           |            |           |      X       |              |                              |                 |           |           |                X                |
+| Zaken                         |    X     |           | optioneel  | optioneel |      X       |      X       |                              |                 |           |           |                                 |
+| Documenten                    |    X     | optioneel |            | optioneel |      X       |      X       |                              |    optioneel    |           | optioneel |                                 |
+| Besluiten                     |    X     |           | optioneel  | optioneel |      X       |      X       |                              |                 |           |           |                                 |
+| Autorisaties                  |          |           |            |           |      X       |      X       |                              |                 |           |           |                                 |
+| Notificaties                  |          |           |            |           |      X       |              |                              |                 |           |           |                                 |
+| Notificaties   voor consumers |          |           |            |           |              |              |                              |                 |           |           |                                 |
+| Contactmomenten               |          | optioneel | optioneel  |           |      X       |      X       |                              |                 | optioneel | optioneel |                                 |
+| Klanten                       |          |           | optioneel  |           |      X       |      X       |                              |    optioneel    |           | optioneel |                                 |
+| Verzoeken                     |          | optioneel |            |           |      X       |      X       |                              |    optioneel    | optioneel |           |                                 |
 
 Zie ook de [compatibiliteit](./api-compatibiliteit) tussen de API versies en de [API versies](./versions) die nu beschikbaar zijn.
 
