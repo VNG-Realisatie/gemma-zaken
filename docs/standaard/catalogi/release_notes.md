@@ -6,6 +6,11 @@ layout: page-with-side-nav
 ---
 # Release Notes Catalogi API
 
+## Versie 1.3.3 (concept)
+
+- Ontbrekende array's met omschrijvingen en identificaties toegevoegd in de responses van besluittypen, zaaktypen en informatieobjecttypen ([#2601](https://github.com/VNG-Realisatie/gemma-zaken/issues/2601)).
+- In de POST-operatie van `/zaaktypen` het veld "deelzaaktypen" optioneel gemaakt zodat deze versie weer backwards compatible is met eerdere versies ([#2599](https://github.com/VNG-Realisatie/gemma-zaken/issues/2599)).
+
 ## Versie 1.3.2
 
 Klik [hier](./release_notes_1.3.2.md) voor de release notes.
