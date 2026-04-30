@@ -125,24 +125,12 @@ Bovendien gelden er beperkingen op verdere acties die uitgevoerd kunnen worden o
         * verwijderd worden (DELETE)
 
 
-* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;"><strong>Aangepast in versie 1.3.2</strong></span><br>Beperkingen voor de volgende objecttypen: Roltype, Statustype, Eigenschap, Zaaktype-Informatieobjecttype, Resultaattype en Zaakobjecttype **<a name="ztc-010">([ztc-010](#ztc-010))</a>**. Als een van deze objecttypen, aangeduid met `x`, gerelateerd is aan een `zaaktype` met `concept=false`, dan mag objecttype `x` NIET:
+* Beperkingen voor de volgende objecttypen: Roltype, Statustype, Eigenschap, Zaaktype-Informatieobjecttype, Resultaattype en Zaakobjecttype **<a name="ztc-010">([ztc-010](#ztc-010))</a>**. Als een van deze objecttypen, aangeduid met `x`, gerelateerd is aan een `zaaktype` met `concept=false`, dan mag objecttype `x` NIET:
 
     * aangemaakt worden (POST) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * geheel bijgewerkt worden (PUT) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * deels bijgewerkt worden (PATCH) met uitzondering van een <a name="correctie">[correctie](#correctie)</a>.
     * verwijderd worden (DELETE).
-
-* <span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-        <strong>Aangepast in versie 1.3.0</strong></span><br/>~~Beperkingen die gelden voor objecttypen die NIET gerelateerd zijn aan een objecttype met `concept=false` **<a name="ztc-011">([ztc-011](#ztc-011))</a>**:~~
-
-    * ~~Er mag GEEN nieuw objecttype aangemaakt worden met een relatie naar een objecttype met `concept=false` (create)~~
-    * ~~Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype en een objecttype met `concept=false` (update, partial_update)~~
-    * ~~Voor `ZaakType-InformatieObjectType` gelden bovenstaande regels **(ztc-011)** alleen in het geval waarbij zowel het `ZaakType` als het `InformatieObjectType` `concept=False` hebben~~
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.3.0</strong>
-</span><br/>
-<br>
 
 #### Historiemodel
 
@@ -150,69 +138,7 @@ Voor een snelle introductie in dit onderwerp wordt verwezen naar de notitie [his
 
 [![Historiemodel Catalogi API ImZTC 2.2](../../../catalogi_history.png)](../../../catalogi_history.png "Historiemodel Calogi API ImZTC versie 2.2 - klik voor groot")
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Regels ztc-011a, ztc-011b en ztc-011c zijn komen te vervallen in versie 1.3.2</strong>
-</span><br/>
-
-<div style="text-decoration: line-through;">
-Vanwege de aard van de Catalogi API wordt onderscheid gemaakt tussen `lees consumers` en `schrijf consuners`. Onderstaande regels (ztc-11a, ztc-11b en ztc-11c) zijn van toepassing voor zgn `schrijf consumers`. Met een `schrijf consumer` wordt de beheer module voor de Zaaktype Catalogus bedoeld.
-
-De volgende regels gelden voor Zaaktype en daaraan gerelateerde objecttypen Statustypen, Roltypen, Eigenschappen, Zaakobjecttypen, ResultaatTypen en ZaaktypeInformatieobjecttypen. Dit betreft het groene gedeelte in bovenstaande afbeelding.  **<a name="ztc-011a">([ztc-011a](#ztc-011a))</a>**: 
-
-- Een wijziging in één van de genoemde typen (Zaaktype of gerelateerde objecttypen) leidt tot een nieuwe versie van het Zaaktype **en** de gerelateerde objecttypen. 
-- Er mag GEEN nieuw objecttype van bovengenoemde typen aangemaakt worden met een relatie naar een objecttype van bovengenoemde typen met `concept=false` (create)
-- Er mag GEEN nieuwe relatie worden gelegd tussen een objecttype van bovengenoemde typen en een objecttype van bovengenoemde typen met `concept=false` (update, partial_update)
-- Relaties tussen Zaaktype en Besluittype worden gelegd in het Zaaktype middels de besluittype.omschrijving en deze zijn versie-onafhankelijk. Om deze relatie te verwijderen dient een nieuwe versie van het Zaaktype en gerelateerde typen gemaakt te worden.
-- Er mogen WEL relaties gelegd worden van een Zaaktype naar een Besluittype of Informatieobjecttype met `concept=false`. Hiervoor dient een nieuw(e versie van een) Zaaktype met gerelateerde typen gemaakt te worden.
-- Relaties tussen Resultaatype en Besluittype worden gelegd in het Resultaatype middels de besluittype.omschrijving en deze zijn versie-onafhankelijk. Om deze relatie te verwijderen dient een nieuwe versie van het Zaaktype, Resultaattype en overige gerelateerde typen gemaakt te worden.
-
-De volgende regels gelden voor Besluittype. Dit betreft het rode gedeelte in bovenstaande afbeelding.  **<a name="ztc-011b">([ztc-011b](#ztc-011b))</a>**:
-
-- Relaties tussen Besluittype en Informatieobjecttype worden gelegd in het Besluittype middels de Informatieobjecttype.omschrijving en deze zijn versie-onafhankelijk. Om een relatie te verwijderen dient een nieuwe versie vna het Besluittype gemaakt te worden.
-- Een wijziging in een Besluittype leidt NIET tot een nieuwe versie van een gerelateerd Zaaktype of Informatieobjecttype.
-- Een wijziging in een Zaaktype of Besluittype leidt NIET tot een nieuwe versie van een gerelateerd Besluittype.
-    
-De volgende regels gelden voor Informatieobjecttype. Dit betreft het blauwe gedeelte in bovenstaande afbeelding. **<a name="ztc-011c">([ztc-011c](#ztc-011c))</a>**:
-
-- Relaties tussen Zaaktype en Informatieobjecttype worden, via ZaaktypInformatieobjecttype, gelegd door de informatieobjecttype.omschrijving op te nemen in het ZaaktypInformatieobjecttype. 
-- Relaties tussen Informatieobjecttype en Besluittype worden gelegd door de informatieobjecttype.omschrijving op te nemen in het Besluittype. 
-- Het is WEL toegestaan relaties naar een Informatieobjecttype met `concept=false` aan te maken vanuit een ZaaktypeInformatieobjecttype of Besluittype.
-</div><br/>
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Regel ztc-012 is komen te vervallen in versie 1.3.2</strong>
-</span><br/>
-
-
-#### <a name="ztc-012">~~Publiceren van ZaakType~~ ([ztc-012](#ztc-012))</a>
-
-<div style="text-decoration: line-through;">
-Een `ZaakType` mag alleen gepubliceerd worden als alle gerelateerde `BesluitType`n en `InformatieObjectType`n `concept=false`
-hebben (dus gepubliceerd zijn). Als er geprobeerd wordt om een `ZaakType` te publiceren terwijl er relaties zijn met `BesluitType`n of `InformatieObjectType`n die `concept=true` hebben, dan dient er een HTTP 400 teruggegeven te worden door de API
-</div><br/>
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Regel ztc-013 is komen te vervallen in versie 1.3.2</strong>
-</span><br/>
-
-#### <del><a name="ztc-013">Relaties tussen objecttypen ([ztc-013](#ztc-013))</a></del>
-
-<div style="text-decoration: line-through;">
-Het is NIET TOEGESTAAN dat objecttypen relaties hebben over verschillende catalogi
-heen. Zelfs als de catalogi hetzelfde zijn maar op verschillende endpoints
-worden aangeboden mogen de relaties niet door elkaar gelegd worden.
-
-Voorbeeld: Een `Zaaktype` in `Catalogus` X mag geen `Statustype` hebben uit
-`Catalogus` Y. Een `Zaaktype` in `Catalogus` X op endpoint `https://www.foo.bar/`
-mag geen `Statustype` hebben uit `Catalogus` X op endpoint
-`https://www.example.com`.
-</div><br/>
-
 ### Datum beginGeldigheid en eindGeldigheid
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.2.0</strong>
-</span>
 
 Ondanks dat een versie van Roltype, Statustype, Eigenschap, Zaakobjecttype en Resultaattype nog steeds één op één aan een versie van een Zaaktype gekoppeld zijn zijn de attributen beginGeldigheid en eindGeldigheid ook aan die objecttypen toegevoegd. Deze velden bevatten de afgeleide waarden van de beginGeldighied en eindGeldigheid van het bijbehorende Zaaktype.
 
@@ -225,11 +151,6 @@ De versie van het object is dus geldig van beginGeldigheid *tot en met* eindGeld
 Daarnaast kennen objecten ook nog de datumvelden *beginObject* en *eindObject*. Dit zijn respectievelijk de geboortedatum en overlijdensdatum van het object. Oftewel de datum waarop het object voor het eerst gebruikt kon worden en de datum waarom het object voor het laatst gebruikt kon worden.
 
 Bij het aanmaken van een nieuwe versie van een Roltype, Statustype, ResultaatType, Eigenschap of Zaakobjecttype wordt een meegegeven beginGeldigheid gevalideerd tegen de beginGeldigheid en versieDatum van het bijbehorende Zaaktype. Deze MOETen overeenkomen. Wordt de beginGeldigheid niet meegegeven wordt de beginGeldigheid van het Zaaktype overgenomen.
-<br/>
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.3.2</strong>
-</span>
 
 #### <a name="ztc-016"> Gepubliceerde zaaktypen mogen geen overlappende geldigheidsperiode hebben ([ztc-016](#ztc-016))</a>
 
@@ -266,10 +187,6 @@ Een analoge definitie geldt voor de volgende geretourneerde attributen:
   
 #### HTTP-Caching
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.1.0</strong>
-</span>
-
 De Catalogi API moet HTTP-Caching ondersteunen op basis van de `ETag` header. In
 de API spec staat beschreven voor welke resources dit van toepassing is.
 
@@ -289,10 +206,6 @@ provider een normale `HTTP 200` response sturen.
 
 #### <a name="correctie">([Correctie](#correctie))</a>
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.2.0</strong>
-</span>
-
 Het kan voorkomen dat een versie van een object in gebruik is en fouten bevat. Normaal gesproken moet dan van dat object een nieuwe versie gemaakt worden maar die wijzigingen hebben dan geen effect op zaken, informatieobjecten of besluiten die reeds aangemaakt zijn. Daarom is het mogelijk om onder bepaalde omstandigheden correcties aan te brengen. Dit kan dan met een expliciete scope: geforceerd-bijwerken.
 
 De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
@@ -302,16 +215,8 @@ De voorwaarden waaronder een correctie uitgevoerd mag worden zijn:
 - Besluiten van het Besluittype blijven nog steeds geldig.
 - Informatieobjecten van het Informatieobjecttype blijven nog steeds geldig.
 
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.3.0</strong>
-</span>
-
 #### <a name="ztc-014">Leesrechten Zaken en Documenten ook voor Catalogi ([ztc-014](#ztc-014))</a>
 Wanneer de ZRC of DRC met respectievelijk de scopes zaken.lezen of documenten.lezen de ZTC raadplegen moet de provider deze verzoeken behandelen alsof de scope catalogi.lezen gebruikt is.
-
-<span style="padding: 0.2em 0.5em; border: solid 1px #EEEEEE; border-radius: 3px; background: #DDDFFF;">
-    <strong>Nieuw in versie 1.3.2</strong>
-</span>
 
 #### <a name="ztc-015">Datumvelden bij het specificeren van eigenschappen ([ztc-015](#ztc-015))</a>
 
@@ -328,8 +233,3 @@ Als het attribuut `eigenschap.specificatie.formaat` de waarde `datum-tijd` heeft
 * Het datumtijdveld dat als eigenschap gedefinieerd is voldoet aan het formaat "YYYYMMDDhhmmss", bijvoorbeeld `20220728134022` (in ISO-notatie `2022-07-28T13:40:22`).
 
 Let op: Bij het specificeren van custom eigenschappen voor een zaakobject wijkt het formaat van datumvelden af ten op zichte van de reguliere attributen van een zaakobject. In het reguliere geval wordt het standaard ISO-formaat gevolgd. In de toekomst hopen we deze inconsistentie op te lossen, maar voor nu hebben we te maken met deze legacy uit het [ImZTC](https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/eigenschap.specificatie_van_eigenschap.lengte).
-
-
-## Overige documentatie
-
-* [Informatiemodel Zaaktypen (ImZTC)](https://www.gemmaonline.nl/index.php/Informatiemodel_Zaaktypen_(ImZTC))
