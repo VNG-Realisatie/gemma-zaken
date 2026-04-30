@@ -6,6 +6,10 @@ layout: page-with-side-nav
 ---
 # Release Notes Documenten API
 
+## Versie 1.7.0
+
+- Autorisatie voor documenten die gereed zijn voor publicatie ([#2597](https://github.com/VNG-Realisatie/gemma-zaken/issues/2597)).
+
 ## Versie 1.6.0
 
 Klik [hier](./release_notes_1.6.0.md) voor versie 1.6.0 van de Documenten API.

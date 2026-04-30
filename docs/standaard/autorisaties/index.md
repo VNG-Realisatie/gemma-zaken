@@ -43,6 +43,10 @@ De API ondersteunt de volgende operaties:
 [autorisaties-1.1.0-redoc]: redoc-1.1.0
 [autorisaties-1.0.0-redoc-rel]: redoc-1.0.0-rel
 
+## Release notes 1.1.0
+
+- Autorisatie voor documenten die gereed zijn voor publicatie ([#2597](https://github.com/VNG-Realisatie/gemma-zaken/issues/2597)).
+
 ## Specificatie van gedrag
 
 
