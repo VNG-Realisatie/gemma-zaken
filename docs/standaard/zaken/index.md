@@ -64,7 +64,7 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 | Versie    | Release datum | API specificatie | Specificatie van gedrag |
 |-----------|---------------|------------------|--------------------------|
-| <a name="version-1.7.0">1.7.0</a>   | Concept    | [ReDoc][zaken-1.7.0-redoc] | |
+| <a name="version-1.7.0">1.7.0</a>   | Concept    | [ReDoc][zaken-1.7.0-redoc] | [spec 1.7.0](./zrc/1.7.x/1.7.0/specification.md) |
 | <a name="version-1.6.0">1.6.0</a>   | 20-03-2026    | [ReDoc][zaken-1.6.0-redoc] | [spec 1.6.0](./zrc/1.6.x/1.6.0/specification.md)|
 | <a name="version-1.5.1">1.5.1</a>   | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger] | [spec 1.5.1](#specificatie-van-gedrag) |
 | 1.4.1     | 26-09-2023    | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger] | [spec 1.4.1](#specificatie-van-gedrag) |
