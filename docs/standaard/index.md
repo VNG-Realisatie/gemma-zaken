@@ -33,7 +33,7 @@ Hieronder een overzicht met directe links naar de onderdelen van de ZGW 1.7 conc
 | Zaken API              | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.7.0](./zaken/redoc-1.7.0.md)     | [1.7.0](./zaken/zrc/1.7.x/1.7.0/specification.md)        | [1.7.0](./zaken/release_notes.md)      |
 | Catalogi API           | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.3](./catalogi/redoc-1.3.3.md)  | [1.3.3](./catalogi/ztc/1.3.x/1.3.3/specification.md)     | [1.3.3](./catalogi/release_notes.md)   |
 | Documenten API  &nbsp; | [1.6.0](./documenten/redoc-1.6.0.md)   | [1.7.0](./documenten/redoc-1.7.0)   | [1.7.0](./documenten/index.md#specificatie-van-gedrag)   | [1.7.0](./documenten/release_notes.md) |
-| Besluiten API          | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/redoc1.0.2)     | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | -                                      |
+| Besluiten API          | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/redoc-1.1.0.md) | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | -                                      |
 | Autorisaties API       | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.1.0](./autorisaties/redoc-1.1.0) | [1.1.0](./autorisaties/index.md#specificatie-van-gedrag) | [1.1.0](./autorisaties/index.md)       |
 | Notificaties API       | [1.0.1](./notificaties/redoc-1.0.1.md) | [1.0.1](./notificaties/redoc-1.0.1) | [1.0.1](./notificaties/index.md#specificatie-van-gedrag) | -                                      |
 
