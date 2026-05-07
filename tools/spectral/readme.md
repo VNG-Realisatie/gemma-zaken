@@ -17,6 +17,10 @@ Bevindingen:
 
 ![alt text](image.png)
 
+![alt text](image-1.png)
+
+- Moet nog een scriptje maken dat alle relevante openapi.yaml files binnen ZGW automatisch gevalideerd worden.
+
 Relevante links:
 
 - https://github.com/Logius-standaarden/API-Design-Rules/issues/315

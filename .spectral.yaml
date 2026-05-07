@@ -1,35 +1,17 @@
-# Spectral configuratie voor API specificaties
-#
-# De Nederlandse API Design Rules zijn gebaseerd op de Logius standaard:
-# https://gitdocumentatie.logius.nl/publicatie/api/adr/
-#
-# De onderstaande rulesets breiden de Nederlandse API Design Rules uit met
-# regels die specifiek zijn voor de ZGW API's.
-#
-# Gebruik: spectral lint pad/naar/uw/openapi.yaml
-
 extends:
-  # - tools/spectral/adr-2.1.0-logius.yaml
-  - [tools/spectral/adr-2.1.0-logius.yaml, off]
+  # - ["spectral:oas", "off"] # extend spectral:oas maar niet standaard alle regels
+  # - [tools/spectral/adr-2.1.0-logius.yaml, off]
+  - tools/spectral/adr-2.1.0-logius-truth.yaml
 
-# Alleen de eigen custom rules worden actief gehouden; alle ingebouwde
-# spectral:oas rules zijn uitgeschakeld via de [ruleset, off] syntax.
+# rules:
+#   # /core/publish-openapi (deze error-rules valideren of OAS valid is)
+#   oas3-schema: true
+#   operation-operationId-unique: true
+#   path-params: true
+#   openapi-tags-uniqueness: true
+#   oas3-valid-media-example: true
+#   oas3-valid-schema-example: true
+#   oas3-server-variables: true
 
-rules:
-  oas3-api-servers: error
-  nlgov:openapi3: error
-  nlgov:openapi-root-exists: error
-  nlgov:missing-version-header: error
-  nlgov:missing-header: error
-  nlgov:include-major-version-in-uri: error
-  nlgov:paths-no-trailing-slash: error
-  nlgov:http-methods: error
-  nlgov:paths-kebab-case: error
-  nlgov:query-keys-camel-case: error
-  nlgov:schema-camel-case: warn
-  nlgov:servers-use-https: warn
-  nlgov:use-problem-schema: warn
-
-
-# De truc zit in `[tools/spectral/adr_don_corrected.yaml, off]` — dit laadt de ruleset (inclusief de ingebouwde `spectral:oas` regels die erin zitten) maar zet alles standaard op `off`. 
-# Daarna worden alleen jouw 11 custom rules expliciet weer ingeschakeld met hun originele severity (`error` of `warn`).
+#   # deze stond er al in, maar is niet direct gekoppeld aan een ADR
+#   oas3-api-servers: error
