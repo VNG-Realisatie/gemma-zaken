@@ -1,0 +1,31 @@
+{
+  "name": "Jekyll GitHub Pages",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
+  "forwardPorts": [4000],
+  "postCreateCommand": "gem install bundler jekyll github-pages && cd docs && bundle install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "takumii.markdowntable",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "42crunch.vscode-openapi",
+        "redocly.openapi-vs-code",
+        "stoplight.spectral"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/ruby:1": {
+      "version": "3.2"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  }
+}
