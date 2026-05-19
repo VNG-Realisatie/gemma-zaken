@@ -11,6 +11,8 @@ nav:
     subnav:
       - title: Home
         path: /
+      - title: Nieuwsberichten
+        path: /nieuwsberichten/
       - title: Productvisie
         path: /productvisie/
       - title: Standaard
