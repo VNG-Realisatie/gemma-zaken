@@ -2,7 +2,7 @@
   "name": "Jekyll GitHub Pages",
   "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
   "forwardPorts": [4000],
-  "postCreateCommand": "gem install bundler jekyll github-pages && cd docs && bundle install",
+  "postCreateCommand": "gem install bundler jekyll github-pages && npm install -g @stoplight/spectral-cli && cd docs && bundle install",
   "customizations": {
     "vscode": {
       "extensions": [
