@@ -24,12 +24,10 @@ verschillende leveranciers wordt geleverd, of dat er gebruik wordt gemaakt van
 een SaaS-oplossing die bijvoorbeeld een ZTC component aanbiedt.
 Wilt u hier meer over weten, kijk dan bij [architectuur](architectuur/).
 
-Lees meer over de api's in de [productvisie](productvisie/)
-
-Onder het tablad Standaard vindt u de [beschrijving van de standaard](standaard/). Ontwikkelaars kunnen
+Lees meer over de api's in de [productvisie](productvisie/). Onder het tablad Standaard vindt u de [beschrijving van de standaard](standaard/). Ontwikkelaars kunnen
 [direct aan de slag](ontwikkelaars/) met de beschikbare
 [API's](standaard/) en de implementaties van de referentie
-componenten. Hoe we samen komen tot API-standaarden, kunt u in de [beschrijving hoe bij te dragen](community/bijdragen) lezen.
+componenten. Hoe we samen komen tot API-standaarden, kunt u in de [beschrijving hoe bij te dragen](community/bijdragen) lezen. De nieuwsbrieven die zijn verzonden over de ZGW API's kunt u terugvinden op  [Gemma Online](https://www.gemmaonline.nl/wiki/Alle_nieuwsberichten).
 
 <!--
 ## Slack
