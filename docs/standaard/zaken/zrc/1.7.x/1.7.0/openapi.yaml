@@ -3224,7 +3224,7 @@ paths:
     post:
       operationId: zaaknummer_reserveren
       description: |-
-        Reserveer een zaaknummer binnen een specifieke bronorganisatie zonder direct een Zaak aan te maken. Dit zaaknummer zal toegekend worden aan de eerstvolgende Zaak die met dit zaaknummer wordt aangemaakt binnen de bronorganisatie en het zaaknummer kan daarna niet hergebruikt worden.
+        Reserveer een zaaknummer binnen een specifieke bronorganisatie zonder direct een zaak aan te maken. Dit zaaknummer zal toegekend worden aan de eerstvolgende zaak die met dit zaaknummer wordt aangemaakt binnen de bronorganisatie. Zaaknummers die gereserveerd zijn (dus via dit endpoint worden teruggegeven), worden daarna nooit meer automatisch uitgegeven. Zaken kunnen enkel een gereserveerd nummer krijgen als ze dit nummer expliciet meegeven bij het aanmaken van een zaak.
 
         Als `aantal` niet wordt opgegeven of gelijk is aan 1, wordt een enkel object teruggegeven.
         Als `aantal > 1`, wordt een lijst van objecten teruggegeven.
@@ -3265,7 +3265,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OneOrMultipleZaakIdentificaties'
+                # $ref: '#/components/schemas/OneOrMultipleZaakIdentificaties'
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReserveZaakIdentificatie'
               examples:
                 EnkeleReservering:
                   value:
@@ -11769,7 +11772,7 @@ components:
         zaaknummer:
           type: string
           readOnly: true
-          title: Zaakidentificatie
+          title: Zaaknummer
           description: De unieke identificatie van de ZAAK binnen de organisatie die
             verantwoordelijk is voor de behandeling van de ZAAK.
       required:
