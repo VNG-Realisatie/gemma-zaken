@@ -37,7 +37,7 @@ De API ondersteunt de volgende operaties:
 
 | Versie    | Release datum | API specificatie |
 |-----------|---------------|------------------|
-| 1.1.0  | *Concept*    | [ReDoc][autorisaties-1.1.0-redoc] |
+| 1.1.0  |  2026-06-09    | [ReDoc][autorisaties-1.1.0-redoc] |
 | 1.0.0  |  2019-11-18  | [ReDoc][autorisaties-1.0.0-redoc-rel] |
 
 [autorisaties-1.1.0-redoc]: redoc-1.1.0

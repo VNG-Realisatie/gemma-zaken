@@ -24,11 +24,11 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
-### ZGW 1.7 concept
+### ZGW 1.7 release
 
-Hieronder een overzicht met directe links naar de onderdelen van de ZGW 1.7 concept-versie voor de consultatie. Om goed de verschillen te zien met de vorige ZGW 1.6 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
+Hieronder een overzicht met directe links naar de onderdelen van de ZGW 1.7 versie die op 09-06-2026 is uitgebracht. Om goed de verschillen te zien met de vorige ZGW 1.6 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
 
-| Onderdeel              | ZGW 1.6 release &nbsp;                 | ZGW 1.7 concept &nbsp;              | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
+| Onderdeel              | ZGW 1.6 release &nbsp;                 | ZGW 1.7 release &nbsp;                      | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
 | :--------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------- | :------------------------------------- |
 | Zaken API              | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.7.0](./zaken/redoc-1.7.0.md)     | [1.7.0](./zaken/zrc/1.7.x/1.7.0/specification.md)        | [1.7.0](./zaken/release_notes.md)      |
 | Catalogi API           | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.3](./catalogi/redoc-1.3.3.md)  | [1.3.3](./catalogi/ztc/1.3.x/1.3.3/specification.md)     | [1.3.3](./catalogi/release_notes.md)   |
@@ -41,7 +41,7 @@ Let op:
 
 - De Besluiten API en de Notificaties API zijn als enige niet aangepast en hebben dus dezelfde versie gehouden. Daarom zijn de release notes voor deze API's niet van toepassing.
 
-In de ZGW 1.7 conceptversie zijn de volgende issues verwerkt:
+In de ZGW 1.7 release zijn de volgende issues verwerkt:
 
  - [Issuelijst "Milestone ZGW 1.7"](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.7%22)
  

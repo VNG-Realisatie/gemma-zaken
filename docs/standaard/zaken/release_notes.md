@@ -4,9 +4,10 @@ date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
+
 # Release notes Zaken API
 
-## Versie 1.7.0 (concept)
+## Versie 1.7.0
 
 - Waarschuwingsmelding als een zaakeigenschap niet voldoet aan zijn specificatie in de Catalogi API ([#2591](https://github.com/VNG-Realisatie/gemma-zaken/issues/2591))
 - Endpoint voor het reserveren van zaaknummer(s) ([#2590](https://github.com/VNG-Realisatie/gemma-zaken/issues/2590))
