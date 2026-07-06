@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Catalogi API
-  version: 1.3.3
+  version: 1.3.4
   description:
     "Een API om een zaaktypecatalogus (ZTC) te benaderen.\n\nDe zaaktypecatalogus\
     \ helpt gemeenten om het proces vanuit de 'vraag van een\nklant' (productaanvraag,\
@@ -13444,6 +13444,7 @@ components:
             Aanduiding of het, vanuit archiveringsoptiek, een resultaattype
             betreft dat specifiek is voor een bepaalde procesobjectaard.
           title: indicatie specifiek
+          deprecated: true
         procestermijn:
           type: string
           nullable: true
@@ -14062,6 +14063,7 @@ components:
             Aanduiding of het, vanuit archiveringsoptiek, een resultaattype
             betreft dat specifiek is voor een bepaalde procesobjectaard.
           title: indicatie specifiek
+          deprecated: true
         procestermijn:
           type: string
           nullable: true
@@ -14302,6 +14304,7 @@ components:
             Aanduiding of het, vanuit archiveringsoptiek, een resultaattype
             betreft dat specifiek is voor een bepaalde procesobjectaard.
           title: indicatie specifiek
+          deprecated: true
         procestermijn:
           type: string
           nullable: true
@@ -14514,6 +14517,7 @@ components:
             Aanduiding of het, vanuit archiveringsoptiek, een resultaattype
             betreft dat specifiek is voor een bepaalde procesobjectaard.
           title: indicatie specifiek
+          deprecated: true
         procestermijn:
           type: string
           nullable: true
