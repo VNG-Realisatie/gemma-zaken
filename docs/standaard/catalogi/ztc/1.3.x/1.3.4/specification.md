@@ -233,3 +233,18 @@ Als het attribuut `eigenschap.specificatie.formaat` de waarde `datum-tijd` heeft
 * Het datumtijdveld dat als eigenschap gedefinieerd is voldoet aan het formaat "YYYYMMDDhhmmss", bijvoorbeeld `20220728134022` (in ISO-notatie `2022-07-28T13:40:22`).
 
 Let op: Bij het specificeren van custom eigenschappen voor een zaakobject wijkt het formaat van datumvelden af ten op zichte van de reguliere attributen van een zaakobject. In het reguliere geval wordt het standaard ISO-formaat gevolgd. In de toekomst hopen we deze inconsistentie op te lossen, maar voor nu hebben we te maken met deze legacy uit het [ImZTC](https://www.gemmaonline.nl/index.php/Imztc_2.1/doc/attribuutsoort/eigenschap.specificatie_van_eigenschap.lengte).
+
+#### **<a name="ztc-017">Deleten van een CATALOGUS ([ztc-017](#ztc-017))</a>**
+Een CATALOGUS mag alleen verwijderd worden als er geen ZAAKTYPEN, INFORMATIEOBJECTTYPEN en BESLUITTYPEN in zitten. Anders moet er een 409 (Conflict) worden teruggegeven.
+
+```
+HTTP/1.1 409 Conflict
+
+{
+  ...,
+  "code": "CATALOG_NOT_EMPTY",
+  ...,
+  "detail": "De catalogus kan niet worden verwijderd omdat deze nog items bevat."
+  ...
+}
+```
