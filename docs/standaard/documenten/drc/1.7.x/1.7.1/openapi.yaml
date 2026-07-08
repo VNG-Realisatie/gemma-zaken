@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.7.0
+  version: 1.7.1
   description: >
     Een API om een documentregistratiecomponent (DRC) te benaderen.
 
@@ -5587,6 +5587,7 @@ components:
           format: uri
           description: De URL naar de bestandsinhoud van dit specifieke bestandsdeel.
           title: inhoud
+          deprecated: true
         voltooid:
           type: boolean
           description: >-
