@@ -1,6 +1,5 @@
 ---
 title: "Catalogi API"
-date: '05-10-2023'
 weight: 10
 layout: page-with-side-nav
 ---
