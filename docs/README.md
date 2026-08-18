@@ -34,7 +34,7 @@ Om snel aan de slag te gaan:
 3. Ga naar de `docs` directory en start `jekyll serve`.
    ```bash
    cd docs
-   $ bundle exec jekyll serve
+   $ bundle exec jekyll serve --livereload
    ```
 
 ## Docker
