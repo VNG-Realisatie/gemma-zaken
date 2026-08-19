@@ -6064,12 +6064,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
@@ -6360,12 +6363,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
@@ -6655,12 +6661,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
@@ -6916,12 +6925,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
@@ -7202,12 +7214,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
@@ -7908,12 +7923,15 @@ components:
             Geeft aan of de inhoud van het INFORMATIEOBJECT al dan niet 
             vervallen, dus niet langer geldig is.
 
+            * `null` Het is nog niet bekend of bepaald of het INFORMATIEOBJECT wel of niet vervallen is. 
+
             * `true` De inhoud van het INFORMATIEOBJECT is vervallen.
 
             * `false` De inhoud van het INFORMATIEOBJECT is niet vervallen.
           title: inhoud is vervallen
           type: boolean
           nullable: true
+          default: null
         formaat:
           type: string
           description: >-
