@@ -15342,6 +15342,7 @@ components:
             organisatie(s).
           title: servicenorm behandeling
           format: duration
+          default: null
         opschortingEnAanhoudingMogelijk:
           type: boolean
           title: Opschorting/aanhouding mogelijk
@@ -15820,6 +15821,7 @@ components:
             organisatie(s).
           title: servicenorm behandeling
           format: duration
+          default: null
         opschortingEnAanhoudingMogelijk:
           type: boolean
           title: Opschorting/aanhouding mogelijk
@@ -16312,6 +16314,7 @@ components:
             organisatie(s).
           title: servicenorm behandeling
           format: duration
+          default: null
         opschortingEnAanhoudingMogelijk:
           type: boolean
           title: Opschorting/aanhouding mogelijk
