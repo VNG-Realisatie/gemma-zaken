@@ -15149,6 +15149,7 @@ components:
           description: URL-referenties naar de RESULTAATTYPEN.
           title: resultaattypen
           uniqueItems: true
+          deprecated: true
         resultaattypeOmschrijving:
           type: array
           items:
@@ -15158,6 +15159,7 @@ components:
           description: Omschrijving van de aard van RESULTAATen van het RESULTAATTYPE.
           title: Resultaattype omschrijving
           uniqueItems: true
+          deprecated: true
         statustypen:
           type: array
           items:
@@ -15168,6 +15170,7 @@ components:
           description: URL-referenties naar de STATUSTYPEN.
           title: Statustypen
           uniqueItems: true
+          deprecated: true
         catalogus:
           type: string
           format: uri
