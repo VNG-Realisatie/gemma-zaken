@@ -1,0 +1,15 @@
+[
+    "url",
+    "ïdentificatie",
+    "title",
+    {
+        "informatieobjecttype": [
+            "omschrijving":
+                {
+                    "zaaktypen": [
+                        *
+                    ]
+                }
+        ]
+    }
+]

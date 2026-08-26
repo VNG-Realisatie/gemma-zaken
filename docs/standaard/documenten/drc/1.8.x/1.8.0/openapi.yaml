@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Documenten API
-  version: 1.7.1
+  version: 1.8.0
   description: >
     Een API om een documentregistratiecomponent (DRC) te benaderen.
 
@@ -5908,6 +5908,30 @@ components:
     EIOZoekRequest:
       type: object
       properties:
+        fields:
+          title: Fields
+          description: 'De elementen (fields) die worden teruggegeven in de respons conform het expand-mechanisme. Het voorbeeld geeft aan hoe het werkt. Hierin betekent "*" dat alle elementen van een resource worden teruggegeven. <br><br> <b>Let op:</b> Het gebruik van het "fields" en "expand" element is mutual exclusive. Of je gebruikt de één of de ander maar nooit te gelijk.'
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: object
+          example: 
+                [
+                  "ïdentificatie",
+                  "bronorganisatie",
+                  "title",
+                  {
+                      "informatieobjecttype": [
+                          "omschrijving":
+                              {
+                                  "zaaktypen": [
+                                      "*"
+                                  ]
+                              }
+                      ]
+                  }
+              ]
         uuid__in:
           type: array
           items:
@@ -5933,6 +5957,7 @@ components:
           example: "000000000"
         expand:
           description: >-
+            Gebruik liever het nieuwe fields-element voor expand.
             Haal details van gelinkte resources direct op. Als je meerdere
             resources tegelijk wilt ophalen kun je deze scheiden met een komma.
             Voor het ophalen van resources die een laag dieper genest zijn wordt
