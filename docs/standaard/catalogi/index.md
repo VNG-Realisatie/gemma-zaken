@@ -12,17 +12,14 @@ De API ondersteunt het opslaan en naar andere applicaties ontsluiten van zaaktyp
 
 
 ## Gegevensmodel
-De Catalogi API implementeert het informaitemodel ImZTC versie 2.2. Voor meer informatie over het ImZTC versie 2.2 zie [GEMMA Online](https://www.gemmaonline.nl/index.php/ImZTC_2.2_in_ontwikkeling)
-
-[![Gegevensmodel Catalogi API ImZTC 2.2](ImZTC_2_2.png)](ImZTC_2_2.png "ImZTC versie 2.2 - klik voor groot")
-
+De Catalogi API implementeert het [informatiemodel ImZTC versie 2.2]([https://vng-realisatie.github.io/ImZTC-Respec/](https://vng-realisatie.github.io/publicatie/cim/imztc/2.2.0/). Deze versie is nog in ontwikkeling.
 
 ## Specificatie van de Catalogi API
 
 [Referentie-implementatie Catalogi API](https://catalogi-api.vng.cloud)
 
 ### Release Notes
-De [release notes](./release_notes.md) van de versies staan beschreven op deze [pagina](./release_notes.md).
+Om de ontwikkeling van de Catalog-API te volgen zijn er de [release notes](./release_notes.md) van de verschillende versies.
 
 ### Known Issues
 De [known issues](./known_issues.md) van de versies staan beschreven op deze [pagina](./known_issues.md).
