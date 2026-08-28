@@ -1151,6 +1151,82 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+    put:
+      operationId: rol_update
+      description: "**Validatieregel**: indien opgegeven, dan wordt `betrokkeneIdentificatie` gevalideerd tegen de betrokkeneType discriminator."
+      summary: Werk een ROL in zijn geheel bij.
+      parameters:
+        - in: path
+          name: uuid
+          schema:
+            type: string
+            format: uuid
+            description: Unieke resource identifier (UUID4)
+            title: uuid
+          required: true
+        - in: header
+          name: Content-Type
+          schema:
+            type: string
+            enum:
+              - application/json
+          description: Content type van de verzoekinhoud.
+          required: true
+        - in: header
+          name: X-NLX-Logrecord-ID
+          schema:
+            type: string
+          description: Identifier of the request, traceable throughout the network
+        - in: header
+          name: X-Audit-Toelichting
+          schema:
+            type: string
+          description: Toelichting waarom een bepaald verzoek wordt gedaan
+      tags:
+        - rollen
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rol'
+        required: true
+      security:
+        - JWT-Claims:
+            - (zaken.bijwerken | zaken.geforceerd-bijwerken)
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description:
+                'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rol'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '406':
+          $ref: '#/components/responses/406'
+        '409':
+          $ref: '#/components/responses/409'
+        '410':
+          $ref: '#/components/responses/410'
+        '415':
+          $ref: '#/components/responses/415'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
     head:
       operationId: rol_headers
       description: Vraag de headers op die je bij een GET request zou krijgen.
