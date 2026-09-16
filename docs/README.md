@@ -34,7 +34,7 @@ Om snel aan de slag te gaan:
 
    ```bash
    cd docs
-   bundle exec jekyll serve --livereload
+   bundle exec jekyll serve --livereload --force_polling
    ```
 
 ## Docker

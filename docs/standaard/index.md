@@ -24,11 +24,33 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 
 [referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
 
+### ZGW September 2026 release (concept)
+<!-- #zgw-september-2026-release-concept -->
+
+Dit is de concept-versie van de ZGW September 2026 release voor de consultatie.
+
+| Onderdeel              | ZGW 1.7 release  &nbsp;              | ZGW September 2026 (concept) &nbsp;                 | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
+| :--------------------- | :---------------------------------- | :------------------------------------- | :------------------------------------------------------- | :------------------------------------- |
+| Zaken API              | [1.7.0](./zaken/redoc-1.7.0.md)     | [1.8.0](./zaken/redoc-1.8.0.md)        | [1.8.0](./zaken/zrc/1.8.x/1.8.0/specification.md)        | [1.8.0](./zaken/release_notes.md)      |
+| Catalogi API           | [1.3.3](./catalogi/redoc-1.3.3.md)  | [1.4.0](./catalogi/redoc-1.4.0.md)     | [1.4.0](./catalogi/ztc/1.4.x/1.4.0/specification.md)     | [1.4.0](./catalogi/release_notes.md)   |
+| Documenten API  &nbsp; | [1.7.0](./documenten/redoc-1.7.0)   | [1.8.0](./documenten/redoc-1.8.0.md)   | [1.8.0](./documenten/index.md#specificatie-van-gedrag)   | [1.8.0](./documenten/release_notes.md) |
+| Besluiten API          | [1.1.0](./besluiten/redoc-1.1.0.md) | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | -                                      |
+| Autorisaties API       | [1.1.0](./autorisaties/redoc-1.1.0) | [1.1.0](./autorisaties/redoc-1.1.0)    | [1.1.0](./autorisaties/index.md#specificatie-van-gedrag) | -                                      |
+| Notificaties API       | [1.0.1](./notificaties/redoc-1.0.1) | [1.1.0](./notificaties/redoc-1.1.0.md) | [1.1.0](./notificaties/index.md#specificatie-van-gedrag) | [1.1.0](./notificaties/index.md)        |
+
+Let op:
+
+- De Besluiten API en de Autorisaties API zijn als enige niet gewijzigd en hebben  dezelfde versie behouden en hebben dus ook geen release notes.
+
+In de concept-versie van de ZGW September 2026 release zijn de volgende issues verwerkt:
+
+- [Issuelijst "ZGW September 2026 release"](https://github.com/VNG-Realisatie/gemma-zaken/issues?q=is%3Aissue%20state%3Aopen%20milestone%3A%22ZGW%201.8%22)
+
 ### ZGW 1.7 release
 
 Hieronder een overzicht met directe links naar de onderdelen van de ZGW 1.7 versie die op 09-06-2026 is uitgebracht. Om goed de verschillen te zien met de vorige ZGW 1.6 release, zijn ook de links naar de onderdelen van die release in deze tabel opgenomen.
 
-| Onderdeel              | ZGW 1.6 release &nbsp;                 | ZGW 1.7 release &nbsp;                      | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
+| Onderdeel              | ZGW 1.6 release &nbsp;                 | ZGW 1.7 release &nbsp;              | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
 | :--------------------- | :------------------------------------- | :---------------------------------- | :------------------------------------------------------- | :------------------------------------- |
 | Zaken API              | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.7.0](./zaken/redoc-1.7.0.md)     | [1.7.0](./zaken/zrc/1.7.x/1.7.0/specification.md)        | [1.7.0](./zaken/release_notes.md)      |
 | Catalogi API           | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.3](./catalogi/redoc-1.3.3.md)  | [1.3.3](./catalogi/ztc/1.3.x/1.3.3/specification.md)     | [1.3.3](./catalogi/release_notes.md)   |
@@ -56,7 +78,7 @@ Hieronder een overzicht met directe links naar de onderdelen van de nieuwe ZGW 1
 | Zaken API              | [1.5.1](./zaken/redoc-1.5.1.md)     | [1.6.0](./zaken/redoc-1.6.0.md)        | [1.6.0](./zaken/zrc/1.6.x/1.6.0/specification.md)        | [1.6.0](./zaken/release_notes_1.6.0.md)            |
 | Catalogi API           | [1.3.1](./catalogi/redoc-1.3.1.md)  | [1.3.2](./catalogi/redoc-1.3.2.md)     | [1.3.2](./catalogi/ztc/1.3.x/1.3.2/specification.md)     | [1.3.2](./catalogi/release_notes_1.3.2.md)         |
 | Documenten API  &nbsp; | [1.5.0](./documenten/redoc-1.5.0)   | [1.6.0](./documenten/redoc-1.6.0.md)   | [1.6.0](./documenten/index.md#specificatie-van-gedrag)   | [1.6.0](./documenten/release_notes_1.6.0.md)       |
-| Besluiten API          | [1.0.2](./besluiten/redoc-1.0.2)     | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
+| Besluiten API          | [1.0.2](./besluiten/redoc-1.0.2)    | [1.1.0](./besluiten/redoc-1.1.0.md)    | [1.1.0](./besluiten/index.md#specificatie-van-gedrag)    | [1.1.0](./besluiten/release_notes_1.1.0.md)        |
 | Autorisaties API       | [1.0.0](./autorisaties/redoc-1.0.0) | [1.0.0](./autorisaties/redoc-1.0.0)    | [1.0.0](./autorisaties/index.md#specificatie-van-gedrag) | -                                                  |
 | Notificaties API       | [1.0.0](./notificaties/redoc-1.0.0) | [1.0.1](./notificaties/redoc-1.0.1.md) | [1.0.1](./notificaties/index.md#specificatie-van-gedrag) | [1.0.1](./notificaties/nrc_release_notes_1.0.1.md) |
 

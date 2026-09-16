@@ -1,10 +1,21 @@
 ---
 title: "Release Notes Documenten API"
-date: '13-03-2024'
 weight: 10
 layout: page-with-side-nav
 ---
 # Release Notes Documenten API
+
+## Versie 1.8.0
+
+- Het attribuut `inhoud` in `BestandsDeelResponse` deprecated gemaakt omdat het geen nut heeft. 
+  - Issue [#2633](https://github.com/VNG-Realisatie/gemma-zaken/issues/2633).
+  - Commit [101ed13](https://github.com/VNG-Realisatie/gemma-zaken/commit/101ed13d1e0984f9d0779cadcb03b83c2a5aaf51).
+- Het attribuut `inhoudIsVervallen` van `enkelvoudiginformatieobject` voorzien van default waarde `null` inclusief een beschrijving van de betekenis van waarde `null` in de context van dit attribuut. 
+  - Issue  [#2632](https://github.com/VNG-Realisatie/gemma-zaken/issues/2632).
+  - Pull request [#2642](https://github.com/VNG-Realisatie/gemma-zaken/pull/2642).
+- Veldselectie toegevoegd aan het `_zoek` endpoint van `enkelvoudiginformatieobjecten`. 
+  - Issue [#2621](https://github.com/VNG-Realisatie/gemma-zaken/issues/2621). 
+  - Commit [d86c04e](https://github.com/VNG-Realisatie/gemma-zaken/commit/d86c04eed71535b5937c44369f3212f6cfa2808e).
 
 ## Versie 1.7.0
 

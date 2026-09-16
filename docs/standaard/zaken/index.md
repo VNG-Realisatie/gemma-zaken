@@ -62,22 +62,23 @@ De [known issues](./known_issues.md) van de versies staan beschreven op deze [pa
 
 <!-- *In release Zaken API 1.5.0 is het expand mechanisme toegevoegd aan de standaard. Om redenen zoals omschreven in [deze pagina](../expand_patroon) is daarom Zaken API versie 1.2.1 komen te vervallen.* -->
 
-| Versie    | Release datum | API specificatie | Specificatie van gedrag |
-|-----------|---------------|------------------|--------------------------|
-| <a name="version-1.7.0">1.7.0</a>   | 09-06-2026    | [ReDoc][zaken-1.7.0-redoc] | [spec 1.7.0](./zrc/1.7.x/1.7.0/specification.md) |
-| <a name="version-1.6.0">1.6.0</a>   | 20-03-2026    | [ReDoc][zaken-1.6.0-redoc] | [spec 1.6.0](./zrc/1.6.x/1.6.0/specification.md)|
-| <a name="version-1.5.1">1.5.1</a>   | 26-09-2023    | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger] | [spec 1.5.1](#specificatie-van-gedrag) |
-| 1.4.1     | 26-09-2023    | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger] | [spec 1.4.1](#specificatie-van-gedrag) |
-| 1.3.1     | 26-09-2022    | [ReDoc][zaken-1.3.1-redoc], [Swagger][zaken-1.3.1-swagger] | [spec 1.3.1](#specificatie-van-gedrag) |
-| 1.5.0     | 22-08-2023    | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger], [YAML][zaken-1.5.0-yaml] | [spec 1.5.0](#specificatie-van-gedrag) |
-| 1.4.0     | 21-03-2023    | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger], [YAML][zaken-1.4.0-yaml] | [spec 1.4.0](#specificatie-van-gedrag) |
-| ~~1.2.1~~ | ~~21-12-2022~~ | VERVALLEN ~~[ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]~~ |  |
-| 1.3.0     | 19-12-2022    | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff] | [spec 1.3.0](#specificatie-van-gedrag) |
-| 1.2.0     | 2021-08-31    | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff] | [spec 1.2.0](#specificatie-van-gedrag) |
-| 1.1.0     | 24-05-2021    | [ReDoc][zaken-1.1.0-redoc], [Swagger][zaken-1.1.0-swagger], [Diff][zaken-1.1.0-diff] | [spec 1.1.0](#specificatie-van-gedrag) |
-| 1.0.2     | 2020-06-12    | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff] | [spec 1.0.2](#specificatie-van-gedrag) |
-| 1.0.1     | 2019-12-16    | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff] | [spec 1.0.1](#specificatie-van-gedrag)|
-| 1.0.0     | 2019-11-18    | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger] | [spec 1.0.0](#specificatie-van-gedrag) |
+| Versie                            | Release datum  | API specificatie                                                                     | Specificatie van gedrag                          |
+| --------------------------------- | -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| <a name="version-1.8.0">1.8.0</a> | _concept_      | [ReDoc](redoc-1.8.0.md)                                                              | [spec 1.8.0](./zrc/1.8.x/1.8.0/specification.md) |
+| <a name="version-1.7.0">1.7.0</a> | 09-06-2026     | [ReDoc][zaken-1.7.0-redoc]                                                           | [spec 1.7.0](./zrc/1.7.x/1.7.0/specification.md) |
+| <a name="version-1.6.0">1.6.0</a> | 20-03-2026     | [ReDoc][zaken-1.6.0-redoc]                                                           | [spec 1.6.0](./zrc/1.6.x/1.6.0/specification.md) |
+| <a name="version-1.5.1">1.5.1</a> | 26-09-2023     | [ReDoc][zaken-1.5.1-redoc], [Swagger][zaken-1.5.1-swagger]                           | [spec 1.5.1](#specificatie-van-gedrag)           |
+| 1.4.1                             | 26-09-2023     | [ReDoc][zaken-1.4.1-redoc], [Swagger][zaken-1.4.1-swagger]                           | [spec 1.4.1](#specificatie-van-gedrag)           |
+| 1.3.1                             | 26-09-2022     | [ReDoc][zaken-1.3.1-redoc], [Swagger][zaken-1.3.1-swagger]                           | [spec 1.3.1](#specificatie-van-gedrag)           |
+| 1.5.0                             | 22-08-2023     | [ReDoc][zaken-1.5.0-redoc], [Swagger][zaken-1.5.0-swagger], [YAML][zaken-1.5.0-yaml] | [spec 1.5.0](#specificatie-van-gedrag)           |
+| 1.4.0                             | 21-03-2023     | [ReDoc][zaken-1.4.0-redoc], [Swagger][zaken-1.4.0-swagger], [YAML][zaken-1.4.0-yaml] | [spec 1.4.0](#specificatie-van-gedrag)           |
+| ~~1.2.1~~                         | ~~21-12-2022~~ | VERVALLEN ~~[ReDoc][zaken-1.2.1-redoc], [Swagger][zaken-1.2.1-swagger]~~             |                                                  |
+| 1.3.0                             | 19-12-2022     | [ReDoc][zaken-1.3.0-redoc], [Swagger][zaken-1.3.0-swagger], [Diff][zaken-1.3.0-diff] | [spec 1.3.0](#specificatie-van-gedrag)           |
+| 1.2.0                             | 2021-08-31     | [ReDoc][zaken-1.2.0-redoc], [Swagger][zaken-1.2.0-swagger], [Diff][zaken-1.2.0-diff] | [spec 1.2.0](#specificatie-van-gedrag)           |
+| 1.1.0                             | 24-05-2021     | [ReDoc][zaken-1.1.0-redoc], [Swagger][zaken-1.1.0-swagger], [Diff][zaken-1.1.0-diff] | [spec 1.1.0](#specificatie-van-gedrag)           |
+| 1.0.2                             | 2020-06-12     | [ReDoc][zaken-1.0.2-redoc], [Swagger][zaken-1.0.2-swagger], [Diff][zaken-1.0.2-diff] | [spec 1.0.2](#specificatie-van-gedrag)           |
+| 1.0.1                             | 2019-12-16     | [ReDoc][zaken-1.0.1-redoc], [Swagger][zaken-1.0.1-swagger], [Diff][zaken-1.0.1-diff] | [spec 1.0.1](#specificatie-van-gedrag)           |
+| 1.0.0                             | 2019-11-18     | [ReDoc][zaken-1.0.0-redoc], [Swagger][zaken-1.0.0-swagger]                           | [spec 1.0.0](#specificatie-van-gedrag)           |
 
 
 [zaken-1.7.0-redoc]: redoc-1.7.0
