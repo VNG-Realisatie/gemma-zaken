@@ -27,7 +27,7 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 ### ZGW September 2026 release (concept)
 <!-- #zgw-september-2026-release-concept -->
 
-Dit is de concept-versie van de ZGW September 2026 release voor de consultatie.
+Dit is de concept-versie van de ZGW September 2026 release voor de consultatie die op woensdag 16 september is ingegaan. Er zijn 14 dagen om feedback te geven met als deadline 23 september.
 
 | Onderdeel              | ZGW 1.7 release  &nbsp;              | ZGW September 2026 (concept) &nbsp;                 | Aanvullende spec &nbsp;                                  | Release notes  &nbsp;                  |
 | :--------------------- | :---------------------------------- | :------------------------------------- | :------------------------------------------------------- | :------------------------------------- |
