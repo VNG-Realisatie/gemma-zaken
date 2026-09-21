@@ -9,7 +9,8 @@ paths:
   /{webhooks_path}:
     post:
       operationId: notification_receive
-      description: Ontvang notificaties via webhook
+      description: 'Ontvang notificaties via webhook. Alle responses met een statuscode 20x
+        worden gezien als succesvol.'
       requestBody:
         content:
           application/json:
