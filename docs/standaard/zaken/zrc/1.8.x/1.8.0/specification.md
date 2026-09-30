@@ -292,10 +292,6 @@ Merk op dat het aanmaken van de relatie niet gelimiteerd is tot het aanmaken via
 
 Wanneer een relatie tussen een `CONTACTMOMENT` en een `ZAAK` gemaakt of bijgewerkt wordt, dan MOET het ZRC in het CRC ook deze relatie aanmaken/bijwerken.
 
-
-#### **<a name="zrc-025">Reikwijdte expand parameters ([zrc-025](#zrc-025))</a>**
-Indien een verzoek één of meer expand parameters bevat MOET deze parameter alleen informatie uit de Zaken API of gerelateerde informatie uit de Catalogi API bevatten. Indien een expand parameter om informatie uit andere bronnen vraagt moet een foutmelding worden teruggegeven.
-
 #### **<a name="zrc-026">Diepte uitvoeren expand parameters ([zrc-026](#zrc-026))</a>**
 
 De expand mag tot willekeurige diepte worden uitgevoerd. 
