@@ -9,10 +9,16 @@ layout: page-with-side-nav
 
 ## Versie 1.8.0
 
-- PUT operatie toegevoed aan endpoint `/rollen`. 
+- PUT operatie toegevoegd aan endpoint `/rollen`. 
   - Issue [#1835](https://github.com/VNG-Realisatie/gemma-zaken/issues/1835).
   - Pull request [#2645](https://github.com/VNG-Realisatie/gemma-zaken/pull/2645).
-
+- Fouten in voorbeeld en type van `fields` attribuut opgelost.
+  - Issue [#2649](https://github.com/VNG-Realisatie/gemma-zaken/issues/2649).
+  - Commit [e7e51bb](https://github.com/VNG-Realisatie/gemma-zaken/commit/e7e51bbe09dd0dc5c06af9aa472d21b0f9b32d46).
+- Verouderde business rule `zrc-025` (Reikwijdte expand parameters) verwijderd.
+  - Issue [#2650](https://github.com/VNG-Realisatie/gemma-zaken/issues/2650).
+  - Commit [25a212d](https://github.com/VNG-Realisatie/gemma-zaken/commit/25a212ddfd81f60f5dd83af829a55d364dc627c0).
+  
 ## Versie 1.7.0
 
 - Waarschuwingsmelding als een zaakeigenschap niet voldoet aan zijn specificatie in de Catalogi API ([#2591](https://github.com/VNG-Realisatie/gemma-zaken/issues/2591))
