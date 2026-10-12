@@ -38,11 +38,11 @@ De API ondersteunt:
 
 Klik [hier](./nrc_release_notes_1.0.1.md) voor de release notes van Notificaties API 1.0.1.
 
-Versie   | Releasedatum | API specificatie
--------- | ------------- | ----------------
-<a name="version-1.1.0"></a>1.1.0    |       _concept_        | [ReDoc][notificaties-1.1.0-redoc]
-<a name="version-1.0.1"></a>1.0.1    |       20-03-2026       | [ReDoc][notificaties-1.0.1-redoc]
-<a name="version-1.0.0"></a>1.0.0    |       2019-11-18       | [ReDoc][notificaties-1.0.0-redoc]
+| Versie                            | Releasedatum | API specificatie                  |
+| --------------------------------- | ------------ | --------------------------------- |
+| <a name="version-1.1.0"></a>1.1.0 | 12-10-2026   | [ReDoc][notificaties-1.1.0-redoc] |
+| <a name="version-1.0.1"></a>1.0.1 | 20-03-2026   | [ReDoc][notificaties-1.0.1-redoc] |
+| <a name="version-1.0.0"></a>1.0.0 | 2019-11-18   | [ReDoc][notificaties-1.0.0-redoc] |
 
 [notificaties-1.1.0-redoc]: redoc-1.1.0
 [notificaties-1.0.1-redoc]: redoc-1.0.1

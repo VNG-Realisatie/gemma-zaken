@@ -28,7 +28,7 @@ Om op de hoogte te blijven van reeds bekende problemen, kun je de [known issues]
 
 | Versie                        | Release datum | Open API Specificatie                                            | Gedrag en regels                               |
 | :---------------------------- | :------------ | :--------------------------------------------------------------- | :--------------------------------------------- |
-| 1.4.0                         | _concept_     | [ReDoc](redoc-1.4.0.md)                                          | [spec 1.4.0](ztc/1.4.x/1.4.0/specification.md) |
+| 1.4.0                         | 12-10-2026    | [ReDoc](redoc-1.4.0.md)                                          | [spec 1.4.0](ztc/1.4.x/1.4.0/specification.md) |
 | 1.3.3                         | 09-06-2026    | [ReDoc][catalogi-1.3.3-redoc]                                    | [spec 1.3.3](ztc/1.3.x/1.3.3/specification.md) |
 | <a name="version-1.3.2">1.3.2 | 20-03-2026    | [ReDoc][catalogi-1.3.2-redoc]                                    | [spec 1.3.2](ztc/1.3.x/1.3.2/specification.md) |
 | <a name="version-1.3.1">1.3.1 | 26-09-2023    | [ReDoc][catalogi-1.3.1-redoc], [Swagger][catalogi-1.3.1-swagger] | [spec 1.3.1](#specificatie-van-gedrag)         |
