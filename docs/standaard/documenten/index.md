@@ -105,7 +105,7 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Releasedatum | API specificatie
 -------- | ------------- | ----------------
-<a name="version-1.8.0"></a>1.8.0    | 12-10-2026  | [ReDoc](redoc-1.8.0.md)
+<a name="version-1.8.0"></a>1.8.0    | 12-10-2026  | [ReDoc v2.1.5](redoc-1.8.0-v2.1.5.md), [ReDoc v3.0.1](redoc-1.8.0.md)
 <a name="version-1.7.0"></a>1.7.0    | 09-06-2026   | [ReDoc][documenten-1.7.0-redoc]
 <a name="version-1.6.0"></a>1.6.0    | 20-03-2026   | [ReDoc][documenten-1.6.0-redoc]
 <a name="version-1.5.0"></a>1.5.0    | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
