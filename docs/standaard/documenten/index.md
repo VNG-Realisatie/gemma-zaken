@@ -103,73 +103,25 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 ### Releases
 
-Versie   | Releasedatum | API specificatie
--------- | ------------- | ----------------
-<a name="version-1.8.0"></a>1.8.0    | 12-10-2026  | [Redoc](redoc-1.8.0.md), [Redoc-classic](redoc-1.8.0-v2.1.5.md)
-<a name="version-1.7.0"></a>1.7.0    | 09-06-2026   | [Redoc][documenten-1.7.0-redoc], [Redoc-classic](redoc-1.7.0-v2.1.5.md)
-<a name="version-1.6.0"></a>1.6.0    | 20-03-2026   | [Redoc][documenten-1.6.0-redoc], [Redoc-classic](redoc-1.6.0-v2.1.5.md)
-<a name="version-1.5.0"></a>1.5.0    | 14-03-2024    | [Redoc][documenten-1.5.0-redoc], [Redoc-classic](redoc-1.5.0-v2.1.5.md), [Swagger][documenten-1.5.0-swagger]
-1.4.3    | 27-10-2023    | [Redoc][documenten-1.4.3-redoc], [Redoc-classic](redoc-1.4.3-v2.1.5.md), [Swagger][documenten-1.4.3-swagger]
-1.4.2    | 26-09-2023    | [Redoc][documenten-1.4.2-redoc], [Redoc-classic](redoc-1.4.2-v2.1.5.md), [Swagger][documenten-1.4.2-swagger]
-1.3.2    | 26-09-2023    | [Redoc][documenten-1.3.2-redoc], [Redoc-classic](redoc-1.3.2-v2.1.5.md), [Swagger][documenten-1.3.2-swagger]
-1.2.5    | 26-09-2023    | [Redoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
-1.4.1    | 29-08-2023    | [Redoc][documenten-1.4.1-redoc], [Redoc-classic](redoc-1.4.1-v2.1.5.md), [Swagger][documenten-1.4.1-swagger]
-1.3.1    | 29-08-2023    | [Redoc][documenten-1.3.1-redoc], [Redoc-classic](redoc-1.3.1-v2.1.5.md), [Swagger][documenten-1.3.1-swagger]
-1.2.4    | 29-08-2023    | [Redoc][documenten-1.2.4-redoc], [Redoc-classic](redoc-1.2.4-v2.1.5.md), [Swagger][documenten-1.2.4-swagger]
-1.4.0    | 22-08-2023    | [Redoc][documenten-1.4.0-redoc], [Redoc-classic](redoc-1.4.0-v2.1.5.md), [Swagger][documenten-1.4.0-swagger]
-1.3.0    | 29-03-2023    | [Redoc][documenten-1.3.0-redoc], [Redoc-classic](redoc-1.3.0-v2.1.5.md), [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
-1.2.0    | 19-12-2022    | [Redoc][documenten-1.2.0-redoc], [Redoc-classic](redoc-1.2.0-v2.1.5.md), [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
-1.1.0    | 24-05-2021    | [Redoc][documenten-1.1.0-redoc], [Redoc-classic](redoc-1.1.0-v2.1.5.md), [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
-1.0.1    | 2019-12-16    | [Redoc][documenten-1.0.1-redoc], [Redoc-classic](redoc-1.0.1-v2.1.5.md), [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
-1.0.0    | 2019-11-18    | [Redoc][documenten-1.0.0-redoc], [Redoc-classic](redoc-1.0.0-v2.1.5.md), [Swagger][documenten-1.0.0-swagger]
+| Versie                            | Releasedatum | API specificatie                                                     |
+| --------------------------------- | ------------ | -------------------------------------------------------------------- |
+| <a name="version-1.8.0"></a>1.8.0 | 12-10-2026   | Redoc: [current](redoc-1.8.0.md) or [classic](redoc-1.8.0-v2.1.5.md) |
+| <a name="version-1.7.0"></a>1.7.0 | 09-06-2026   | Redoc: [current](redoc-1.7.0.md) or [classic](redoc-1.7.0-v2.1.5.md) |
+| <a name="version-1.6.0"></a>1.6.0 | 20-03-2026   | Redoc: [current](redoc-1.6.0.md) or [classic](redoc-1.6.0-v2.1.5.md) |
+| <a name="version-1.5.0"></a>1.5.0 | 14-03-2024   | Redoc: [current](redoc-1.5.0.md) or [classic](redoc-1.5.0-v2.1.5.md) |
+| 1.4.3                             | 27-10-2023   | Redoc: [current](redoc-1.4.3.md) or [classic](redoc-1.4.3-v2.1.5.md) |
+| 1.4.2                             | 26-09-2023   | Redoc: [current](redoc-1.4.2.md) or [classic](redoc-1.4.2-v2.1.5.md) |
+| 1.3.2                             | 26-09-2023   | Redoc: [current](redoc-1.3.2.md) or [classic](redoc-1.3.2-v2.1.5.md) |
+| 1.4.1                             | 29-08-2023   | Redoc: [current](redoc-1.4.1.md) or [classic](redoc-1.4.1-v2.1.5.md) |
+| 1.3.1                             | 29-08-2023   | Redoc: [current](redoc-1.3.1.md) or [classic](redoc-1.3.1-v2.1.5.md) |
+| 1.2.4                             | 29-08-2023   | Redoc: [current](redoc-1.2.4.md) or [classic](redoc-1.2.4-v2.1.5.md) |
+| 1.4.0                             | 22-08-2023   | Redoc: [current](redoc-1.4.0.md) or [classic](redoc-1.4.0-v2.1.5.md) |
+| 1.3.0                             | 29-03-2023   | Redoc: [current](redoc-1.3.0.md) or [classic](redoc-1.3.0-v2.1.5.md) |
+| 1.2.0                             | 19-12-2022   | Redoc: [current](redoc-1.2.0.md) or [classic](redoc-1.2.0-v2.1.5.md) |
+| 1.1.0                             | 24-05-2021   | Redoc: [current](redoc-1.1.0.md) or [classic](redoc-1.1.0-v2.1.5.md) |
+| 1.0.1                             | 2019-12-16   | Redoc: [current](redoc-1.0.1.md) or [classic](redoc-1.0.1-v2.1.5.md) |
+| 1.0.0                             | 2019-11-18   | Redoc: [current](redoc-1.0.0.md) or [classic](redoc-1.0.0-v2.1.5.md) |
 
-[documenten-1.7.0-redoc]: redoc-1.7.0
-
-[documenten-1.6.0-redoc]: redoc-1.6.0
-
-[documenten-1.5.0-redoc]: ./redoc-1.5.0
-[documenten-1.5.0-swagger]: ./swagger-ui-1.5.0
-
-[documenten-1.3.0-redoc]: redoc-1.3.0
-[documenten-1.3.0-swagger]: swagger-ui-1.3.0
-[documenten-1.3.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/stable/1.2.x...stable/1.3.x
-
-[documenten-1.4.0-redoc]: redoc-1.4.0
-[documenten-1.4.0-swagger]: swagger-ui-1.4.0
-
-[documenten-1.4.1-redoc]: redoc-1.4.1
-[documenten-1.4.1-swagger]: swagger-ui-1.4.1
-[documenten-1.3.1-redoc]: redoc-1.3.1
-[documenten-1.3.1-swagger]: swagger-ui-1.3.1
-[documenten-1.2.4-redoc]: redoc-1.2.4
-[documenten-1.2.4-swagger]: swagger-ui-1.2.4
-
-[documenten-1.4.3-redoc]: ./redoc-1.4.3
-[documenten-1.4.3-swagger]: ./swagger-ui-1.4.3
-[documenten-1.4.2-redoc]: ./redoc-1.4.2
-[documenten-1.4.2-swagger]: ./swagger-ui-1.4.2
-[documenten-1.3.2-redoc]: ./redoc-1.3.2
-[documenten-1.3.2-swagger]: ./swagger-ui-1.3.2
-[documenten-1.2.5-redoc]: ./redoc-1.2.5
-[documenten-1.2.5-swagger]: ./swagger-ui-1.2.5
-
-[documenten-1.0.1-redoc]: redoc-1.0.1
-[documenten-1.0.1-swagger]: swagger-ui-1.0.1
-[documenten-1.0.1-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.0...1.0.1?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
-[documenten-1.0.1-YAML]: https://raw.githubusercontent.com/VNG-Realisatie/documenten-api/stable/1.0.x/src/openapi.yaml
-
-[documenten-1.0.0-redoc]: ./redoc-1.0.0
-[documenten-1.0.0-swagger]: ./swagger-ui-1.0.0
-
-[documenten-1.1.0-redoc]: redoc-1.1.0
-[documenten-1.1.0-swagger]: swagger-ui-1.1.0
-[documenten-1.1.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.0.1...1.1.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
-[documenten-1.1.0-YAML]: https://documenten-api.vng.cloud/api/v1/schema/openapi.yaml
-[documenten-1.1.0-JSON]: https://documenten-api.vng.cloud/api/v1/schema/openapi.json
-
-[documenten-1.2.0-redoc]: redoc-1.2.0
-[documenten-1.2.0-swagger]: swagger-ui-1.2.0
-[documenten-1.2.0-diff]: https://github.com/VNG-Realisatie/documenten-api/compare/1.1.0...1.2.0?diff=split#diff-3dc0f8f7373b32ea3bf5eabe02993f9a
 
 ## Specificatie van gedrag
 
