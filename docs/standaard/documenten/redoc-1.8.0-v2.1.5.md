@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: redoc
 title: redoc v2.1.5
 body_include: redoc-v2-body.html
 ---

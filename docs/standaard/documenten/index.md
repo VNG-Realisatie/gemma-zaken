@@ -105,23 +105,23 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 Versie   | Releasedatum | API specificatie
 -------- | ------------- | ----------------
-<a name="version-1.8.0"></a>1.8.0    | 12-10-2026  | [ReDoc v2.1.5](redoc-1.8.0-v2.1.5.md), [ReDoc v3.0.1](redoc-1.8.0.md)
-<a name="version-1.7.0"></a>1.7.0    | 09-06-2026   | [ReDoc][documenten-1.7.0-redoc]
-<a name="version-1.6.0"></a>1.6.0    | 20-03-2026   | [ReDoc][documenten-1.6.0-redoc]
-<a name="version-1.5.0"></a>1.5.0    | 14-03-2024    | [ReDoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
-1.4.3    | 27-10-2023    | [ReDoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
-1.4.2    | 26-09-2023    | [ReDoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
-1.3.2    | 26-09-2023    | [ReDoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
-1.2.5    | 26-09-2023    | [ReDoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
-1.4.1    | 29-08-2023    | [ReDoc][documenten-1.4.1-redoc], [Swagger][documenten-1.4.1-swagger]
-1.3.1    | 29-08-2023    | [ReDoc][documenten-1.3.1-redoc], [Swagger][documenten-1.3.1-swagger]
-1.2.4    | 29-08-2023    | [ReDoc][documenten-1.2.4-redoc], [Swagger][documenten-1.2.4-swagger]
-1.4.0    | 22-08-2023    | [ReDoc][documenten-1.4.0-redoc], [Swagger][documenten-1.4.0-swagger]
-1.3.0    | 29-03-2023    | [ReDoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
-1.2.0    | 19-12-2022    | [ReDoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
-1.1.0    | 24-05-2021    | [ReDoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
-1.0.1    | 2019-12-16    | [ReDoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
-1.0.0    | 2019-11-18    | [ReDoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
+<a name="version-1.8.0"></a>1.8.0    | 12-10-2026  | [Redoc](redoc-1.8.0.md), [Redoc-classic](redoc-1.8.0-v2.1.5.md)
+<a name="version-1.7.0"></a>1.7.0    | 09-06-2026   | [Redoc][documenten-1.7.0-redoc]
+<a name="version-1.6.0"></a>1.6.0    | 20-03-2026   | [Redoc][documenten-1.6.0-redoc]
+<a name="version-1.5.0"></a>1.5.0    | 14-03-2024    | [Redoc][documenten-1.5.0-redoc], [Swagger][documenten-1.5.0-swagger]
+1.4.3    | 27-10-2023    | [Redoc][documenten-1.4.3-redoc], [Swagger][documenten-1.4.3-swagger]
+1.4.2    | 26-09-2023    | [Redoc][documenten-1.4.2-redoc], [Swagger][documenten-1.4.2-swagger]
+1.3.2    | 26-09-2023    | [Redoc][documenten-1.3.2-redoc], [Swagger][documenten-1.3.2-swagger]
+1.2.5    | 26-09-2023    | [Redoc][documenten-1.2.5-redoc], [Swagger][documenten-1.2.5-swagger]
+1.4.1    | 29-08-2023    | [Redoc][documenten-1.4.1-redoc], [Swagger][documenten-1.4.1-swagger]
+1.3.1    | 29-08-2023    | [Redoc][documenten-1.3.1-redoc], [Swagger][documenten-1.3.1-swagger]
+1.2.4    | 29-08-2023    | [Redoc][documenten-1.2.4-redoc], [Swagger][documenten-1.2.4-swagger]
+1.4.0    | 22-08-2023    | [Redoc][documenten-1.4.0-redoc], [Swagger][documenten-1.4.0-swagger]
+1.3.0    | 29-03-2023    | [Redoc][documenten-1.3.0-redoc], [Swagger][documenten-1.3.0-swagger], [Diff][documenten-1.3.0-diff]
+1.2.0    | 19-12-2022    | [Redoc][documenten-1.2.0-redoc], [Swagger][documenten-1.2.0-swagger], [Diff][documenten-1.2.0-diff]
+1.1.0    | 24-05-2021    | [Redoc][documenten-1.1.0-redoc], [Swagger][documenten-1.1.0-swagger], [YAML](documenten-1.1.0-YAML), [JSON](documenten-1.1.0-JSON), [Diff][documenten-1.1.0-diff]
+1.0.1    | 2019-12-16    | [Redoc][documenten-1.0.1-redoc], [Swagger][documenten-1.0.1-swagger], [YAML](documenten-1.0.1-YAML), [Diff][documenten-1.0.1-diff]
+1.0.0    | 2019-11-18    | [Redoc][documenten-1.0.0-redoc], [Swagger][documenten-1.0.0-swagger]
 
 [documenten-1.7.0-redoc]: redoc-1.7.0
 

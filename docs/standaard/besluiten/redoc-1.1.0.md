@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: redoc
 title: redoc
 body_include: redoc-body.html
 # spec-url: https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/brc/1.0.2/openapi.yaml

@@ -1,5 +1,5 @@
 ---
-layout: page-with-side-nav
+layout: redoc
 title: redoc
 body_include: redoc-body.html
 spec-url: https://raw.githubusercontent.com/VNG-Realisatie/gemma-zaken/master/api-specificatie/ztc/1.2.x/1.2.1/openapi.yaml

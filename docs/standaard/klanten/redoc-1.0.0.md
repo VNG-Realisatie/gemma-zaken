@@ -1,5 +1,5 @@
 ---
-layout: page-with-side-nav
+layout: redoc
 title: redoc
 body_include: redoc-body.html
 spec-url: https://klanten-api.vng.cloud/api/v1/schema/openapi.yaml
