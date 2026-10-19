@@ -103,24 +103,24 @@ De [releasenotes](./release_notes.md) van de versies staan beschreven op deze [p
 
 ### Releases
 
-| Versie                            | Releasedatum | API specificatie                                                     |
-| --------------------------------- | ------------ | -------------------------------------------------------------------- |
-| <a name="version-1.8.0"></a>1.8.0 | 12-10-2026   | Redoc: [current](redoc-1.8.0.md) or [classic](redoc-1.8.0-v2.1.5.md) |
-| <a name="version-1.7.0"></a>1.7.0 | 09-06-2026   | Redoc: [current](redoc-1.7.0.md) or [classic](redoc-1.7.0-v2.1.5.md) |
-| <a name="version-1.6.0"></a>1.6.0 | 20-03-2026   | Redoc: [current](redoc-1.6.0.md) or [classic](redoc-1.6.0-v2.1.5.md) |
-| <a name="version-1.5.0"></a>1.5.0 | 14-03-2024   | Redoc: [current](redoc-1.5.0.md) or [classic](redoc-1.5.0-v2.1.5.md) |
-| 1.4.3                             | 27-10-2023   | Redoc: [current](redoc-1.4.3.md) or [classic](redoc-1.4.3-v2.1.5.md) |
-| 1.4.2                             | 26-09-2023   | Redoc: [current](redoc-1.4.2.md) or [classic](redoc-1.4.2-v2.1.5.md) |
-| 1.3.2                             | 26-09-2023   | Redoc: [current](redoc-1.3.2.md) or [classic](redoc-1.3.2-v2.1.5.md) |
-| 1.4.1                             | 29-08-2023   | Redoc: [current](redoc-1.4.1.md) or [classic](redoc-1.4.1-v2.1.5.md) |
-| 1.3.1                             | 29-08-2023   | Redoc: [current](redoc-1.3.1.md) or [classic](redoc-1.3.1-v2.1.5.md) |
-| 1.2.4                             | 29-08-2023   | Redoc: [current](redoc-1.2.4.md) or [classic](redoc-1.2.4-v2.1.5.md) |
-| 1.4.0                             | 22-08-2023   | Redoc: [current](redoc-1.4.0.md) or [classic](redoc-1.4.0-v2.1.5.md) |
-| 1.3.0                             | 29-03-2023   | Redoc: [current](redoc-1.3.0.md) or [classic](redoc-1.3.0-v2.1.5.md) |
-| 1.2.0                             | 19-12-2022   | Redoc: [current](redoc-1.2.0.md) or [classic](redoc-1.2.0-v2.1.5.md) |
-| 1.1.0                             | 24-05-2021   | Redoc: [current](redoc-1.1.0.md) or [classic](redoc-1.1.0-v2.1.5.md) |
-| 1.0.1                             | 2019-12-16   | Redoc: [current](redoc-1.0.1.md) or [classic](redoc-1.0.1-v2.1.5.md) |
-| 1.0.0                             | 2019-11-18   | Redoc: [current](redoc-1.0.0.md) or [classic](redoc-1.0.0-v2.1.5.md) |
+| Versie                            | Releasedatum | API specificatie        |
+| --------------------------------- | ------------ | ----------------------- |
+| <a name="version-1.8.0"></a>1.8.0 | 12-10-2026   | [Redoc](redoc-1.8.0.md) |
+| <a name="version-1.7.0"></a>1.7.0 | 09-06-2026   | [Redoc](redoc-1.7.0.md) |
+| <a name="version-1.6.0"></a>1.6.0 | 20-03-2026   | [Redoc](redoc-1.6.0.md) |
+| <a name="version-1.5.0"></a>1.5.0 | 14-03-2024   | [Redoc](redoc-1.5.0.md) |
+| 1.4.3                             | 27-10-2023   | [Redoc](redoc-1.4.3.md) |
+| 1.4.2                             | 26-09-2023   | [Redoc](redoc-1.4.2.md) |
+| 1.3.2                             | 26-09-2023   | [Redoc](redoc-1.3.2.md) |
+| 1.4.1                             | 29-08-2023   | [Redoc](redoc-1.4.1.md) |
+| 1.3.1                             | 29-08-2023   | [Redoc](redoc-1.3.1.md) |
+| 1.2.4                             | 29-08-2023   | [Redoc](redoc-1.2.4.md) |
+| 1.4.0                             | 22-08-2023   | [Redoc](redoc-1.4.0.md) |
+| 1.3.0                             | 29-03-2023   | [Redoc](redoc-1.3.0.md) |
+| 1.2.0                             | 19-12-2022   | [Redoc](redoc-1.2.0.md) |
+| 1.1.0                             | 24-05-2021   | [Redoc](redoc-1.1.0.md) |
+| 1.0.1                             | 2019-12-16   | [Redoc](redoc-1.0.1.md) |
+| 1.0.0                             | 2019-11-18   | [Redoc](redoc-1.0.0.md) |
 
 
 ## Specificatie van gedrag
@@ -133,7 +133,7 @@ Documenten APIsen (DRC) MOETEN aan twee aspecten voldoen:
 
 ### OpenAPI specificatie
 
-Alle operaties beschreven in [`openapi.yaml`](../../../api-specificatie/drc/current_version/openapi.yaml) MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
+Alle operaties beschreven in MOETEN ondersteund worden en tot hetzelfde resultaat leiden als de referentie-implementatie van het DRC.
 
 Het is NIET TOEGESTAAN om gebruik te maken van operaties die niet beschreven staan in deze OAS spec, of om uitbreidingen op operaties in welke vorm dan ook toe te voegen.
 
