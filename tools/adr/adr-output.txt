@@ -1,0 +1,1521 @@
+DON checker ADR validation output
+Combined output file: /workspaces/gemma-zaken/tools/adr-output.txt
+
+===== docs/standaard/autorisaties/ac/1.1.x/1.1.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 15 (errors 2, warnings 13, info 0, hints 0)
+
+Errors (2)
+  1. nlgov:info-contact-fields-exist
+     message: Missing fields in `info.contact` field. Must specify email, name and url.
+     path: ["info","contact"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact
+  2. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/applicaties/consumer","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+
+Warnings (13)
+  3. nlgov:servers-use-https
+     message: Server URL /api/v1 "/api/v1" must match the pattern "^https://.*".
+     path: ["servers","0","url"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  4. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/zrcAutorisatie
+     path: ["components","schemas","zrcAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  5. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/zrc
+     path: ["components","schemas","zrc"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  6. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/drcAutorisatie
+     path: ["components","schemas","drcAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  7. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/drc
+     path: ["components","schemas","drc"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  8. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/brcAutorisatie
+     path: ["components","schemas","brcAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  9. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/brc
+     path: ["components","schemas","brc"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  10. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/nrcAutorisatie
+     path: ["components","schemas","nrcAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  11. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/nrc
+     path: ["components","schemas","nrc"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  12. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/ztcAutorisatie
+     path: ["components","schemas","ztcAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  13. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/ztc
+     path: ["components","schemas","ztc"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  14. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/acAutorisatie
+     path: ["components","schemas","acAutorisatie"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+  15. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/ac
+     path: ["components","schemas","ac"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/autorisaties/ac/1.1.x/1.1.0/openapi.yaml
+
+===== docs/standaard/besluiten/brc/1.1.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 6 (errors 5, warnings 1, info 0, hints 0)
+
+Errors (5)
+  1. nlgov:info-contact-fields-exist
+     message: Missing fields in `info.contact` field. Must specify email, name and url.
+     path: ["info","contact"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact
+  2. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluiten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+  3. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluiten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+  4. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluitinformatieobjecten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+  5. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluitinformatieobjecten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+
+Warnings (1)
+  6. nlgov:servers-use-https
+     message: Server URL /api/v1 "/api/v1" must match the pattern "^https://.*".
+     path: ["servers","0","url"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/besluiten/brc/1.1.0/openapi.yaml
+
+===== docs/standaard/catalogi/ztc/1.4.x/1.4.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 25 (errors 25, warnings 0, info 0, hints 0)
+
+Errors (25)
+  1. nlgov:info-contact-fields-exist
+     message: Missing fields in `info.contact` field. Must specify email, name and url.
+     path: ["info","contact"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact
+  2. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluittypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  3. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/besluittypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  4. nlgov:query-keys-camel-case
+     message: domein__in is not lower camelCase.
+     path: ["paths","/catalogussen","get","parameters","1","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  5. nlgov:query-keys-camel-case
+     message: rsin__in is not lower camelCase.
+     path: ["paths","/catalogussen","get","parameters","3","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  6. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/catalogussen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  7. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/catalogussen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  8. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/eigenschappen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  9. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/eigenschappen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  10. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/informatieobjecttypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  11. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/informatieobjecttypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  12. nlgov:query-keys-camel-case
+     message: zaaktype_identificatie is not lower camelCase.
+     path: ["paths","/resultaattypen","get","parameters","1","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  13. nlgov:query-keys-camel-case
+     message: datum_geldigheid is not lower camelCase.
+     path: ["paths","/resultaattypen","get","parameters","4","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  14. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/resultaattypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  15. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/resultaattypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  16. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/roltypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  17. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/roltypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  18. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/statustypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  19. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/statustypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  20. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakobjecttypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  21. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakobjecttypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  22. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaktype-informatieobjecttypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  23. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaktype-informatieobjecttypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  24. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaktypen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+  25. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaktypen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/catalogi/ztc/1.4.x/1.4.0/openapi.yaml
+
+===== docs/standaard/documenten/drc/1.8.x/1.8.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 28 (errors 27, warnings 1, info 0, hints 0)
+
+Errors (27)
+  1. nlgov:info-contact-fields-exist
+     message: Missing fields in `info.contact` field. Must specify email, name and url.
+     path: ["info","contact"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact
+  2. nlgov:query-keys-camel-case
+     message: objectinformatieobjecten_object is not lower camelCase.
+     path: ["paths","/enkelvoudiginformatieobjecten","get","parameters","2","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  3. nlgov:query-keys-camel-case
+     message: objectinformatieobjecten_objectType is not lower camelCase.
+     path: ["paths","/enkelvoudiginformatieobjecten","get","parameters","3","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  4. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  5. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/enkelvoudiginformatieobjecten/{enkelvoudiginformatieobject_uuid}/audittrail/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  6. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/enkelvoudiginformatieobjecten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  7. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/enkelvoudiginformatieobjecten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  8. nlgov:missing-header
+     message: Return the full version number in a response header.
+     path: ["paths","/enkelvoudiginformatieobjecten/{uuid}","delete","responses","204"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header
+  9. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/enkelvoudiginformatieobjecten/{uuid}/download","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  10. nlgov:query-keys-camel-case
+     message: startdatum__lt is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","1","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  11. nlgov:query-keys-camel-case
+     message: startdatum__lte is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","2","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  12. nlgov:query-keys-camel-case
+     message: startdatum__gt is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","3","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  13. nlgov:query-keys-camel-case
+     message: startdatum__gte is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","4","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  14. nlgov:query-keys-camel-case
+     message: einddatum__lt is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","5","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  15. nlgov:query-keys-camel-case
+     message: einddatum__lte is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","6","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  16. nlgov:query-keys-camel-case
+     message: einddatum__gt is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","7","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  17. nlgov:query-keys-camel-case
+     message: einddatum__gte is not lower camelCase.
+     path: ["paths","/gebruiksrechten","get","parameters","8","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  18. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/gebruiksrechten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  19. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/gebruiksrechten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  20. nlgov:missing-header
+     message: Return the full version number in a response header.
+     path: ["paths","/gebruiksrechten/{uuid}","delete","responses","204"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header
+  21. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/objectinformatieobjecten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  22. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/objectinformatieobjecten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  23. nlgov:missing-header
+     message: Return the full version number in a response header.
+     path: ["paths","/objectinformatieobjecten/{uuid}","delete","responses","204"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header
+  24. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/verzendingen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  25. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/verzendingen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+  26. nlgov:missing-header
+     message: Return the full version number in a response header.
+     path: ["paths","/verzendingen/{uuid}","delete","responses","204"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/version-header
+  27. nlgov:include-major-version-in-uri
+     message: Include the major version number in the URI.
+     path: ["servers","0","url"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/uri-version
+
+Warnings (1)
+  28. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/EIOZoekRequest
+     path: ["components","schemas","EIOZoekRequest"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/documenten/drc/1.8.x/1.8.0/openapi.yaml
+
+===== docs/standaard/notificaties/nrc/1.1.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 3 (errors 2, warnings 1, info 0, hints 0)
+
+Errors (2)
+  1. nlgov:info-contact-fields-exist
+     message: Missing fields in `info.contact` field. Must specify email, name and url.
+     path: ["info","contact"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/notificaties/nrc/1.1.0/openapi.yaml
+     docs: https://developer.overheid.nl/kennisbank/apis/api-design-rules/hoe-te-voldoen/doc-openapi-contact
+  2. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/notificaties","post","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/notificaties/nrc/1.1.0/openapi.yaml
+
+Warnings (1)
+  3. nlgov:servers-use-https
+     message: Server URL /api/v1 "/api/v1" must match the pattern "^https://.*".
+     path: ["servers","0","url"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/notificaties/nrc/1.1.0/openapi.yaml
+
+===== docs/standaard/zaken/zrc/1.8.x/1.8.0 =====
+Ruleset: adr@2.2.0
+Applied rulesets: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+Diagnostics: 214 (errors 77, warnings 137, info 0, hints 0)
+
+Errors (77)
+  1. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/klantcontacten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  2. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/resultaten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  3. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/resultaten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  4. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__natuurlijkPersoon__inpBsn is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","3","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  5. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","4","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  6. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","5","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  7. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__nietNatuurlijkPersoon__innNnpId is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","6","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  8. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__nietNatuurlijkPersoon__annIdentificatie is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","7","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  9. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__vestiging__vestigingsNummer is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","8","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  10. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__organisatorischeEenheid__identificatie is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","9","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  11. nlgov:query-keys-camel-case
+     message: betrokkeneIdentificatie__medewerker__identificatie is not lower camelCase.
+     path: ["paths","/rollen","get","parameters","10","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  12. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/rollen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  13. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/rollen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  14. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/statussen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  15. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakcontactmomenten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  16. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakcontactmomenten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  17. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakinformatieobjecten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  18. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakinformatieobjecten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  19. nlgov:query-keys-camel-case
+     message: aangemaaktDoor__icontains is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","1","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  20. nlgov:query-keys-camel-case
+     message: aanmaakdatum__gt is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","3","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  21. nlgov:query-keys-camel-case
+     message: aanmaakdatum__gte is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","4","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  22. nlgov:query-keys-camel-case
+     message: aanmaakdatum__lt is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","5","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  23. nlgov:query-keys-camel-case
+     message: aanmaakdatum__lte is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","6","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  24. nlgov:query-keys-camel-case
+     message: onderwerp__icontains is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","10","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  25. nlgov:query-keys-camel-case
+     message: tekst__icontains is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","15","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  26. nlgov:query-keys-camel-case
+     message: wijzigingsdatum__gt is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","17","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  27. nlgov:query-keys-camel-case
+     message: wijzigingsdatum__gte is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","18","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  28. nlgov:query-keys-camel-case
+     message: wijzigingsdatum__lt is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","19","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  29. nlgov:query-keys-camel-case
+     message: wijzigingsdatum__lte is not lower camelCase.
+     path: ["paths","/zaaknotities","get","parameters","20","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  30. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaknotities/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  31. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaaknotities/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  32. nlgov:paths-kebab-case
+     message: /zaaknummer_reserveren is not kebab-case.
+     path: ["paths","/zaaknummer_reserveren"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  33. oas3-valid-media-example
+     message: "value" property type must be array
+     path: ["paths","/zaaknummer_reserveren","post","responses","201","content","application/json","examples","EnkeleReservering","value"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+     docs: https://docs.openlint.org/reference/openapi-rules#oas3-valid-media-example
+  34. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakobjecten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  35. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakobjecten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  36. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakverzoeken/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  37. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaakverzoeken/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  38. nlgov:query-keys-camel-case
+     message: bronorganisatie__in is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","2","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  39. nlgov:query-keys-camel-case
+     message: archiefnominatie__in is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","5","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  40. nlgov:query-keys-camel-case
+     message: archiefactiedatum__isnull is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","7","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  41. nlgov:query-keys-camel-case
+     message: archiefactiedatum__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","8","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  42. nlgov:query-keys-camel-case
+     message: archiefactiedatum__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","9","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  43. nlgov:query-keys-camel-case
+     message: archiefstatus__in is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","11","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  44. nlgov:query-keys-camel-case
+     message: startdatum__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","13","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  45. nlgov:query-keys-camel-case
+     message: startdatum__gte is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","14","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  46. nlgov:query-keys-camel-case
+     message: startdatum__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","15","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  47. nlgov:query-keys-camel-case
+     message: startdatum__lte is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","16","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  48. nlgov:query-keys-camel-case
+     message: registratiedatum__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","18","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  49. nlgov:query-keys-camel-case
+     message: registratiedatum__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","19","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  50. nlgov:query-keys-camel-case
+     message: einddatum__isnull is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","21","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  51. nlgov:query-keys-camel-case
+     message: einddatum__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","22","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  52. nlgov:query-keys-camel-case
+     message: einddatum__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","23","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  53. nlgov:query-keys-camel-case
+     message: einddatumGepland__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","25","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  54. nlgov:query-keys-camel-case
+     message: einddatumGepland__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","26","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  55. nlgov:query-keys-camel-case
+     message: uiterlijkeEinddatumAfdoening__gt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","28","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  56. nlgov:query-keys-camel-case
+     message: uiterlijkeEinddatumAfdoening__lt is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","29","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  57. nlgov:query-keys-camel-case
+     message: rol__betrokkeneType is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","30","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  58. nlgov:query-keys-camel-case
+     message: rol__betrokkene is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","31","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  59. nlgov:query-keys-camel-case
+     message: rol__omschrijvingGeneriek is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","32","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  60. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__natuurlijkPersoon__inpBsn is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","34","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  61. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__natuurlijkPersoon__anpIdentificatie is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","35","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  62. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__natuurlijkPersoon__inpA_nummer is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","36","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  63. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__nietNatuurlijkPersoon__innNnpId is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","37","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  64. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__nietNatuurlijkPersoon__annIdentificatie is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","38","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  65. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__vestiging__vestigingsNummer is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","39","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  66. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__medewerker__identificatie is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","40","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  67. nlgov:query-keys-camel-case
+     message: rol__betrokkeneIdentificatie__organisatorischeEenheid__identificatie is not lower camelCase.
+     path: ["paths","/zaken","get","parameters","41","name"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  68. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  69. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  70. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/audittrail","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  71. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/audittrail/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  72. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/besluiten","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  73. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/besluiten/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  74. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/besluiten/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  75. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/zaakeigenschappen","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  76. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/zaakeigenschappen/{uuid}","get","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  77. nlgov:problem-invalid-input
+     message: GET and DELETE endpoints that have parameters, and all other endpoints must be able to return a 400 response
+     path: ["paths","/zaken/{zaak_uuid}/zaakeigenschappen/{uuid}","delete","responses"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+
+Warnings (137)
+  78. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/GeoJSONGeometry
+     path: ["components","schemas","GeoJSONGeometry"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  79. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/adres_ZaakObject
+     path: ["components","schemas","adres_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  80. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/adres_ZaakObjectExpanded
+     path: ["components","schemas","adres_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  81. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/adres_PatchedZaakObject
+     path: ["components","schemas","adres_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  82. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/besluit_ZaakObject
+     path: ["components","schemas","besluit_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  83. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/besluit_ZaakObjectExpanded
+     path: ["components","schemas","besluit_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  84. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/besluit_PatchedZaakObject
+     path: ["components","schemas","besluit_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  85. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/betrokkene_identificatie_RolMedewerker
+     path: ["components","schemas","betrokkene_identificatie_RolMedewerker"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  86. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/betrokkene_identificatie_RolNatuurlijkPersoon
+     path: ["components","schemas","betrokkene_identificatie_RolNatuurlijkPersoon"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  87. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/betrokkene_identificatie_RolNietNatuurlijkPersoon
+     path: ["components","schemas","betrokkene_identificatie_RolNietNatuurlijkPersoon"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  88. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/betrokkene_identificatie_RolOrganisatorischeEenheid
+     path: ["components","schemas","betrokkene_identificatie_RolOrganisatorischeEenheid"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  89. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/betrokkene_identificatie_RolVestiging
+     path: ["components","schemas","betrokkene_identificatie_RolVestiging"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  90. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/buurt_ZaakObject
+     path: ["components","schemas","buurt_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  91. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/buurt_ZaakObjectExpanded
+     path: ["components","schemas","buurt_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  92. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/buurt_PatchedZaakObject
+     path: ["components","schemas","buurt_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  93. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/enkelvoudig_document_ZaakObject
+     path: ["components","schemas","enkelvoudig_document_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  94. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/enkelvoudig_document_ZaakObjectExpanded
+     path: ["components","schemas","enkelvoudig_document_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  95. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/enkelvoudig_document_PatchedZaakObject
+     path: ["components","schemas","enkelvoudig_document_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  96. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeente_ZaakObject
+     path: ["components","schemas","gemeente_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  97. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeente_ZaakObjectExpanded
+     path: ["components","schemas","gemeente_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  98. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeente_PatchedZaakObject
+     path: ["components","schemas","gemeente_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  99. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeentelijke_openbare_ruimte_ZaakObject
+     path: ["components","schemas","gemeentelijke_openbare_ruimte_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  100. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeentelijke_openbare_ruimte_ZaakObjectExpanded
+     path: ["components","schemas","gemeentelijke_openbare_ruimte_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  101. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/gemeentelijke_openbare_ruimte_PatchedZaakObject
+     path: ["components","schemas","gemeentelijke_openbare_ruimte_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  102. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/huishouden_ZaakObject
+     path: ["components","schemas","huishouden_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  103. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/huishouden_ZaakObjectExpanded
+     path: ["components","schemas","huishouden_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  104. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/huishouden_PatchedZaakObject
+     path: ["components","schemas","huishouden_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  105. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/inrichtingselement_ZaakObject
+     path: ["components","schemas","inrichtingselement_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  106. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/inrichtingselement_ZaakObjectExpanded
+     path: ["components","schemas","inrichtingselement_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  107. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/inrichtingselement_PatchedZaakObject
+     path: ["components","schemas","inrichtingselement_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  108. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kadastrale_onroerende_zaak_ZaakObject
+     path: ["components","schemas","kadastrale_onroerende_zaak_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  109. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kadastrale_onroerende_zaak_ZaakObjectExpanded
+     path: ["components","schemas","kadastrale_onroerende_zaak_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  110. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kadastrale_onroerende_zaak_PatchedZaakObject
+     path: ["components","schemas","kadastrale_onroerende_zaak_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  111. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kunstwerkdeel_ZaakObject
+     path: ["components","schemas","kunstwerkdeel_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  112. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kunstwerkdeel_ZaakObjectExpanded
+     path: ["components","schemas","kunstwerkdeel_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  113. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/kunstwerkdeel_PatchedZaakObject
+     path: ["components","schemas","kunstwerkdeel_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  114. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/maatschappelijke_activiteit_ZaakObject
+     path: ["components","schemas","maatschappelijke_activiteit_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  115. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/maatschappelijke_activiteit_ZaakObjectExpanded
+     path: ["components","schemas","maatschappelijke_activiteit_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  116. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/maatschappelijke_activiteit_PatchedZaakObject
+     path: ["components","schemas","maatschappelijke_activiteit_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  117. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/medewerker_Rol
+     path: ["components","schemas","medewerker_Rol"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  118. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/medewerker_RolExpanded
+     path: ["components","schemas","medewerker_RolExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  119. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/medewerker_ZaakObject
+     path: ["components","schemas","medewerker_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  120. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/medewerker_ZaakObjectExpanded
+     path: ["components","schemas","medewerker_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  121. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/medewerker_PatchedZaakObject
+     path: ["components","schemas","medewerker_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  122. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/natuurlijk_persoon_Rol
+     path: ["components","schemas","natuurlijk_persoon_Rol"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  123. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/natuurlijk_persoon_RolExpanded
+     path: ["components","schemas","natuurlijk_persoon_RolExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  124. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/natuurlijk_persoon_ZaakObject
+     path: ["components","schemas","natuurlijk_persoon_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  125. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/natuurlijk_persoon_ZaakObjectExpanded
+     path: ["components","schemas","natuurlijk_persoon_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  126. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/natuurlijk_persoon_PatchedZaakObject
+     path: ["components","schemas","natuurlijk_persoon_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  127. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/niet_natuurlijk_persoon_Rol
+     path: ["components","schemas","niet_natuurlijk_persoon_Rol"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  128. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/niet_natuurlijk_persoon_RolExpanded
+     path: ["components","schemas","niet_natuurlijk_persoon_RolExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  129. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/niet_natuurlijk_persoon_ZaakObject
+     path: ["components","schemas","niet_natuurlijk_persoon_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  130. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/niet_natuurlijk_persoon_ZaakObjectExpanded
+     path: ["components","schemas","niet_natuurlijk_persoon_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  131. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/niet_natuurlijk_persoon_PatchedZaakObject
+     path: ["components","schemas","niet_natuurlijk_persoon_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  132. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectAdres
+     path: ["components","schemas","object_identificatie_ObjectAdres"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  133. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectBuurt
+     path: ["components","schemas","object_identificatie_ObjectBuurt"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  134. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectGemeente
+     path: ["components","schemas","object_identificatie_ObjectGemeente"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  135. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectGemeentelijkeOpenbareRuimte
+     path: ["components","schemas","object_identificatie_ObjectGemeentelijkeOpenbareRuimte"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  136. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectHuishouden
+     path: ["components","schemas","object_identificatie_ObjectHuishouden"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  137. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectInrichtingselement
+     path: ["components","schemas","object_identificatie_ObjectInrichtingselement"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  138. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectKadastraleOnroerendeZaak
+     path: ["components","schemas","object_identificatie_ObjectKadastraleOnroerendeZaak"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  139. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectKunstwerkdeel
+     path: ["components","schemas","object_identificatie_ObjectKunstwerkdeel"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  140. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectMaatschappelijkeActiviteit
+     path: ["components","schemas","object_identificatie_ObjectMaatschappelijkeActiviteit"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  141. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectOpenbareRuimte
+     path: ["components","schemas","object_identificatie_ObjectOpenbareRuimte"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  142. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectOverige
+     path: ["components","schemas","object_identificatie_ObjectOverige"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  143. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectPand
+     path: ["components","schemas","object_identificatie_ObjectPand"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  144. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectSpoorbaandeel
+     path: ["components","schemas","object_identificatie_ObjectSpoorbaandeel"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  145. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectTerreinGebouwdObject
+     path: ["components","schemas","object_identificatie_ObjectTerreinGebouwdObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  146. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectTerreindeel
+     path: ["components","schemas","object_identificatie_ObjectTerreindeel"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  147. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWaterdeel
+     path: ["components","schemas","object_identificatie_ObjectWaterdeel"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  148. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWegdeel
+     path: ["components","schemas","object_identificatie_ObjectWegdeel"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  149. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWijk
+     path: ["components","schemas","object_identificatie_ObjectWijk"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  150. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWoonplaats
+     path: ["components","schemas","object_identificatie_ObjectWoonplaats"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  151. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWozDeelobject
+     path: ["components","schemas","object_identificatie_ObjectWozDeelobject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  152. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWozObject
+     path: ["components","schemas","object_identificatie_ObjectWozObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  153. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectWozWaarde
+     path: ["components","schemas","object_identificatie_ObjectWozWaarde"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  154. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_ObjectZakelijkRecht
+     path: ["components","schemas","object_identificatie_ObjectZakelijkRecht"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  155. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_RolMedewerker
+     path: ["components","schemas","object_identificatie_RolMedewerker"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  156. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_RolNatuurlijkPersoon
+     path: ["components","schemas","object_identificatie_RolNatuurlijkPersoon"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  157. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_RolNietNatuurlijkPersoon
+     path: ["components","schemas","object_identificatie_RolNietNatuurlijkPersoon"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  158. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_RolOrganisatorischeEenheid
+     path: ["components","schemas","object_identificatie_RolOrganisatorischeEenheid"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  159. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/object_identificatie_RolVestiging
+     path: ["components","schemas","object_identificatie_RolVestiging"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  160. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/openbare_ruimte_ZaakObject
+     path: ["components","schemas","openbare_ruimte_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  161. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/openbare_ruimte_ZaakObjectExpanded
+     path: ["components","schemas","openbare_ruimte_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  162. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/openbare_ruimte_PatchedZaakObject
+     path: ["components","schemas","openbare_ruimte_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  163. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/organisatorische_eenheid_Rol
+     path: ["components","schemas","organisatorische_eenheid_Rol"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  164. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/organisatorische_eenheid_RolExpanded
+     path: ["components","schemas","organisatorische_eenheid_RolExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  165. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/organisatorische_eenheid_ZaakObject
+     path: ["components","schemas","organisatorische_eenheid_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  166. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/organisatorische_eenheid_ZaakObjectExpanded
+     path: ["components","schemas","organisatorische_eenheid_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  167. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/organisatorische_eenheid_PatchedZaakObject
+     path: ["components","schemas","organisatorische_eenheid_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  168. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/overige_ZaakObject
+     path: ["components","schemas","overige_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  169. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/overige_ZaakObjectExpanded
+     path: ["components","schemas","overige_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  170. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/overige_PatchedZaakObject
+     path: ["components","schemas","overige_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  171. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/pand_ZaakObject
+     path: ["components","schemas","pand_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  172. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/pand_ZaakObjectExpanded
+     path: ["components","schemas","pand_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  173. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/pand_PatchedZaakObject
+     path: ["components","schemas","pand_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  174. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/spoorbaandeel_ZaakObject
+     path: ["components","schemas","spoorbaandeel_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  175. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/spoorbaandeel_ZaakObjectExpanded
+     path: ["components","schemas","spoorbaandeel_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  176. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/spoorbaandeel_PatchedZaakObject
+     path: ["components","schemas","spoorbaandeel_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  177. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/status_ZaakObject
+     path: ["components","schemas","status_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  178. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/status_ZaakObjectExpanded
+     path: ["components","schemas","status_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  179. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/status_PatchedZaakObject
+     path: ["components","schemas","status_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  180. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terrein_gebouwd_object_ZaakObject
+     path: ["components","schemas","terrein_gebouwd_object_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  181. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terrein_gebouwd_object_ZaakObjectExpanded
+     path: ["components","schemas","terrein_gebouwd_object_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  182. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terrein_gebouwd_object_PatchedZaakObject
+     path: ["components","schemas","terrein_gebouwd_object_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  183. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terreindeel_ZaakObject
+     path: ["components","schemas","terreindeel_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  184. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terreindeel_ZaakObjectExpanded
+     path: ["components","schemas","terreindeel_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  185. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/terreindeel_PatchedZaakObject
+     path: ["components","schemas","terreindeel_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  186. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/vestiging_Rol
+     path: ["components","schemas","vestiging_Rol"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  187. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/vestiging_RolExpanded
+     path: ["components","schemas","vestiging_RolExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  188. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/vestiging_ZaakObject
+     path: ["components","schemas","vestiging_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  189. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/vestiging_ZaakObjectExpanded
+     path: ["components","schemas","vestiging_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  190. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/vestiging_PatchedZaakObject
+     path: ["components","schemas","vestiging_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  191. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/waterdeel_ZaakObject
+     path: ["components","schemas","waterdeel_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  192. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/waterdeel_ZaakObjectExpanded
+     path: ["components","schemas","waterdeel_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  193. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/waterdeel_PatchedZaakObject
+     path: ["components","schemas","waterdeel_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  194. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wegdeel_ZaakObject
+     path: ["components","schemas","wegdeel_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  195. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wegdeel_ZaakObjectExpanded
+     path: ["components","schemas","wegdeel_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  196. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wegdeel_PatchedZaakObject
+     path: ["components","schemas","wegdeel_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  197. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wijk_ZaakObject
+     path: ["components","schemas","wijk_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  198. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wijk_ZaakObjectExpanded
+     path: ["components","schemas","wijk_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  199. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/wijk_PatchedZaakObject
+     path: ["components","schemas","wijk_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  200. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woonplaats_ZaakObject
+     path: ["components","schemas","woonplaats_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  201. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woonplaats_ZaakObjectExpanded
+     path: ["components","schemas","woonplaats_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  202. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woonplaats_PatchedZaakObject
+     path: ["components","schemas","woonplaats_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  203. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_deelobject_ZaakObject
+     path: ["components","schemas","woz_deelobject_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  204. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_deelobject_ZaakObjectExpanded
+     path: ["components","schemas","woz_deelobject_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  205. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_deelobject_PatchedZaakObject
+     path: ["components","schemas","woz_deelobject_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  206. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_object_ZaakObject
+     path: ["components","schemas","woz_object_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  207. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_object_ZaakObjectExpanded
+     path: ["components","schemas","woz_object_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  208. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_object_PatchedZaakObject
+     path: ["components","schemas","woz_object_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  209. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_waarde_ZaakObject
+     path: ["components","schemas","woz_waarde_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  210. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_waarde_ZaakObjectExpanded
+     path: ["components","schemas","woz_waarde_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  211. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/woz_waarde_PatchedZaakObject
+     path: ["components","schemas","woz_waarde_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  212. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/zakelijk_recht_ZaakObject
+     path: ["components","schemas","zakelijk_recht_ZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  213. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/zakelijk_recht_ZaakObjectExpanded
+     path: ["components","schemas","zakelijk_recht_ZaakObjectExpanded"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+  214. nlgov:schema-camel-case
+     message: Schema name should be UpperCamelCase in #/components/schemas/zakelijk_recht_PatchedZaakObject
+     path: ["components","schemas","zakelijk_recht_PatchedZaakObject"]
+     ruleset: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.0
+     source: /workspaces/gemma-zaken/docs/standaard/zaken/zrc/1.8.x/1.8.0/openapi.yaml
+
