@@ -2,7 +2,7 @@
   "name": "Jekyll GitHub Pages",
   "image": "mcr.microsoft.com/devcontainers/ruby:3.2",
   "forwardPorts": [4000],
-  "postCreateCommand": "gem install bundler jekyll github-pages && npm install -g @stoplight/spectral-cli && cd docs && bundle install",
+  "postCreateCommand": "gem install bundler jekyll github-pages && cd docs && bundle install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,8 +12,7 @@
         "esbenp.prettier-vscode",
         "redhat.vscode-yaml",
         "42crunch.vscode-openapi",
-        "redocly.openapi-vs-code",
-        "stoplight.spectral"
+        "redocly.openapi-vs-code"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
