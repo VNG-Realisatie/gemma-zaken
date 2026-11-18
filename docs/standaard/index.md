@@ -20,9 +20,7 @@ Hieronder de links naar de specificatie en documentatie van de API's:
 * [Contactmomenten API specificatie](contactmomenten/) (_niet meer in gebruik_)
 * [Klanten API specificatie](klanten/) (_niet meer in gebruik_)
 * [Verzoeken API specificatie](verzoeken/) (_niet meer in gebruik_)
-* [Referentielijsten en Selectielijst API][referentielijsten-1.0.0-redoc]
-
-[referentielijsten-1.0.0-redoc]: https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/VNG-Realisatie/VNG-referentielijsten/master/src/openapi.yaml&nocors
+* [Referentielijsten en Selectielijst API](./referentielijsten/redoc)
 
 ### ZGW September 2026 release
 <!-- #zgw-september-2026-release -->
