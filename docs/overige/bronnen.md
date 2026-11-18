@@ -51,6 +51,6 @@ voor informatiemodellen](https://docs.geostandaarden.nl/mim/def-st-mim10-2017061
 - [JSON Schema Validation](https://tools.ietf.org/html/draft-wright-json-schema-validation-00)
 - [REST API tutorial](https://restfulapi.net/) Learn REST
 - [Thoughts on RESTful API Design](https://restful-api-design.readthedocs.io/en/latest/) Lessons learnt from designing the Red Hat Enterprise Virtualization API
-- [JSON Schema Validator](https://json-schema-validator.herokuapp.com/)
+- [JSON Schema Validator](https://jsonviewertool.com/json-schema-validator)
 - [Render OAS as Swagger docs](https://petstore.swagger.io/)
 - [Render OAS as ReDoc docs](https://redocly.github.io/redoc/)
